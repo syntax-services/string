@@ -11,7 +11,8 @@ import {
   BarChart3,
   Target,
 } from "lucide-react";
-import stringLogo from "@/assets/string-logo.png";
+import stringLogoLight from "@/assets/String-logo-light.png";
+import stringLogoDark from "@/assets/String-logo-dark.png";
 
 const features = [
   {
@@ -65,7 +66,8 @@ export default function Landing() {
       <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img src={stringLogo} alt="String" className="h-12 w-auto logo-adaptive" />
+            <img src={stringLogoLight} alt="String" className="h-12 w-auto logo-light" />
+            <img src={stringLogoDark} alt="String" className="h-12 w-auto logo-dark" />
           </Link>
           <nav className="flex items-center gap-3">
             <ThemeToggle />
@@ -78,7 +80,7 @@ export default function Landing() {
               </Button>
             ) : (
               <>
-                <Button variant="ghost" asChild className="rounded-full">
+                <Button variant="ghost" asChild className="hidden md:inline-flex rounded-full">
                   <Link to="/auth?mode=login">Sign in</Link>
                 </Button>
                 <Button asChild className="rounded-full px-6">
@@ -174,7 +176,8 @@ export default function Landing() {
       <footer className="border-t border-border py-8">
         <div className="container flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="flex items-center gap-2">
-            <img src={stringLogo} alt="String" className="h-8 w-auto opacity-70 logo-adaptive" />
+            <img src={stringLogoLight} alt="String" className="h-8 w-auto opacity-70 logo-light" />
+            <img src={stringLogoDark} alt="String" className="h-8 w-auto opacity-70 logo-dark" />
             <span className="sr-only text-sm text-muted-foreground">
               © 2026 String. All rights reserved.
             </span>

@@ -32,7 +32,9 @@ import {
   ImagePlus, 
   Video, 
   Loader2,
-  X
+  X,
+  Phone,
+  ShieldCheck
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -51,7 +53,7 @@ const urgencyOptions = [
 ];
 
 export function CreateOfferPanel() {
-  const { user, profile } = useAuth();
+  const { user, profile, isEmailVerified } = useAuth();
   const { createOffer } = useOffers();
   const [open, setOpen] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -66,6 +68,16 @@ export function CreateOfferPanel() {
   const [urgency, setUrgency] = useState("");
   const [images, setImages] = useState<string[]>([]);
   const [videoUrl, setVideoUrl] = useState("");
+  const [allowCalls, setAllowCalls] = useState(false);
+  const [contactPhone, setContactPhone] = useState("");
+
+  // Compute verification level
+  const verificationLevel = (() => {
+    let level = 0;
+    if (isEmailVerified) level = 1;
+    if (isEmailVerified && profile?.onboarding_completed && profile?.phone) level = 2;
+    return level;
+  })();
 
   const resetForm = () => {
     setOfferType("");
@@ -77,6 +89,8 @@ export function CreateOfferPanel() {
     setUrgency("");
     setImages([]);
     setVideoUrl("");
+    setAllowCalls(false);
+    setContactPhone("");
   };
 
   const uploadImage = async (file: File): Promise<string | null> => {
@@ -143,6 +157,8 @@ export function CreateOfferPanel() {
         urgency: (urgency as "low" | "medium" | "high" | "urgent") || undefined,
         images: images.length > 0 ? images : undefined,
         video_url: videoUrl.trim() || undefined,
+        allow_calls: allowCalls,
+        contact_phone: contactPhone.trim() || undefined,
       });
       resetForm();
       setOpen(false);
@@ -168,6 +184,21 @@ export function CreateOfferPanel() {
             Request products, services, employment, or collaborations that aren't available yet
           </DialogDescription>
         </DialogHeader>
+
+        {/* Verification Banner */}
+        {verificationLevel < 2 && (
+          <div className="flex items-start gap-3 rounded-lg bg-primary/5 border border-primary/20 p-3 mt-2">
+            <ShieldCheck className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+            <div className="text-sm">
+              <p className="font-medium text-foreground">Verification Required</p>
+              <p className="text-muted-foreground mt-0.5">
+                {verificationLevel === 0
+                  ? "Please verify your email and complete onboarding to create requests."
+                  : "Please complete your profile and add a phone number to unlock offer creation."}
+              </p>
+            </div>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           {/* Type Selection */}
@@ -333,10 +364,51 @@ export function CreateOfferPanel() {
             </div>
           </div>
 
+          {/* Allow Calls Toggle */}
+          <div className="flex items-center justify-between rounded-lg border border-border p-3">
+            <div className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-muted-foreground" />
+              <div>
+                <p className="text-sm font-medium">Allow phone calls</p>
+                <p className="text-xs text-muted-foreground">Service providers can call you directly</p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setAllowCalls(!allowCalls)}
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                allowCalls ? "bg-primary" : "bg-muted"
+              }`}
+            >
+              <span
+                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                  allowCalls ? "translate-x-6" : "translate-x-1"
+                }`}
+              />
+            </button>
+          </div>
+
+          {/* Contact Phone (shown if allow calls is on) */}
+          {allowCalls && (
+            <div>
+              <Label htmlFor="contactPhone">Contact Phone *</Label>
+              <div className="flex items-center gap-2 mt-1">
+                <Phone className="h-4 w-4 text-muted-foreground" />
+                <Input
+                  id="contactPhone"
+                  value={contactPhone}
+                  onChange={(e) => setContactPhone(e.target.value)}
+                  placeholder="+234 xxx xxx xxxx"
+                  required={allowCalls}
+                />
+              </div>
+            </div>
+          )}
+
           <Button
             type="submit"
             className="w-full"
-            disabled={saving || !offerType || !title.trim()}
+            disabled={saving || !offerType || !title.trim() || verificationLevel < 2 || (allowCalls && !contactPhone.trim())}
           >
             {saving && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
             Submit Request

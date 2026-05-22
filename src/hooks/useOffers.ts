@@ -32,6 +32,8 @@ interface CreateOfferInput {
   urgency?: "low" | "medium" | "high" | "urgent";
   images?: string[];
   video_url?: string;
+  allow_calls?: boolean;
+  contact_phone?: string;
 }
 
 export function useOffers() {
@@ -85,6 +87,8 @@ export function useOffers() {
         urgency: input.urgency || null,
         images: input.images || null,
         video_url: input.video_url || null,
+        allow_calls: input.allow_calls || false,
+        contact_phone: input.contact_phone || null,
       });
 
       if (error) throw error;

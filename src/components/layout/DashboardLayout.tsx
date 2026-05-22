@@ -7,7 +7,8 @@ import { CartPopup } from "@/components/cart/CartPopup";
 import { NotificationsPopup } from "@/components/notifications/NotificationsPopup";
 import { useScrollVisibility } from "@/hooks/useScrollVisibility";
 import { cn } from "@/lib/utils";
-import stringLogo from "@/assets/string-logo.png";
+import stringLogoLight from "@/assets/String-logo-light.png";
+import stringLogoDark from "@/assets/String-logo-dark.png";
 import { useAuth } from "@/contexts/AuthContext";
 import { AlertCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -58,7 +59,8 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
         )}
       >
         <Link to="/" className="flex items-center gap-2">
-          <img src={stringLogo} alt="String" className="h-10 w-auto logo-adaptive" />
+          <img src={stringLogoLight} alt="String" className="h-10 w-auto logo-light" />
+          <img src={stringLogoDark} alt="String" className="h-10 w-auto logo-dark" />
         </Link>
 
         {/* Desktop Navigation */}

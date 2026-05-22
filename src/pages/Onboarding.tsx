@@ -75,12 +75,10 @@ const basicInfoSchema = z.object({
   phone: z.string().optional(),
 });
 
-// Step definitions
+// Step definitions — Steps 1 & 2 (Basic Info / Account Type) are now handled at signup
 const steps = [
-  { id: 1, title: "Basic Info" },
-  { id: 2, title: "Account Type" },
-  { id: 3, title: "Profile Details" },
-  { id: 4, title: "Location" },
+  { id: 1, title: "Profile Details" },
+  { id: 2, title: "Location" },
 ];
 
 // Options
@@ -182,18 +180,27 @@ export default function Onboarding() {
   const [draftHydrated, setDraftHydrated] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  // Step 1: Basic Info
+  // Pre-filled from signup metadata
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
-
-  // Step 2: User Type
   const [userType, setUserType] = useState<UserType | null>(null);
 
-  // Step 3: Business Profile
+  // Profile data
   const [businessData, setBusinessData] = useState<BusinessFormData>(defaultBusinessData);
-
-  // Step 3: Customer Profile
   const [customerData, setCustomerData] = useState<CustomerFormData>(defaultCustomerData);
+
+  // Pre-fill from user metadata on mount
+  useEffect(() => {
+    if (user) {
+      const metadata = user.user_metadata;
+      if (metadata?.full_name && !fullName) {
+        setFullName(metadata.full_name);
+      }
+      if (metadata?.account_type && !userType) {
+        setUserType(metadata.account_type as UserType);
+      }
+    }
+  }, [user]);
 
   useEffect(() => {
     if (profile?.onboarding_completed) {
@@ -342,35 +349,14 @@ export default function Onboarding() {
   const validateStep = () => {
     setErrors({});
     if (currentStep === 1) {
-      try {
-        basicInfoSchema.parse({ fullName, phone });
-        return true;
-      } catch (error) {
-        if (error instanceof z.ZodError) {
-          const fieldErrors: Record<string, string> = {};
-          error.errors.forEach((err) => {
-            fieldErrors[err.path[0] as string] = err.message;
-          });
-          setErrors(fieldErrors);
-        }
-        return false;
-      }
-    }
-    if (currentStep === 2) {
-      if (!userType) {
-        setErrors({ userType: "Please select an account type" });
-        return false;
-      }
-      return true;
-    }
-    if (currentStep === 3) {
+      // Profile Details validation
       if (userType === "business" && !businessData.companyName) {
         setErrors({ companyName: "Company name is required" });
         return false;
       }
       return true;
     }
-    if (currentStep === 4) {
+    if (currentStep === 2) {
       // Location is mandatory
       const address = userType === "business" ? businessData.streetAddress : customerData.streetAddress;
       if (!address?.trim()) {
@@ -1000,10 +986,8 @@ export default function Onboarding() {
           {renderStepIndicator()}
 
           <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
-            {currentStep === 1 && renderStep1()}
-            {currentStep === 2 && renderStep2()}
-            {currentStep === 3 && renderStep3()}
-            {currentStep === 4 && renderStep4()}
+            {currentStep === 1 && renderStep3()}
+            {currentStep === 2 && renderStep4()}
 
             <div className="mt-8 flex justify-between gap-4">
               {currentStep > 1 ? (

@@ -25,6 +25,8 @@ import {
   XCircle,
   AlertTriangle,
   Eye,
+  Gift,
+  Package,
 } from "lucide-react";
 import { format } from "date-fns";
 import { useToast } from "@/hooks/use-toast";
@@ -71,12 +73,14 @@ export default function AdminDashboard() {
   const { data: stats } = useQuery({
     queryKey: ["admin-stats"],
     queryFn: async () => {
-      const [businessesRes, customersRes, ordersRes, jobsRes, reviewsRes] = await Promise.all([
+      const [businessesRes, customersRes, ordersRes, jobsRes, reviewsRes, referralsRes, offersRes] = await Promise.all([
         supabase.from("businesses").select("id", { count: "exact", head: true }),
         supabase.from("customers").select("id", { count: "exact", head: true }),
         supabase.from("orders").select("id", { count: "exact", head: true }),
         supabase.from("jobs").select("id", { count: "exact", head: true }),
         supabase.from("reviews").select("id", { count: "exact", head: true }),
+        supabase.from("referrals").select("id", { count: "exact", head: true }),
+        supabase.from("offers").select("id", { count: "exact", head: true }),
       ]);
 
       return {
@@ -85,6 +89,8 @@ export default function AdminDashboard() {
         totalOrders: ordersRes.count || 0,
         totalJobs: jobsRes.count || 0,
         totalReviews: reviewsRes.count || 0,
+        totalReferrals: referralsRes.count || 0,
+        totalOffers: offersRes.count || 0,
       };
     },
   });
@@ -151,11 +157,11 @@ export default function AdminDashboard() {
         </div>
 
         {/* Stats Overview */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
           <div className="dashboard-card">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
-                <Building2 className="h-5 w-5 text-foreground" />
+              <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <Building2 className="h-5 w-5 text-primary" />
               </div>
               <div>
                 <p className="text-2xl font-semibold text-foreground">{stats?.totalBusinesses || 0}</p>
@@ -165,8 +171,8 @@ export default function AdminDashboard() {
           </div>
           <div className="dashboard-card">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
-                <Users className="h-5 w-5 text-foreground" />
+              <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <Users className="h-5 w-5 text-primary" />
               </div>
               <div>
                 <p className="text-2xl font-semibold text-foreground">{stats?.totalCustomers || 0}</p>
@@ -176,8 +182,8 @@ export default function AdminDashboard() {
           </div>
           <div className="dashboard-card">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
-                <Star className="h-5 w-5 text-foreground" />
+              <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <Star className="h-5 w-5 text-primary" />
               </div>
               <div>
                 <p className="text-2xl font-semibold text-foreground">{stats?.totalReviews || 0}</p>
@@ -187,8 +193,8 @@ export default function AdminDashboard() {
           </div>
           <div className="dashboard-card">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
-                <CheckCircle className="h-5 w-5 text-foreground" />
+              <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <CheckCircle className="h-5 w-5 text-primary" />
               </div>
               <div>
                 <p className="text-2xl font-semibold text-foreground">{stats?.totalOrders || 0}</p>
@@ -198,12 +204,34 @@ export default function AdminDashboard() {
           </div>
           <div className="dashboard-card">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
-                <Flag className="h-5 w-5 text-foreground" />
+              <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <Flag className="h-5 w-5 text-primary" />
               </div>
               <div>
                 <p className="text-2xl font-semibold text-foreground">{stats?.totalJobs || 0}</p>
                 <p className="text-sm text-muted-foreground">Jobs</p>
+              </div>
+            </div>
+          </div>
+          <div className="dashboard-card">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <Gift className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-2xl font-semibold text-foreground">{stats?.totalReferrals || 0}</p>
+                <p className="text-sm text-muted-foreground">Referrals</p>
+              </div>
+            </div>
+          </div>
+          <div className="dashboard-card">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <Package className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-2xl font-semibold text-foreground">{stats?.totalOffers || 0}</p>
+                <p className="text-sm text-muted-foreground">Offers</p>
               </div>
             </div>
           </div>

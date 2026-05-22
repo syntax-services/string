@@ -82,6 +82,10 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const isDark = stored === "dark" || (!stored && prefersDark);
     document.documentElement.classList.toggle("dark", isDark);
+
+    // Apply color palette (blue = default marketplace, mono = classic monochrome)
+    const palette = localStorage.getItem("palette") || "blue";
+    document.documentElement.setAttribute("data-palette", palette);
   }, []);
 
   return <>{children}</>;

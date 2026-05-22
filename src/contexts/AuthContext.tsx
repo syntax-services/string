@@ -29,7 +29,7 @@ interface AuthContextType {
   dashboardPath: string;
   isAdmin: boolean;
   loading: boolean;
-  signUp: (email: string, password: string) => Promise<{ error: Error | null }>;
+  signUp: (email: string, password: string, metadata?: { full_name?: string; account_type?: string; referral_code?: string }) => Promise<{ error: Error | null }>;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<void>;
@@ -275,7 +275,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
   }, []);
 
-  const signUp = async (email: string, password: string) => {
+  const signUp = async (email: string, password: string, metadata?: { full_name?: string; account_type?: string; referral_code?: string }) => {
     const redirectUrl = `${window.location.origin}/`;
 
     const { error } = await supabase.auth.signUp({
@@ -283,6 +283,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       password,
       options: {
         emailRedirectTo: redirectUrl,
+        data: {
+          full_name: metadata?.full_name || '',
+          account_type: metadata?.account_type || 'customer',
+          referral_code: metadata?.referral_code || '',
+        },
       },
     });
 

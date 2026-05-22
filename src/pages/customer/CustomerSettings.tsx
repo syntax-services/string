@@ -8,13 +8,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { ThemeCustomizer } from "@/components/ui/theme-customizer";
 import { TagInput } from "@/components/ui/tag-input";
+import { useReferral } from "@/hooks/useReferral";
 import {
   User,
   MapPin,
   Save,
   LogOut,
   Palette,
+  Gift,
+  Copy,
+  Star,
 } from "lucide-react";
 
 interface CustomerData {
@@ -27,6 +32,7 @@ export default function CustomerSettings() {
   const { user, profile, signOut, refreshProfile } = useAuth();
   const { toast } = useToast();
   const { location, loading: locationLoading, requestLocation } = useUserLocation();
+  const { referralCode, totalReferrals, totalPoints } = useReferral();
   
   const [fullName, setFullName] = useState(profile?.full_name || "");
   const [phone, setPhone] = useState(profile?.phone || "");
@@ -199,6 +205,55 @@ export default function CustomerSettings() {
           </div>
         </div>
 
+        {/* Referral Section */}
+        <div className="dashboard-card space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+              <Gift className="h-5 w-5 text-primary" />
+            </div>
+            <div>
+              <h2 className="font-medium text-foreground">Referral Program</h2>
+              <p className="text-sm text-muted-foreground">
+                Invite friends and earn points
+              </p>
+            </div>
+          </div>
+          
+          {referralCode && (
+            <div className="flex items-center gap-2">
+              <div className="flex-1 rounded-lg bg-muted/50 px-4 py-3">
+                <p className="text-xs text-muted-foreground">Your referral code</p>
+                <p className="text-lg font-mono font-semibold text-foreground">{referralCode}</p>
+              </div>
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-12 w-12 shrink-0"
+                onClick={() => {
+                  navigator.clipboard.writeText(referralCode);
+                  toast({ title: "Copied!", description: "Referral code copied to clipboard" });
+                }}
+              >
+                <Copy className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
+          
+          <div className="grid grid-cols-2 gap-3">
+            <div className="rounded-lg bg-muted/50 p-3 text-center">
+              <p className="text-2xl font-semibold text-foreground">{totalReferrals}</p>
+              <p className="text-xs text-muted-foreground">Friends Referred</p>
+            </div>
+            <div className="rounded-lg bg-muted/50 p-3 text-center">
+              <div className="flex items-center justify-center gap-1">
+                <Star className="h-4 w-4 text-primary" />
+                <p className="text-2xl font-semibold text-foreground">{totalPoints}</p>
+              </div>
+              <p className="text-xs text-muted-foreground">Total Points</p>
+            </div>
+          </div>
+        </div>
+
         {/* Location Access */}
         <div className="dashboard-card space-y-4">
           <div className="flex items-center gap-3">
@@ -244,6 +299,10 @@ export default function CustomerSettings() {
           <div className="flex items-center gap-3">
             <ThemeToggle />
             <span className="text-sm text-muted-foreground">Toggle dark/light mode</span>
+          </div>
+          <div className="pt-2">
+            <p className="text-sm font-medium text-foreground mb-2">Color Palette</p>
+            <ThemeCustomizer />
           </div>
         </div>
 

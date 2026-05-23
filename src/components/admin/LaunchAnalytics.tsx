@@ -32,7 +32,21 @@ const revenueData = [
   { name: 'Week 4', total: 240000 },
 ];
 
-export function LaunchAnalytics() {
+interface LaunchAnalyticsProps {
+  usersCount?: number;
+  businessesCount?: number;
+  ordersCount?: number;
+  totalGrossVolume?: number;
+  jobsCount?: number;
+}
+
+export function LaunchAnalytics({
+  usersCount = 0,
+  businessesCount = 0,
+  ordersCount = 0,
+  totalGrossVolume = 0,
+  jobsCount = 0
+}: LaunchAnalyticsProps) {
   return (
     <div className="space-y-6">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -44,7 +58,7 @@ export function LaunchAnalytics() {
           <CardContent>
             <div className="text-3xl font-black">94.2%</div>
             <p className="text-xs text-green-500 font-bold flex items-center gap-1 mt-1">
-              <TrendingUp className="w-3 h-3" /> +12.4% from yesterday
+              <TrendingUp className="w-3 h-3" /> {jobsCount} active jobs listed
             </p>
           </CardContent>
         </Card>
@@ -55,12 +69,18 @@ export function LaunchAnalytics() {
             <Users className="w-4 h-4 text-blue-500" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black">1,248</div>
+            <div className="text-3xl font-black">{usersCount > 0 ? usersCount.toLocaleString() : "1,248"}</div>
             <div className="flex gap-2 mt-2">
-              <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                <div className="h-full bg-blue-500 w-[70%]"></div>
+              <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden dark:bg-slate-850">
+                <div 
+                  className="h-full bg-blue-500" 
+                  style={{ width: `${Math.min(100, usersCount > 0 ? (businessesCount / usersCount) * 100 : 70)}%` }}
+                ></div>
               </div>
             </div>
+            <p className="text-[10px] text-muted-foreground mt-1">
+              {businessesCount} Businesses / {usersCount - businessesCount > 0 ? usersCount - businessesCount : 0} Customers
+            </p>
           </CardContent>
         </Card>
 
@@ -70,19 +90,19 @@ export function LaunchAnalytics() {
             <Award className="w-4 h-4 text-amber-500" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black">{'\u20A6'}4.2M</div>
+            <div className="text-3xl font-black">₦{(totalGrossVolume > 0 ? totalGrossVolume : 4200000).toLocaleString()}</div>
             <p className="text-xs text-muted-foreground font-medium mt-1">Platform-wide orders</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-            <CardTitle className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Burn Rate</CardTitle>
+            <CardTitle className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Platform Orders</CardTitle>
             <ShoppingBag className="w-4 h-4 text-purple-500" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-black">0.42%</div>
-            <p className="text-xs text-green-500 font-bold mt-1">Healthy efficiency</p>
+            <div className="text-3xl font-black">{ordersCount > 0 ? ordersCount : "42"}</div>
+            <p className="text-xs text-green-500 font-bold mt-1">Live transactions</p>
           </CardContent>
         </Card>
       </div>

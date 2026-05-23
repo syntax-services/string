@@ -127,6 +127,32 @@ export function useCart() {
     syncLocalToDb();
   }, [customer?.id, queryClient]);
 
+  // Realtime Spotify-style cart items sync
+  useEffect(() => {
+    if (!customer?.id) return;
+
+    const channel = supabase
+      .channel(`cart-realtime-${customer.id}`)
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "cart_items",
+          filter: `customer_id=eq.${customer.id}`,
+        },
+        () => {
+          // Invalidate the cart query to refetch from DB immediately
+          queryClient.invalidateQueries({ queryKey: ["cart", customer.id] });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      void supabase.removeChannel(channel);
+    };
+  }, [customer?.id, queryClient]);
+
   const addToCart = useMutation({
     mutationFn: async ({
       businessId,

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/contexts/AuthContext";
 
 type Palette = "blue" | "mono";
 
@@ -21,16 +23,28 @@ const palettes: { value: Palette; label: string; description: string; colors: st
 
 export function ThemeCustomizer() {
   const [current, setCurrent] = useState<Palette>("blue");
+  const { user } = useAuth();
 
   useEffect(() => {
     const stored = localStorage.getItem("palette") as Palette | null;
     setCurrent(stored || "blue");
   }, []);
 
-  const select = (palette: Palette) => {
+  const select = async (palette: Palette) => {
     setCurrent(palette);
     localStorage.setItem("palette", palette);
     document.documentElement.setAttribute("data-palette", palette);
+
+    if (user?.id) {
+      try {
+        await supabase
+          .from("profiles")
+          .update({ theme_palette: palette })
+          .eq("user_id", user.id);
+      } catch (err) {
+        console.warn("Failed to sync theme palette to database:", err);
+      }
+    }
   };
 
   return (

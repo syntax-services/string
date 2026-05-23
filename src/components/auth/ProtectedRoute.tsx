@@ -29,6 +29,10 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     return <Navigate to="/auth" state={{ from: location }} replace />;
   }
 
+  if (profile?.banned) {
+    return <Navigate to="/banned" replace />;
+  }
+
   // Non-admin flows require onboarding before accessing protected routes
   if ((!profile || !profile.onboarding_completed) && !isAdmin && !allowAdminBootstrap) {
     if (!location.pathname.startsWith("/onboarding")) {

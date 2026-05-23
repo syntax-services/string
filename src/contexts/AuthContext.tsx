@@ -16,6 +16,9 @@ interface Profile {
   onboarding_completed: boolean;
   accepted_terms_version: number | null;
   terms_accepted_at: string | null;
+  theme_mode?: 'dark' | 'light';
+  theme_palette?: 'blue' | 'mono';
+  banned?: boolean;
   created_at: string;
   updated_at: string;
 }
@@ -274,6 +277,69 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       subscription.unsubscribe();
     };
   }, []);
+
+  // Spotify-style theme, profile and ban realtime sync
+  useEffect(() => {
+    if (!user?.id) return;
+
+    // Check if initial loaded profile is already banned
+    if (profile?.banned) {
+      void signOut();
+      window.location.href = "/banned";
+      return;
+    }
+
+    // Apply loaded themes/palettes from profile
+    if (profile) {
+      if (profile.theme_mode) {
+        const isDark = profile.theme_mode === "dark";
+        localStorage.setItem("theme", profile.theme_mode);
+        document.documentElement.classList.toggle("dark", isDark);
+      }
+      if (profile.theme_palette) {
+        localStorage.setItem("palette", profile.theme_palette);
+        document.documentElement.setAttribute("data-palette", profile.theme_palette);
+      }
+    }
+
+    const channel = supabase
+      .channel(`profile-realtime-${user.id}`)
+      .on(
+        "postgres_changes",
+        {
+          event: "UPDATE",
+          schema: "public",
+          table: "profiles",
+          filter: `user_id=eq.${user.id}`,
+        },
+        (payload) => {
+          const newProfile = payload.new as Profile;
+          
+          if (newProfile.banned) {
+            void signOut();
+            window.location.href = "/banned";
+            return;
+          }
+
+          setProfile(newProfile);
+
+          if (newProfile.theme_mode) {
+            const isDark = newProfile.theme_mode === "dark";
+            localStorage.setItem("theme", newProfile.theme_mode);
+            document.documentElement.classList.toggle("dark", isDark);
+          }
+          if (newProfile.theme_palette) {
+            localStorage.setItem("palette", newProfile.theme_palette);
+            document.documentElement.setAttribute("data-palette", newProfile.theme_palette);
+          }
+        }
+      )
+      .subscribe();
+
+    return () => {
+      void supabase.removeChannel(channel);
+    };
+  }, [user?.id, profile?.banned]);
 
   const signUp = async (email: string, password: string, metadata?: { full_name?: string; account_type?: string; referral_code?: string }) => {
     const redirectUrl = `${window.location.origin}/`;

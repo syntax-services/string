@@ -21,6 +21,7 @@ export function useSwipeNavigation() {
     let currentX = 0;
     let currentY = 0;
     let isValidGesture = false;
+    let isGestureChecked = false;
 
     const handleTouchStart = (e: TouchEvent) => {
       if (e.touches.length !== 1) return;
@@ -35,6 +36,7 @@ export function useSwipeNavigation() {
       
       if (isSlider) {
         isValidGesture = false;
+        isGestureChecked = true;
         return;
       }
 
@@ -46,6 +48,7 @@ export function useSwipeNavigation() {
 
         if (isInput || isScrollableX || isTapAction) {
           isValidGesture = false;
+          isGestureChecked = true;
           return;
         }
       }
@@ -56,41 +59,12 @@ export function useSwipeNavigation() {
       currentX = touch.clientX;
       currentY = touch.clientY;
       startTime = Date.now();
-      isValidGesture = true;
-
-      // Signal swipe start
-      (window as any).isSwipeGestureActive = true;
-      window.dispatchEvent(new CustomEvent("swipe-gesture-change", { detail: { active: true } }));
-
-      // Lock transitions instantly for real-time tracking
-      const tabSlider = document.querySelector('.tab-slider') as HTMLElement;
-      if (tabSlider) {
-        tabSlider.style.transition = 'none';
-        tabSlider.style.willChange = 'transform';
-      }
-
-      const currentPage = document.querySelector('.current-page-container') as HTMLElement;
-      if (currentPage) {
-        currentPage.style.transition = 'none';
-        currentPage.style.animation = 'none';
-        currentPage.style.willChange = 'transform';
-      }
-
-      const prevPage = document.querySelector('.previous-page-container') as HTMLElement;
-      if (prevPage) {
-        prevPage.style.transition = 'none';
-        prevPage.style.willChange = 'transform, opacity';
-      }
-
-      const peekOverlay = document.querySelector('.peek-overlay') as HTMLElement;
-      if (peekOverlay) {
-        peekOverlay.style.transition = 'none';
-        peekOverlay.style.willChange = 'opacity';
-      }
+      isValidGesture = false; // Starts false, will set to true only if horizontal swipe detected in touchmove
+      isGestureChecked = false;
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (!isValidGesture || e.touches.length !== 1) return;
+      if (e.touches.length !== 1) return;
 
       const touch = e.touches[0];
       currentX = touch.clientX;
@@ -98,6 +72,54 @@ export function useSwipeNavigation() {
 
       const deltaX = currentX - startX;
       const deltaY = currentY - startY;
+
+      // If we haven't determined the gesture type yet, wait until the drag distance is sufficient
+      if (!isGestureChecked) {
+        const dragDistance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        if (dragDistance < 8) return; // Wait for clear movement
+
+        // Determine if relatively horizontal
+        const isRelativelyHorizontal = Math.abs(deltaY) < Math.abs(deltaX) * 0.55;
+        isGestureChecked = true;
+
+        if (isRelativelyHorizontal) {
+          isValidGesture = true;
+
+          // Now, lock transitions and set up styling will-change properties for smooth peeking!
+          (window as any).isSwipeGestureActive = true;
+          window.dispatchEvent(new CustomEvent("swipe-gesture-change", { detail: { active: true } }));
+
+          const tabSlider = document.querySelector('.tab-slider') as HTMLElement;
+          if (tabSlider) {
+            tabSlider.style.transition = 'none';
+            tabSlider.style.willChange = 'transform';
+          }
+
+          const currentPage = document.querySelector('.current-page-container') as HTMLElement;
+          if (currentPage) {
+            currentPage.style.transition = 'none';
+            currentPage.style.animation = 'none';
+            currentPage.style.willChange = 'transform';
+          }
+
+          const prevPage = document.querySelector('.previous-page-container') as HTMLElement;
+          if (prevPage) {
+            prevPage.style.transition = 'none';
+            prevPage.style.willChange = 'transform, opacity';
+          }
+
+          const peekOverlay = document.querySelector('.peek-overlay') as HTMLElement;
+          if (peekOverlay) {
+            peekOverlay.style.transition = 'none';
+            peekOverlay.style.willChange = 'opacity';
+          }
+        } else {
+          isValidGesture = false;
+          return;
+        }
+      }
+
+      if (!isValidGesture) return;
 
       // Ensure gesture is horizontal
       const isRelativelyHorizontal = Math.abs(deltaY) < Math.abs(deltaX) * 0.55;

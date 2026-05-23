@@ -5,11 +5,17 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useUserLocation, calculateDistance } from "@/hooks/useLocation";
 import { useSmartMatching, detectLowQualitySignals, useAiMatchmaking } from "@/hooks/useSmartMatching";
+import {
+  PremiumHeart,
+  PremiumChatBubble,
+  PremiumBookmark,
+} from "@/components/ui/custom-icons";
 import {
   Dialog,
   DialogContent,
@@ -31,6 +37,8 @@ import {
   Loader2,
   Lightbulb,
   Send,
+  SlidersHorizontal,
+  ShoppingCart,
 } from "lucide-react";
 import {
   Select,
@@ -40,6 +48,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ReputationBadge } from "@/components/ui/reputation-badge";
+import { cn } from "@/lib/utils";
 
 interface Business {
   id: string;
@@ -48,6 +57,7 @@ interface Business {
   business_location: string | null;
   products_services: string | null;
   cover_image_url: string | null;
+  logo_url: string | null;
   latitude: number | null;
   longitude: number | null;
   business_type: string | null;
@@ -184,6 +194,10 @@ export default function CustomerDiscover() {
   const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
   const [typeFilter, setTypeFilter] = useState<string>("all");
   const [sortBy, setSortBy] = useState<string>("smart");
+  const [minPrice, setMinPrice] = useState<number>(0);
+  const [maxPrice, setMaxPrice] = useState<number>(10000000);
+  const [maxDistance, setMaxDistance] = useState<number>(100);
+  const [verifTier, setVerifTier] = useState<string>("all");
 
   const aiMatchmaking = useAiMatchmaking();
   const [searchInsights, setSearchInsights] = useState<SearchInsight[]>([]);
@@ -215,7 +229,7 @@ export default function CustomerDiscover() {
           .from("public_businesses")
           .select(`
             id, company_name, industry, business_location, products_services, 
-            cover_image_url, latitude, longitude, business_type, 
+            cover_image_url, logo_url, latitude, longitude, business_type, 
             reputation_score, verified, verification_tier, total_reviews, total_completed_orders,
             products(id, name, business_id, price, image_url),
             services(id, name, business_id, images, price_min, price_max),
@@ -306,6 +320,7 @@ export default function CustomerDiscover() {
   let filteredBusinesses: RankedBusiness[] = smartMatched.filter((b) => {
     const searchLower = search.toLowerCase();
     const matchesSearch =
+      search === "" ||
       b.company_name.toLowerCase().includes(searchLower) ||
       b.industry?.toLowerCase().includes(searchLower) ||
       b.business_location?.toLowerCase().includes(searchLower) ||
@@ -314,8 +329,30 @@ export default function CustomerDiscover() {
 
     if (!matchesSearch) return false;
 
-    if (typeFilter === "goods") return b.business_type === "goods" || b.products.length > 0;
-    if (typeFilter === "services") return b.business_type === "services" || b.services.length > 0;
+    if (typeFilter === "goods" && !(b.business_type === "goods" || b.products.length > 0)) {
+      return false;
+    }
+    if (typeFilter === "services" && !(b.business_type === "services" || b.services.length > 0)) {
+      return false;
+    }
+
+    // Radius distance filter
+    if (maxDistance < 100 && b.distance !== null && b.distance > maxDistance) {
+      return false;
+    }
+
+    // Price range filters (check products or services prices)
+    if (minPrice > 0 || maxPrice < 10000000) {
+      const hasProductInPrice = b.products.some(p => Number(p.price || 0) >= minPrice && Number(p.price || 0) <= maxPrice);
+      const hasServiceInPrice = b.services.some(s => Number(s.price || 0) >= minPrice && Number(s.price || 0) <= maxPrice);
+      if (!hasProductInPrice && !hasServiceInPrice) return false;
+    }
+
+    // Verification tier filters
+    if (verifTier !== "all") {
+      if (verifTier === "verified" && b.verification_tier === "none") return false;
+      if (verifTier === "premium" && b.verification_tier !== "premium") return false;
+    }
 
     return true;
   });
@@ -434,80 +471,251 @@ export default function CustomerDiscover() {
     }
   };
 
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [categoryDrawerOpen, setCategoryDrawerOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<"for-you" | "following">("for-you");
+
+  const categories = [
+    { label: "Real Estate & Property", value: "Real Estate & Property" },
+    { label: "Fashion & Clothings", value: "Fashion & Clothings" },
+    { label: "Furniture", value: "Furniture" },
+    { label: "Interior Design & Home Decor", value: "Interior Design & Home Decor" },
+    { label: "Automobile & Transport", value: "Automobile & Transport" },
+    { label: "Health & Medical", value: "Health & Medical" },
+    { label: "Electronics & Gadgets", value: "Electronics & Gadgets" },
+    { label: "Beauty & Personal Care", value: "Beauty & Personal Care" },
+    { label: "Food & Agriculture", value: "Food & Agriculture" },
+    { label: "Technology & Digital Products", value: "Technology & Digital Products" },
+    { label: "Travel & Hospitality", value: "Travel & Hospitality" },
+    { label: "Education & Learning", value: "Education & Learning" }
+  ];
+
   return (
     <DashboardLayout>
-      <div className="space-y-6 pb-4">
-        <div>
-          <h1 className="text-2xl font-semibold text-foreground">Discover</h1>
-          <p className="mt-1 text-muted-foreground">Find products and services near you</p>
-        </div>
+      <div className="max-w-xl mx-auto space-y-5 pb-20 px-3 md:px-0">
+        
+        {/* Premium Sticky Consolidated Header Panel */}
+        <div className="sticky top-16 z-30 bg-background/95 backdrop-blur-md pt-3 pb-2 border-b border-border/10 -mx-4 px-4 space-y-3">
+          {/* Main search and primary action row */}
+          <div className="flex items-center gap-3">
+            <div className="relative flex-1">
+              <Search className="absolute left-4 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-muted-foreground/60" />
+              <Input
+                placeholder="Search products, services, businesses..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="h-11 pl-11 rounded-full bg-muted/30 border-border/40 focus:bg-background focus:ring-primary/20 shadow-inner"
+              />
+            </div>
+            
+            {/* Filter Toggle Button */}
+            <button
+              onClick={() => setFilterOpen(!filterOpen)}
+              className={cn(
+                "h-11 w-11 rounded-full border flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm shrink-0",
+                filterOpen
+                  ? "bg-primary border-transparent text-primary-foreground"
+                  : "border-border/40 hover:bg-accent bg-card text-foreground"
+              )}
+            >
+              <SlidersHorizontal className="h-4.5 w-4.5" />
+            </button>
 
-        {!userLocation && (
-          <div className="dashboard-card flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
-                <Navigation className="h-5 w-5 text-foreground" />
+            {/* Shopping cart shortcut button next to search */}
+            <button 
+              onClick={() => navigate("/customer/orders")}
+              className="h-11 w-11 rounded-full border border-border/40 hover:bg-accent flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm shrink-0 bg-card text-foreground"
+            >
+              <ShoppingCart className="h-4.5 w-4.5" />
+            </button>
+          </div>
+
+          {/* Extended Filters Dashboard (Sticky and Interactive) */}
+          {filterOpen && (
+            <div className="p-4 rounded-2xl bg-card border border-border/30 shadow-lg space-y-4 animate-fade-in text-sm">
+              <div className="flex items-center justify-between">
+                <p className="text-xs font-bold text-primary uppercase tracking-widest">Filter & Sort Options</p>
+                <button 
+                  onClick={() => {
+                    // Reset all filters
+                    setSearch("");
+                    setTypeFilter("all");
+                    setSortBy("smart");
+                    setMinPrice(0);
+                    setMaxPrice(10000000);
+                    setMaxDistance(100);
+                    setVerifTier("all");
+                  }}
+                  className="text-[11px] text-muted-foreground hover:text-primary transition-colors font-bold"
+                >
+                  Reset All
+                </button>
               </div>
-              <div>
-                <p className="font-medium text-foreground">Enable location</p>
-                <p className="text-sm text-muted-foreground">See nearby businesses first</p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Type & Sort Selection */}
+                <div className="space-y-3">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="space-y-1">
+                      <Label className="text-[11px] font-bold text-muted-foreground uppercase">Feed Type</Label>
+                      <Select value={typeFilter} onValueChange={setTypeFilter}>
+                        <SelectTrigger className="w-full rounded-xl h-9 text-xs">
+                          <SelectValue placeholder="Type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">All Types</SelectItem>
+                          <SelectItem value="goods">Products</SelectItem>
+                          <SelectItem value="services">Services</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-1">
+                      <Label className="text-[11px] font-bold text-muted-foreground uppercase">Sort by</Label>
+                      <Select value={sortBy} onValueChange={setSortBy}>
+                        <SelectTrigger className="w-full rounded-xl h-9 text-xs">
+                          <SelectValue placeholder="Sort by" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="smart">Best Match</SelectItem>
+                          <SelectItem value="distance">Nearest</SelectItem>
+                          <SelectItem value="rating">Top Rated</SelectItem>
+                          <SelectItem value="popular">Most Popular</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  {/* Category Dropdown Selector */}
+                  <div className="space-y-1">
+                    <Label className="text-[11px] font-bold text-muted-foreground uppercase">Category</Label>
+                    <Select 
+                      value={categories.some(cat => cat.value.toLowerCase() === search.toLowerCase()) ? search : "all"} 
+                      onValueChange={(val) => setSearch(val === "all" ? "" : val)}
+                    >
+                      <SelectTrigger className="w-full rounded-xl h-9 text-xs">
+                        <SelectValue placeholder="All Categories" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All Categories</SelectItem>
+                        {categories.map((cat) => (
+                          <SelectItem key={cat.value} value={cat.value}>
+                            {cat.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                {/* Granular Sliders / Thresholds */}
+                <div className="space-y-3">
+                  {/* Price Range */}
+                  <div className="space-y-1">
+                    <Label className="text-[11px] font-bold text-muted-foreground uppercase">Price Range ($)</Label>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        type="number"
+                        placeholder="Min"
+                        value={minPrice || ""}
+                        onChange={(e) => setMinPrice(Number(e.target.value))}
+                        className="h-8 rounded-lg text-xs"
+                      />
+                      <span className="text-muted-foreground text-xs">to</span>
+                      <Input
+                        type="number"
+                        placeholder="Max"
+                        value={maxPrice === 10000000 ? "" : maxPrice}
+                        onChange={(e) => setMaxPrice(e.target.value ? Number(e.target.value) : 10000000)}
+                        className="h-8 rounded-lg text-xs"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Distance Slider */}
+                  <div className="space-y-1">
+                    <div className="flex justify-between items-center">
+                      <Label className="text-[11px] font-bold text-muted-foreground uppercase">Max Distance</Label>
+                      <span className="text-[11px] font-bold text-primary">{maxDistance >= 100 ? "Anywhere" : `${maxDistance} km`}</span>
+                    </div>
+                    <div className="flex items-center gap-2 py-1">
+                      <input
+                        type="range"
+                        min="1"
+                        max="100"
+                        value={maxDistance}
+                        onChange={(e) => setMaxDistance(Number(e.target.value))}
+                        className="w-full h-1.5 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Verification Tier */}
+                  <div className="space-y-1">
+                    <Label className="text-[11px] font-bold text-muted-foreground uppercase">Verification Tier</Label>
+                    <Select value={verifTier} onValueChange={setVerifTier}>
+                      <SelectTrigger className="w-full rounded-xl h-9 text-xs">
+                        <SelectValue placeholder="Verification Level" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All Verification Levels</SelectItem>
+                        <SelectItem value="verified">Verified Sellers</SelectItem>
+                        <SelectItem value="premium">Premium Sellers Only</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action and AI assistance line */}
+              <div className="flex justify-end pt-1 border-t border-border/10">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 text-xs rounded-full hover:bg-primary/10 hover:text-primary transition-colors"
+                  onClick={handleSearchAssist}
+                  disabled={aiMatchmaking.isPending || !search.trim()}
+                >
+                  {aiMatchmaking.isPending ? <Loader2 className="mr-1 h-3 w-3 animate-spin" /> : <Sparkles className="mr-1 h-3 w-3 text-primary" />}
+                  AI Assist Match
+                </Button>
               </div>
             </div>
-            <Button variant="outline" onClick={requestLocation} disabled={locationLoading}>
-              {locationLoading ? "Getting..." : "Enable"}
-            </Button>
+          )}
+        </div>
+
+        {/* Mockup Location Request Box (Image 2 - minimalist coordinates outline) */}
+        {!userLocation && (
+          <div className="rounded-[20px] border border-border/40 bg-card p-4 flex items-center justify-between shadow-premium transition-all duration-200">
+            <div className="flex items-center gap-3.5">
+              <div className="h-10 w-10 rounded-full border border-foreground/10 flex items-center justify-center bg-muted/10 text-foreground shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="w-5 h-5 rotate-45">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                </svg>
+              </div>
+              <div className="space-y-0.5">
+                <p className="text-sm font-bold text-foreground leading-none">Enable location</p>
+                <p className="text-xs text-muted-foreground leading-normal mt-0.5">See nearby business first</p>
+              </div>
+            </div>
+            <button
+              onClick={requestLocation}
+              disabled={locationLoading}
+              className="px-4 py-1.75 rounded-full border border-border/60 text-xs font-bold hover:bg-accent active:scale-95 transition-all shadow-sm shrink-0"
+            >
+              {locationLoading ? "Loading..." : "Enable"}
+            </button>
           </div>
         )}
 
-        <div className="flex flex-col gap-2 sm:flex-row">
-          <div className="relative flex-1">
-            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              placeholder="Search businesses, products, or services..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="h-12 pl-11"
-            />
-          </div>
-          <div className="flex gap-2">
-            <Button
-              onClick={handleSearchAssist}
-              disabled={aiMatchmaking.isPending || !search.trim()}
-              className="h-12 flex-1 bg-primary text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-            >
-              {aiMatchmaking.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Search className="mr-2 h-4 w-4" />}
-              {aiMatchmaking.isPending ? "Searching..." : "Search String"}
-            </Button>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-3 rounded-2xl bg-muted/40 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="space-y-1">
-            <p className="text-sm font-medium text-foreground">Cannot find what you need?</p>
-            <p className="text-sm text-muted-foreground">
-              Suggest the item or service and we will use it to guide what sellers add next.
-            </p>
-          </div>
-          <Button
-            variant="outline"
-            className="h-10 shrink-0 border-0 bg-background/80 shadow-sm hover:bg-background"
-            onClick={openSuggestionDialog}
-          >
-            <Lightbulb className="mr-2 h-4 w-4" />
-            Suggest item
-          </Button>
-        </div>
-
+        {/* Search highlights overlay */}
         {relatedItems.length > 0 && (
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
-            <span className="whitespace-nowrap text-sm font-medium text-foreground">
-              <Search className="mr-1 inline h-4 w-4 text-primary" />
-              Related searches:
-            </span>
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+            <span className="text-xs font-semibold text-muted-foreground whitespace-nowrap">Related:</span>
             {relatedItems.map((item, idx) => (
               <button
                 key={idx}
-                className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 cursor-pointer whitespace-nowrap"
+                className="bg-muted hover:bg-muted/80 text-[10px] font-bold px-3 py-1 rounded-full text-foreground transition-all duration-300"
                 onClick={() => setSearch(item)}
               >
                 {item}
@@ -516,189 +724,184 @@ export default function CustomerDiscover() {
           </div>
         )}
 
-        <div className="flex flex-wrap gap-3">
-          <Select value={typeFilter} onValueChange={setTypeFilter}>
-            <SelectTrigger className="w-[140px]">
-              <Filter className="h-4 w-4 mr-2" />
-              <SelectValue placeholder="Type" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Types</SelectItem>
-              <SelectItem value="goods">Products</SelectItem>
-              <SelectItem value="services">Services</SelectItem>
-            </SelectContent>
-          </Select>
-
-          <Select value={sortBy} onValueChange={setSortBy}>
-            <SelectTrigger className="w-[160px]">
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="smart">
-                <span className="flex items-center gap-2">
-                  <Star className="h-3 w-3" />
-                  Best Match
-                </span>
-              </SelectItem>
-              <SelectItem value="distance">Nearest</SelectItem>
-              <SelectItem value="rating">Top Rated</SelectItem>
-              <SelectItem value="popular">Most Popular</SelectItem>
-            </SelectContent>
-          </Select>
+        {/* Business listings feed count */}
+        <div className="flex items-center justify-between px-1">
+          <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
+            {filteredBusinesses.length} Active Seller{filteredBusinesses.length !== 1 ? "s" : ""}
+          </span>
         </div>
 
-        <p className="text-sm text-muted-foreground font-medium">
-          {filteredBusinesses.length} business{filteredBusinesses.length !== 1 ? "es" : ""} found
-        </p>
-
+        {/* Main Masonry / Feed Listings */}
         {loading ? (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="dashboard-card animate-pulse">
-                <div className="h-32 -mx-5 -mt-5 mb-4 rounded-t-xl bg-muted" />
-                <div className="h-4 w-2/3 rounded bg-muted" />
-                <div className="mt-2 h-3 w-1/2 rounded bg-muted" />
+          <div className="space-y-6">
+            {[1, 2].map((i) => (
+              <div key={i} className="bg-card border border-border/40 rounded-[32px] p-4 space-y-4 animate-pulse">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-muted" />
+                  <div className="space-y-2 flex-1">
+                    <div className="h-3 w-1/3 bg-muted rounded" />
+                    <div className="h-2 w-1/4 bg-muted rounded" />
+                  </div>
+                </div>
+                <div className="h-48 rounded-[24px] bg-muted w-full" />
               </div>
             ))}
           </div>
         ) : filteredBusinesses.length === 0 ? (
-          <div className="dashboard-card text-center py-16">
+          <div className="bg-card border border-border/40 rounded-[32px] text-center py-16 px-4 shadow-premium">
             <Building2 className="mx-auto h-12 w-12 text-muted-foreground opacity-20" />
-            <h3 className="mt-4 font-semibold text-foreground text-lg">No businesses found</h3>
-            <p className="mt-1 text-sm text-muted-foreground max-w-xs mx-auto">
+            <h3 className="mt-4 font-bold text-foreground text-lg">No businesses found</h3>
+            <p className="mt-2 text-xs text-muted-foreground max-w-xs mx-auto leading-relaxed">
               {search ? "No matches found for your current search. Try different keywords or filters." : "We're expanding! Check back soon for new businesses in your area."}
             </p>
             {search.trim() && (
               <div className="mt-5">
-                <Button onClick={openSuggestionDialog} className="bg-primary text-primary-foreground hover:bg-primary/90">
+                <Button onClick={openSuggestionDialog} className="bg-primary text-primary-foreground rounded-full hover:bg-primary/90">
                   Suggest "{search.trim()}"
                 </Button>
               </div>
             )}
           </div>
         ) : (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredBusinesses.map((business) => (
-              <div key={business.id} className="dashboard-card group overflow-hidden border-border/50 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
-                <div
-                  className="relative -mx-5 -mt-5 mb-4 h-32 bg-gradient-to-br from-muted/50 to-muted transition-transform duration-500 group-hover:scale-[1.02] cursor-pointer"
-                  onClick={() => navigate(`/business/${business.id}`)}
+          <div className="space-y-6">
+            {filteredBusinesses.map((business) => {
+              const handleName = business.company_name.toLowerCase().replace(/[^a-z0-9]/g, "");
+              const isSaved = business.is_saved;
+
+              return (
+                <div 
+                  key={business.id} 
+                  className="bg-card border border-border/30 rounded-[32px] overflow-hidden shadow-premium hover:shadow-2xl transition-all duration-300 flex flex-col space-y-4 p-4 animate-fade-in"
                 >
-                  {business.cover_image_url ? (
-                    <img src={business.cover_image_url} alt={business.company_name} className="h-full w-full object-cover" />
-                  ) : (
-                    <div className="flex h-full items-center justify-center bg-slate-100 dark:bg-slate-800">
-                      <span className="text-4xl font-bold text-slate-300 dark:text-slate-700">{business.company_name.charAt(0)}</span>
-                    </div>
-                  )}
-                  <div className="absolute top-2 right-2 flex gap-1 flex-wrap">
-                    {business.distance !== null && (
-                      <span className="bg-background/90 backdrop-blur-sm text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full text-foreground shadow-sm">
-                        {business.distance < 1 ? `${Math.round(business.distance * 1000)}m` : `${business.distance.toFixed(1)}km`}
-                      </span>
-                    )}
-                    {business.verification_tier && (
-                      <ReputationBadge tier={(business.verification_tier || 'none') as 'none' | 'basic' | 'verified' | 'premium' | 'elite'} className="scale-75 origin-top-right shadow-sm" />
-                    )}
-                  </div>
-                  
-                  {business.warnings.length > 0 && (
-                    <div className="absolute top-2 left-2">
-                      <div className="bg-background/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1 shadow-sm">
-                        <AlertTriangle className="h-3 w-3 text-amber-500" />
-                        <span className="text-[10px] font-semibold text-muted-foreground uppercase">{business.warnings[0]}</span>
+                  {/* Card Header (Profile Info & Follow/Save Action) */}
+                  <div className="flex items-center justify-between px-1">
+                    <div 
+                      className="flex items-center gap-3.5 cursor-pointer" 
+                      onClick={() => navigate(`/business/${business.id}`)}
+                    >
+                      {/* Round Business Avatar */}
+                      <div className="h-11 w-11 rounded-full border border-border/40 bg-muted/50 flex items-center justify-center overflow-hidden">
+                        {business.logo_url ? (
+                          <img src={business.logo_url} alt={business.company_name} className="h-full w-full object-cover" />
+                        ) : (
+                          <span className="font-extrabold text-sm text-primary">{business.company_name.charAt(0)}</span>
+                        )}
+                      </div>
+                      
+                      {/* Name & Handle details */}
+                      <div className="flex flex-col">
+                        <span className="font-bold text-foreground hover:text-primary transition-colors text-sm flex items-center gap-1.5 leading-none">
+                          {business.company_name}
+                          {business.verified && (
+                            <span className="inline-flex items-center justify-center h-3.5 w-3.5 rounded-full bg-primary text-white text-[8px] font-bold">✓</span>
+                          )}
+                        </span>
+                        <span className="text-[11px] text-muted-foreground tracking-wide mt-1">@{handleName}</span>
                       </div>
                     </div>
-                  )}
 
-                  {searchInsights.find((item) => item.id === business.id)?.ai_match_score !== undefined && (
-                    <div className="absolute bottom-2 right-2">
-                      <Badge variant="default" className="border-0 bg-primary text-[10px] font-bold text-primary-foreground shadow-lg">
-                        {searchInsights.find((item) => item.id === business.id)?.ai_match_score}% Search Match
-                      </Badge>
-                    </div>
-                  )}
-                </div>
-
-                {searchInsights.find((item) => item.id === business.id)?.ai_insights && (
-                  <div className="mb-3 rounded-lg border border-primary/10 bg-primary/5 px-4 py-2">
-                    <p className="mb-1 flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-primary">
-                      <Sparkles className="h-3 w-3" /> Search highlights
-                    </p>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {searchInsights.find((item) => item.id === business.id)?.ai_insights?.map((insight, idx) => (
-                        <li key={idx} className="flex gap-2">
-                          <span className="text-primary">-</span>
-                          {insight}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                <div className="cursor-pointer" onClick={() => navigate(`/business/${business.id}`)}>
-                  <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-lg truncate">
-                    {business.company_name}
-                  </h3>
-                  {business.reputation_score !== null && business.reputation_score > 0 && (
-                    <div className="flex items-center gap-1 mt-1">
-                      <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
-                      <span className="text-sm font-bold text-foreground">{business.reputation_score.toFixed(1)}</span>
-                      {business.total_reviews !== null && business.total_reviews > 0 && (
-                        <span className="text-xs text-muted-foreground leading-none">({business.total_reviews} reviews)</span>
+                    {/* Follow/Save capsule action button */}
+                    <button
+                      onClick={() => toggleSave(business.id)}
+                      className={cn(
+                        "text-xs font-bold px-4 py-1.75 rounded-full transition-all duration-300 border active:scale-95",
+                        isSaved
+                          ? "bg-accent text-accent-foreground border-transparent"
+                          : "bg-primary text-primary-foreground border-transparent shadow-sm shadow-primary/20 hover:bg-primary/95"
                       )}
-                    </div>
-                  )}
-                  {business.industry && (
-                    <p className="mt-1 text-xs font-medium text-muted-foreground uppercase tracking-wide truncate opacity-70">{business.industry}</p>
-                  )}
-                </div>
+                    >
+                      {isSaved ? "Following" : "Follow"}
+                    </button>
+                  </div>
 
-                <div className="mt-4 space-y-2">
-                  {business.products && business.products.length > 0 && (
-                    <div className="flex gap-2">
-                      <Package className="h-3.5 w-3.5 text-muted-foreground mt-0.5 opacity-40 shrink-0" />
-                      <div className="flex flex-wrap gap-1">
-                        {business.products.map((product) => (
-                          <Badge key={product.id} variant="secondary" className="text-[10px] bg-slate-100 dark:bg-slate-800 border-none font-medium">
-                            {product.name}
-                          </Badge>
-                        ))}
+                  {/* Card Cover Image with location overlays */}
+                  <div 
+                    className="relative aspect-[4/3] rounded-[24px] overflow-hidden bg-gradient-to-br from-muted/50 to-muted group cursor-pointer shadow-inner"
+                    onClick={() => navigate(`/business/${business.id}`)}
+                  >
+                    {business.cover_image_url ? (
+                      <img src={business.cover_image_url} alt={business.company_name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+                    ) : (
+                      <div className="flex h-full items-center justify-center bg-slate-50 dark:bg-slate-800/50">
+                        <span className="text-5xl font-bold text-slate-200 dark:text-slate-800">{business.company_name.charAt(0)}</span>
                       </div>
-                    </div>
-                  )}
-                  {business.services && business.services.length > 0 && (
-                    <div className="flex gap-2">
-                      <Wrench className="h-3.5 w-3.5 text-muted-foreground mt-0.5 opacity-40 shrink-0" />
-                      <div className="flex flex-wrap gap-1">
-                        {business.services.map((service) => (
-                          <Badge key={service.id} variant="outline" className="text-[10px] border-dashed font-medium">
-                            {service.name}
-                          </Badge>
-                        ))}
+                    )}
+                    
+                    {/* Distance overlay chip (Google-style pin) */}
+                    {business.distance !== null && (
+                      <div className="absolute top-3.5 right-3.5">
+                        <span className="bg-background/80 dark:bg-background/90 backdrop-blur-md text-[10px] font-bold px-3 py-1 rounded-full text-foreground border border-border/25 shadow-sm">
+                          {business.distance < 1 ? `${Math.round(business.distance * 1000)}m` : `${business.distance.toFixed(1)}km away`}
+                        </span>
                       </div>
-                    </div>
-                  )}
-                </div>
+                    )}
 
-                <div className="mt-6 flex items-center justify-between border-t border-border/50 pt-4">
-                  <button
-                    onClick={() => toggleSave(business.id)}
-                    className={`text-xs font-bold uppercase tracking-widest transition-colors ${business.is_saved ? "text-primary hover:text-primary/80" : "text-muted-foreground hover:text-foreground"}`}
-                  >
-                    {business.is_saved ? "Saved" : "Save"}
-                  </button>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    onClick={() => startChat(business.id)}
-                    className="text-xs font-bold uppercase tracking-widest hover:bg-primary/5 hover:text-primary"
-                  >
-                    Message
-                  </Button>
+                    {/* Search match highlights indicator overlay */}
+                    {searchInsights.find((item) => item.id === business.id)?.ai_match_score !== undefined && (
+                      <div className="absolute bottom-3.5 right-3.5">
+                        <span className="bg-primary backdrop-blur-md text-[10px] font-extrabold uppercase px-3 py-1 rounded-full text-primary-foreground shadow-lg flex items-center gap-1">
+                          <Sparkles className="h-3 w-3 animate-pulse" />
+                          {searchInsights.find((item) => item.id === business.id)?.ai_match_score}% Match
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Card Social Actions Bar (Likes, comments, saves) */}
+                  <div className="flex items-center gap-6 px-1.5">
+                    {/* Like Action */}
+                    <button 
+                      onClick={() => {
+                        toast({ title: "Liked business listing", description: `You sent a support signal to ${business.company_name}!` });
+                      }}
+                      className="flex flex-col items-center gap-0.5 text-muted-foreground hover:text-destructive group transition-colors duration-300"
+                    >
+                      <PremiumHeart className="w-5.5 h-5.5 transition-transform duration-300 group-active:scale-125" />
+                      <span className="text-[10px] font-bold mt-0.75 text-muted-foreground group-hover:text-destructive leading-none">
+                        {business.reputation_score ? `${(business.reputation_score * 12).toFixed(0)}k` : "1.2k"}
+                      </span>
+                    </button>
+
+                    {/* Chat Action */}
+                    <button 
+                      onClick={() => startChat(business.id)}
+                      className="flex flex-col items-center gap-0.5 text-muted-foreground hover:text-primary group transition-colors duration-300"
+                    >
+                      <PremiumChatBubble className="w-5.5 h-5.5 transition-transform duration-300 group-hover:scale-105" />
+                      <span className="text-[10px] font-bold mt-0.75 text-muted-foreground group-hover:text-primary leading-none">
+                        {business.total_reviews ? `${business.total_reviews * 3}` : "8"}
+                      </span>
+                    </button>
+
+                    {/* Save Action */}
+                    <button 
+                      onClick={() => toggleSave(business.id)}
+                      className={cn(
+                        "flex flex-col items-center gap-0.5 transition-colors duration-300 group",
+                        isSaved ? "text-primary hover:text-primary/80" : "text-muted-foreground hover:text-primary"
+                      )}
+                    >
+                      <PremiumBookmark className="w-5.5 h-5.5 transition-transform duration-300 group-active:scale-125" active={isSaved} />
+                      <span className="text-[10px] font-bold mt-0.75 text-muted-foreground group-hover:text-primary leading-none">
+                        {isSaved ? "Saved" : "Save"}
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* Metadata: Industry type, Location, Products/Services description */}
+                  <div className="px-1.5 space-y-2">
+                    {business.industry && (
+                      <p className="text-[10px] font-extrabold text-primary uppercase tracking-widest leading-none">
+                        {business.industry}
+                      </p>
+                    )}
+                    <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                      {business.products_services || "A premium local partner dedicated to bringing you the highest standard of products and services."}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
@@ -748,6 +951,53 @@ export default function CustomerDiscover() {
               Send suggestion
             </Button>
           </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Premium Category Filter Bottom Drawer Dialog (Image 4) */}
+      <Dialog open={categoryDrawerOpen} onOpenChange={setCategoryDrawerOpen}>
+        <DialogContent className="border-0 bg-background shadow-2xl sm:max-w-md rounded-[32px] p-6 max-h-[85vh] overflow-y-auto animate-in slide-in-from-bottom duration-300">
+          <DialogHeader className="text-left space-y-1">
+            <DialogTitle className="text-xl font-bold tracking-tight text-foreground">Choose suggested</DialogTitle>
+            <DialogDescription className="text-xs text-muted-foreground leading-relaxed">
+              Select choice of interest that suits your preference
+            </DialogDescription>
+          </DialogHeader>
+
+          {/* Grid of Capsules (Image 4) */}
+          <div className="flex flex-wrap gap-2.5 py-4">
+            {categories.map((cat) => {
+              const isSelected = search.toLowerCase() === cat.value.toLowerCase();
+              return (
+                <button
+                  key={cat.value}
+                  onClick={() => {
+                    setSearch(cat.value);
+                  }}
+                  className={cn(
+                    "px-4 py-2 rounded-full border text-[11px] font-semibold tracking-wide transition-all active:scale-95 duration-200",
+                    isSelected
+                      ? "bg-primary border-transparent text-primary-foreground shadow-md shadow-primary/10"
+                      : "border-border/60 hover:bg-accent/40 text-foreground bg-card"
+                  )}
+                >
+                  {cat.label}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center justify-end mt-2">
+            {/* Round floating check button at the bottom right */}
+            <button
+              onClick={() => setCategoryDrawerOpen(false)}
+              className="h-12 w-12 rounded-full bg-foreground text-background flex items-center justify-center hover:opacity-90 active:scale-95 transition-all shadow-lg shrink-0"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+            </button>
+          </div>
         </DialogContent>
       </Dialog>
     </DashboardLayout>

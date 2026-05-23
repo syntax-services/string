@@ -11,13 +11,15 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { VerificationBadge } from "@/components/business/VerificationBadge";
 import { BusinessEarningsCard } from "@/components/business/BusinessEarningsCard";
 import {
+  PremiumClipboard,
+  PremiumPackage,
+  PremiumWrench,
+  PremiumStar,
+  PremiumChart,
+  PremiumSettings,
+} from "@/components/ui/custom-icons";
+import {
   Building2,
-  Settings,
-  Package,
-  Wrench,
-  Star,
-  ClipboardList,
-  BarChart3,
   MapPin,
   ChevronRight,
   LogOut,
@@ -53,125 +55,133 @@ export default function BusinessProfile() {
   });
 
   const menuItems = [
-    { icon: ClipboardList, label: "Orders", href: "/business/orders", count: stats?.orders },
-    { icon: Package, label: "Products", href: "/business/products", count: products.length },
-    { icon: Wrench, label: "Services", href: "/business/services", count: services.length },
-    { icon: Star, label: "Reviews", href: "/business/reviews", count: stats?.reviews },
-    { icon: BarChart3, label: "Analytics", href: "/business/analytics" },
-    { icon: Settings, label: "Settings", href: "/business/settings" },
+    { icon: PremiumClipboard, label: "Orders", href: "/business/orders", count: stats?.orders },
+    { icon: PremiumPackage, label: "Products", href: "/business/products", count: products.length },
+    { icon: PremiumWrench, label: "Services", href: "/business/services", count: services.length },
+    { icon: PremiumStar, label: "Reviews", href: "/business/reviews", count: stats?.reviews },
+    { icon: PremiumChart, label: "Analytics", href: "/business/analytics" },
+    { icon: PremiumSettings, label: "Settings", href: "/business/settings" },
   ];
 
   return (
     <DashboardLayout>
-      <div className="space-y-6">
-        {/* Profile Header */}
-        <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-4">
-              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
-                {business?.cover_image_url ? (
-                  <img
-                    src={business.cover_image_url}
-                    alt={business.company_name}
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <Building2 className="h-8 w-8 text-primary" />
-                )}
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <h2 className="text-xl font-semibold truncate">{business?.company_name}</h2>
-                  <VerificationBadge 
-                    tier={(business?.verification_tier as "none" | "verified" | "premium") || "none"} 
-                    size="sm"
-                  />
+      <div className="max-w-md mx-auto space-y-8 pb-10">
+        
+        {/* Profile Header Block */}
+        <div className="flex flex-col items-center text-center mt-6 space-y-4">
+          <div className="relative group cursor-pointer">
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-indigo-500 opacity-70 blur-md group-hover:opacity-100 transition duration-500" />
+            <div className="relative h-32 w-32 rounded-full border-4 border-background bg-card flex items-center justify-center overflow-hidden shadow-2xl">
+              {business?.cover_image_url ? (
+                <img
+                  src={business.cover_image_url}
+                  alt={business.company_name}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <div className="bg-primary/5 h-full w-full flex items-center justify-center">
+                  <Building2 className="h-16 w-16 text-primary" />
                 </div>
-                <p className="text-sm text-muted-foreground truncate">{profile?.email}</p>
-                {business?.location_verified && (
-                  <Badge variant="secondary" className="mt-1">
-                    <MapPin className="h-3 w-3 mr-1" />
-                    Location Verified
-                  </Badge>
-                )}
-              </div>
+              )}
             </div>
-          </CardContent>
-        </Card>
+          </div>
 
-        {/* Stats */}
+          <div className="space-y-1">
+            <h2 className="text-xl font-medium tracking-tight text-foreground flex items-center justify-center gap-1.5">
+              {business?.company_name || "Business Profile"}
+              <VerificationBadge 
+                tier={(business?.verification_tier as "none" | "verified" | "premium") || "none"} 
+                size="sm"
+              />
+            </h2>
+            <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest">
+              {profile?.email}
+            </p>
+            {business?.location_verified && (
+              <div className="flex justify-center pt-1">
+                <Badge variant="secondary" className="px-2 py-0.5 rounded-full scale-90">
+                  <MapPin className="h-3 w-3 mr-1" />
+                  Location Verified
+                </Badge>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Stats Grid Container */}
         <div className="grid grid-cols-3 gap-3">
-          <Card>
-            <CardContent className="pt-4 text-center">
-              <p className="text-2xl font-bold">{stats?.orders || 0}</p>
-              <p className="text-xs text-muted-foreground">Orders</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="pt-4 text-center">
-              <p className="text-2xl font-bold">{stats?.jobs || 0}</p>
-              <p className="text-xs text-muted-foreground">Jobs</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="pt-4 text-center">
-              <p className="text-2xl font-bold">{business?.reputation_score?.toFixed(1) || "—"}</p>
-              <p className="text-xs text-muted-foreground">Rating</p>
-            </CardContent>
-          </Card>
+          <div className="bg-card rounded-2xl border border-border/40 p-4 text-center shadow-md">
+            <p className="text-lg font-medium text-foreground">{stats?.orders || 0}</p>
+            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-0.5">Orders</p>
+          </div>
+          <div className="bg-card rounded-2xl border border-border/40 p-4 text-center shadow-md">
+            <p className="text-lg font-medium text-foreground">{stats?.jobs || 0}</p>
+            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-0.5">Jobs</p>
+          </div>
+          <div className="bg-card rounded-2xl border border-border/40 p-4 text-center shadow-md">
+            <p className="text-lg font-medium text-foreground">{business?.reputation_score?.toFixed(1) || "—"}</p>
+            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-0.5">Rating</p>
+          </div>
         </div>
 
         {/* Earnings Card */}
         {business && <BusinessEarningsCard businessId={business.id} />}
 
-        {/* Menu Items */}
-        <Card>
-          <CardContent className="p-0">
+        {/* Floating Card Container 1 (Main Menu) */}
+        <div className="bg-card rounded-3xl border border-border/40 shadow-xl shadow-black/5 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-black/10">
+          <div className="divide-y divide-border/30">
             {menuItems.map((item, idx) => (
               <Link
-                key={item.href + item.label}
+                key={item.label}
                 to={item.href}
-                className={`flex items-center justify-between p-4 hover:bg-muted/50 transition-colors ${
-                  idx !== menuItems.length - 1 ? "border-b" : ""
-                }`}
+                className="flex items-center justify-between px-5 py-4 hover:bg-primary/[0.02] active:bg-primary/[0.04] transition-all duration-300 group"
               >
-                <div className="flex items-center gap-3">
-                  <item.icon className="h-5 w-5 text-muted-foreground" />
-                  <span className="font-medium">{item.label}</span>
+                <div className="flex items-center gap-3.5">
+                  <div className="h-9 w-9 rounded-2xl bg-muted/65 flex items-center justify-center group-hover:bg-primary/10 group-hover:text-primary transition-all duration-300">
+                    <item.icon className="h-4.5 w-4.5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                  </div>
+                  <span className="font-medium text-foreground/80 group-hover:text-foreground text-sm tracking-wide transition-colors duration-300">{item.label}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  {item.count !== undefined && (
-                    <Badge variant="secondary">{item.count}</Badge>
+                  {item.count !== undefined && item.count > 0 && (
+                    <span className="bg-primary/10 text-primary text-[10px] font-medium px-2 py-0.5 rounded-full">
+                      {item.count}
+                    </span>
                   )}
-                  <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                  <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-0.5 transition-transform duration-300" />
                 </div>
               </Link>
             ))}
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        {/* Theme Toggle */}
-        <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center justify-between">
-              <span className="font-medium">Theme</span>
+        {/* Theme Settings Container */}
+        <div className="bg-card rounded-3xl border border-border/40 shadow-xl shadow-black/5 overflow-hidden">
+          <div className="divide-y divide-border/30">
+            <div className="flex items-center justify-between px-5 py-4 hover:bg-primary/[0.02] transition-all duration-300">
+              <div className="flex items-center gap-3.5">
+                <div className="h-9 w-9 rounded-2xl bg-muted/65 flex items-center justify-center">
+                  <Building2 className="h-4.5 w-4.5 text-muted-foreground" />
+                </div>
+                <span className="font-medium text-foreground/80 text-sm tracking-wide">Dark Theme</span>
+              </div>
               <ThemeToggle />
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        {/* Sign Out */}
+        {/* Logout Action */}
         <Button
           variant="outline"
-          className="w-full"
+          className="w-full rounded-2xl h-12 border-border/40 hover:bg-destructive/5 hover:text-destructive transition-all duration-300 text-sm font-medium tracking-wide active:scale-95"
           onClick={signOut}
         >
           <LogOut className="h-4 w-4 mr-2" />
           Sign Out
         </Button>
 
-        <p className="text-xs text-center text-muted-foreground">
-          Member since {profile?.created_at ? format(new Date(profile.created_at), "MMMM yyyy") : "—"}
+        <p className="text-[10px] text-center text-muted-foreground uppercase tracking-widest opacity-80">
+          Joined {profile?.created_at ? format(new Date(profile.created_at), "MMMM yyyy") : "—"}
         </p>
       </div>
     </DashboardLayout>

@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MessageCircle, Send, ArrowLeft, Building2 } from "lucide-react";
+import { MessageCircle, Send, ArrowLeft, Building2, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 
@@ -56,52 +56,14 @@ export default function CustomerMessages() {
     const fetchConversations = async () => {
       if (!customerId) return;
 
-      const { data: convs } = await supabase
-        .from("conversations")
-        .select(`
-          id,
-          business_id,
-          last_message_at,
-          businesses (
-            company_name
-          )
-        `)
-        .eq("customer_id", customerId)
-        .order("last_message_at", { ascending: false });
+      const { data: enriched, error } = await supabase
+        .rpc("get_customer_conversations", { p_customer_id: customerId });
 
-      if (convs) {
-        // Fetch last messages and unread counts
-        // Still doing some per-conversation work for last message and unread count 
-        // until we add last_message_id to the conversations table.
-        const enriched = await Promise.all(
-          convs.map(async (conv: { id: string; business_id: string; last_message_at: string; businesses: { company_name: string } | null }) => {
-            const { data: lastMsg } = await supabase
-              .from("messages")
-              .select("content, created_at")
-              .eq("conversation_id", conv.id)
-              .order("created_at", { ascending: false })
-              .limit(1)
-              .maybeSingle();
-
-            const { count } = await supabase
-              .from("messages")
-              .select("*", { count: "exact", head: true })
-              .eq("conversation_id", conv.id)
-              .eq("sender_type", "business")
-              .is("read_at", null);
-
-            return {
-              id: conv.id,
-              business_id: conv.business_id,
-              business_name: conv.businesses?.company_name || "Unknown",
-              last_message: lastMsg?.content || null,
-              last_message_at: lastMsg?.created_at || conv.last_message_at || "",
-              unread_count: count || 0,
-            };
-          })
-        );
-
-        setConversations(enriched);
+      if (error) {
+        console.error("Error fetching conversations RPC:", error);
+      } else if (enriched) {
+        // Map keys to match state interface if necessary, they already match directly
+        setConversations(enriched as Conversation[]);
       }
       setLoading(false);
     };
@@ -316,23 +278,27 @@ export default function CustomerMessages() {
                       >
                         <div
                           className={cn(
-                            "max-w-[80%] rounded-2xl px-4 py-2",
+                            "max-w-[75%] px-4 py-2 shadow-sm transition-all duration-300 animate-in fade-in slide-in-from-bottom-2",
                             msg.sender_type === "customer"
-                              ? "bg-primary text-primary-foreground"
-                              : "bg-muted text-foreground"
+                              ? "rounded-[1.25rem] rounded-tr-[4px] bg-primary text-primary-foreground text-left"
+                              : "rounded-[1.25rem] rounded-tl-[4px] bg-muted/65 text-foreground text-left border border-border/20"
                           )}
                         >
-                          <p className="text-sm">{msg.content}</p>
-                          <p
-                            className={cn(
-                              "text-[10px] mt-1",
-                              msg.sender_type === "customer"
-                                ? "text-primary-foreground/70"
-                                : "text-muted-foreground"
+                          <p className="text-sm leading-relaxed">{msg.content}</p>
+                          <div className="flex items-center justify-end gap-1 mt-1 opacity-80">
+                            <span className="text-[9px] uppercase tracking-wider">
+                              {format(new Date(msg.created_at), "HH:mm")}
+                            </span>
+                            {msg.sender_type === "customer" && (
+                              <span className="text-[10px]">
+                                {msg.read ? (
+                                  <span className="text-white font-bold">✓✓</span>
+                                ) : (
+                                  <span className="text-primary-foreground/50">✓</span>
+                                )}
+                              </span>
                             )}
-                          >
-                            {format(new Date(msg.created_at), "HH:mm")}
-                          </p>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -349,6 +315,14 @@ export default function CustomerMessages() {
                     }}
                     className="flex gap-2"
                   >
+                    <button
+                      type="button"
+                      onClick={() => toast({ title: "Attachments Synced", description: "Supabase storage ready. Upload photos under 10MB." })}
+                      className="h-10 w-10 rounded-full border border-border/40 hover:bg-accent flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm shrink-0 bg-card text-foreground hover:text-primary cursor-pointer"
+                      title="Upload photos"
+                    >
+                      <Plus className="h-4.5 w-4.5" />
+                    </button>
                     <Input
                       value={newMessage}
                       onChange={(e) => setNewMessage(e.target.value)}

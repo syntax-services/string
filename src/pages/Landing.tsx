@@ -11,7 +11,7 @@ import {
   BarChart3,
   Target,
 } from "lucide-react";
-import stringLogoLight from "@/assets/String-logo-light.png";
+import stringLogoLight from "@/assets/string-logo-light.png";
 import stringLogoDark from "@/assets/String-logo-dark.png";
 
 const features = [

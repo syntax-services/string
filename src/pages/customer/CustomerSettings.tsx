@@ -11,6 +11,7 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { ThemeCustomizer } from "@/components/ui/theme-customizer";
 import { TagInput } from "@/components/ui/tag-input";
 import { useReferral } from "@/hooks/useReferral";
+import { cn } from "@/lib/utils";
 import {
   User,
   MapPin,
@@ -20,6 +21,11 @@ import {
   Gift,
   Copy,
   Star,
+  Sliders,
+  Shield,
+  Bell,
+  Eye,
+  EyeOff,
 } from "lucide-react";
 
 interface CustomerData {
@@ -27,6 +33,54 @@ interface CustomerData {
   preferred_categories: string[];
   location: string | null;
 }
+
+interface MarketplaceSettings {
+  profile_visibility: boolean;
+  activity_status: boolean;
+  local_search_radius_km: number;
+  notify_new_chats: boolean;
+  notify_new_bids: boolean;
+  notify_order_updates: boolean;
+  notify_email_newsletters: boolean;
+  two_factor_auth_enabled: boolean;
+  biometrics_enabled: boolean;
+  budget_alert_min: number;
+  budget_alert_max: number;
+}
+
+const ToggleSwitch = ({
+  checked,
+  onChange,
+  label,
+  description,
+}: {
+  checked: boolean;
+  onChange: (val: boolean) => void;
+  label: string;
+  description?: string;
+}) => (
+  <div className="flex items-center justify-between py-3 border-b border-border/25 last:border-0">
+    <div className="space-y-0.5 max-w-[80%]">
+      <p className="text-sm font-medium text-foreground">{label}</p>
+      {description && <p className="text-xs text-muted-foreground">{description}</p>}
+    </div>
+    <button
+      type="button"
+      onClick={() => onChange(!checked)}
+      className={cn(
+        "relative inline-flex h-5.5 w-9.5 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-250 ease-in-out focus:outline-none",
+        checked ? "bg-primary" : "bg-muted"
+      )}
+    >
+      <span
+        className={cn(
+          "pointer-events-none inline-block h-4.5 w-4.5 transform rounded-full bg-background shadow-md transition duration-250 ease-in-out",
+          checked ? "translate-x-4" : "translate-x-0"
+        )}
+      />
+    </button>
+  </div>
+);
 
 export default function CustomerSettings() {
   const { user, profile, signOut, refreshProfile } = useAuth();
@@ -41,6 +95,19 @@ export default function CustomerSettings() {
     preferred_categories: [],
     location: null,
   });
+  const [marketSettings, setMarketSettings] = useState<MarketplaceSettings>({
+    profile_visibility: true,
+    activity_status: true,
+    local_search_radius_km: 15,
+    notify_new_chats: true,
+    notify_new_bids: true,
+    notify_order_updates: true,
+    notify_email_newsletters: false,
+    two_factor_auth_enabled: false,
+    biometrics_enabled: false,
+    budget_alert_min: 0,
+    budget_alert_max: 10000000,
+  });
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
@@ -51,25 +118,48 @@ export default function CustomerSettings() {
   }, [profile]);
 
   useEffect(() => {
-    const fetchCustomerData = async () => {
+    const fetchCustomerAndSettings = async () => {
       if (!user) return;
       
-      const { data } = await supabase
+      const { data: customer } = await supabase
         .from("customers")
-        .select("interests, preferred_categories, location")
+        .select("id, interests, preferred_categories, location")
         .eq("user_id", user.id)
         .maybeSingle();
 
-      if (data) {
+      if (customer) {
         setCustomerData({
-          interests: data.interests || [],
-          preferred_categories: data.preferred_categories || [],
-          location: data.location,
+          interests: customer.interests || [],
+          preferred_categories: customer.preferred_categories || [],
+          location: customer.location,
         });
+
+        // Fetch Extended settings
+        const { data: settings } = await supabase
+          .from("customer_marketplace_settings")
+          .select("*")
+          .eq("customer_id", customer.id)
+          .maybeSingle();
+
+        if (settings) {
+          setMarketSettings({
+            profile_visibility: settings.profile_visibility,
+            activity_status: settings.activity_status,
+            local_search_radius_km: Number(settings.local_search_radius_km || 15),
+            notify_new_chats: settings.notify_new_chats,
+            notify_new_bids: settings.notify_new_bids,
+            notify_order_updates: settings.notify_order_updates,
+            notify_email_newsletters: settings.notify_email_newsletters,
+            two_factor_auth_enabled: settings.two_factor_auth_enabled,
+            biometrics_enabled: settings.biometrics_enabled,
+            budget_alert_min: Number(settings.budget_alert_min || 0),
+            budget_alert_max: Number(settings.budget_alert_max || 10000000),
+          });
+        }
       }
     };
 
-    fetchCustomerData();
+    fetchCustomerAndSettings();
   }, [user]);
 
   const handleSave = async () => {
@@ -87,14 +177,38 @@ export default function CustomerSettings() {
         .eq("user_id", user.id);
 
       // Update customer data
-      await supabase
+      const { data: customer } = await supabase
         .from("customers")
         .update({
           interests: customerData.interests,
           preferred_categories: customerData.preferred_categories,
           location: customerData.location,
         })
-        .eq("user_id", user.id);
+        .eq("user_id", user.id)
+        .select("id")
+        .single();
+
+      if (customer) {
+        // Update extended settings
+        const { error: settingsError } = await supabase
+          .from("customer_marketplace_settings")
+          .update({
+            profile_visibility: marketSettings.profile_visibility,
+            activity_status: marketSettings.activity_status,
+            local_search_radius_km: marketSettings.local_search_radius_km,
+            notify_new_chats: marketSettings.notify_new_chats,
+            notify_new_bids: marketSettings.notify_new_bids,
+            notify_order_updates: marketSettings.notify_order_updates,
+            notify_email_newsletters: marketSettings.notify_email_newsletters,
+            two_factor_auth_enabled: marketSettings.two_factor_auth_enabled,
+            biometrics_enabled: marketSettings.biometrics_enabled,
+            budget_alert_min: marketSettings.budget_alert_min,
+            budget_alert_max: marketSettings.budget_alert_max,
+          })
+          .eq("customer_id", customer.id);
+
+        if (settingsError) throw settingsError;
+      }
 
       await refreshProfile();
       
@@ -116,10 +230,10 @@ export default function CustomerSettings() {
 
   return (
     <DashboardLayout>
-      <div className="space-y-6 pb-20 lg:pb-6">
+      <div className="space-y-6 pb-20 lg:pb-6 max-w-lg mx-auto">
         <div>
-          <h1 className="text-2xl font-semibold text-foreground">Settings</h1>
-          <p className="mt-1 text-muted-foreground">
+          <h1 className="text-xl font-medium tracking-tight text-foreground">Settings</h1>
+          <p className="mt-1 text-xs text-muted-foreground uppercase tracking-widest">
             Manage your account and preferences
           </p>
         </div>
@@ -127,15 +241,15 @@ export default function CustomerSettings() {
         {/* Profile Section */}
         <div className="dashboard-card space-y-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent">
-              <User className="h-5 w-5 text-accent-foreground" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent">
+              <User className="h-4.5 w-4.5 text-accent-foreground" />
             </div>
-            <h2 className="font-medium text-foreground">Profile</h2>
+            <h2 className="font-medium text-sm text-foreground uppercase tracking-wider">Profile Info</h2>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 pt-2">
             <div className="space-y-2">
-              <Label htmlFor="fullName">Full Name</Label>
+              <Label htmlFor="fullName" className="text-xs text-muted-foreground">Full Name</Label>
               <Input
                 id="fullName"
                 value={fullName}
@@ -144,16 +258,16 @@ export default function CustomerSettings() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-xs text-muted-foreground">Email</Label>
               <Input
                 id="email"
                 value={profile?.email || ""}
                 disabled
-                className="google-input bg-muted"
+                className="google-input bg-muted/30"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="phone">Phone</Label>
+              <Label htmlFor="phone" className="text-xs text-muted-foreground">Phone</Label>
               <Input
                 id="phone"
                 value={phone}
@@ -163,7 +277,7 @@ export default function CustomerSettings() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="location">Location</Label>
+              <Label htmlFor="location" className="text-xs text-muted-foreground">Location</Label>
               <Input
                 id="location"
                 value={customerData.location || ""}
@@ -177,13 +291,40 @@ export default function CustomerSettings() {
           </div>
         </div>
 
-        {/* Interests */}
+        {/* Search Preferences */}
         <div className="dashboard-card space-y-4">
-          <h2 className="font-medium text-foreground">Interests & Preferences</h2>
-          
-          <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent">
+              <Sliders className="h-4.5 w-4.5 text-accent-foreground" />
+            </div>
+            <h2 className="font-medium text-sm text-foreground uppercase tracking-wider">Search Preferences</h2>
+          </div>
+
+          <div className="space-y-4 pt-2">
             <div className="space-y-2">
-              <Label>Interests</Label>
+              <Label className="text-xs text-muted-foreground">Local Search Radius: {marketSettings.local_search_radius_km} km</Label>
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value={marketSettings.local_search_radius_km}
+                onChange={(e) =>
+                  setMarketSettings((prev) => ({
+                    ...prev,
+                    local_search_radius_km: Number(e.target.value),
+                  }))
+                }
+                className="w-full h-1.5 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
+              />
+              <div className="flex justify-between text-[10px] text-muted-foreground">
+                <span>1 km</span>
+                <span>50 km</span>
+                <span>100 km</span>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-xs text-muted-foreground">Interests</Label>
               <TagInput
                 value={customerData.interests}
                 onChange={(interests) =>
@@ -192,8 +333,9 @@ export default function CustomerSettings() {
                 placeholder="Add interests..."
               />
             </div>
+
             <div className="space-y-2">
-              <Label>Preferred Categories</Label>
+              <Label className="text-xs text-muted-foreground">Preferred Categories</Label>
               <TagInput
                 value={customerData.preferred_categories}
                 onChange={(preferred_categories) =>
@@ -202,33 +344,153 @@ export default function CustomerSettings() {
                 placeholder="Add categories..."
               />
             </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="budgetMin" className="text-xs text-muted-foreground">Min Budget (₦)</Label>
+                <Input
+                  id="budgetMin"
+                  type="number"
+                  value={marketSettings.budget_alert_min}
+                  onChange={(e) =>
+                    setMarketSettings((prev) => ({
+                      ...prev,
+                      budget_alert_min: Number(e.target.value),
+                    }))
+                  }
+                  className="google-input"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="budgetMax" className="text-xs text-muted-foreground">Max Budget (₦)</Label>
+                <Input
+                  id="budgetMax"
+                  type="number"
+                  value={marketSettings.budget_alert_max}
+                  onChange={(e) =>
+                    setMarketSettings((prev) => ({
+                      ...prev,
+                      budget_alert_max: Number(e.target.value),
+                    }))
+                  }
+                  className="google-input"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Notifications */}
+        <div className="dashboard-card space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent">
+              <Bell className="h-4.5 w-4.5 text-accent-foreground" />
+            </div>
+            <h2 className="font-medium text-sm text-foreground uppercase tracking-wider">Notifications</h2>
+          </div>
+
+          <div className="divide-y divide-border/25 pt-2">
+            <ToggleSwitch
+              checked={marketSettings.notify_new_chats}
+              onChange={(val) =>
+                setMarketSettings((prev) => ({ ...prev, notify_new_chats: val }))
+              }
+              label="New Messages"
+              description="Receive push notifications for new incoming chats."
+            />
+            <ToggleSwitch
+              checked={marketSettings.notify_new_bids}
+              onChange={(val) =>
+                setMarketSettings((prev) => ({ ...prev, notify_new_bids: val }))
+              }
+              label="Job Bids & Quotes"
+              description="Be notified immediately when a provider submits a quote."
+            />
+            <ToggleSwitch
+              checked={marketSettings.notify_order_updates}
+              onChange={(val) =>
+                setMarketSettings((prev) => ({ ...prev, notify_order_updates: val }))
+              }
+              label="Order Progress Updates"
+              description="Receive notifications for shifts in order status."
+            />
+            <ToggleSwitch
+              checked={marketSettings.notify_email_newsletters}
+              onChange={(val) =>
+                setMarketSettings((prev) => ({ ...prev, notify_email_newsletters: val }))
+              }
+              label="Newsletter & Deals"
+              description="Periodic emails featuring discounts and new features."
+            />
+          </div>
+        </div>
+
+        {/* Privacy & Security */}
+        <div className="dashboard-card space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent">
+              <Shield className="h-4.5 w-4.5 text-accent-foreground" />
+            </div>
+            <h2 className="font-medium text-sm text-foreground uppercase tracking-wider">Privacy & Security</h2>
+          </div>
+
+          <div className="divide-y divide-border/25 pt-2">
+            <ToggleSwitch
+              checked={marketSettings.profile_visibility}
+              onChange={(val) =>
+                setMarketSettings((prev) => ({ ...prev, profile_visibility: val }))
+              }
+              label="Public Profile Visibility"
+              description="Allow business operators to view your basic profile card."
+            />
+            <ToggleSwitch
+              checked={marketSettings.activity_status}
+              onChange={(val) =>
+                setMarketSettings((prev) => ({ ...prev, activity_status: val }))
+              }
+              label="Online Activity Status"
+              description="Display an active indicator when you are exploring categories."
+            />
+            <ToggleSwitch
+              checked={marketSettings.two_factor_auth_enabled}
+              onChange={(val) =>
+                setMarketSettings((prev) => ({ ...prev, two_factor_auth_enabled: val }))
+              }
+              label="Two-Factor Authentication (2FA)"
+              description="Enforce verification code requirements upon sign-in attempts."
+            />
+            <ToggleSwitch
+              checked={marketSettings.biometrics_enabled}
+              onChange={(val) =>
+                setMarketSettings((prev) => ({ ...prev, biometrics_enabled: val }))
+              }
+              label="Biometrics Authentication"
+              description="Unlock the local mobile container using fingerprint or Face ID."
+            />
           </div>
         </div>
 
         {/* Referral Section */}
         <div className="dashboard-card space-y-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-              <Gift className="h-5 w-5 text-primary" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent">
+              <Gift className="h-4.5 w-4.5 text-accent-foreground" />
             </div>
             <div>
-              <h2 className="font-medium text-foreground">Referral Program</h2>
-              <p className="text-sm text-muted-foreground">
-                Invite friends and earn points
-              </p>
+              <h2 className="font-medium text-sm text-foreground uppercase tracking-wider">Referral Program</h2>
             </div>
           </div>
           
           {referralCode && (
-            <div className="flex items-center gap-2">
-              <div className="flex-1 rounded-lg bg-muted/50 px-4 py-3">
-                <p className="text-xs text-muted-foreground">Your referral code</p>
-                <p className="text-lg font-mono font-semibold text-foreground">{referralCode}</p>
+            <div className="flex items-center gap-2 pt-2">
+              <div className="flex-1 rounded-2xl bg-muted/30 border border-border/20 px-4 py-3">
+                <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Your referral code</p>
+                <p className="text-base font-mono font-semibold text-foreground mt-0.5">{referralCode}</p>
               </div>
               <Button
                 variant="outline"
                 size="icon"
-                className="h-12 w-12 shrink-0"
+                className="h-12 w-12 rounded-2xl shrink-0 border-border/40 active:scale-95 transition-transform"
                 onClick={() => {
                   navigator.clipboard.writeText(referralCode);
                   toast({ title: "Copied!", description: "Referral code copied to clipboard" });
@@ -239,17 +501,17 @@ export default function CustomerSettings() {
             </div>
           )}
           
-          <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-lg bg-muted/50 p-3 text-center">
-              <p className="text-2xl font-semibold text-foreground">{totalReferrals}</p>
-              <p className="text-xs text-muted-foreground">Friends Referred</p>
+          <div className="grid grid-cols-2 gap-3 pt-2">
+            <div className="rounded-2xl bg-muted/20 border border-border/20 p-3.5 text-center">
+              <p className="text-xl font-medium text-foreground">{totalReferrals}</p>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-0.5">Friends Referred</p>
             </div>
-            <div className="rounded-lg bg-muted/50 p-3 text-center">
+            <div className="rounded-2xl bg-muted/20 border border-border/20 p-3.5 text-center">
               <div className="flex items-center justify-center gap-1">
-                <Star className="h-4 w-4 text-primary" />
-                <p className="text-2xl font-semibold text-foreground">{totalPoints}</p>
+                <Star className="h-4 w-4 text-primary fill-primary" />
+                <p className="text-xl font-medium text-foreground">{totalPoints}</p>
               </div>
-              <p className="text-xs text-muted-foreground">Total Points</p>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-0.5">Total Points</p>
             </div>
           </div>
         </div>
@@ -257,62 +519,58 @@ export default function CustomerSettings() {
         {/* Location Access */}
         <div className="dashboard-card space-y-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent">
-              <MapPin className="h-5 w-5 text-accent-foreground" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent">
+              <MapPin className="h-4.5 w-4.5 text-accent-foreground" />
             </div>
             <div>
-              <h2 className="font-medium text-foreground">Location</h2>
-              <p className="text-sm text-muted-foreground">
-                Enable location for nearby business suggestions
-              </p>
+              <h2 className="font-medium text-sm text-foreground uppercase tracking-wider">GPS Location</h2>
             </div>
           </div>
           <Button
             variant="outline"
             onClick={requestLocation}
             disabled={locationLoading}
-            className="google-input-button"
+            className="w-full rounded-2xl h-11 border-border/40 active:scale-95 transition-transform"
           >
             <MapPin className="h-4 w-4 mr-2" />
-            {locationLoading ? "Getting location..." : "Update My Location"}
+            {locationLoading ? "Getting location..." : "Update GPS Coordinates"}
           </Button>
           {location && (
-            <p className="text-sm text-muted-foreground">
-              Location saved: {location.latitude.toFixed(4)}, {location.longitude.toFixed(4)}
+            <p className="text-[11px] text-muted-foreground text-center">
+              Coordinates secured: {location.latitude.toFixed(4)}, {location.longitude.toFixed(4)}
             </p>
           )}
         </div>
 
-        {/* Appearance */}
+        {/* Theme customization */}
         <div className="dashboard-card space-y-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent">
-              <Palette className="h-5 w-5 text-accent-foreground" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent">
+              <Palette className="h-4.5 w-4.5 text-accent-foreground" />
             </div>
-            <div>
-              <h2 className="font-medium text-foreground">Appearance</h2>
-              <p className="text-sm text-muted-foreground">
-                Choose your preferred theme
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <ThemeToggle />
-            <span className="text-sm text-muted-foreground">Toggle dark/light mode</span>
+            <h2 className="font-medium text-sm text-foreground uppercase tracking-wider">Appearance</h2>
           </div>
           <div className="pt-2">
-            <p className="text-sm font-medium text-foreground mb-2">Color Palette</p>
+            <p className="text-xs font-medium text-muted-foreground mb-3">Color Palette</p>
             <ThemeCustomizer />
           </div>
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <Button onClick={handleSave} disabled={saving} className="google-input-button">
+        <div className="flex flex-col gap-3 sm:flex-row pt-4">
+          <Button
+            onClick={handleSave}
+            disabled={saving}
+            className="flex-1 rounded-2xl h-12 text-sm font-medium tracking-wide active:scale-95 transition-transform"
+          >
             <Save className="h-4 w-4 mr-2" />
-            {saving ? "Saving..." : "Save Changes"}
+            {saving ? "Saving Changes..." : "Save Preferences"}
           </Button>
-          <Button variant="outline" onClick={signOut} className="google-input-button">
+          <Button
+            variant="outline"
+            onClick={signOut}
+            className="flex-1 rounded-2xl h-12 border-border/40 hover:bg-destructive/5 hover:text-destructive active:scale-95 transition-all"
+          >
             <LogOut className="h-4 w-4 mr-2" />
             Sign Out
           </Button>
@@ -321,3 +579,5 @@ export default function CustomerSettings() {
     </DashboardLayout>
   );
 }
+
+

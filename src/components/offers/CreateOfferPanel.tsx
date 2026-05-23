@@ -36,13 +36,20 @@ import {
   Phone,
   ShieldCheck
 } from "lucide-react";
+import {
+  RequestProductIcon,
+  RequestServiceIcon,
+  RequestEmploymentIcon,
+  RequestCollaborationIcon,
+} from "@/components/ui/custom-icons";
+import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 const offerTypes = [
-  { value: "product", label: "Product Request", icon: Package, description: "Looking for a specific product" },
-  { value: "service", label: "Service Request", icon: Wrench, description: "Need a service provider" },
-  { value: "employment", label: "Employment", icon: Briefcase, description: "Looking for workers/employees" },
-  { value: "collaboration", label: "Collaboration", icon: Users, description: "Partnership or joint venture" },
+  { value: "product", label: "Product Request", icon: RequestProductIcon, description: "Looking for a specific product" },
+  { value: "service", label: "Service Request", icon: RequestServiceIcon, description: "Need a services provider" },
+  { value: "employment", label: "Employment", icon: RequestEmploymentIcon, description: "Looking for workers/employees" },
+  { value: "collaboration", label: "Collaboration", icon: RequestCollaborationIcon, description: "Partnership or joint venture" },
 ];
 
 const urgencyOptions = [
@@ -172,26 +179,26 @@ export function CreateOfferPanel() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="gap-2">
+        <Button className="gap-2 rounded-full px-5 py-2.5 shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/20">
           <Plus className="h-4 w-4" />
           Create Request
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle>Create a Request</DialogTitle>
-          <DialogDescription>
+      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto rounded-[32px] border-0 shadow-2xl p-6">
+        <DialogHeader className="text-center sm:text-left space-y-1">
+          <DialogTitle className="text-2xl font-bold tracking-tight">Create a Request</DialogTitle>
+          <DialogDescription className="text-sm text-muted-foreground leading-relaxed">
             Request products, services, employment, or collaborations that aren't available yet
           </DialogDescription>
         </DialogHeader>
 
         {/* Verification Banner */}
         {verificationLevel < 2 && (
-          <div className="flex items-start gap-3 rounded-lg bg-primary/5 border border-primary/20 p-3 mt-2">
-            <ShieldCheck className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-            <div className="text-sm">
-              <p className="font-medium text-foreground">Verification Required</p>
-              <p className="text-muted-foreground mt-0.5">
+          <div className="flex items-start gap-3 rounded-[20px] bg-primary/5 border border-primary/20 p-4 mt-2 animate-fade-in">
+            <ShieldCheck className="h-5.5 w-5.5 text-primary shrink-0" />
+            <div className="text-xs">
+              <p className="font-bold text-foreground">Verification Required</p>
+              <p className="text-muted-foreground mt-0.5 leading-relaxed">
                 {verificationLevel === 0
                   ? "Please verify your email and complete onboarding to create requests."
                   : "Please complete your profile and add a phone number to unlock offer creation."}
@@ -200,9 +207,9 @@ export function CreateOfferPanel() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-          {/* Type Selection */}
-          <div className="grid grid-cols-2 gap-2">
+        <form onSubmit={handleSubmit} className="space-y-6 mt-4">
+          {/* Type Selection Grid */}
+          <div className="grid grid-cols-2 gap-3">
             {offerTypes.map((type) => {
               const Icon = type.icon;
               const isSelected = offerType === type.value;
@@ -211,15 +218,18 @@ export function CreateOfferPanel() {
                   key={type.value}
                   type="button"
                   onClick={() => setOfferType(type.value)}
-                  className={`p-3 rounded-xl border-2 text-left transition-all ${
+                  className={cn(
+                    "p-4 rounded-3xl border-2 text-left transition-all duration-300 flex flex-col space-y-2 active:scale-[0.97]",
                     isSelected
-                      ? "border-foreground bg-accent"
-                      : "border-border hover:border-muted-foreground"
-                  }`}
+                      ? "border-primary bg-primary/[0.03] shadow-md shadow-primary/5"
+                      : "border-border/40 hover:border-border hover:bg-accent/40"
+                  )}
                 >
-                  <Icon className="h-5 w-5 mb-1" />
-                  <p className="font-medium text-sm">{type.label}</p>
-                  <p className="text-xs text-muted-foreground">{type.description}</p>
+                  <Icon className="h-8.5 w-8.5 text-primary mb-1 shrink-0" />
+                  <div className="space-y-0.5">
+                    <p className="font-bold text-foreground text-xs">{type.label}</p>
+                    <p className="text-[10px] text-muted-foreground font-medium leading-tight">{type.description}</p>
+                  </div>
                 </button>
               );
             })}

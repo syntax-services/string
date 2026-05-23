@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, ArrowLeft, User, Building2, Mail, Lock, UserPlus } from "lucide-react";
 import { z } from "zod";
-import stringLogoLight from "@/assets/String-logo-light.png";
+import stringLogoLight from "@/assets/string-logo-light.png";
 import stringLogoDark from "@/assets/String-logo-dark.png";
 import { cn } from "@/lib/utils";
 

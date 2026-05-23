@@ -7,10 +7,10 @@ import { CartPopup } from "@/components/cart/CartPopup";
 import { NotificationsPopup } from "@/components/notifications/NotificationsPopup";
 import { useScrollVisibility } from "@/hooks/useScrollVisibility";
 import { cn } from "@/lib/utils";
-import stringLogoLight from "@/assets/String-logo-light.png";
+import stringLogoLight from "@/assets/string-logo-light.png";
 import stringLogoDark from "@/assets/String-logo-dark.png";
 import { useAuth } from "@/contexts/AuthContext";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, Plus } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
@@ -23,6 +23,15 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
   const { isEmailVerified, user, resolvedUserType } = useAuth();
   const location = useLocation();
   const [resending, setResending] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const desktopNavItems =
     resolvedUserType === "admin"
@@ -54,19 +63,20 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
       {/* Header - hides on scroll down, shows on scroll up */}
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 flex h-16 items-center justify-between border-b border-border bg-background/95 backdrop-blur-sm px-4 md:px-6 transition-transform duration-300",
+          "fixed top-0 left-0 right-0 z-40 flex items-center justify-between border-b bg-background/95 backdrop-blur-md px-4 md:px-6 transition-all duration-300",
+          isScrolled ? "h-[3.25rem] border-primary/20 shadow-[0_2px_15px_rgba(0,0,0,0.04)] bg-background/90" : "h-16 border-border",
           !isNavVisible && "-translate-y-full"
         )}
       >
         <Link to="/" className="flex items-center gap-2">
-          <img src={stringLogoLight} alt="String" className="h-10 w-auto logo-light" />
-          <img src={stringLogoDark} alt="String" className="h-10 w-auto logo-dark" />
+          <img src={stringLogoLight} alt="String" className={cn("w-auto logo-light transition-all duration-300", isScrolled ? "h-[1.5rem]" : "h-[1.85rem] md:h-10")} />
+          <img src={stringLogoDark} alt="String" className={cn("w-auto logo-dark transition-all duration-300", isScrolled ? "h-[1.5rem]" : "h-[1.85rem] md:h-10")} />
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
           {desktopNavItems.map((item) => {
-            const Icon = item.icon;
+            const Icon = item.icon as React.ComponentType<{ className?: string; active?: boolean }>;
             const isActive = location.pathname === item.href;
             return (
               <Link
@@ -77,7 +87,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
                   isActive ? "text-primary" : "text-muted-foreground"
                 )}
               >
-                <Icon className="h-4 w-4" />
+                <Icon className="h-4 w-4 transition-transform duration-300" active={isActive} />
                 {item.label}
               </Link>
             );
@@ -85,9 +95,17 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
         </div>
 
         <div className="flex items-center gap-2">
+          {resolvedUserType !== "admin" && (
+            <Link
+              to={resolvedUserType === "business" ? "/business/upload" : "/customer/offers"}
+              className="h-10 w-10 rounded-full hover:bg-accent flex items-center justify-center transition-all duration-200 active:scale-95 text-foreground hover:text-primary shrink-0"
+              title={resolvedUserType === "business" ? "Upload new listing" : "Create new request"}
+            >
+              <Plus className="h-5.5 w-5.5" strokeWidth={2.2} />
+            </Link>
+          )}
           <NotificationsPopup />
           {resolvedUserType === "customer" && <CartPopup />}
-          <ThemeToggle />
         </div>
       </header>
 
@@ -113,7 +131,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
 
       {/* Main content */}
       <main className="pb-safe-nav">
-        <div className="container py-6 animate-fade-in">
+        <div key={location.pathname} className="container py-6 animate-page-slide">
           {children}
         </div>
       </main>

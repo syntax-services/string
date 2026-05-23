@@ -5,12 +5,10 @@ const customerTabs = ["/customer", "/customer/discover", "/customer/messages", "
 const businessTabs = ["/business", "/business/discover", "/business/messages", "/business/profile"];
 
 /**
- * An elite, highly responsive gesture navigation hook that enables:
- * 1. Horizontal swipes to switch tabs seamlessly when on the dashboard's main tabs.
- * 2. Anywhere-on-screen right swipes to go back when on secondary screens.
- * 
- * Includes advanced velocity thresholds, straightness/trajectory checks, and
- * full exclusion rules for scrollable elements, inputs, buttons, and sliders.
+ * An elite, hardware-accelerated gestural navigation hook that enables:
+ * 1. Real-time tactile tab switching (swiping L/R translates current tab and switches).
+ * 2. Anywhere-on-screen swipe-to-peek back navigation (translates page to reveal background).
+ * 3. Elastic snap-back animations on gesture cancellation.
  */
 export function useSwipeNavigation() {
   const navigate = useNavigate();
@@ -29,10 +27,10 @@ export function useSwipeNavigation() {
 
       const target = e.target as HTMLElement;
 
-      // Check if a slider (Sheet or Dialog) is currently open in the DOM
+      // Check if a dialog/slider is open
       const isDialogOpen = document.querySelector('[role="dialog"]') !== null;
 
-      // Premium exclusions: Skip gesture starts on range inputs or sliders
+      // Exclusions
       const isSlider = target.closest('input[type="range"]') || target.closest('[role="slider"]') || target.closest('.no-swipe');
       
       if (isSlider) {
@@ -41,11 +39,9 @@ export function useSwipeNavigation() {
       }
 
       if (!isDialogOpen) {
-        // Standard page exclusions: Skip gesture starts on interactive or scrollable elements
+        // Standard page exclusions
         const isInput = target.closest('input') || target.closest('textarea') || target.closest('select');
         const isScrollableX = target.closest('.overflow-x-auto') || target.closest('.no-scrollbar');
-        
-        // Let buttons, links, or specific chat items process tap events cleanly without gesture intercept
         const isTapAction = target.closest('button') || target.closest('a') || target.closest('[role="button"]');
 
         if (isInput || isScrollableX || isTapAction) {
@@ -61,6 +57,36 @@ export function useSwipeNavigation() {
       currentY = touch.clientY;
       startTime = Date.now();
       isValidGesture = true;
+
+      // Signal swipe start
+      (window as any).isSwipeGestureActive = true;
+      window.dispatchEvent(new CustomEvent("swipe-gesture-change", { detail: { active: true } }));
+
+      // Lock transitions instantly for real-time tracking
+      const tabSlider = document.querySelector('.tab-slider') as HTMLElement;
+      if (tabSlider) {
+        tabSlider.style.transition = 'none';
+        tabSlider.style.willChange = 'transform';
+      }
+
+      const currentPage = document.querySelector('.current-page-container') as HTMLElement;
+      if (currentPage) {
+        currentPage.style.transition = 'none';
+        currentPage.style.animation = 'none';
+        currentPage.style.willChange = 'transform';
+      }
+
+      const prevPage = document.querySelector('.previous-page-container') as HTMLElement;
+      if (prevPage) {
+        prevPage.style.transition = 'none';
+        prevPage.style.willChange = 'transform, opacity';
+      }
+
+      const peekOverlay = document.querySelector('.peek-overlay') as HTMLElement;
+      if (peekOverlay) {
+        peekOverlay.style.transition = 'none';
+        peekOverlay.style.willChange = 'opacity';
+      }
     };
 
     const handleTouchMove = (e: TouchEvent) => {
@@ -69,6 +95,72 @@ export function useSwipeNavigation() {
       const touch = e.touches[0];
       currentX = touch.clientX;
       currentY = touch.clientY;
+
+      const deltaX = currentX - startX;
+      const deltaY = currentY - startY;
+
+      // Ensure gesture is horizontal
+      const isRelativelyHorizontal = Math.abs(deltaY) < Math.abs(deltaX) * 0.55;
+      if (!isRelativelyHorizontal) return;
+
+      const isCustomerTab = customerTabs.includes(pathname);
+      const isBusinessTab = businessTabs.includes(pathname);
+      const isDashboardTab = isCustomerTab || isBusinessTab;
+      const isDialogOpen = document.querySelector('[role="dialog"]') !== null;
+
+      if (isDialogOpen) {
+        const dialog = document.querySelector('[role="dialog"]') as HTMLElement;
+        if (dialog && deltaX > 0) {
+          dialog.style.transition = 'none';
+          dialog.style.transform = `translateX(${deltaX}px)`;
+        }
+        return;
+      }
+
+      const viewportWidth = window.innerWidth;
+
+      if (isDashboardTab) {
+        const tabSlider = document.querySelector('.tab-slider') as HTMLElement;
+        if (!tabSlider) return;
+
+        const tabs = isCustomerTab ? customerTabs : businessTabs;
+        const currentIndex = tabs.indexOf(pathname);
+        const baseOffset = -currentIndex * viewportWidth;
+
+        // Apply drag translation to the tab row
+        if (deltaX < 0 && currentIndex < tabs.length - 1) {
+          // Swipe Left -> Next Tab (allowed)
+          tabSlider.style.transform = `translateX(${baseOffset + deltaX}px)`;
+        } else if (deltaX > 0 && currentIndex > 0) {
+          // Swipe Right -> Prev Tab (allowed)
+          tabSlider.style.transform = `translateX(${baseOffset + deltaX}px)`;
+        }
+      } else {
+        // Secondary screen swipe-to-peek back navigation
+        const currentPage = document.querySelector('.current-page-container') as HTMLElement;
+        const prevPage = document.querySelector('.previous-page-container') as HTMLElement;
+        const peekOverlay = document.querySelector('.peek-overlay') as HTMLElement;
+
+        if (!currentPage) return;
+
+        if (deltaX > 0) {
+          // Translate active card
+          currentPage.style.transform = `translateX(${deltaX}px)`;
+          
+          // Apply iOS style parallax depth to background card
+          const progress = Math.min(deltaX / viewportWidth, 1);
+          if (prevPage) {
+            const bgTranslate = -20 + (progress * 20); // -20% to 0%
+            const bgScale = 0.95 + (progress * 0.05); // 0.95 to 1.0
+            const bgOpacity = 0.6 + (progress * 0.4); // 0.6 to 1.0
+            prevPage.style.transform = `translateX(${bgTranslate}%) scale(${bgScale})`;
+            prevPage.style.opacity = `${bgOpacity}`;
+          }
+          if (peekOverlay) {
+            peekOverlay.style.opacity = `${1.0 - progress}`;
+          }
+        }
+      }
     };
 
     const handleTouchEnd = () => {
@@ -78,39 +170,61 @@ export function useSwipeNavigation() {
       const deltaY = currentY - startY;
       const duration = Date.now() - startTime;
 
-      // Prevent crash / divide by zero
-      if (duration <= 0) return;
-
-      const velocity = Math.abs(deltaX) / duration; // px/ms
-
-      // Smart Gestural Heuristics:
-      // 1. Must be predominantly horizontal: Y deviation must be less than 45% of X displacement
+      const velocity = duration > 0 ? Math.abs(deltaX) / duration : 0; // px/ms
       const isRelativelyHorizontal = Math.abs(deltaY) < Math.abs(deltaX) * 0.45;
       
+      const tabSlider = document.querySelector('.tab-slider') as HTMLElement;
+      const currentPage = document.querySelector('.current-page-container') as HTMLElement;
+      const prevPage = document.querySelector('.previous-page-container') as HTMLElement;
+      const peekOverlay = document.querySelector('.peek-overlay') as HTMLElement;
+      const isDialogOpen = document.querySelector('[role="dialog"]') !== null;
+
+      const viewportWidth = window.innerWidth;
+
+      // Signal swipe end
+      (window as any).isSwipeGestureActive = false;
+      window.dispatchEvent(new CustomEvent("swipe-gesture-change", { detail: { active: false } }));
+
       if (!isRelativelyHorizontal) {
+        // Snap back if trajectory lost
+        snapBack();
         isValidGesture = false;
         return;
       }
 
-      // Check if a slider (Sheet or Dialog) is currently open in the DOM
-      const isDialogOpen = document.querySelector('[role="dialog"]') !== null;
-
       if (isDialogOpen) {
-        // Dismiss the open slider/drawer if swiping right
-        if (deltaX > 0) {
-          // Moderate thresholds for dismissing drawers to make it extremely responsive and easy
+        const dialog = document.querySelector('[role="dialog"]') as HTMLElement;
+        if (dialog && deltaX > 0) {
           const isSwipeTriggered = deltaX > 80 || (velocity > 0.3 && deltaX > 40);
           if (isSwipeTriggered) {
-            // Dispatch standard accessible Escape keypress to close Radix Sheets/Dialogs/Dropdowns
-            const escapeEvent = new KeyboardEvent("keydown", {
-              key: "Escape",
-              code: "Escape",
-              keyCode: 27,
-              which: 27,
-              bubbles: true,
-              cancelable: true
-            });
-            document.dispatchEvent(escapeEvent);
+            // Animate sliding off-screen to the right
+            dialog.style.transition = 'transform 0.22s cubic-bezier(0.16, 1, 0.3, 1)';
+            dialog.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+              const escapeEvent = new KeyboardEvent("keydown", {
+                key: "Escape",
+                code: "Escape",
+                keyCode: 27,
+                which: 27,
+                bubbles: true,
+                cancelable: true
+              });
+              document.dispatchEvent(escapeEvent);
+              
+              // Reset transform after closed so it starts clean next time
+              setTimeout(() => {
+                dialog.style.transform = '';
+                dialog.style.transition = '';
+              }, 50);
+            }, 220);
+          } else {
+            // Animate snap-back
+            dialog.style.transition = 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)';
+            dialog.style.transform = 'translateX(0)';
+            setTimeout(() => {
+              dialog.style.transform = '';
+              dialog.style.transition = '';
+            }, 250);
           }
         }
       } else {
@@ -119,43 +233,126 @@ export function useSwipeNavigation() {
         const isDashboardTab = isCustomerTab || isBusinessTab;
 
         if (isDashboardTab) {
-          // Tab switching logic: Swiping Left (deltaX < 0) switches to NEXT tab. Swiping Right (deltaX > 0) switches to PREV tab.
+          if (!tabSlider) {
+            isValidGesture = false;
+            return;
+          }
+
           const tabs = isCustomerTab ? customerTabs : businessTabs;
           const currentIndex = tabs.indexOf(pathname);
-
-          // Distance threshold for tab swipe: 100px OR velocity > 0.3 px/ms with 50px displacement
           const isSwipeTriggered = Math.abs(deltaX) > 100 || (velocity > 0.3 && Math.abs(deltaX) > 50);
 
           if (isSwipeTriggered && currentIndex !== -1) {
             if (deltaX < 0 && currentIndex < tabs.length - 1) {
-              // Swipe Left -> Next Tab
-              navigate(tabs[currentIndex + 1]);
+              // Complete Swipe Left -> Next Tab
+              const targetIdx = currentIndex + 1;
+              tabSlider.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+              tabSlider.style.transform = `translateX(-${targetIdx * 100}%)`;
+              setTimeout(() => {
+                navigate(tabs[targetIdx]);
+                setTimeout(resetStyles, 100);
+              }, 300);
             } else if (deltaX > 0 && currentIndex > 0) {
-              // Swipe Right -> Prev Tab
-              navigate(tabs[currentIndex - 1]);
+              // Complete Swipe Right -> Prev Tab
+              const targetIdx = currentIndex - 1;
+              tabSlider.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+              tabSlider.style.transform = `translateX(-${targetIdx * 100}%)`;
+              setTimeout(() => {
+                navigate(tabs[targetIdx]);
+                setTimeout(resetStyles, 100);
+              }, 300);
+            } else {
+              snapBack();
             }
+          } else {
+            snapBack();
           }
         } else {
-          // Secondary screen "Anywhere-on-screen back-swipe" logic:
-          // Must swipe L-to-R (deltaX > 0)
-          if (deltaX > 0) {
-            // Strict Premium thresholds for anywhere-on-screen back swipe:
-            // Distance > 120px OR (velocity > 0.4 px/ms AND distance > 60px)
-            const isBackTriggered = deltaX > 120 || (velocity > 0.4 && deltaX > 60);
+          // Secondary screens back-swipe
+          if (deltaX > 0 && currentPage) {
+            const isBackTriggered = deltaX > 100 || (velocity > 0.3 && deltaX > 50);
             if (isBackTriggered) {
-              navigate(-1);
+              // Complete Back Swipe (slide current off screen to right)
+              currentPage.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+              currentPage.style.transform = 'translateX(100%)';
+              
+              if (prevPage) {
+                prevPage.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+                prevPage.style.transform = 'translateX(0) scale(1)';
+                prevPage.style.opacity = '1';
+              }
+              if (peekOverlay) {
+                peekOverlay.style.transition = 'opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+                peekOverlay.style.opacity = '0';
+              }
+
+              setTimeout(() => {
+                navigate(-1);
+                setTimeout(resetStyles, 100);
+              }, 300);
+            } else {
+              snapBack();
             }
+          } else {
+            snapBack();
           }
         }
       }
 
-      // Reset values
-      startX = 0;
-      startY = 0;
-      currentX = 0;
-      currentY = 0;
-      startTime = 0;
       isValidGesture = false;
+
+      // Helper functions
+      function snapBack() {
+        if (tabSlider) {
+          const tabs = isCustomerTab ? customerTabs : businessTabs;
+          const currentIndex = tabs.indexOf(pathname);
+          tabSlider.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+          tabSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        if (currentPage) {
+          currentPage.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+          currentPage.style.transform = 'translateX(0)';
+        }
+
+        if (prevPage) {
+          prevPage.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+          prevPage.style.transform = 'translateX(-20%) scale(0.95)';
+          prevPage.style.opacity = '0';
+        }
+
+        if (peekOverlay) {
+          peekOverlay.style.transition = 'opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+          peekOverlay.style.opacity = '1';
+        }
+
+        setTimeout(resetStyles, 350);
+      }
+
+      function resetStyles() {
+        if (tabSlider) {
+          tabSlider.style.transition = '';
+          tabSlider.style.transform = '';
+          tabSlider.style.willChange = '';
+        }
+        if (currentPage) {
+          currentPage.style.transition = '';
+          currentPage.style.animation = '';
+          currentPage.style.transform = '';
+          currentPage.style.willChange = '';
+        }
+        if (prevPage) {
+          prevPage.style.transition = '';
+          prevPage.style.transform = '';
+          prevPage.style.opacity = '';
+          prevPage.style.willChange = '';
+        }
+        if (peekOverlay) {
+          peekOverlay.style.transition = '';
+          peekOverlay.style.opacity = '';
+          peekOverlay.style.willChange = '';
+        }
+      }
     };
 
     window.addEventListener("touchstart", handleTouchStart, { passive: true });
@@ -169,4 +366,3 @@ export function useSwipeNavigation() {
     };
   }, [navigate, pathname]);
 }
-

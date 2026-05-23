@@ -1,3 +1,5 @@
+import { useState, useRef } from "react";
+import { toast } from "sonner";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useAuth } from "@/contexts/AuthContext";
 import { useBusiness, useBusinessProducts, useBusinessServices } from "@/hooks/useBusiness";
@@ -24,14 +26,17 @@ import {
   ChevronRight,
   LogOut,
   Wallet,
+  Loader2,
 } from "lucide-react";
 import { format } from "date-fns";
 
 export default function BusinessProfile() {
-  const { profile, signOut } = useAuth();
+  const { profile, signOut, refreshProfile } = useAuth();
   const { data: business } = useBusiness();
   const { data: products = [] } = useBusinessProducts(business?.id);
   const { data: services = [] } = useBusinessServices(business?.id);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [uploading, setUploading] = useState(false);
 
   // Fetch stats
   const { data: stats } = useQuery({
@@ -54,6 +59,59 @@ export default function BusinessProfile() {
     enabled: !!business?.id,
   });
 
+  const handleAvatarClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleAvatarChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !profile?.id) return;
+
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error("Avatar images must be less than 5MB.");
+      return;
+    }
+
+    setUploading(true);
+    try {
+      const fileExt = file.name.split(".").pop();
+      const fileName = `${profile.id}/avatar-${Date.now()}.${fileExt}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("business-images")
+        .upload(fileName, file);
+
+      if (uploadError) throw uploadError;
+
+      const { data } = supabase.storage.from("business-images").getPublicUrl(fileName);
+      const publicUrl = data.publicUrl;
+
+      // Update both profiles and business logo/cover
+      const { error: updateProfileError } = await supabase
+        .from("profiles")
+        .update({ avatar_url: publicUrl })
+        .eq("user_id", profile.user_id);
+
+      if (updateProfileError) throw updateProfileError;
+
+      if (business?.id) {
+        const { error: updateBizError } = await supabase
+          .from("businesses")
+          .update({ logo_url: publicUrl, cover_image_url: publicUrl })
+          .eq("id", business.id);
+        if (updateBizError) throw updateBizError;
+      }
+
+      await refreshProfile();
+      toast.success("Profile picture updated!");
+    } catch (error) {
+      console.error("Avatar upload failed:", error);
+      toast.error("We could not save your profile picture. Please try again.");
+    } finally {
+      setUploading(false);
+    }
+  };
+
   const menuItems = [
     { icon: PremiumClipboard, label: "Orders", href: "/business/orders", count: stats?.orders },
     { icon: PremiumPackage, label: "Products", href: "/business/products", count: products.length },
@@ -63,19 +121,26 @@ export default function BusinessProfile() {
     { icon: PremiumSettings, label: "Settings", href: "/business/settings" },
   ];
 
+  const avatarUrl = business?.logo_url || business?.cover_image_url;
+
   return (
     <DashboardLayout>
-      <div className="max-w-md mx-auto space-y-8 pb-10">
+      <div className="max-w-md mx-auto space-y-5 pb-10">
         
         {/* Profile Header Block */}
         <div className="flex flex-col items-center text-center mt-6 space-y-4">
-          <div className="relative group cursor-pointer">
+          <div className="relative group cursor-pointer" onClick={handleAvatarClick}>
             <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-indigo-500 opacity-70 blur-md group-hover:opacity-100 transition duration-500" />
             <div className="relative h-32 w-32 rounded-full border-4 border-background bg-card flex items-center justify-center overflow-hidden shadow-2xl">
-              {business?.cover_image_url ? (
+              {uploading ? (
+                <div className="flex flex-col items-center justify-center gap-1.5">
+                  <Loader2 className="h-6 w-6 animate-spin text-primary" />
+                  <span className="text-[10px] font-bold text-muted-foreground">Uploading...</span>
+                </div>
+              ) : avatarUrl ? (
                 <img
-                  src={business.cover_image_url}
-                  alt={business.company_name}
+                  src={avatarUrl}
+                  alt={business?.company_name}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
@@ -83,7 +148,22 @@ export default function BusinessProfile() {
                   <Building2 className="h-16 w-16 text-primary" />
                 </div>
               )}
+              {/* Camera icon hover overlay */}
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white flex-col gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
+                </svg>
+                <span className="text-[9px] font-bold uppercase tracking-wider">Change Photo</span>
+              </div>
             </div>
+            <input 
+              type="file" 
+              ref={fileInputRef} 
+              onChange={handleAvatarChange} 
+              accept="image/*" 
+              className="hidden" 
+            />
           </div>
 
           <div className="space-y-1">
@@ -110,17 +190,17 @@ export default function BusinessProfile() {
 
         {/* Stats Grid Container */}
         <div className="grid grid-cols-3 gap-3">
-          <div className="bg-card rounded-2xl border border-border/40 p-4 text-center shadow-md">
-            <p className="text-lg font-medium text-foreground">{stats?.orders || 0}</p>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-0.5">Orders</p>
+          <div className="bg-card rounded-2xl border border-border/40 p-3 text-center shadow-sm">
+            <p className="text-base font-medium text-foreground">{stats?.orders || 0}</p>
+            <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-wider mt-0.5">Orders</p>
           </div>
-          <div className="bg-card rounded-2xl border border-border/40 p-4 text-center shadow-md">
-            <p className="text-lg font-medium text-foreground">{stats?.jobs || 0}</p>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-0.5">Jobs</p>
+          <div className="bg-card rounded-2xl border border-border/40 p-3 text-center shadow-sm">
+            <p className="text-base font-medium text-foreground">{stats?.jobs || 0}</p>
+            <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-wider mt-0.5">Jobs</p>
           </div>
-          <div className="bg-card rounded-2xl border border-border/40 p-4 text-center shadow-md">
-            <p className="text-lg font-medium text-foreground">{business?.reputation_score?.toFixed(1) || "—"}</p>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-0.5">Rating</p>
+          <div className="bg-card rounded-2xl border border-border/40 p-3 text-center shadow-sm">
+            <p className="text-base font-medium text-foreground">{business?.reputation_score?.toFixed(1) || "—"}</p>
+            <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-wider mt-0.5">Rating</p>
           </div>
         </div>
 
@@ -128,27 +208,27 @@ export default function BusinessProfile() {
         {business && <BusinessEarningsCard businessId={business.id} />}
 
         {/* Floating Card Container 1 (Main Menu) */}
-        <div className="bg-card rounded-3xl border border-border/40 shadow-xl shadow-black/5 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-black/10">
+        <div className="bg-card rounded-2xl border border-border/40 shadow-xl shadow-black/5 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-black/10">
           <div className="divide-y divide-border/30">
             {menuItems.map((item, idx) => (
               <Link
                 key={item.label}
                 to={item.href}
-                className="flex items-center justify-between px-5 py-4 hover:bg-primary/[0.02] active:bg-primary/[0.04] transition-all duration-300 group"
+                className="flex items-center justify-between px-4 py-2.5 hover:bg-primary/[0.02] active:bg-primary/[0.04] transition-all duration-300 group"
               >
-                <div className="flex items-center gap-3.5">
-                  <div className="h-9 w-9 rounded-2xl bg-muted/65 flex items-center justify-center group-hover:bg-primary/10 group-hover:text-primary transition-all duration-300">
-                    <item.icon className="h-4.5 w-4.5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-xl bg-muted/50 flex items-center justify-center group-hover:bg-primary/10 group-hover:text-primary transition-all duration-300">
+                    <item.icon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                   </div>
-                  <span className="font-medium text-foreground/80 group-hover:text-foreground text-sm tracking-wide transition-colors duration-300">{item.label}</span>
+                  <span className="font-medium text-foreground/80 group-hover:text-foreground text-[13px] tracking-wide transition-colors duration-300">{item.label}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   {item.count !== undefined && item.count > 0 && (
-                    <span className="bg-primary/10 text-primary text-[10px] font-medium px-2 py-0.5 rounded-full">
+                    <span className="bg-primary/10 text-primary text-[9px] font-bold px-1.5 py-0.25 rounded-full">
                       {item.count}
                     </span>
                   )}
-                  <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-0.5 transition-transform duration-300" />
+                  <ChevronRight className="h-3.5 w-3.5 text-muted-foreground group-hover:translate-x-0.5 transition-transform duration-300" />
                 </div>
               </Link>
             ))}
@@ -156,14 +236,14 @@ export default function BusinessProfile() {
         </div>
 
         {/* Theme Settings Container */}
-        <div className="bg-card rounded-3xl border border-border/40 shadow-xl shadow-black/5 overflow-hidden">
+        <div className="bg-card rounded-2xl border border-border/40 shadow-xl shadow-black/5 overflow-hidden">
           <div className="divide-y divide-border/30">
-            <div className="flex items-center justify-between px-5 py-4 hover:bg-primary/[0.02] transition-all duration-300">
-              <div className="flex items-center gap-3.5">
-                <div className="h-9 w-9 rounded-2xl bg-muted/65 flex items-center justify-center">
-                  <Building2 className="h-4.5 w-4.5 text-muted-foreground" />
+            <div className="flex items-center justify-between px-4 py-2.5 hover:bg-primary/[0.02] transition-all duration-300">
+              <div className="flex items-center gap-3">
+                <div className="h-8 w-8 rounded-xl bg-muted/50 flex items-center justify-center">
+                  <Building2 className="h-4 w-4 text-muted-foreground" />
                 </div>
-                <span className="font-medium text-foreground/80 text-sm tracking-wide">Dark Theme</span>
+                <span className="font-medium text-foreground/80 text-[13px] tracking-wide">Dark Theme</span>
               </div>
               <ThemeToggle />
             </div>
@@ -173,7 +253,7 @@ export default function BusinessProfile() {
         {/* Logout Action */}
         <Button
           variant="outline"
-          className="w-full rounded-2xl h-12 border-border/40 hover:bg-destructive/5 hover:text-destructive transition-all duration-300 text-sm font-medium tracking-wide active:scale-95"
+          className="w-full rounded-xl h-10 border-border/40 hover:bg-destructive/5 hover:text-destructive transition-all duration-300 text-sm font-medium tracking-wide active:scale-95"
           onClick={signOut}
         >
           <LogOut className="h-4 w-4 mr-2" />

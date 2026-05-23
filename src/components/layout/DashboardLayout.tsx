@@ -18,12 +18,136 @@ interface DashboardLayoutProps {
   children: React.ReactNode;
 }
 
+// Module-level global caches to persist page visual states across nested DashboardLayout unmounts and mounts
+let globalPrevPageHtml = "";
+let globalPrevPath = "";
+const globalCachedTabsHtml: Record<string, string> = {};
+
 export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   const isNavVisible = useScrollVisibility();
   const { isEmailVerified, user, resolvedUserType } = useAuth();
   const location = useLocation();
   const [resending, setResending] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+
+  const customerTabs = ["/customer", "/customer/discover", "/customer/messages", "/customer/profile"];
+  const businessTabs = ["/business", "/business/discover", "/business/messages", "/business/profile"];
+
+  const isCustomerTab = customerTabs.includes(location.pathname);
+  const isBusinessTab = businessTabs.includes(location.pathname);
+  const isDashboardTab = isCustomerTab || isBusinessTab;
+
+  const [prevPageHtml, setPrevPageHtml] = React.useState<string>(globalPrevPageHtml);
+  const [prevPage, setPrevPage] = React.useState<{ pathname: string; children: React.ReactNode } | null>(null);
+
+  const prevChildrenRef = React.useRef<React.ReactNode>(children);
+  const prevPathRef = React.useRef(location.pathname);
+
+  // Monitor path changes to store previous page and capture visual static HTML snapshots globally
+  React.useEffect(() => {
+    const prevPath = prevPathRef.current;
+    
+    if (prevPath !== location.pathname) {
+      const tabs = isCustomerTab ? customerTabs : businessTabs;
+      const isTargetTab = tabs.includes(location.pathname);
+      
+      if (isTargetTab) {
+        // Going backward or switching to a dashboard tab -> Reset back-peek cache
+        globalPrevPageHtml = "";
+        globalPrevPath = "";
+        setPrevPageHtml("");
+      } else {
+        // Going forward/deeper to a sub-page -> Capture the previous page HTML snapshot globally
+        const currentContainer = document.querySelector('.current-page-container');
+        if (currentContainer) {
+          globalPrevPageHtml = currentContainer.innerHTML;
+          globalPrevPath = prevPath;
+          setPrevPageHtml(globalPrevPageHtml);
+        }
+      }
+
+      // 2. Capture dashboard tab HTML snapshot globally before navigating away
+      const prevTabIdx = tabs.indexOf(prevPath);
+      if (prevTabIdx !== -1) {
+        const tabSlider = document.querySelector('.tab-slider');
+        if (tabSlider) {
+          const activeTabEl = tabSlider.children[prevTabIdx] as HTMLElement;
+          if (activeTabEl) {
+            globalCachedTabsHtml[prevPath] = activeTabEl.innerHTML;
+          }
+        }
+      }
+
+      setPrevPage({
+        pathname: prevPath,
+        children: prevChildrenRef.current
+      });
+      prevPathRef.current = location.pathname;
+      prevChildrenRef.current = children;
+    } else {
+      prevChildrenRef.current = children;
+    }
+  }, [location.pathname, children, isCustomerTab]);
+
+  // Proactive tab HTML caching: 500ms after a dashboard tab mounts or renders, capture its visual state
+  React.useEffect(() => {
+    if (isDashboardTab) {
+      const timer = setTimeout(() => {
+        const tabs = isCustomerTab ? customerTabs : businessTabs;
+        const currentTabIdx = tabs.indexOf(location.pathname);
+        if (currentTabIdx !== -1) {
+          const tabSlider = document.querySelector('.tab-slider');
+          if (tabSlider) {
+            const activeTabEl = tabSlider.children[currentTabIdx] as HTMLElement;
+            if (activeTabEl) {
+              globalCachedTabsHtml[location.pathname] = activeTabEl.innerHTML;
+            }
+          }
+        }
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname, children, isDashboardTab, isCustomerTab]);
+
+  // Clear previous page and HTML cache after transition ends
+  React.useEffect(() => {
+    if (prevPage) {
+      const timer = setTimeout(() => {
+        if (!(window as any).isSwipeGestureActive) {
+          setPrevPage(null);
+          setPrevPageHtml("");
+        }
+      }, 450);
+      return () => clearTimeout(timer);
+    }
+  }, [prevPage]);
+
+  // Handle custom swipe event ends to clear prevPage Html
+  React.useEffect(() => {
+    const handleGestureChange = (e: Event) => {
+      const active = (e as CustomEvent).detail?.active;
+      if (!active) {
+        setTimeout(() => {
+          setPrevPage(null);
+          setPrevPageHtml("");
+        }, 250);
+      }
+    };
+    window.addEventListener("swipe-gesture-change", handleGestureChange);
+    return () => window.removeEventListener("swipe-gesture-change", handleGestureChange);
+  }, []);
+
+  const TabSkeleton = () => (
+    <div className="w-full h-full space-y-6 animate-pulse p-4">
+      <div className="h-10 w-2/3 bg-muted rounded-xl" />
+      <div className="grid grid-cols-2 gap-4">
+        <div className="h-28 bg-muted rounded-2xl" />
+        <div className="h-28 bg-muted rounded-2xl" />
+      </div>
+      <div className="h-40 w-full bg-muted rounded-2xl" />
+      <div className="h-20 w-full bg-muted rounded-2xl" />
+    </div>
+  );
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -130,10 +254,76 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
       )}
 
       {/* Main content */}
-      <main className="pb-safe-nav">
-        <div key={location.pathname} className="container py-6 animate-page-slide">
-          {children}
-        </div>
+      <main className="pb-safe-nav relative min-h-[calc(100vh-4rem)]">
+        {isDashboardTab ? (
+          <div className="relative w-full overflow-hidden">
+            <div 
+              className="tab-slider flex w-full"
+              style={{
+                transform: `translateX(-${(isCustomerTab ? customerTabs : businessTabs).indexOf(location.pathname) * 100}%)`,
+                transition: (window as any).isSwipeGestureActive ? 'none' : 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+            >
+              {(isCustomerTab ? customerTabs : businessTabs).map((tabPath) => {
+                const isCurrent = location.pathname === tabPath;
+                return (
+                  <div 
+                    key={tabPath} 
+                    className={cn(
+                      "w-full shrink-0 min-h-[calc(100vh-8rem)]",
+                      isCurrent && "animate-page-slide current-page-container"
+                    )}
+                    style={{ willChange: 'transform' }}
+                  >
+                    {isCurrent ? (
+                      children
+                    ) : globalCachedTabsHtml[tabPath] ? (
+                      <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: globalCachedTabsHtml[tabPath] }} />
+                    ) : (
+                      <TabSkeleton />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ) : (
+          <div className="relative overflow-hidden w-full min-h-[calc(100vh-4rem)]">
+            {/* Previous Page (underneath) for back-peek */}
+            {prevPageHtml && (
+              <div 
+                className="previous-page-container absolute inset-0 z-0 py-6 container pointer-events-none"
+                style={{
+                  opacity: 0,
+                  transform: 'translateX(-20%) scale(0.95)',
+                  willChange: 'transform, opacity',
+                  overflow: 'hidden',
+                  height: 'calc(100vh - 4rem)'
+                }}
+                dangerouslySetInnerHTML={{ __html: prevPageHtml }}
+              />
+            )}
+            
+            {/* Dark overlay for dimming */}
+            {prevPageHtml && (
+              <div 
+                className="peek-overlay absolute inset-0 z-5 bg-black/35 pointer-events-none opacity-100 transition-opacity duration-300"
+                style={{ willChange: 'opacity' }}
+              />
+            )}
+
+            {/* Current Page (on top) */}
+            <div 
+              className="current-page-container relative z-10 py-6 container bg-background animate-page-slide shadow-[-8px_0_24px_rgba(0,0,0,0.08)] dark:shadow-[-8px_0_24px_rgba(0,0,0,0.35)]"
+              style={{
+                minHeight: 'calc(100vh - 4rem)',
+                willChange: 'transform'
+              }}
+            >
+              {children}
+            </div>
+          </div>
+        )}
       </main>
 
       {/* Bottom Nav - hides on scroll down, shows on scroll up */}

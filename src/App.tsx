@@ -26,37 +26,39 @@ const PageLoader = () => (
   </div>
 );
 
-// Customer pages
-const CustomerOverview = lazy(() => import("./pages/customer/CustomerOverview"));
-const CustomerDiscover = lazy(() => import("./pages/customer/CustomerDiscover"));
+// Customer core pages (Statically imported for instant, zero-delay tab switching)
+import CustomerOverview from "./pages/customer/CustomerOverview";
+import CustomerDiscover from "./pages/customer/CustomerDiscover";
+import CustomerProfile from "./pages/customer/CustomerProfile";
+import CustomerSettings from "./pages/customer/CustomerSettings";
+import CustomerMessages from "./pages/customer/CustomerMessages";
+
 const CustomerOrders = lazy(() => import("./pages/customer/CustomerOrders"));
 const CustomerOffers = lazy(() => import("./pages/customer/CustomerOffers"));
 const CustomerSavedBusinesses = lazy(() => import("./pages/customer/CustomerSavedBusinesses"));
 const CustomerJobs = lazy(() => import("./pages/customer/CustomerJobs"));
 const CustomerEngagement = lazy(() => import("./pages/customer/CustomerEngagement"));
-const CustomerProfile = lazy(() => import("./pages/customer/CustomerProfile"));
 const CustomerNotifications = lazy(() => import("./pages/customer/CustomerNotifications"));
-const CustomerSettings = lazy(() => import("./pages/customer/CustomerSettings"));
-const CustomerMessages = lazy(() => import("./pages/customer/CustomerMessages"));
 const PaymentCallback = lazy(() => import("./pages/customer/PaymentCallback"));
 
-// Business pages
-const BusinessOverview = lazy(() => import("./pages/business/BusinessOverview"));
+// Business core pages (Statically imported for instant, zero-delay tab switching)
+import BusinessOverview from "./pages/business/BusinessOverview";
+import BusinessDiscover from "./pages/business/BusinessDiscover";
+import BusinessProfile from "./pages/business/BusinessProfile";
+import BusinessSettings from "./pages/business/BusinessSettings";
+import BusinessMessages from "./pages/business/BusinessMessages";
+
 const BusinessInsights = lazy(() => import("./pages/business/BusinessInsights"));
 const BusinessLeads = lazy(() => import("./pages/business/BusinessLeads"));
 const BusinessProducts = lazy(() => import("./pages/business/BusinessProducts"));
 const BusinessServices = lazy(() => import("./pages/business/BusinessServices"));
 const BusinessOrders = lazy(() => import("./pages/business/BusinessOrders"));
 const BusinessJobs = lazy(() => import("./pages/business/BusinessJobs"));
-const BusinessProfile = lazy(() => import("./pages/business/BusinessProfile"));
 const BusinessGrowth = lazy(() => import("./pages/business/BusinessGrowth"));
-const BusinessSettings = lazy(() => import("./pages/business/BusinessSettings"));
-const BusinessMessages = lazy(() => import("./pages/business/BusinessMessages"));
 const BusinessPublicProfile = lazy(() => import("./pages/business/BusinessPublicProfile"));
 const BusinessAnalytics = lazy(() => import("./pages/business/BusinessAnalytics"));
 const BusinessReviews = lazy(() => import("./pages/business/BusinessReviews"));
 const BusinessUpload = lazy(() => import("./pages/business/BusinessUpload"));
-const BusinessDiscover = lazy(() => import("./pages/business/BusinessDiscover"));
 
 // Admin pages
 const StringAdmin = lazy(() => import("./pages/admin/StringAdmin"));

@@ -187,10 +187,10 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
       {/* Header - hides on scroll down, shows on scroll up */}
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 flex items-center justify-between border-b px-4 md:px-6 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-40 flex items-center justify-between transition-all duration-300 px-4 md:px-6",
           isScrolled 
-            ? "h-[3.25rem] border-primary/20 shadow-[0_2px_15px_rgba(0,0,0,0.04)] bg-background/60 backdrop-blur-md" 
-            : "h-16 border-transparent bg-transparent"
+            ? "h-[3.25rem] border-b border-transparent bg-transparent shadow-none backdrop-blur-none md:border-primary/20 md:bg-background/60 md:backdrop-blur-md md:shadow-[0_2px_15px_rgba(0,0,0,0.04)]" 
+            : "h-16 border-b border-transparent bg-transparent"
         )}
       >
         <Link to="/" className="flex items-center gap-2">
@@ -219,7 +219,10 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
           })}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className={cn(
+          "flex items-center gap-2 transition-all duration-300",
+          isScrolled ? "opacity-0 pointer-events-none -translate-y-4 md:opacity-100 md:pointer-events-auto md:translate-y-0" : "opacity-100"
+        )}>
           {resolvedUserType !== "admin" && (
             <Link
               to={resolvedUserType === "business" ? "/business/upload" : "/customer/offers"}
@@ -327,8 +330,8 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
         )}
       </main>
 
-      {/* Bottom Nav - hides on scroll down, shows on scroll up */}
-      <BottomNav isVisible={isNavVisible} />
+      {/* Bottom Nav - turns to capsule when scrolled */}
+      <BottomNav isVisible={!isScrolled} />
     </div>
   );
 };

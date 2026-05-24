@@ -38,6 +38,7 @@ import {
   SlidersHorizontal,
   ShoppingCart,
   Zap,
+  MapPin,
 } from "lucide-react";
 import {
   Select,
@@ -993,11 +994,35 @@ export default function CustomerDiscover() {
 
                   {/* Metadata: Industry type, Location, Products/Services description */}
                   <div className="px-1.5 space-y-2">
-                    {business.industry && (
-                      <p className="text-[10px] font-extrabold text-primary uppercase tracking-widest leading-none">
-                        {business.industry}
-                      </p>
-                    )}
+                    <div className="flex items-center justify-between flex-wrap gap-1">
+                      {business.industry && (
+                        <p className="text-[10px] font-extrabold text-primary uppercase tracking-widest leading-none">
+                          {business.industry}
+                        </p>
+                      )}
+                      
+                      {business.business_location && (
+                        <div className="flex items-center gap-1 text-[10px] text-muted-foreground font-semibold">
+                          <MapPin className="h-3 w-3 text-primary shrink-0" />
+                          <span className="truncate max-w-[150px]">
+                            {business.business_location.includes(",") && !isNaN(Number(business.business_location.split(",")[0]))
+                              ? "Verified Coordinates"
+                              : business.business_location.split(",")[0]}
+                          </span>
+                          {business.latitude && business.longitude && (
+                            <a
+                              href={`https://www.google.com/maps/dir/?api=1&destination=${business.latitude},${business.longitude}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[9px] font-bold text-primary hover:underline flex items-center gap-0.5"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              (Google Maps ↗)
+                            </a>
+                          )}
+                        </div>
+                      )}
+                    </div>
                     <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
                       {business.products_services || "A premium local partner dedicated to bringing you the highest standard of products and services."}
                     </p>

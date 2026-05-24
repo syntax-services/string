@@ -1213,7 +1213,7 @@ export default function StringAdmin() {
                                     {profile.theme_mode === 'dark' ? '🌙 Dark' : '☀️ Light'}
                                   </Badge>
                                   <Badge variant="outline" className="text-xs gap-1 py-0.5 border-primary/30 text-primary">
-                                    🎨 {profile.theme_palette === 'mono' ? 'Mono' : profile.theme_palette === 'rose' ? 'Rose' : 'Blue'}
+                                    🎨 {{ blue: 'Blue', mono: 'Mono', rose: 'Rose', emerald: 'Emerald', sunset: 'Sunset', amber: 'Amber', custom: 'Custom' }[profile.theme_palette || 'blue'] || 'Blue'}
                                   </Badge>
                                 </div>
                               </TableCell>
@@ -1294,31 +1294,31 @@ export default function StringAdmin() {
                   {/* Theme Palette Selector */}
                   <div className="space-y-3">
                     <Label className="text-sm font-semibold tracking-wide">Theme Accent Palette</Label>
-                    <div className="grid grid-cols-3 gap-3">
-                      <Button
-                        type="button"
-                        variant={editingProfile.theme_palette === 'blue' ? 'default' : 'outline'}
-                        onClick={() => setEditingProfile({ ...editingProfile, theme_palette: 'blue' })}
-                        className="w-full flex items-center gap-2 justify-center"
-                      >
-                        🔵 Cobalt Blue
-                      </Button>
-                      <Button
-                        type="button"
-                        variant={editingProfile.theme_palette === 'mono' ? 'default' : 'outline'}
-                        onClick={() => setEditingProfile({ ...editingProfile, theme_palette: 'mono' })}
-                        className="w-full flex items-center gap-2 justify-center"
-                      >
-                        ⚪ Monochrome
-                      </Button>
-                      <Button
-                        type="button"
-                        variant={editingProfile.theme_palette === 'rose' ? 'default' : 'outline'}
-                        onClick={() => setEditingProfile({ ...editingProfile, theme_palette: 'rose' })}
-                        className="w-full flex items-center gap-2 justify-center"
-                      >
-                        🌸 Rose
-                      </Button>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        { v: 'blue',    c: '#2563EB', l: 'Blue' },
+                        { v: 'mono',    c: '#525252', l: 'Mono' },
+                        { v: 'rose',    c: '#D08F8F', l: 'Rose' },
+                        { v: 'emerald', c: '#95BF47', l: 'Emerald' },
+                        { v: 'sunset',  c: '#F68B1E', l: 'Sunset' },
+                        { v: 'amber',   c: '#FF9900', l: 'Amber' },
+                        { v: 'custom',  c: '#6D5ACD', l: 'Custom' },
+                      ].map((p) => (
+                        <button
+                          key={p.v}
+                          type="button"
+                          onClick={() => setEditingProfile({ ...editingProfile, theme_palette: p.v as any })}
+                          className={cn(
+                            'flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium border transition-all',
+                            editingProfile.theme_palette === p.v
+                              ? 'border-primary bg-primary/10 text-primary shadow-sm'
+                              : 'border-border text-muted-foreground hover:border-primary/40'
+                          )}
+                        >
+                          <span className="h-3 w-3 rounded-full ring-1 ring-black/10" style={{ backgroundColor: p.c }} />
+                          {p.l}
+                        </button>
+                      ))}
                     </div>
                   </div>
 

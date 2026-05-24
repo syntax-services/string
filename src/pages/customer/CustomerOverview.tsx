@@ -154,7 +154,7 @@ export default function CustomerOverview() {
           businessName: "Crown Braids Salon",
           businessHandle: "@crown_braids",
           verified: false,
-          imageUrl: "https://images.unsplash.com/photo-1620331350335-96a2f8c5b058?auto=format&fit=crop&q=80&w=800",
+          imageUrl: "/crown_braids_salon.png",
           category: "Hair & Beauty",
           likes: "95k",
           comments: "3k",

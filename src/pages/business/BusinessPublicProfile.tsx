@@ -345,9 +345,23 @@ export default function BusinessPublicProfile() {
                   </div>
                 )}
                 {business.business_location && (
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <MapPin className="h-4 w-4" />
-                    <span>{business.business_location}</span>
+                  <div className="flex items-center gap-2 text-muted-foreground flex-wrap">
+                    <MapPin className="h-4 w-4 shrink-0" />
+                    <span>
+                      {business.business_location.includes(",") && !isNaN(Number(business.business_location.split(",")[0]))
+                        ? "Verified Coordinates"
+                        : business.business_location}
+                    </span>
+                    {business.latitude && business.longitude && (
+                      <a
+                        href={`https://www.google.com/maps/dir/?api=1&destination=${business.latitude},${business.longitude}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-bold text-primary hover:underline ml-1 inline-flex items-center gap-0.5"
+                      >
+                        · Navigate via Google Maps ↗
+                      </a>
+                    )}
                   </div>
                 )}
                 {business.website && (

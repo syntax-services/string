@@ -67,7 +67,22 @@ export function BusinessCard({
           {business.business_location && (
             <div className="mt-1 flex items-center gap-1 text-sm text-muted-foreground">
               <MapPin className="h-3 w-3 flex-shrink-0" />
-              <span className="truncate">{business.business_location}</span>
+              <span className="truncate">
+                {business.business_location.includes(",") && !isNaN(Number(business.business_location.split(",")[0]))
+                  ? "Verified Coordinates"
+                  : business.business_location.split(",")[0]}
+              </span>
+              {business.latitude && business.longitude && (
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${business.latitude},${business.longitude}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-bold text-primary hover:underline ml-1 shrink-0 flex items-center gap-0.5"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  · Google Maps ↗
+                </a>
+              )}
               {distance !== null && distance !== undefined && (
                 <span className="text-xs text-primary ml-1">
                   ({distance < 1 ? `${Math.round(distance * 1000)}m` : `${distance.toFixed(1)}km`})

@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
+import { applyPalette } from '@/lib/theme';
 
 type AccountType = 'customer' | 'business';
 type ResolvedUserType = AccountType | 'admin';
@@ -17,7 +18,7 @@ interface Profile {
   accepted_terms_version: number | null;
   terms_accepted_at: string | null;
   theme_mode?: 'dark' | 'light';
-  theme_palette?: 'blue' | 'mono' | 'rose';
+  theme_palette?: 'blue' | 'mono' | 'rose' | 'emerald' | 'sunset' | 'amber' | 'custom';
   banned?: boolean;
   created_at: string;
   updated_at: string;
@@ -298,7 +299,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
       if (profile.theme_palette) {
         localStorage.setItem("palette", profile.theme_palette);
-        document.documentElement.setAttribute("data-palette", profile.theme_palette);
+        applyPalette(profile.theme_palette);
       }
     }
 
@@ -330,7 +331,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           }
           if (newProfile.theme_palette) {
             localStorage.setItem("palette", newProfile.theme_palette);
-            document.documentElement.setAttribute("data-palette", newProfile.theme_palette);
+            applyPalette(newProfile.theme_palette);
           }
         }
       )

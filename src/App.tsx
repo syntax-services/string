@@ -18,6 +18,7 @@ import Banned from "./pages/Banned";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
+import { applyPalette } from "@/lib/theme";
 
 // Scroll Restoration helper
 function ScrollToTop() {
@@ -107,9 +108,9 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
     const isDark = stored === "dark" || (!stored && prefersDark);
     document.documentElement.classList.toggle("dark", isDark);
 
-    // Apply color palette (blue = default marketplace, mono = classic monochrome)
+    // Apply color palette
     const palette = localStorage.getItem("palette") || "blue";
-    document.documentElement.setAttribute("data-palette", palette);
+    applyPalette(palette);
   }, []);
 
   return <>{children}</>;

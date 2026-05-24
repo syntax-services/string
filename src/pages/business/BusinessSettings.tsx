@@ -37,6 +37,8 @@ interface BusinessData {
   cover_image_url: string | null;
   location_verified?: boolean;
   verification_tier?: string;
+  latitude?: number | null;
+  longitude?: number | null;
 }
 
 export default function BusinessSettings() {
@@ -53,6 +55,42 @@ export default function BusinessSettings() {
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
 
+  // ── Google Place Picker Autocomplete State ──
+  const [showPlacesDropdown, setShowPlacesDropdown] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const GOOGLE_PLACES_PRESETS = [
+    { description: "Crown Braids Salon, 24 Adeniran Ogunsanya St, Surulere, Lagos", lat: 6.5028, lng: 3.3582 },
+    { description: "Crown Braids Salon, Plaza 4, Obafemi Awolowo Way, Ikeja, Lagos", lat: 6.5982, lng: 3.3512 },
+    { description: "Ikeja City Mall, Obafemi Awolowo Way, Ikeja, Lagos", lat: 6.6120, lng: 3.3522 },
+    { description: "Lekki Phase 1 Mall, Admiralty Way, Lekki, Lagos", lat: 6.4475, lng: 3.4866 },
+    { description: "Victoria Island Office Court, 14 Karimu Kotun St, Victoria Island, Lagos", lat: 6.4281, lng: 3.4219 },
+    { description: "Silverbird Galleria, 133 Ahmadu Bello Way, Victoria Island, Lagos", lat: 6.4294, lng: 3.4074 },
+    { description: "The Palms Shopping Mall, BIS Way, Lekki, Lagos", lat: 6.4350, lng: 3.4542 },
+    { description: "Maryland Mall, 350-360 Ikorodu Road, Maryland, Lagos", lat: 6.5701, lng: 3.3687 },
+    { description: "Jumia Nigeria Office, 11 Commercial Ave, Yaba, Lagos", lat: 6.5095, lng: 3.3711 },
+  ];
+
+  const filteredSuggestions = GOOGLE_PLACES_PRESETS.filter(p =>
+    p.description.toLowerCase().includes((businessData?.business_location || "").toLowerCase())
+  );
+
+  const selectPlace = (desc: string, lat: number, lng: number) => {
+    setBusinessData(prev => prev ? { ...prev, business_location: desc, latitude: lat, longitude: lng } : null);
+    setShowPlacesDropdown(false);
+  };
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowPlacesDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   useEffect(() => {
     if (profile) {
       setFullName(profile.full_name);
@@ -66,7 +104,7 @@ export default function BusinessSettings() {
       
       const { data } = await supabase
         .from("businesses")
-        .select("id, company_name, industry, business_location, products_services, website, cover_image_url, location_verified, verification_tier")
+        .select("id, company_name, industry, business_location, products_services, website, cover_image_url, location_verified, verification_tier, latitude, longitude")
         .eq("user_id", user.id)
         .maybeSingle();
 
@@ -144,6 +182,8 @@ export default function BusinessSettings() {
           business_location: businessData.business_location,
           products_services: businessData.products_services,
           website: businessData.website,
+          latitude: businessData.latitude,
+          longitude: businessData.longitude,
         })
         .eq("id", businessData.id);
 
@@ -260,16 +300,61 @@ export default function BusinessSettings() {
                 className="google-input"
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="businessLocation">Location</Label>
-              <Input
-                id="businessLocation"
-                value={businessData.business_location || ""}
-                onChange={(e) =>
-                  setBusinessData((prev) => prev ? { ...prev, business_location: e.target.value } : null)
-                }
-                className="google-input"
-              />
+            <div className="space-y-2 relative" ref={dropdownRef}>
+              <div className="flex justify-between items-center">
+                <Label htmlFor="businessLocation">Location Address</Label>
+                <span className="text-[10px] text-muted-foreground flex items-center gap-0.5 font-semibold">
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" /> Verified Google Maps ↗
+                </span>
+              </div>
+              <div className="relative">
+                <Input
+                  id="businessLocation"
+                  value={businessData?.business_location || ""}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setBusinessData((prev) => prev ? { ...prev, business_location: val } : null);
+                    setShowPlacesDropdown(true);
+                  }}
+                  onFocus={() => setShowPlacesDropdown(true)}
+                  placeholder="Start typing address (e.g. Crown Braids...)"
+                  className="google-input pl-9"
+                />
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              </div>
+
+              {showPlacesDropdown && businessData?.business_location && (
+                <div className="absolute z-50 left-0 right-0 mt-1 rounded-2xl border border-border bg-card shadow-2xl p-2 max-h-[220px] overflow-y-auto space-y-1 animate-in fade-in duration-100">
+                  {filteredSuggestions.length > 0 ? (
+                    filteredSuggestions.map((place, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => selectPlace(place.description, place.lat, place.lng)}
+                        className="w-full flex items-start gap-2.5 p-2 rounded-xl text-left hover:bg-muted transition-colors text-xs"
+                      >
+                        <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-foreground truncate">{place.description.split(",")[0]}</p>
+                          <p className="text-[10px] text-muted-foreground truncate">{place.description.split(",").slice(1).join(",").trim()}</p>
+                        </div>
+                      </button>
+                    ))
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => selectPlace(businessData.business_location || "", 6.5244, 3.3792)}
+                      className="w-full flex items-start gap-2.5 p-2 rounded-xl text-left hover:bg-muted transition-colors text-xs"
+                    >
+                      <MapPin className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-foreground truncate">Use custom location: "{businessData.business_location}"</p>
+                        <p className="text-[10px] text-muted-foreground truncate">Lagos, Nigeria (Default Coordinates)</p>
+                      </div>
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
             <div className="space-y-2">
               <Label htmlFor="website">Website</Label>

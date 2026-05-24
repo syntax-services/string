@@ -184,7 +184,7 @@ export function CreateOfferPanel() {
           Create Request
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto rounded-[32px] border-0 shadow-2xl p-6">
+      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto overflow-x-hidden rounded-[32px] border-0 shadow-2xl p-6">
         <DialogHeader className="text-center sm:text-left space-y-1">
           <DialogTitle className="text-2xl font-bold tracking-tight">Create a Request</DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground leading-relaxed">
@@ -249,7 +249,7 @@ export function CreateOfferPanel() {
                 "e.g., Partner needed for food delivery startup"
               }
               required
-              className="mt-1"
+              className="mt-1 text-base md:text-sm bg-background/50 border-border/80 focus:border-primary"
             />
           </div>
 
@@ -262,7 +262,7 @@ export function CreateOfferPanel() {
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Describe what you're looking for in detail..."
               rows={4}
-              className="mt-1"
+              className="mt-1 text-base md:text-sm bg-background/50 border-border/80 focus:border-primary"
             />
           </div>
 
@@ -276,7 +276,7 @@ export function CreateOfferPanel() {
                 value={budgetMin}
                 onChange={(e) => setBudgetMin(e.target.value)}
                 placeholder="0"
-                className="mt-1"
+                className="mt-1 text-base md:text-sm bg-background/50 border-border/80 focus:border-primary"
               />
             </div>
             <div>
@@ -287,7 +287,7 @@ export function CreateOfferPanel() {
                 value={budgetMax}
                 onChange={(e) => setBudgetMax(e.target.value)}
                 placeholder="0"
-                className="mt-1"
+                className="mt-1 text-base md:text-sm bg-background/50 border-border/80 focus:border-primary"
               />
             </div>
           </div>
@@ -300,7 +300,7 @@ export function CreateOfferPanel() {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="e.g., Lagos, Nigeria"
-              className="mt-1"
+              className="mt-1 text-base md:text-sm bg-background/50 border-border/80 focus:border-primary"
             />
           </div>
 
@@ -308,7 +308,7 @@ export function CreateOfferPanel() {
           <div>
             <Label>Urgency</Label>
             <Select value={urgency} onValueChange={setUrgency}>
-              <SelectTrigger className="mt-1">
+              <SelectTrigger className="mt-1 text-base md:text-sm bg-background/50 border-border/80 focus:border-primary">
                 <SelectValue placeholder="How soon do you need this?" />
               </SelectTrigger>
               <SelectContent>
@@ -370,6 +370,7 @@ export function CreateOfferPanel() {
                 value={videoUrl}
                 onChange={(e) => setVideoUrl(e.target.value)}
                 placeholder="https://youtube.com/... or direct video link"
+                className="text-base md:text-sm bg-background/50 border-border/80 focus:border-primary"
               />
             </div>
           </div>
@@ -410,6 +411,7 @@ export function CreateOfferPanel() {
                   onChange={(e) => setContactPhone(e.target.value)}
                   placeholder="+234 xxx xxx xxxx"
                   required={allowCalls}
+                  className="text-base md:text-sm bg-background/50 border-border/80 focus:border-primary"
                 />
               </div>
             </div>

@@ -1,5 +1,5 @@
-﻿/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
@@ -29,6 +29,8 @@ import { useAllWithdrawals, useProcessWithdrawal } from "@/hooks/useBusinessEarn
 import { useAllMessageReplies } from "@/hooks/useAdminMessages";
 import { ReputationBadge } from "@/components/ui/reputation-badge";
 import { LaunchAnalytics } from "@/components/admin/LaunchAnalytics";
+import { playVerificationChime, playRevokedChime } from "@/hooks/useAudioSignals";
+import { usePremiumMail } from "@/hooks/usePremiumMail";
 
 type VerificationTier = 'none' | 'basic' | 'verified' | 'premium' | 'elite';
 
@@ -36,10 +38,41 @@ export default function StringAdmin() {
   const { signOut, user, refreshProfile } = useAuth();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const { dispatchEmail } = usePremiumMail();
   const [activeTab, setActiveTab] = useState("users");
   const [searchTerm, setSearchTerm] = useState("");
   const [bootstrapKey, setBootstrapKey] = useState("");
   const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
+  const [batchAvatarUrl, setBatchAvatarUrl] = useState("");
+  const [editingProfile, setEditingProfile] = useState<any>(null);
+  const [batchFilter, setBatchFilter] = useState<'all' | 'male' | 'female' | 'neutral'>("all");
+
+  // Booster Price State and Query
+  const { data: boosterPrice = 15000 } = useQuery({
+    queryKey: ["admin-booster-price"],
+    queryFn: async () => {
+      try {
+        const { data, error } = await supabase
+          .from("system_config")
+          .select("value")
+          .eq("key", "booster_monthly_price")
+          .maybeSingle();
+        if (error || !data) throw new Error("Fallback");
+        return Number(data.value);
+      } catch {
+        const stored = localStorage.getItem("booster_monthly_price");
+        return stored ? Number(stored) : 15000;
+      }
+    }
+  });
+
+  const [boosterPriceInput, setBoosterPriceInput] = useState(boosterPrice.toString());
+
+  useEffect(() => {
+    if (boosterPrice !== undefined) {
+      setBoosterPriceInput(boosterPrice.toString());
+    }
+  }, [boosterPrice]);
 
   // Message dialog state
   const [showMessageDialog, setShowMessageDialog] = useState(false);
@@ -258,6 +291,7 @@ export default function StringAdmin() {
     }: {
       requestId: string; userId: string; userType: string;
       latitude?: number; longitude?: number; approved: boolean;
+      email?: string; fullName?: string; streetAddress?: string; areaName?: string;
     }) => {
       const { error: requestError } = await supabase
         .from("location_requests")
@@ -291,11 +325,34 @@ export default function StringAdmin() {
         }
       }
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["admin-location-requests"] }); // Changed from admin-pending-locations to match existing key
+    onSuccess: (data, variables) => {
+      queryClient.invalidateQueries({ queryKey: ["admin-location-requests"] });
       queryClient.invalidateQueries({ queryKey: ["admin-profiles"] });
       queryClient.invalidateQueries({ queryKey: ["admin-customers"] });
-      toast.success("Location request processed");
+      
+      if (variables.approved) {
+        // 1. Play ascending success chime!
+        playVerificationChime().catch(console.error);
+
+        // 2. Dispatch business_verified themed email!
+        if (variables.email && variables.fullName) {
+          dispatchEmail(
+            "business_verified", 
+            variables.userId, 
+            variables.email, 
+            variables.fullName, 
+            { 
+              address: variables.streetAddress || "Verified Address", 
+              areaName: variables.areaName || "Verified Area" 
+            }
+          ).catch(console.error);
+        }
+        toast.success("Location request approved & verified checkmark activated!");
+      } else {
+        // Play alert warning warning chime
+        playRevokedChime().catch(console.error);
+        toast.success("Location request rejected.");
+      }
     },
     onError: (error: Error) => {
       toast.error(error.message || "Failed to process request");
@@ -315,6 +372,137 @@ export default function StringAdmin() {
       toast.success("User location updated");
     },
     onError: () => toast.error("Failed to update user location"),
+  });
+
+  const updateUserProfileMutation = useMutation({
+    mutationFn: async ({
+      userId,
+      themeMode,
+      themePalette,
+      avatarUrl
+    }: {
+      userId: string;
+      themeMode?: 'dark' | 'light';
+      themePalette?: 'blue' | 'mono';
+      avatarUrl?: string | null;
+    }) => {
+      const updates: any = {};
+      if (themeMode !== undefined) updates.theme_mode = themeMode;
+      if (themePalette !== undefined) updates.theme_palette = themePalette;
+      if (avatarUrl !== undefined) updates.avatar_url = avatarUrl;
+      updates.updated_at = new Date().toISOString();
+
+      const { error } = await supabase
+        .from("profiles")
+        .update(updates)
+        .eq("id", userId);
+
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admin-profiles"] });
+      queryClient.invalidateQueries({ queryKey: ["admin-customers"] });
+      toast.success("User profile settings updated");
+    },
+    onError: (error: Error) => {
+      toast.error(error.message || "Failed to update profile settings");
+    }
+  });
+
+  const batchUpdateAvatarsMutation = useMutation({
+    mutationFn: async ({ avatarUrl, filter }: { avatarUrl: string; filter: 'all' | 'male' | 'female' | 'neutral' }) => {
+      if (filter === 'all') {
+        const { error } = await supabase
+          .from("profiles")
+          .update({
+            avatar_url: avatarUrl,
+            updated_at: new Date().toISOString()
+          })
+          .neq("id", "00000000-0000-0000-0000-000000000000");
+        if (error) throw error;
+      } else if (filter === 'male') {
+        const { data: customersData, error: custError } = await supabase
+          .from("customers")
+          .select("user_id")
+          .eq("gender", "male");
+        if (custError) throw custError;
+
+        const userIds = customersData?.map(c => c.user_id).filter(Boolean) || [];
+        if (userIds.length === 0) {
+          throw new Error("No male customers found to update");
+        }
+
+        const { error } = await supabase
+          .from("profiles")
+          .update({
+            avatar_url: avatarUrl,
+            updated_at: new Date().toISOString()
+          })
+          .in("id", userIds);
+        if (error) throw error;
+      } else if (filter === 'female') {
+        const { data: customersData, error: custError } = await supabase
+          .from("customers")
+          .select("user_id")
+          .eq("gender", "female");
+        if (custError) throw custError;
+
+        const userIds = customersData?.map(c => c.user_id).filter(Boolean) || [];
+        if (userIds.length === 0) {
+          throw new Error("No female customers found to update");
+        }
+
+        const { error } = await supabase
+          .from("profiles")
+          .update({
+            avatar_url: avatarUrl,
+            updated_at: new Date().toISOString()
+          })
+          .in("id", userIds);
+        if (error) throw error;
+      } else if (filter === 'neutral') {
+        // Fetch all male/female customers
+        const { data: genderedCustomers, error: custError } = await supabase
+          .from("customers")
+          .select("user_id")
+          .in("gender", ["male", "female"]);
+        if (custError) throw custError;
+
+        const genderedUserIds = genderedCustomers?.map(c => c.user_id).filter(Boolean) || [];
+
+        let query = supabase
+          .from("profiles")
+          .update({
+            avatar_url: avatarUrl,
+            updated_at: new Date().toISOString()
+          });
+
+        if (genderedUserIds.length > 0) {
+          query = query.not("id", "in", `(${genderedUserIds.join(",")})`);
+        } else {
+          query = query.neq("id", "00000000-0000-0000-0000-000000000000");
+        }
+
+        const { error } = await query;
+        if (error) throw error;
+      }
+    },
+    onSuccess: (data, variables) => {
+      queryClient.invalidateQueries({ queryKey: ["admin-profiles"] });
+      queryClient.invalidateQueries({ queryKey: ["admin-customers"] });
+      
+      const filterLabel = {
+        all: "all registered users",
+        male: "male customer accounts",
+        female: "female customer accounts",
+        neutral: "unspecified/gender-neutral profiles"
+      }[variables.filter];
+      
+      toast.success(`Successfully updated profile pictures for ${filterLabel}!`);
+    },
+    onError: (error: Error) => {
+      toast.error(error.message || "Failed to run batch update");
+    }
   });
 
   // Update product commission
@@ -338,7 +526,17 @@ export default function StringAdmin() {
 
   // Update business verification tier
   const updateVerificationTierMutation = useMutation({
-    mutationFn: async ({ businessId, tier }: { businessId: string; tier: VerificationTier }) => {
+    mutationFn: async ({
+      businessId, tier
+    }: {
+      businessId: string;
+      tier: VerificationTier;
+      email?: string;
+      fullName?: string;
+      companyName?: string;
+      userId?: string;
+      isRevocation?: boolean;
+    }) => {
       const { error } = await supabase
         .from("businesses")
         .update({
@@ -348,9 +546,27 @@ export default function StringAdmin() {
         .eq("id", businessId);
       if (error) throw error;
     },
-    onSuccess: () => {
+    onSuccess: (data, variables) => {
       queryClient.invalidateQueries({ queryKey: ["admin-businesses"] });
-      toast.success("Verification tier updated");
+      
+      if (variables.isRevocation) {
+        // 1. Play alert warning double dull pulse warning chime!
+        playRevokedChime().catch(console.error);
+
+        // 2. Dispatch premium_revoked security email!
+        if (variables.email && variables.fullName) {
+          dispatchEmail(
+            "premium_revoked",
+            variables.userId || "",
+            variables.email,
+            variables.fullName,
+            { companyName: variables.companyName }
+          ).catch(console.error);
+        }
+        toast.success(`Premium badge for ${variables.companyName || "business"} revoked successfully. Security alert dispatched.`);
+      } else {
+        toast.success("Verification tier updated");
+      }
     },
     onError: () => toast.error("Failed to update tier"),
   });
@@ -373,6 +589,28 @@ export default function StringAdmin() {
       toast.success("Platform Terms Version updated! Users will be locked until they accept.");
     },
     onError: (error: Error) => toast.error(error.message || "Failed to update version"),
+  });
+
+  // Platform Control: Update Visibility Booster Price
+  const updateBoosterPriceMutation = useMutation({
+    mutationFn: async (price: number) => {
+      const { error } = await supabase
+        .from("system_config")
+        .upsert({
+          key: "booster_monthly_price",
+          value: JSON.stringify(price),
+          updated_at: new Date().toISOString(),
+          updated_by: user?.id
+        });
+      if (error) throw error;
+      localStorage.setItem("booster_monthly_price", price.toString());
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admin-booster-price"] });
+      queryClient.invalidateQueries({ queryKey: ["visibility-booster-price"] });
+      toast.success("Visibility Booster Monthly Price updated successfully!");
+    },
+    onError: (error: Error) => toast.error(error.message || "Failed to update price"),
   });
 
   // Confirm delivery on behalf of customer (admin power)
@@ -781,15 +1019,120 @@ export default function StringAdmin() {
 
           {/* Analytics Tab */}
           <TabsContent value="analytics" className="space-y-4">
-            <LaunchAnalytics />
+            <LaunchAnalytics 
+              profiles={profiles}
+              businesses={businesses}
+              orders={orders}
+              jobs={jobs}
+            />
           </TabsContent>
 
           {/* Users Tab */}
           <TabsContent value="users" className="space-y-4">
+            {/* Global Avatar Batch Manager */}
+            <Card className="border border-primary/20 bg-card/40 backdrop-blur-xl">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2 text-primary">
+                  <Zap className="h-5 w-5 animate-pulse" />
+                  Global Profile Picture Batch Manager
+                </CardTitle>
+                <CardDescription>
+                  Set a default profile picture for all registered users on String in one click. Perfect for resetting all avatars to standard 3D animated presets or a custom branding image.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-end">
+                  {/* Select Filter Target */}
+                  <div className="w-full lg:w-56 space-y-2">
+                    <Label htmlFor="batch-target-filter">Target User Group</Label>
+                    <Select
+                      value={batchFilter}
+                      onValueChange={(value: 'all' | 'male' | 'female' | 'neutral') => setBatchFilter(value)}
+                    >
+                      <SelectTrigger id="batch-target-filter" className="bg-background/50 h-10 border-border/60">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">🌐 All Users</SelectItem>
+                        <SelectItem value="male">👦 Male Customers Only</SelectItem>
+                        <SelectItem value="female">👧 Female Customers Only</SelectItem>
+                        <SelectItem value="neutral">👤 Unspecified / Neutral</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="flex-1 space-y-2">
+                    <Label htmlFor="batch-avatar-url">Target Avatar URL</Label>
+                    <Input
+                      id="batch-avatar-url"
+                      placeholder="Enter custom image URL or select a preset..."
+                      value={batchAvatarUrl}
+                      onChange={(e) => setBatchAvatarUrl(e.target.value)}
+                      className="bg-background/50 h-10"
+                    />
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-0.5">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setBatchAvatarUrl("/avatar_male.png")}
+                      className="gap-1 text-xs hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                    >
+                      👦 Male Preset
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setBatchAvatarUrl("/avatar_female.png")}
+                      className="gap-1 text-xs hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                    >
+                      👧 Female Preset
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setBatchAvatarUrl("/avatar_neutral.png")}
+                      className="gap-1 text-xs hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                    >
+                      👤 Neutral Preset
+                    </Button>
+                  </div>
+                  <Button
+                    variant="destructive"
+                    onClick={() => {
+                      if (!batchAvatarUrl) {
+                        toast.error("Please enter or select an avatar URL first");
+                        return;
+                      }
+                      
+                      const groupLabel = {
+                        all: "ALL registered users",
+                        male: "all MALE customers",
+                        female: "all FEMALE customers",
+                        neutral: "all UNSPECIFIED/GENDER-NEUTRAL accounts (including businesses and admins)"
+                      }[batchFilter];
+
+                      if (confirm(`WARNING: You are about to change the profile picture of ${groupLabel} to "${batchAvatarUrl}". This action is irreversible. Do you want to continue?`)) {
+                        batchUpdateAvatarsMutation.mutate({ avatarUrl: batchAvatarUrl, filter: batchFilter });
+                      }
+                    }}
+                    disabled={batchUpdateAvatarsMutation.isPending}
+                    className="gap-2 shrink-0 font-bold h-10 px-5 shadow-lg shadow-destructive/20"
+                  >
+                    {batchUpdateAvatarsMutation.isPending && <Loader2 className="h-4 w-4 animate-spin" />}
+                    Execute Batch Update
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
             <Card>
               <CardHeader>
                 <CardTitle>All Users ({profiles?.length || 0})</CardTitle>
-                <CardDescription>Complete list of all registered users</CardDescription>
+                <CardDescription>Complete list of all registered users and their theme settings</CardDescription>
               </CardHeader>
               <CardContent>
                 <ScrollArea className="h-[500px]">
@@ -799,8 +1142,10 @@ export default function StringAdmin() {
                         <TableHead>User</TableHead>
                         <TableHead>Type</TableHead>
                         <TableHead>Location</TableHead>
+                        <TableHead>Theme / Palette</TableHead>
                         <TableHead>Status</TableHead>
                         <TableHead>Joined</TableHead>
+                        <TableHead className="text-right">Actions</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -809,53 +1154,295 @@ export default function StringAdmin() {
                           p.full_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           p.email?.toLowerCase().includes(searchTerm.toLowerCase())
                         )
-                        .map((profile: any) => (
-                          <TableRow key={profile.id}>
-                            <TableCell>
-                              <div>
-                                <p className="font-medium">{profile.full_name}</p>
-                                <p className="text-xs text-muted-foreground">{profile.email || "(No email provided)"}</p>
-                              </div>
-                            </TableCell>
-                            <TableCell>
-                              <Badge variant={profile.user_type === 'business' ? 'default' : 'secondary'}>
-                                {profile.user_type}
-                              </Badge>
-                            </TableCell>
-                            <TableCell>
-                              {profile.latitude && profile.longitude ? (
-                                <Badge variant="outline">
-                                  <MapPin className="h-3 w-3 mr-1" />
-                                  Set ({profile.latitude.toFixed(2)}, {profile.longitude.toFixed(2)})
-                                </Badge>
-                              ) : (
-                                <div className="flex items-center gap-2">
-                                  <span className="text-muted-foreground text-sm">{profile.address || "Not set"}</span>
-                                  <Button variant="ghost" size="sm" onClick={() => {
-                                    const loc = prompt("Set user address string manually:");
-                                    if (loc) updateUserLocationMutation.mutate({ userId: profile.id, address: loc });
-                                  }}>
-                                    Edit
-                                  </Button>
+                        .map((profile: any) => {
+                          const userGender = profile.user_type === 'customer'
+                            ? customers?.find((c: any) => c.user_id === profile.id)?.gender
+                            : null;
+                          const recommendedAvatar = userGender === 'male'
+                            ? '/avatar_male.png'
+                            : userGender === 'female'
+                              ? '/avatar_female.png'
+                              : '/avatar_neutral.png';
+
+                          return (
+                            <TableRow key={profile.id}>
+                              <TableCell>
+                                <div className="flex items-center gap-3">
+                                  <div className="h-10 w-10 rounded-full overflow-hidden border border-border bg-card flex items-center justify-center shrink-0 shadow-inner">
+                                    <img
+                                      src={profile.avatar_url || recommendedAvatar}
+                                      alt={profile.full_name}
+                                      className="h-full w-full object-cover transition-all duration-300 hover:scale-110"
+                                      onError={(e) => {
+                                        (e.target as HTMLImageElement).src = recommendedAvatar;
+                                      }}
+                                    />
+                                  </div>
+                                  <div>
+                                    <p className="font-medium">{profile.full_name}</p>
+                                    <p className="text-xs text-muted-foreground">{profile.email || "(No email provided)"}</p>
+                                  </div>
                                 </div>
-                              )}
-                            </TableCell>
-                            <TableCell>
-                              <Badge variant={profile.onboarding_completed ? 'outline' : 'destructive'}>
-                                {profile.onboarding_completed ? 'Active' : 'Onboarding'}
-                              </Badge>
-                            </TableCell>
-                            <TableCell className="text-sm text-muted-foreground">
-                              {format(new Date(profile.created_at), "MMM d, yyyy")}
-                            </TableCell>
-                          </TableRow>
-                        ))}
+                              </TableCell>
+                              <TableCell>
+                                <Badge variant={profile.user_type === 'business' ? 'default' : profile.user_type === 'admin' ? 'destructive' : 'secondary'}>
+                                  {profile.user_type}
+                                </Badge>
+                              </TableCell>
+                              <TableCell>
+                                {profile.latitude && profile.longitude ? (
+                                  <Badge variant="outline">
+                                    <MapPin className="h-3 w-3 mr-1 text-primary" />
+                                    Set ({profile.latitude.toFixed(2)}, {profile.longitude.toFixed(2)})
+                                  </Badge>
+                                ) : (
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-muted-foreground text-sm">{profile.address || "Not set"}</span>
+                                    <Button variant="ghost" size="sm" onClick={() => {
+                                      const loc = prompt("Set user address string manually:");
+                                      if (loc) updateUserLocationMutation.mutate({ userId: profile.id, address: loc });
+                                    }}>
+                                      Edit
+                                    </Button>
+                                  </div>
+                                )}
+                              </TableCell>
+                              <TableCell>
+                                <div className="flex gap-1.5 flex-wrap">
+                                  <Badge variant="outline" className="text-xs gap-1 py-0.5">
+                                    {profile.theme_mode === 'dark' ? '🌙 Dark' : '☀️ Light'}
+                                  </Badge>
+                                  <Badge variant="outline" className="text-xs gap-1 py-0.5 border-primary/30 text-primary">
+                                    🎨 {profile.theme_palette === 'mono' ? 'Mono' : 'Blue'}
+                                  </Badge>
+                                </div>
+                              </TableCell>
+                              <TableCell>
+                                <Badge variant={profile.onboarding_completed ? 'outline' : 'destructive'}>
+                                  {profile.onboarding_completed ? 'Active' : 'Onboarding'}
+                                </Badge>
+                              </TableCell>
+                              <TableCell className="text-sm text-muted-foreground">
+                                {format(new Date(profile.created_at), "MMM d, yyyy")}
+                              </TableCell>
+                              <TableCell className="text-right">
+                                <Button
+                                  variant="outline"
+                                  size="sm"
+                                  onClick={() => setEditingProfile({
+                                    id: profile.id,
+                                    full_name: profile.full_name,
+                                    email: profile.email,
+                                    theme_mode: profile.theme_mode || 'dark',
+                                    theme_palette: profile.theme_palette || 'blue',
+                                    avatar_url: profile.avatar_url || '',
+                                    user_type: profile.user_type
+                                  })}
+                                  className="h-8 text-xs font-semibold hover:bg-primary/10 hover:text-primary transition-all duration-300 border-primary/20"
+                                >
+                                  Edit Settings
+                                </Button>
+                              </TableCell>
+                            </TableRow>
+                          );
+                        })}
                     </TableBody>
                   </Table>
                 </ScrollArea>
               </CardContent>
             </Card>
           </TabsContent>
+
+          {/* Edit Profile Dialog */}
+          <Dialog open={!!editingProfile} onOpenChange={(open) => !open && setEditingProfile(null)}>
+            <DialogContent className="max-w-md border border-primary/20 bg-card/95 backdrop-blur-2xl text-foreground">
+              <DialogHeader>
+                <DialogTitle className="text-xl font-bold flex items-center gap-2 text-primary">
+                  <Settings className="h-5 w-5" />
+                  Edit User Settings
+                </DialogTitle>
+                <DialogDescription className="text-muted-foreground text-sm">
+                  Customize theme preferences and profile picture for <strong>{editingProfile?.full_name}</strong>
+                </DialogDescription>
+              </DialogHeader>
+
+              {editingProfile && (
+                <div className="space-y-6 my-4">
+                  {/* Theme Mode Selector */}
+                  <div className="space-y-3">
+                    <Label className="text-sm font-semibold tracking-wide">Theme Mode</Label>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Button
+                        type="button"
+                        variant={editingProfile.theme_mode === 'dark' ? 'default' : 'outline'}
+                        onClick={() => setEditingProfile({ ...editingProfile, theme_mode: 'dark' })}
+                        className="w-full flex items-center gap-2 justify-center"
+                      >
+                        🌙 Dark Mode
+                      </Button>
+                      <Button
+                        type="button"
+                        variant={editingProfile.theme_mode === 'light' ? 'default' : 'outline'}
+                        onClick={() => setEditingProfile({ ...editingProfile, theme_mode: 'light' })}
+                        className="w-full flex items-center gap-2 justify-center"
+                      >
+                        ☀️ Light Mode
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Theme Palette Selector */}
+                  <div className="space-y-3">
+                    <Label className="text-sm font-semibold tracking-wide">Theme Accent Palette</Label>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Button
+                        type="button"
+                        variant={editingProfile.theme_palette === 'blue' ? 'default' : 'outline'}
+                        onClick={() => setEditingProfile({ ...editingProfile, theme_palette: 'blue' })}
+                        className="w-full flex items-center gap-2 justify-center"
+                      >
+                        🔵 Cobalt Blue
+                      </Button>
+                      <Button
+                        type="button"
+                        variant={editingProfile.theme_palette === 'mono' ? 'default' : 'outline'}
+                        onClick={() => setEditingProfile({ ...editingProfile, theme_palette: 'mono' })}
+                        className="w-full flex items-center gap-2 justify-center"
+                      >
+                        ⚪ Monochrome
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Profile Picture Settings */}
+                  <div className="space-y-4">
+                    <Label className="text-sm font-semibold tracking-wide">Profile Picture (Avatar)</Label>
+                    
+                    {/* Live Preview */}
+                    <div className="flex items-center gap-4 p-3 rounded-xl border border-border bg-background/40">
+                      <div className="h-16 w-16 rounded-full overflow-hidden border border-primary/20 bg-card flex items-center justify-center shrink-0 shadow-inner">
+                        <img
+                          src={
+                            editingProfile.avatar_url || (
+                              editingProfile.user_type === 'customer'
+                                ? (customers?.find((c: any) => c.user_id === editingProfile.id)?.gender === 'male'
+                                  ? '/avatar_male.png'
+                                  : customers?.find((c: any) => c.user_id === editingProfile.id)?.gender === 'female'
+                                    ? '/avatar_female.png'
+                                    : '/avatar_neutral.png')
+                                : '/avatar_neutral.png'
+                            )
+                          }
+                          alt="Preview"
+                          className="h-full w-full object-cover"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/avatar_neutral.png';
+                          }}
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Avatar Preview</p>
+                        <p className="text-xs truncate text-muted-foreground mt-0.5">
+                          {editingProfile.avatar_url || "Using System Gender Fallback"}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Preset Buttons */}
+                    <div className="space-y-2">
+                      <span className="text-xs font-medium text-muted-foreground">Premium 3D Presets</span>
+                      <div className="grid grid-cols-3 gap-2">
+                        <Button
+                          type="button"
+                          variant={editingProfile.avatar_url === '/avatar_male.png' ? 'default' : 'outline'}
+                          onClick={() => setEditingProfile({ ...editingProfile, avatar_url: '/avatar_male.png' })}
+                          className="text-xs p-1 h-12 flex flex-col justify-center gap-0.5"
+                        >
+                          <span className="font-semibold">👦 Male Preset</span>
+                          {editingProfile.user_type === 'customer' && customers?.find((c: any) => c.user_id === editingProfile.id)?.gender === 'male' && (
+                            <span className="text-[7px] text-primary/70 dark:text-primary scale-90 font-bold uppercase">(Recommended)</span>
+                          )}
+                        </Button>
+                        <Button
+                          type="button"
+                          variant={editingProfile.avatar_url === '/avatar_female.png' ? 'default' : 'outline'}
+                          onClick={() => setEditingProfile({ ...editingProfile, avatar_url: '/avatar_female.png' })}
+                          className="text-xs p-1 h-12 flex flex-col justify-center gap-0.5"
+                        >
+                          <span className="font-semibold">👧 Female Preset</span>
+                          {editingProfile.user_type === 'customer' && customers?.find((c: any) => c.user_id === editingProfile.id)?.gender === 'female' && (
+                            <span className="text-[7px] text-primary/70 dark:text-primary scale-90 font-bold uppercase">(Recommended)</span>
+                          )}
+                        </Button>
+                        <Button
+                          type="button"
+                          variant={editingProfile.avatar_url === '/avatar_neutral.png' ? 'default' : 'outline'}
+                          onClick={() => setEditingProfile({ ...editingProfile, avatar_url: '/avatar_neutral.png' })}
+                          className="text-xs p-1 h-12 flex flex-col justify-center gap-0.5"
+                        >
+                          <span className="font-semibold">👤 Neutral Preset</span>
+                          {(editingProfile.user_type !== 'customer' || !['male', 'female'].includes(customers?.find((c: any) => c.user_id === editingProfile.id)?.gender || '')) && (
+                            <span className="text-[7px] text-primary/70 dark:text-primary scale-90 font-bold uppercase">(Recommended)</span>
+                          )}
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Custom URL Input */}
+                    <div className="space-y-2">
+                      <Label htmlFor="custom-avatar-url" className="text-xs text-muted-foreground">Or Enter Custom Avatar URL</Label>
+                      <div className="flex gap-2">
+                        <Input
+                          id="custom-avatar-url"
+                          placeholder="https://example.com/image.jpg"
+                          value={editingProfile.avatar_url}
+                          onChange={(e) => setEditingProfile({ ...editingProfile, avatar_url: e.target.value })}
+                          className="bg-background/50 text-sm h-9"
+                        />
+                        {editingProfile.avatar_url && (
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => setEditingProfile({ ...editingProfile, avatar_url: "" })}
+                            className="text-xs shrink-0 px-2"
+                          >
+                            Clear
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <DialogFooter className="mt-6 flex gap-2">
+                <Button
+                  variant="outline"
+                  onClick={() => setEditingProfile(null)}
+                  disabled={updateUserProfileMutation.isPending}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  onClick={() => {
+                    updateUserProfileMutation.mutate({
+                      userId: editingProfile.id,
+                      themeMode: editingProfile.theme_mode,
+                      themePalette: editingProfile.theme_palette,
+                      avatarUrl: editingProfile.avatar_url || null
+                    });
+                    setEditingProfile(null);
+                  }}
+                  disabled={updateUserProfileMutation.isPending}
+                  className="gap-2 font-bold"
+                >
+                  {updateUserProfileMutation.isPending && <Loader2 className="h-4 w-4 animate-spin" />}
+                  Save Changes
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
 
           {/* Businesses Tab */}
           <TabsContent value="businesses" className="space-y-4">
@@ -912,24 +1499,55 @@ export default function StringAdmin() {
                               <TierBadge tier={business.verification_tier || 'none'} />
                             </TableCell>
                             <TableCell>
-                              <Select
-                                value={business.verification_tier || 'none'}
-                                onValueChange={(value: VerificationTier) =>
-                                  updateVerificationTierMutation.mutate({
-                                    businessId: business.id,
-                                    tier: value
-                                  })
-                                }
-                              >
-                                <SelectTrigger className="w-32">
-                                  <SelectValue />
-                                </SelectTrigger>
-                                <SelectContent>
-                                  <SelectItem value="none">None</SelectItem>
-                                  <SelectItem value="verified">Verified</SelectItem>
-                                  <SelectItem value="premium">Premium</SelectItem>
-                                </SelectContent>
-                              </Select>
+                              <div className="flex items-center gap-2">
+                                <Select
+                                  value={business.verification_tier || 'none'}
+                                  onValueChange={(value: VerificationTier) =>
+                                    updateVerificationTierMutation.mutate({
+                                      businessId: business.id,
+                                      tier: value,
+                                      email: business.profiles?.email,
+                                      fullName: business.profiles?.full_name,
+                                      companyName: business.company_name,
+                                      userId: business.user_id,
+                                      isRevocation: value !== 'premium' && business.verification_tier === 'premium'
+                                    })
+                                  }
+                                >
+                                  <SelectTrigger className="w-32">
+                                    <SelectValue />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="none">None</SelectItem>
+                                    <SelectItem value="verified">Verified</SelectItem>
+                                    <SelectItem value="premium">Premium</SelectItem>
+                                  </SelectContent>
+                                </Select>
+
+                                {business.verification_tier === 'premium' && (
+                                  <Button
+                                    size="sm"
+                                    variant="destructive"
+                                    className="text-xs font-bold px-3 shrink-0"
+                                    onClick={() => {
+                                      if (confirm(`Are you absolutely sure you want to revoke the Premium Badge for ${business.company_name}? This will demote them to basic verified, play a safety alert chime, and send a security warning email.`)) {
+                                        updateVerificationTierMutation.mutate({
+                                          businessId: business.id,
+                                          tier: 'verified',
+                                          email: business.profiles?.email,
+                                          fullName: business.profiles?.full_name,
+                                          companyName: business.company_name,
+                                          userId: business.user_id,
+                                          isRevocation: true
+                                        });
+                                      }
+                                    }}
+                                    disabled={updateVerificationTierMutation.isPending}
+                                  >
+                                    Revoke
+                                  </Button>
+                                )}
+                              </div>
                             </TableCell>
                           </TableRow>
                         ))}
@@ -1282,12 +1900,18 @@ export default function StringAdmin() {
                               latitude: lat,
                               longitude: lng,
                               approved: true,
+                              email: request.profiles?.email,
+                              fullName: request.profiles?.full_name,
+                              streetAddress: request.street_address,
+                              areaName: request.area_name
                             })}
                             onReject={() => verifyLocationMutation.mutate({
                               requestId: request.id,
                               userId: request.user_id,
                               userType: request.user_type,
                               approved: false,
+                              email: request.profiles?.email,
+                              fullName: request.profiles?.full_name,
                             })}
                             isLoading={verifyLocationMutation.isPending}
                           />
@@ -1516,6 +2140,48 @@ export default function StringAdmin() {
                         <p className="text-[10px] font-bold uppercase tracking-widest text-amber-500">Pending</p>
                       </div>
                     </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-orange-500/20 bg-orange-500/[0.01]">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-orange-500 font-bold">
+                    <Crown className="h-5 w-5" />
+                    Visibility Booster Configurator
+                  </CardTitle>
+                  <CardDescription>Adjust the monthly subscription cost for businesses to boost views</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1 relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-semibold text-sm">₦</span>
+                      <Input
+                        type="number"
+                        placeholder="15000"
+                        value={boosterPriceInput}
+                        onChange={(e) => setBoosterPriceInput(e.target.value)}
+                        className="pl-7 h-10 font-bold"
+                      />
+                    </div>
+                    <Button 
+                      onClick={() => {
+                        const parsed = Number(boosterPriceInput);
+                        if (!parsed || parsed <= 0) {
+                          toast.error("Please enter a valid positive pricing rate.");
+                          return;
+                        }
+                        updateBoosterPriceMutation.mutate(parsed);
+                      }}
+                      className="bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-bold h-10"
+                      disabled={updateBoosterPriceMutation.isPending}
+                    >
+                      {updateBoosterPriceMutation.isPending ? <Loader2 className="animate-spin w-4 h-4" /> : "Save Pricing"}
+                    </Button>
+                  </div>
+                  <div className="p-3 bg-muted/40 rounded-xl text-xs space-y-1.5 border">
+                    <div className="flex justify-between"><span className="text-muted-foreground">Active Price:</span> <span className="font-bold text-foreground">₦{boosterPrice.toLocaleString()} / mo</span></div>
+                    <div className="flex justify-between"><span className="text-muted-foreground">Local Backup:</span> <span className="font-semibold text-foreground">₦{Number(localStorage.getItem("booster_monthly_price") || 15000).toLocaleString()}</span></div>
                   </div>
                 </CardContent>
               </Card>

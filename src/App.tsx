@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Suspense, lazy, useEffect } from "react";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
@@ -15,7 +15,25 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 import Banned from "./pages/Banned";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
+
+// Scroll Restoration helper
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTo(0, 0);
+    const mainContent = document.querySelector("main") || document.querySelector(".overflow-y-auto") || document.getElementById("main-scrollbar");
+    if (mainContent) {
+      mainContent.scrollTo(0, 0);
+    }
+  }, [pathname]);
+
+  return null;
+}
 
 // Loading component
 const PageLoader = () => (
@@ -60,6 +78,8 @@ const BusinessPublicProfile = lazy(() => import("./pages/business/BusinessPublic
 const BusinessAnalytics = lazy(() => import("./pages/business/BusinessAnalytics"));
 const BusinessReviews = lazy(() => import("./pages/business/BusinessReviews"));
 const BusinessUpload = lazy(() => import("./pages/business/BusinessUpload"));
+const BusinessVerify = lazy(() => import("./pages/business/BusinessVerify"));
+const BusinessBoost = lazy(() => import("./pages/business/BusinessBoost"));
 
 // Admin pages
 const StringAdmin = lazy(() => import("./pages/admin/StringAdmin"));
@@ -108,12 +128,15 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+            <ScrollToTop />
             <SwipeNavigation />
             <Suspense fallback={<PageLoader />}>
               <TermsGuard>
                 <Routes>
                   <Route path="/" element={<Landing />} />
                   <Route path="/auth" element={<Auth />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
+                  <Route path="/reset-password" element={<ResetPassword />} />
                   <Route path="/onboarding" element={<ProtectedRoute><Onboarding /></ProtectedRoute>} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/privacy" element={<PrivacyPolicy />} />
@@ -149,6 +172,8 @@ const App = () => (
                   <Route path="/business/reviews" element={<ProtectedRoute requiredUserType="business"><BusinessReviews /></ProtectedRoute>} />
                   <Route path="/business/upload" element={<ProtectedRoute requiredUserType="business"><BusinessUpload /></ProtectedRoute>} />
                   <Route path="/business/discover" element={<ProtectedRoute requiredUserType="business"><BusinessDiscover /></ProtectedRoute>} />
+                  <Route path="/business/verify" element={<ProtectedRoute requiredUserType="business"><BusinessVerify /></ProtectedRoute>} />
+                  <Route path="/business/boost" element={<ProtectedRoute requiredUserType="business"><BusinessBoost /></ProtectedRoute>} />
 
                   {/* Public business profile - accessible to all logged-in users */}
                   <Route path="/business/:id" element={<ProtectedRoute><BusinessPublicProfile /></ProtectedRoute>} />

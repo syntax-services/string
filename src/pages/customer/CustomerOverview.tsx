@@ -199,8 +199,15 @@ export default function CustomerOverview() {
         }
       ];
 
+      // Shuffle the feed items first to keep layouts fresh on reload/comeback
+      const shuffledFeed = [...rawFeed];
+      for (let i = shuffledFeed.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledFeed[i], shuffledFeed[j]] = [shuffledFeed[j], shuffledFeed[i]];
+      }
+
       // Personalization logic: Sort items matching interests or categories to the top
-      const sortedFeed = [...rawFeed].sort((a, b) => {
+      const sortedFeed = shuffledFeed.sort((a, b) => {
         const aMatchesInterest = userInterests.some(interest => a.category.toLowerCase().includes(interest.toLowerCase())) ||
                                preferredCats.some(cat => a.category.toLowerCase().includes(cat.toLowerCase()));
         const bMatchesInterest = userInterests.some(interest => b.category.toLowerCase().includes(interest.toLowerCase())) ||

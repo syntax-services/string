@@ -50,19 +50,19 @@ export function BottomNav({ isVisible = true }: BottomNavProps) {
         "md:hidden fixed z-50 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] shadow-xl",
         isVisible
           ? "bottom-0 left-0 right-0 h-[4.75rem] border-t border-border/40 bg-background/80 backdrop-blur-xl safe-area-bottom shadow-black/5"
-          : "bottom-5 left-1/2 -translate-x-1/2 w-[250px] h-[3.25rem] rounded-full border border-primary/20 bg-background/95 backdrop-blur-2xl shadow-primary/5 px-2"
+          : "bottom-5 left-1/2 -translate-x-1/2 w-[210px] h-[3.75rem] rounded-full border border-primary/20 bg-background/95 backdrop-blur-2xl shadow-primary/5 px-2 flex items-center"
       )}
     >
       <div 
         className={cn(
-          "flex items-center mx-auto h-full transition-all duration-500",
+          "flex items-center mx-auto h-full transition-all duration-500 w-full",
           isVisible 
             ? "justify-around max-w-lg px-1" 
             : "justify-between px-3.5"
         )}
       >
         {navItems.map((item) => {
-          const Icon = item.icon as React.ComponentType<{ className?: string; active?: boolean }>;
+          const Icon = item.icon as React.ComponentType<{ className?: string; active?: boolean; strokeWidth?: number }>;
           const isActive = location.pathname === item.href;
           const isProfileTab = item.label === "Profile";
           const hasAvatar = isProfileTab && profile?.avatar_url;
@@ -71,16 +71,17 @@ export function BottomNav({ isVisible = true }: BottomNavProps) {
             <Link
               key={item.href}
               to={item.href}
+              viewTransition
               className={cn(
                 "flex flex-col items-center justify-center transition-all duration-300 active:scale-95",
-                isVisible ? "flex-1 py-2 px-1 gap-1.5" : "w-10 h-10 rounded-full hover:bg-accent/40"
+                isVisible ? "flex-1 py-2 px-1 gap-1.5" : "w-11 h-11 rounded-full hover:bg-accent/40"
               )}
             >
               {hasAvatar ? (
                 <div className={cn(
                   "rounded-full border overflow-hidden transition-all duration-300 bg-muted flex items-center justify-center shrink-0",
                   isActive ? "border-primary scale-105" : "border-border/40 hover:border-foreground",
-                  isVisible ? "h-6 w-6" : "h-5 w-5"
+                  isVisible ? "h-6 w-6" : "h-6 w-6"
                 )}>
                   <img src={profile.avatar_url!} alt="Profile" className="h-full w-full object-cover" />
                 </div>
@@ -88,8 +89,8 @@ export function BottomNav({ isVisible = true }: BottomNavProps) {
                 <Icon className={cn(
                   "transition-all duration-300",
                   isActive ? "text-primary scale-105" : "text-muted-foreground hover:text-foreground",
-                  isVisible ? "h-6 w-6" : "h-5 w-5"
-                )} active={isActive} />
+                  isVisible ? "h-6 w-6" : "h-[1.45rem] w-[1.45rem]"
+                )} active={isActive} strokeWidth={isVisible ? undefined : 2.6} />
               )}
               
               <span className={cn(

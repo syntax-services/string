@@ -11,6 +11,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { ThemeCustomizer } from "@/components/ui/theme-customizer";
 import { useReferral } from "@/hooks/useReferral";
+import { useNavigate } from "react-router-dom";
+import { cn } from "@/lib/utils";
 import {
   Building2,
   MapPin,
@@ -22,6 +24,7 @@ import {
   Gift,
   Copy,
   Star,
+  ShieldCheck,
 } from "lucide-react";
 
 interface BusinessData {
@@ -32,6 +35,8 @@ interface BusinessData {
   products_services: string | null;
   website: string | null;
   cover_image_url: string | null;
+  location_verified?: boolean;
+  verification_tier?: string;
 }
 
 export default function BusinessSettings() {
@@ -40,6 +45,7 @@ export default function BusinessSettings() {
   const { location, loading: locationLoading, requestLocation } = useUserLocation();
   const { referralCode, totalReferrals, totalPoints } = useReferral();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
   
   const [fullName, setFullName] = useState(profile?.full_name || "");
   const [phone, setPhone] = useState(profile?.phone || "");
@@ -60,7 +66,7 @@ export default function BusinessSettings() {
       
       const { data } = await supabase
         .from("businesses")
-        .select("id, company_name, industry, business_location, products_services, website, cover_image_url")
+        .select("id, company_name, industry, business_location, products_services, website, cover_image_url, location_verified, verification_tier")
         .eq("user_id", user.id)
         .maybeSingle();
 
@@ -404,6 +410,82 @@ export default function BusinessSettings() {
               Location saved: {location.latitude.toFixed(4)}, {location.longitude.toFixed(4)}
             </p>
           )}
+        </div>
+
+        {/* Badges & Trust Upgrades */}
+        <div className="dashboard-card space-y-5">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+              <ShieldCheck className="h-5 w-5 text-primary" />
+            </div>
+            <div>
+              <h2 className="font-medium text-foreground">Badges & Trust Status</h2>
+              <p className="text-sm text-muted-foreground">
+                Enhance search rankings and establish credibility
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {/* Verification Settings Card */}
+            <div className="p-4 bg-muted/30 rounded-2xl border border-border/10 flex flex-col justify-between space-y-3">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-xs uppercase tracking-wider text-muted-foreground">Location Badge</span>
+                  {businessData.location_verified ? (
+                    <span className="bg-emerald-500/10 text-emerald-400 text-[9px] font-extrabold px-2 py-0.5 rounded-full border border-emerald-500/20 uppercase tracking-wider">
+                      Verified
+                    </span>
+                  ) : (
+                    <span className="bg-muted text-muted-foreground text-[9px] font-extrabold px-2 py-0.5 rounded-full border border-border/20 uppercase tracking-wider">
+                      Unverified
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                  Submit physical trade coordinates and audit documents to be listed as a Verified Merchant for free.
+                </p>
+              </div>
+              <Button
+                variant={businessData.location_verified ? "outline" : "default"}
+                onClick={() => navigate("/business/verify")}
+                className="w-full h-9 rounded-xl font-bold text-xs"
+              >
+                {businessData.location_verified ? "View Audit Details" : "Get Verified (Free)"}
+              </Button>
+            </div>
+
+            {/* Premium Settings Card */}
+            <div className="p-4 bg-muted/30 rounded-2xl border border-border/10 flex flex-col justify-between space-y-3">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-xs uppercase tracking-wider text-muted-foreground">Premium Gold Badge</span>
+                  {businessData.verification_tier === "premium" ? (
+                    <span className="bg-orange-500/10 text-orange-400 text-[9px] font-extrabold px-2 py-0.5 rounded-full border border-orange-500/20 uppercase tracking-wider">
+                      Active 🚀
+                    </span>
+                  ) : (
+                    <span className="bg-muted text-muted-foreground text-[9px] font-extrabold px-2 py-0.5 rounded-full border border-border/20 uppercase tracking-wider">
+                      Inactive
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                  Unlock 100% smart match weights, dynamic Discover card showcase, and the Gold Elite stars emblem.
+                </p>
+              </div>
+              <Button
+                variant={businessData.verification_tier === "premium" ? "outline" : "default"}
+                onClick={() => navigate("/business/boost")}
+                className={cn(
+                  "w-full h-9 rounded-xl font-bold text-xs",
+                  businessData.verification_tier !== "premium" && "bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 hover:opacity-95 text-white border-0"
+                )}
+              >
+                {businessData.verification_tier === "premium" ? "Manage Subscription" : "Boost Visibility"}
+              </Button>
+            </div>
+          </div>
         </div>
 
         {/* Appearance */}

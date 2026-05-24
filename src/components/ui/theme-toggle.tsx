@@ -6,15 +6,18 @@ import { useAuth } from "@/contexts/AuthContext";
 
 export function ThemeToggle() {
   const [isDark, setIsDark] = useState(true);
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDarkMode = stored === "dark" || (!stored && prefersDark);
-    setIsDark(isDarkMode);
-    document.documentElement.classList.toggle("dark", isDarkMode);
-  }, []);
+    if (profile?.theme_mode) {
+      setIsDark(profile.theme_mode === "dark");
+    } else {
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const isDarkMode = stored === "dark" || (!stored && prefersDark);
+      setIsDark(isDarkMode);
+    }
+  }, [profile?.theme_mode]);
 
   const toggle = async () => {
     const newValue = !isDark;

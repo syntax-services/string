@@ -136,9 +136,17 @@ export default function CustomerProfile() {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
-                <div className="bg-primary/5 h-full w-full flex items-center justify-center">
-                  <PremiumUser className="h-16 w-16 text-primary" active />
-                </div>
+                <img
+                  src={
+                    customer?.gender === 'male'
+                      ? '/avatar_male.png'
+                      : customer?.gender === 'female'
+                        ? '/avatar_female.png'
+                        : '/avatar_neutral.png'
+                  }
+                  alt="Default 3D Avatar"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               )}
               {/* Camera icon hover overlay */}
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white flex-col gap-1">

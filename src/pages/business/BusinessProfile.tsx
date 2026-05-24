@@ -27,6 +27,9 @@ import {
   LogOut,
   Wallet,
   Loader2,
+  ArrowUpRight,
+  ShieldCheck,
+  Crown,
 } from "lucide-react";
 import { format } from "date-fns";
 
@@ -116,6 +119,19 @@ export default function BusinessProfile() {
     { icon: PremiumClipboard, label: "Orders", href: "/business/orders", count: stats?.orders },
     { icon: PremiumPackage, label: "Products", href: "/business/products", count: products.length },
     { icon: PremiumWrench, label: "Services", href: "/business/services", count: services.length },
+    { icon: ArrowUpRight, label: "Leads & Requests", href: "/business/leads" },
+    { 
+      icon: ShieldCheck, 
+      label: business?.location_verified ? "Verified Merchant ✓" : "Get Verified (Free)", 
+      href: "/business/verify",
+      badge: business?.location_verified ? "active" : "verify"
+    },
+    { 
+      icon: Crown, 
+      label: business?.verification_tier === 'premium' ? "Booster Active 🚀" : "Boost Visibility (Paid)", 
+      href: "/business/boost",
+      badge: business?.verification_tier === 'premium' ? "boosted" : "boost"
+    },
     { icon: PremiumStar, label: "Reviews", href: "/business/reviews", count: stats?.reviews },
     { icon: PremiumChart, label: "Analytics", href: "/business/analytics" },
     { icon: PremiumSettings, label: "Settings", href: "/business/settings" },
@@ -165,7 +181,7 @@ export default function BusinessProfile() {
               className="hidden" 
             />
           </div>
-
+ 
           <div className="space-y-1">
             <h2 className="text-xl font-medium tracking-tight text-foreground flex items-center justify-center gap-1.5">
               {business?.company_name || "Business Profile"}
@@ -187,7 +203,7 @@ export default function BusinessProfile() {
             )}
           </div>
         </div>
-
+ 
         {/* Stats Grid Container */}
         <div className="grid grid-cols-3 gap-3">
           <div className="bg-card rounded-2xl border border-border/40 p-3 text-center shadow-sm">
@@ -203,10 +219,10 @@ export default function BusinessProfile() {
             <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-wider mt-0.5">Rating</p>
           </div>
         </div>
-
+ 
         {/* Earnings Card */}
         {business && <BusinessEarningsCard businessId={business.id} />}
-
+ 
         {/* Floating Card Container 1 (Main Menu) */}
         <div className="bg-card rounded-2xl border border-border/40 shadow-xl shadow-black/5 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-black/10">
           <div className="divide-y divide-border/30">
@@ -214,6 +230,7 @@ export default function BusinessProfile() {
               <Link
                 key={item.label}
                 to={item.href}
+                viewTransition
                 className="flex items-center justify-between px-4 py-2.5 hover:bg-primary/[0.02] active:bg-primary/[0.04] transition-all duration-300 group"
               >
                 <div className="flex items-center gap-3">
@@ -223,6 +240,26 @@ export default function BusinessProfile() {
                   <span className="font-medium text-foreground/80 group-hover:text-foreground text-[13px] tracking-wide transition-colors duration-300">{item.label}</span>
                 </div>
                 <div className="flex items-center gap-2">
+                  {item.badge === "active" && (
+                    <span className="bg-emerald-500/10 text-emerald-400 text-[9px] font-extrabold px-2 py-0.5 rounded-full border border-emerald-500/20 uppercase tracking-wider scale-90">
+                      Verified
+                    </span>
+                  )}
+                  {item.badge === "verify" && (
+                    <span className="bg-primary/10 text-primary text-[9px] font-extrabold px-2 py-0.5 rounded-full border border-primary/20 uppercase tracking-wider scale-90">
+                      Free
+                    </span>
+                  )}
+                  {item.badge === "boosted" && (
+                    <span className="bg-orange-500/10 text-orange-400 text-[9px] font-extrabold px-2 py-0.5 rounded-full border border-orange-500/20 uppercase tracking-wider scale-90">
+                      Active
+                    </span>
+                  )}
+                  {item.badge === "boost" && (
+                    <span className="bg-gradient-to-r from-yellow-500/15 via-orange-500/15 to-red-500/15 text-orange-400 text-[9px] font-extrabold px-2 py-0.5 rounded-full border border-orange-500/20 uppercase tracking-wider scale-90">
+                      Boost
+                    </span>
+                  )}
                   {item.count !== undefined && item.count > 0 && (
                     <span className="bg-primary/10 text-primary text-[9px] font-bold px-1.5 py-0.25 rounded-full">
                       {item.count}

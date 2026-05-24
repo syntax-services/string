@@ -13,7 +13,6 @@ import {
   Package,
   Wrench,
   Filter,
-  Star,
   MessageCircle,
 } from "lucide-react";
 import {
@@ -242,9 +241,8 @@ export default function BusinessDiscover() {
                   <div>
                     <h3 className="font-medium text-foreground">{business.company_name}</h3>
                     {business.reputation_score && business.reputation_score > 0 && (
-                      <div className="flex items-center gap-1 mt-1">
-                        <Star className="h-3 w-3 fill-foreground text-foreground" />
-                        <span className="text-sm">{Number(business.reputation_score).toFixed(1)}</span>
+                      <div className="flex items-center gap-1 mt-1 text-xs text-muted-foreground font-semibold">
+                        <span>Reputation: {Number(business.reputation_score).toFixed(1)}</span>
                       </div>
                     )}
                     {business.industry && (

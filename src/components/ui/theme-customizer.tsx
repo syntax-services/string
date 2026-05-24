@@ -23,12 +23,16 @@ const palettes: { value: Palette; label: string; description: string; colors: st
 
 export function ThemeCustomizer() {
   const [current, setCurrent] = useState<Palette>("blue");
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
 
   useEffect(() => {
-    const stored = localStorage.getItem("palette") as Palette | null;
-    setCurrent(stored || "blue");
-  }, []);
+    if (profile?.theme_palette) {
+      setCurrent(profile.theme_palette as Palette);
+    } else {
+      const stored = localStorage.getItem("palette") as Palette | null;
+      setCurrent(stored || "blue");
+    }
+  }, [profile?.theme_palette]);
 
   const select = async (palette: Palette) => {
     setCurrent(palette);

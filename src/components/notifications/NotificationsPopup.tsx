@@ -13,10 +13,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Bell, Pin, Check, CheckCheck, Info, AlertTriangle, ShoppingBag, Briefcase, MessageCircle, Reply } from "lucide-react";
+import { Bell, Pin, Check, CheckCheck, Info, AlertTriangle, ShoppingBag, Briefcase, MessageCircle, Reply, Mail } from "lucide-react";
 import { format, formatDistanceToNow } from "date-fns";
 import { useAdminMessages } from "@/hooks/useAdminMessages";
 import { AdminMessageReply } from "@/components/messages/AdminMessageReply";
+import { EmailPreviewDialog } from "./EmailPreviewDialog";
 
 interface Notification {
   id: string;
@@ -34,10 +35,13 @@ const typeIcons: Record<string, typeof Info> = {
   order: ShoppingBag,
   job: Briefcase,
   message: MessageCircle,
+  email_dispatch: Mail,
 };
 
 export function NotificationsPopup() {
   const [open, setOpen] = useState(false);
+  const [selectedEmailNotification, setSelectedEmailNotification] = useState<Notification | null>(null);
+  const [emailPreviewOpen, setEmailPreviewOpen] = useState(false);
   const { user } = useAuth();
   const queryClient = useQueryClient();
   const { allMessages, pinnedMessages, unpinnedMessages, unreadCount: adminUnreadCount, markAsRead: markAdminRead } = useAdminMessages();
@@ -115,201 +119,213 @@ export function NotificationsPopup() {
   const totalUnread = unreadCount + adminUnreadCount;
 
   return (
-    <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          className="relative"
-          aria-label="Notifications"
-        >
-          <Bell className="h-5 w-5" />
-          {totalUnread > 0 && (
-            <Badge 
-              variant="destructive" 
-              className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs"
-            >
-              {totalUnread > 99 ? '99+' : totalUnread}
-            </Badge>
-          )}
-        </Button>
-      </SheetTrigger>
-      <SheetContent className="w-full sm:max-w-lg flex flex-col">
-        <SheetHeader>
-          <div className="flex items-center justify-between">
-            <SheetTitle className="flex items-center gap-2">
-              <Bell className="h-5 w-5" />
-              Notifications
-            </SheetTitle>
-            {unreadCount > 0 && (
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={() => markAllAsRead.mutate()}
+    <>
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetTrigger asChild>
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="relative"
+            aria-label="Notifications"
+          >
+            <Bell className="h-5 w-5" />
+            {totalUnread > 0 && (
+              <Badge 
+                variant="destructive" 
+                className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs"
               >
-                <CheckCheck className="h-4 w-4 mr-1" />
-                Mark all read
-              </Button>
+                {totalUnread > 99 ? '99+' : totalUnread}
+              </Badge>
             )}
-          </div>
-        </SheetHeader>
+          </Button>
+        </SheetTrigger>
+        <SheetContent className="w-full sm:max-w-lg flex flex-col">
+          <SheetHeader>
+            <div className="flex items-center justify-between">
+              <SheetTitle className="flex items-center gap-2">
+                <Bell className="h-5 w-5" />
+                Notifications
+              </SheetTitle>
+              {unreadCount > 0 && (
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={() => markAllAsRead.mutate()}
+                >
+                  <CheckCheck className="h-4 w-4 mr-1" />
+                  Mark all read
+                </Button>
+              )}
+            </div>
+          </SheetHeader>
 
-        <ScrollArea className="flex-1 -mx-6 px-6">
-          <div className="space-y-4 pb-6">
-            {/* Pinned Admin Messages */}
-            {pinnedMessages.length > 0 && (
-              <div className="space-y-2">
-                <h4 className="text-sm font-medium text-muted-foreground flex items-center gap-1">
-                  <Pin className="h-3 w-3" />
-                  Pinned from String
-                </h4>
-                {pinnedMessages.map((msg) => (
-                  <div
-                    key={msg.id}
-                    className="p-3 bg-primary/5 border border-primary/20 rounded-lg"
-                  >
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="flex-1 min-w-0">
-                        <p className="font-medium text-sm">{msg.title}</p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          {msg.content}
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-2">
-                          {formatDistanceToNow(new Date(msg.created_at), { addSuffix: true })}
-                        </p>
-                      </div>
-                      <Pin className="h-4 w-4 text-primary shrink-0" />
-                    </div>
-                    <div className="flex justify-between items-center mt-2 pt-2 border-t border-primary/10">
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="text-xs"
-                        onClick={() => markAdminRead.mutate(msg.id)}
-                      >
-                        Mark as read
-                      </Button>
-                      <AdminMessageReply
-                        messageId={msg.id}
-                        messageTitle={msg.title}
-                        messageContent={msg.content}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* Unpinned Admin Messages - NEW SECTION */}
-            {unpinnedMessages.length > 0 && (
-              <div className="space-y-2">
-                <h4 className="text-sm font-medium text-muted-foreground flex items-center gap-1">
-                  <MessageCircle className="h-3 w-3" />
-                  Messages from String
-                </h4>
-                {unpinnedMessages.slice(0, 5).map((msg) => (
-                  <div
-                    key={msg.id}
-                    className="p-3 bg-muted/50 border rounded-lg"
-                  >
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="flex-1 min-w-0">
-                        <p className="font-medium text-sm">{msg.title}</p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          {msg.content}
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-2">
-                          {formatDistanceToNow(new Date(msg.created_at), { addSuffix: true })}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex justify-between items-center mt-2 pt-2 border-t">
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="text-xs"
-                        onClick={() => markAdminRead.mutate(msg.id)}
-                      >
-                        Mark as read
-                      </Button>
-                      <AdminMessageReply
-                        messageId={msg.id}
-                        messageTitle={msg.title}
-                        messageContent={msg.content}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <Separator />
-
-            {/* Regular Notifications */}
-            {notifications.length === 0 && allMessages.length === 0 ? (
-              <div className="text-center py-12">
-                <Bell className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                <h3 className="font-medium">No notifications</h3>
-                <p className="text-sm text-muted-foreground mt-1">
-                  You're all caught up!
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-2">
-                {notifications.length > 0 && (
-                  <h4 className="text-sm font-medium text-muted-foreground">Recent Activity</h4>
-                )}
-                {notifications.map((notification) => {
-                  const Icon = typeIcons[notification.type] || Info;
-                  return (
+          <ScrollArea className="flex-1 -mx-6 px-6">
+            <div className="space-y-4 pb-6">
+              {/* Pinned Admin Messages */}
+              {pinnedMessages.length > 0 && (
+                <div className="space-y-2">
+                  <h4 className="text-sm font-medium text-muted-foreground flex items-center gap-1">
+                    <Pin className="h-3 w-3" />
+                    Pinned from String
+                  </h4>
+                  {pinnedMessages.map((msg) => (
                     <div
-                      key={notification.id}
-                      className={`p-3 rounded-lg cursor-pointer transition-colors ${
-                        notification.read 
-                          ? 'bg-muted/30' 
-                          : 'bg-muted/60 border border-border'
-                      }`}
-                      onClick={() => {
-                        if (!notification.read) {
-                          markAsRead.mutate(notification.id);
-                        }
-                      }}
+                      key={msg.id}
+                      className="p-3 bg-primary/5 border border-primary/20 rounded-lg"
                     >
-                      <div className="flex items-start gap-3">
-                        <div className={`p-2 rounded-full ${
-                          notification.read ? 'bg-muted' : 'bg-primary/10'
-                        }`}>
-                          <Icon className={`h-4 w-4 ${
-                            notification.read ? 'text-muted-foreground' : 'text-primary'
-                          }`} />
-                        </div>
+                      <div className="flex items-start justify-between gap-2">
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <p className={`text-sm ${
-                              notification.read ? '' : 'font-medium'
-                            }`}>
-                              {notification.title}
-                            </p>
-                            {!notification.read && (
-                              <div className="h-2 w-2 rounded-full bg-primary" />
-                            )}
-                          </div>
-                          <p className="text-sm text-muted-foreground line-clamp-2 mt-0.5">
-                            {notification.message}
+                          <p className="font-medium text-sm">{msg.title}</p>
+                          <p className="text-sm text-muted-foreground mt-1">
+                            {msg.content}
                           </p>
-                          <p className="text-xs text-muted-foreground mt-1">
-                            {formatDistanceToNow(new Date(notification.created_at), { addSuffix: true })}
+                          <p className="text-xs text-muted-foreground mt-2">
+                            {formatDistanceToNow(new Date(msg.created_at), { addSuffix: true })}
+                          </p>
+                        </div>
+                        <Pin className="h-4 w-4 text-primary shrink-0" />
+                      </div>
+                      <div className="flex justify-between items-center mt-2 pt-2 border-t border-primary/10">
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="text-xs"
+                          onClick={() => markAdminRead.mutate(msg.id)}
+                        >
+                          Mark as read
+                        </Button>
+                        <AdminMessageReply
+                          messageId={msg.id}
+                          messageTitle={msg.title}
+                          messageContent={msg.content}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Unpinned Admin Messages - NEW SECTION */}
+              {unpinnedMessages.length > 0 && (
+                <div className="space-y-2">
+                  <h4 className="text-sm font-medium text-muted-foreground flex items-center gap-1">
+                    <MessageCircle className="h-3 w-3" />
+                    Messages from String
+                  </h4>
+                  {unpinnedMessages.slice(0, 5).map((msg) => (
+                    <div
+                      key={msg.id}
+                      className="p-3 bg-muted/50 border rounded-lg"
+                    >
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium text-sm">{msg.title}</p>
+                          <p className="text-sm text-muted-foreground mt-1">
+                            {msg.content}
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-2">
+                            {formatDistanceToNow(new Date(msg.created_at), { addSuffix: true })}
                           </p>
                         </div>
                       </div>
+                      <div className="flex justify-between items-center mt-2 pt-2 border-t">
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="text-xs"
+                          onClick={() => markAdminRead.mutate(msg.id)}
+                        >
+                          Mark as read
+                        </Button>
+                        <AdminMessageReply
+                          messageId={msg.id}
+                          messageTitle={msg.title}
+                          messageContent={msg.content}
+                        />
+                      </div>
                     </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        </ScrollArea>
-      </SheetContent>
-    </Sheet>
+                  ))}
+                </div>
+              )}
+
+              <Separator />
+
+              {/* Regular Notifications */}
+              {notifications.length === 0 && allMessages.length === 0 ? (
+                <div className="text-center py-12">
+                  <Bell className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                  <h3 className="font-medium">No notifications</h3>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    You're all caught up!
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  {notifications.length > 0 && (
+                    <h4 className="text-sm font-medium text-muted-foreground">Recent Activity</h4>
+                  )}
+                  {notifications.map((notification) => {
+                    const Icon = typeIcons[notification.type] || Info;
+                    return (
+                      <div
+                        key={notification.id}
+                        className={`p-3 rounded-lg cursor-pointer transition-colors ${
+                          notification.read 
+                            ? 'bg-muted/30' 
+                            : 'bg-muted/60 border border-border'
+                        }`}
+                        onClick={() => {
+                          if (!notification.read) {
+                            markAsRead.mutate(notification.id);
+                          }
+                          if (notification.type === "email_dispatch") {
+                            setSelectedEmailNotification(notification);
+                            setEmailPreviewOpen(true);
+                          }
+                        }}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className={`p-2 rounded-full ${
+                            notification.read ? 'bg-muted' : 'bg-primary/10'
+                          }`}>
+                            <Icon className={`h-4 w-4 ${
+                              notification.read ? 'text-muted-foreground' : 'text-primary'
+                            }`} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2">
+                              <p className={`text-sm ${
+                                notification.read ? '' : 'font-medium'
+                              }`}>
+                                {notification.title}
+                              </p>
+                              {!notification.read && (
+                                <div className="h-2 w-2 rounded-full bg-primary" />
+                              )}
+                            </div>
+                            <p className="text-sm text-muted-foreground line-clamp-2 mt-0.5">
+                              {notification.message}
+                            </p>
+                            <p className="text-xs text-muted-foreground mt-1">
+                              {formatDistanceToNow(new Date(notification.created_at), { addSuffix: true })}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </ScrollArea>
+        </SheetContent>
+      </Sheet>
+
+      <EmailPreviewDialog
+        isOpen={emailPreviewOpen}
+        onClose={() => setEmailPreviewOpen(false)}
+        notification={selectedEmailNotification}
+      />
+    </>
   );
 }

@@ -193,7 +193,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
             : "h-16 border-b border-transparent bg-transparent"
         )}
       >
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" viewTransition className="flex items-center gap-2">
           <img src={stringLogoLight} alt="String" className={cn("w-auto logo-light transition-all duration-300", isScrolled ? "h-[1.5rem]" : "h-[1.85rem] md:h-10")} />
           <img src={stringLogoDark} alt="String" className={cn("w-auto logo-dark transition-all duration-300", isScrolled ? "h-[1.5rem]" : "h-[1.85rem] md:h-10")} />
         </Link>
@@ -207,6 +207,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
               <Link
                 key={item.href}
                 to={item.href}
+                viewTransition
                 className={cn(
                   "flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary",
                   isActive ? "text-primary" : "text-muted-foreground"

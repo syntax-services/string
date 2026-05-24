@@ -20,7 +20,6 @@ import { CheckoutFlow } from "@/components/checkout/CheckoutFlow";
 import {
   ArrowLeft,
   Heart,
-  Star,
   MessageCircle,
   MapPin,
   Briefcase,
@@ -333,9 +332,8 @@ export default function BusinessPublicProfile() {
               <div className="flex items-center gap-2">
                 <h1 className="text-2xl font-semibold text-foreground">{business.company_name}</h1>
                 {business.reputation_score && business.reputation_score > 0 && (
-                  <div className="flex items-center gap-1 text-sm">
-                    <Star className="h-4 w-4 fill-foreground text-foreground" />
-                    <span>{business.reputation_score.toFixed(1)}</span>
+                  <div className="flex items-center gap-1 text-xs font-bold text-muted-foreground bg-primary/10 px-2.5 py-0.75 rounded-full shrink-0">
+                    <span>Reputation: {business.reputation_score.toFixed(1)}</span>
                   </div>
                 )}
               </div>

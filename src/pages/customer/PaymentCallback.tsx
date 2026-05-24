@@ -9,6 +9,7 @@ export default function PaymentCallback() {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
     const [status, setStatus] = useState<"loading" | "success" | "error" | "timeout">("loading");
+    const [txType, setTxType] = useState<string | null>(null);
     const isMountedRef = useRef(true);
 
     const reference = searchParams.get("reference") ?? searchParams.get("trxref");
@@ -32,18 +33,27 @@ export default function PaymentCallback() {
             try {
                 const { data: transaction, error } = await supabase
                     .from("payment_transactions")
-                    .select("status")
+                    .select("status, metadata")
                     .eq("paystack_reference", reference)
                     .maybeSingle();
 
-                if (transaction?.status === "success") {
-                    setStatus("success");
-                    return;
-                }
+                if (transaction) {
+                    if (transaction.metadata && typeof transaction.metadata === "object") {
+                        const meta = transaction.metadata as any;
+                        if (meta.type === "booster") {
+                            setTxType("booster");
+                        }
+                    }
 
-                if (transaction?.status === "failed") {
-                    setStatus("error");
-                    return;
+                    if (transaction.status === "success") {
+                        setStatus("success");
+                        return;
+                    }
+
+                    if (transaction.status === "failed") {
+                        setStatus("error");
+                        return;
+                    }
                 }
             } catch (err) {
                 console.error("Polling error:", err);
@@ -78,7 +88,29 @@ export default function PaymentCallback() {
                     </div>
                 )}
 
-                {status === "success" && (
+                {status === "success" && txType === "booster" && (
+                    <div className="space-y-6 animate-in fade-in zoom-in duration-500">
+                        <div className="h-20 w-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto">
+                            <CheckCircle2 className="h-10 w-10 text-green-600 dark:text-green-400" />
+                        </div>
+                        <div className="space-y-2">
+                            <h1 className="text-3xl font-bold text-foreground">Booster Engaged! 🚀</h1>
+                            <p className="text-muted-foreground max-w-md mx-auto leading-relaxed">
+                                Congratulations! Your subscription is active. Your Gold Elite Premium badge has been awarded, and matching search prioritizations are now active.
+                            </p>
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
+                            <Button onClick={() => navigate("/business/profile")} className="rounded-xl h-10 px-6">
+                                View Profile
+                            </Button>
+                            <Button variant="outline" onClick={() => navigate("/business")} className="rounded-xl h-10 px-6">
+                                Dashboard Overview
+                            </Button>
+                        </div>
+                    </div>
+                )}
+
+                {status === "success" && txType !== "booster" && (
                     <div className="space-y-6 animate-in fade-in zoom-in duration-500">
                         <div className="h-20 w-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto">
                             <CheckCircle2 className="h-10 w-10 text-green-600 dark:text-green-400" />

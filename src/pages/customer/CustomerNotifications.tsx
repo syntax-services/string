@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useNotifications } from "@/hooks/useNotifications";
 import { useAdminMessages } from "@/hooks/useAdminMessages";
@@ -10,7 +11,8 @@ import {
   Package, 
   Trash2,
   MoreVertical,
-  Pin
+  Pin,
+  Mail
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -22,10 +24,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
+import { EmailPreviewDialog } from "@/components/notifications/EmailPreviewDialog";
 
 export default function CustomerNotifications() {
   const { notifications, unreadCount, markAsRead, markAllAsRead, deleteNotification, isLoading: loadingNotifs } = useNotifications();
   const { messages: adminMessages, isLoading: loadingAdmin } = useAdminMessages();
+
+  const [selectedEmailNotification, setSelectedEmailNotification] = useState<any | null>(null);
+  const [emailPreviewOpen, setEmailPreviewOpen] = useState(false);
 
   const isLoading = loadingNotifs || loadingAdmin;
 
@@ -37,6 +43,8 @@ export default function CustomerNotifications() {
         return <MessageSquare className="h-4 w-4 text-green-500" />;
       case "alert":
         return <AlertTriangle className="h-4 w-4 text-amber-500" />;
+      case "email_dispatch":
+        return <Mail className="h-4 w-4 text-primary" />;
       default:
         return <Info className="h-4 w-4 text-muted-foreground" />;
     }
@@ -124,7 +132,15 @@ export default function CustomerNotifications() {
                   <div 
                     key={notif.id} 
                     className={`p-4 hover:bg-muted/30 transition-colors group relative ${!notif.read ? "bg-primary/5" : ""}`}
-                    onClick={() => !notif.read && markAsRead.mutate(notif.id)}
+                    onClick={() => {
+                      if (!notif.read) {
+                        markAsRead.mutate(notif.id);
+                      }
+                      if (notif.type === "email_dispatch") {
+                        setSelectedEmailNotification(notif);
+                        setEmailPreviewOpen(true);
+                      }
+                    }}
                   >
                     <div className="flex gap-4">
                       <div className={`h-10 w-10 rounded-full flex items-center justify-center shrink-0 ${!notif.read ? "bg-primary/10" : "bg-muted"}`}>
@@ -176,6 +192,11 @@ export default function CustomerNotifications() {
             )}
           </div>
         </div>
+        <EmailPreviewDialog
+          isOpen={emailPreviewOpen}
+          onClose={() => setEmailPreviewOpen(false)}
+          notification={selectedEmailNotification}
+        />
       </div>
     </DashboardLayout>
   );

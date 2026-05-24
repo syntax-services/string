@@ -31,14 +31,13 @@ import {
   Package,
   Wrench,
   Filter,
-  Star,
   AlertTriangle,
-  Sparkles,
   Loader2,
   Lightbulb,
   Send,
   SlidersHorizontal,
   ShoppingCart,
+  Zap,
 } from "lucide-react";
 import {
   Select,
@@ -308,6 +307,76 @@ export default function CustomerDiscover() {
       navigate("/customer/messages");
     } catch (error) {
       toast({ variant: "destructive", title: "Failed to start chat" });
+    }
+  };
+
+  const handleCatalogPitch = async (businessId: string, companyName: string, productName: string, productPrice?: number | null) => {
+    if (!customerId || !user) {
+      toast({ title: "Please log in", description: "You must be logged in to pitch a seller." });
+      return;
+    }
+
+    try {
+      // 1. Establish conversation
+      const { data: conv } = await supabase
+        .from("conversations")
+        .select("id")
+        .eq("customer_id", customerId)
+        .eq("business_id", businessId)
+        .maybeSingle();
+
+      let conversationId = conv?.id;
+
+      if (!conversationId) {
+        const { data: newConv } = await supabase
+          .from("conversations")
+          .insert({ customer_id: customerId, business_id: businessId })
+          .select("id")
+          .single();
+
+        if (newConv) {
+          conversationId = newConv.id;
+        }
+      }
+
+      if (!conversationId) throw new Error("Could not initialize conversation context.");
+
+      // 2. Dispatch direct pitch message into the conversation
+      const priceText = productPrice ? ` (₦${Number(productPrice).toLocaleString()})` : "";
+      const pitchMsg = `Hi ${companyName}, I'm highly interested in purchasing your "${productName}"${priceText} listed in your catalog highlights. Is this item currently available?`;
+
+      const { error: msgError } = await supabase
+        .from("messages")
+        .insert({
+          conversation_id: conversationId,
+          sender_id: user.id,
+          content: pitchMsg
+        });
+
+      if (msgError) throw msgError;
+
+      // Play synthesized messaging chime!
+      try {
+        const { playChatAlert } = await import("@/hooks/useAudioSignals");
+        playChatAlert();
+      } catch (err) {
+        console.warn("Audio chime failed:", err);
+      }
+
+      toast({
+        title: "Catalog pitch sent successfully! 🚀",
+        description: `Direct query for "${productName}" dispatched to ${companyName}.`,
+      });
+
+      // Navigate to chat
+      navigate("/customer/messages");
+    } catch (err: any) {
+      console.error("Direct catalog pitch failed:", err);
+      toast({
+        variant: "destructive",
+        title: "Pitch dispatch failed",
+        description: err.message || "Failed to start conversation.",
+      });
     }
   };
 
@@ -676,7 +745,7 @@ export default function CustomerDiscover() {
                   onClick={handleSearchAssist}
                   disabled={aiMatchmaking.isPending || !search.trim()}
                 >
-                  {aiMatchmaking.isPending ? <Loader2 className="mr-1 h-3 w-3 animate-spin" /> : <Sparkles className="mr-1 h-3 w-3 text-primary" />}
+                  {aiMatchmaking.isPending ? <Loader2 className="mr-1 h-3 w-3 animate-spin" /> : <Zap className="mr-1 h-3 w-3 text-primary animate-pulse" />}
                   AI Assist Match
                 </Button>
               </div>
@@ -840,7 +909,7 @@ export default function CustomerDiscover() {
                     {searchInsights.find((item) => item.id === business.id)?.ai_match_score !== undefined && (
                       <div className="absolute bottom-3.5 right-3.5">
                         <span className="bg-primary backdrop-blur-md text-[10px] font-extrabold uppercase px-3 py-1 rounded-full text-primary-foreground shadow-lg flex items-center gap-1">
-                          <Sparkles className="h-3 w-3 animate-pulse" />
+                          <Zap className="h-3 w-3 animate-pulse" />
                           {searchInsights.find((item) => item.id === business.id)?.ai_match_score}% Match
                         </span>
                       </div>
@@ -887,6 +956,40 @@ export default function CustomerDiscover() {
                       </span>
                     </button>
                   </div>
+
+                  {/* Mini-Catalog Showcase Horizontal Grid */}
+                  {business.products && business.products.length > 0 && (
+                    <div className="px-1.5 py-3 border-y border-border/10">
+                      <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2 flex items-center gap-1.5 leading-none">
+                        <Package className="h-3 w-3 text-primary" />
+                        Catalog Highlights (Click to Pitch)
+                      </p>
+                      <div className="flex items-center gap-3 overflow-x-auto no-scrollbar py-0.5">
+                        {business.products.slice(0, 3).map((prod) => (
+                          <button
+                            key={prod.id}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleCatalogPitch(business.id, business.company_name, prod.name, prod.price);
+                            }}
+                            className="flex items-center gap-2.5 p-1.5 bg-muted/40 hover:bg-muted/70 rounded-2xl border border-border/20 transition-all text-left shrink-0 active:scale-95 group/prod"
+                          >
+                            <div className="h-9 w-9 rounded-full border border-border/30 bg-card overflow-hidden flex items-center justify-center shrink-0">
+                              {prod.image_url ? (
+                                <img src={prod.image_url} alt={prod.name} className="h-full w-full object-cover" />
+                              ) : (
+                                <Package className="h-4 w-4 text-muted-foreground" />
+                              )}
+                            </div>
+                            <div className="space-y-0.5 pr-1 text-[11px]">
+                              <p className="font-semibold text-foreground max-w-[90px] truncate leading-tight group-hover/prod:text-primary transition-colors">{prod.name}</p>
+                              <p className="text-[10px] font-bold text-muted-foreground">₦{Number(prod.price || 0).toLocaleString()}</p>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   {/* Metadata: Industry type, Location, Products/Services description */}
                   <div className="px-1.5 space-y-2">

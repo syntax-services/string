@@ -12,7 +12,6 @@ import { VerificationBadge } from "@/components/business/VerificationBadge";
 import { 
   Heart, 
   MessageCircle, 
-  Star, 
   MapPin, 
   Building2,
   Trash2 
@@ -155,9 +154,8 @@ export default function CustomerSavedBusinesses() {
 
                       <div className="flex items-center gap-2 mt-1 flex-wrap">
                         {business.reputation_score && business.reputation_score > 0 && (
-                          <div className="flex items-center gap-1 text-sm">
-                            <Star className="h-3 w-3 fill-foreground text-foreground" />
-                            {business.reputation_score.toFixed(1)}
+                          <div className="flex items-center gap-1 text-xs text-muted-foreground font-semibold">
+                            <span>Reputation: {business.reputation_score.toFixed(1)}</span>
                           </div>
                         )}
                         {business.business_type && (

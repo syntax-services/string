@@ -1213,7 +1213,7 @@ export default function StringAdmin() {
                                     {profile.theme_mode === 'dark' ? '🌙 Dark' : '☀️ Light'}
                                   </Badge>
                                   <Badge variant="outline" className="text-xs gap-1 py-0.5 border-primary/30 text-primary">
-                                    🎨 {profile.theme_palette === 'mono' ? 'Mono' : 'Blue'}
+                                    🎨 {profile.theme_palette === 'mono' ? 'Mono' : profile.theme_palette === 'rose' ? 'Rose' : 'Blue'}
                                   </Badge>
                                 </div>
                               </TableCell>
@@ -1294,7 +1294,7 @@ export default function StringAdmin() {
                   {/* Theme Palette Selector */}
                   <div className="space-y-3">
                     <Label className="text-sm font-semibold tracking-wide">Theme Accent Palette</Label>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-3 gap-3">
                       <Button
                         type="button"
                         variant={editingProfile.theme_palette === 'blue' ? 'default' : 'outline'}
@@ -1310,6 +1310,14 @@ export default function StringAdmin() {
                         className="w-full flex items-center gap-2 justify-center"
                       >
                         ⚪ Monochrome
+                      </Button>
+                      <Button
+                        type="button"
+                        variant={editingProfile.theme_palette === 'rose' ? 'default' : 'outline'}
+                        onClick={() => setEditingProfile({ ...editingProfile, theme_palette: 'rose' })}
+                        className="w-full flex items-center gap-2 justify-center"
+                      >
+                        🌸 Rose
                       </Button>
                     </div>
                   </div>

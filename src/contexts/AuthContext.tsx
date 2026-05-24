@@ -17,7 +17,7 @@ interface Profile {
   accepted_terms_version: number | null;
   terms_accepted_at: string | null;
   theme_mode?: 'dark' | 'light';
-  theme_palette?: 'blue' | 'mono';
+  theme_palette?: 'blue' | 'mono' | 'rose';
   banned?: boolean;
   created_at: string;
   updated_at: string;

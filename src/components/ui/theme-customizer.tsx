@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 
-type Palette = "blue" | "mono";
+type Palette = "blue" | "mono" | "rose";
 
 const palettes: { value: Palette; label: string; description: string; colors: string[] }[] = [
   {
@@ -18,6 +18,12 @@ const palettes: { value: Palette; label: string; description: string; colors: st
     label: "Classic Monochrome",
     description: "Minimal black, white & grey palette",
     colors: ["#171717", "#737373", "#F5F5F5", "#FFFFFF"],
+  },
+  {
+    value: "rose",
+    label: "Dusty Rose",
+    description: "Premium dusty rose theme — soft and elegant",
+    colors: ["#D08F8F", "#A06B6B", "#FFF5F5", "#2D2020"],
   },
 ];
 

@@ -5,7 +5,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useBusiness, useBusinessProducts, useBusinessServices } from "@/hooks/useBusiness";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -34,8 +34,16 @@ import {
 import { format } from "date-fns";
 
 export default function BusinessProfile() {
-  const { profile, signOut, refreshProfile } = useAuth();
+  const { profile, signOut, refreshProfile, isAdmin } = useAuth();
+  const navigate = useNavigate();
   const { data: business } = useBusiness();
+
+  const handleSwitchToAdmin = async () => {
+    localStorage.setItem("string_active_admin_mode", "true");
+    await refreshProfile();
+    toast.success("Switched to Admin Mode! 🛡️");
+    navigate("/admin");
+  };
   const { data: products = [] } = useBusinessProducts(business?.id);
   const { data: services = [] } = useBusinessServices(business?.id);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -146,7 +154,7 @@ export default function BusinessProfile() {
         {/* Profile Header Block */}
         <div className="flex flex-col items-center text-center mt-6 space-y-4">
           <div className="relative group cursor-pointer" onClick={handleAvatarClick}>
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-indigo-500 opacity-70 blur-md group-hover:opacity-100 transition duration-500" />
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-primary/80 opacity-70 blur-md group-hover:opacity-100 transition duration-500" />
             <div className="relative h-32 w-32 rounded-full border-4 border-background bg-card flex items-center justify-center overflow-hidden shadow-2xl">
               {uploading ? (
                 <div className="flex flex-col items-center justify-center gap-1.5">
@@ -226,6 +234,20 @@ export default function BusinessProfile() {
         {/* Floating Card Container 1 (Main Menu) */}
         <div className="bg-card rounded-2xl border border-border/40 shadow-xl shadow-black/5 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-black/10">
           <div className="divide-y divide-border/30">
+            {isAdmin && (
+              <button
+                onClick={handleSwitchToAdmin}
+                className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-red-500/[0.02] active:bg-red-500/[0.04] transition-all duration-300 group text-left bg-gradient-to-r from-red-500/[0.03] to-amber-500/[0.03] border-b border-border/20"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <ShieldCheck className="h-4.5 w-4.5" />
+                  </div>
+                  <span className="font-semibold text-red-500 text-[13px] tracking-wide">Admin Panel 🛡️</span>
+                </div>
+                <ChevronRight className="h-3.5 w-3.5 text-red-500/70 group-hover:translate-x-0.5 transition-transform duration-300" />
+              </button>
+            )}
             {menuItems.map((item, idx) => (
               <Link
                 key={item.label}

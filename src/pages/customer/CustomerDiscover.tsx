@@ -49,6 +49,7 @@ import {
 } from "@/components/ui/select";
 import { ReputationBadge } from "@/components/ui/reputation-badge";
 import { cn } from "@/lib/utils";
+import { updateMetaTags, injectMarketplaceDirectorySchema, injectProductSchema } from "@/lib/seo";
 
 interface Business {
   id: string;
@@ -443,6 +444,51 @@ export default function CustomerDiscover() {
       return 0;
     });
   }
+
+  // Synchronize dynamic SEO meta tags and JSON-LD structured search schemas
+  useEffect(() => {
+    const activeSearch = search.trim();
+    const title = activeSearch 
+      ? `Search "${activeSearch}"` 
+      : "Discover Local Verified Merchants & Services";
+    const description = activeSearch
+      ? `Browse high-quality local results for "${activeSearch}" on String. Safe payments, fast deliveries, and fully verified local Lagos businesses with secure escrow.`
+      : "Explore the premier high-trust escrow marketplace. Connect with top local beauty salons, tailor designers, electronics technicians, and premium merchants in Lagos.";
+    
+    const keywords = activeSearch
+      ? `${activeSearch}, search ${activeSearch}, buy ${activeSearch}, local ${activeSearch}, string, lagos, marketplace`
+      : "discover tailors, lagos fashion, electronics repairs, hair salons, verified merchants, string escrow, local goods, services";
+
+    updateMetaTags(title, description, keywords);
+
+    // Inject marketplace directory schema
+    if (filteredBusinesses && filteredBusinesses.length > 0) {
+      const dirPayload = filteredBusinesses.slice(0, 10).map(b => ({
+        companyName: b.company_name,
+        address: b.business_location || undefined,
+        rating: b.reputation_score || undefined,
+        imageUrl: b.logo_url || undefined,
+        category: b.industry || undefined
+      }));
+      injectMarketplaceDirectorySchema(dirPayload);
+
+      // Inject the first prominent product schema if matching search
+      const firstBiz = filteredBusinesses[0];
+      if (firstBiz && firstBiz.products && firstBiz.products.length > 0) {
+        const prod = firstBiz.products[0];
+        injectProductSchema({
+          id: prod.id,
+          name: prod.name,
+          description: `Get premium ${prod.name} from ${firstBiz.company_name} on String - High-trust local marketplace with escrow protection.`,
+          price: prod.price || 0,
+          imageUrl: prod.image_url || "https://string-marketplace.vercel.app/string-logo.png",
+          businessName: firstBiz.company_name,
+          category: firstBiz.industry || undefined,
+          inStock: true
+        });
+      }
+    }
+  }, [filteredBusinesses, search]);
 
   const openSuggestionDialog = () => {
     const trimmedSearch = search.trim();

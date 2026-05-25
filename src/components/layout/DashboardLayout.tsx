@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { BottomNav, customerNavItems, businessNavItems, adminNavItems } from "./BottomNav";
-import { useLocation } from "react-router-dom";
 import { CartPopup } from "@/components/cart/CartPopup";
 import { NotificationsPopup } from "@/components/notifications/NotificationsPopup";
 import { useScrollVisibility } from "@/hooks/useScrollVisibility";
@@ -10,9 +9,10 @@ import { cn } from "@/lib/utils";
 import stringLogoLight from "@/assets/string-logo-light.png";
 import stringLogoDark from "@/assets/String-logo-dark.png";
 import { useAuth } from "@/contexts/AuthContext";
-import { AlertCircle, Plus } from "lucide-react";
+import { AlertCircle, Plus, MessageSquare, ArrowRight, X, ShieldCheck } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { playChatAlert } from "@/hooks/useAudioSignals";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -25,10 +25,44 @@ const globalCachedTabsHtml: Record<string, string> = {};
 
 export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   const isNavVisible = useScrollVisibility();
-  const { isEmailVerified, user, resolvedUserType } = useAuth();
+  const { isEmailVerified, user, resolvedUserType, isAdmin, refreshProfile, hasBothRoles, switchRole } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleSwitchToAdmin = async () => {
+    localStorage.setItem("string_active_admin_mode", "true");
+    await refreshProfile();
+    toast.success("Switched to Admin Mode! 🛡️");
+    navigate("/admin");
+  };
   const [resending, setResending] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+
+  const [simulatedBid, setSimulatedBid] = React.useState<{
+    id: string;
+    buyerName: string;
+    itemName: string;
+    quantity: number;
+    price: number;
+    timestamp: number;
+  } | null>(null);
+
+  // Sync incoming custom bids triggered from the Admin Sandbox Console
+  React.useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === "string_simulated_bid" && e.newValue) {
+        try {
+          const parsed = JSON.parse(e.newValue);
+          setSimulatedBid(parsed);
+          playChatAlert().catch(console.error);
+        } catch (err) {
+          console.error("Failed to parse simulated bid payload:", err);
+        }
+      }
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
 
   const customerTabs = ["/customer", "/customer/discover", "/customer/messages", "/customer/profile"];
   const businessTabs = ["/business", "/business/discover", "/business/messages", "/business/profile"];
@@ -224,6 +258,32 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
           "flex items-center gap-2 transition-all duration-300",
           isScrolled ? "opacity-0 pointer-events-none -translate-y-4 md:opacity-100 md:pointer-events-auto md:translate-y-0" : "opacity-100"
         )}>
+          {isAdmin && resolvedUserType !== "admin" && (
+            <button
+              onClick={handleSwitchToAdmin}
+              className="h-8 px-3 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-bold flex items-center gap-1.5 hover:bg-red-500/20 transition-all duration-200 active:scale-95 shadow-sm shadow-red-500/10 shrink-0"
+              title="Switch to Admin Console"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+              </span>
+              <span className="hidden sm:inline">Admin Panel</span>
+              <span className="sm:hidden">Admin</span>
+            </button>
+          )}
+          {hasBothRoles && resolvedUserType !== "admin" && (
+            <button
+              onClick={async () => {
+                const nextRole = resolvedUserType === "business" ? "customer" : "business";
+                await switchRole(nextRole);
+              }}
+              className="h-8 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold flex items-center gap-1.5 hover:bg-primary/20 transition-all duration-200 active:scale-95 shadow-sm shadow-primary/10 shrink-0"
+              title={resolvedUserType === "business" ? "Switch to Shopper View" : "Switch to Merchant View"}
+            >
+              <span>{resolvedUserType === "business" ? "🛒 Shopper Mode" : "🏪 Merchant Mode"}</span>
+            </button>
+          )}
           {resolvedUserType !== "admin" && (
             <Link
               to={resolvedUserType === "business" ? "/business/upload" : "/customer/offers"}
@@ -333,6 +393,46 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
 
       {/* Bottom Nav - turns to capsule when scrolled */}
       <BottomNav isVisible={!isScrolled} />
+
+      {/* Elegant Simulated Bid Alert Drawer/Card */}
+      {simulatedBid && (
+        <div className="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-[60] w-[calc(100vw-2rem)] max-w-sm rounded-2xl border border-primary/30 bg-background/80 backdrop-blur-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] animate-in slide-in-from-bottom duration-300 text-foreground">
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <MessageSquare className="h-5 w-5" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Incoming Custom Bid Offer 🔥</span>
+              <h4 className="text-sm font-bold mt-0.5 truncate">{simulatedBid.buyerName}</h4>
+              <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                Offered <strong>₦{simulatedBid.price.toLocaleString()}</strong> for your custom request <strong>"{simulatedBid.itemName}"</strong>.
+              </p>
+            </div>
+            <button
+              onClick={() => setSimulatedBid(null)}
+              className="text-muted-foreground hover:text-foreground shrink-0 rounded-full p-1 hover:bg-accent transition-colors"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+          <div className="flex gap-2 mt-4">
+            <button
+              onClick={() => setSimulatedBid(null)}
+              className="flex-1 rounded-xl border border-border h-9 text-xs font-semibold hover:bg-accent transition-colors"
+            >
+              Dismiss
+            </button>
+            <Link
+              to={resolvedUserType === 'business' ? '/business/messages' : '/customer/messages'}
+              onClick={() => setSimulatedBid(null)}
+              className="flex-1 flex items-center justify-center gap-1.5 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground h-9 text-xs font-bold shadow-md shadow-primary/20 transition-all duration-300 active:scale-95"
+            >
+              View Bid Chat
+              <ArrowRight className="h-3 w-3" />
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -105,15 +105,16 @@ export function CreateOfferPanel() {
     const fileName = `offers/${user?.id}/${Date.now()}.${fileExt}`;
 
     const { error: uploadError } = await supabase.storage
-      .from("business-images")
+      .from("product-images")
       .upload(fileName, file);
 
     if (uploadError) {
+      console.error("Offers upload error:", uploadError);
       toast.error("Failed to upload image");
       return null;
     }
 
-    const { data } = supabase.storage.from("business-images").getPublicUrl(fileName);
+    const { data } = supabase.storage.from("product-images").getPublicUrl(fileName);
     return data.publicUrl;
   };
 

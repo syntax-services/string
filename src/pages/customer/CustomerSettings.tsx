@@ -26,6 +26,7 @@ import {
   Bell,
   Eye,
   EyeOff,
+  CheckCircle,
 } from "lucide-react";
 
 interface CustomerData {

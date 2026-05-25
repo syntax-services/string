@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { updateMetaTags } from "@/lib/seo";
 import {
   Dialog,
   DialogContent,
@@ -48,7 +49,7 @@ const ShopAvatar = ({ src, name }: { src: string; name: string }) => {
 
   if (error || !src) {
     return (
-      <div className="h-full w-full bg-gradient-to-br from-primary to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm shadow-inner shrink-0">
+      <div className="h-full w-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-white font-extrabold text-sm shadow-inner shrink-0">
         {name.charAt(0)}
       </div>
     );
@@ -240,6 +241,14 @@ export default function Landing() {
   const [promoMessage, setPromoMessage] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    updateMetaTags(
+      "Home of Verified Goods & Local Services",
+      "String is the premier high-trust escrow marketplace connecting customers with premium local merchants, tailor fashion designers, electronics repair shops, and beauty salons in Lagos, Nigeria.",
+      "string, marketplace, local business, lagos, escrow, verified shops, tailors, ankara fashion, repair electronics, beauty salon"
+    );
+  }, []);
+
   const handleActionClick = (actionName: string) => {
     if (user) {
       navigate(dashboardPath);
@@ -303,7 +312,7 @@ export default function Landing() {
           <div className="container px-4 text-center max-w-4xl mx-auto space-y-6">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-foreground font-Outfit">
               The direct catalog marketplace <br />
-              <span className="bg-gradient-to-r from-primary via-indigo-400 to-primary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
                 for premium local products
               </span>
             </h1>

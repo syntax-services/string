@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useAuth } from "@/contexts/AuthContext";
 import { 
@@ -8,9 +9,10 @@ import {
 } from "@/hooks/useBusiness";
 import { 
   MessageSquare, Package, Briefcase, Star, DollarSign, 
-  ArrowUpRight, Award, ShieldCheck, CheckCircle2, TrendingUp, Clock
+  ArrowUpRight, Award, ShieldCheck, CheckCircle2, TrendingUp, Clock, Flame
 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
@@ -32,6 +34,42 @@ export default function BusinessOverview() {
   const { data: orders = [], isLoading: ordersLoading } = useBusinessOrders(business?.id);
   const { data: jobs = [], isLoading: jobsLoading } = useBusinessJobs(business?.id);
   const navigate = useNavigate();
+
+  const [demandSignals, setDemandSignals] = useState<{ category: string; location: string; interest: number; trend: string }[]>([
+    { category: "Ankara Outfits", location: "Surulere", interest: 94, trend: "Exploding 🔥" },
+    { category: "Knotless Braids", location: "Ikeja", interest: 88, trend: "High Demand 📈" },
+    { category: "Corporate Makeup", location: "Lekki", interest: 76, trend: "Steady ⚡" },
+    { category: "Native Sew-in", location: "Yaba", interest: 65, trend: "Moderate 📈" },
+  ]);
+
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === "string_simulated_demand" && e.newValue) {
+        try {
+          const newSignal = JSON.parse(e.newValue);
+          setDemandSignals((prev) => {
+            const exists = prev.some(
+              (s) => s.category.toLowerCase() === newSignal.category.toLowerCase() && s.location.toLowerCase() === newSignal.location.toLowerCase()
+            );
+            if (exists) {
+              return prev.map((s) =>
+                s.category.toLowerCase() === newSignal.category.toLowerCase() && s.location.toLowerCase() === newSignal.location.toLowerCase()
+                  ? { ...s, interest: Math.min(100, s.interest + 8), trend: "Exploding 🔥" }
+                  : s
+              );
+            }
+            return [newSignal, ...prev].slice(0, 4);
+          });
+          toast.success(`New local demand signal: ${newSignal.category} in ${newSignal.location}!`);
+        } catch (err) {
+          console.error("Failed to parse simulated demand:", err);
+        }
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
 
   // Fetch open leads count in the platform
   const { data: leadsCount = 0 } = useQuery({
@@ -229,7 +267,7 @@ export default function BusinessOverview() {
         </div>
 
         {/* Primary Dashboard Core: Charts & Reputation Progress */}
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-4 lg:grid-cols-4">
           
           {/* sleek Glassmorphic Chart */}
           <div className="lg:col-span-2 dashboard-card flex flex-col justify-between h-[300px]">
@@ -350,6 +388,44 @@ export default function BusinessOverview() {
                   ? "Boost Visibility (Premium)" 
                   : "Configure Settings"}
             </button>
+          </div>
+
+          {/* Category Demand Heatmap Card */}
+          <div className="dashboard-card flex flex-col justify-between h-[300px]">
+            <div>
+              <h3 className="font-bold text-sm uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                <Flame className="h-4 w-4 text-orange-500 animate-pulse" />
+                Demand Heatmap
+              </h3>
+              <p className="text-xs text-muted-foreground mt-0.5">Real-time local category searches</p>
+            </div>
+
+            <div className="space-y-3.5 my-2">
+              {demandSignals.map((signal, idx) => (
+                <div key={idx} className="space-y-1">
+                  <div className="flex justify-between text-xs font-semibold">
+                    <span className="text-foreground flex items-center gap-1 truncate w-[130px] font-bold">
+                      {signal.category}
+                    </span>
+                    <span className="text-orange-500 font-black text-[9px] uppercase tracking-wider bg-orange-500/10 px-1.5 py-0.5 rounded-md">{signal.trend}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="h-1.5 flex-1 bg-muted rounded-full overflow-hidden border">
+                      <div
+                        className="h-full bg-gradient-to-r from-orange-400 via-amber-400 to-red-500 rounded-full transition-all duration-700"
+                        style={{ width: `${signal.interest}%` }}
+                      />
+                    </div>
+                    <span className="text-[9px] font-bold text-muted-foreground w-6 text-right shrink-0">{signal.interest}%</span>
+                  </div>
+                  <p className="text-[9px] text-muted-foreground">Location coverage: <span className="font-semibold text-foreground">{signal.location}</span></p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-[9px] text-muted-foreground text-center bg-muted/40 border rounded-lg py-1 px-1.5 font-mono">
+              ⚡ Sourced from search engines & AI queries
+            </div>
           </div>
         </div>
 

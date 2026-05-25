@@ -38,6 +38,8 @@ interface AuthContextType {
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<void>;
   isEmailVerified: boolean;
+  hasBothRoles: boolean;
+  switchRole: (role: 'customer' | 'business') => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -57,6 +59,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [accountType, setAccountType] = useState<AccountType | null>(null);
   const [resolvedUserType, setResolvedUserType] = useState<ResolvedUserType | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [hasBothRoles, setHasBothRoles] = useState(false);
   const [loading, setLoading] = useState(true);
   const currentUserIdRef = useRef<string | null>(null);
   const authHydratedRef = useRef(false);
@@ -94,16 +97,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     accountType: nextAccountType,
     resolvedUserType: nextResolvedUserType,
     isAdmin: nextIsAdmin,
+    hasBothRoles: nextHasBoth,
   }: {
     profile: Profile | null;
     accountType: AccountType | null;
     resolvedUserType: ResolvedUserType | null;
     isAdmin: boolean;
+    hasBothRoles: boolean;
   }) => {
     setProfile(nextProfile);
     setAccountType(nextAccountType);
     setResolvedUserType(nextResolvedUserType);
     setIsAdmin(nextIsAdmin);
+    setHasBothRoles(nextHasBoth);
   };
 
   const fetchResolvedAuthState = async (userId: string) => {
@@ -149,10 +155,34 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const rawProfile = profileResult.data as Profile | null;
     const nextIsAdmin = !!adminRoleResult.data;
-    const inferredAccountType =
-      businessResult.data ? 'business' : customerResult.data ? 'customer' : normalizeAccountType(rawProfile?.user_type);
+    
+    // Auto-initialize active admin mode state for new administrators
+    if (nextIsAdmin && localStorage.getItem("string_active_admin_mode") === null) {
+      localStorage.setItem("string_active_admin_mode", "false");
+    }
+    const activeAdminMode = localStorage.getItem("string_active_admin_mode") === "true";
+
+    const hasBusiness = !!businessResult.data;
+    const hasCustomer = !!customerResult.data;
+    const hasBoth = hasBusiness && hasCustomer;
+
+    const activeRoleView = localStorage.getItem("string_active_role_view");
+    let chosenAccountType: AccountType = 'customer';
+    
+    if (hasBusiness && hasCustomer) {
+      if (activeRoleView === 'customer' || activeRoleView === 'business') {
+        chosenAccountType = activeRoleView as AccountType;
+      } else {
+        chosenAccountType = normalizeAccountType(rawProfile?.user_type) ?? 'customer';
+      }
+    } else if (hasBusiness) {
+      chosenAccountType = 'business';
+    } else {
+      chosenAccountType = 'customer';
+    }
+
     const normalizedProfileType =
-      inferredAccountType ?? (nextIsAdmin ? 'admin' : normalizeAccountType(rawProfile?.user_type) ?? null);
+      chosenAccountType ?? (nextIsAdmin ? 'admin' : normalizeAccountType(rawProfile?.user_type) ?? null);
 
     const nextProfile =
       rawProfile && normalizedProfileType && rawProfile.user_type !== normalizedProfileType
@@ -161,13 +191,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     if (
       rawProfile &&
-      inferredAccountType &&
+      chosenAccountType &&
       !nextIsAdmin &&
-      rawProfile.user_type !== inferredAccountType
+      !hasBoth &&
+      rawProfile.user_type !== chosenAccountType
     ) {
       const { error: repairError } = await supabase
         .from('profiles')
-        .update({ user_type: inferredAccountType })
+        .update({ user_type: chosenAccountType })
         .eq('user_id', userId);
 
       if (repairError) {
@@ -177,11 +208,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     return {
       profile: nextProfile,
-      accountType: inferredAccountType,
-      resolvedUserType: nextIsAdmin
+      accountType: chosenAccountType,
+      resolvedUserType: nextIsAdmin && activeAdminMode
         ? 'admin'
-        : inferredAccountType ?? normalizeAccountType(nextProfile?.user_type),
+        : chosenAccountType,
       isAdmin: nextIsAdmin,
+      hasBothRoles: hasBoth,
     };
   };
 
@@ -377,7 +409,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       accountType: null,
       resolvedUserType: null,
       isAdmin: false,
+      hasBothRoles: false,
     });
+  };
+
+  const switchRole = async (targetRole: 'customer' | 'business') => {
+    localStorage.setItem("string_active_role_view", targetRole);
+    if (user) {
+      await supabase
+        .from('profiles')
+        .update({ user_type: targetRole })
+        .eq('user_id', user.id);
+    }
+    await refreshProfile();
   };
 
   const dashboardPath = getDashboardPath(user, profile, resolvedUserType);
@@ -398,6 +442,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         signOut,
         refreshProfile,
         isEmailVerified: !!user?.email_confirmed_at,
+        hasBothRoles,
+        switchRole,
       }}
     >
       {children}

@@ -57,6 +57,74 @@ export default function CustomerOrders() {
     return order.status === "shipped";
   };
 
+  const EscrowTimeline = ({ status }: { status: OrderStatus }) => {
+    const isUnpaid = status === "pending";
+    const isCancelled = ["cancelled", "refunded"].includes(status);
+    
+    if (isCancelled) {
+      return (
+        <div className="mt-3.5 p-2 bg-destructive/10 border border-destructive/20 text-destructive rounded-xl text-xs font-semibold text-center flex items-center justify-center gap-1.5">
+          <XCircle className="h-4 w-4 shrink-0" />
+          Escrow Transaction Cancelled / Refunded
+        </div>
+      );
+    }
+
+    const steps = [
+      { id: 1, label: "Unpaid ⏳", active: true, done: !isUnpaid },
+      { id: 2, label: "Escrowed 🔒", active: !isUnpaid, done: ["confirmed", "processing", "shipped", "delivered"].includes(status) },
+      { id: 3, label: "Dispatched 🚚", active: ["shipped", "delivered"].includes(status), done: status === "delivered" },
+      { id: 4, label: "Settle 🔓", active: status === "delivered", done: status === "delivered" },
+    ];
+
+    return (
+      <div className="mt-4 pt-3.5 border-t border-border/40 space-y-2.5">
+        <div className="flex justify-between items-center text-[9px] text-muted-foreground uppercase font-bold tracking-widest px-1">
+          <span>Escrow Protection System</span>
+          <span className={isUnpaid ? "text-amber-500 font-extrabold animate-pulse" : "text-green-500 font-extrabold"}>
+            {isUnpaid ? "Awaiting Deposit" : "Protected 🔒"}
+          </span>
+        </div>
+        <div className="relative flex items-center justify-between w-full px-2">
+          {/* Connector Line */}
+          <div className="absolute left-6 right-6 h-0.5 bg-muted -translate-y-2 z-0">
+            <div 
+              className="h-full bg-green-500 transition-all duration-500"
+              style={{
+                width: 
+                  status === "delivered" ? "100%" :
+                  status === "shipped" ? "66%" :
+                  !isUnpaid ? "33%" : "0%"
+              }}
+            />
+          </div>
+
+          {/* Stepper nodes */}
+          {steps.map((step) => {
+            const isHighlighted = step.done || step.active;
+            const isCompleted = step.done;
+            return (
+              <div key={step.id} className="relative flex flex-col items-center z-10">
+                <div 
+                  className={`h-5 w-5 rounded-full flex items-center justify-center text-[9px] font-bold border transition-all duration-300 ${
+                    isCompleted ? "bg-green-500 border-green-600 text-white shadow-sm shadow-green-500/20" :
+                    isHighlighted ? "bg-background border-green-500 text-green-500 ring-2 ring-green-500/10" :
+                    "bg-background border-border text-muted-foreground"
+                  }`}
+                >
+                  {isCompleted ? "✓" : step.id}
+                </div>
+                <span className={`text-[9px] font-bold mt-1.5 transition-colors ${isHighlighted ? "text-foreground font-extrabold" : "text-muted-foreground"}`}>
+                  {step.label}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
   const OrderCard = ({ order }: { order: typeof orders[0] }) => {
     const status = order.status as OrderStatus;
     const config = statusConfig[status];
@@ -130,6 +198,7 @@ export default function CustomerOrders() {
             </Button>
           </div>
         </div>
+        <EscrowTimeline status={status} />
       </div>
     );
   };

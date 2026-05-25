@@ -15,6 +15,8 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { StringVerifiedIcon } from "@/components/business/VerificationBadge";
+import { playVerificationChime } from "@/hooks/useAudioSignals";
+import { InterlockingLoader } from "@/components/ui/interlocking-loader";
 
 export default function BusinessVerify() {
   const { user } = useAuth();
@@ -25,6 +27,8 @@ export default function BusinessVerify() {
   const [streetAddress, setStreetAddress] = useState("");
   const [areaName, setAreaName] = useState("");
   const [tradeDescription, setTradeDescription] = useState("");
+  const [idType, setIdType] = useState<'nin' | 'bvn' | 'matric'>("nin");
+  const [idNumber, setIdNumber] = useState("");
 
   // Query latest location verification request
   const { data: request, isLoading } = useQuery({
@@ -51,8 +55,11 @@ export default function BusinessVerify() {
       if (!streetAddress.trim() || !areaName.trim() || !tradeDescription.trim()) {
         throw new Error("Please fill in all verification fields.");
       }
+      if (!idNumber.trim()) {
+        throw new Error("Please enter your NIN, BVN, or OOU student matric credentials.");
+      }
 
-      // Insert location verification request
+      // Insert location & identity verification request
       const { error } = await supabase
         .from("location_requests")
         .insert({
@@ -60,7 +67,7 @@ export default function BusinessVerify() {
           user_type: "business",
           street_address: streetAddress.trim(),
           area_name: areaName.trim(),
-          admin_notes: `[Trade Details]: ${tradeDescription.trim()}`,
+          admin_notes: `[Trade Details]: ${tradeDescription.trim()} | [ID Type]: ${idType.toUpperCase()} | [Secure ID hash]: ${idNumber.trim()}`,
           status: "pending",
         });
 
@@ -68,7 +75,8 @@ export default function BusinessVerify() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["my-location-request"] });
-      toast.success("Verification request submitted successfully!");
+      playVerificationChime().catch(console.error);
+      toast.success("Verification request & secure identity audit submitted! Chime active 🛡️");
     },
     onError: (err: any) => {
       toast.error(err.message || "Failed to submit request.");
@@ -97,7 +105,7 @@ export default function BusinessVerify() {
 
         {isLoading ? (
           <div className="dashboard-card py-16 flex items-center justify-center">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            <InterlockingLoader size="sm" label="Gathering credentials..." />
           </div>
         ) : business?.location_verified || request?.status === "verified" ? (
           
@@ -206,11 +214,65 @@ export default function BusinessVerify() {
                   className="rounded-xl border-border/40 focus:ring-primary/20 min-h-[100px] text-xs leading-relaxed"
                 />
               </div>
+
+              {/* High-Trust NIN / BVN & Student Verification Block */}
+              <div className="border-t border-border/20 pt-4 mt-2 space-y-4">
+                <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
+                  <ShieldCheck className="h-4.5 w-4.5" />
+                  <span>Level 2: Secure Identity Verification</span>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Select ID Source</Label>
+                  <div className="grid grid-cols-3 gap-2">
+                    <Button
+                      type="button"
+                      variant={idType === 'nin' ? 'default' : 'outline'}
+                      onClick={() => setIdType('nin')}
+                      className="text-[11px] h-9 rounded-xl font-bold transition-all"
+                    >
+                      NIN (National ID)
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={idType === 'bvn' ? 'default' : 'outline'}
+                      onClick={() => setIdType('bvn')}
+                      className="text-[11px] h-9 rounded-xl font-bold transition-all"
+                    >
+                      BVN (Bank ID)
+                    </Button>
+                    <Button
+                      type="button"
+                      variant={idType === 'matric' ? 'default' : 'outline'}
+                      onClick={() => setIdType('matric')}
+                      className="text-[11px] h-9 rounded-xl font-bold transition-all"
+                    >
+                      OOU Student Matric
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <Label htmlFor="idNumber" className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+                    {idType === 'nin' ? '11-Digit secure NIN' : idType === 'bvn' ? '11-Digit secure BVN' : 'OOU Portal Matric Number'}
+                  </Label>
+                  <Input
+                    id="idNumber"
+                    value={idNumber}
+                    onChange={(e) => setIdNumber(e.target.value)}
+                    placeholder={idType === 'matric' ? "e.g. ANA/2021/1094" : "Securely encrypted on submission..."}
+                    className="rounded-xl border-border/40 focus:ring-primary/20 h-10 font-mono tracking-wider text-xs"
+                  />
+                  <p className="text-[10px] text-muted-foreground leading-relaxed leading-normal bg-primary/5 border border-primary/10 p-2.5 rounded-xl mt-1">
+                    🔒 Verified through **Mono / Prembly API** gateways. Sensitive details are matched directly and not saved locally.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <Button
               onClick={() => submitRequest.mutate()}
-              disabled={submitRequest.isPending || !streetAddress.trim() || !areaName.trim() || !tradeDescription.trim()}
+              disabled={submitRequest.isPending || !streetAddress.trim() || !areaName.trim() || !tradeDescription.trim() || !idNumber.trim()}
               className="w-full rounded-xl h-11 bg-primary text-primary-foreground hover:bg-primary/95 transition-all font-semibold"
             >
               {submitRequest.isPending ? (

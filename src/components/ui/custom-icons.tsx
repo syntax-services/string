@@ -421,3 +421,37 @@ export const PremiumSupport = ({ className, active = false, ...props }: IconProp
   </svg>
 );
 
+export const PremiumStore = ({ className, active = false, ...props }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={active ? 1.65 : 1.25}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={cn("w-6 h-6 transition-all duration-300", className)}
+    {...props}
+  >
+    {/* Storefront outer frame */}
+    <path d="M3 21h18" />
+    <path d="M4 21V10h16v11" />
+    
+    {/* Elegant store canopy/awning with scalloped curves */}
+    <path d="M3 6h18v4H3z" />
+    <path d="M3 10c1 0 1.5-.5 2-1s1-.5 2 0 1.5 1 2 1 1.5-.5 2-1 1-.5 2 0 1.5 1 2 1 1.5-.5 2-1 1-.5 2 0 1.5 1 2 1" />
+    
+    {/* Branded String Double-Ring Crescent Window in the center storefront */}
+    <circle cx="12" cy="14.5" r="2.2" />
+    <path d="M14.2 14.5a2.2 2.2 0 0 1-1.2 2.0" opacity={0.8} />
+
+    {/* Minimalist door frame below */}
+    <path d="M9 21v-4.5h6V21" />
+
+    {/* Neural Active Signal Dot */}
+    {active && (
+      <circle cx="12" cy="19.5" r="0.75" fill="currentColor" stroke="none" />
+    )}
+  </svg>
+);
+

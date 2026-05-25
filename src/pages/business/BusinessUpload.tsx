@@ -64,20 +64,23 @@ export default function BusinessUpload() {
   const [serviceImages, setServiceImages] = useState<string[]>([]);
   const [locationInput, setLocationInput] = useState("");
 
-  const uploadImage = async (file: File): Promise<string | null> => {
+  const uploadImage = async (file: File, bucket: string = "product-images"): Promise<string | null> => {
+    if (!business?.id) return null;
     const fileExt = file.name.split(".").pop();
-    const fileName = `${business?.id}/${Date.now()}.${fileExt}`;
+    const folderPath = bucket === "service-images" ? "services/" : "";
+    const fileName = `${business.id}/${folderPath}${Date.now()}.${fileExt}`;
 
     const { error: uploadError } = await supabase.storage
-      .from("business-images")
+      .from(bucket)
       .upload(fileName, file);
 
     if (uploadError) {
+      console.error("Storage upload error:", uploadError);
       toast.error("Failed to upload image");
       return null;
     }
 
-    const { data } = supabase.storage.from("business-images").getPublicUrl(fileName);
+    const { data } = supabase.storage.from(bucket).getPublicUrl(fileName);
     return data.publicUrl;
   };
 
@@ -103,7 +106,7 @@ export default function BusinessUpload() {
     for (let i = 0; i < Math.min(files.length, 5); i++) {
       const file = files[i];
       if (file.size > 5 * 1024 * 1024) continue;
-      const url = await uploadImage(file);
+      const url = await uploadImage(file, "service-images");
       if (url) newUrls.push(url);
     }
 
@@ -150,7 +153,7 @@ export default function BusinessUpload() {
       let finalImageUrl = productImageUrl;
       if (productImageFile) {
         setUploading(true);
-        finalImageUrl = await uploadImage(productImageFile);
+        finalImageUrl = await uploadImage(productImageFile, "product-images");
         setUploading(false);
       }
 

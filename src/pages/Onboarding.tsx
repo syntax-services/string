@@ -68,8 +68,8 @@ export default function Onboarding() {
         p_user_type: "customer",
         p_business_data: null,
         p_customer_data: {
-          streetAddress: "",
-          areaName: "",
+          streetAddress: "N/A",
+          areaName: "N/A",
           location: "Nigeria"
         } as unknown as Json,
       });

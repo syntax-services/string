@@ -360,3 +360,4 @@ GRANT EXECUTE ON FUNCTION public.save_onboarding_draft(INTEGER, TEXT, JSONB) TO 
 REVOKE ALL ON FUNCTION public.complete_onboarding_setup(TEXT, TEXT, TEXT, JSONB, JSONB) FROM PUBLIC;
 GRANT EXECUTE ON FUNCTION public.complete_onboarding_setup(TEXT, TEXT, TEXT, JSONB, JSONB) TO authenticated;
 GRANT EXECUTE ON FUNCTION public.complete_onboarding_setup(TEXT, TEXT, TEXT, JSONB, JSONB) TO service_role;
+

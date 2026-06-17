@@ -190,6 +190,7 @@ export default function StringAdmin() {
       const { error } = await supabase
         .from("referral_codes")
         .insert({
+          user_id: user?.id,
           code: payload.code.trim().toUpperCase(),
           points_to_referrer: payload.points_to_referrer,
           points_to_referred: payload.points_to_referred,

@@ -24,22 +24,19 @@ export const PremiumHome = ({ className, active = false, ...props }: IconProps) 
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.4 : 1.05}
+    strokeWidth={active ? 1.4 : 1.25}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-6 h-6 transition-all duration-300", className)}
     {...props}
   >
-    {/* Clean geometric A-frame house */}
-    <path d="M3 10.5L12 3l9 7.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 3 20V10.5z" />
-    
-    {/* Custom Branded Double-Ring Crescent Window cutout in the center of the house */}
-    <circle cx="12" cy="12" r="2.5" />
-    <path d="M14.5 12a2.5 2.5 0 0 1-1.5 2.3" opacity={0.8} />
+    {/* String Logo: Two interlocking rings close together, no tilt */}
+    <circle cx="10" cy="12" r="5.5" />
+    <circle cx="14" cy="12" r="5.5" />
 
     {/* Neural Active Signal Dot */}
     {active && (
-      <circle cx="12" cy="18.5" r="0.75" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="19.5" r="0.75" fill="currentColor" stroke="none" />
     )}
   </svg>
 );
@@ -56,17 +53,13 @@ export const PremiumDiscover = ({ className, active = false, ...props }: IconPro
     className={cn("w-6 h-6 transition-all duration-300", className)}
     {...props}
   >
-    {/* Interlocking circles design: Left Ring */}
-    <circle cx="9.5" cy="12" r="4.5" />
-    {/* Right Ring */}
-    <circle cx="14.5" cy="12" r="4.5" />
-    
-    {/* Intersecting overlay curve to show they are interlocking */}
-    <path d="M12 7.8c1.2.6 2 1.8 2 3.2 0 1.4-.8 2.6-2 3.2" opacity={0.8} />
+    {/* Search/Discover Magnifying Glass */}
+    <circle cx="11" cy="11" r="7" />
+    <path d="M20 20l-5.5-5.5" />
 
     {/* Neural Active Signal Dot */}
     {active && (
-      <circle cx="12" cy="18.5" r="0.75" fill="currentColor" stroke="none" />
+      <circle cx="11" cy="21" r="0.75" fill="currentColor" stroke="none" />
     )}
   </svg>
 );

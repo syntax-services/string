@@ -84,6 +84,7 @@ export default function CustomerProfile() {
   const [accountNumber, setAccountNumber] = useState("");
   const [accountName, setAccountName] = useState("");
   const [totalSpent, setTotalSpent] = useState<number>(0);
+  const [activeProfileTab, setActiveProfileTab] = useState<'dashboard' | 'wallet'>('dashboard');
 
   const { referralCode: dbReferralCode, totalPoints: dbPoints } = useReferral();
   const totalPoints = (dbPoints || 0) + Number(profile?.coupon_balance || 0);
@@ -236,7 +237,7 @@ export default function CustomerProfile() {
       }
     };
     fetchData();
-  }, [profile, customer]);
+  }, [profile?.user_id, customer?.id]);
 
   const handleClaimReferral = async () => {
     if (!claimCode) return;
@@ -537,7 +538,10 @@ export default function CustomerProfile() {
           </div>
 
           {/* Referral / Rewards Balance Pool Card */}
-          <div className="w-full max-w-[280px] mt-2 animate-in fade-in slide-in-from-top-2 duration-500">
+          <div 
+            onClick={() => setActiveProfileTab('wallet')}
+            className="w-full max-w-[280px] mt-2 animate-in fade-in slide-in-from-top-2 duration-500 cursor-pointer active:scale-98 transition-all"
+          >
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500/10 to-teal-500/10 dark:from-emerald-500/10 dark:to-teal-500/5 border border-emerald-500/20 p-3 shadow-md shadow-emerald-500/5 flex items-center justify-between">
               <div className="absolute top-0 right-0 w-16 h-16 bg-emerald-500/5 rounded-full blur-xl pointer-events-none" />
               <div className="text-left space-y-0.5">
@@ -557,374 +561,369 @@ export default function CustomerProfile() {
           </div>
         </div>
 
-        {/* Floating Card Container 1 (Main Actions) */}
-        <div className="bg-card rounded-2xl border border-border/40 shadow-xl shadow-black/5 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-black/10">
-          <div className="divide-y divide-border/30">
-            {mainMenuList.map((item, idx) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="flex items-center justify-between px-4 py-2.5 hover:bg-primary/[0.02] active:bg-primary/[0.04] transition-all duration-300 group"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="h-8 w-8 rounded-xl bg-muted/50 flex items-center justify-center group-hover:bg-primary/10 group-hover:text-primary transition-all duration-300">
-                    <item.icon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+        {/* Tab Navigation */}
+        <div className="flex bg-muted/40 p-1 rounded-2xl border border-border/10">
+          <button
+            onClick={() => setActiveProfileTab('dashboard')}
+            className={cn(
+              "flex-1 py-2 rounded-xl text-xs font-bold transition-all duration-300",
+              activeProfileTab === 'dashboard'
+                ? "bg-card text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            Dashboard
+          </button>
+          <button
+            onClick={() => setActiveProfileTab('wallet')}
+            className={cn(
+              "flex-1 py-2 rounded-xl text-xs font-bold transition-all duration-300 flex items-center justify-center gap-1.5",
+              activeProfileTab === 'wallet'
+                ? "bg-card text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            )}
+          >
+            Wallet & Rewards
+            {totalPoints > 0 && (
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            )}
+          </button>
+        </div>
+
+        {activeProfileTab === 'dashboard' ? (
+          <div className="space-y-5 animate-in fade-in slide-in-from-bottom-2 duration-300">
+            {/* Grid of Main Actions */}
+            <div className="grid grid-cols-2 gap-3">
+              {mainMenuList.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="bg-card hover:bg-primary/[0.02] border border-border/40 hover:border-primary/20 rounded-2xl p-4 flex flex-col items-center justify-center text-center relative overflow-hidden group shadow-md hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="h-10 w-10 rounded-2xl bg-muted/50 flex items-center justify-center group-hover:bg-primary/10 group-hover:text-primary transition-all duration-300 mb-2.5">
+                    <item.icon className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                   </div>
-                  <span className="font-medium text-foreground/80 group-hover:text-foreground text-[13px] tracking-wide transition-colors duration-300">{item.label}</span>
-                </div>
-                <div className="flex items-center gap-2">
+                  <span className="font-bold text-foreground/80 group-hover:text-foreground text-xs tracking-wide">{item.label}</span>
                   {item.count !== undefined && item.count > 0 && (
-                    <span className="bg-primary/10 text-primary text-[9px] font-bold px-1.5 py-0.25 rounded-full">
+                    <span className="absolute top-3 right-3 bg-primary/10 text-primary text-[9px] font-black px-1.5 py-0.5 rounded-full">
                       {item.count}
                     </span>
                   )}
-                  <ChevronRight className="h-3.5 w-3.5 text-muted-foreground group-hover:translate-x-0.5 transition-transform duration-300" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Floating Card Container 2 (Secondary Actions) */}
-        <div className="bg-card rounded-2xl border border-border/40 shadow-xl shadow-black/5 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-black/10">
-          <div className="divide-y divide-border/30">
-            {isAdmin && (
-              <button
-                onClick={handleSwitchToAdmin}
-                className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-red-500/[0.02] active:bg-red-500/[0.04] transition-all duration-300 group text-left bg-gradient-to-r from-red-500/[0.03] to-amber-500/[0.03] border-b border-border/20"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="h-8 w-8 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <ShieldCheck className="h-4.5 w-4.5" />
-                  </div>
-                  <span className="font-semibold text-red-500 text-[13px] tracking-wide">Admin Panel 🛡️</span>
-                </div>
-                <ChevronRight className="h-3.5 w-3.5 text-red-500/70 group-hover:translate-x-0.5 transition-transform duration-300" />
-              </button>
-            )}
-            {hasBothRoles && (
-              <button
-                onClick={async () => {
-                  await switchRole("business");
-                  toast.success("Switched to Merchant View! 🏪");
-                  navigate("/business");
-                }}
-                className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-primary/[0.02] active:bg-primary/[0.04] transition-all duration-300 group text-left bg-gradient-to-r from-primary/[0.03] to-primary/[0.01] border-b border-border/20"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="h-8 w-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4.5 h-4.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.5a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75h-3.5a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
-                    </svg>
-                  </div>
-                  <span className="font-semibold text-primary text-[13px] tracking-wide">Merchant Studio 🏪</span>
-                </div>
-                <ChevronRight className="h-3.5 w-3.5 text-primary/70 group-hover:translate-x-0.5 transition-transform duration-300" />
-              </button>
-            )}
-            {secondaryMenuList.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="flex items-center justify-between px-4 py-2.5 hover:bg-primary/[0.02] active:bg-primary/[0.04] transition-all duration-300 group"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="h-8 w-8 rounded-xl bg-muted/50 flex items-center justify-center group-hover:bg-primary/10 group-hover:text-primary transition-all duration-300">
-                    <item.icon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-                  </div>
-                  <span className="font-medium text-foreground/80 group-hover:text-foreground text-[13px] tracking-wide transition-colors duration-300">{item.label}</span>
-                </div>
-                <ChevronRight className="h-3.5 w-3.5 text-muted-foreground group-hover:translate-x-0.5 transition-transform duration-300" />
-              </Link>
-            ))}
-
-            {/* Platform Feedback */}
-            <button
-              onClick={() => setIsFeedbackModalOpen(true)}
-              className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-primary/[0.02] active:bg-primary/[0.04] transition-all duration-300 group text-left"
-            >
-              <div className="flex items-center gap-3">
-                <div className="h-8 w-8 rounded-xl bg-muted/50 flex items-center justify-center group-hover:bg-primary/10 group-hover:text-primary transition-all duration-300">
-                  <PremiumStar className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-                </div>
-                <span className="font-medium text-foreground/80 group-hover:text-foreground text-[13px] tracking-wide transition-colors duration-300">Submit Platform Feedback</span>
-              </div>
-              <ChevronRight className="h-3.5 w-3.5 text-muted-foreground group-hover:translate-x-0.5 transition-transform duration-300" />
-            </button>
-
-            {/* Theme Row */}
-            <div className="flex items-center justify-between px-4 py-2.5 hover:bg-primary/[0.02] transition-all duration-300">
-              <div className="flex items-center gap-3">
-                <div className="h-8 w-8 rounded-xl bg-muted/50 flex items-center justify-center">
-                  <Sparkles className="h-4 w-4 text-muted-foreground" />
-                </div>
-                <span className="font-medium text-foreground/80 text-[13px] tracking-wide">Dark Theme</span>
-              </div>
-              <ThemeToggle />
+                </Link>
+              ))}
             </div>
 
-            {/* Log Out */}
-            <button
-              onClick={signOut}
-              className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-destructive/[0.02] active:bg-destructive/[0.04] transition-all duration-300 group text-left"
-            >
-              <div className="flex items-center gap-3">
-                <div className="h-8 w-8 rounded-xl bg-muted/50 flex items-center justify-center group-hover:bg-destructive/10 transition-all duration-300">
-                  <LogOut className="h-4 w-4 text-muted-foreground group-hover:text-destructive transition-colors duration-300" />
+            {/* List of Secondary Actions */}
+            <div className="bg-card rounded-2xl border border-border/40 shadow-md overflow-hidden transition-all duration-300">
+              <div className="divide-y divide-border/20">
+                {isAdmin && (
+                  <button
+                    onClick={handleSwitchToAdmin}
+                    className="w-full flex items-center justify-between px-4 py-3 hover:bg-red-500/[0.02] active:bg-red-500/[0.04] transition-all duration-200 group text-left bg-gradient-to-r from-red-500/[0.03] to-amber-500/[0.03]"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <ShieldCheck className="h-4.5 w-4.5" />
+                      </div>
+                      <span className="font-semibold text-red-500 text-[13px]">Admin Panel 🛡️</span>
+                    </div>
+                    <ChevronRight className="h-3.5 w-3.5 text-red-500/70 group-hover:translate-x-0.5 transition-transform" />
+                  </button>
+                )}
+                {hasBothRoles && (
+                  <button
+                    onClick={async () => {
+                      await switchRole("business");
+                      toast.success("Switched to Merchant View! 🏪");
+                      navigate("/business");
+                    }}
+                    className="w-full flex items-center justify-between px-4 py-3 hover:bg-primary/[0.02] active:bg-primary/[0.04] transition-all duration-200 group text-left bg-gradient-to-r from-primary/[0.03] to-primary/[0.01]"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4.5 h-4.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.5a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75h-3.5a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
+                        </svg>
+                      </div>
+                      <span className="font-semibold text-primary text-[13px]">Merchant Studio 🏪</span>
+                    </div>
+                    <ChevronRight className="h-3.5 w-3.5 text-primary/70 group-hover:translate-x-0.5 transition-transform" />
+                  </button>
+                )}
+                {secondaryMenuList.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="flex items-center justify-between px-4 py-3 hover:bg-primary/[0.02] active:bg-primary/[0.04] transition-all duration-200 group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-xl bg-muted/50 flex items-center justify-center group-hover:bg-primary/10 group-hover:text-primary transition-all duration-200">
+                        <item.icon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                      </div>
+                      <span className="font-medium text-foreground/80 group-hover:text-foreground text-[13px]">{item.label}</span>
+                    </div>
+                    <ChevronRight className="h-3.5 w-3.5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                ))}
+
+                {/* Platform Feedback */}
+                <button
+                  onClick={() => setIsFeedbackModalOpen(true)}
+                  className="w-full flex items-center justify-between px-4 py-3 hover:bg-primary/[0.02] active:bg-primary/[0.04] transition-all duration-200 group text-left"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="h-8 w-8 rounded-xl bg-muted/50 flex items-center justify-center group-hover:bg-primary/10 group-hover:text-primary transition-all duration-200">
+                      <PremiumStar className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </div>
+                    <span className="font-medium text-foreground/80 group-hover:text-foreground text-[13px]">Submit Platform Feedback</span>
+                  </div>
+                  <ChevronRight className="h-3.5 w-3.5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
+                </button>
+
+                {/* Theme Row */}
+                <div className="flex items-center justify-between px-4 py-3 hover:bg-primary/[0.02] transition-all duration-200">
+                  <div className="flex items-center gap-3">
+                    <div className="h-8 w-8 rounded-xl bg-muted/50 flex items-center justify-center">
+                      <Sparkles className="h-4 w-4 text-muted-foreground" />
+                    </div>
+                    <span className="font-medium text-foreground/80 text-[13px]">Dark Theme</span>
+                  </div>
+                  <ThemeToggle />
                 </div>
-                <span className="font-medium text-foreground/80 group-hover:text-destructive text-[13px] tracking-wide transition-colors duration-300">Log Out</span>
-              </div>
-              <ChevronRight className="h-3.5 w-3.5 text-muted-foreground group-hover:translate-x-0.5 transition-transform duration-300" />
-            </button>
-          </div>
-        </div>
-        {/* Gamified Rewards & Wallet Section */}
-        <div className="bg-card rounded-2xl border border-border/40 overflow-hidden shadow-xl shadow-black/5 animate-in fade-in slide-in-from-bottom-2 duration-700 delay-100">
-          <div className="p-4 border-b border-border/10 flex items-center justify-between bg-gradient-to-r from-primary/5 via-transparent to-transparent">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 shadow-inner">
-                <Gift className="h-4.5 w-4.5 text-primary drop-shadow-sm" />
-              </div>
-              <div>
-                <h2 className="font-bold text-sm text-foreground tracking-tight">Rewards Hub</h2>
-                <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-widest mt-0.5">Points & Payouts</p>
+
+                {/* Log Out */}
+                <button
+                  onClick={signOut}
+                  className="w-full flex items-center justify-between px-4 py-3 hover:bg-destructive/[0.02] active:bg-destructive/[0.04] transition-all duration-200 group text-left"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="h-8 w-8 rounded-xl bg-muted/50 flex items-center justify-center group-hover:bg-destructive/10 transition-all duration-200">
+                      <LogOut className="h-4 w-4 text-muted-foreground group-hover:text-destructive transition-colors" />
+                    </div>
+                    <span className="font-medium text-foreground/80 group-hover:text-destructive text-[13px]">Log Out</span>
+                  </div>
+                  <ChevronRight className="h-3.5 w-3.5 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
+                </button>
               </div>
             </div>
-            {giftClaimed ? (
-              <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-bold text-[10px] tracking-wider py-1 px-2.5">VIP GIFT CLAIMED</Badge>
-            ) : (
-              <Button onClick={handleClaimMonthlyGift} size="sm" className="h-8 rounded-xl bg-primary text-primary-foreground font-bold text-[10px] shadow-sm hover:shadow-md hover:bg-primary/90 transition-all">
-                CLAIM VIP GIFT
-              </Button>
-            )}
           </div>
-          
-          <div className="p-4 space-y-5">
-            {/* Points & Referral Stats */}
-            <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-2xl bg-muted/20 border border-border/20 p-4 flex flex-col items-center justify-center text-center relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <Star className="h-5 w-5 text-yellow-500 fill-yellow-500/20 mb-2" />
-                <p className="text-2xl font-black text-foreground tracking-tighter">₦{totalPoints.toLocaleString()}</p>
-                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">Total Balance</p>
-              </div>
-              <div className="rounded-2xl bg-muted/20 border border-border/20 p-4 flex flex-col items-center justify-center text-center relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <Users className="h-5 w-5 text-blue-500 mb-2" />
-                <p className="text-2xl font-black text-foreground tracking-tighter">{totalReferrals.toLocaleString()}</p>
-                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">Friends Referred</p>
-              </div>
-            </div>
-
-            {/* Referral Code */}
-            {referralCode && (
-              <div className="flex items-center gap-2 bg-muted/10 rounded-2xl p-2 border border-border/20">
-                <div className="flex-1 px-3">
-                  <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-0.5">Your Referral Code</p>
-                  <p className="text-sm font-black font-mono tracking-wider text-foreground">{referralCode}</p>
+        ) : (
+          <div className="space-y-5 animate-in fade-in slide-in-from-bottom-2 duration-300">
+            {/* Gamified Rewards & Wallet Section */}
+            <div className="bg-card rounded-2xl border border-border/40 overflow-hidden shadow-md">
+              <div className="p-4 border-b border-border/10 flex items-center justify-between bg-gradient-to-r from-primary/5 via-transparent to-transparent">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 shadow-inner">
+                    <Gift className="h-4.5 w-4.5 text-primary drop-shadow-sm" />
+                  </div>
+                  <div>
+                    <h2 className="font-bold text-sm text-foreground tracking-tight">Rewards Hub</h2>
+                    <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-widest mt-0.5">Points & Payouts</p>
+                  </div>
                 </div>
-                <Button variant="secondary" size="icon" className="h-10 w-10 rounded-xl bg-background shadow-sm hover:shadow active:scale-95 transition-all" onClick={() => {
-                  navigator.clipboard.writeText(referralCode);
-                  toast.success("Referral code copied!");
-                }}>
-                  <Copy className="h-4 w-4 text-foreground/70" />
-                </Button>
-              </div>
-            )}
-
-            {/* Claim Promo / Referral Code */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Claim Promo or Referral Code</p>
-                {profile?.referral_code_used && (
-                  <Badge variant="outline" className="text-[8px] font-bold tracking-wider px-2 py-0.5 border-border/20 text-muted-foreground bg-muted/5">WELCOME BONUS CLAIMED</Badge>
+                {giftClaimed ? (
+                  <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-bold text-[10px] tracking-wider py-1 px-2.5">VIP GIFT CLAIMED</Badge>
+                ) : (
+                  <Button onClick={handleClaimMonthlyGift} size="sm" className="h-8 rounded-xl bg-primary text-primary-foreground font-bold text-[10px] shadow-sm hover:shadow-md hover:bg-primary/90 transition-all">
+                    CLAIM VIP GIFT
+                  </Button>
                 )}
               </div>
-              <div className="flex gap-2">
-                <Input placeholder="Enter code (e.g. STR-XXXXXX or promo)..." value={claimCode} onChange={(e) => setClaimCode(e.target.value)} className="rounded-xl bg-muted/10 border-border/20 focus-visible:ring-primary/30 font-medium" />
-                <Button onClick={handleClaimReferral} disabled={claiming || !claimCode} className="rounded-xl shadow-sm font-bold text-xs px-5">
-                  {claiming ? "Claiming..." : "Claim"}
-                </Button>
-              </div>
-            </div>
-
-            {/* Withdrawal Section */}
-            <div className="space-y-3 pt-3 border-t border-border/10">
-              <div className="flex items-center justify-between">
-                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Withdraw Funds</p>
-                <Badge variant="outline" className="text-[9px] font-bold tracking-wider px-2 py-0.5 border-primary/20 text-primary bg-primary/5">MIN ₦1,000</Badge>
-              </div>
-
-              {/* Purchase threshold bridge warning */}
-              {totalSpent < 25000 ? (
-                <div className="rounded-xl bg-amber-500/10 border border-amber-500/20 p-3 text-left space-y-1.5">
-                  <div className="flex items-center gap-1.5 text-amber-500 text-xs font-bold uppercase tracking-wider">
-                    <AlertTriangle className="h-3.5 w-3.5" />
-                    Withdrawal Locked
+              
+              <div className="p-4 space-y-5">
+                {/* Points & Referral Stats */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="rounded-2xl bg-muted/20 border border-border/20 p-4 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <Star className="h-5 w-5 text-yellow-500 fill-yellow-500/20 mb-2" />
+                    <p className="text-2xl font-black text-foreground tracking-tighter">₦{totalPoints.toLocaleString()}</p>
+                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">Total Balance</p>
                   </div>
-                  <p className="text-[11px] text-muted-foreground leading-relaxed">
-                    To withdraw funds, platform policy requires a minimum total purchase volume of ₦25,000 on products/services.
-                  </p>
-                  <div className="flex justify-between items-center text-[10px] font-extrabold text-amber-500 uppercase mt-1">
-                    <span>Progress: ₦{totalSpent.toLocaleString()} / ₦25,000</span>
-                    <span>{Math.round((totalSpent / 25000) * 100)}%</span>
-                  </div>
-                  <div className="w-full bg-muted/30 rounded-full h-1.5 overflow-hidden border border-border/10">
-                    <div className="bg-amber-500 h-full rounded-full transition-all duration-500" style={{ width: `${Math.min(100, (totalSpent / 25000) * 100)}%` }} />
-                  </div>
-                </div>
-              ) : (
-                <div className="rounded-xl bg-emerald-500/10 border border-emerald-500/20 p-3 text-left space-y-1">
-                  <div className="flex items-center gap-1.5 text-emerald-500 text-xs font-bold uppercase tracking-wider">
-                    <CheckCircle className="h-3.5 w-3.5" />
-                    Withdrawals Unlocked
-                  </div>
-                  <p className="text-[11px] text-muted-foreground">
-                    Your purchase threshold requirement is satisfied! (Total Spent: ₦{totalSpent.toLocaleString()})
-                  </p>
-                </div>
-              )}
-
-              <form onSubmit={handleWithdrawalRequest} className="space-y-3 pt-1">
-                <div className="space-y-1 text-left">
-                  <Label htmlFor="bankName" className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Bank Name</Label>
-                  <select
-                    id="bankName"
-                    value={bankName}
-                    onChange={(e) => setBankName(e.target.value)}
-                    className="w-full rounded-xl border border-border/20 bg-muted/10 px-3 h-10 text-xs font-medium focus:ring-1 focus:ring-primary focus:outline-none"
-                    required
-                    disabled={totalSpent < 25000}
-                  >
-                    <option value="">Select your bank</option>
-                    <option value="044">Access Bank</option>
-                    <option value="050">Ecobank Nigeria</option>
-                    <option value="070">Fidelity Bank</option>
-                    <option value="011">First Bank of Nigeria</option>
-                    <option value="058">GTBank</option>
-                    <option value="030">Heritage Bank</option>
-                    <option value="301">Jaiz Bank</option>
-                    <option value="082">Keystone Bank</option>
-                    <option value="999992">OPay Digital Services</option>
-                    <option value="999991">PalmPay</option>
-                    <option value="076">Polaris Bank</option>
-                    <option value="101">Providus Bank</option>
-                    <option value="221">Stanbic IBTC Bank</option>
-                    <option value="068">Standard Chartered Bank</option>
-                    <option value="232">Sterling Bank</option>
-                    <option value="100">SunTrust Bank</option>
-                    <option value="032">Union Bank of Nigeria</option>
-                    <option value="033">United Bank for Africa (UBA)</option>
-                    <option value="215">Unity Bank</option>
-                    <option value="035">Wema Bank</option>
-                    <option value="057">Zenith Bank</option>
-                  </select>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3 text-left">
-                  <div className="space-y-1">
-                    <Label htmlFor="acctNumber" className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Account Number</Label>
-                    <Input
-                      id="acctNumber"
-                      maxLength={10}
-                      placeholder="10 digit NUBAN"
-                      value={accountNumber}
-                      onChange={(e) => setAccountNumber(e.target.value.replace(/\D/g, ""))}
-                      className="rounded-xl bg-muted/10 border-border/20 focus-visible:ring-primary/30 text-xs font-semibold"
-                      required
-                      disabled={totalSpent < 25000}
-                    />
-                  </div>
-                  <div className="space-y-1">
-                    <Label htmlFor="acctName" className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Account Name</Label>
-                    <Input
-                      id="acctName"
-                      placeholder="Name on Account"
-                      value={accountName}
-                      onChange={(e) => setAccountName(e.target.value)}
-                      className="rounded-xl bg-muted/10 border-border/20 focus-visible:ring-primary/30 text-xs font-semibold"
-                      required
-                      disabled={totalSpent < 25000}
-                    />
+                  <div className="rounded-2xl bg-muted/20 border border-border/20 p-4 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <Users className="h-5 w-5 text-blue-500 mb-2" />
+                    <p className="text-2xl font-black text-foreground tracking-tighter">{totalReferrals.toLocaleString()}</p>
+                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">Friends Referred</p>
                   </div>
                 </div>
 
-                <div className="space-y-1 text-left">
-                  <Label htmlFor="withdrawAmt" className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Withdrawal Amount (₦)</Label>
-                  <div className="flex gap-2">
-                    <div className="relative flex-1">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-bold text-xs">₦</span>
-                      <Input 
-                        id="withdrawAmt"
-                        type="number" 
-                        placeholder="Amount" 
-                        value={withdrawAmount} 
-                        onChange={(e) => setWithdrawAmount(e.target.value)} 
-                        className="rounded-xl bg-muted/10 border-border/20 focus-visible:ring-primary/30 font-bold pl-7 text-xs" 
-                        min="1000" 
-                        max={totalPoints} 
-                        required
-                        disabled={totalSpent < 25000}
-                      />
+                {/* Referral Code */}
+                {referralCode && (
+                  <div className="flex items-center gap-2 bg-muted/10 rounded-2xl p-2 border border-border/20">
+                    <div className="flex-1 px-3">
+                      <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-0.5">Your Referral Code</p>
+                      <p className="text-sm font-black font-mono tracking-wider text-foreground">{referralCode}</p>
                     </div>
-                    <Button 
-                      type="submit" 
-                      disabled={withdrawing || !withdrawAmount || totalSpent < 25000} 
-                      variant="default" 
-                      className="rounded-xl shadow-sm font-bold text-xs px-4 bg-foreground text-background hover:bg-foreground/90 h-10"
-                    >
-                      <CreditCard className="h-3.5 w-3.5 mr-1.5" />
-                      {withdrawing ? "Processing..." : "Withdraw"}
+                    <Button variant="secondary" size="icon" className="h-10 w-10 rounded-xl bg-background shadow-sm hover:shadow active:scale-95 transition-all" onClick={() => {
+                      navigator.clipboard.writeText(referralCode);
+                      toast.success("Referral code copied!");
+                    }}>
+                      <Copy className="h-4 w-4 text-foreground/70" />
+                    </Button>
+                  </div>
+                )}
+
+                {/* Claim Promo / Referral Code */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Claim Promo or Referral Code</p>
+                    {profile?.referral_code_used && (
+                      <Badge variant="outline" className="text-[8px] font-bold tracking-wider px-2 py-0.5 border-border/20 text-muted-foreground bg-muted/5">WELCOME BONUS CLAIMED</Badge>
+                    )}
+                  </div>
+                  <div className="flex gap-2">
+                    <Input placeholder="Enter code (e.g. STR-XXXXXX or promo)..." value={claimCode} onChange={(e) => setClaimCode(e.target.value)} className="rounded-xl bg-muted/10 border-border/20 focus-visible:ring-primary/30 font-medium" />
+                    <Button onClick={handleClaimReferral} disabled={claiming || !claimCode} className="rounded-xl shadow-sm font-bold text-xs px-5">
+                      {claiming ? "Claiming..." : "Claim"}
                     </Button>
                   </div>
                 </div>
-              </form>
+
+                {/* Local Bank Withdrawal Form */}
+                <form onSubmit={handleWithdrawalRequest} className="border-t border-border/10 pt-4 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Request Naira Bank Payout</p>
+                    <Badge variant="secondary" className="text-[8px] font-bold tracking-wider px-2 py-0.5 bg-primary/10 text-primary border-primary/20">PAYSTACK SECURE</Badge>
+                  </div>
+
+                  {/* Purchase Volume Bridge Warning Progress */}
+                  <div className="p-3 bg-muted/30 border border-border/10 rounded-2xl space-y-2">
+                    <div className="flex justify-between items-center text-[10px] font-bold">
+                      <span className="text-muted-foreground uppercase tracking-wider">Purchase Bridge Threshold</span>
+                      <span className={cn(totalSpent >= 25000 ? "text-emerald-500" : "text-yellow-500")}>
+                        ₦{totalSpent.toLocaleString()} / ₦25,000
+                      </span>
+                    </div>
+                    <div className="w-full bg-muted rounded-full h-1.5 overflow-hidden">
+                      <div 
+                        className={cn("h-full transition-all duration-500", totalSpent >= 25000 ? "bg-emerald-500" : "bg-primary")}
+                        style={{ width: `${Math.min(100, (totalSpent / 25000) * 100)}%` }}
+                      />
+                    </div>
+                    {totalSpent < 25000 ? (
+                      <p className="text-[9.5px] leading-relaxed text-muted-foreground flex items-start gap-1">
+                        <AlertTriangle className="h-3.5 w-3.5 text-yellow-500 shrink-0 mt-0.5" />
+                        <span>You need to spend at least ₦25,000 on purchases before you can withdraw referral points.</span>
+                      </p>
+                    ) : (
+                      <p className="text-[9.5px] leading-relaxed text-emerald-500 flex items-center gap-1 font-bold">
+                        <CheckCircle className="h-3.5 w-3.5 shrink-0" />
+                        <span>Purchase threshold reached! Withdrawal enabled.</span>
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="space-y-1.5">
+                      <Label htmlFor="withdrawAmount" className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Withdrawal Amount (₦)</Label>
+                      <Input
+                        id="withdrawAmount"
+                        type="number"
+                        placeholder="Min ₦1,000..."
+                        value={withdrawAmount}
+                        onChange={(e) => setWithdrawAmount(e.target.value)}
+                        disabled={withdrawing || totalSpent < 25000}
+                        className="rounded-xl border-border/20"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <Label htmlFor="bankName" className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Select Bank</Label>
+                      <Select value={bankName} onValueChange={setBankName} disabled={withdrawing || totalSpent < 25000}>
+                        <SelectTrigger className="rounded-xl border-border/20">
+                          <SelectValue placeholder="Select bank name..." />
+                        </SelectTrigger>
+                        <SelectContent className="rounded-xl">
+                          <SelectItem value="access">Access Bank</SelectItem>
+                          <SelectItem value="gtbank">Guaranty Trust Bank (GTB)</SelectItem>
+                          <SelectItem value="zenith">Zenith Bank</SelectItem>
+                          <SelectItem value="uba">United Bank for Africa (UBA)</SelectItem>
+                          <SelectItem value="firstbank">First Bank of Nigeria</SelectItem>
+                          <SelectItem value="fcmb">First City Monument Bank (FCMB)</SelectItem>
+                          <SelectItem value="wema">Wema Bank</SelectItem>
+                          <SelectItem value="sterling">Sterling Bank</SelectItem>
+                          <SelectItem value="union">Union Bank</SelectItem>
+                          <SelectItem value="polaris">Polaris Bank</SelectItem>
+                          <SelectItem value="opay">OPay</SelectItem>
+                          <SelectItem value="palmpay">PalmPay</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <Label htmlFor="accountNumber" className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Account Number (10 digits)</Label>
+                      <Input
+                        id="accountNumber"
+                        placeholder="0123456789"
+                        maxLength={10}
+                        value={accountNumber}
+                        onChange={(e) => setAccountNumber(e.target.value.replace(/\D/g, ''))}
+                        disabled={withdrawing || totalSpent < 25000}
+                        className="rounded-xl border-border/20 font-mono tracking-wider"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <Label htmlFor="accountName" className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Account Holder Name</Label>
+                      <Input
+                        id="accountName"
+                        placeholder="e.g. John Doe"
+                        value={accountName}
+                        onChange={(e) => setAccountName(e.target.value)}
+                        disabled={withdrawing || totalSpent < 25000}
+                        className="rounded-xl border-border/20 font-semibold"
+                      />
+                    </div>
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={withdrawing || !withdrawAmount || totalSpent < 25000}
+                    className="w-full rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/95 transition-all text-xs py-2.5"
+                  >
+                    {withdrawing ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Processing Payout...
+                      </>
+                    ) : (
+                      "Request Bank Transfer"
+                    )}
+                  </Button>
+                </form>
+              </div>
             </div>
 
-            {/* Referred Friends Feed */}
-            {referredFriendsList.length > 0 && (
-              <div className="pt-3 border-t border-border/10">
-                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1 mb-2">Referred Friends</p>
-                <div className="space-y-2 max-h-32 overflow-y-auto pr-1 custom-scrollbar">
-                  {referredFriendsList.map((ref) => (
-                    <div key={ref.id} className="flex items-center justify-between p-2.5 rounded-xl bg-muted/10 border border-border/10 hover:bg-muted/20 transition-colors">
-                      <div>
-                        <p className="text-xs font-bold text-foreground">{ref.name}</p>
-                        <p className="text-[10px] text-muted-foreground font-medium">{ref.email}</p>
-                      </div>
-                      <Badge variant="secondary" className="bg-green-500/10 text-green-500 border-green-500/20 font-bold text-[10px]">+₦100</Badge>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-            
-            {/* Withdrawal History */}
+            {/* Withdrawal History Card */}
             {withdrawHistory.length > 0 && (
-              <div className="pt-3 border-t border-border/10">
-                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1 mb-2">Withdrawal History</p>
-                <div className="space-y-2 max-h-32 overflow-y-auto pr-1 custom-scrollbar">
-                  {withdrawHistory.map((req) => (
-                    <div key={req.id} className="flex items-center justify-between p-2.5 rounded-xl bg-muted/10 border border-border/10">
+              <div className="bg-card rounded-2xl border border-border/40 p-4 shadow-md space-y-3">
+                <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest ml-1">Payout History</p>
+                <div className="space-y-2.5 max-h-48 overflow-y-auto divide-y divide-border/10">
+                  {withdrawHistory.map((item) => (
+                    <div key={item.id} className="flex justify-between items-center py-2 first:pt-0 last:pb-0 text-xs">
                       <div>
-                        <p className="text-xs font-bold text-foreground">₦{req.amount.toLocaleString()}</p>
-                        <p className="text-[10px] text-muted-foreground font-medium">{format(new Date(req.created_at), "MMM d, yyyy")}</p>
+                        <p className="font-bold text-foreground">₦{Number(item.amount).toLocaleString()}</p>
+                        <p className="text-[10px] text-muted-foreground font-medium mt-0.5">{item.bank_name.toUpperCase()} • {item.account_number}</p>
                       </div>
-                      <Badge variant="secondary" className={cn(
-                        "font-bold text-[9px] uppercase tracking-wider",
-                        req.status === 'completed' ? "bg-green-500/10 text-green-500 border-green-500/20" : 
-                        req.status === 'failed' ? "bg-red-500/10 text-red-500 border-red-500/20" : 
-                        "bg-yellow-500/10 text-yellow-600 border-yellow-500/20"
-                      )}>
-                        {req.status}
-                      </Badge>
+                      <div className="text-right">
+                        <Badge 
+                          variant={item.status === 'completed' ? 'default' : item.status === 'rejected' ? 'destructive' : 'secondary'}
+                          className={cn(
+                            "text-[8px] font-black uppercase tracking-wider px-2 py-0.5",
+                            item.status === 'completed' && "bg-emerald-500/10 text-emerald-500 border-emerald-500/20 hover:bg-emerald-500/15"
+                          )}
+                        >
+                          {item.status}
+                        </Badge>
+                        <p className="text-[9px] text-muted-foreground mt-0.5">{format(new Date(item.created_at), "MMM d, yyyy")}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             )}
           </div>
-        </div>
+        )}
 
         {/* Hidden Business Registration Accordion */}
         {!hasBothRoles && (

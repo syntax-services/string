@@ -338,7 +338,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     const channel = supabase
-      .channel(`profile-realtime-${user.id}`)
+      .channel(`profile-realtime-${user.id}-${Math.random().toString(36).substring(7)}`)
       .on(
         "postgres_changes",
         {

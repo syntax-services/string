@@ -124,7 +124,7 @@ export default function CustomerSettings() {
     if (!user || !customerData.id) return;
     
     const channel = supabase
-      .channel(`settings-realtime-${user.id}`)
+      .channel(`settings-realtime-${user.id}-${Math.random().toString(36).substring(7)}`)
       .on(
         "postgres_changes",
         {

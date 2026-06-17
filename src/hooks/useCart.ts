@@ -132,7 +132,7 @@ export function useCart() {
     if (!customer?.id) return;
 
     const channel = supabase
-      .channel(`cart-realtime-${customer.id}`)
+      .channel(`cart-realtime-${customer.id}-${Math.random().toString(36).substring(7)}`)
       .on(
         "postgres_changes",
         {

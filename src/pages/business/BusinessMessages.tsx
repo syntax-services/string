@@ -263,7 +263,7 @@ export default function BusinessMessages() {
 
     // Subscribe to new messages
     const channel = supabase
-      .channel(`messages-${selectedConversation.id}`)
+      .channel(`messages-${selectedConversation.id}-${Math.random().toString(36).substring(7)}`)
       .on(
         "postgres_changes",
         {

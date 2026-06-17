@@ -67,7 +67,7 @@ export function NotificationsPopup() {
     if (!user?.id) return;
 
     const channel = supabase
-      .channel("notifications-changes")
+      .channel(`notifications-changes-${Math.random().toString(36).substring(7)}`)
       .on(
         "postgres_changes",
         {

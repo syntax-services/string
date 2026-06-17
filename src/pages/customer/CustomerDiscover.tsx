@@ -143,8 +143,8 @@ export default function CustomerDiscover() {
     if (!search.trim()) return items;
     const q = search.toLowerCase();
     return items.filter(item => 
-      item.name.toLowerCase().includes(q) || 
-      item.business.company_name.toLowerCase().includes(q)
+      (item.name || "").toLowerCase().includes(q) || 
+      (item.business?.company_name || "").toLowerCase().includes(q)
     );
   }, [items, search]);
 

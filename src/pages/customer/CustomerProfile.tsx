@@ -84,6 +84,7 @@ export default function CustomerProfile() {
   const [accountNumber, setAccountNumber] = useState("");
   const [accountName, setAccountName] = useState("");
   const [totalSpent, setTotalSpent] = useState<number>(0);
+  const [monthlySpent, setMonthlySpent] = useState<number>(0);
   const [activeProfileTab, setActiveProfileTab] = useState<'dashboard' | 'wallet'>('dashboard');
 
   const { referralCode: dbReferralCode, totalPoints: dbPoints } = useReferral();
@@ -230,6 +231,23 @@ export default function CustomerProfile() {
           if (ords) {
             const sum = ords.reduce((acc: number, cur: any) => acc + Number(cur.total || 0), 0);
             setTotalSpent(sum);
+          }
+
+          // Fetch monthly spent (current calendar month, delivered only)
+          const startOfMonth = new Date();
+          startOfMonth.setDate(1);
+          startOfMonth.setHours(0, 0, 0, 0);
+
+          const { data: monthlyOrds } = await supabase
+            .from("orders")
+            .select("total")
+            .eq("customer_id", customer.id)
+            .eq("status", "delivered")
+            .gte("created_at", startOfMonth.toISOString());
+          
+          if (monthlyOrds) {
+            const sumMonthly = monthlyOrds.reduce((acc: number, cur: any) => acc + Number(cur.total || 0), 0);
+            setMonthlySpent(sumMonthly);
           }
         }
       } catch (err) {
@@ -762,6 +780,30 @@ export default function CustomerProfile() {
                     </Button>
                   </div>
                 )}
+
+                {/* Monthly VIP Gift Progress Card */}
+                <div className="p-3 bg-muted/20 border border-border/20 rounded-2xl space-y-2 text-left">
+                  <div className="flex justify-between items-center text-[10px] font-bold">
+                    <span className="text-muted-foreground uppercase tracking-widest flex items-center gap-1">
+                      <Sparkles className="h-3 w-3 text-primary animate-pulse" />
+                      Monthly VIP Gift Progress
+                    </span>
+                    <span className={cn(monthlySpent >= 50000 ? "text-emerald-500" : "text-primary")}>
+                      ₦{monthlySpent.toLocaleString()} / ₦50,000
+                    </span>
+                  </div>
+                  <div className="w-full bg-muted rounded-full h-1.5 overflow-hidden">
+                    <div 
+                      className={cn("h-full transition-all duration-500", monthlySpent >= 50000 ? "bg-emerald-500" : "bg-primary")}
+                      style={{ width: `${Math.min(100, (monthlySpent / 50000) * 100)}%` }}
+                    />
+                  </div>
+                  <p className="text-[9px] text-muted-foreground leading-relaxed">
+                    {monthlySpent >= 50000 
+                      ? "Congratulations! You have reached the monthly spend of ₦50,000. Claim your ₦5,000 cash gift above!"
+                      : `Spend ₦${(50000 - monthlySpent).toLocaleString()} more on delivered orders this month to unlock a free ₦5,000 VIP cash gift.`}
+                  </p>
+                </div>
 
                 {/* Claim Promo / Referral Code */}
                 <div className="space-y-2">

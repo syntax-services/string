@@ -169,7 +169,7 @@ export default function Onboarding() {
                   id="referralCode"
                   placeholder="E.g. STR-VIP2026"
                   value={referralCode}
-                  onChange={(e) => setReferralCode(e.target.value)}
+                  onChange={(e) => setReferralCode(e.target.value.toUpperCase())}
                   disabled={loading}
                   className="pl-10 uppercase"
                 />

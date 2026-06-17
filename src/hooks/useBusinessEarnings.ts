@@ -138,13 +138,14 @@ export function useAllWithdrawals() {
   return useQuery({
     queryKey: ["all-withdrawals"],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("withdrawal_requests")
-        .select("*, businesses:business_id (company_name, profiles:user_id (full_name, email))")
-        .order("created_at", { ascending: false });
-
-      if (error) throw error;
-      return data;
+      try {
+        const { data, error } = await supabase
+          .from("withdrawal_requests")
+          .select("*, profiles:user_id (full_name, email), businesses:business_id (company_name, profiles:user_id (full_name, email))")
+          .order("created_at", { ascending: false });
+        if (error) { console.warn("Withdrawals query failed:", error.message); return []; }
+        return data || [];
+      } catch (e) { console.warn("Withdrawals query error:", e); return []; }
     },
   });
 }

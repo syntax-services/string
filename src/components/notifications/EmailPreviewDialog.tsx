@@ -29,6 +29,18 @@ interface EmailPreviewDialogProps {
 }
 
 export function EmailPreviewDialog({ isOpen, onClose, notification }: EmailPreviewDialogProps) {
+  // Local theme selector so user can dynamically test layouts
+  const [emailTheme, setEmailTheme] = useState<"dark" | "light" | "mono">(
+    notification?.data?.theme || "dark"
+  );
+
+  // Sync theme when notification changes
+  React.useEffect(() => {
+    if (notification?.data?.theme) {
+      setEmailTheme(notification.data.theme);
+    }
+  }, [notification?.data?.theme]);
+
   if (!notification || notification.data?.email_type === undefined) return null;
 
   const emailData = notification.data;
@@ -36,11 +48,6 @@ export function EmailPreviewDialog({ isOpen, onClose, notification }: EmailPrevi
   const recipientEmail = emailData.recipient_email || "user@string.co";
   const recipientName = emailData.recipient_name || "Merchant";
   const variables = emailData.variables || {};
-
-  // Local theme selector so user can dynamically test layouts
-  const [emailTheme, setEmailTheme] = useState<"dark" | "light" | "mono">(
-    emailData.theme || "dark"
-  );
 
   // Re-generate HTML body dynamically when user switches the toggle
   const renderedHtml = generateEmailHtml(emailType, {

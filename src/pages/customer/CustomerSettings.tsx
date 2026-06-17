@@ -111,9 +111,6 @@ export default function CustomerSettings() {
     budget_alert_max: 10000000,
   });
   const [saving, setSaving] = useState(false);
-  const [claimCode, setClaimCode] = useState("");
-  const [claiming, setClaiming] = useState(false);
-  const [referredFriendsList, setReferredFriendsList] = useState<{ id: string; name: string; email: string; date: string }[]>([]);
 
   useEffect(() => {
     if (profile) {
@@ -121,46 +118,6 @@ export default function CustomerSettings() {
       setPhone(profile.phone || "");
     }
   }, [profile]);
-
-  // Load referred friends
-  useEffect(() => {
-    const fetchReferredFriends = async () => {
-      if (!user) return;
-      try {
-        const { data: refs, error: refsErr } = await supabase
-          .from("referrals")
-          .select("id, points_awarded, status, created_at, referred_id")
-          .eq("referrer_id", user.id);
-        
-        if (refsErr) throw refsErr;
-        
-        if (refs && refs.length > 0) {
-          const ids = refs.map(r => r.referred_id);
-          const { data: pfs, error: pfsErr } = await supabase
-            .from("profiles")
-            .select("user_id, full_name, email")
-            .in("user_id", ids);
-
-          if (pfsErr) throw pfsErr;
-
-          const mapped = refs.map(r => {
-            const pf = pfs?.find(p => p.user_id === r.referred_id);
-            return {
-              id: r.id,
-              name: pf?.full_name || "Friend",
-              email: pf?.email || "No email",
-              date: format(new Date(r.created_at), "MMM d, yyyy"),
-            };
-          });
-          setReferredFriendsList(mapped);
-        }
-      } catch (err) {
-        console.warn("Failed to fetch referred friends:", err);
-      }
-    };
-
-    fetchReferredFriends();
-  }, [user]);
 
   // Realtime settings sync
   useEffect(() => {
@@ -199,42 +156,6 @@ export default function CustomerSettings() {
       void supabase.removeChannel(channel);
     };
   }, [user, customerData.id]);
-
-  const handleClaimReferral = async () => {
-    if (!claimCode) return;
-    setClaiming(true);
-    try {
-      const { data, error } = await supabase.rpc("process_referral", {
-        p_referral_code: claimCode.trim().toUpperCase(),
-      });
-
-      if (error) throw error;
-
-      if (data && (data as any).success) {
-        toast({
-          title: "Referral Claimed!",
-          description: `You earned welcome points!`,
-        });
-        setClaimCode("");
-        await refreshProfile();
-      } else {
-        toast({
-          variant: "destructive",
-          title: "Failed to claim code",
-          description: (data as any)?.message || "Invalid or already claimed code.",
-        });
-      }
-    } catch (err: any) {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: err.message || "Failed to process referral code.",
-      });
-    } finally {
-      setClaiming(false);
-    }
-  };
-
   useEffect(() => {
     const fetchCustomerAndSettings = async () => {
       if (!user) return;
@@ -587,99 +508,6 @@ export default function CustomerSettings() {
               description="Unlock the local mobile container using fingerprint or Face ID."
             />
           </div>
-        </div>
-
-        {/* Referral Section */}
-        <div className="dashboard-card space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent">
-              <Gift className="h-4.5 w-4.5 text-accent-foreground" />
-            </div>
-            <div>
-              <h2 className="font-medium text-sm text-foreground uppercase tracking-wider">Referral Program</h2>
-            </div>
-          </div>
-          
-          {referralCode && (
-            <div className="flex items-center gap-2 pt-2">
-              <div className="flex-1 rounded-2xl bg-muted/30 border border-border/20 px-4 py-3">
-                <p className="text-[10px] text-muted-foreground uppercase tracking-wider">Your referral code</p>
-                <p className="text-base font-mono font-semibold text-foreground mt-0.5">{referralCode}</p>
-              </div>
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-12 w-12 rounded-2xl shrink-0 border-border/40 active:scale-95 transition-transform"
-                onClick={() => {
-                  navigator.clipboard.writeText(referralCode);
-                  toast({ title: "Copied!", description: "Referral code copied to clipboard" });
-                }}
-              >
-                <Copy className="h-4 w-4" />
-              </Button>
-            </div>
-          )}
-          
-          <div className="grid grid-cols-2 gap-3 pt-2">
-            <div className="rounded-2xl bg-muted/20 border border-border/20 p-3.5 text-center">
-              <p className="text-xl font-medium text-foreground">{totalReferrals}</p>
-              <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-0.5">Friends Referred</p>
-            </div>
-            <div className="rounded-2xl bg-muted/20 border border-border/20 p-3.5 text-center">
-              <div className="flex items-center justify-center gap-1">
-                <Star className="h-4 w-4 text-primary fill-primary" />
-                <p className="text-xl font-medium text-foreground">{totalPoints}</p>
-              </div>
-              <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-0.5">Total Points</p>
-            </div>
-          </div>
-
-          {/* Claim Welcome Bonus */}
-          <div className="border-t border-border/10 pt-4 space-y-3">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Claim Welcome Bonus</h3>
-            {profile?.referral_code_used ? (
-              <div className="rounded-2xl bg-green-500/10 border border-green-500/20 px-4 py-3 text-xs text-green-500 flex items-center gap-2">
-                <CheckCircle className="h-4.5 w-4.5 shrink-0" />
-                <span>Welcome Bonus Claimed: <strong>{profile.referral_code_used}</strong> (+50 pts awarded)</span>
-              </div>
-            ) : (
-              <div className="flex gap-2">
-                <Input
-                  placeholder="Enter friend's referral code..."
-                  value={claimCode}
-                  onChange={(e) => setClaimCode(e.target.value)}
-                  className="google-input flex-1"
-                />
-                <Button
-                  onClick={handleClaimReferral}
-                  disabled={claiming || !claimCode}
-                  className="rounded-2xl shrink-0 h-10 px-4 text-xs font-medium"
-                >
-                  {claiming ? "Claiming..." : "Claim Code"}
-                </Button>
-              </div>
-            )}
-          </div>
-
-          {/* Referred Friends Feed Log */}
-          {referredFriendsList.length > 0 && (
-            <div className="border-t border-border/10 pt-4 space-y-2">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">Referred Friends</h3>
-              <div className="space-y-2 max-h-32 overflow-y-auto no-scrollbar">
-                {referredFriendsList.map((ref) => (
-                  <div key={ref.id} className="flex items-center justify-between p-2.5 rounded-xl bg-muted/20 border border-border/10">
-                    <div>
-                      <p className="text-xs font-medium text-foreground">{ref.name}</p>
-                      <p className="text-[10px] text-muted-foreground">{ref.email} • {ref.date}</p>
-                    </div>
-                    <Badge variant="secondary" className="text-[10px] font-semibold text-green-500 bg-green-500/10 border-green-500/20">
-                      +100 pts
-                    </Badge>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Location Access */}

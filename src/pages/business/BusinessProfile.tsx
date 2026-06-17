@@ -76,7 +76,7 @@ export default function BusinessProfile() {
 
   const handleAvatarChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (!file || !profile?.id) return;
+    if (!file || !profile?.user_id) return;
 
     if (file.size > 5 * 1024 * 1024) {
       toast.error("Avatar images must be less than 5MB.");
@@ -86,7 +86,7 @@ export default function BusinessProfile() {
     setUploading(true);
     try {
       const fileExt = file.name.split(".").pop();
-      const fileName = `${profile.id}/avatar-${Date.now()}.${fileExt}`;
+      const fileName = `${profile.user_id}/avatar-${Date.now()}.${fileExt}`;
 
       const { error: uploadError } = await supabase.storage
         .from("business-images")

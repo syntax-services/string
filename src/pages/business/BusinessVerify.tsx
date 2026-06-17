@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useAuth } from "@/contexts/AuthContext";
 import { useBusiness } from "@/hooks/useBusiness";
@@ -6,7 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { 
   Building2, MapPin, CheckCircle2, AlertCircle, 
-  Loader2, ShieldCheck, ArrowLeft, Clock, ShoppingBag
+  Loader2, ShieldCheck, ArrowLeft, Clock, ShoppingBag, Upload
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -29,6 +29,69 @@ export default function BusinessVerify() {
   const [tradeDescription, setTradeDescription] = useState("");
   const [idType, setIdType] = useState<'nin' | 'bvn' | 'matric'>("nin");
   const [idNumber, setIdNumber] = useState("");
+  const [latitude, setLatitude] = useState<number | null>(null);
+  const [longitude, setLongitude] = useState<number | null>(null);
+  const [videoUrl, setVideoUrl] = useState("");
+  const [uploadingVideo, setUploadingVideo] = useState(false);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+          toast.success(`Coordinates captured: ${position.coords.latitude.toFixed(4)}, ${position.coords.longitude.toFixed(4)}`);
+        },
+        (err) => {
+          console.warn("Geolocation detection skipped:", err);
+          toast.error("Could not acquire precise location coords. Please enable location services.");
+        },
+        { enableHighAccuracy: true, timeout: 10000 }
+      );
+    }
+  }, []);
+
+  const handleVideoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("video/")) {
+      toast.error("Please select a valid video file.");
+      return;
+    }
+
+    if (file.size > 25 * 1024 * 1024) { // 25MB limit
+      toast.error("Video proof file size must be less than 25MB.");
+      return;
+    }
+
+    setUploadingVideo(true);
+    toast.info("Uploading video proof... Please keep the tab open.");
+
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${user?.id || Math.random()}-${Date.now()}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      const { data, error: uploadError } = await supabase.storage
+        .from("verification-videos")
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      const { data: { publicUrl } } = supabase.storage
+        .from("verification-videos")
+        .getPublicUrl(filePath);
+
+      setVideoUrl(publicUrl);
+      toast.success("Verification video proof uploaded successfully!");
+    } catch (err: any) {
+      console.error(err);
+      toast.error(err.message || "Failed to upload video proof.");
+    } finally {
+      setUploadingVideo(false);
+    }
+  };
 
   // Query latest location verification request
   const { data: request, isLoading } = useQuery({
@@ -58,6 +121,9 @@ export default function BusinessVerify() {
       if (!idNumber.trim()) {
         throw new Error("Please enter your NIN, BVN, or OOU student matric credentials.");
       }
+      if (!videoUrl) {
+        throw new Error("Please upload a video proof showing your physical setup.");
+      }
 
       // Insert location & identity verification request
       const { error } = await supabase
@@ -69,6 +135,9 @@ export default function BusinessVerify() {
           area_name: areaName.trim(),
           admin_notes: `[Trade Details]: ${tradeDescription.trim()} | [ID Type]: ${idType.toUpperCase()} | [Secure ID hash]: ${idNumber.trim()}`,
           status: "pending",
+          latitude: latitude || null,
+          longitude: longitude || null,
+          video_url: videoUrl || null,
         });
 
       if (error) throw error;
@@ -215,6 +284,70 @@ export default function BusinessVerify() {
                 />
               </div>
 
+              {/* Geolocation Coordinates Status */}
+              <div className="p-3 bg-muted/40 border border-border/10 rounded-2xl space-y-1">
+                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Captured GPS Coordinates</p>
+                {latitude && longitude ? (
+                  <p className="text-xs font-mono text-emerald-500 flex items-center gap-1.5 font-bold">
+                    <MapPin className="h-3.5 w-3.5" />
+                    {latitude.toFixed(6)}, {longitude.toFixed(6)}
+                  </p>
+                ) : (
+                  <div className="flex items-center gap-2 text-xs text-yellow-500 font-medium">
+                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                    <span>Detecting physical location coords...</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Video Proof Uploader */}
+              <div className="space-y-1.5">
+                <Label htmlFor="videoProof" className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest flex items-center gap-1">
+                  🎥 Physical Setup Video Proof
+                </Label>
+                <div className="border border-dashed border-border/40 rounded-2xl p-4 text-center space-y-2 hover:bg-muted/10 transition-all duration-200 relative">
+                  {videoUrl ? (
+                    <div className="space-y-2">
+                      <video src={videoUrl} controls className="max-h-32 mx-auto rounded bg-black border border-border/40" />
+                      <p className="text-[10px] text-emerald-500 font-bold">✓ Verification video uploaded</p>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setVideoUrl("")}
+                        className="text-xs text-destructive hover:bg-destructive/10 hover:text-destructive h-7 px-2"
+                      >
+                        Remove video
+                      </Button>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="mx-auto h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                        <Upload className="h-4 w-4" />
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-xs font-semibold text-foreground">Upload short video proof</p>
+                        <p className="text-[10px] text-muted-foreground">Record your shop setup and location (max 25MB)</p>
+                      </div>
+                      <Input
+                        id="videoProof"
+                        type="file"
+                        accept="video/*"
+                        onChange={handleVideoUpload}
+                        disabled={uploadingVideo}
+                        className="absolute inset-0 opacity-0 cursor-pointer"
+                      />
+                    </>
+                  )}
+                  {uploadingVideo && (
+                    <div className="absolute inset-0 bg-background/80 flex flex-col items-center justify-center gap-1.5 rounded-2xl">
+                      <Loader2 className="h-5 w-5 text-primary animate-spin" />
+                      <span className="text-[10px] font-bold text-muted-foreground">Uploading video proof...</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
               {/* High-Trust NIN / BVN & Student Verification Block */}
               <div className="border-t border-border/20 pt-4 mt-2 space-y-4">
                 <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
@@ -272,7 +405,7 @@ export default function BusinessVerify() {
 
             <Button
               onClick={() => submitRequest.mutate()}
-              disabled={submitRequest.isPending || !streetAddress.trim() || !areaName.trim() || !tradeDescription.trim() || !idNumber.trim()}
+              disabled={submitRequest.isPending || !streetAddress.trim() || !areaName.trim() || !tradeDescription.trim() || !idNumber.trim() || !videoUrl || uploadingVideo}
               className="w-full rounded-xl h-11 bg-primary text-primary-foreground hover:bg-primary/95 transition-all font-semibold"
             >
               {submitRequest.isPending ? (

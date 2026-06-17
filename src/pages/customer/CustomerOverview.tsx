@@ -3,7 +3,7 @@ import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useAuth } from "@/contexts/AuthContext";
 import { useCustomer, useCustomerStats, useCustomerOrders, useCustomerJobs } from "@/hooks/useCustomer";
 import { useNavigate } from "react-router-dom";
-import { Search, Heart, Package, Briefcase, Bell, DollarSign, ChevronDown, MoreHorizontal } from "lucide-react";
+import { Search, Heart, Package, Briefcase, Bell, DollarSign, ChevronDown, MoreHorizontal, Wallet } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -41,6 +41,35 @@ export default function CustomerOverview() {
   const { data: orders = [] } = useCustomerOrders(customer?.id);
   const { data: jobs = [] } = useCustomerJobs(customer?.id);
 
+  const [bidAmount, setBidAmount] = useState("18500");
+  const [highestBid, setHighestBid] = useState(18000);
+  const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 14, seconds: 55 });
+  const [squadSlots, setSquadSlots] = useState(3);
+  const [joinedSquad, setJoinedSquad] = useState(false);
+  const [selectedVibeVideo, setSelectedVibeVideo] = useState<string | null>(null);
+
+  const vibeChecks = [
+    { id: "v1", userName: "Aisha M.", product: "Lip Gloss Pro", videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-beautiful-woman-applying-lipstick-43257-large.mp4", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" },
+    { id: "v2", userName: "Tunde O.", product: "Mech Keyboard", videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-hands-typing-on-a-computer-keyboard-40546-large.mp4", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        } else {
+          return { hours: 2, minutes: 0, seconds: 0 };
+        }
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   const activeOrders = orders.filter(o =>
     ["pending", "confirmed", "processing", "shipped"].includes(o.status)
   ).slice(0, 3);
@@ -58,11 +87,11 @@ export default function CustomerOverview() {
       highlight: (stats?.activeOrders || 0) > 0,
     },
     {
-      label: "Active Jobs",
-      value: stats?.activeJobs || 0,
-      icon: Briefcase,
-      onClick: () => navigate("/customer/jobs"),
-      highlight: (stats?.activeJobs || 0) > 0,
+      label: "Points / Wallet",
+      value: `₦${Number(profile?.coupon_balance || 0).toLocaleString()}`,
+      icon: Wallet,
+      highlight: Number(profile?.coupon_balance || 0) > 0,
+      onClick: () => navigate("/customer/profile"),
     },
     {
       label: "Saved Businesses",
@@ -441,6 +470,52 @@ export default function CustomerOverview() {
           </div>
         )}
       </div>
+
+      {/* Vibe Checks video review preview overlay modal */}
+      {selectedVibeVideo && (
+        <div className="fixed inset-0 bg-background/80 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in duration-300">
+          <div className="bg-card border border-border/40 rounded-3xl p-4 w-full max-w-sm relative overflow-hidden shadow-2xl space-y-4">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <img 
+                  src={vibeChecks.find(v => v.id === selectedVibeVideo)?.avatar} 
+                  alt="avatar" 
+                  className="h-7 w-7 rounded-full object-cover" 
+                />
+                <div>
+                  <h4 className="text-xs font-bold text-foreground">
+                    {vibeChecks.find(v => v.id === selectedVibeVideo)?.userName}
+                  </h4>
+                  <p className="text-[9px] text-muted-foreground">
+                    Reviewing: {vibeChecks.find(v => v.id === selectedVibeVideo)?.product}
+                  </p>
+                </div>
+              </div>
+              <button 
+                onClick={() => setSelectedVibeVideo(null)}
+                className="text-xs font-bold text-muted-foreground hover:text-foreground px-2 py-1 bg-muted/40 rounded-full cursor-pointer"
+              >
+                Close
+              </button>
+            </div>
+
+            {/* simulated 10-second video element */}
+            <div className="relative rounded-2xl overflow-hidden aspect-[9/16] bg-black/40 border border-border/10 flex items-center justify-center h-[340px]">
+              <video 
+                src={vibeChecks.find(v => v.id === selectedVibeVideo)?.videoUrl}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute top-2 right-2 bg-emerald-500 text-white font-extrabold text-[8px] px-2 py-0.5 rounded-full uppercase tracking-wider">
+                verified review
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </DashboardLayout>
   );
 }

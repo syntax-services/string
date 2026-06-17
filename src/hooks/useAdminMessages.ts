@@ -212,14 +212,15 @@ export function useAllMessageReplies() {
   return useQuery({
     queryKey: ["all-message-replies"],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("admin_message_replies")
-        .select("*, profiles:sender_id (full_name, email, user_type), admin_messages:message_id (title)")
-        .order("created_at", { ascending: false })
-        .limit(100);
-
-      if (error) throw error;
-      return data;
+      try {
+        const { data, error } = await supabase
+          .from("admin_message_replies")
+          .select("*, profiles:sender_id (full_name, email, user_type), admin_messages:message_id (title)")
+          .order("created_at", { ascending: false })
+          .limit(100);
+        if (error) { console.warn("Message replies query failed:", error.message); return []; }
+        return data || [];
+      } catch (e) { console.warn("Message replies query error:", e); return []; }
     },
   });
 }

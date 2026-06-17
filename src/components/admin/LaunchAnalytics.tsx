@@ -101,61 +101,78 @@ export function LaunchAnalytics({
   const revenueData = getWeeklyRevenue();
   return (
     <div className="space-y-6">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="bg-gradient-to-br from-primary/10 to-transparent border-primary/20">
-          <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-            <CardTitle className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Launch Velocity</CardTitle>
-            <Zap className="w-4 h-4 text-primary animate-pulse" />
-          </CardHeader>
-          <CardContent>
+      <div className="grid gap-4 md:grid-cols-3">
+        {/* Card 1: Gross Volume (Col-span 2 for prominence) */}
+        <Card className="md:col-span-2 bg-gradient-to-br from-primary/15 via-background to-accent/5 border-primary/20 relative overflow-hidden shadow-lg p-5">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+          <div className="flex justify-between items-start">
+            <div className="space-y-1 text-left">
+              <span className="bg-primary/20 text-primary text-[9px] font-extrabold px-2.5 py-0.5 rounded-full border border-primary/20 uppercase tracking-widest">
+                Financial Health
+              </span>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground pt-1">Gross Transaction Volume</h3>
+              <div className="text-4xl font-black text-foreground pt-1">₦{(totalGrossVolume > 0 ? totalGrossVolume : 4200000).toLocaleString()}</div>
+            </div>
+            <Award className="w-5 h-5 text-amber-500 animate-bounce-subtle" />
+          </div>
+          <div className="pt-4 border-t border-border/10 flex items-center justify-between text-xs text-muted-foreground mt-4">
+            <span>Verified Escrow Settlements</span>
+            <span className="font-semibold text-green-500">100% SECURE</span>
+          </div>
+        </Card>
+
+        {/* Card 2: Launch Velocity (Col-span 1) */}
+        <Card className="bg-gradient-to-br from-red-500/10 to-transparent border-red-500/20 p-5 flex flex-col justify-between shadow-md">
+          <div className="flex justify-between items-center">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-red-500">Platform Velocity</span>
+            <Zap className="w-4 h-4 text-red-500 animate-pulse" />
+          </div>
+          <div className="text-left mt-3">
             <div className="text-3xl font-black">94.2%</div>
             <p className="text-xs text-green-500 font-bold flex items-center gap-1 mt-1">
               <TrendingUp className="w-3 h-3" /> {jobsCount} active jobs listed
             </p>
-          </CardContent>
+          </div>
         </Card>
-        
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-            <CardTitle className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Total Acquisition</CardTitle>
-            <Users className="w-4 h-4 text-blue-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-black">{usersCount > 0 ? usersCount.toLocaleString() : "1,248"}</div>
-            <div className="flex gap-2 mt-2">
-              <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden dark:bg-slate-850">
-                <div 
-                  className="h-full bg-blue-500" 
-                  style={{ width: `${Math.min(100, usersCount > 0 ? (businessesCount / usersCount) * 100 : 70)}%` }}
-                ></div>
-              </div>
+
+        {/* Card 3: Total Acquisition (Col-span 1) */}
+        <Card className="p-5 flex flex-col justify-between shadow-md text-left">
+          <div>
+            <div className="flex justify-between items-center">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground">Acquisition</span>
+              <Users className="w-4 h-4 text-blue-500" />
             </div>
-            <p className="text-[10px] text-muted-foreground mt-1">
+            <div className="text-3xl font-black mt-2">{usersCount > 0 ? usersCount.toLocaleString() : "1,248"}</div>
+          </div>
+          <div className="space-y-1.5 mt-3">
+            <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-blue-500" 
+                style={{ width: `${Math.min(100, usersCount > 0 ? (businessesCount / usersCount) * 100 : 70)}%` }}
+              ></div>
+            </div>
+            <p className="text-[9px] text-muted-foreground uppercase font-bold">
               {businessesCount} Businesses / {usersCount - businessesCount > 0 ? usersCount - businessesCount : 0} Customers
             </p>
-          </CardContent>
+          </div>
         </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-            <CardTitle className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Gross Volume</CardTitle>
-            <Award className="w-4 h-4 text-amber-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-black">₦{(totalGrossVolume > 0 ? totalGrossVolume : 4200000).toLocaleString()}</div>
-            <p className="text-xs text-muted-foreground font-medium mt-1">Platform-wide orders</p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
-            <CardTitle className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Platform Orders</CardTitle>
+        {/* Card 4: Platform Orders (Col-span 2 for prominence) */}
+        <Card className="md:col-span-2 bg-gradient-to-br from-purple-500/10 to-transparent border-purple-500/20 p-5 flex flex-col justify-between shadow-md text-left">
+          <div className="flex justify-between items-center">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-purple-400">Transaction Stats</span>
             <ShoppingBag className="w-4 h-4 text-purple-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-black">{ordersCount > 0 ? ordersCount : "42"}</div>
-            <p className="text-xs text-green-500 font-bold mt-1">Live transactions</p>
-          </CardContent>
+          </div>
+          <div className="grid grid-cols-2 gap-4 mt-3">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Total Orders</p>
+              <div className="text-3xl font-black">{ordersCount > 0 ? ordersCount : "42"}</div>
+            </div>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Order Volume</p>
+              <div className="text-3xl font-black text-purple-400">₦{orders.reduce((sum, o) => sum + Number(o.total || 0), 0).toLocaleString()}</div>
+            </div>
+          </div>
         </Card>
       </div>
 

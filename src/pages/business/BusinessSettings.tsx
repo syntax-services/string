@@ -25,6 +25,8 @@ import {
   Copy,
   Star,
   ShieldCheck,
+  CreditCard,
+  Loader2,
 } from "lucide-react";
 
 interface BusinessData {
@@ -54,6 +56,111 @@ export default function BusinessSettings() {
   const [businessData, setBusinessData] = useState<BusinessData | null>(null);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+
+  // Withdrawal States
+  const [withdrawConfig, setWithdrawConfig] = useState({ allow: false, minSpend: 5000 });
+  const [withdrawAmount, setWithdrawAmount] = useState("");
+  const [bankName, setBankName] = useState("");
+  const [accountNumber, setAccountNumber] = useState("");
+  const [accountName, setAccountName] = useState("");
+  const [withdrawing, setWithdrawing] = useState(false);
+  const [withdrawHistory, setWithdrawHistory] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchWithdrawData = async () => {
+      if (!user) return;
+      try {
+        const { data: configs } = await supabase.from("system_settings").select("*");
+        if (configs) {
+          const allowVal = configs.find(c => c.key === "allow_coupon_withdrawal")?.value;
+          const minSpendVal = configs.find(c => c.key === "min_spend_for_withdrawal")?.value;
+          setWithdrawConfig({
+            allow: allowVal === true || allowVal === "true",
+            minSpend: Number(minSpendVal) || 5000
+          });
+        }
+
+        const { data: wds } = await supabase
+          .from("withdrawal_requests")
+          .select("*")
+          .eq("user_id", user.id)
+          .order("created_at", { ascending: false });
+        if (wds) setWithdrawHistory(wds);
+      } catch (err) {
+        console.warn("Failed to load withdrawal details:", err);
+      }
+    };
+    fetchWithdrawData();
+  }, [user]);
+
+  const handleWithdrawalRequest = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!user || !profile) return;
+
+    const amount = Number(withdrawAmount);
+    if (!amount || amount <= 0 || amount > (profile.coupon_balance || 0)) {
+      toast({ variant: "destructive", title: "Invalid Amount", description: "Please enter a valid amount within your balance." });
+      return;
+    }
+
+    if (!withdrawConfig.allow) {
+      toast({ variant: "destructive", title: "Withdrawals locked", description: "Coupon cash withdrawals are currently disabled by admin." });
+      return;
+    }
+
+    setWithdrawing(true);
+    try {
+      const { data: withdrawReq, error: insertError } = await supabase
+        .from("withdrawal_requests")
+        .insert({
+          user_id: user.id,
+          amount: amount,
+          bank_name: bankName,
+          account_number: accountNumber,
+          account_name: accountName,
+          withdrawal_type: "coupon",
+          status: "pending"
+        })
+        .select("*")
+        .single();
+
+      if (insertError) throw insertError;
+
+      const { error: profileError } = await supabase
+        .from("profiles")
+        .update({ coupon_balance: Number(profile.coupon_balance || 0) - amount })
+        .eq("user_id", user.id);
+
+      if (profileError) throw profileError;
+
+      try {
+        await supabase.functions.invoke("paystack-payout", {
+          body: { withdrawalRequestId: withdrawReq.id }
+        });
+      } catch (fErr) {
+        console.warn("Edge function payout call failed:", fErr);
+      }
+
+      toast({ title: "Withdrawal processing", description: `Your bank payout request of ₦${amount.toLocaleString()} is processing.` });
+      setWithdrawAmount("");
+      setBankName("");
+      setAccountNumber("");
+      setAccountName("");
+      await refreshProfile();
+      
+      const { data: wds } = await supabase
+        .from("withdrawal_requests")
+        .select("*")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
+      if (wds) setWithdrawHistory(wds);
+    } catch (err: any) {
+      toast({ variant: "destructive", title: "Withdrawal failed", description: err.message });
+    } finally {
+      setWithdrawing(false);
+    }
+  };
+
 
   // ── Google Place Picker Autocomplete State ──
   const [showPlacesDropdown, setShowPlacesDropdown] = useState(false);
@@ -571,6 +678,151 @@ export default function BusinessSettings() {
               </Button>
             </div>
           </div>
+        </div>
+
+        {/* Withdrawal & Wallet Card */}
+        <div className="dashboard-card space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <CreditCard className="h-5 w-5" />
+            </div>
+            <div>
+              <h2 className="font-medium text-foreground">Withdrawal & Wallet</h2>
+              <p className="text-sm text-muted-foreground">
+                Withdraw your accumulated coupon bonus cash
+              </p>
+            </div>
+            <span className="ml-auto font-mono font-bold text-base text-primary">
+              ₦{Number(profile?.coupon_balance || 0).toLocaleString()}
+            </span>
+          </div>
+
+          <div className="p-3 bg-muted/40 rounded-xl space-y-2 text-xs border border-border/10">
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Withdrawals Enabled:</span>
+              <span className={cn("font-bold", withdrawConfig.allow ? "text-green-500" : "text-red-500")}>
+                {withdrawConfig.allow ? "YES" : "NO"}
+              </span>
+            </div>
+          </div>
+
+          {withdrawConfig.allow && (
+            <form onSubmit={handleWithdrawalRequest} className="space-y-3 pt-2 border-t border-border/10">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Request Paystack Bank Payout</h3>
+              
+              <div className="space-y-1.5">
+                <Label htmlFor="bankName" className="text-xs text-muted-foreground">Bank Name</Label>
+                <select
+                  id="bankName"
+                  value={bankName}
+                  onChange={(e) => setBankName(e.target.value)}
+                  className="w-full rounded-xl border border-input bg-background px-3 h-10 text-sm focus:ring-1 focus:ring-primary"
+                  required
+                >
+                  <option value="">Select your bank</option>
+                  <option value="044">Access Bank</option>
+                  <option value="050">Ecobank Nigeria</option>
+                  <option value="070">Fidelity Bank</option>
+                  <option value="011">First Bank of Nigeria</option>
+                  <option value="058">GTBank</option>
+                  <option value="030">Heritage Bank</option>
+                  <option value="301">Jaiz Bank</option>
+                  <option value="082">Keystone Bank</option>
+                  <option value="999992">OPay Digital Services</option>
+                  <option value="999991">PalmPay</option>
+                  <option value="076">Polaris Bank</option>
+                  <option value="101">Providus Bank</option>
+                  <option value="221">Stanbic IBTC Bank</option>
+                  <option value="068">Standard Chartered Bank</option>
+                  <option value="232">Sterling Bank</option>
+                  <option value="100">SunTrust Bank</option>
+                  <option value="032">Union Bank of Nigeria</option>
+                  <option value="033">United Bank for Africa (UBA)</option>
+                  <option value="215">Unity Bank</option>
+                  <option value="035">Wema Bank</option>
+                  <option value="057">Zenith Bank</option>
+                </select>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-1.5">
+                  <Label htmlFor="acctNumber" className="text-xs text-muted-foreground">Account Number</Label>
+                  <Input
+                    id="acctNumber"
+                    maxLength={10}
+                    placeholder="10 digit NUBAN"
+                    value={accountNumber}
+                    onChange={(e) => setAccountNumber(e.target.value.replace(/\D/g, ""))}
+                    required
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="acctName" className="text-xs text-muted-foreground">Account Name</Label>
+                  <Input
+                    id="acctName"
+                    placeholder="E.g. John Doe"
+                    value={accountName}
+                    onChange={(e) => setAccountName(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <Label htmlFor="wdAmount" className="text-xs text-muted-foreground">Amount (₦)</Label>
+                <Input
+                  id="wdAmount"
+                  type="number"
+                  placeholder="₦ Amount to withdraw"
+                  max={profile?.coupon_balance || 0}
+                  value={withdrawAmount}
+                  onChange={(e) => setWithdrawAmount(e.target.value)}
+                  required
+                />
+              </div>
+
+              <Button
+                type="submit"
+                disabled={withdrawing || !withdrawAmount || Number(withdrawAmount) > (profile?.coupon_balance || 0)}
+                className="w-full rounded-xl font-semibold mt-2 shadow-lg h-10 animate-pulse-subtle"
+              >
+                {withdrawing ? (
+                  <>
+                    <Loader2 className="animate-spin mr-2 h-4 w-4" />
+                    Processing Payout...
+                  </>
+                ) : (
+                  "Request Bank Transfer"
+                )}
+              </Button>
+            </form>
+          )}
+
+          {/* Withdrawal History Log */}
+          {withdrawHistory.length > 0 && (
+            <div className="pt-3 border-t border-border/10 space-y-2">
+              <h4 className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Payout History</h4>
+              <div className="space-y-1.5 max-h-24 overflow-y-auto no-scrollbar">
+                {withdrawHistory.map((w) => (
+                  <div key={w.id} className="flex items-center justify-between p-2 rounded-xl bg-muted/20 text-[11px] border border-border/5">
+                    <div className="text-left">
+                      <p className="font-semibold text-foreground">₦{Number(w.amount).toLocaleString()}</p>
+                      <p className="text-[9px] text-muted-foreground">{w.bank_name} • {w.account_number}</p>
+                    </div>
+                    <span className={cn(
+                      "text-[9px] font-bold uppercase py-0.5 px-2 rounded-full",
+                      w.status === "completed" ? "bg-green-500/10 text-green-500" :
+                      w.status === "processing" ? "bg-amber-500/10 text-amber-500" :
+                      w.status === "rejected" ? "bg-red-500/10 text-red-500" :
+                      "bg-muted text-muted-foreground"
+                    )}>
+                      {w.status}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Appearance */}

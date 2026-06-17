@@ -19,6 +19,8 @@ interface Profile {
   terms_accepted_at: string | null;
   theme_mode?: 'dark' | 'light';
   theme_palette?: 'blue' | 'mono' | 'rose' | 'emerald' | 'sunset' | 'amber' | 'custom';
+  coupon_balance: number;
+  referral_code_used: string | null;
   banned?: boolean;
   created_at: string;
   updated_at: string;

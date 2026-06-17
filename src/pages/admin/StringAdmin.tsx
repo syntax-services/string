@@ -864,6 +864,24 @@ export default function StringAdmin() {
     onError: () => toast.error("Failed to update commission"),
   });
 
+  // Toggle product image verification status
+  const toggleProductImageVerificationMutation = useMutation({
+    mutationFn: async ({ productId, verified }: { productId: string; verified: boolean }) => {
+      const { error } = await supabase
+        .from("products")
+        .update({ image_verified: verified })
+        .eq("id", productId);
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admin-products"] });
+      toast.success("Product image verification status updated!");
+    },
+    onError: (error: Error) => {
+      toast.error(error.message || "Failed to update image verification status");
+    }
+  });
+
   // Update business verification tier
   const updateVerificationTierMutation = useMutation({
     mutationFn: async ({
@@ -3064,12 +3082,18 @@ export default function StringAdmin() {
                             isRare
                           })
                         }
+                        onToggleImageVerified={(verified) =>
+                          toggleProductImageVerificationMutation.mutate({
+                            productId: product.id,
+                            verified
+                          })
+                        }
                         onDelete={() => {
                           if (confirm(`Are you sure you want to delete product "${product.name}"? This cannot be undone.`)) {
                             deleteProductMutation.mutate(product.id);
                           }
                         }}
-                        isLoading={updateCommissionMutation.isPending || deleteProductMutation.isPending}
+                        isLoading={updateCommissionMutation.isPending || deleteProductMutation.isPending || toggleProductImageVerificationMutation.isPending}
                       />
                     ))}
                   </div>
@@ -3843,8 +3867,13 @@ function TierBadge({ tier }: { tier: string }) {
 
 // Location Verification Card
 function LocationVerificationCard({ request, onVerify, onReject, isLoading }: any) {
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+  const [latitude, setLatitude] = useState(request.latitude?.toString() || "");
+  const [longitude, setLongitude] = useState(request.longitude?.toString() || "");
+
+  useEffect(() => {
+    if (request.latitude) setLatitude(request.latitude.toString());
+    if (request.longitude) setLongitude(request.longitude.toString());
+  }, [request.latitude, request.longitude]);
 
   return (
     <div className="p-3 border rounded-lg border-yellow-500/50 bg-yellow-50/50 dark:bg-yellow-950/20">
@@ -3858,22 +3887,37 @@ function LocationVerificationCard({ request, onVerify, onReject, isLoading }: an
       <div className="mt-2 p-2 bg-muted rounded text-xs">
         <p><strong>Street:</strong> {request.street_address}</p>
         {request.area_name && <p><strong>Area:</strong> {request.area_name}</p>}
+        {request.admin_notes && <p className="mt-1 text-muted-foreground"><strong>Details:</strong> {request.admin_notes}</p>}
       </div>
+
+      {request.video_url && (
+        <div className="mt-2 space-y-1">
+          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">🎥 Verification Video Proof</p>
+          <video src={request.video_url} controls className="w-full max-h-40 rounded bg-black border border-border/40" />
+        </div>
+      )}
+
       <div className="mt-3 grid grid-cols-2 gap-2">
-        <Input
-          placeholder="Latitude"
-          value={latitude}
-          onChange={(e) => setLatitude(e.target.value)}
-          className="h-8 text-sm"
-        />
-        <Input
-          placeholder="Longitude"
-          value={longitude}
-          onChange={(e) => setLongitude(e.target.value)}
-          className="h-8 text-sm"
-        />
+        <div className="space-y-1">
+          <label className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Latitude</label>
+          <Input
+            placeholder="Latitude"
+            value={latitude}
+            onChange={(e) => setLatitude(e.target.value)}
+            className="h-8 text-sm"
+          />
+        </div>
+        <div className="space-y-1">
+          <label className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Longitude</label>
+          <Input
+            placeholder="Longitude"
+            value={longitude}
+            onChange={(e) => setLongitude(e.target.value)}
+            className="h-8 text-sm"
+          />
+        </div>
       </div>
-      <div className="mt-2 flex gap-2">
+      <div className="mt-2.5 flex gap-2">
         <Button
           size="sm"
           className="flex-1"
@@ -3891,7 +3935,7 @@ function LocationVerificationCard({ request, onVerify, onReject, isLoading }: an
 }
 
 // Product Commission Card
-function ProductCommissionCard({ product, onUpdate, onDelete, isLoading }: any) {
+function ProductCommissionCard({ product, onUpdate, onDelete, onToggleImageVerified, isLoading }: any) {
   const [commission, setCommission] = useState(product.commission_percent || 10);
   const [isRare, setIsRare] = useState(product.is_rare || false);
 
@@ -3899,16 +3943,52 @@ function ProductCommissionCard({ product, onUpdate, onDelete, isLoading }: any) 
 
   return (
     <div className="flex items-center justify-between p-3 border rounded-lg">
-      <div className="flex-1">
-        <div className="flex items-center gap-2">
-          <p className="font-medium text-sm">{product.name}</p>
-          {product.is_rare && <Badge variant="destructive">Rare</Badge>}
+      <div className="flex items-center gap-3 flex-1">
+        {/* Product Image preview */}
+        <div className="h-12 w-12 rounded-lg bg-muted flex items-center justify-center overflow-hidden border border-border/40 shrink-0">
+          {product.image_url ? (
+            <img src={product.image_url} alt={product.name} className="h-full w-full object-cover" />
+          ) : (
+            <span className="text-[10px] font-bold text-muted-foreground">No Image</span>
+          )}
         </div>
-        <p className="text-xs text-muted-foreground">
-          {product.businesses?.company_name} • ₦{Number(product.price || 0).toLocaleString()}
-        </p>
+        <div>
+          <div className="flex items-center gap-2">
+            <p className="font-medium text-sm">{product.name}</p>
+            {product.is_rare && <Badge variant="destructive">Rare</Badge>}
+            {product.image_verified === false ? (
+              <Badge variant="destructive" className="scale-90 font-bold uppercase tracking-wider text-[8px] px-1.5 py-0.25">Rejected</Badge>
+            ) : (
+              <Badge className="scale-90 font-bold uppercase tracking-wider bg-emerald-500 hover:bg-emerald-600 text-[8px] px-1.5 py-0.25 text-white">Approved</Badge>
+            )}
+          </div>
+          <p className="text-xs text-muted-foreground">
+            {product.businesses?.company_name} • ₦{Number(product.price || 0).toLocaleString()}
+          </p>
+        </div>
       </div>
       <div className="flex items-center gap-2">
+        {product.image_verified === false ? (
+          <Button
+            size="sm"
+            variant="outline"
+            className="text-emerald-500 border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-500 h-8 text-[11px] font-semibold"
+            onClick={() => onToggleImageVerified(true)}
+            disabled={isLoading}
+          >
+            Approve Image
+          </Button>
+        ) : (
+          <Button
+            size="sm"
+            variant="outline"
+            className="text-destructive border-destructive/20 hover:bg-destructive/10 hover:text-destructive h-8 text-[11px] font-semibold"
+            onClick={() => onToggleImageVerified(false)}
+            disabled={isLoading}
+          >
+            Reject Image
+          </Button>
+        )}
         <Input
           type="number"
           min={1}

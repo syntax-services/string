@@ -24,7 +24,7 @@ export const PremiumHome = ({ className, active = false, ...props }: IconProps) 
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-6 h-6 transition-all duration-300", className)}
@@ -50,24 +50,23 @@ export const PremiumDiscover = ({ className, active = false, ...props }: IconPro
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-6 h-6 transition-all duration-300", className)}
     {...props}
   >
-    {/* Branded String Double-Ring Crescent Magnifying Glass */}
-    {/* Left larger circle of magnifying glass lens */}
-    <circle cx="10" cy="10" r="5.5" />
-    {/* Intersecting right smaller eclipse circle representing String brand */}
-    <path d="M14.5 10a4 4 0 0 1-2.5 3.7" opacity={active ? 1 : 0.8} />
+    {/* Interlocking circles design: Left Ring */}
+    <circle cx="9.5" cy="12" r="4.5" />
+    {/* Right Ring */}
+    <circle cx="14.5" cy="12" r="4.5" />
     
-    {/* Minimalist thin handle */}
-    <line x1="21" y1="21" x2="14" y2="14" />
+    {/* Intersecting overlay curve to show they are interlocking */}
+    <path d="M12 7.8c1.2.6 2 1.8 2 3.2 0 1.4-.8 2.6-2 3.2" opacity={0.8} />
 
     {/* Neural Active Signal Dot */}
     {active && (
-      <circle cx="10" cy="10" r="0.75" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="18.5" r="0.75" fill="currentColor" stroke="none" />
     )}
   </svg>
 );
@@ -78,7 +77,7 @@ export const PremiumPlus = ({ className, active = false, ...props }: IconProps) 
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-6 h-6 transition-all duration-300", className)}
@@ -100,7 +99,7 @@ export const PremiumMessage = ({ className, active = false, ...props }: IconProp
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-6 h-6 transition-all duration-300", className)}
@@ -129,7 +128,7 @@ export const PremiumUser = ({ className, active = false, ...props }: IconProps) 
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-6 h-6 transition-all duration-300", className)}
@@ -281,7 +280,7 @@ export const PremiumBriefcase = ({ className, active = false, ...props }: IconPr
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-5 h-5 transition-all duration-300", className)}
@@ -300,7 +299,7 @@ export const PremiumStar = ({ className, active = false, ...props }: IconProps) 
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-5 h-5 transition-all duration-300", className)}
@@ -317,7 +316,7 @@ export const PremiumPackage = ({ className, active = false, ...props }: IconProp
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-5 h-5 transition-all duration-300", className)}
@@ -336,7 +335,7 @@ export const PremiumSettings = ({ className, active = false, ...props }: IconPro
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-5 h-5 transition-all duration-300", className)}
@@ -354,7 +353,7 @@ export const PremiumWrench = ({ className, active = false, ...props }: IconProps
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-5 h-5 transition-all duration-300", className)}
@@ -371,7 +370,7 @@ export const PremiumChart = ({ className, active = false, ...props }: IconProps)
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-5 h-5 transition-all duration-300", className)}
@@ -390,7 +389,7 @@ export const PremiumClipboard = ({ className, active = false, ...props }: IconPr
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-5 h-5 transition-all duration-300", className)}
@@ -409,7 +408,7 @@ export const PremiumSupport = ({ className, active = false, ...props }: IconProp
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-5 h-5 transition-all duration-300", className)}
@@ -427,26 +426,21 @@ export const PremiumStore = ({ className, active = false, ...props }: IconProps)
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.65 : 1.25}
+    strokeWidth={active ? 1.4 : 1.05}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-6 h-6 transition-all duration-300", className)}
     {...props}
   >
-    {/* Storefront outer frame */}
-    <path d="M3 21h18" />
-    <path d="M4 21V10h16v11" />
+    {/* String double-ring connection logo */}
+    {/* Left Ring */}
+    <circle cx="8.5" cy="12" r="5" />
+    {/* Right Ring */}
+    <circle cx="15.5" cy="12" r="5" />
     
-    {/* Elegant store canopy/awning with scalloped curves */}
-    <path d="M3 6h18v4H3z" />
-    <path d="M3 10c1 0 1.5-.5 2-1s1-.5 2 0 1.5 1 2 1 1.5-.5 2-1 1-.5 2 0 1.5 1 2 1 1.5-.5 2-1 1-.5 2 0 1.5 1 2 1" />
-    
-    {/* Branded String Double-Ring Crescent Window in the center storefront */}
-    <circle cx="12" cy="14.5" r="2.2" />
-    <path d="M14.2 14.5a2.2 2.2 0 0 1-1.2 2.0" opacity={0.8} />
-
-    {/* Minimalist door frame below */}
-    <path d="M9 21v-4.5h6V21" />
+    {/* A stylized connecting string curving between the two rings */}
+    <path d="M8.5 12a3.5 3.5 0 0 0 7 0" opacity={0.9} />
+    <path d="M12 7.5a4.5 4.5 0 0 1 3.5 4.5" opacity={0.7} />
 
     {/* Neural Active Signal Dot */}
     {active && (

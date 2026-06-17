@@ -48,9 +48,14 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     if (!isAdmin && location.pathname !== dashboardPath) {
       return <Navigate to={dashboardPath} replace />;
     }
-  } else if (requiredUserType && resolvedUserType && resolvedUserType !== requiredUserType) {
-    if (location.pathname !== dashboardPath) {
-      return <Navigate to={dashboardPath} replace />;
+  } else if (requiredUserType) {
+    // Admins can access ANY customer or business page freely — never redirect them
+    if (isAdmin) {
+      // Allow admins through regardless
+    } else if (resolvedUserType && resolvedUserType !== requiredUserType) {
+      if (location.pathname !== dashboardPath) {
+        return <Navigate to={dashboardPath} replace />;
+      }
     }
   }
 

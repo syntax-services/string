@@ -189,7 +189,7 @@ export default function CustomerDiscover() {
 
   return (
     <DashboardLayout>
-      <div className="current-page-container min-h-screen bg-background pb-20 pt-20 px-4 md:px-6 animate-fade-in max-w-7xl mx-auto">
+      <div className="min-h-screen bg-background pb-20 px-4 md:px-6 animate-fade-in max-w-7xl mx-auto">
         
         {/* Search Header */}
         <div className="mb-6 sticky top-20 z-30 bg-background/80 backdrop-blur-md py-2">

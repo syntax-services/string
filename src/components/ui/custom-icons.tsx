@@ -432,15 +432,17 @@ export const PremiumStore = ({ className, active = false, ...props }: IconProps)
     className={cn("w-6 h-6 transition-all duration-300", className)}
     {...props}
   >
-    {/* String double-ring connection logo */}
-    {/* Left Ring */}
-    <circle cx="8.5" cy="12" r="5" />
-    {/* Right Ring */}
-    <circle cx="15.5" cy="12" r="5" />
-    
-    {/* A stylized connecting string curving between the two rings */}
-    <path d="M8.5 12a3.5 3.5 0 0 0 7 0" opacity={0.9} />
-    <path d="M12 7.5a4.5 4.5 0 0 1 3.5 4.5" opacity={0.7} />
+    <g transform="rotate(-15 12 12)">
+      {/* String double-ring connection logo */}
+      {/* Left Ring */}
+      <circle cx="8.5" cy="12" r="5" />
+      {/* Right Ring */}
+      <circle cx="15.5" cy="12" r="5" />
+      
+      {/* A stylized connecting string curving between the two rings */}
+      <path d="M8.5 12a3.5 3.5 0 0 0 7 0" opacity={0.9} />
+      <path d="M12 7.5a4.5 4.5 0 0 1 3.5 4.5" opacity={0.7} />
+    </g>
 
     {/* Neural Active Signal Dot */}
     {active && (

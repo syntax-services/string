@@ -134,10 +134,6 @@ BEGIN
 
     v_street_address := NULLIF(btrim(COALESCE(p_customer_data ->> 'streetAddress', '')), '');
     v_area_name := NULLIF(btrim(COALESCE(p_customer_data ->> 'areaName', '')), '');
-
-    IF v_street_address IS NULL THEN
-      RAISE EXCEPTION 'Street address is required';
-    END IF;
   END IF;
 
   INSERT INTO public.profiles (
@@ -320,7 +316,7 @@ BEGIN
     AND user_type = p_user_type
     AND status = 'pending';
 
-  IF NOT EXISTS (
+  IF v_street_address IS NOT NULL AND NOT EXISTS (
     SELECT 1
     FROM public.location_requests
     WHERE user_id = v_user_id

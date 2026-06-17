@@ -66,7 +66,7 @@ export default function CustomerDiscover() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data: businessList } = await supabase
+        const { data: businessList, error } = await supabase
           .from("public_businesses")
           .select(`
             id, company_name, logo_url, verified,
@@ -75,45 +75,50 @@ export default function CustomerDiscover() {
           `)
           .order("created_at", { ascending: false });
 
-        if (businessList) {
+        if (error) {
+          console.error("Supabase error fetching public_businesses:", error);
+        }
+
+        if (businessList && Array.isArray(businessList)) {
           setBusinesses(businessList);
           
           // Flatten into DiscoverItems
           const flatItems: DiscoverItem[] = [];
           businessList.forEach((biz: any) => {
-            if (biz.products) {
+            if (!biz) return;
+            
+            const businessObj = {
+              id: biz.id || "",
+              company_name: biz.company_name || "Unknown Store",
+              logo_url: biz.logo_url || null,
+              verified: biz.verified || false
+            };
+
+            if (biz.products && Array.isArray(biz.products)) {
               biz.products.forEach((prod: any) => {
+                if (!prod) return;
                 flatItems.push({
-                  id: prod.id,
-                  name: prod.name,
+                  id: prod.id || Math.random().toString(),
+                  name: prod.name || "Unnamed Product",
                   price: prod.price || 0,
                   image_url: prod.image_url || null,
                   description: prod.description || null,
-                  business: {
-                    id: biz.id,
-                    company_name: biz.company_name,
-                    logo_url: biz.logo_url,
-                    verified: biz.verified
-                  },
+                  business: businessObj,
                   isService: false,
                   aspectRatio: Math.random() > 0.5 ? "aspect-[3/4]" : "aspect-square"
                 });
               });
             }
-            if (biz.services) {
+            if (biz.services && Array.isArray(biz.services)) {
               biz.services.forEach((srv: any) => {
+                if (!srv) return;
                 flatItems.push({
-                  id: srv.id,
-                  name: srv.name,
+                  id: srv.id || Math.random().toString(),
+                  name: srv.name || "Unnamed Service",
                   price: srv.price_min ? `₦${Number(srv.price_min).toLocaleString()}` : "Contact",
                   image_url: srv.images?.[0] || null,
                   description: srv.description || null,
-                  business: {
-                    id: biz.id,
-                    company_name: biz.company_name,
-                    logo_url: biz.logo_url,
-                    verified: biz.verified
-                  },
+                  business: businessObj,
                   isService: true,
                   aspectRatio: Math.random() > 0.5 ? "aspect-[4/5]" : "aspect-square"
                 });
@@ -143,13 +148,14 @@ export default function CustomerDiscover() {
     if (!search.trim()) return items;
     const q = search.toLowerCase();
     return items.filter(item => 
-      (item.name || "").toLowerCase().includes(q) || 
-      (item.business?.company_name || "").toLowerCase().includes(q)
+      (item?.name || "").toLowerCase().includes(q) || 
+      (item?.business?.company_name || "").toLowerCase().includes(q)
     );
   }, [items, search]);
 
   const handleAddToCart = (item: DiscoverItem, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
+    if (!item?.business?.id) return;
     
     addToCart.mutate({
       businessId: item.business.id,
@@ -159,8 +165,10 @@ export default function CustomerDiscover() {
     });
   };
 
-  const handleFollowStore = async (businessId: string, e?: React.MouseEvent) => {
+  const handleFollowStore = async (businessId: string | undefined, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
+    if (!businessId) return;
+    
     if (!user) {
       toast({ title: "Please log in to follow stores" });
       return;
@@ -203,22 +211,22 @@ export default function CustomerDiscover() {
           <div className="text-center py-20 text-muted-foreground">
             <ShoppingCart className="w-12 h-12 mx-auto mb-4 opacity-20" />
             <p className="font-semibold text-lg">No items found</p>
-            <p className="text-sm">Try searching for something else.</p>
+            <p className="text-sm">Try searching for something else, or businesses might be hidden right now.</p>
           </div>
         ) : (
           <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 pb-10">
             {filteredItems.map(item => (
               <div 
-                key={item.id} 
+                key={item?.id || Math.random().toString()} 
                 className="break-inside-avoid relative group bg-card rounded-[24px] overflow-hidden border border-border/40 shadow-sm hover:shadow-md transition-all cursor-pointer"
                 onClick={() => setSelectedItem(item)}
               >
                 {/* Image */}
-                <div className={cn("w-full bg-muted overflow-hidden", item.aspectRatio)}>
-                  {item.image_url ? (
+                <div className={cn("w-full bg-muted overflow-hidden", item?.aspectRatio || "aspect-square")}>
+                  {item?.image_url ? (
                     <img 
                       src={item.image_url} 
-                      alt={item.name} 
+                      alt={item?.name || "Product image"} 
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
@@ -238,10 +246,10 @@ export default function CustomerDiscover() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="rounded-xl">
-                      <DropdownMenuItem onClick={(e) => { e.stopPropagation(); navigate(`/business/${item.business.id}`) }}>
+                      <DropdownMenuItem onClick={(e) => { e.stopPropagation(); if (item?.business?.id) navigate(`/business/${item.business.id}`) }}>
                         <Store className="mr-2 h-4 w-4" /> Visit Store
                       </DropdownMenuItem>
-                      <DropdownMenuItem onClick={(e) => handleFollowStore(item.business.id, e)}>
+                      <DropdownMenuItem onClick={(e) => handleFollowStore(item?.business?.id, e)}>
                         <UserPlus className="mr-2 h-4 w-4" /> Follow Store
                       </DropdownMenuItem>
                     </DropdownMenuContent>
@@ -252,9 +260,9 @@ export default function CustomerDiscover() {
                 <div className="p-3.5 space-y-2">
                   <div className="flex justify-between items-start gap-2">
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-[13px] leading-tight text-foreground truncate">{item.name}</h3>
+                      <h3 className="font-bold text-[13px] leading-tight text-foreground truncate">{item?.name || "Unnamed"}</h3>
                       <p className="font-extrabold text-[14px] text-primary mt-0.5">
-                        {typeof item.price === "number" ? `₦${item.price.toLocaleString()}` : item.price}
+                        {typeof item?.price === "number" ? `₦${item.price.toLocaleString()}` : (item?.price || "Contact")}
                       </p>
                     </div>
                     {/* Add to Cart Premium String Button */}
@@ -271,10 +279,10 @@ export default function CustomerDiscover() {
                   {/* Store Name */}
                   <div className="flex items-center gap-1.5 opacity-80">
                     <div className="w-4 h-4 rounded-full bg-muted overflow-hidden shrink-0">
-                      {item.business.logo_url && <img src={item.business.logo_url} alt="logo" className="w-full h-full object-cover" />}
+                      {item?.business?.logo_url && <img src={item.business.logo_url} alt="logo" className="w-full h-full object-cover" />}
                     </div>
-                    <p className="text-[10px] font-semibold text-muted-foreground truncate hover:underline" onClick={(e) => { e.stopPropagation(); navigate(`/business/${item.business.id}`) }}>
-                      {item.business.company_name}
+                    <p className="text-[10px] font-semibold text-muted-foreground truncate hover:underline" onClick={(e) => { e.stopPropagation(); if (item?.business?.id) navigate(`/business/${item.business.id}`) }}>
+                      {item?.business?.company_name || "Unknown Store"}
                     </p>
                   </div>
                 </div>
@@ -291,14 +299,14 @@ export default function CustomerDiscover() {
             <div className="flex flex-col max-h-[85vh]">
               <div className="relative w-full aspect-square bg-muted shrink-0">
                 {selectedItem.image_url && (
-                  <img src={selectedItem.image_url} alt={selectedItem.name} className="w-full h-full object-cover" />
+                  <img src={selectedItem.image_url} alt={selectedItem.name || "Item image"} className="w-full h-full object-cover" />
                 )}
-                <div className="absolute top-4 left-4 flex items-center gap-2 bg-background/80 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm cursor-pointer" onClick={() => navigate(`/business/${selectedItem.business.id}`)}>
-                  {selectedItem.business.logo_url && (
+                <div className="absolute top-4 left-4 flex items-center gap-2 bg-background/80 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm cursor-pointer" onClick={() => { if (selectedItem?.business?.id) navigate(`/business/${selectedItem.business.id}`) }}>
+                  {selectedItem?.business?.logo_url && (
                     <img src={selectedItem.business.logo_url} className="w-5 h-5 rounded-full object-cover" />
                   )}
-                  <span className="text-xs font-bold">{selectedItem.business.company_name}</span>
-                  {selectedItem.business.verified && <span className="text-[10px] bg-primary text-white w-3.5 h-3.5 rounded-full flex items-center justify-center">✓</span>}
+                  <span className="text-xs font-bold">{selectedItem?.business?.company_name || "Unknown Store"}</span>
+                  {selectedItem?.business?.verified && <span className="text-[10px] bg-primary text-white w-3.5 h-3.5 rounded-full flex items-center justify-center">✓</span>}
                 </div>
               </div>
               
@@ -306,19 +314,19 @@ export default function CustomerDiscover() {
                 <div className="space-y-4">
                   <div className="flex justify-between items-start gap-4">
                     <div>
-                      <h2 className="text-2xl font-black leading-tight">{selectedItem.name}</h2>
+                      <h2 className="text-2xl font-black leading-tight">{selectedItem?.name || "Unnamed"}</h2>
                       <p className="text-xl font-bold text-primary mt-1">
-                        {typeof selectedItem.price === "number" ? `₦${selectedItem.price.toLocaleString()}` : selectedItem.price}
+                        {typeof selectedItem?.price === "number" ? `₦${selectedItem.price.toLocaleString()}` : (selectedItem?.price || "Contact")}
                       </p>
                     </div>
-                    <Button variant="outline" size="sm" className="rounded-full px-4 h-9 font-bold flex shrink-0" onClick={() => handleFollowStore(selectedItem.business.id)}>
+                    <Button variant="outline" size="sm" className="rounded-full px-4 h-9 font-bold flex shrink-0" onClick={() => handleFollowStore(selectedItem?.business?.id)}>
                       <UserPlus className="w-3.5 h-3.5 mr-1.5" /> Follow
                     </Button>
                   </div>
 
                   <div className="prose prose-sm dark:prose-invert">
                     <p className="text-muted-foreground leading-relaxed text-sm">
-                      {selectedItem.description || "No description provided for this item. Contact the store for more information."}
+                      {selectedItem?.description || "No description provided for this item. Contact the store for more information."}
                     </p>
                   </div>
                 </div>
@@ -333,7 +341,7 @@ export default function CustomerDiscover() {
                   {addToCart.isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <PremiumHome className="mr-2 h-6 w-6" />}
                   Add to Cart
                 </Button>
-                <Button variant="secondary" className="h-12 w-12 rounded-full p-0" onClick={() => navigate(`/business/${selectedItem.business.id}`)}>
+                <Button variant="secondary" className="h-12 w-12 rounded-full p-0" onClick={() => { if (selectedItem?.business?.id) navigate(`/business/${selectedItem.business.id}`) }}>
                   <Store className="h-5 w-5" />
                 </Button>
               </div>
@@ -344,3 +352,4 @@ export default function CustomerDiscover() {
     </DashboardLayout>
   );
 }
+

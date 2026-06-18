@@ -10,10 +10,11 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, ArrowLeft, Truck, Store, ShieldCheck, MapPin } from "lucide-react";
+import { Loader2, ArrowLeft, Truck, Store, ShieldCheck } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { calculateDeliveryFee, OOU_ZONE_NAMES, OouZone } from "@/lib/deliveryCalculator";
+import { StructuredLocationPicker } from "@/components/location/StructuredLocationPicker";
+import { StructuredLocationSelection, formatStructuredLocation } from "@/hooks/useStructuredLocations";
+import { estimateDeliveryFee } from "@/lib/structuredDelivery";
 
 export default function Checkout() {
   const [searchParams] = useSearchParams();
@@ -27,7 +28,7 @@ export default function Checkout() {
   const [address, setAddress] = useState("");
   const [instructions, setInstructions] = useState("");
   const [processing, setProcessing] = useState(false);
-  const [selectedZone, setSelectedZone] = useState<string>("UNKNOWN");
+  const [deliveryLocation, setDeliveryLocation] = useState<StructuredLocationSelection | null>(null);
 
   // Determine what businesses we are checkouting from
   const businessesToCheckout = useMemo(() => {
@@ -88,7 +89,7 @@ export default function Checkout() {
   }, [user]);
 
   const hasIdicDiscount = 
-    !!((profile?.idic_code || profile?.user_type === "admin") && 
+    !!(profile?.user_type === "admin" && 
     completedOrdersCount !== null && 
     completedOrdersCount < 5);
 
@@ -98,23 +99,50 @@ export default function Checkout() {
 
   const discountAmount = hasIdicDiscount ? Math.round(subtotal * 0.1) : 0;
 
-  // Calculate delivery fee for each store to the selected landmark/address
+  // Calculate delivery fee for each store to the selected landmark coordinates.
   const computedDeliveryFees = useMemo(() => {
     const fees: Record<string, number> = {};
     if (deliveryType !== "standard" || !checkoutBusinesses) return fees;
-    
-    const targetAddress = address.trim() || OOU_ZONE_NAMES[selectedZone as OouZone] || "";
-    if (!targetAddress) return fees;
-    
+
+    const target = deliveryLocation?.landmark;
+    if (!target) return fees;
+
     checkoutBusinesses.forEach(biz => {
-      fees[biz.id] = calculateDeliveryFee(biz.business_location || "", targetAddress);
+      const estimate = estimateDeliveryFee(
+        { latitude: Number(biz.latitude), longitude: Number(biz.longitude) },
+        { latitude: target.latitude, longitude: target.longitude },
+      );
+
+      fees[biz.id] = estimate?.fee ?? 1000;
     });
     return fees;
-  }, [deliveryType, checkoutBusinesses, address, selectedZone]);
+  }, [deliveryType, checkoutBusinesses, deliveryLocation]);
+
+  const computedDeliveryDistances = useMemo(() => {
+    const distances: Record<string, number> = {};
+    if (deliveryType !== "standard" || !checkoutBusinesses || !deliveryLocation) return distances;
+
+    checkoutBusinesses.forEach((biz) => {
+      const estimate = estimateDeliveryFee(
+        { latitude: Number(biz.latitude), longitude: Number(biz.longitude) },
+        { latitude: deliveryLocation.landmark.latitude, longitude: deliveryLocation.landmark.longitude },
+      );
+
+      distances[biz.id] = estimate?.estimatedRoadDistanceKm ?? 0;
+    });
+
+    return distances;
+  }, [deliveryType, checkoutBusinesses, deliveryLocation]);
 
   const deliveryFee = useMemo(() => {
     if (deliveryType !== "standard") return 0;
-    return Object.values(computedDeliveryFees).reduce((sum, fee) => sum + fee, 0);
+    const feesArray = Object.values(computedDeliveryFees);
+    if (feesArray.length === 0) return 0;
+    
+    // Multi-store discount: Max fee + 150 surcharge per additional store
+    const maxBaseFee = Math.max(...feesArray);
+    const additionalStopsSurcharge = (feesArray.length - 1) * 150;
+    return maxBaseFee + additionalStopsSurcharge;
   }, [deliveryType, computedDeliveryFees]);
 
   const total = subtotal + deliveryFee - discountAmount;
@@ -141,8 +169,8 @@ export default function Checkout() {
   }
 
   const handlePayment = async () => {
-    if (deliveryType === "standard" && !address.trim() && selectedZone === "UNKNOWN") {
-      toast({ variant: "destructive", title: "Delivery zone/address is required" });
+    if (deliveryType === "standard" && !deliveryLocation) {
+      toast({ variant: "destructive", title: "Choose your delivery landmark" });
       return;
     }
 
@@ -162,6 +190,24 @@ export default function Checkout() {
       if (!customer) throw new Error("Customer profile not found");
 
       const orderIds: string[] = [];
+      const structuredAddress = deliveryLocation ? formatStructuredLocation(deliveryLocation) : "";
+      const fullDeliveryAddress = [structuredAddress, address.trim()].filter(Boolean).join(" - ");
+
+      if (deliveryType === "standard" && deliveryLocation) {
+        await (supabase as any)
+          .from("customers")
+          .update({
+            location_area_id: deliveryLocation.area.id,
+            location_street_id: deliveryLocation.street.id,
+            location_landmark_id: deliveryLocation.landmark.id,
+            location: deliveryLocation.area.name,
+            area_name: deliveryLocation.area.name,
+            street_address: fullDeliveryAddress,
+            latitude: deliveryLocation.landmark.latitude,
+            longitude: deliveryLocation.landmark.longitude,
+          })
+          .eq("id", customer.id);
+      }
 
       // Create a pending order record for each business
       for (const [bizId, data] of Object.entries(businessesToCheckout)) {
@@ -175,26 +221,37 @@ export default function Checkout() {
         }));
 
         const bizSubtotal = data.total;
-        const bizDeliveryFee = deliveryType === "standard" ? (computedDeliveryFees[bizId] ?? 1000) : 0;
+        const bizDeliveryFee = deliveryType === "standard" ? (computedDeliveryFees[bizId] ?? Math.round(deliveryFee / Object.keys(businessesToCheckout).length)) : 0;
         const bizDiscount = hasIdicDiscount ? Math.round(bizSubtotal * 0.1) : 0;
         const bizTotal = bizSubtotal + bizDeliveryFee - bizDiscount;
         const commissionAmount = Math.round(bizSubtotal * 0.1); // 10% commission
 
-        const { data: newOrder, error: orderErr } = await supabase
+        const orderPayload = {
+          business_id: bizId,
+          customer_id: customer.id,
+          status: "pending",
+          items: items,
+          subtotal: bizSubtotal,
+          delivery_fee: bizDeliveryFee,
+          platform_fee: 0,
+          commission_amount: commissionAmount,
+          total: bizTotal,
+          delivery_address: deliveryType === "pickup" ? null : fullDeliveryAddress || null,
+          delivery_notes: deliveryType === "standard" && instructions.trim() ? `Instructions: ${instructions.trim()}` : null,
+          delivery_landmark_id: deliveryType === "standard" ? deliveryLocation?.landmark.id ?? null : null,
+          delivery_distance_km: deliveryType === "standard" ? computedDeliveryDistances[bizId] ?? null : null,
+          delivery_pricing: deliveryType === "standard" ? {
+            area: deliveryLocation?.area.name,
+            street: deliveryLocation?.street.name,
+            landmark: deliveryLocation?.landmark.name,
+            rate_per_km: 250,
+            curvature_multiplier: 1.3,
+          } : {},
+        };
+
+        const { data: newOrder, error: orderErr } = await (supabase as any)
           .from("orders")
-          .insert({
-            business_id: bizId,
-            customer_id: customer.id,
-            status: "pending",
-            items: items,
-            subtotal: bizSubtotal,
-            delivery_fee: bizDeliveryFee,
-            platform_fee: 0,
-            commission_amount: commissionAmount,
-            total: bizTotal,
-            delivery_address: deliveryType === "pickup" ? null : address.trim() || null,
-            delivery_notes: deliveryType === "standard" && instructions.trim() ? `Instructions: ${instructions.trim()}` : null,
-          })
+          .insert(orderPayload)
           .select("id")
           .single();
 
@@ -269,7 +326,7 @@ export default function Checkout() {
                     className="flex flex-col items-center justify-center rounded-2xl border border-border/30 bg-card p-5 hover:bg-accent/40 peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/[0.02] peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-300"
                   >
                     <Truck className="mb-2.5 h-5 w-5" />
-                    <span className="text-xs font-bold">Delivery (OOU Matrix)</span>
+                    <span className="text-xs font-bold">Delivery</span>
                   </Label>
                 </div>
                 <div>
@@ -289,35 +346,20 @@ export default function Checkout() {
               <div className="space-y-4 animate-in fade-in slide-in-from-top-4 duration-300">
                 <h2 className="text-lg font-bold tracking-tight text-foreground">Delivery Address</h2>
                 <div className="space-y-4">
+                  <StructuredLocationPicker
+                    label="Delivery point"
+                    value={deliveryLocation}
+                    onChange={setDeliveryLocation}
+                    compact
+                  />
                   <div className="space-y-2">
-                    <Label htmlFor="zone-picker" className="text-xs font-bold text-muted-foreground">Select OOU Campus Landmark / Zone (For Cheaper Fees)</Label>
-                    <Select value={selectedZone} onValueChange={(val) => {
-                      setSelectedZone(val);
-                      const zoneName = OOU_ZONE_NAMES[val as OouZone];
-                      if (val !== 'UNKNOWN') {
-                        setAddress(zoneName);
-                      }
-                    }}>
-                      <SelectTrigger id="zone-picker" className="rounded-xl border-border/20 bg-muted/30 h-11 text-sm">
-                        <SelectValue placeholder="Select landmark/zone..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {Object.entries(OOU_ZONE_NAMES).map(([zone, name]) => (
-                          <SelectItem key={zone} value={zone} className="text-sm">
-                            {name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="address" className="text-xs font-bold text-muted-foreground">Detailed Address Description (Hostel, Room, etc.)</Label>
+                    <Label htmlFor="address" className="text-xs font-bold text-muted-foreground">Room / note beside landmark</Label>
                     <Textarea 
                       id="address" 
-                      placeholder="Enter details like building number, hostel name, room number" 
+                      placeholder="Room number, block, shop line, or who to call for pickup" 
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
-                      className="resize-none rounded-xl border-border/20 bg-muted/30 focus-visible:bg-card focus-visible:ring-primary/20 transition-all min-h-[100px] text-sm"
+                      className="resize-none rounded-xl border-border/20 bg-muted/30 focus-visible:bg-card focus-visible:ring-primary/20 transition-all min-h-[76px] text-sm"
                     />
                   </div>
                   <div className="space-y-2">
@@ -362,7 +404,9 @@ export default function Checkout() {
                       ))}
                       {deliveryType === "standard" && (
                         <div className="flex justify-between text-[10px] text-muted-foreground pl-7">
-                          <span>Delivery:</span>
+                          <span>
+                            Delivery{computedDeliveryDistances[bizId] ? ` (${computedDeliveryDistances[bizId].toFixed(1)} km)` : ""}:
+                          </span>
                           <span className="font-bold text-foreground/70">₦{(computedDeliveryFees[bizId] ?? 1000).toLocaleString()}</span>
                         </div>
                       )}
@@ -396,6 +440,13 @@ export default function Checkout() {
                 <span>Total</span>
                 <span className="text-primary text-xl">₦{total.toLocaleString()}</span>
               </div>
+
+              {deliveryType === "standard" && deliveryLocation && (
+                <div className="rounded-xl border border-primary/10 bg-primary/[0.03] p-3 text-[11px] text-muted-foreground">
+                  <p className="font-bold text-foreground">Deliver to {deliveryLocation.landmark.name}</p>
+                  <p>{deliveryLocation.street.name}, {deliveryLocation.area.name}</p>
+                </div>
+              )}
 
               <Button 
                 className="w-full h-12 text-base rounded-full shadow-premium hover:shadow-premium-lg transition-all duration-300" 

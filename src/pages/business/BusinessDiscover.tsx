@@ -68,6 +68,9 @@ export default function BusinessDiscover() {
   const [items, setItems] = useState<DiscoverItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [itemTypeFilter, setItemTypeFilter] = useState<"all" | "products" | "services">("all");
+  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [priceFilter, setPriceFilter] = useState("all");
   const [selectedItem, setSelectedItem] = useState<DiscoverItem | null>(null);
   const [imageIndex, setImageIndex] = useState(0);
   const [followedBusinessIds, setFollowedBusinessIds] = useState<string[]>([]);
@@ -178,14 +181,37 @@ export default function BusinessDiscover() {
     fetchData();
   }, [myBusiness?.id]);
 
+  const categoryOptions = useMemo(() => {
+    return Array.from(new Set(items.map((item) => item.category).filter(Boolean) as string[])).sort();
+  }, [items]);
+
+  const getPriceNumber = (item: DiscoverItem) => {
+    return typeof item.price === "number" ? item.price : null;
+  };
+
   const filteredItems = useMemo(() => {
-    if (!search.trim()) return items;
     const q = search.toLowerCase();
-    return items.filter(item => 
-      (item?.name || "").toLowerCase().includes(q) || 
-      (item?.business?.company_name || "").toLowerCase().includes(q)
-    );
-  }, [items, search]);
+    return items.filter(item => {
+      const matchesSearch = !search.trim() ||
+        (item?.name || "").toLowerCase().includes(q) ||
+        (item?.business?.company_name || "").toLowerCase().includes(q) ||
+        (item?.category || "").toLowerCase().includes(q) ||
+        (item?.tags || []).some((tag) => tag.toLowerCase().includes(q));
+      const matchesType =
+        itemTypeFilter === "all" ||
+        (itemTypeFilter === "products" && !item.isService) ||
+        (itemTypeFilter === "services" && item.isService);
+      const matchesCategory = categoryFilter === "all" || item.category === categoryFilter;
+      const price = getPriceNumber(item);
+      const matchesPrice =
+        priceFilter === "all" ||
+        (priceFilter === "under5k" && price !== null && price < 5000) ||
+        (priceFilter === "5to20k" && price !== null && price >= 5000 && price <= 20000) ||
+        (priceFilter === "20kplus" && price !== null && price > 20000);
+
+      return matchesSearch && matchesType && matchesCategory && matchesPrice;
+    });
+  }, [items, search, itemTypeFilter, categoryFilter, priceFilter]);
 
   const handleAddToCart = (item: DiscoverItem, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
@@ -246,18 +272,60 @@ export default function BusinessDiscover() {
     <DashboardLayout>
       <div className="min-h-screen bg-background pb-20 px-4 md:px-6 animate-fade-in max-w-7xl mx-auto">
         
-        {/* Search Header */}
-        <div className="mb-6 sticky top-16 z-30 bg-background/80 backdrop-blur-md py-2 flex justify-center border-b border-border/5">
-          <div className="relative w-full max-w-[280px]">
-            <Search className="absolute left-3 top-2.5 h-3.5 w-3.5 text-muted-foreground/60" />
-            <Input
-              placeholder="Search..."
-              className="pl-9 h-8.5 text-xs rounded-full bg-muted/30 border-border/10 text-foreground font-medium shadow-none hover:bg-muted/40 focus-visible:bg-card focus-visible:ring-primary/10 transition-all duration-300"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
+        {/* Fixed Search / Filter Bar */}
+        <div className="fixed top-16 left-0 right-0 z-30 border-b border-border/10 bg-background/95 backdrop-blur-xl">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 md:px-6">
+            <div className="relative w-full max-w-[360px]">
+              <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground/60" />
+              <Input
+                placeholder="Search stores, products..."
+                className="h-8 rounded-full border-border/10 bg-muted/25 pl-9 text-xs font-medium shadow-none transition-all duration-300 hover:bg-muted/40 focus-visible:bg-card focus-visible:ring-primary/10"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+            <div className="flex gap-2 overflow-x-auto pb-0.5 scrollbar-none">
+              {[
+                ["all", "All"],
+                ["products", "Products"],
+                ["services", "Services"],
+              ].map(([value, label]) => (
+                <button
+                  key={value}
+                  type="button"
+                  onClick={() => setItemTypeFilter(value as "all" | "products" | "services")}
+                  className={cn(
+                    "h-7 rounded-full border px-3 text-[11px] font-bold transition-colors shrink-0",
+                    itemTypeFilter === value ? "border-primary bg-primary text-primary-foreground" : "border-border/20 bg-muted/20 text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {label}
+                </button>
+              ))}
+              <select
+                value={categoryFilter}
+                onChange={(e) => setCategoryFilter(e.target.value)}
+                className="h-7 rounded-full border border-border/20 bg-muted/20 px-3 text-[11px] font-bold text-foreground outline-none shrink-0"
+              >
+                <option value="all">All Categories</option>
+                {categoryOptions.map((category) => (
+                  <option key={category} value={category}>{category}</option>
+                ))}
+              </select>
+              <select
+                value={priceFilter}
+                onChange={(e) => setPriceFilter(e.target.value)}
+                className="h-7 rounded-full border border-border/20 bg-muted/20 px-3 text-[11px] font-bold text-foreground outline-none shrink-0"
+              >
+                <option value="all">Any Price</option>
+                <option value="under5k">Under ₦5k</option>
+                <option value="5to20k">₦5k - ₦20k</option>
+                <option value="20kplus">Above ₦20k</option>
+              </select>
+            </div>
           </div>
         </div>
+        <div className="h-24" />
 
         {/* Masonry Feed */}
         {loading ? (
@@ -489,4 +557,3 @@ export default function BusinessDiscover() {
     </DashboardLayout>
   );
 }
-

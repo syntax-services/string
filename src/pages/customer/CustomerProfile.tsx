@@ -46,6 +46,8 @@ import {
 import { format } from "date-fns";
 import { playPremiumMatchChime } from "@/hooks/useAudioSignals";
 import { cn } from "@/lib/utils";
+import { StructuredLocationPicker } from "@/components/location/StructuredLocationPicker";
+import { StructuredLocationSelection, formatStructuredLocation } from "@/hooks/useStructuredLocations";
 
 export default function CustomerProfile() {
   const { profile, signOut, refreshProfile, isAdmin, hasBothRoles, switchRole } = useAuth();
@@ -66,8 +68,7 @@ export default function CustomerProfile() {
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [businessName, setBusinessName] = useState("");
   const [businessType, setBusinessType] = useState<"goods" | "services" | "both">("both");
-  const [streetAddress, setStreetAddress] = useState("");
-  const [areaName, setAreaName] = useState("");
+  const [businessLocation, setBusinessLocation] = useState<StructuredLocationSelection | null>(null);
   const [registeringBusiness, setRegisteringBusiness] = useState(false);
 
   // Hidden accordion state
@@ -186,13 +187,15 @@ export default function CustomerProfile() {
 
   const handleRegisterBusiness = async () => {
     if (!profile?.id) return;
-    if (!businessName || !streetAddress || !areaName) {
+    if (!businessName || !businessLocation) {
       toast.error("Please fill in all store fields.");
       return;
     }
 
     setRegisteringBusiness(true);
     try {
+      const formattedLocation = formatStructuredLocation(businessLocation);
+
       // 1. Call the secure onboarding RPC which bypasses RLS issues
       const { data: rpcData, error: rpcError } = await supabase.rpc("complete_onboarding_setup", {
         p_full_name: profile.full_name || "Merchant",
@@ -201,13 +204,35 @@ export default function CustomerProfile() {
         p_business_data: {
           companyName: businessName,
           businessType: businessType,
-          streetAddress: streetAddress,
-          areaName: areaName
+          streetAddress: formattedLocation,
+          areaName: businessLocation.area.name,
+          latitude: businessLocation.landmark.latitude,
+          longitude: businessLocation.landmark.longitude,
+          locationAreaId: businessLocation.area.id,
+          locationStreetId: businessLocation.street.id,
+          locationLandmarkId: businessLocation.landmark.id,
         },
         p_customer_data: null
       });
 
       if (rpcError) throw rpcError;
+
+      const { error: locationUpdateError } = await (supabase as any)
+        .from("businesses")
+        .update({
+          business_location: formattedLocation,
+          street_address: formattedLocation,
+          area_name: businessLocation.area.name,
+          latitude: businessLocation.landmark.latitude,
+          longitude: businessLocation.landmark.longitude,
+          location_area_id: businessLocation.area.id,
+          location_street_id: businessLocation.street.id,
+          location_landmark_id: businessLocation.landmark.id,
+          location_verified: false,
+        })
+        .eq("user_id", profile.user_id);
+
+      if (locationUpdateError) throw locationUpdateError;
 
       // 2. Set role switches
       localStorage.setItem("string_active_role_view", "business");
@@ -615,7 +640,7 @@ export default function CustomerProfile() {
             </p>
             {profile?.idic_code && (
               <div className="inline-flex items-center gap-1 bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded-full mt-1.5 shadow-sm">
-                🏆 IDIC Competitor: {profile.idic_department} ({profile.idic_code})
+                🏆 IDIC: {profile.idic_department}
               </div>
             )}
           </div>
@@ -677,39 +702,33 @@ export default function CustomerProfile() {
           <div className="space-y-5 animate-in fade-in slide-in-from-bottom-2 duration-300">
             {/* IDIC Tournament Registration Card */}
             {!hideIdic && (
-              <div className="bg-card border border-border/45 rounded-2xl p-5 shadow-sm space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
-                    <span className="text-xl">🏆</span>
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-bold text-sm text-foreground">IDIC Championship 2026</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      Represent your department in the Inter-Department Intellectual Championship. Register to generate your competitor badge & unlock a 10% discount on your first 5 checkouts!
-                    </p>
-                  </div>
+              <div className="bg-card border border-border/40 rounded-2xl p-4 shadow-sm space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-base">🏆</span>
+                  <h3 className="font-bold text-xs text-foreground uppercase tracking-wider">IDIC Championship</h3>
                 </div>
+                <p className="text-xs text-muted-foreground leading-tight">
+                  Select your department to generate your official competitor code.
+                </p>
 
                 {profile?.idic_code ? (
-                  <div className="bg-amber-500/[0.03] border border-amber-500/20 rounded-xl p-3.5 space-y-2 text-center">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">Your Competitor Badge</span>
-                    <div className="text-2xl font-black text-amber-500 font-mono select-all tracking-wide">
-                      {profile.idic_code}
-                    </div>
-                    <p className="text-[11px] font-medium text-foreground">
-                      Department: <span className="font-bold">{profile.idic_department}</span>
+                  <div className="bg-amber-500/[0.02] border border-amber-500/10 rounded-xl p-3 text-center space-y-1">
+                    <p className="text-[10px] font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">Competitor Code</p>
+                    <p className="text-xl font-black text-amber-500 font-mono tracking-wider">{profile.idic_code}</p>
+                    <p className="text-xs text-muted-foreground">
+                      Dept: <span className="font-bold text-foreground">{profile.idic_department}</span>
                     </p>
-                    <div className="text-[10px] text-muted-foreground flex items-center justify-center gap-1">
-                      <ShieldCheck className="h-3.5 w-3.5 text-primary" /> 10% Auto-Discount Active on Checkout
-                    </div>
+                    <p className="text-[10px] text-muted-foreground pt-1.5 border-t border-border/10 mt-1">
+                      🎁 Rewards will be unlocked at the end of the tournament.
+                    </p>
                   </div>
                 ) : (
-                  <div className="space-y-3 pt-2">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="idic-dept" className="text-xs font-bold text-muted-foreground">Select Department</Label>
+                  <div className="space-y-2 pt-1">
+                    <div className="space-y-1">
+                      <Label htmlFor="idic-dept" className="text-[10px] font-bold text-muted-foreground">Select Department</Label>
                       <Select value={idicDept} onValueChange={setIdicDept}>
-                        <SelectTrigger id="idic-dept" className="rounded-xl border-border/20 bg-muted/30 h-10 text-xs">
-                          <SelectValue placeholder="Choose your department..." />
+                        <SelectTrigger id="idic-dept" className="rounded-xl border-border/20 bg-muted/30 h-8 text-xs">
+                          <SelectValue placeholder="Choose department..." />
                         </SelectTrigger>
                         <SelectContent className="max-h-[220px]">
                           {[
@@ -1235,26 +1254,12 @@ export default function CustomerProfile() {
                 </Select>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <div className="space-y-1.5">
-                  <Label className="text-xs font-semibold">Campus Region / Area</Label>
-                  <Input
-                      placeholder="e.g. Main Campus, Babanla"
-                      value={areaName}
-                      onChange={(e) => setAreaName(e.target.value)}
-                      className="h-9 bg-muted/20 border-border/40 rounded-xl"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <Label className="text-xs font-semibold">Street Address</Label>
-                  <Input
-                      placeholder="e.g. Hall 2 Gate, Babanla St"
-                      value={streetAddress}
-                      onChange={(e) => setStreetAddress(e.target.value)}
-                      className="h-9 bg-muted/20 border-border/40 rounded-xl"
-                  />
-                </div>
-              </div>
+              <StructuredLocationPicker
+                label="Store pickup / delivery point"
+                value={businessLocation}
+                onChange={setBusinessLocation}
+                compact
+              />
             </div>
 
             <DialogFooter className="gap-2 sm:gap-0 mt-2">
@@ -1264,7 +1269,7 @@ export default function CustomerProfile() {
               <Button
                 size="sm"
                 onClick={handleRegisterBusiness}
-                disabled={registeringBusiness || !businessName || !streetAddress || !areaName}
+                disabled={registeringBusiness || !businessName || !businessLocation}
                 className="bg-primary hover:bg-primary/95 text-white font-bold"
               >
                 {registeringBusiness ? "Launching..." : "Launch Merchant Studio 🚀"}

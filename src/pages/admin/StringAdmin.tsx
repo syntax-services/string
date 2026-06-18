@@ -669,8 +669,10 @@ export default function StringAdmin() {
       if (requestError) throw requestError;
 
       if (approved) {
-        // Update user profile location
-        const { error: profileError } = await supabase
+        const verifiedAt = new Date().toISOString();
+
+        // Update user profile location for global admin/user search views.
+        const { error: profileError } = await (supabase as any)
           .from("profiles")
           .update({
             latitude,
@@ -679,11 +681,26 @@ export default function StringAdmin() {
           .eq("user_id", userId);
         if (profileError) throw profileError;
 
+        const verificationUpdate = {
+          latitude,
+          longitude,
+          location_verified: true,
+          location_verified_at: verifiedAt,
+          location_verified_by: user?.id,
+        };
+
         if (userType === 'business') {
-          await supabase
+          const { error: businessVerifyError } = await (supabase as any)
             .from("businesses")
-            .update({ location_verified: true })
+            .update(verificationUpdate)
             .eq("user_id", userId);
+          if (businessVerifyError) throw businessVerifyError;
+        } else {
+          const { error: customerVerifyError } = await (supabase as any)
+            .from("customers")
+            .update(verificationUpdate)
+            .eq("user_id", userId);
+          if (customerVerifyError) throw customerVerifyError;
         }
       }
     },

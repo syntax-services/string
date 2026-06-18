@@ -2,12 +2,13 @@ import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Loader2, CheckCircle, Clock } from "lucide-react";
 import { toast } from "sonner";
+import { StructuredLocationPicker } from "@/components/location/StructuredLocationPicker";
+import { StructuredLocationSelection, formatStructuredLocation } from "@/hooks/useStructuredLocations";
 
 interface LocationRequestFormProps {
   onSuccess?: () => void;
@@ -16,16 +17,16 @@ interface LocationRequestFormProps {
 
 export function LocationRequestForm({ onSuccess, required = false }: LocationRequestFormProps) {
   const { user, profile } = useAuth();
-  const [streetAddress, setStreetAddress] = useState("");
-  const [areaName, setAreaName] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState<StructuredLocationSelection | null>(null);
+  const [locationNote, setLocationNote] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!streetAddress.trim()) {
-      toast.error("Please enter your street address");
+    if (!selectedLocation) {
+      toast.error("Please choose your area, street, and landmark");
       return;
     }
 
@@ -37,14 +38,19 @@ export function LocationRequestForm({ onSuccess, required = false }: LocationReq
     setLoading(true);
 
     try {
+      const formattedLocation = formatStructuredLocation(selectedLocation);
+      const streetAddress = [formattedLocation, locationNote.trim()].filter(Boolean).join(" - ");
+
       // Create location request
-      const { error: requestError } = await supabase
+      const { error: requestError } = await (supabase as any)
         .from("location_requests")
         .insert({
           user_id: user.id,
           user_type: profile.user_type,
-          street_address: streetAddress.trim(),
-          area_name: areaName.trim() || null,
+          street_address: streetAddress,
+          area_name: selectedLocation.area.name,
+          latitude: selectedLocation.landmark.latitude,
+          longitude: selectedLocation.landmark.longitude,
         });
 
       if (requestError) throw requestError;
@@ -52,11 +58,16 @@ export function LocationRequestForm({ onSuccess, required = false }: LocationReq
       // Update user's profile with the address (unverified)
       const table = profile.user_type === "business" ? "businesses" : "customers";
       
-      const { error: updateError } = await supabase
+      const { error: updateError } = await (supabase as any)
         .from(table)
         .update({
-          street_address: streetAddress.trim(),
-          area_name: areaName.trim() || null,
+          street_address: streetAddress,
+          area_name: selectedLocation.area.name,
+          latitude: selectedLocation.landmark.latitude,
+          longitude: selectedLocation.landmark.longitude,
+          location_area_id: selectedLocation.area.id,
+          location_street_id: selectedLocation.street.id,
+          location_landmark_id: selectedLocation.landmark.id,
           location_verified: false,
         })
         .eq("user_id", user.id);
@@ -86,7 +97,7 @@ export function LocationRequestForm({ onSuccess, required = false }: LocationReq
             <div>
               <h3 className="font-semibold">Location Pending Verification</h3>
               <p className="text-sm text-muted-foreground mt-1">
-                Our team will verify your location from Google Maps shortly. You'll be notified once verified.
+                Your selected landmark has been saved for review. You'll be notified once verified.
               </p>
             </div>
           </div>
@@ -103,37 +114,30 @@ export function LocationRequestForm({ onSuccess, required = false }: LocationReq
           <CardTitle className="text-lg">Your Location</CardTitle>
         </div>
         <CardDescription>
-          Enter your exact address. Our team will verify it on Google Maps for accurate delivery.
+          Choose the nearest verified landmark so delivery fees can be calculated without paid map APIs.
           {required && <span className="text-destructive ml-1">*Required</span>}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
+          <StructuredLocationPicker
+            label="Nearest landmark"
+            value={selectedLocation}
+            onChange={setSelectedLocation}
+          />
+
           <div className="space-y-2">
-            <Label htmlFor="street">Street Address *</Label>
+            <Label htmlFor="location-note">Shop / room note</Label>
             <Textarea
-              id="street"
-              placeholder="E.g., Shop 5, Behind GTBank, OOU Main Gate Road, Ago-Iwoye"
-              value={streetAddress}
-              onChange={(e) => setStreetAddress(e.target.value)}
+              id="location-note"
+              placeholder="E.g., Shop 5, beside the gate"
+              value={locationNote}
+              onChange={(e) => setLocationNote(e.target.value)}
               rows={3}
             />
-            <p className="text-xs text-muted-foreground">
-              Include building number, landmarks, and street name for accurate verification
-            </p>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="area">Area / Neighborhood</Label>
-            <Input
-              id="area"
-              placeholder="E.g., Campus Area, Town, Off-Campus"
-              value={areaName}
-              onChange={(e) => setAreaName(e.target.value)}
-            />
-          </div>
-
-          <Button type="submit" disabled={loading || !streetAddress.trim()} className="w-full">
+          <Button type="submit" disabled={loading || !selectedLocation} className="w-full">
             {loading ? (
               <>
                 <Loader2 className="h-4 w-4 mr-2 animate-spin" />

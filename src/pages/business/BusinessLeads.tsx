@@ -92,8 +92,7 @@ export default function BusinessLeads() {
           .from("conversations")
           .insert({
             customer_id: customerData.id,
-            business_id: business.id,
-            last_message: `Lead Interest: I am reaching out regarding your request: "${lead.title}"`
+            business_id: business.id
           })
           .select("id")
           .single();
@@ -105,6 +104,7 @@ export default function BusinessLeads() {
         await supabase.from("messages").insert({
           conversation_id: conversationId,
           sender_id: business.user_id,
+          sender_type: "business",
           content: `Hi! I noticed your request: "${lead.title}". I would love to help you out with this. Let's discuss details!`
         });
       }

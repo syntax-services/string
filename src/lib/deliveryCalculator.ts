@@ -3,11 +3,11 @@
  * Research-driven location matching system based on OOU Main Campus layout.
  */
 
-export type OouZone = 'OOU_MAIN_CAMPUS' | 'ITSMERIN' | 'AGO_MARKET' | 'ORU' | 'MINI_CAMPUS' | 'UNKNOWN';
+export type OouZone = 'OOU_MAIN_CAMPUS' | 'ITAMERIN' | 'AGO_MARKET' | 'ORU' | 'MINI_CAMPUS' | 'UNKNOWN';
 
 export const OOU_ZONE_NAMES: Record<OouZone, string> = {
   OOU_MAIN_CAMPUS: 'OOU Main Campus (Permanent Site)',
-  ITSMERIN: 'Itsmerin Area',
+  ITAMERIN: 'Itamerin Area',
   AGO_MARKET: 'Ago Market / Town Center',
   ORU: 'Oru Junction / Town',
   MINI_CAMPUS: 'Mini Campus / Ibefun',
@@ -44,15 +44,16 @@ export function parseLocationZone(addressText: string): OouZone {
     return 'OOU_MAIN_CAMPUS';
   }
   
-  // Itsmerin Area keywords
+  // Itamerin Area keywords
   if (
+    text.includes('itamerin') ||
+    text.includes('itamerin road') ||
+    text.includes('itamerin junction') ||
+    text.includes('itamerin gate') ||
     text.includes('itsmerin') ||
-    text.includes('ismerin') ||
-    text.includes('itsmerin road') ||
-    text.includes('itsmerin junction') ||
-    text.includes('itsmerin gate')
+    text.includes('ismerin')
   ) {
-    return 'ITSMERIN';
+    return 'ITAMERIN';
   }
   
   // Ago Market / Town Center keywords
@@ -112,8 +113,8 @@ export function calculateDeliveryFee(bizLocation: string, custAddress: string): 
   // Distance-matrix based delivery fee pairings
   const pairings: Record<string, number> = {
     // Main Campus pairings
-    'OOU_MAIN_CAMPUS-ITSMERIN': 500,
-    'ITSMERIN-OOU_MAIN_CAMPUS': 500,
+    'OOU_MAIN_CAMPUS-ITAMERIN': 500,
+    'ITAMERIN-OOU_MAIN_CAMPUS': 500,
     
     'OOU_MAIN_CAMPUS-AGO_MARKET': 700,
     'AGO_MARKET-OOU_MAIN_CAMPUS': 700,
@@ -124,15 +125,15 @@ export function calculateDeliveryFee(bizLocation: string, custAddress: string): 
     'OOU_MAIN_CAMPUS-ORU': 800,
     'ORU-OOU_MAIN_CAMPUS': 800,
     
-    // Itsmerin pairings
-    'ITSMERIN-AGO_MARKET': 500, // Ago Market to Itsmerin ₦500
-    'AGO_MARKET-ITSMERIN': 500, // Ago Market to Itsmerin ₦500
+    // Itamerin pairings
+    'ITAMERIN-AGO_MARKET': 500, // Ago Market to Itamerin ₦500
+    'AGO_MARKET-ITAMERIN': 500, // Ago Market to Itamerin ₦500
     
-    'ITSMERIN-ORU': 700,
-    'ORU-ITSMERIN': 700,
+    'ITAMERIN-ORU': 700,
+    'ORU-ITAMERIN': 700,
     
-    'ITSMERIN-MINI_CAMPUS': 600,
-    'MINI_CAMPUS-ITSMERIN': 600,
+    'ITAMERIN-MINI_CAMPUS': 600,
+    'MINI_CAMPUS-ITAMERIN': 600,
     
     // Ago Market pairings
     'AGO_MARKET-ORU': 500,

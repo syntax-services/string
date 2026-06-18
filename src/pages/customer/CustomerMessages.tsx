@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MessageCircle, Send, ArrowLeft, Building2, Plus, ShoppingBag, Loader2, Mic, Square, Play, Pause, Headphones, Volume2, Check } from "lucide-react";
+import { MessageCircle, Send, ArrowLeft, Building2, Plus, ShoppingBag, Loader2, Mic, Play, Pause, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { playChatAlert } from "@/hooks/useAudioSignals";
@@ -86,7 +86,7 @@ const AudioPlayer = ({ src, isSelf }: { src: string; isSelf: boolean }) => {
           isSelf ? "bg-white/20 border-white/10 text-white hover:bg-white/30" : "bg-primary/10 border-primary/20 text-primary hover:bg-primary/20"
         )}
       >
-        {isPlaying ? <Pause className="h-4.5 w-4.5" /> : <Play className="h-4.5 w-4.5" />}
+        {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
       </Button>
       <div className="flex-1 space-y-1">
         {/* Animated wave lines matching WhatsApp voice note visualizer */}
@@ -745,7 +745,7 @@ export default function CustomerMessages() {
                         type="submit"
                         disabled={sending || !newMessage.trim()}
                         size="icon"
-                        className="h-8.5 w-8.5 rounded-full shrink-0 bg-primary/90 hover:bg-primary shadow-sm hover:shadow active:scale-95 transition-all text-primary-foreground"
+                        className="h-9 w-9 rounded-full shrink-0 bg-primary/90 hover:bg-primary shadow-sm hover:shadow active:scale-95 transition-all text-primary-foreground"
                       >
                         <Send className="h-3.5 w-3.5" />
                       </Button>

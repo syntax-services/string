@@ -17,6 +17,8 @@ import { useNavigate } from "react-router-dom";
 import { StringVerifiedIcon } from "@/components/business/VerificationBadge";
 import { playVerificationChime } from "@/hooks/useAudioSignals";
 import { InterlockingLoader } from "@/components/ui/interlocking-loader";
+import { StructuredLocationPicker } from "@/components/location/StructuredLocationPicker";
+import { StructuredLocationSelection, formatStructuredLocation } from "@/hooks/useStructuredLocations";
 
 export default function BusinessVerify() {
   const { user } = useAuth();
@@ -24,8 +26,8 @@ export default function BusinessVerify() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  const [streetAddress, setStreetAddress] = useState("");
-  const [areaName, setAreaName] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState<StructuredLocationSelection | null>(null);
+  const [locationNote, setLocationNote] = useState("");
   const [tradeDescription, setTradeDescription] = useState("");
   const [idType, setIdType] = useState<'nin' | 'bvn' | 'matric'>("nin");
   const [idNumber, setIdNumber] = useState("");
@@ -115,7 +117,7 @@ export default function BusinessVerify() {
   const submitRequest = useMutation({
     mutationFn: async () => {
       if (!user?.id) throw new Error("Not logged in");
-      if (!streetAddress.trim() || !areaName.trim() || !tradeDescription.trim()) {
+      if (!selectedLocation || !tradeDescription.trim()) {
         throw new Error("Please fill in all verification fields.");
       }
       if (!idNumber.trim()) {
@@ -125,18 +127,21 @@ export default function BusinessVerify() {
         throw new Error("Please upload a video proof showing your physical setup.");
       }
 
+      const formattedLocation = formatStructuredLocation(selectedLocation);
+      const streetAddress = [formattedLocation, locationNote.trim()].filter(Boolean).join(" - ");
+
       // Insert location & identity verification request
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from("location_requests")
         .insert({
           user_id: user.id,
           user_type: "business",
-          street_address: streetAddress.trim(),
-          area_name: areaName.trim(),
+          street_address: streetAddress,
+          area_name: selectedLocation.area.name,
           admin_notes: `[Trade Details]: ${tradeDescription.trim()} | [ID Type]: ${idType.toUpperCase()} | [Secure ID hash]: ${idNumber.trim()}`,
           status: "pending",
-          latitude: latitude || null,
-          longitude: longitude || null,
+          latitude: selectedLocation.landmark.latitude,
+          longitude: selectedLocation.landmark.longitude,
           video_url: videoUrl || null,
         });
 
@@ -251,24 +256,20 @@ export default function BusinessVerify() {
             </p>
 
             <div className="space-y-4">
-              <div className="space-y-1.5">
-                <Label htmlFor="streetAddress" className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest">Street Address</Label>
-                <Input
-                  id="streetAddress"
-                  value={streetAddress}
-                  onChange={(e) => setStreetAddress(e.target.value)}
-                  placeholder="e.g. 15, Herbert Macaulay Way"
-                  className="rounded-xl border-border/40 focus:ring-primary/20 h-10"
-                />
-              </div>
+              <StructuredLocationPicker
+                label="Store landmark"
+                value={selectedLocation}
+                onChange={setSelectedLocation}
+                compact
+              />
 
               <div className="space-y-1.5">
-                <Label htmlFor="areaName" className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest">Area Name / Town</Label>
+                <Label htmlFor="locationNote" className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest">Shop / Room Note</Label>
                 <Input
-                  id="areaName"
-                  value={areaName}
-                  onChange={(e) => setAreaName(e.target.value)}
-                  placeholder="e.g. Yaba, Lagos"
+                  id="locationNote"
+                  value={locationNote}
+                  onChange={(e) => setLocationNote(e.target.value)}
+                  placeholder="e.g. Shop 5, beside the gate"
                   className="rounded-xl border-border/40 focus:ring-primary/20 h-10"
                 />
               </div>
@@ -405,7 +406,7 @@ export default function BusinessVerify() {
 
             <Button
               onClick={() => submitRequest.mutate()}
-              disabled={submitRequest.isPending || !streetAddress.trim() || !areaName.trim() || !tradeDescription.trim() || !idNumber.trim() || !videoUrl || uploadingVideo}
+              disabled={submitRequest.isPending || !selectedLocation || !tradeDescription.trim() || !idNumber.trim() || !videoUrl || uploadingVideo}
               className="w-full rounded-xl h-11 bg-primary text-primary-foreground hover:bg-primary/95 transition-all font-semibold"
             >
               {submitRequest.isPending ? (

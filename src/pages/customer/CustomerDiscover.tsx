@@ -7,11 +7,13 @@ import { useCart } from "@/hooks/useCart";
 import { PremiumHome } from "@/components/ui/custom-icons";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Search, MoreHorizontal, UserPlus, Loader2, Store, ShoppingCart } from "lucide-react";
+import { Search, MoreHorizontal, UserPlus, Loader2, Store, ShoppingCart, ShoppingBag, Share2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Badge } from "@/components/ui/badge";
+import { ProductComments } from "@/components/discover/ProductComments";
 import { cn } from "@/lib/utils";
 
 interface Business {
@@ -45,7 +47,10 @@ interface DiscoverItem {
   name: string;
   price: number | string;
   image_url: string | null;
+  images?: string[] | null;
   description: string | null;
+  category?: string | null;
+  tags?: string[] | null;
   business: Business;
   isService: boolean;
   aspectRatio: string;
@@ -70,7 +75,7 @@ export default function CustomerDiscover() {
           .from("public_businesses")
           .select(`
             id, company_name, logo_url, verified,
-            products(id, name, business_id, price, image_url, description),
+            products(id, name, business_id, price, image_url, images, description, category, tags),
             services(id, name, business_id, images, price_min, price_max, description)
           `)
           .order("created_at", { ascending: false });
@@ -102,7 +107,10 @@ export default function CustomerDiscover() {
                   name: prod.name || "Unnamed Product",
                   price: prod.price || 0,
                   image_url: prod.image_url || null,
+                  images: prod.images || null,
                   description: prod.description || null,
+                  category: prod.category || null,
+                  tags: prod.tags || null,
                   business: businessObj,
                   isService: false,
                   aspectRatio: Math.random() > 0.5 ? "aspect-[3/4]" : "aspect-square"
@@ -117,7 +125,10 @@ export default function CustomerDiscover() {
                   name: srv.name || "Unnamed Service",
                   price: srv.price_min ? `₦${Number(srv.price_min).toLocaleString()}` : "Contact",
                   image_url: srv.images?.[0] || null,
+                  images: srv.images || null,
                   description: srv.description || null,
+                  category: null,
+                  tags: null,
                   business: businessObj,
                   isService: true,
                   aspectRatio: Math.random() > 0.5 ? "aspect-[4/5]" : "aspect-square"
@@ -192,12 +203,12 @@ export default function CustomerDiscover() {
       <div className="min-h-screen bg-background pb-20 px-4 md:px-6 animate-fade-in max-w-7xl mx-auto">
         
         {/* Search Header */}
-        <div className="mb-6 sticky top-20 z-30 bg-background/80 backdrop-blur-md py-2">
+        <div className="mb-6 sticky top-20 z-30 bg-background/85 backdrop-blur-md py-2.5">
           <div className="relative">
-            <Search className="absolute left-3.5 top-3.5 h-5 w-5 text-muted-foreground" />
+            <Search className="absolute left-4 top-3.5 h-4.5 w-4.5 text-muted-foreground/60" />
             <Input
               placeholder="Search for products, stores, or ideas..."
-              className="pl-11 h-12 rounded-[24px] bg-card border-border/40 text-[15px] font-medium shadow-sm"
+              className="pl-11 h-11 rounded-full bg-muted/40 border-border/20 text-[14px] font-medium shadow-none hover:bg-muted/50 focus-visible:bg-card focus-visible:ring-primary/20 transition-all duration-300"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -218,7 +229,7 @@ export default function CustomerDiscover() {
             {filteredItems.map(item => (
               <div 
                 key={item?.id || Math.random().toString()} 
-                className="break-inside-avoid relative group bg-card rounded-[24px] overflow-hidden border border-border/40 shadow-sm hover:shadow-md transition-all cursor-pointer"
+                className="break-inside-avoid relative group bg-card rounded-[28px] overflow-hidden border border-border/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 onClick={() => setSelectedItem(item)}
               >
                 {/* Image */}
@@ -231,7 +242,7 @@ export default function CustomerDiscover() {
                       loading="lazy"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-accent/20 text-muted-foreground">
+                    <div className="w-full h-full flex items-center justify-center bg-accent/20 text-muted-foreground text-xs font-semibold">
                       No Image
                     </div>
                   )}
@@ -241,7 +252,7 @@ export default function CustomerDiscover() {
                 <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="secondary" size="icon" className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background shadow-sm" onClick={e => e.stopPropagation()}>
+                      <Button variant="secondary" size="icon" className="h-8 w-8 rounded-full bg-background/85 backdrop-blur-sm hover:bg-background shadow-sm border border-border/10" onClick={e => e.stopPropagation()}>
                         <MoreHorizontal className="h-4 w-4" />
                       </Button>
                     </DropdownMenuTrigger>
@@ -257,11 +268,11 @@ export default function CustomerDiscover() {
                 </div>
 
                 {/* Info Bar */}
-                <div className="p-3.5 space-y-2">
+                <div className="p-4 space-y-1 bg-card">
                   <div className="flex justify-between items-start gap-2">
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-[13px] leading-tight text-foreground truncate">{item?.name || "Unnamed"}</h3>
-                      <p className="font-extrabold text-[14px] text-primary mt-0.5">
+                      <h3 className="font-semibold text-xs text-foreground/80 leading-tight truncate">{item?.name || "Unnamed"}</h3>
+                      <p className="font-extrabold text-sm text-primary mt-0.5">
                         {typeof item?.price === "number" ? `₦${item.price.toLocaleString()}` : (item?.price || "Contact")}
                       </p>
                     </div>
@@ -272,7 +283,7 @@ export default function CustomerDiscover() {
                       className="h-8 w-8 shrink-0 rounded-full hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
                       onClick={(e) => handleAddToCart(item, e)}
                     >
-                      <PremiumHome className="h-5 w-5" />
+                      <ShoppingBag className="h-5 w-5" />
                     </Button>
                   </div>
                   
@@ -293,20 +304,68 @@ export default function CustomerDiscover() {
       </div>
 
       {/* Item Details Modal */}
-      <Dialog open={!!selectedItem} onOpenChange={(open) => !open && setSelectedItem(null)}>
+      <Dialog open={!!selectedItem} onOpenChange={(open) => {
+        if (!open) {
+          setSelectedItem(null);
+          setImageIndex(0);
+        }
+      }}>
         <DialogContent className="max-w-md w-[95vw] rounded-[32px] p-0 overflow-hidden bg-background border-border/50 gap-0">
           {selectedItem && (
             <div className="flex flex-col max-h-[85vh]">
-              <div className="relative w-full aspect-square bg-muted shrink-0">
-                {selectedItem.image_url && (
+              <div className="relative w-full aspect-square bg-muted shrink-0 group">
+                {selectedItem.images && selectedItem.images.length > 0 ? (
+                  <>
+                    <img src={selectedItem.images[imageIndex]} alt={selectedItem.name || "Item image"} className="w-full h-full object-cover" />
+                    {selectedItem.images.length > 1 && (
+                      <div className="absolute inset-0 flex items-center justify-between p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Button 
+                          variant="secondary" 
+                          size="icon" 
+                          className="h-8 w-8 rounded-full bg-background/50 backdrop-blur-md"
+                          onClick={(e) => { e.stopPropagation(); setImageIndex(prev => prev === 0 ? (selectedItem.images?.length || 1) - 1 : prev - 1) }}
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </Button>
+                        <Button 
+                          variant="secondary" 
+                          size="icon" 
+                          className="h-8 w-8 rounded-full bg-background/50 backdrop-blur-md"
+                          onClick={(e) => { e.stopPropagation(); setImageIndex(prev => prev === (selectedItem.images?.length || 1) - 1 ? 0 : prev + 1) }}
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    )}
+                    {selectedItem.images.length > 1 && (
+                      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5">
+                        {selectedItem.images.map((_, idx) => (
+                          <div key={idx} className={cn("h-1.5 rounded-full transition-all duration-300", idx === imageIndex ? "w-4 bg-primary" : "w-1.5 bg-white/50")} />
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : selectedItem.image_url ? (
                   <img src={selectedItem.image_url} alt={selectedItem.name || "Item image"} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-secondary">
+                    <Store className="h-12 w-12 text-muted-foreground/30" />
+                  </div>
                 )}
+                
+                {/* Top Overlay Actions */}
                 <div className="absolute top-4 left-4 flex items-center gap-2 bg-background/80 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm cursor-pointer" onClick={() => { if (selectedItem?.business?.id) navigate(`/business/${selectedItem.business.id}`) }}>
                   {selectedItem?.business?.logo_url && (
                     <img src={selectedItem.business.logo_url} className="w-5 h-5 rounded-full object-cover" />
                   )}
                   <span className="text-xs font-bold">{selectedItem?.business?.company_name || "Unknown Store"}</span>
                   {selectedItem?.business?.verified && <span className="text-[10px] bg-primary text-white w-3.5 h-3.5 rounded-full flex items-center justify-center">✓</span>}
+                </div>
+
+                <div className="absolute top-4 right-4 flex gap-2">
+                  <Button variant="secondary" size="icon" className="h-9 w-9 rounded-full bg-background/80 backdrop-blur-md" onClick={() => { navigator.clipboard.writeText(window.location.href); toast.success("Link copied!"); }}>
+                    <Share2 className="h-4 w-4" />
+                  </Button>
                 </div>
               </div>
               
@@ -324,10 +383,31 @@ export default function CustomerDiscover() {
                     </Button>
                   </div>
 
+                  {/* Specs & Badges */}
+                  {(selectedItem?.category || (selectedItem?.tags && selectedItem.tags.length > 0)) && (
+                    <div className="flex flex-wrap gap-2 pt-1 pb-2 border-b border-border/40">
+                      {selectedItem.category && (
+                        <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
+                          {selectedItem.category}
+                        </Badge>
+                      )}
+                      {selectedItem.tags?.map(tag => (
+                        <Badge key={tag} variant="outline" className="text-muted-foreground bg-muted/50">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
+
                   <div className="prose prose-sm dark:prose-invert">
-                    <p className="text-muted-foreground leading-relaxed text-sm">
+                    <p className="text-muted-foreground leading-relaxed text-sm whitespace-pre-wrap">
                       {selectedItem?.description || "No description provided for this item. Contact the store for more information."}
                     </p>
+                  </div>
+
+                  {/* Comments Section */}
+                  <div className="pt-4 border-t border-border/40">
+                    <ProductComments productId={selectedItem.id} />
                   </div>
                 </div>
               </ScrollArea>
@@ -338,7 +418,7 @@ export default function CustomerDiscover() {
                   onClick={() => { handleAddToCart(selectedItem); setSelectedItem(null); }}
                   disabled={addToCart.isPending}
                 >
-                  {addToCart.isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <PremiumHome className="mr-2 h-6 w-6" />}
+                  {addToCart.isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <ShoppingBag className="mr-2 h-6 w-6" />}
                   Add to Cart
                 </Button>
                 <Button variant="secondary" className="h-12 w-12 rounded-full p-0" onClick={() => { if (selectedItem?.business?.id) navigate(`/business/${selectedItem.business.id}`) }}>

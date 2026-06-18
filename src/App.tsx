@@ -60,6 +60,7 @@ const CustomerJobs = lazy(() => import("./pages/customer/CustomerJobs"));
 const CustomerEngagement = lazy(() => import("./pages/customer/CustomerEngagement"));
 const CustomerNotifications = lazy(() => import("./pages/customer/CustomerNotifications"));
 const PaymentCallback = lazy(() => import("./pages/customer/PaymentCallback"));
+const Checkout = lazy(() => import("./pages/customer/Checkout"));
 
 // Business core pages (Statically imported for instant, zero-delay tab switching)
 import BusinessOverview from "./pages/business/BusinessOverview";
@@ -147,6 +148,7 @@ const App = () => (
                   <Route path="/customer" element={<ProtectedRoute requiredUserType="customer"><CustomerOverview /></ProtectedRoute>} />
                   <Route path="/customer/discover" element={<ProtectedRoute requiredUserType="customer"><CustomerDiscover /></ProtectedRoute>} />
                   <Route path="/customer/orders" element={<ProtectedRoute requiredUserType="customer"><CustomerOrders /></ProtectedRoute>} />
+                  <Route path="/customer/checkout" element={<ProtectedRoute requiredUserType="customer"><Checkout /></ProtectedRoute>} />
                   <Route path="/customer/offers" element={<ProtectedRoute requiredUserType="customer"><CustomerOffers /></ProtectedRoute>} />
                   <Route path="/customer/saved" element={<ProtectedRoute requiredUserType="customer"><CustomerSavedBusinesses /></ProtectedRoute>} />
                   <Route path="/customer/jobs" element={<ProtectedRoute requiredUserType="customer"><CustomerJobs /></ProtectedRoute>} />

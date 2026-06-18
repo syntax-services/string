@@ -2300,6 +2300,7 @@ export default function StringAdmin() {
                               <TableHead>Business</TableHead>
                               <TableHead>Total</TableHead>
                               <TableHead>Status</TableHead>
+                              <TableHead>Tracking</TableHead>
                               <TableHead>Actions</TableHead>
                             </TableRow>
                           </TableHeader>
@@ -2325,6 +2326,9 @@ export default function StringAdmin() {
                                   }>
                                     {order.status}
                                   </Badge>
+                                </TableCell>
+                                <TableCell>
+                                  <span className="text-xs font-mono">{order.tracking_number || '-'}</span>
                                 </TableCell>
                                 <TableCell>
                                   <div className="flex items-center gap-2">
@@ -2383,6 +2387,7 @@ export default function StringAdmin() {
                           <div className="space-y-1">
                             <p className="text-sm"><span className="text-muted-foreground">Customer:</span> {order.customers?.profiles?.full_name || 'Unknown'}</p>
                             <p className="text-sm"><span className="text-muted-foreground">Business:</span> {order.businesses?.company_name}</p>
+                            <p className="text-sm"><span className="text-muted-foreground">Tracking:</span> <span className="font-mono">{order.tracking_number || '-'}</span></p>
                           </div>
                           <div className="flex items-center justify-between">
                             <span className="text-base font-bold">{'\u20A6'}{Number(order.total).toLocaleString()}</span>

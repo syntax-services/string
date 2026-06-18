@@ -11,7 +11,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { format } from "date-fns";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { OrderConfirmation } from "@/components/orders/OrderConfirmation";
 import { PostPurchaseReview } from "@/components/reviews/PostPurchaseReview";
 import { useQueryClient } from "@tanstack/react-query";
@@ -43,13 +43,52 @@ export default function CustomerOrders() {
   const { data: customer } = useCustomer();
   const { data: orders = [], isLoading } = useCustomerOrders(customer?.id);
   const [selectedOrder, setSelectedOrder] = useState<typeof orders[0] | null>(null);
+  const [trackingSearch, setTrackingSearch] = useState("");
   const queryClient = useQueryClient();
 
+  useEffect(() => {
+    if (!customer?.id) return;
+
+    const channelName = `customer_orders_${customer.id}_${Math.random()}`;
+    const channel = supabase
+      .channel(channelName)
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "orders",
+          filter: `customer_id=eq.${customer.id}`,
+        },
+        () => {
+          queryClient.invalidateQueries({ queryKey: ["customer-orders"] });
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [customer?.id, queryClient]);
+
   const filterOrders = (status: string) => {
-    if (status === "all") return orders;
-    if (status === "active") return orders.filter(o => ["pending", "confirmed", "processing", "shipped"].includes(o.status));
-    if (status === "completed") return orders.filter(o => o.status === "delivered");
-    return orders.filter(o => o.status === status);
+    let filtered = orders;
+    if (status === "active") {
+      filtered = orders.filter(o => ["pending", "confirmed", "processing", "shipped"].includes(o.status));
+    } else if (status === "completed") {
+      filtered = orders.filter(o => o.status === "delivered");
+    } else if (status !== "all") {
+      filtered = orders.filter(o => o.status === status);
+    }
+    
+    if (trackingSearch.trim()) {
+      const q = trackingSearch.toLowerCase();
+      filtered = filtered.filter(o => 
+        (o.tracking_number && o.tracking_number.toLowerCase().includes(q)) ||
+        o.id.toLowerCase().includes(q)
+      );
+    }
+    return filtered;
   };
 
   // Check if order can be confirmed (shipped status)
@@ -206,9 +245,19 @@ export default function CustomerOrders() {
   return (
     <DashboardLayout>
       <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-semibold text-foreground">My Orders</h1>
-          <p className="mt-1 text-muted-foreground">Track your product orders and confirm deliveries</p>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-semibold text-foreground">My Orders</h1>
+            <p className="mt-1 text-muted-foreground">Track your product orders and confirm deliveries</p>
+          </div>
+          <div className="w-full sm:w-72">
+            <input 
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              placeholder="Search tracking number or Order ID..."
+              value={trackingSearch}
+              onChange={(e) => setTrackingSearch(e.target.value)}
+            />
+          </div>
         </div>
 
         <Tabs defaultValue="all" className="w-full">
@@ -265,6 +314,12 @@ export default function CustomerOrders() {
                   <p className="text-muted-foreground">Order Number</p>
                   <p className="font-medium">{selectedOrder.id.slice(0, 8).toUpperCase()}</p>
                 </div>
+                {selectedOrder.tracking_number && (
+                  <div>
+                    <p className="text-muted-foreground">Tracking Number</p>
+                    <p className="font-medium text-primary">{selectedOrder.tracking_number}</p>
+                  </div>
+                )}
                 <div>
                   <p className="text-muted-foreground">Status</p>
                   <Badge variant={statusConfig[selectedOrder.status as OrderStatus].variant}>

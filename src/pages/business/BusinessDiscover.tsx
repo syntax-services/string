@@ -1,334 +1,439 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
+import { useCart } from "@/hooks/useCart";
 import { useBusiness } from "@/hooks/useBusiness";
+import { PremiumHome } from "@/components/ui/custom-icons";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Search, MoreHorizontal, UserPlus, Loader2, Store, ShoppingCart, ShoppingBag, Share2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
-import {
-  Search,
-  Building2,
-  Package,
-  Wrench,
-  Filter,
-  MessageCircle,
-} from "lucide-react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { VerificationBadge } from "@/components/business/VerificationBadge";
+import { useToast } from "@/hooks/use-toast";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Badge } from "@/components/ui/badge";
+import { ProductComments } from "@/components/discover/ProductComments";
+import { cn } from "@/lib/utils";
 
 interface Business {
   id: string;
-  user_id: string;
   company_name: string;
-  industry: string | null;
-  business_location: string | null;
-  cover_image_url: string | null;
-  business_type: string | null;
-  reputation_score: number | null;
-  verification_tier: string | null;
-  total_reviews: number | null;
+  logo_url: string | null;
+  verified: boolean | null;
 }
 
 interface Product {
   id: string;
   name: string;
   business_id: string;
-  price: number | null;
-  image_url: string | null;
+  price?: number | null;
+  image_url?: string | null;
+  description?: string | null;
 }
 
 interface Service {
   id: string;
   name: string;
   business_id: string;
-  price_min: number | null;
-  images: string[] | null;
+  images?: string[] | null;
+  price_min?: number | null;
+  price_max?: number | null;
+  description?: string | null;
+}
+
+interface DiscoverItem {
+  id: string;
+  name: string;
+  price: number | string;
+  image_url: string | null;
+  images?: string[] | null;
+  description: string | null;
+  category?: string | null;
+  tags?: string[] | null;
+  business: Business;
+  isService: boolean;
+  aspectRatio: string;
 }
 
 export default function BusinessDiscover() {
   const { user } = useAuth();
-  const { data: myBusiness } = useBusiness();
+  const { toast } = useToast();
   const navigate = useNavigate();
-
-  const [businesses, setBusinesses] = useState<Business[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
-  const [services, setServices] = useState<Service[]>([]);
-  const [search, setSearch] = useState("");
+  const { addToCart } = useCart();
+  const { data: myBusiness } = useBusiness();
+  
+  const [businesses, setBusinesses] = useState<any[]>([]);
+  const [items, setItems] = useState<DiscoverItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [typeFilter, setTypeFilter] = useState<string>("all");
-  const [viewMode, setViewMode] = useState<"businesses" | "products" | "services">("businesses");
+  const [search, setSearch] = useState("");
+  const [selectedItem, setSelectedItem] = useState<DiscoverItem | null>(null);
+  const [imageIndex, setImageIndex] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [businessesRes, productsRes, servicesRes] = await Promise.all([
-          supabase
-            .from("businesses")
-            .select("id, user_id, company_name, industry, business_location, cover_image_url, business_type, reputation_score, verification_tier, total_reviews")
-            .neq("id", myBusiness?.id || "")
-            .order("reputation_score", { ascending: false, nullsFirst: false }),
-          supabase
-            .from("products")
-            .select("id, name, business_id, price, image_url")
-            .eq("in_stock", true)
-            .order("created_at", { ascending: false })
-            .limit(50),
-          supabase
-            .from("services")
-            .select("id, name, business_id, price_min, images")
-            .eq("is_available", true)
-            .order("created_at", { ascending: false })
-            .limit(50),
-        ]);
+        const { data: businessList, error } = await supabase
+          .from("public_businesses")
+          .select(`
+            id, company_name, logo_url, verified,
+            products(id, name, business_id, price, image_url, images, description, category, tags),
+            services(id, name, business_id, images, price_min, price_max, description)
+          `)
+          .order("created_at", { ascending: false });
 
-        if (businessesRes.data) {
-          // Filter out own business
-          setBusinesses(businessesRes.data.filter(b => b.id !== myBusiness?.id));
+        if (error) {
+          console.error("Supabase error fetching public_businesses:", error);
         }
-        if (productsRes.data) setProducts(productsRes.data);
-        if (servicesRes.data) setServices(servicesRes.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+
+        if (businessList && Array.isArray(businessList)) {
+          setBusinesses(businessList);
+          
+          // Flatten into DiscoverItems
+          const flatItems: DiscoverItem[] = [];
+          businessList.forEach((biz: any) => {
+            if (!biz || biz.id === myBusiness?.id) return; // Skip own business
+            
+            const businessObj = {
+              id: biz.id || "",
+              company_name: biz.company_name || "Unknown Store",
+              logo_url: biz.logo_url || null,
+              verified: biz.verified || false
+            };
+
+            if (biz.products && Array.isArray(biz.products)) {
+              biz.products.forEach((prod: any) => {
+                if (!prod) return;
+                flatItems.push({
+                  id: prod.id || Math.random().toString(),
+                  name: prod.name || "Unnamed Product",
+                  price: prod.price || 0,
+                  image_url: prod.image_url || null,
+                  images: prod.images || null,
+                  description: prod.description || null,
+                  category: prod.category || null,
+                  tags: prod.tags || null,
+                  business: businessObj,
+                  isService: false,
+                  aspectRatio: Math.random() > 0.5 ? "aspect-[3/4]" : "aspect-square"
+                });
+              });
+            }
+            if (biz.services && Array.isArray(biz.services)) {
+              biz.services.forEach((srv: any) => {
+                if (!srv) return;
+                flatItems.push({
+                  id: srv.id || Math.random().toString(),
+                  name: srv.name || "Unnamed Service",
+                  price: srv.price_min ? `₦${Number(srv.price_min).toLocaleString()}` : "Contact",
+                  image_url: srv.images?.[0] || null,
+                  images: srv.images || null,
+                  description: srv.description || null,
+                  category: null,
+                  tags: null,
+                  business: businessObj,
+                  isService: true,
+                  aspectRatio: Math.random() > 0.5 ? "aspect-[4/5]" : "aspect-square"
+                });
+              });
+            }
+          });
+          
+          // Shuffle items for Pinterest feed vibe
+          for (let i = flatItems.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flatItems[i], flatItems[j]] = [flatItems[j], flatItems[i]];
+          }
+          
+          setItems(flatItems);
+        }
+      } catch (err) {
+        console.error("Error fetching discover items:", err);
       } finally {
         setLoading(false);
       }
     };
-
+    
     fetchData();
   }, [myBusiness?.id]);
 
-  // Start B2B conversation
-  const startB2BChat = async (otherBusinessUserId: string, otherBusinessName: string) => {
-    if (!myBusiness?.id || !user?.id) {
-      toast.error("You need a business profile to message");
+  const filteredItems = useMemo(() => {
+    if (!search.trim()) return items;
+    const q = search.toLowerCase();
+    return items.filter(item => 
+      (item?.name || "").toLowerCase().includes(q) || 
+      (item?.business?.company_name || "").toLowerCase().includes(q)
+    );
+  }, [items, search]);
+
+  const handleAddToCart = (item: DiscoverItem, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (!item?.business?.id) return;
+    
+    addToCart.mutate({
+      businessId: item.business.id,
+      productId: !item.isService ? item.id : undefined,
+      serviceId: item.isService ? item.id : undefined,
+      quantity: 1
+    });
+  };
+
+  const handleFollowStore = async (businessId: string | undefined, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (!businessId) return;
+    
+    if (!user) {
+      toast({ title: "Please log in to follow stores" });
       return;
     }
-
-    // For B2B messaging, we'll create a notification to the other business
     try {
-      const { error } = await supabase.from("notifications").insert({
-        user_id: otherBusinessUserId,
-        title: "New Business Inquiry",
-        message: `${myBusiness.company_name} wants to connect with you. Check your messages!`,
-        type: "message",
-      });
-
-      if (error) throw error;
-      
-      toast.success(`Message request sent to ${otherBusinessName}`);
-      navigate("/business/messages");
-    } catch (error) {
-      toast.error("Failed to start conversation");
+      const { data: customer } = await supabase.from('customers').select('id').eq('user_id', user.id).maybeSingle();
+      if (customer) {
+        await supabase.from("saved_businesses").insert({
+          customer_id: customer.id,
+          business_id: businessId
+        });
+        toast({ title: "Store followed! ✨" });
+      }
+    } catch (err) {
+      toast({ variant: "destructive", title: "Failed to follow store" });
     }
   };
 
-  // Filter based on search
-  const filteredBusinesses = businesses.filter((b) => {
-    const matchesSearch =
-      b.company_name.toLowerCase().includes(search.toLowerCase()) ||
-      b.industry?.toLowerCase().includes(search.toLowerCase());
-    if (!matchesSearch) return false;
-    if (typeFilter === "goods") return b.business_type === "goods" || b.business_type === "both";
-    if (typeFilter === "services") return b.business_type === "services" || b.business_type === "both";
-    return true;
-  });
-
-  const filteredProducts = products.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase())
-  );
-
-  const filteredServices = services.filter((s) =>
-    s.name.toLowerCase().includes(search.toLowerCase())
-  );
-
   return (
     <DashboardLayout>
-      <div className="space-y-6 pb-4">
-        <div>
-          <h1 className="text-2xl font-semibold text-foreground">Discover</h1>
-          <p className="mt-1 text-muted-foreground">Find businesses, products, and services</p>
+      <div className="min-h-screen bg-background pb-20 px-4 md:px-6 animate-fade-in max-w-7xl mx-auto">
+        
+        {/* Search Header */}
+        <div className="mb-6 sticky top-20 z-30 bg-background/85 backdrop-blur-md py-2.5">
+          <div className="relative">
+            <Search className="absolute left-4 top-3.5 h-4.5 w-4.5 text-muted-foreground/60" />
+            <Input
+              placeholder="Search for products, stores, or ideas..."
+              className="pl-11 h-11 rounded-full bg-muted/40 border-border/20 text-[14px] font-medium shadow-none hover:bg-muted/50 focus-visible:bg-card focus-visible:ring-primary/20 transition-all duration-300"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
         </div>
 
-        {/* Search */}
-        <div className="relative">
-          <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <Input
-            placeholder="Search..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="pl-11 h-12"
-          />
-        </div>
-
-        {/* Filters */}
-        <div className="flex flex-wrap gap-3">
-          <Select value={viewMode} onValueChange={(v) => setViewMode(v as typeof viewMode)}>
-            <SelectTrigger className="w-[140px]">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="businesses">Businesses</SelectItem>
-              <SelectItem value="products">Products</SelectItem>
-              <SelectItem value="services">Services</SelectItem>
-            </SelectContent>
-          </Select>
-
-          {viewMode === "businesses" && (
-            <Select value={typeFilter} onValueChange={setTypeFilter}>
-              <SelectTrigger className="w-[140px]">
-                <Filter className="h-4 w-4 mr-2" />
-                <SelectValue placeholder="Type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Types</SelectItem>
-                <SelectItem value="goods">Products</SelectItem>
-                <SelectItem value="services">Services</SelectItem>
-              </SelectContent>
-            </Select>
-          )}
-        </div>
-
-        {/* Results */}
+        {/* Masonry Feed */}
         {loading ? (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="dashboard-card animate-pulse">
-                <div className="h-32 -mx-5 -mt-5 mb-4 rounded-t-xl bg-muted" />
-                <div className="h-4 w-2/3 rounded bg-muted" />
+          <div className="flex justify-center py-20"><Loader2 className="w-8 h-8 animate-spin text-primary" /></div>
+        ) : filteredItems.length === 0 ? (
+          <div className="text-center py-20 text-muted-foreground">
+            <ShoppingCart className="w-12 h-12 mx-auto mb-4 opacity-20" />
+            <p className="font-semibold text-lg">No items found</p>
+            <p className="text-sm">Try searching for something else, or businesses might be hidden right now.</p>
+          </div>
+        ) : (
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 pb-10">
+            {filteredItems.map(item => (
+              <div 
+                key={item?.id || Math.random().toString()} 
+                className="break-inside-avoid relative group bg-card rounded-[28px] overflow-hidden border border-border/10 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                onClick={() => setSelectedItem(item)}
+              >
+                {/* Image */}
+                <div className={cn("w-full bg-muted overflow-hidden", item?.aspectRatio || "aspect-square")}>
+                  {item?.image_url ? (
+                    <img 
+                      src={item.image_url} 
+                      alt={item?.name || "Product image"} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-accent/20 text-muted-foreground text-xs font-semibold">
+                      No Image
+                    </div>
+                  )}
+                </div>
+
+                {/* Overlays & Actions */}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="secondary" size="icon" className="h-8 w-8 rounded-full bg-background/85 backdrop-blur-sm hover:bg-background shadow-sm border border-border/10" onClick={e => e.stopPropagation()}>
+                        <MoreHorizontal className="h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="rounded-xl">
+                      <DropdownMenuItem onClick={(e) => { e.stopPropagation(); if (item?.business?.id) navigate(`/business/${item.business.id}`) }}>
+                        <Store className="mr-2 h-4 w-4" /> Visit Store
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={(e) => handleFollowStore(item?.business?.id, e)}>
+                        <UserPlus className="mr-2 h-4 w-4" /> Follow Store
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+
+                {/* Info Bar */}
+                <div className="p-4 space-y-1 bg-card">
+                  <div className="flex justify-between items-start gap-2">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs text-foreground/80 leading-tight truncate">{item?.name || "Unnamed"}</h3>
+                      <p className="font-extrabold text-sm text-primary mt-0.5">
+                        {typeof item?.price === "number" ? `₦${item.price.toLocaleString()}` : (item?.price || "Contact")}
+                      </p>
+                    </div>
+                    {/* Add to Cart Premium String Button */}
+                    <Button 
+                      variant="ghost" 
+                      size="icon" 
+                      className="h-8 w-8 shrink-0 rounded-full hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
+                      onClick={(e) => handleAddToCart(item, e)}
+                    >
+                      <ShoppingBag className="h-5 w-5" />
+                    </Button>
+                  </div>
+                  
+                  {/* Store Name */}
+                  <div className="flex items-center gap-1.5 opacity-80">
+                    <div className="w-4 h-4 rounded-full bg-muted overflow-hidden shrink-0">
+                      {item?.business?.logo_url && <img src={item.business.logo_url} alt="logo" className="w-full h-full object-cover" />}
+                    </div>
+                    <p className="text-[10px] font-semibold text-muted-foreground truncate hover:underline" onClick={(e) => { e.stopPropagation(); if (item?.business?.id) navigate(`/business/${item.business.id}`) }}>
+                      {item?.business?.company_name || "Unknown Store"}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-        ) : viewMode === "businesses" ? (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredBusinesses.length === 0 ? (
-              <div className="col-span-full dashboard-card text-center py-12">
-                <Building2 className="mx-auto h-12 w-12 text-muted-foreground" />
-                <h3 className="mt-4 font-medium">No businesses found</h3>
-              </div>
-            ) : (
-              filteredBusinesses.map((business) => (
-                <div key={business.id} className="dashboard-card group overflow-hidden">
-                  <div className="relative -mx-5 -mt-5 mb-4 h-32 bg-gradient-to-br from-muted to-muted/50">
-                    {business.cover_image_url ? (
-                      <img
-                        src={business.cover_image_url}
-                        alt={business.company_name}
-                        className="h-full w-full object-cover"
-                      />
-                    ) : (
-                      <div className="flex h-full items-center justify-center">
-                        <span className="text-4xl font-bold text-muted-foreground/30">
-                          {business.company_name.charAt(0)}
-                        </span>
-                      </div>
-                    )}
-                    <div className="absolute top-2 right-2">
-                      <VerificationBadge 
-                        tier={(business.verification_tier as "none" | "verified" | "premium") || "none"} 
-                        size="sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="font-medium text-foreground">{business.company_name}</h3>
-                    {business.reputation_score && business.reputation_score > 0 && (
-                      <div className="flex items-center gap-1 mt-1 text-xs text-muted-foreground font-semibold">
-                        <span>Reputation: {Number(business.reputation_score).toFixed(1)}</span>
-                      </div>
-                    )}
-                    {business.industry && (
-                      <p className="text-sm text-muted-foreground mt-1">{business.industry}</p>
-                    )}
-                  </div>
-
-                  <div className="mt-3 flex gap-2">
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="flex-1"
-                      onClick={() => startB2BChat(business.user_id, business.company_name)}
-                    >
-                      <MessageCircle className="h-4 w-4 mr-1" />
-                      Message
-                    </Button>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
-        ) : viewMode === "products" ? (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredProducts.length === 0 ? (
-              <div className="col-span-full dashboard-card text-center py-12">
-                <Package className="mx-auto h-12 w-12 text-muted-foreground" />
-                <h3 className="mt-4 font-medium">No products found</h3>
-              </div>
-            ) : (
-              filteredProducts.map((product) => (
-                <div key={product.id} className="dashboard-card">
-                  <div className="relative -mx-5 -mt-5 mb-4 h-32 bg-muted rounded-t-xl overflow-hidden">
-                    {product.image_url ? (
-                      <img
-                        src={product.image_url}
-                        alt={product.name}
-                        className="h-full w-full object-cover"
-                      />
-                    ) : (
-                      <div className="flex h-full items-center justify-center">
-                        <Package className="h-10 w-10 text-muted-foreground" />
-                      </div>
-                    )}
-                  </div>
-                  <h3 className="font-medium">{product.name}</h3>
-                  {product.price && (
-                    <p className="text-sm font-medium mt-1">₦{product.price.toLocaleString()}</p>
-                  )}
-                </div>
-              ))
-            )}
-          </div>
-        ) : (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredServices.length === 0 ? (
-              <div className="col-span-full dashboard-card text-center py-12">
-                <Wrench className="mx-auto h-12 w-12 text-muted-foreground" />
-                <h3 className="mt-4 font-medium">No services found</h3>
-              </div>
-            ) : (
-              filteredServices.map((service) => (
-                <div key={service.id} className="dashboard-card">
-                  <div className="relative -mx-5 -mt-5 mb-4 h-32 bg-muted rounded-t-xl overflow-hidden">
-                    {service.images && service.images.length > 0 ? (
-                      <img
-                        src={service.images[0]}
-                        alt={service.name}
-                        className="h-full w-full object-cover"
-                      />
-                    ) : (
-                      <div className="flex h-full items-center justify-center">
-                        <Wrench className="h-10 w-10 text-muted-foreground" />
-                      </div>
-                    )}
-                  </div>
-                  <h3 className="font-medium">{service.name}</h3>
-                  {service.price_min && (
-                    <p className="text-sm font-medium mt-1">From ₦{service.price_min.toLocaleString()}</p>
-                  )}
-                </div>
-              ))
-            )}
-          </div>
         )}
       </div>
+
+      {/* Item Details Modal */}
+      {/* Item Details Modal */}
+      <Dialog open={!!selectedItem} onOpenChange={(open) => {
+        if (!open) {
+          setSelectedItem(null);
+          setImageIndex(0);
+        }
+      }}>
+        <DialogContent className="max-w-md w-[95vw] rounded-[32px] p-0 overflow-hidden bg-background border-border/50 gap-0">
+          {selectedItem && (
+            <div className="flex flex-col max-h-[85vh]">
+              <div className="relative w-full aspect-square bg-muted shrink-0 group">
+                {selectedItem.images && selectedItem.images.length > 0 ? (
+                  <>
+                    <img src={selectedItem.images[imageIndex]} alt={selectedItem.name || "Item image"} className="w-full h-full object-cover" />
+                    {selectedItem.images.length > 1 && (
+                      <div className="absolute inset-0 flex items-center justify-between p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Button 
+                          variant="secondary" 
+                          size="icon" 
+                          className="h-8 w-8 rounded-full bg-background/50 backdrop-blur-md"
+                          onClick={(e) => { e.stopPropagation(); setImageIndex(prev => prev === 0 ? (selectedItem.images?.length || 1) - 1 : prev - 1) }}
+                        >
+                          <ChevronLeft className="h-4 w-4" />
+                        </Button>
+                        <Button 
+                          variant="secondary" 
+                          size="icon" 
+                          className="h-8 w-8 rounded-full bg-background/50 backdrop-blur-md"
+                          onClick={(e) => { e.stopPropagation(); setImageIndex(prev => prev === (selectedItem.images?.length || 1) - 1 ? 0 : prev + 1) }}
+                        >
+                          <ChevronRight className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    )}
+                    {selectedItem.images.length > 1 && (
+                      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5">
+                        {selectedItem.images.map((_, idx) => (
+                          <div key={idx} className={cn("h-1.5 rounded-full transition-all duration-300", idx === imageIndex ? "w-4 bg-primary" : "w-1.5 bg-white/50")} />
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : selectedItem.image_url ? (
+                  <img src={selectedItem.image_url} alt={selectedItem.name || "Item image"} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-secondary">
+                    <Store className="h-12 w-12 text-muted-foreground/30" />
+                  </div>
+                )}
+                
+                {/* Top Overlay Actions */}
+                <div className="absolute top-4 left-4 flex items-center gap-2 bg-background/80 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm cursor-pointer" onClick={() => { if (selectedItem?.business?.id) navigate(`/business/${selectedItem.business.id}`) }}>
+                  {selectedItem?.business?.logo_url && (
+                    <img src={selectedItem.business.logo_url} className="w-5 h-5 rounded-full object-cover" />
+                  )}
+                  <span className="text-xs font-bold">{selectedItem?.business?.company_name || "Unknown Store"}</span>
+                  {selectedItem?.business?.verified && <span className="text-[10px] bg-primary text-white w-3.5 h-3.5 rounded-full flex items-center justify-center">✓</span>}
+                </div>
+
+                <div className="absolute top-4 right-4 flex gap-2">
+                  <Button variant="secondary" size="icon" className="h-9 w-9 rounded-full bg-background/80 backdrop-blur-md" onClick={() => { navigator.clipboard.writeText(window.location.href); toast.success("Link copied!"); }}>
+                    <Share2 className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+              
+              <ScrollArea className="flex-1 p-5">
+                <div className="space-y-4">
+                  <div className="flex justify-between items-start gap-4">
+                    <div>
+                      <h2 className="text-2xl font-black leading-tight">{selectedItem?.name || "Unnamed"}</h2>
+                      <p className="text-xl font-bold text-primary mt-1">
+                        {typeof selectedItem?.price === "number" ? `₦${selectedItem.price.toLocaleString()}` : (selectedItem?.price || "Contact")}
+                      </p>
+                    </div>
+                    <Button variant="outline" size="sm" className="rounded-full px-4 h-9 font-bold flex shrink-0" onClick={() => handleFollowStore(selectedItem?.business?.id)}>
+                      <UserPlus className="w-3.5 h-3.5 mr-1.5" /> Follow
+                    </Button>
+                  </div>
+
+                  {/* Specs & Badges */}
+                  {(selectedItem?.category || (selectedItem?.tags && selectedItem.tags.length > 0)) && (
+                    <div className="flex flex-wrap gap-2 pt-1 pb-2 border-b border-border/40">
+                      {selectedItem.category && (
+                        <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
+                          {selectedItem.category}
+                        </Badge>
+                      )}
+                      {selectedItem.tags?.map(tag => (
+                        <Badge key={tag} variant="outline" className="text-muted-foreground bg-muted/50">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="prose prose-sm dark:prose-invert">
+                    <p className="text-muted-foreground leading-relaxed text-sm whitespace-pre-wrap">
+                      {selectedItem?.description || "No description provided for this item. Contact the store for more information."}
+                    </p>
+                  </div>
+
+                  {/* Comments Section */}
+                  <div className="pt-4 border-t border-border/40">
+                    <ProductComments productId={selectedItem.id} />
+                  </div>
+                </div>
+              </ScrollArea>
+
+              <div className="p-4 border-t border-border/40 bg-card shrink-0 flex gap-3">
+                <Button 
+                  className="flex-1 h-12 rounded-full font-bold text-base shadow-premium"
+                  onClick={() => { handleAddToCart(selectedItem); setSelectedItem(null); }}
+                  disabled={addToCart.isPending}
+                >
+                  {addToCart.isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <ShoppingBag className="mr-2 h-6 w-6" />}
+                  Add to Cart
+                </Button>
+                <Button variant="secondary" className="h-12 w-12 rounded-full p-0" onClick={() => { if (selectedItem?.business?.id) navigate(`/business/${selectedItem.business.id}`) }}>
+                  <Store className="h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </DashboardLayout>
   );
 }
+

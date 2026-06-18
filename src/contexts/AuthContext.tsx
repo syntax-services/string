@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useRef, useState } from 'r
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 import { applyPalette } from '@/lib/theme';
+import { toast } from 'sonner';
 
 type AccountType = 'customer' | 'business';
 type ResolvedUserType = AccountType | 'admin';
@@ -191,7 +192,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         ? { ...rawProfile, user_type: normalizedProfileType }
         : rawProfile;
 
+    const hasFetchError = !!profileResult.error || !!adminRoleResult.error || !!businessResult.error || !!customerResult.error;
+
     if (
+      !hasFetchError &&
       rawProfile &&
       chosenAccountType &&
       !nextIsAdmin &&
@@ -417,11 +421,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const switchRole = async (targetRole: 'customer' | 'business') => {
     localStorage.setItem("string_active_role_view", targetRole);
+    
+    // Optimistic UI updates
+    setAccountType(targetRole);
+    setResolvedUserType(targetRole);
+    if (profile) {
+      setProfile({ ...profile, user_type: targetRole });
+    }
+
     if (user) {
-      await supabase
-        .from('profiles')
-        .update({ user_type: targetRole })
-        .eq('user_id', user.id);
+      try {
+        const { error } = await supabase
+          .from('profiles')
+          .update({ user_type: targetRole })
+          .eq('user_id', user.id);
+        if (error) throw error;
+      } catch (err: any) {
+        console.error("Failed to update profile user_type in database:", err);
+        toast.error(`Database sync issue: ${err.message || err.toString()}`);
+      }
     }
     await refreshProfile();
   };

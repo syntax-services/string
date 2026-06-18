@@ -49,13 +49,20 @@ export default function BusinessOrders() {
   const [selectedOrder, setSelectedOrder] = useState<typeof orders[0] | null>(null);
   const [updating, setUpdating] = useState(false);
 
+  const [trackingInput, setTrackingInput] = useState("");
+
   const updateOrderStatus = async (orderId: string, newStatus: OrderStatus) => {
     setUpdating(true);
     try {
       const updateData: Record<string, unknown> = { status: newStatus };
       
       if (newStatus === "confirmed") updateData.confirmed_at = new Date().toISOString();
-      if (newStatus === "shipped") updateData.shipped_at = new Date().toISOString();
+      if (newStatus === "shipped") {
+        updateData.shipped_at = new Date().toISOString();
+        if (trackingInput.trim()) {
+          updateData.tracking_number = trackingInput.trim();
+        }
+      }
       if (newStatus === "delivered") updateData.delivered_at = new Date().toISOString();
       if (newStatus === "cancelled") updateData.cancelled_at = new Date().toISOString();
 
@@ -281,9 +288,29 @@ export default function BusinessOrders() {
                 </div>
               )}
 
+              {selectedOrder.tracking_number && (
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Tracking Number</p>
+                  <p className="font-medium text-primary">{selectedOrder.tracking_number}</p>
+                </div>
+              )}
+
               {!["delivered", "cancelled", "refunded"].includes(selectedOrder.status) && (
                 <div>
                   <p className="text-sm text-muted-foreground mb-2">Update Status</p>
+                  
+                  {selectedOrder.status === "processing" && (
+                    <div className="mb-4">
+                      <p className="text-sm text-muted-foreground mb-1">Add Tracking Number (Optional)</p>
+                      <input 
+                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        placeholder="e.g. TRK-12345678"
+                        value={trackingInput}
+                        onChange={(e) => setTrackingInput(e.target.value)}
+                      />
+                    </div>
+                  )}
+
                   <Select
                     onValueChange={(value) => updateOrderStatus(selectedOrder.id, value as OrderStatus)}
                     disabled={updating}

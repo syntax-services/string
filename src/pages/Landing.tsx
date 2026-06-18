@@ -168,9 +168,9 @@ const BeautySpaIcon = (props: React.SVGProps<SVGSVGElement>) => (
 // Signature curated local business profiles and their real catalogs
 const curatedShops = [
   {
-    id: "shop_obsidian",
-    name: "Obsidian Tech & Apparel",
-    handle: "obsidian.global",
+    id: "shop_string_gear",
+    name: "String Gear & Apparel",
+    handle: "string.global",
     avatar: "/avatar_male.png", // Male 3D avatar preset
     verified: true,
     rating: 4.9,
@@ -182,7 +182,7 @@ const curatedShops = [
     coverUrl: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=60",
     catalog: [
       { name: "Heavyweight Hoodie", price: 25000, img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&auto=format&fit=crop&q=60" },
-      { name: "Obsidian Core T-Shirt", price: 12000, img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300&auto=format&fit=crop&q=60" },
+      { name: "String Core T-Shirt", price: 12000, img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300&auto=format&fit=crop&q=60" },
       { name: "Premium Desk Mat", price: 9500, img: "https://images.unsplash.com/photo-1616440347437-b1c73416efc2?w=300&auto=format&fit=crop&q=60" }
     ]
   },

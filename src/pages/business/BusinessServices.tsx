@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { optimizeImage } from "@/lib/imageOptimizer";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useBusiness, useBusinessServices } from "@/hooks/useBusiness";
 import { supabase } from "@/integrations/supabase/client";
@@ -88,12 +89,13 @@ export default function BusinessServices() {
 
   const uploadImage = async (file: File): Promise<string | null> => {
     if (!business?.id) return null;
-    const fileExt = file.name.split(".").pop();
+    const optimizedFile = await optimizeImage(file);
+    const fileExt = optimizedFile.name.split(".").pop();
     const fileName = `${business.id}/services/${Date.now()}.${fileExt}`;
 
     const { error: uploadError } = await supabase.storage
       .from("service-images")
-      .upload(fileName, file);
+      .upload(fileName, optimizedFile);
 
     if (uploadError) {
       toast.error("Failed to upload image");

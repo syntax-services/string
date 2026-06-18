@@ -277,6 +277,8 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
               onClick={async () => {
                 const nextRole = resolvedUserType === "business" ? "customer" : "business";
                 await switchRole(nextRole);
+                navigate(nextRole === "business" ? "/business" : "/customer");
+                toast.success(`Switched to ${nextRole === "business" ? "Merchant" : "Shopper"} View!`);
               }}
               className="h-8 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold flex items-center gap-1.5 hover:bg-primary/20 transition-all duration-200 active:scale-95 shadow-sm shadow-primary/10 shrink-0"
               title={resolvedUserType === "business" ? "Switch to Shopper View" : "Switch to Merchant View"}

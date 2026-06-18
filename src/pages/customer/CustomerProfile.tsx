@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { toast } from "sonner";
+import { optimizeImage } from "@/lib/imageOptimizer";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useAuth } from "@/contexts/AuthContext";
 import { useCustomer } from "@/hooks/useCustomer";
@@ -86,6 +87,45 @@ export default function CustomerProfile() {
   const [totalSpent, setTotalSpent] = useState<number>(0);
   const [monthlySpent, setMonthlySpent] = useState<number>(0);
   const [activeProfileTab, setActiveProfileTab] = useState<'dashboard' | 'wallet'>('dashboard');
+
+  // IDIC tournament states
+  const [idicDept, setIdicDept] = useState("");
+  const [registeringIdic, setRegisteringIdic] = useState(false);
+
+  const handleIDICRegister = async () => {
+    if (!idicDept) {
+      toast.error("Please select your department");
+      return;
+    }
+    if (!profile?.user_id) return;
+
+    setRegisteringIdic(true);
+    try {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      let code = "IDIC-";
+      for (let i = 0; i < 4; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+
+      const { error } = await supabase
+        .from("profiles")
+        .update({
+          idic_department: idicDept,
+          idic_code: code,
+        })
+        .eq("user_id", profile.user_id);
+
+      if (error) throw error;
+
+      await refreshProfile();
+      toast.success("Successfully registered for IDIC Tournament! 🏆");
+    } catch (err: any) {
+      console.error("IDIC registration error:", err);
+      toast.error(err.message || "Failed to register for tournament");
+    } finally {
+      setRegisteringIdic(false);
+    }
+  };
 
   const { referralCode: dbReferralCode, totalPoints: dbPoints } = useReferral();
   const totalPoints = (dbPoints || 0) + Number(profile?.coupon_balance || 0);
@@ -448,12 +488,13 @@ export default function CustomerProfile() {
 
     setUploading(true);
     try {
-      const fileExt = file.name.split(".").pop();
+      const optimizedFile = await optimizeImage(file);
+      const fileExt = optimizedFile.name.split(".").pop();
       const fileName = `${profile.user_id}/avatar-${Date.now()}.${fileExt}`;
 
       const { error: uploadError } = await supabase.storage
         .from("business-images")
-        .upload(fileName, file);
+        .upload(fileName, optimizedFile);
 
       if (uploadError) throw uploadError;
 
@@ -553,6 +594,11 @@ export default function CustomerProfile() {
             <p className="text-xs font-medium text-muted-foreground uppercase tracking-widest">
               {profile?.user_type || "Customer"}
             </p>
+            {profile?.idic_code && (
+              <div className="inline-flex items-center gap-1 bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded-full mt-1.5 shadow-sm">
+                🏆 IDIC Competitor: {profile.idic_department} ({profile.idic_code})
+              </div>
+            )}
           </div>
 
           {/* Referral / Rewards Balance Pool Card */}
@@ -610,6 +656,70 @@ export default function CustomerProfile() {
 
         {activeProfileTab === 'dashboard' ? (
           <div className="space-y-5 animate-in fade-in slide-in-from-bottom-2 duration-300">
+            {/* IDIC Tournament Registration Card */}
+            <div className="bg-card border border-border/45 rounded-2xl p-5 shadow-sm space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
+                  <span className="text-xl">🏆</span>
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-bold text-sm text-foreground">IDIC Championship 2026</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Represent your department in the Inter-Department Intellectual Championship. Register to generate your competitor badge & unlock a 10% discount on your first 5 checkouts!
+                  </p>
+                </div>
+              </div>
+
+              {profile?.idic_code ? (
+                <div className="bg-amber-500/[0.03] border border-amber-500/20 rounded-xl p-3.5 space-y-2 text-center">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">Your Competitor Badge</span>
+                  <div className="text-2xl font-black text-amber-500 font-mono select-all tracking-wide">
+                    {profile.idic_code}
+                  </div>
+                  <p className="text-[11px] font-medium text-foreground">
+                    Department: <span className="font-bold">{profile.idic_department}</span>
+                  </p>
+                  <div className="text-[10px] text-muted-foreground flex items-center justify-center gap-1">
+                    <ShieldCheck className="h-3.5 w-3.5 text-primary" /> 10% Auto-Discount Active on Checkout
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-3 pt-2">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="idic-dept" className="text-xs font-bold text-muted-foreground">Select Department</Label>
+                    <Select value={idicDept} onValueChange={setIdicDept}>
+                      <SelectTrigger id="idic-dept" className="rounded-xl border-border/20 bg-muted/30 h-10 text-xs">
+                        <SelectValue placeholder="Choose your department..." />
+                      </SelectTrigger>
+                      <SelectContent className="max-h-[220px]">
+                        {[
+                          "Computer Science", "Mathematics", "Statistics", "Physics", "Chemistry",
+                          "Medicine", "Pharmacy", "Nursing", "Biochemistry", "Microbiology",
+                          "Law", "Political Science", "Sociology", "Economics", "Mass Communication",
+                          "Mechanical Engineering", "Electrical Engineering", "Civil Engineering", "Chemical Engineering", "Business Administration"
+                        ].map((dept) => (
+                          <SelectItem key={dept} value={dept} className="text-xs">
+                            {dept}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <Button
+                    onClick={handleIDICRegister}
+                    disabled={registeringIdic || !idicDept}
+                    className="w-full h-10 text-xs font-bold rounded-xl bg-amber-500 hover:bg-amber-600 text-white shadow-md shadow-amber-500/10 transition-all duration-300"
+                  >
+                    {registeringIdic ? (
+                      <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Registering...</>
+                    ) : (
+                      "Register & Get Badge"
+                    )}
+                  </Button>
+                </div>
+              )}
+            </div>
+
             {/* Grid of Main Actions */}
             <div className="grid grid-cols-2 gap-3">
               {mainMenuList.map((item) => (

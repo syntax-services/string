@@ -23,6 +23,8 @@ interface Profile {
   coupon_balance: number;
   referral_code_used: string | null;
   banned?: boolean;
+  idic_department?: string | null;
+  idic_code?: string | null;
   created_at: string;
   updated_at: string;
 }

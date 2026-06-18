@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { optimizeImage } from "@/lib/imageOptimizer";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useBusiness } from "@/hooks/useBusiness";
 import { supabase } from "@/integrations/supabase/client";
@@ -66,13 +67,14 @@ export default function BusinessUpload() {
 
   const uploadImage = async (file: File, bucket: string = "product-images"): Promise<string | null> => {
     if (!business?.id) return null;
-    const fileExt = file.name.split(".").pop();
+    const optimizedFile = await optimizeImage(file);
+    const fileExt = optimizedFile.name.split(".").pop();
     const folderPath = bucket === "service-images" ? "services/" : "";
     const fileName = `${business.id}/${folderPath}${Date.now()}.${fileExt}`;
 
     const { error: uploadError } = await supabase.storage
       .from(bucket)
-      .upload(fileName, file);
+      .upload(fileName, optimizedFile);
 
     if (uploadError) {
       console.error("Storage upload error:", uploadError);

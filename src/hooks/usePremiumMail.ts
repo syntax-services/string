@@ -293,7 +293,7 @@ export function generateEmailHtml(type: EmailType, payload: EmailTemplatePayload
           </div>
           <div class="bullet-row">
             <span class="bullet-label">Product Name:</span>
-            <span class="bullet-val">${variables.productName || "Obsidian Heavyweight Hoodie"}</span>
+            <span class="bullet-val">${variables.productName || "String Heavyweight Hoodie"}</span>
           </div>
           <div class="bullet-row">
             <span class="bullet-label">Order Total:</span>
@@ -345,7 +345,7 @@ export function generateEmailHtml(type: EmailType, payload: EmailTemplatePayload
           </div>
           <div class="bullet-row">
             <span class="bullet-label">Merchant Name:</span>
-            <span class="bullet-val">${variables.merchantName || "Obsidian Tech & Gear"}</span>
+            <span class="bullet-val">${variables.merchantName || "String Gear & Apparel"}</span>
           </div>
           <div class="bullet-row">
             <span class="bullet-label">Current Progress:</span>

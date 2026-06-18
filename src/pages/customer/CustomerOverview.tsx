@@ -192,8 +192,8 @@ export default function CustomerOverview() {
         },
         {
           id: "tech-setup",
-          businessName: "Obsidian Tech & Gear",
-          businessHandle: "@obsidian_tech",
+          businessName: "String Gear & Apparel",
+          businessHandle: "@string_gear",
           verified: true,
           imageUrl: "https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&q=80&w=800",
           category: "Electronics",

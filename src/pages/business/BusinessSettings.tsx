@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { optimizeImage } from "@/lib/imageOptimizer";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
@@ -230,12 +231,13 @@ export default function BusinessSettings() {
     setUploading(true);
 
     try {
-      const fileExt = file.name.split(".").pop();
+      const optimizedFile = await optimizeImage(file);
+      const fileExt = optimizedFile.name.split(".").pop();
       const filePath = `covers/${businessData.id}/${Date.now()}.${fileExt}`;
 
       const { error: uploadError } = await supabase.storage
         .from("business-images")
-        .upload(filePath, file);
+        .upload(filePath, optimizedFile);
 
       if (uploadError) throw uploadError;
 

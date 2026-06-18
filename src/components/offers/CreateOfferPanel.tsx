@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { optimizeImage } from "@/lib/imageOptimizer";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { useOffers } from "@/hooks/useOffers";
@@ -100,13 +101,15 @@ export function CreateOfferPanel() {
     setContactPhone("");
   };
 
+
   const uploadImage = async (file: File): Promise<string | null> => {
-    const fileExt = file.name.split(".").pop();
+    const optimizedFile = await optimizeImage(file);
+    const fileExt = optimizedFile.name.split(".").pop();
     const fileName = `offers/${user?.id}/${Date.now()}.${fileExt}`;
 
     const { error: uploadError } = await supabase.storage
       .from("product-images")
-      .upload(fileName, file);
+      .upload(fileName, optimizedFile);
 
     if (uploadError) {
       console.error("Offers upload error:", uploadError);

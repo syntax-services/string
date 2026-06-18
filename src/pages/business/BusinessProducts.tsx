@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { optimizeImage } from "@/lib/imageOptimizer";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
@@ -120,13 +121,15 @@ export default function BusinessProducts() {
     setIsDialogOpen(true);
   };
 
+
   const uploadImage = async (file: File): Promise<string | null> => {
-    const fileExt = file.name.split(".").pop();
+    const optimizedFile = await optimizeImage(file);
+    const fileExt = optimizedFile.name.split(".").pop();
     const fileName = `${business?.id}/products/${Date.now()}.${fileExt}`;
 
     const { error: uploadError } = await supabase.storage
       .from("product-images")
-      .upload(fileName, file);
+      .upload(fileName, optimizedFile);
 
     if (uploadError) {
       console.error("Supabase Upload Error: ", uploadError);

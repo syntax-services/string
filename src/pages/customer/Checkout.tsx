@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useCart } from "@/hooks/useCart";
@@ -15,7 +15,7 @@ import { Loader2, ArrowLeft, Truck, Store, ShieldCheck } from "lucide-react";
 export default function Checkout() {
   const [searchParams] = useSearchParams();
   const businessId = searchParams.get("business");
-  const { user } = useAuth();
+  const { user, profile } = useAuth();
   const { cartByBusiness, isLoading } = useCart();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -48,9 +48,47 @@ export default function Checkout() {
     );
   }
 
+  const [completedOrdersCount, setCompletedOrdersCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const fetchCompletedOrders = async () => {
+      try {
+        const { data: customerData } = await supabase
+          .from("customers")
+          .select("id")
+          .eq("user_id", user.id)
+          .maybeSingle();
+
+        if (customerData) {
+          const { count, error } = await supabase
+            .from("orders")
+            .select("*", { count: "exact", head: true })
+            .eq("customer_id", customerData.id)
+            .eq("status", "completed");
+
+          if (!error && count !== null) {
+            setCompletedOrdersCount(count);
+          }
+        }
+      } catch (err) {
+        console.error("Error fetching completed orders count:", err);
+      }
+    };
+
+    fetchCompletedOrders();
+  }, [user]);
+
+  const hasIdicDiscount = 
+    !!((profile?.idic_code || profile?.user_type === "admin") && 
+    completedOrdersCount !== null && 
+    completedOrdersCount < 5);
+
   const subtotal = cartData.total;
+  const discountAmount = hasIdicDiscount ? Math.round(subtotal * 0.1) : 0;
   const deliveryFee = deliveryType === "standard" ? 1500 : 0;
-  const total = subtotal + deliveryFee;
+  const total = subtotal + deliveryFee - discountAmount;
 
   const handlePayment = async () => {
     if (deliveryType === "standard" && !address.trim()) {
@@ -216,6 +254,12 @@ export default function Checkout() {
                   <span>Delivery Fee</span>
                   <span className="font-semibold text-foreground/85">₦{deliveryFee.toLocaleString()}</span>
                 </div>
+                {discountAmount > 0 && (
+                  <div className="flex justify-between text-emerald-600 dark:text-emerald-400 font-medium">
+                    <span>IDIC 10% Discount</span>
+                    <span>-₦{discountAmount.toLocaleString()}</span>
+                  </div>
+                )}
               </div>
 
               <div className="h-px bg-border/20" />
@@ -237,6 +281,12 @@ export default function Checkout() {
                 )}
               </Button>
               
+              {hasIdicDiscount && (
+                <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 rounded-xl p-2.5 text-center text-xs font-bold animate-pulse">
+                  🏆 IDIC Competitor Promo Applied! (10% Off)
+                </div>
+              )}
+
               <p className="text-center text-[10px] text-muted-foreground flex items-center justify-center gap-1 opacity-70">
                 <ShieldCheck className="w-3.5 h-3.5 text-primary" /> 100% Secure Transaction via Paystack
               </p>

@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { toast } from "sonner";
+import { optimizeImage } from "@/lib/imageOptimizer";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useAuth } from "@/contexts/AuthContext";
 import { useBusiness, useBusinessProducts, useBusinessServices } from "@/hooks/useBusiness";
@@ -85,12 +86,13 @@ export default function BusinessProfile() {
 
     setUploading(true);
     try {
-      const fileExt = file.name.split(".").pop();
+      const optimizedFile = await optimizeImage(file);
+      const fileExt = optimizedFile.name.split(".").pop();
       const fileName = `${profile.user_id}/avatar-${Date.now()}.${fileExt}`;
 
       const { error: uploadError } = await supabase.storage
         .from("business-images")
-        .upload(fileName, file);
+        .upload(fileName, optimizedFile);
 
       if (uploadError) throw uploadError;
 

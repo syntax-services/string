@@ -9,6 +9,10 @@ export function useBusiness() {
     queryKey: ["business", user?.id],
     queryFn: async () => {
       if (!user) return null;
+
+      await (supabase as any).rpc("expire_premium_subscriptions").catch((err: unknown) => {
+        console.warn("Premium expiry check skipped:", err);
+      });
       
       const { data, error } = await supabase
         .from("businesses")

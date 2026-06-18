@@ -36,6 +36,18 @@ ON public.offers FOR ALL
 USING (public.has_role(auth.uid(), 'admin'))
 WITH CHECK (public.has_role(auth.uid(), 'admin'));
 
+CREATE TABLE IF NOT EXISTS public.activity_logs (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES auth.users(id) ON DELETE SET NULL,
+  action TEXT NOT NULL,
+  details JSONB DEFAULT '{}'::jsonb,
+  ip_address TEXT,
+  user_agent TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+ALTER TABLE public.activity_logs ENABLE ROW LEVEL SECURITY;
+
 DROP POLICY IF EXISTS "Admins can manage all activity logs" ON public.activity_logs;
 CREATE POLICY "Admins can manage all activity logs"
 ON public.activity_logs FOR ALL

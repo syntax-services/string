@@ -121,19 +121,9 @@ export default function CustomerProfile() {
 
     setRegisteringIdic(true);
     try {
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-      let code = "IDIC-";
-      for (let i = 0; i < 4; i++) {
-        code += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-
-      const { error } = await supabase
-        .from("profiles")
-        .update({
-          idic_department: idicDept,
-          idic_code: code,
-        })
-        .eq("user_id", profile.user_id);
+      const { error } = await (supabase as any).rpc("register_idic_participant", {
+        p_department: idicDept,
+      });
 
       if (error) throw error;
 

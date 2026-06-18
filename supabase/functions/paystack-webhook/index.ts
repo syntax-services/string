@@ -190,6 +190,39 @@ serve(async (req) => {
         }
       }
 
+      if (metadata?.type === "booster" && metadata?.business_id) {
+        const expiresAt = new Date();
+        expiresAt.setDate(expiresAt.getDate() + 30);
+        const businessId = String(metadata.business_id);
+
+        const { error: boostError } = await supabase
+          .from("businesses")
+          .update({
+            verification_tier: "premium",
+            verified: true,
+          })
+          .eq("id", businessId);
+
+        if (boostError) {
+          console.error("Error activating booster:", boostError);
+        }
+
+        const { error: subscriptionError } = await supabase
+          .from("premium_subscriptions")
+          .upsert({
+            business_id: businessId,
+            status: "active",
+            started_at: new Date().toISOString(),
+            expires_at: expiresAt.toISOString(),
+            payment_reference: reference,
+            amount_paid: Number(event.data.amount || 0) / 100,
+          }, { onConflict: "business_id" });
+
+        if (subscriptionError) {
+          console.error("Error upserting premium subscription:", subscriptionError);
+        }
+      }
+
       // Update job status — promote from "quoted" to "accepted"
       if (metadata?.job_id) {
         const { data: job, error: jobError } = await supabase

@@ -35,7 +35,7 @@ export default function PaymentCallback() {
 
         if (error) throw error;
         
-        if (data.status === "completed" || data.status === "pending") {
+        if (["success", "completed", "pending"].includes(data.status)) {
           // Even if pending, we consider it a success flow on the frontend until webhook confirms
           setStatus("success");
         } else {

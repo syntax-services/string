@@ -57,7 +57,7 @@ export default function IDICDashboard() {
           setHideIdic(true);
           if (profile && profile.user_type !== "admin") {
             toast.error("IDIC Dashboard is currently disabled.");
-            navigate("/customer/overview");
+            navigate("/customer");
           }
         }
       } catch (err) {

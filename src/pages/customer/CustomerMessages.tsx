@@ -552,23 +552,35 @@ export default function CustomerMessages() {
           {/* Message Thread */}
           <div
             className={cn(
-              "flex-1 flex flex-col",
+              "flex-1 flex flex-col bg-background",
+              selectedConversation && "fixed inset-0 z-[80]",
               !selectedConversation && "hidden lg:flex"
             )}
           >
             {selectedConversation ? (
               <>
                 {/* Header */}
-                <div className="p-4 border-b border-border">
-                  <h2 className="font-medium text-foreground">
-                    {selectedConversation.business_name}
-                  </h2>
+                <div className="h-14 px-3 border-b border-border/10 flex items-center gap-2 bg-background/95 backdrop-blur-xl shrink-0">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setSelectedConversation(null)}
+                    className="h-9 w-9 rounded-full"
+                  >
+                    <ArrowLeft className="h-5 w-5" />
+                  </Button>
+                  <div className="min-w-0">
+                    <h2 className="font-semibold text-sm text-foreground truncate">
+                      {selectedConversation.business_name}
+                    </h2>
+                    <p className="text-[11px] text-muted-foreground">Direct message</p>
+                  </div>
                 </div>
 
                 {/* Messages */}
                 <div 
                   ref={scrollContainerRef}
-                  className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-none scroll-smooth bg-card/10"
+                  className="flex-1 overflow-y-auto px-3 py-4 space-y-4 scrollbar-none scroll-smooth bg-muted/10"
                 >
                   <div className="space-y-4">
                     {messages.map((msg) => (
@@ -667,7 +679,7 @@ export default function CustomerMessages() {
                 </div>
 
                 {/* Input */}
-                <div className="p-3 border-t border-border/10 bg-card/40">
+                <div className="p-3 border-t border-border/10 bg-background/95 backdrop-blur-xl shrink-0">
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();

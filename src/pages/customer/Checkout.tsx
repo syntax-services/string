@@ -88,9 +88,9 @@ export default function Checkout() {
     fetchCompletedOrders();
   }, [user]);
 
-  const hasIdicDiscount = 
-    !!(profile?.user_type === "admin" && 
-    completedOrdersCount !== null && 
+  const hasIdicDiscount =
+    !!((profile?.user_type === "admin" || profile?.idic_code) &&
+    completedOrdersCount !== null &&
     completedOrdersCount < 5);
 
   const subtotal = useMemo(() => {

@@ -1,15 +1,10 @@
 import { useState } from "react";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useAuth } from "@/contexts/AuthContext";
-import { useBusiness, useBusinessStats } from "@/hooks/useBusiness";
+import { useBusiness } from "@/hooks/useBusiness";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { 
-  Rocket, Award, Star, CheckCircle2, ShieldAlert,
-  Loader2, ArrowLeft, CreditCard, Sparkles, AlertCircle
-} from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Rocket, Award, Loader2, ArrowLeft, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
@@ -86,9 +81,10 @@ export default function BusinessBoost() {
   const activateBoost = useMutation({
     mutationFn: async () => {
       if (!business?.id) throw new Error("No business profile loaded.");
+      const expiresAt = new Date();
+      expiresAt.setDate(expiresAt.getDate() + 30);
 
-      // Update business verification tier in the database
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from("businesses")
         .update({
           verification_tier: "premium",
@@ -98,7 +94,18 @@ export default function BusinessBoost() {
 
       if (error) throw error;
 
-      // In addition, generate an email dispatch notification record
+      const { error: subscriptionError } = await (supabase as any)
+        .from("premium_subscriptions")
+        .upsert({
+          business_id: business.id,
+          status: "active",
+          started_at: new Date().toISOString(),
+          expires_at: expiresAt.toISOString(),
+          amount_paid: boosterPrice,
+        }, { onConflict: "business_id" });
+
+      if (subscriptionError) throw subscriptionError;
+
       await supabase.from("notifications").insert({
         user_id: user?.id,
         type: "email_dispatch",
@@ -123,26 +130,11 @@ export default function BusinessBoost() {
       }
 
       toast.success("Visibility Booster activated! Search prioritizations are engaged.");
-      setCheckoutOpen(false);
     },
     onError: (err: any) => {
       toast.error(err.message || "Booster checkout failed.");
     }
   });
-
-  const handleCheckoutSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!cardNumber || !expiry || !cvv || !cardName) {
-      toast.error("Please fill in all credit card details.");
-      return;
-    }
-
-    setProcessing(true);
-    setTimeout(() => {
-      setProcessing(false);
-      activateBoost.mutate();
-    }, 2000);
-  };
 
   const isPremium = business?.verification_tier === "premium";
 

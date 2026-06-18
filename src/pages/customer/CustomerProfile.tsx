@@ -91,6 +91,25 @@ export default function CustomerProfile() {
   // IDIC tournament states
   const [idicDept, setIdicDept] = useState("");
   const [registeringIdic, setRegisteringIdic] = useState(false);
+  const [hideIdic, setHideIdic] = useState(false);
+
+  useEffect(() => {
+    const fetchIdicToggle = async () => {
+      try {
+        const { data } = await supabase
+          .from("system_config")
+          .select("value")
+          .eq("key", "hide_idic_dashboard")
+          .maybeSingle();
+        if (data && (data.value === true || data.value === "true")) {
+          setHideIdic(true);
+        }
+      } catch (err) {
+        console.warn("Error loading IDIC configuration:", err);
+      }
+    };
+    fetchIdicToggle();
+  }, []);
 
   const handleIDICRegister = async () => {
     if (!idicDept) {
@@ -657,68 +676,70 @@ export default function CustomerProfile() {
         {activeProfileTab === 'dashboard' ? (
           <div className="space-y-5 animate-in fade-in slide-in-from-bottom-2 duration-300">
             {/* IDIC Tournament Registration Card */}
-            <div className="bg-card border border-border/45 rounded-2xl p-5 shadow-sm space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
-                  <span className="text-xl">🏆</span>
+            {!hideIdic && (
+              <div className="bg-card border border-border/45 rounded-2xl p-5 shadow-sm space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
+                    <span className="text-xl">🏆</span>
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-bold text-sm text-foreground">IDIC Championship 2026</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Represent your department in the Inter-Department Intellectual Championship. Register to generate your competitor badge & unlock a 10% discount on your first 5 checkouts!
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-sm text-foreground">IDIC Championship 2026</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    Represent your department in the Inter-Department Intellectual Championship. Register to generate your competitor badge & unlock a 10% discount on your first 5 checkouts!
-                  </p>
-                </div>
-              </div>
 
-              {profile?.idic_code ? (
-                <div className="bg-amber-500/[0.03] border border-amber-500/20 rounded-xl p-3.5 space-y-2 text-center">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">Your Competitor Badge</span>
-                  <div className="text-2xl font-black text-amber-500 font-mono select-all tracking-wide">
-                    {profile.idic_code}
+                {profile?.idic_code ? (
+                  <div className="bg-amber-500/[0.03] border border-amber-500/20 rounded-xl p-3.5 space-y-2 text-center">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-amber-600 dark:text-amber-400">Your Competitor Badge</span>
+                    <div className="text-2xl font-black text-amber-500 font-mono select-all tracking-wide">
+                      {profile.idic_code}
+                    </div>
+                    <p className="text-[11px] font-medium text-foreground">
+                      Department: <span className="font-bold">{profile.idic_department}</span>
+                    </p>
+                    <div className="text-[10px] text-muted-foreground flex items-center justify-center gap-1">
+                      <ShieldCheck className="h-3.5 w-3.5 text-primary" /> 10% Auto-Discount Active on Checkout
+                    </div>
                   </div>
-                  <p className="text-[11px] font-medium text-foreground">
-                    Department: <span className="font-bold">{profile.idic_department}</span>
-                  </p>
-                  <div className="text-[10px] text-muted-foreground flex items-center justify-center gap-1">
-                    <ShieldCheck className="h-3.5 w-3.5 text-primary" /> 10% Auto-Discount Active on Checkout
+                ) : (
+                  <div className="space-y-3 pt-2">
+                    <div className="space-y-1.5">
+                      <Label htmlFor="idic-dept" className="text-xs font-bold text-muted-foreground">Select Department</Label>
+                      <Select value={idicDept} onValueChange={setIdicDept}>
+                        <SelectTrigger id="idic-dept" className="rounded-xl border-border/20 bg-muted/30 h-10 text-xs">
+                          <SelectValue placeholder="Choose your department..." />
+                        </SelectTrigger>
+                        <SelectContent className="max-h-[220px]">
+                          {[
+                            "Computer Science", "Mathematics", "Statistics", "Physics", "Chemistry",
+                            "Medicine", "Pharmacy", "Nursing", "Biochemistry", "Microbiology",
+                            "Law", "Political Science", "Sociology", "Economics", "Mass Communication",
+                            "Mechanical Engineering", "Electrical Engineering", "Civil Engineering", "Chemical Engineering", "Business Administration"
+                          ].map((dept) => (
+                            <SelectItem key={dept} value={dept} className="text-xs">
+                              {dept}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <Button
+                      onClick={handleIDICRegister}
+                      disabled={registeringIdic || !idicDept}
+                      className="w-full h-10 text-xs font-bold rounded-xl bg-amber-500 hover:bg-amber-600 text-white shadow-md shadow-amber-500/10 transition-all duration-300"
+                    >
+                      {registeringIdic ? (
+                        <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Registering...</>
+                      ) : (
+                        "Register & Get Badge"
+                      )}
+                    </Button>
                   </div>
-                </div>
-              ) : (
-                <div className="space-y-3 pt-2">
-                  <div className="space-y-1.5">
-                    <Label htmlFor="idic-dept" className="text-xs font-bold text-muted-foreground">Select Department</Label>
-                    <Select value={idicDept} onValueChange={setIdicDept}>
-                      <SelectTrigger id="idic-dept" className="rounded-xl border-border/20 bg-muted/30 h-10 text-xs">
-                        <SelectValue placeholder="Choose your department..." />
-                      </SelectTrigger>
-                      <SelectContent className="max-h-[220px]">
-                        {[
-                          "Computer Science", "Mathematics", "Statistics", "Physics", "Chemistry",
-                          "Medicine", "Pharmacy", "Nursing", "Biochemistry", "Microbiology",
-                          "Law", "Political Science", "Sociology", "Economics", "Mass Communication",
-                          "Mechanical Engineering", "Electrical Engineering", "Civil Engineering", "Chemical Engineering", "Business Administration"
-                        ].map((dept) => (
-                          <SelectItem key={dept} value={dept} className="text-xs">
-                            {dept}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <Button
-                    onClick={handleIDICRegister}
-                    disabled={registeringIdic || !idicDept}
-                    className="w-full h-10 text-xs font-bold rounded-xl bg-amber-500 hover:bg-amber-600 text-white shadow-md shadow-amber-500/10 transition-all duration-300"
-                  >
-                    {registeringIdic ? (
-                      <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Registering...</>
-                    ) : (
-                      "Register & Get Badge"
-                    )}
-                  </Button>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            )}
 
             {/* Grid of Main Actions */}
             <div className="grid grid-cols-2 gap-3">

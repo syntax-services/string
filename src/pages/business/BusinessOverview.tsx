@@ -9,8 +9,10 @@ import {
 } from "@/hooks/useBusiness";
 import { 
   MessageSquare, Package, Briefcase, Star, DollarSign, 
-  ArrowUpRight, Award, ShieldCheck, CheckCircle2, TrendingUp, Clock, Flame
+  ArrowUpRight, Award, ShieldCheck, CheckCircle2, TrendingUp, Clock, Flame,
+  AlertTriangle
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
@@ -174,6 +176,28 @@ export default function BusinessOverview() {
   return (
     <DashboardLayout>
       <div className="space-y-6 pb-24 lg:pb-8 animate-fade-in">
+
+        {/* Unverified Location Alert Banner */}
+        {!isLoading && business && !business.location_verified && (
+          <div className="bg-amber-500/10 border border-amber-500/20 rounded-3xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
+            <div className="space-y-1">
+              <h3 className="font-bold text-amber-500 text-sm flex items-center gap-1.5">
+                <AlertTriangle className="h-4 w-4" /> Location Verification Required
+              </h3>
+              <p className="text-xs text-muted-foreground max-w-xl">
+                Your store coordinates are not verified. Verification allows our system to map your precise location and calculate exact zone-to-zone delivery rates to OOU campus landmarks.
+              </p>
+            </div>
+            <Button 
+              size="sm"
+              variant="outline"
+              className="border-amber-500/30 hover:bg-amber-500/10 text-amber-500 hover:text-amber-500 shrink-0 font-bold rounded-xl text-xs h-9 cursor-pointer"
+              onClick={() => navigate("/business/settings")}
+            >
+              Verify Location Now
+            </Button>
+          </div>
+        )}
         
         {/* Glowing Welcoming Hero Block */}
         <div className="relative overflow-hidden rounded-3xl border border-border/40 bg-background/40 backdrop-blur-xl p-6 sm:p-8 shadow-xl shadow-black/5">

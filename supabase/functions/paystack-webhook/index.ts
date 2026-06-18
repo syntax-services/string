@@ -92,94 +92,100 @@ serve(async (req) => {
 
       // Update order status — promote from "pending" (Awaiting Payment) to "confirmed"
       if (metadata?.order_id) {
-        const { data: order, error: orderError } = await supabase
-          .from("orders")
-          .update({ status: "confirmed", confirmed_at: new Date().toISOString() })
-          .eq("id", metadata.order_id)
-          .eq("status", "pending")
-          .select("customer_id, business_id, id")
-          .single();
+        const orderIds = metadata.order_id.split(",");
+        for (const orderId of orderIds) {
+          const trimmedOrderId = orderId.trim();
+          if (!trimmedOrderId) continue;
+          
+          const { data: order, error: orderError } = await supabase
+            .from("orders")
+            .update({ status: "confirmed", confirmed_at: new Date().toISOString() })
+            .eq("id", trimmedOrderId)
+            .eq("status", "pending")
+            .select("customer_id, business_id, id")
+            .maybeSingle();
 
-        if (orderError) {
-          console.error("Error updating order:", orderError);
-        } else if (order) {
-          // Success! Now handle financial settlement and notifications
-          try {
-            // Get business details including wallet info
-            const { data: business } = await supabase
-              .from("businesses")
-              .select("user_id, company_name")
-              .eq("id", order.business_id)
-              .single();
+          if (orderError) {
+            console.error(`Error updating order ${trimmedOrderId}:`, orderError);
+            continue;
+          }
 
-            // Get customer user_id
-            const { data: cust } = await supabase
-              .from("customers")
-              .select("user_id")
-              .eq("id", order.customer_id)
-              .single();
+          if (order) {
+            // Success! Now handle financial settlement and notifications
+            try {
+              // Get business details including wallet info
+              const { data: business } = await supabase
+                .from("businesses")
+                .select("user_id, company_name")
+                .eq("id", order.business_id)
+                .single();
 
-            // Update Business Wallet: Increment pending_balance
-            // We use the commission_amount stored in the order to calculate net payout
-            const { data: orderDetails } = await supabase
-              .from("orders")
-              .select("total, commission_amount, platform_fee")
-              .eq("id", order.id)
-              .single();
+              // Get customer user_id
+              const { data: cust } = await supabase
+                .from("customers")
+                .select("user_id")
+                .eq("id", order.customer_id)
+                .single();
 
-            if (orderDetails && business) {
-              const total = Number(orderDetails.total || 0);
-              // Standardized Fee Model: platform_fee + commission_amount represents the total platform take.
-              // For product orders, platform_fee is typically 0 while commission_amount handles the take.
-              const totalDeductions = Number(orderDetails.commission_amount || 0) + Number(orderDetails.platform_fee || 0);
-              const netAmount = total - totalDeductions;
+              // Update Business Wallet: Increment pending_balance
+              const { data: orderDetails } = await supabase
+                .from("orders")
+                .select("total, commission_amount, platform_fee")
+                .eq("id", order.id)
+                .single();
 
-              if (netAmount > 0) {
-                const { data: wallet } = await supabase
-                  .from("business_wallets")
-                  .select("pending_balance")
-                  .eq("business_id", order.business_id)
-                  .maybeSingle();
+              if (orderDetails && business) {
+                const total = Number(orderDetails.total || 0);
+                const totalDeductions = Number(orderDetails.commission_amount || 0) + Number(orderDetails.platform_fee || 0);
+                const netAmount = total - totalDeductions;
 
-                const currentPending = Number(wallet?.pending_balance || 0);
-                
-                await supabase
-                  .from("business_wallets")
-                  .upsert({
-                    business_id: order.business_id,
-                    pending_balance: currentPending + netAmount,
-                    updated_at: new Date().toISOString()
-                  }, { onConflict: 'business_id' });
+                if (netAmount > 0) {
+                  const { data: wallet } = await supabase
+                    .from("business_wallets")
+                    .select("pending_balance")
+                    .eq("business_id", order.business_id)
+                    .maybeSingle();
+
+                  const currentPending = Number(wallet?.pending_balance || 0);
+                  
+                  await supabase
+                    .from("business_wallets")
+                    .upsert({
+                      business_id: order.business_id,
+                      pending_balance: currentPending + netAmount,
+                      updated_at: new Date().toISOString()
+                    }, { onConflict: 'business_id' });
+                }
               }
-            }
 
-            const notifications = [];
-            
-            if (business?.user_id) {
-              notifications.push({
-                user_id: business.user_id,
-                title: "New Paid Order",
-                message: `You have a new paid order #${order.id.slice(0, 8)}. Check your orders dashboard to start processing.`,
-                type: "order",
-                data: { order_id: order.id }
-              });
-            }
+              const notifications = [];
+              
+              if (business?.user_id) {
+                notifications.push({
+                  user_id: business.user_id,
+                  title: "New Paid Order",
+                  message: `You have a new paid order #${order.id.slice(0, 8)}. Check your orders dashboard to start processing.`,
+                  type: "order",
+                  data: { order_id: order.id }
+                });
+              }
 
-            if (cust?.user_id) {
-              notifications.push({
-                user_id: cust.user_id,
-                title: "Payment Successful",
-                message: `Your payment to ${business?.company_name || 'the business'} was successful. Your order #${order.id.slice(0, 8)} is now confirmed.`,
-                type: "order",
-                data: { order_id: order.id }
-              });
-            }
+              if (cust?.user_id) {
+                notifications.push({
+                  user_id: cust.user_id,
+                  title: "Payment Successful",
+                  message: `Your payment to ${business?.company_name || 'the business'} was successful. Your order #${order.id.slice(0, 8)} is now confirmed.`,
+                  type: "order",
+                  data: { order_id: order.id }
+                });
+              }
 
-            if (notifications.length > 0) {
-              await supabase.from("notifications").insert(notifications);
+              if (notifications.length > 0) {
+                await supabase.from("notifications").insert(notifications);
+              }
+            } catch (settleErr) {
+              console.error("Error in financial/notification settlement for order " + order.id + ":", settleErr);
             }
-          } catch (settleErr) {
-            console.error("Error in financial/notification settlement:", settleErr);
           }
         }
       }

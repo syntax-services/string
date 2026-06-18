@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
@@ -41,6 +42,30 @@ interface IDICMatch {
 export default function IDICDashboard() {
   const { profile } = useAuth();
   const isAdmin = profile?.user_type === "admin";
+  const navigate = useNavigate();
+  const [hideIdic, setHideIdic] = useState(false);
+
+  useEffect(() => {
+    const checkIdicHide = async () => {
+      try {
+        const { data } = await supabase
+          .from("system_config")
+          .select("value")
+          .eq("key", "hide_idic_dashboard")
+          .maybeSingle();
+        if (data && (data.value === true || data.value === "true")) {
+          setHideIdic(true);
+          if (profile && profile.user_type !== "admin") {
+            toast.error("IDIC Dashboard is currently disabled.");
+            navigate("/customer/overview");
+          }
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    };
+    checkIdicHide();
+  }, [navigate, profile]);
 
   const [activeTab, setActiveTab] = useState<'bracket' | 'standings' | 'matches'>('bracket');
   const [teams, setTeams] = useState<IDICTeam[]>([]);
@@ -278,6 +303,11 @@ export default function IDICDashboard() {
   return (
     <DashboardLayout>
       <div className="max-w-6xl mx-auto p-6 md:p-10 animate-fade-in pb-24 space-y-8">
+        {hideIdic && isAdmin && (
+          <div className="bg-amber-500/10 border border-amber-500/20 text-amber-800 dark:text-amber-300 p-3.5 rounded-2xl text-xs font-bold text-center animate-pulse">
+            ⚠️ IDIC Dashboard is currently globally HIDDEN on all standard user accounts.
+          </div>
+        )}
         
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">

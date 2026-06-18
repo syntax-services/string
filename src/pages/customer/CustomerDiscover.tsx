@@ -7,7 +7,7 @@ import { useCart } from "@/hooks/useCart";
 import { PremiumHome } from "@/components/ui/custom-icons";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Search, MoreHorizontal, UserPlus, Loader2, Store, ShoppingCart, ShoppingBag, Share2, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, MoreHorizontal, UserPlus, Loader2, Store, ShoppingCart, ShoppingBag, Share2, ChevronLeft, ChevronRight, Check } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -67,6 +67,7 @@ export default function CustomerDiscover() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState<DiscoverItem | null>(null);
+  const [followedBusinessIds, setFollowedBusinessIds] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,6 +87,25 @@ export default function CustomerDiscover() {
 
         if (businessList && Array.isArray(businessList)) {
           setBusinesses(businessList);
+          
+          if (user) {
+            const { data: customer } = await supabase
+              .from('customers')
+              .select('id')
+              .eq('user_id', user.id)
+              .maybeSingle();
+            
+            if (customer) {
+              const { data: saved } = await supabase
+                .from('saved_businesses')
+                .select('business_id')
+                .eq('customer_id', customer.id);
+              
+              if (saved) {
+                setFollowedBusinessIds(saved.map(s => s.business_id));
+              }
+            }
+          }
           
           // Flatten into DiscoverItems
           const flatItems: DiscoverItem[] = [];
@@ -184,17 +204,38 @@ export default function CustomerDiscover() {
       toast({ title: "Please log in to follow stores" });
       return;
     }
+    
+    const isAlreadyFollowing = followedBusinessIds.includes(businessId);
+    
+    // Optimistic UI toggle
+    if (isAlreadyFollowing) {
+      setFollowedBusinessIds(prev => prev.filter(id => id !== businessId));
+    } else {
+      setFollowedBusinessIds(prev => [...prev, businessId]);
+    }
+    
     try {
       const { data: customer } = await supabase.from('customers').select('id').eq('user_id', user.id).maybeSingle();
       if (customer) {
-        await supabase.from("saved_businesses").insert({
-          customer_id: customer.id,
-          business_id: businessId
-        });
-        toast({ title: "Store followed! ✨" });
+        if (isAlreadyFollowing) {
+          await supabase.from("saved_businesses").delete().eq("customer_id", customer.id).eq("business_id", businessId);
+          toast({ title: "Store unfollowed" });
+        } else {
+          await supabase.from("saved_businesses").insert({
+            customer_id: customer.id,
+            business_id: businessId
+          });
+          toast({ title: "Store followed! ✨" });
+        }
       }
     } catch (err) {
-      toast({ variant: "destructive", title: "Failed to follow store" });
+      // Revert state on error
+      if (isAlreadyFollowing) {
+        setFollowedBusinessIds(prev => [...prev, businessId]);
+      } else {
+        setFollowedBusinessIds(prev => prev.filter(id => id !== businessId));
+      }
+      toast({ variant: "destructive", title: "Failed to update follow status" });
     }
   };
 
@@ -203,7 +244,7 @@ export default function CustomerDiscover() {
       <div className="min-h-screen bg-background pb-20 px-4 md:px-6 animate-fade-in max-w-7xl mx-auto">
         
         {/* Search Header */}
-        <div className="mb-6 sticky top-20 z-30 bg-background/80 backdrop-blur-md py-2 flex justify-center border-b border-border/5">
+        <div className="mb-6 sticky top-16 z-30 bg-background/80 backdrop-blur-md py-2 flex justify-center border-b border-border/5">
           <div className="relative w-full max-w-[280px]">
             <Search className="absolute left-3 top-2.5 h-3.5 w-3.5 text-muted-foreground/60" />
             <Input
@@ -260,8 +301,12 @@ export default function CustomerDiscover() {
                       <DropdownMenuItem onClick={(e) => { e.stopPropagation(); if (item?.business?.id) navigate(`/business/${item.business.id}`) }}>
                         <Store className="mr-2 h-4 w-4" /> Visit Store
                       </DropdownMenuItem>
-                      <DropdownMenuItem onClick={(e) => handleFollowStore(item?.business?.id, e)}>
-                        <UserPlus className="mr-2 h-4 w-4" /> Follow Store
+                       <DropdownMenuItem onClick={(e) => handleFollowStore(item?.business?.id, e)}>
+                        {followedBusinessIds.includes(item?.business?.id || "") ? (
+                          <><Check className="mr-2 h-4 w-4 text-emerald-500" /> Following</>
+                        ) : (
+                          <><UserPlus className="mr-2 h-4 w-4" /> Follow Store</>
+                        )}
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -378,8 +423,17 @@ export default function CustomerDiscover() {
                         {typeof selectedItem?.price === "number" ? `₦${selectedItem.price.toLocaleString()}` : (selectedItem?.price || "Contact")}
                       </p>
                     </div>
-                    <Button variant="outline" size="sm" className="rounded-full px-4 h-9 font-bold flex shrink-0" onClick={() => handleFollowStore(selectedItem?.business?.id)}>
-                      <UserPlus className="w-3.5 h-3.5 mr-1.5" /> Follow
+                     <Button 
+                      variant={followedBusinessIds.includes(selectedItem?.business?.id || "") ? "secondary" : "outline"} 
+                      size="sm" 
+                      className="rounded-full px-4 h-9 font-bold flex shrink-0" 
+                      onClick={() => handleFollowStore(selectedItem?.business?.id)}
+                    >
+                      {followedBusinessIds.includes(selectedItem?.business?.id || "") ? (
+                        <><Check className="w-3.5 h-3.5 mr-1.5 text-emerald-500" /> Following</>
+                      ) : (
+                        <><UserPlus className="w-3.5 h-3.5 mr-1.5" /> Follow</>
+                      )}
                     </Button>
                   </div>
 

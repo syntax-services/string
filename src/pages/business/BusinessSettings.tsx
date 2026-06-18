@@ -55,6 +55,7 @@ export default function BusinessSettings() {
   const [fullName, setFullName] = useState(profile?.full_name || "");
   const [phone, setPhone] = useState(profile?.phone || "");
   const [businessData, setBusinessData] = useState<BusinessData | null>(null);
+  const [initialLocation, setInitialLocation] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
 
@@ -168,6 +169,11 @@ export default function BusinessSettings() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const GOOGLE_PLACES_PRESETS = [
+    { description: "OOU Main Campus (Permanent Site), Ago-Iwoye, Ogun", lat: 6.9538, lng: 3.9317 },
+    { description: "Itsmerin Area, Ago-Iwoye, Ogun", lat: 6.9388, lng: 3.9212 },
+    { description: "Ago Market / Town Center, Ago-Iwoye, Ogun", lat: 6.9318, lng: 3.9189 },
+    { description: "Oru Junction / Town, Oru, Ogun", lat: 6.9452, lng: 3.9610 },
+    { description: "Mini Campus / Ibefun, Ago-Iwoye, Ogun", lat: 6.9421, lng: 3.9298 },
     { description: "Crown Braids Salon, 24 Adeniran Ogunsanya St, Surulere, Lagos", lat: 6.5028, lng: 3.3582 },
     { description: "Crown Braids Salon, Plaza 4, Obafemi Awolowo Way, Ikeja, Lagos", lat: 6.5982, lng: 3.3512 },
     { description: "Ikeja City Mall, Obafemi Awolowo Way, Ikeja, Lagos", lat: 6.6120, lng: 3.3522 },
@@ -218,6 +224,7 @@ export default function BusinessSettings() {
 
       if (data) {
         setBusinessData(data);
+        setInitialLocation(data.business_location);
       }
     };
 
@@ -282,6 +289,8 @@ export default function BusinessSettings() {
         })
         .eq("user_id", user.id);
 
+      const locationChanged = businessData.business_location !== initialLocation;
+
       // Update business data
       await supabase
         .from("businesses")
@@ -293,8 +302,14 @@ export default function BusinessSettings() {
           website: businessData.website,
           latitude: businessData.latitude,
           longitude: businessData.longitude,
+          location_verified: locationChanged ? false : businessData.location_verified,
         })
         .eq("id", businessData.id);
+
+      if (locationChanged) {
+        setBusinessData(prev => prev ? { ...prev, location_verified: false } : null);
+        setInitialLocation(businessData.business_location);
+      }
 
       await refreshProfile();
       

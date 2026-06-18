@@ -373,18 +373,38 @@ export default function BusinessPublicProfile() {
               </div>
             </div>
 
-            {profile?.user_type === "customer" && (
               <div className="flex flex-wrap gap-2">
-                <Button variant="outline" onClick={toggleSave}>
-                  <Heart className={cn("h-4 w-4 mr-2", isSaved && "fill-foreground")} />
-                  {isSaved ? "Saved" : "Save"}
-                </Button>
-                <Button onClick={startChat}>
-                  <MessageCircle className="h-4 w-4 mr-2" />
-                  Message
-                </Button>
+                {business.business_location && (
+                  <Button
+                    variant="outline"
+                    asChild
+                  >
+                    <a
+                      href={business.latitude && business.longitude 
+                        ? `https://www.google.com/maps/search/?api=1&query=${business.latitude},${business.longitude}`
+                        : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(business.business_location)}`
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MapPin className="h-4 w-4 mr-2 text-primary animate-pulse" />
+                      View on Map
+                    </a>
+                  </Button>
+                )}
+                {profile?.user_type === "customer" && (
+                  <>
+                    <Button variant="outline" onClick={toggleSave}>
+                      <Heart className={cn("h-4 w-4 mr-2", isSaved && "fill-foreground")} />
+                      {isSaved ? "Saved" : "Save"}
+                    </Button>
+                    <Button onClick={startChat}>
+                      <MessageCircle className="h-4 w-4 mr-2" />
+                      Message
+                    </Button>
+                  </>
+                )}
               </div>
-            )}
           </div>
 
           {business.products_services && (
@@ -395,112 +415,103 @@ export default function BusinessPublicProfile() {
           )}
         </div>
 
-        {/* Products & Services Tabs */}
-        {(showProducts || showServices) && (
-          <Tabs defaultValue={showProducts ? "products" : "services"} className="w-full">
-            <TabsList>
-              {showProducts && (
-                <TabsTrigger value="products" className="flex items-center gap-2">
-                  <Package className="h-4 w-4" />
-                  Products ({products.length})
-                </TabsTrigger>
+        {/* Products & Services Lists */}
+        <div className="space-y-12">
+          {showProducts && (
+            <div className="space-y-6">
+              <div className="flex items-center gap-2 border-b border-border/40 pb-2">
+                <Package className="h-5 w-5 text-primary" />
+                <h2 className="text-xl font-bold text-foreground">Products ({products.length})</h2>
+              </div>
+              {products.length === 0 ? (
+                <div className="dashboard-card text-center py-8">
+                  <Package className="mx-auto h-10 w-10 text-muted-foreground" />
+                  <p className="mt-2 text-muted-foreground">No products listed</p>
+                </div>
+              ) : (
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {products.map((product) => (
+                    <div key={product.id} className="dashboard-card">
+                      {product.image_url && (
+                        <div className="relative -mx-5 -mt-5 mb-4 h-40 overflow-hidden rounded-t-lg">
+                          <img src={product.image_url} alt={product.name} className="h-full w-full object-cover" />
+                        </div>
+                      )}
+                      <h3 className="font-medium text-foreground">{product.name}</h3>
+                      {product.category && (
+                        <p className="text-xs text-muted-foreground">{product.category}</p>
+                      )}
+                      {product.description && (
+                        <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{product.description}</p>
+                      )}
+                      <div className="mt-3 flex items-center justify-between">
+                        {product.price && (
+                          <span className="font-semibold text-foreground">{'\u20A6'}{Number(product.price).toLocaleString()}</span>
+                        )}
+                        <Badge variant={product.in_stock ? "default" : "secondary"}>
+                          {product.in_stock ? "In Stock" : "Out of Stock"}
+                        </Badge>
+                      </div>
+                      {profile?.user_type === "customer" && product.in_stock && (
+                        <Button className="w-full mt-3" onClick={() => addToCart(product)} size="sm">
+                          <ShoppingCart className="h-4 w-4 mr-2" />
+                          Add to Cart
+                        </Button>
+                      )}
+                    </div>
+                  ))}
+                </div>
               )}
-              {showServices && (
-                <TabsTrigger value="services" className="flex items-center gap-2">
-                  <Wrench className="h-4 w-4" />
-                  Services ({services.length})
-                </TabsTrigger>
-              )}
-            </TabsList>
+            </div>
+          )}
 
-            {showProducts && (
-              <TabsContent value="products" className="mt-4">
-                {products.length === 0 ? (
-                  <div className="dashboard-card text-center py-8">
-                    <Package className="mx-auto h-10 w-10 text-muted-foreground" />
-                    <p className="mt-2 text-muted-foreground">No products listed</p>
-                  </div>
-                ) : (
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {products.map((product) => (
-                      <div key={product.id} className="dashboard-card">
-                        {product.image_url && (
-                          <div className="relative -mx-5 -mt-5 mb-4 h-40 overflow-hidden rounded-t-lg">
-                            <img src={product.image_url} alt={product.name} className="h-full w-full object-cover" />
+          {showServices && (
+            <div className="space-y-6">
+              <div className="flex items-center gap-2 border-b border-border/40 pb-2">
+                <Wrench className="h-5 w-5 text-primary" />
+                <h2 className="text-xl font-bold text-foreground">Services ({services.length})</h2>
+              </div>
+              {services.length === 0 ? (
+                <div className="dashboard-card text-center py-8">
+                  <Wrench className="mx-auto h-10 w-10 text-muted-foreground" />
+                  <p className="mt-2 text-muted-foreground">No services listed</p>
+                </div>
+              ) : (
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {services.map((service) => (
+                    <div key={service.id} className="dashboard-card">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2">
+                            <h3 className="font-medium text-foreground">{service.name}</h3>
+                            <Badge variant={service.is_available ? "default" : "secondary"}>
+                              {service.is_available ? "Available" : "Unavailable"}
+                            </Badge>
                           </div>
-                        )}
-                        <h3 className="font-medium text-foreground">{product.name}</h3>
-                        {product.category && (
-                          <p className="text-xs text-muted-foreground">{product.category}</p>
-                        )}
-                        {product.description && (
-                          <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{product.description}</p>
-                        )}
-                        <div className="mt-3 flex items-center justify-between">
-                          {product.price && (
-                            <span className="font-semibold text-foreground">{'\u20A6'}{Number(product.price).toLocaleString()}</span>
+                          {service.category && (
+                            <p className="text-xs text-muted-foreground">{service.category}</p>
                           )}
-                          <Badge variant={product.in_stock ? "default" : "secondary"}>
-                            {product.in_stock ? "In Stock" : "Out of Stock"}
-                          </Badge>
+                          {service.description && (
+                            <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{service.description}</p>
+                          )}
+                          <p className="mt-2 font-medium text-foreground">{getPriceDisplay(service)}</p>
+                          {service.duration_estimate && (
+                            <p className="text-xs text-muted-foreground">Est. duration: {service.duration_estimate}</p>
+                          )}
                         </div>
-                        {profile?.user_type === "customer" && product.in_stock && (
-                          <Button className="w-full mt-3" onClick={() => addToCart(product)} size="sm">
-                            <ShoppingCart className="h-4 w-4 mr-2" />
-                            Add to Cart
-                          </Button>
-                        )}
                       </div>
-                    ))}
-                  </div>
-                )}
-              </TabsContent>
-            )}
-
-            {showServices && (
-              <TabsContent value="services" className="mt-4">
-                {services.length === 0 ? (
-                  <div className="dashboard-card text-center py-8">
-                    <Wrench className="mx-auto h-10 w-10 text-muted-foreground" />
-                    <p className="mt-2 text-muted-foreground">No services listed</p>
-                  </div>
-                ) : (
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {services.map((service) => (
-                      <div key={service.id} className="dashboard-card">
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2">
-                              <h3 className="font-medium text-foreground">{service.name}</h3>
-                              <Badge variant={service.is_available ? "default" : "secondary"}>
-                                {service.is_available ? "Available" : "Unavailable"}
-                              </Badge>
-                            </div>
-                            {service.category && (
-                              <p className="text-xs text-muted-foreground">{service.category}</p>
-                            )}
-                            {service.description && (
-                              <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{service.description}</p>
-                            )}
-                            <p className="mt-2 font-medium text-foreground">{getPriceDisplay(service)}</p>
-                            {service.duration_estimate && (
-                              <p className="text-xs text-muted-foreground">Est. duration: {service.duration_estimate}</p>
-                            )}
-                          </div>
-                        </div>
-                        {profile?.user_type === "customer" && service.is_available && (
-                          <Button className="w-full mt-3" onClick={() => openServiceRequest(service)} size="sm">
-                            Request Service
-                          </Button>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </TabsContent>
-            )}
-          </Tabs>
-        )}
+                      {profile?.user_type === "customer" && service.is_available && (
+                        <Button className="w-full mt-3" onClick={() => openServiceRequest(service)} size="sm">
+                          Request Service
+                        </Button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
 
         {/* Floating Cart Button */}
         {cart.length > 0 && (

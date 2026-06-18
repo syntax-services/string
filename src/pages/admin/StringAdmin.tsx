@@ -71,6 +71,27 @@ export default function StringAdmin() {
   const [boosterPriceInput, setBoosterPriceInput] = useState(boosterPrice.toString());
   const [commissionInput, setCommissionInput] = useState(localStorage.getItem("global_commission_percent") || "10");
 
+  // IDIC Global Dashboard control
+  const [hideIdicDashboard, setHideIdicDashboard] = useState(false);
+  const { data: idicConfig } = useQuery({
+    queryKey: ["admin-idic-config"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("system_config")
+        .select("value")
+        .eq("key", "hide_idic_dashboard")
+        .maybeSingle();
+      if (error || !data) return { value: "false" };
+      return data;
+    }
+  });
+
+  useEffect(() => {
+    if (idicConfig) {
+      setHideIdicDashboard(idicConfig.value === true || idicConfig.value === "true");
+    }
+  }, [idicConfig]);
+
   // Custom Referral Input States
   const [newRefCode, setNewRefCode] = useState("");
   const [referrerPointsInput, setReferrerPointsInput] = useState("100");
@@ -970,6 +991,27 @@ export default function StringAdmin() {
       toast.success("Visibility Booster Monthly Price updated successfully!");
     },
     onError: (error: Error) => toast.error(error.message || "Failed to update price"),
+  });
+
+  const toggleIdicDashboardMutation = useMutation({
+    mutationFn: async (hide: boolean) => {
+      const { error } = await supabase
+        .from("system_config")
+        .upsert({
+          key: "hide_idic_dashboard",
+          value: JSON.stringify(hide),
+          updated_at: new Date().toISOString(),
+          updated_by: user?.id
+        });
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admin-idic-config"] });
+      toast.success("Global IDIC Tournament Dashboard toggle updated successfully!");
+    },
+    onError: (err: any) => {
+      toast.error(err.message || "Failed to update IDIC toggle");
+    }
   });
 
   // Confirm delivery on behalf of customer (admin power)
@@ -2889,33 +2931,37 @@ export default function StringAdmin() {
                       {pendingLocations.length === 0 ? (
                         <p className="text-center text-muted-foreground py-8">No pending requests</p>
                       ) : (
-                        pendingLocations.map((request: any) => (
-                          <LocationVerificationCard
-                            key={request.id}
-                            request={request}
-                            onVerify={(lat, lng) => verifyLocationMutation.mutate({
-                              requestId: request.id,
-                              userId: request.user_id,
-                              userType: request.user_type,
-                              latitude: lat,
-                              longitude: lng,
-                              approved: true,
-                              email: request.profiles?.email,
-                              fullName: request.profiles?.full_name,
-                              streetAddress: request.street_address,
-                              areaName: request.area_name
-                            })}
-                            onReject={() => verifyLocationMutation.mutate({
-                              requestId: request.id,
-                              userId: request.user_id,
-                              userType: request.user_type,
-                              approved: false,
-                              email: request.profiles?.email,
-                              fullName: request.profiles?.full_name,
-                            })}
-                            isLoading={verifyLocationMutation.isPending}
-                          />
-                        ))
+                        pendingLocations.map((request: any) => {
+                          const matchingBiz = businesses?.find((b: any) => b.user_id === request.user_id);
+                          return (
+                            <LocationVerificationCard
+                              key={request.id}
+                              request={request}
+                              businessName={matchingBiz?.company_name}
+                              onVerify={(lat, lng) => verifyLocationMutation.mutate({
+                                requestId: request.id,
+                                userId: request.user_id,
+                                userType: request.user_type,
+                                latitude: lat,
+                                longitude: lng,
+                                approved: true,
+                                email: request.profiles?.email,
+                                fullName: request.profiles?.full_name,
+                                streetAddress: request.street_address,
+                                areaName: request.area_name
+                              })}
+                              onReject={() => verifyLocationMutation.mutate({
+                                requestId: request.id,
+                                userId: request.user_id,
+                                userType: request.user_type,
+                                approved: false,
+                                email: request.profiles?.email,
+                                fullName: request.profiles?.full_name,
+                              })}
+                              isLoading={verifyLocationMutation.isPending}
+                            />
+                          );
+                        })
                       )}
                     </div>
                   </ScrollArea>
@@ -3193,6 +3239,38 @@ export default function StringAdmin() {
                   <div className="p-3 bg-muted/40 rounded-xl text-xs space-y-1.5 border">
                     <div className="flex justify-between"><span className="text-muted-foreground">Active Price:</span> <span className="font-bold text-foreground">₦{boosterPrice.toLocaleString()} / mo</span></div>
                     <div className="flex justify-between"><span className="text-muted-foreground">Local Backup:</span> <span className="font-semibold text-foreground">₦{Number(localStorage.getItem("booster_monthly_price") || 15000).toLocaleString()}</span></div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* IDIC Tournament Global Control */}
+              <Card className="border-amber-500/20 bg-amber-500/[0.01]">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-amber-500 font-bold">
+                    🏆 IDIC Tournament Settings
+                  </CardTitle>
+                  <CardDescription>Disable or enable the IDIC Tournament dashboard globally for all users</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-center justify-between p-3 border rounded-xl bg-card">
+                    <div className="space-y-0.5">
+                      <p className="text-sm font-bold text-foreground">Hide IDIC Dashboard</p>
+                      <p className="text-xs text-muted-foreground max-w-sm">If enabled, the IDIC card on the customer profile and the `/idic` page will be hidden/blocked.</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Button
+                        size="sm"
+                        variant={hideIdicDashboard ? "default" : "outline"}
+                        onClick={() => {
+                          const nextVal = !hideIdicDashboard;
+                          setHideIdicDashboard(nextVal);
+                          toggleIdicDashboardMutation.mutate(nextVal);
+                        }}
+                        disabled={toggleIdicDashboardMutation.isPending}
+                      >
+                        {hideIdicDashboard ? "Hidden (ON)" : "Visible (OFF)"}
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -3872,7 +3950,7 @@ function TierBadge({ tier }: { tier: string }) {
 }
 
 // Location Verification Card
-function LocationVerificationCard({ request, onVerify, onReject, isLoading }: any) {
+function LocationVerificationCard({ request, businessName, onVerify, onReject, isLoading }: any) {
   const [latitude, setLatitude] = useState(request.latitude?.toString() || "");
   const [longitude, setLongitude] = useState(request.longitude?.toString() || "");
 
@@ -3883,10 +3961,17 @@ function LocationVerificationCard({ request, onVerify, onReject, isLoading }: an
 
   return (
     <div className="p-3 border rounded-lg border-yellow-500/50 bg-yellow-50/50 dark:bg-yellow-950/20">
-      <div className="flex items-center gap-2 mb-2">
-        <Badge variant={request.user_type === 'business' ? 'default' : 'secondary'}>
-          {request.user_type}
-        </Badge>
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-2">
+          <Badge variant={request.user_type === 'business' ? 'default' : 'secondary'}>
+            {request.user_type}
+          </Badge>
+          {businessName && (
+            <span className="text-xs font-bold text-foreground">
+              🏪 {businessName}
+            </span>
+          )}
+        </div>
       </div>
       <p className="font-medium text-sm">{request.profiles?.full_name}</p>
       <p className="text-xs text-muted-foreground">{request.profiles?.email}</p>
@@ -3926,13 +4011,24 @@ function LocationVerificationCard({ request, onVerify, onReject, isLoading }: an
       <div className="mt-2.5 flex gap-2">
         <Button
           size="sm"
-          className="flex-1"
+          className="flex-1 font-bold"
           onClick={() => onVerify(parseFloat(latitude), parseFloat(longitude))}
           disabled={isLoading || !latitude || !longitude}
         >
           Verify
         </Button>
-        <Button size="sm" variant="destructive" onClick={onReject} disabled={isLoading}>
+        {latitude && longitude && (
+          <Button
+            size="sm"
+            variant="outline"
+            type="button"
+            className="flex-1 font-bold border-yellow-600/30 text-yellow-600 dark:text-yellow-500 hover:bg-yellow-500/10 cursor-pointer"
+            onClick={() => window.open(`https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`, '_blank')}
+          >
+            Open Maps ↗
+          </Button>
+        )}
+        <Button size="sm" variant="destructive" className="font-bold" onClick={onReject} disabled={isLoading}>
           Reject
         </Button>
       </div>

@@ -6,10 +6,11 @@ import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MessageCircle, Send, ArrowLeft, Building2, Plus, ShoppingBag, Loader2, Mic, Square, Play, Pause, Headphones, Volume2 } from "lucide-react";
+import { MessageCircle, Send, ArrowLeft, Building2, Plus, ShoppingBag, Loader2, Mic, Square, Play, Pause, Headphones, Volume2, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { playChatAlert } from "@/hooks/useAudioSignals";
+import { optimizeImage } from "@/lib/imageOptimizer";
 import {
   Dialog,
   DialogContent,
@@ -135,6 +136,9 @@ export default function CustomerMessages() {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
   const recordingTimerRef = useRef<any>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const [logos, setLogos] = useState<Record<string, string>>({});
 
   const startRecording = async () => {
     try {
@@ -151,25 +155,33 @@ export default function CustomerMessages() {
 
       mediaRecorder.onstop = async () => {
         const audioBlob = new Blob(audioChunksRef.current, { type: "audio/webm" });
-        const reader = new FileReader();
-        reader.readAsDataURL(audioBlob);
-        reader.onloadend = async () => {
-          const base64Audio = reader.result as string;
+        setSending(true);
+        try {
+          const fileName = `audio_${Date.now()}.webm`;
+          const filePath = `chats/${selectedConversation!.id}/${fileName}`;
           
-          setSending(true);
-          try {
-            await supabase.from("messages").insert({
-              conversation_id: selectedConversation!.id,
-              sender_id: user!.id,
-              sender_type: "customer",
-              content: `[AUDIO_NOTE]:${base64Audio}`,
-            });
-          } catch (e) {
-            toast({ variant: "destructive", title: "Failed to send voice note" });
-          } finally {
-            setSending(false);
-          }
-        };
+          const { error: uploadError } = await supabase.storage
+            .from("chat-attachments")
+            .upload(filePath, audioBlob);
+          
+          if (uploadError) throw uploadError;
+          
+          const { data: { publicUrl } } = supabase.storage
+            .from("chat-attachments")
+            .getPublicUrl(filePath);
+
+          await supabase.from("messages").insert({
+            conversation_id: selectedConversation!.id,
+            sender_id: user!.id,
+            sender_type: "customer",
+            content: `[AUDIO_NOTE]:${publicUrl}`,
+          });
+        } catch (e) {
+          console.error(e);
+          toast({ variant: "destructive", title: "Failed to send voice note" });
+        } finally {
+          setSending(false);
+        }
 
         stream.getTracks().forEach(track => track.stop());
       };
@@ -212,6 +224,46 @@ export default function CustomerMessages() {
     const mins = Math.floor(sec / 60);
     const secs = sec % 60;
     return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !selectedConversation || !user) return;
+
+    setSending(true);
+    try {
+      const optimized = await optimizeImage(file);
+      const fileExt = optimized.name.split(".").pop();
+      const fileName = `img_${Date.now()}.${fileExt}`;
+      const filePath = `chats/${selectedConversation.id}/${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("chat-attachments")
+        .upload(filePath, optimized);
+
+      if (uploadError) throw uploadError;
+
+      const { data: { publicUrl } } = supabase.storage
+        .from("chat-attachments")
+        .getPublicUrl(filePath);
+
+      await supabase.from("messages").insert({
+        conversation_id: selectedConversation.id,
+        sender_id: user.id,
+        sender_type: "customer",
+        content: `[IMAGE]:${publicUrl}`,
+      });
+    } catch (err: any) {
+      console.error(err);
+      toast({
+        variant: "destructive",
+        title: "Failed to upload image",
+        description: err.message || "Please try again."
+      });
+    } finally {
+      setSending(false);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }
   };
 
   // ── Custom Bid Offer Dialog States ──
@@ -286,8 +338,23 @@ export default function CustomerMessages() {
       if (error) {
         console.error("Error fetching conversations RPC:", error);
       } else if (enriched) {
-        // Map keys to match state interface if necessary, they already match directly
         setConversations(enriched as Conversation[]);
+        
+        // Fetch logos for these businesses
+        const businessIds = (enriched as Conversation[]).map(c => c.business_id).filter(Boolean);
+        if (businessIds.length > 0) {
+          const { data: bizData } = await supabase
+            .from("businesses")
+            .select("id, logo_url")
+            .in("id", businessIds);
+          if (bizData) {
+            const logoMap: Record<string, string> = {};
+            bizData.forEach(b => {
+              if (b.logo_url) logoMap[b.id] = b.logo_url;
+            });
+            setLogos(logoMap);
+          }
+        }
       }
       setLoading(false);
     };
@@ -359,7 +426,9 @@ export default function CustomerMessages() {
   }, [selectedConversation]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+    }
   }, [messages]);
 
   const handleSend = async () => {
@@ -448,8 +517,12 @@ export default function CustomerMessages() {
                       )}
                     >
                       <div className="flex items-center gap-3">
-                        <div className="h-10 w-10 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
-                          <Building2 className="h-5 w-5 text-accent-foreground" />
+                        <div className="h-10 w-10 rounded-full bg-accent flex items-center justify-center flex-shrink-0 overflow-hidden">
+                          {logos[conv.business_id] ? (
+                            <img src={logos[conv.business_id]} alt={conv.business_name} className="h-full w-full object-cover" />
+                          ) : (
+                            <Building2 className="h-5 w-5 text-accent-foreground" />
+                          )}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between">
@@ -493,7 +566,10 @@ export default function CustomerMessages() {
                 </div>
 
                 {/* Messages */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-none scroll-smooth bg-card/10">
+                <div 
+                  ref={scrollContainerRef}
+                  className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-none scroll-smooth bg-card/10"
+                >
                   <div className="space-y-4">
                     {messages.map((msg) => (
                       <div
@@ -555,7 +631,16 @@ export default function CustomerMessages() {
                             } catch (e) {
                               return <p className="text-sm leading-relaxed">{msg.content}</p>;
                             }
-                          })() : msg.content.startsWith("[AUDIO_NOTE]:") ? (
+                          })() : msg.content.startsWith("[IMAGE]:") ? (
+                            <div className="rounded-2xl overflow-hidden border border-border/10 max-w-[260px] bg-muted/20">
+                              <img 
+                                src={msg.content.slice(8)} 
+                                alt="Shared attachment" 
+                                className="w-full h-auto object-cover cursor-pointer hover:opacity-90 transition-all rounded-2xl"
+                                onClick={() => window.open(msg.content.slice(8), '_blank')}
+                              />
+                            </div>
+                          ) : msg.content.startsWith("[AUDIO_NOTE]:") ? (
                             <AudioPlayer src={msg.content.slice(13)} isSelf={msg.sender_type === "customer"} />
                           ) : (
                             <p className="text-sm leading-relaxed">{msg.content}</p>
@@ -591,13 +676,25 @@ export default function CustomerMessages() {
                     className="flex items-center gap-2 max-w-4xl mx-auto"
                   >
                     <div className="flex-1 flex items-center gap-2 bg-muted/20 border border-border/10 rounded-full px-3 py-1.5 shadow-none focus-within:border-primary/20 focus-within:ring-1 focus-within:ring-primary/10 transition-all duration-300">
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="hidden"
+                      />
                       <button
                         type="button"
-                        onClick={() => toast({ title: "Attachments Synced", description: "Supabase storage ready. Upload photos under 10MB." })}
+                        onClick={() => fileInputRef.current?.click()}
+                        disabled={sending}
                         className="h-7 w-7 rounded-full hover:bg-muted/40 flex items-center justify-center transition-all duration-200 text-muted-foreground hover:text-foreground shrink-0 cursor-pointer"
                         title="Upload photos"
                       >
-                        <Plus className="h-4 w-4" />
+                        {sending ? (
+                          <Loader2 className="h-4 w-4 animate-spin text-primary" />
+                        ) : (
+                          <Plus className="h-4 w-4" />
+                        )}
                       </button>
                       <button
                         type="button"

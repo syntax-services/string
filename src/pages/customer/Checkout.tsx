@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useCart } from "@/hooks/useCart";
@@ -10,7 +10,10 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, ArrowLeft, Truck, Store, ShieldCheck } from "lucide-react";
+import { Loader2, ArrowLeft, Truck, Store, ShieldCheck, MapPin } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { calculateDeliveryFee, OOU_ZONE_NAMES, OouZone } from "@/lib/deliveryCalculator";
 
 export default function Checkout() {
   const [searchParams] = useSearchParams();
@@ -24,29 +27,33 @@ export default function Checkout() {
   const [address, setAddress] = useState("");
   const [instructions, setInstructions] = useState("");
   const [processing, setProcessing] = useState(false);
+  const [selectedZone, setSelectedZone] = useState<string>("UNKNOWN");
 
-  const cartData = businessId ? cartByBusiness[businessId] : null;
-  
-  if (isLoading) {
-    return (
-      <DashboardLayout>
-        <div className="flex justify-center items-center h-screen">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        </div>
-      </DashboardLayout>
-    );
-  }
+  // Determine what businesses we are checkouting from
+  const businessesToCheckout = useMemo(() => {
+    if (businessId && cartByBusiness[businessId]) {
+      return { [businessId]: cartByBusiness[businessId] };
+    }
+    return cartByBusiness;
+  }, [businessId, cartByBusiness]);
 
-  if (!cartData || !cartData.items.length) {
-    return (
-      <DashboardLayout>
-        <div className="max-w-md mx-auto mt-20 text-center space-y-4">
-          <h2 className="text-xl font-semibold">Your cart is empty</h2>
-          <Button onClick={() => navigate("/customer/discover")}>Go back to shopping</Button>
-        </div>
-      </DashboardLayout>
-    );
-  }
+  const hasItems = Object.keys(businessesToCheckout).length > 0;
+
+  // Query location data for the checkouting businesses
+  const { data: checkoutBusinesses } = useQuery({
+    queryKey: ["checkout-businesses", Object.keys(businessesToCheckout)],
+    queryFn: async () => {
+      const bizIds = Object.keys(businessesToCheckout);
+      if (bizIds.length === 0) return [];
+      const { data, error } = await supabase
+        .from("businesses")
+        .select("id, company_name, business_location, latitude, longitude, location_verified")
+        .in("id", bizIds);
+      if (error) throw error;
+      return data || [];
+    },
+    enabled: hasItems
+  });
 
   const [completedOrdersCount, setCompletedOrdersCount] = useState<number | null>(null);
 
@@ -85,14 +92,57 @@ export default function Checkout() {
     completedOrdersCount !== null && 
     completedOrdersCount < 5);
 
-  const subtotal = cartData.total;
+  const subtotal = useMemo(() => {
+    return Object.values(businessesToCheckout).reduce((sum, data) => sum + data.total, 0);
+  }, [businessesToCheckout]);
+
   const discountAmount = hasIdicDiscount ? Math.round(subtotal * 0.1) : 0;
-  const deliveryFee = deliveryType === "standard" ? 1500 : 0;
+
+  // Calculate delivery fee for each store to the selected landmark/address
+  const computedDeliveryFees = useMemo(() => {
+    const fees: Record<string, number> = {};
+    if (deliveryType !== "standard" || !checkoutBusinesses) return fees;
+    
+    const targetAddress = address.trim() || OOU_ZONE_NAMES[selectedZone as OouZone] || "";
+    if (!targetAddress) return fees;
+    
+    checkoutBusinesses.forEach(biz => {
+      fees[biz.id] = calculateDeliveryFee(biz.business_location || "", targetAddress);
+    });
+    return fees;
+  }, [deliveryType, checkoutBusinesses, address, selectedZone]);
+
+  const deliveryFee = useMemo(() => {
+    if (deliveryType !== "standard") return 0;
+    return Object.values(computedDeliveryFees).reduce((sum, fee) => sum + fee, 0);
+  }, [deliveryType, computedDeliveryFees]);
+
   const total = subtotal + deliveryFee - discountAmount;
 
+  if (isLoading) {
+    return (
+      <DashboardLayout>
+        <div className="flex justify-center items-center h-screen">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      </DashboardLayout>
+    );
+  }
+
+  if (!hasItems) {
+    return (
+      <DashboardLayout>
+        <div className="max-w-md mx-auto mt-20 text-center space-y-4">
+          <h2 className="text-xl font-semibold">Your cart is empty</h2>
+          <Button onClick={() => navigate("/customer/discover")}>Go back to shopping</Button>
+        </div>
+      </DashboardLayout>
+    );
+  }
+
   const handlePayment = async () => {
-    if (deliveryType === "standard" && !address.trim()) {
-      toast({ variant: "destructive", title: "Delivery address is required" });
+    if (deliveryType === "standard" && !address.trim() && selectedZone === "UNKNOWN") {
+      toast({ variant: "destructive", title: "Delivery zone/address is required" });
       return;
     }
 
@@ -103,41 +153,85 @@ export default function Checkout() {
 
     setProcessing(true);
     try {
-      const items = cartData.items.map(item => ({
-        productId: item.product_id || item.service_id || "unknown",
-        name: item.products?.name || item.services?.name || "Item",
-        price: Number(item.products?.price) || Number(item.services?.price_min) || 0,
-        quantity: item.quantity
-      }));
+      const { data: customer } = await supabase
+        .from("customers")
+        .select("id")
+        .eq("user_id", user.id)
+        .single();
+      
+      if (!customer) throw new Error("Customer profile not found");
 
+      const orderIds: string[] = [];
+
+      // Create a pending order record for each business
+      for (const [bizId, data] of Object.entries(businessesToCheckout)) {
+        const items = data.items.map(item => ({
+          product_id: item.product_id || item.service_id || "unknown",
+          productId: item.product_id || item.service_id || "unknown",
+          name: item.products?.name || item.services?.name || "Item",
+          price: Number(item.products?.price) || Number(item.services?.price_min) || 0,
+          quantity: item.quantity,
+          total: (Number(item.products?.price) || Number(item.services?.price_min) || 0) * item.quantity
+        }));
+
+        const bizSubtotal = data.total;
+        const bizDeliveryFee = deliveryType === "standard" ? (computedDeliveryFees[bizId] ?? 1000) : 0;
+        const bizDiscount = hasIdicDiscount ? Math.round(bizSubtotal * 0.1) : 0;
+        const bizTotal = bizSubtotal + bizDeliveryFee - bizDiscount;
+        const commissionAmount = Math.round(bizSubtotal * 0.1); // 10% commission
+
+        const { data: newOrder, error: orderErr } = await supabase
+          .from("orders")
+          .insert({
+            business_id: bizId,
+            customer_id: customer.id,
+            status: "pending",
+            items: items,
+            subtotal: bizSubtotal,
+            delivery_fee: bizDeliveryFee,
+            platform_fee: 0,
+            commission_amount: commissionAmount,
+            total: bizTotal,
+            delivery_address: deliveryType === "pickup" ? null : address.trim() || null,
+            delivery_notes: deliveryType === "standard" && instructions.trim() ? `Instructions: ${instructions.trim()}` : null,
+          })
+          .select("id")
+          .single();
+
+        if (orderErr || !newOrder) {
+          throw new Error(orderErr?.message || "Failed to create order for " + (data.business?.company_name || "store"));
+        }
+        orderIds.push(newOrder.id);
+      }
+
+      // Initialize Paystack payment for the total sum of all orders
       const payload = {
         email: user.email,
-        businessId: businessId,
-        items: items,
-        subtotal: subtotal,
-        deliveryFee: deliveryFee,
-        total: total,
-        deliveryType: deliveryType,
-        deliveryAddress: address,
-        deliveryInstructions: instructions
+        amount: total,
+        orderId: orderIds.join(","), // pass comma-separated list of order IDs
+        metadata: {
+          order_id: orderIds.join(","),
+          multiple_stores: true
+        }
       };
 
-      const { data, error } = await supabase.functions.invoke("initialize-payment", {
+      const { data: payData, error: payErr } = await supabase.functions.invoke("initialize-payment", {
         body: payload
       });
 
-      if (error) throw error;
-
-      if (!data?.success || !data?.authorization_url) {
-        throw new Error(data?.error || "Failed to initialize payment");
+      if (payErr) throw payErr;
+      if (!payData?.success || !payData?.authorization_url) {
+        throw new Error(payData?.error || "Failed to initialize payment gateway transaction");
       }
 
-      // Redirect to Paystack
-      window.location.href = data.authorization_url;
+      // Clear customer cart upon order creation
+      await supabase.from("cart_items").delete().eq("customer_id", customer.id);
+
+      window.location.href = payData.authorization_url;
 
     } catch (err: any) {
       console.error("Payment error:", err);
-      toast({ variant: "destructive", title: "Payment Error", description: err.message || "Failed to initialize checkout" });
+      toast({ variant: "destructive", title: "Checkout Error", description: err.message || "Failed to initialize checkout" });
       setProcessing(false);
     }
   };
@@ -175,7 +269,7 @@ export default function Checkout() {
                     className="flex flex-col items-center justify-center rounded-2xl border border-border/30 bg-card p-5 hover:bg-accent/40 peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/[0.02] peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-300"
                   >
                     <Truck className="mb-2.5 h-5 w-5" />
-                    <span className="text-xs font-bold">Delivery (₦1,500)</span>
+                    <span className="text-xs font-bold">Delivery (OOU Matrix)</span>
                   </Label>
                 </div>
                 <div>
@@ -196,10 +290,31 @@ export default function Checkout() {
                 <h2 className="text-lg font-bold tracking-tight text-foreground">Delivery Address</h2>
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="address" className="text-xs font-bold text-muted-foreground">Full Address</Label>
+                    <Label htmlFor="zone-picker" className="text-xs font-bold text-muted-foreground">Select OOU Campus Landmark / Zone (For Cheaper Fees)</Label>
+                    <Select value={selectedZone} onValueChange={(val) => {
+                      setSelectedZone(val);
+                      const zoneName = OOU_ZONE_NAMES[val as OouZone];
+                      if (val !== 'UNKNOWN') {
+                        setAddress(zoneName);
+                      }
+                    }}>
+                      <SelectTrigger id="zone-picker" className="rounded-xl border-border/20 bg-muted/30 h-11 text-sm">
+                        <SelectValue placeholder="Select landmark/zone..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(OOU_ZONE_NAMES).map(([zone, name]) => (
+                          <SelectItem key={zone} value={zone} className="text-sm">
+                            {name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="address" className="text-xs font-bold text-muted-foreground">Detailed Address Description (Hostel, Room, etc.)</Label>
                     <Textarea 
                       id="address" 
-                      placeholder="Enter your full campus / residential delivery address" 
+                      placeholder="Enter details like building number, hostel name, room number" 
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
                       className="resize-none rounded-xl border-border/20 bg-muted/30 focus-visible:bg-card focus-visible:ring-primary/20 transition-all min-h-[100px] text-sm"
@@ -225,20 +340,33 @@ export default function Checkout() {
             <div className="bg-card/45 backdrop-blur-md border border-border/20 rounded-[28px] p-6 shadow-sm sticky top-24 space-y-6">
               <h2 className="text-lg font-bold tracking-tight text-foreground">Order Summary</h2>
               
-              <div className="space-y-4 max-h-[180px] overflow-y-auto pr-1">
-                {cartData.items.map((item) => (
-                  <div key={item.id} className="flex justify-between items-center text-sm">
-                    <div className="flex items-center gap-2.5 flex-1 overflow-hidden">
-                      <div className="font-bold text-muted-foreground bg-muted/50 w-5.5 h-5.5 flex items-center justify-center rounded-lg text-[10px]">
-                        {item.quantity}x
-                      </div>
-                      <span className="truncate text-foreground/80 font-medium">
-                        {item.products?.name || item.services?.name || "Item"}
-                      </span>
+              <div className="space-y-6 max-h-[280px] overflow-y-auto pr-1">
+                {Object.entries(businessesToCheckout).map(([bizId, data]) => (
+                  <div key={bizId} className="space-y-2">
+                    <p className="text-[10px] font-black uppercase tracking-wider text-muted-foreground">{data.business?.company_name || "Store"}</p>
+                    <div className="space-y-2 pl-2 border-l border-border/40">
+                      {data.items.map((item) => (
+                        <div key={item.id} className="flex justify-between items-center text-xs">
+                          <div className="flex items-center gap-2 flex-1 overflow-hidden">
+                            <div className="font-bold text-muted-foreground bg-muted/50 w-5 h-5 flex items-center justify-center rounded-lg text-[9px] shrink-0">
+                              {item.quantity}x
+                            </div>
+                            <span className="truncate text-foreground/80 font-medium">
+                              {item.products?.name || item.services?.name || "Item"}
+                            </span>
+                          </div>
+                          <span className="font-bold text-foreground ml-4">
+                            ₦{((Number(item.products?.price) || Number(item.services?.price_min) || 0) * item.quantity).toLocaleString()}
+                          </span>
+                        </div>
+                      ))}
+                      {deliveryType === "standard" && (
+                        <div className="flex justify-between text-[10px] text-muted-foreground pl-7">
+                          <span>Delivery:</span>
+                          <span className="font-bold text-foreground/70">₦{(computedDeliveryFees[bizId] ?? 1000).toLocaleString()}</span>
+                        </div>
+                      )}
                     </div>
-                    <span className="font-bold text-foreground ml-4">
-                      ₦{((Number(item.products?.price) || Number(item.services?.price_min) || 0) * item.quantity).toLocaleString()}
-                    </span>
                   </div>
                 ))}
               </div>
@@ -251,7 +379,7 @@ export default function Checkout() {
                   <span className="font-semibold text-foreground/85">₦{subtotal.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between text-muted-foreground">
-                  <span>Delivery Fee</span>
+                  <span>Total Delivery Fee</span>
                   <span className="font-semibold text-foreground/85">₦{deliveryFee.toLocaleString()}</span>
                 </div>
                 {discountAmount > 0 && (

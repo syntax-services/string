@@ -203,12 +203,12 @@ export default function CustomerDiscover() {
       <div className="min-h-screen bg-background pb-20 px-4 md:px-6 animate-fade-in max-w-7xl mx-auto">
         
         {/* Search Header */}
-        <div className="mb-6 sticky top-20 z-30 bg-background/85 backdrop-blur-md py-2.5">
-          <div className="relative">
-            <Search className="absolute left-4 top-3.5 h-4.5 w-4.5 text-muted-foreground/60" />
+        <div className="mb-6 sticky top-20 z-30 bg-background/80 backdrop-blur-md py-2 flex justify-center border-b border-border/5">
+          <div className="relative w-full max-w-[280px]">
+            <Search className="absolute left-3 top-2.5 h-3.5 w-3.5 text-muted-foreground/60" />
             <Input
-              placeholder="Search for products, stores, or ideas..."
-              className="pl-11 h-11 rounded-full bg-muted/40 border-border/20 text-[14px] font-medium shadow-none hover:bg-muted/50 focus-visible:bg-card focus-visible:ring-primary/20 transition-all duration-300"
+              placeholder="Search..."
+              className="pl-9 h-8.5 text-xs rounded-full bg-muted/30 border-border/10 text-foreground font-medium shadow-none hover:bg-muted/40 focus-visible:bg-card focus-visible:ring-primary/10 transition-all duration-300"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />

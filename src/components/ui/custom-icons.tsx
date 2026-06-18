@@ -419,22 +419,126 @@ export const PremiumStore = ({ className, active = false, ...props }: IconProps)
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth={active ? 1.25 : 0.95}
+    strokeWidth={active ? 1.35 : 1.1}
     strokeLinecap="round"
     strokeLinejoin="round"
     className={cn("w-6 h-6 transition-all duration-300", className)}
     {...props}
   >
-    {/* Closely interlocking double-ring logo */}
-    {/* Top-Left Circle */}
-    <circle cx="9.5" cy="9.5" r="7" />
-    {/* Bottom-Right Circle */}
-    <circle cx="14.5" cy="14.5" r="7" />
+    {/* Premium Store motif: A canopy outline constructed with interlocking crescent rings */}
+    <path d="M3 9h18" />
+    <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2" />
+    <path d="M4 9v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9" />
+    {/* String Signature Double-Ring Logo inside the store */}
+    <circle cx="10" cy="14.5" r="2.5" />
+    <circle cx="14" cy="14.5" r="2.5" />
 
     {/* Neural Active Signal Dot */}
     {active && (
       <circle cx="12" cy="19.5" r="0.75" fill="currentColor" stroke="none" />
     )}
+  </svg>
+);
+
+// ==========================================
+// STRING PERSONALIZED CUSTOM BADGES
+// ==========================================
+
+export const PremiumEliteBadge = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.3}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={cn("w-3.5 h-3.5", className)}
+    {...props}
+  >
+    {/* Interlocking rings center */}
+    <circle cx="10" cy="12" r="3.2" />
+    <circle cx="14" cy="12" r="3.2" />
+    {/* 8-pointed starburst crown boundary */}
+    <path d="M12 2l2.5 4.5L19 7l-3.5 3.5L17 16l-5-2.5L7 16l1.5-5.5L5 7l4.5-.5z" />
+  </svg>
+);
+
+export const PremiumGoldBadge = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.3}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={cn("w-3.5 h-3.5", className)}
+    {...props}
+  >
+    {/* Interlocking crescent motif */}
+    <path d="M12 3a9 9 0 0 0-9 9h2a7 7 0 0 1 7-7V3z" />
+    <path d="M12 21a9 9 0 0 0 9-9h-2a7 7 0 0 1-7 7v2z" />
+    <circle cx="12" cy="12" r="4.2" />
+    <path d="M12 9.5v5M9.5 12h5" />
+  </svg>
+);
+
+export const PremiumVerifiedBadge = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.4}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={cn("w-3.5 h-3.5", className)}
+    {...props}
+  >
+    {/* Interlocking rings verify structure */}
+    <circle cx="10" cy="12" r="4.8" />
+    <circle cx="14" cy="12" r="4.8" />
+    {/* Custom verified checkmark passing through intersection */}
+    <path d="m8.5 12 2 2 4-4" strokeWidth={1.75} />
+  </svg>
+);
+
+export const PremiumBasicBadge = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.3}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={cn("w-3.5 h-3.5", className)}
+    {...props}
+  >
+    {/* Shield enclosure */}
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    {/* String custom interlocking rings inside */}
+    <circle cx="10" cy="11.5" r="2.3" />
+    <circle cx="14" cy="11.5" r="2.3" />
+  </svg>
+);
+
+export const PremiumStandardBadge = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={cn("w-3.5 h-3.5", className)}
+    {...props}
+  >
+    {/* Custom String dual rings */}
+    <circle cx="10" cy="12" r="3.8" />
+    <circle cx="14" cy="12" r="3.8" />
   </svg>
 );
 

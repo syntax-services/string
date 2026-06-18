@@ -1,6 +1,13 @@
 import { Badge } from "@/components/ui/badge";
-import { Crown, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  PremiumEliteBadge,
+  PremiumGoldBadge,
+  PremiumVerifiedBadge,
+  PremiumBasicBadge,
+  PremiumStandardBadge
+} from "@/components/ui/custom-icons";
 
 type Tier = 'none' | 'basic' | 'verified' | 'premium' | 'elite';
 
@@ -21,7 +28,7 @@ export function ReputationBadge({ tier, className, showIcon = true }: Reputation
             className
           )}
         >
-          {showIcon && <Crown className="h-3.5 w-3.5 fill-current" />}
+          {showIcon && <PremiumEliteBadge className="h-3.5 w-3.5 fill-none text-white" />}
           <span className="font-bold tracking-tight">ELITE</span>
           <Sparkles className="h-3 w-3 absolute -top-1 -right-1 text-fuchsia-200 animate-spin-slow" />
         </Badge>
@@ -35,7 +42,7 @@ export function ReputationBadge({ tier, className, showIcon = true }: Reputation
             className
           )}
         >
-          {showIcon && <Crown className="h-3.5 w-3.5 fill-current" />}
+          {showIcon && <PremiumGoldBadge className="h-3.5 w-3.5 fill-none text-white" />}
           <span className="font-bold tracking-tight">PREMIUM</span>
           <Sparkles className="h-3 w-3 absolute -top-1 -right-1 text-amber-200 animate-spin-slow" />
         </Badge>
@@ -49,7 +56,7 @@ export function ReputationBadge({ tier, className, showIcon = true }: Reputation
             className
           )}
         >
-          {showIcon && <CheckCircle2 className="h-3.5 w-3.5 fill-current" />}
+          {showIcon && <PremiumVerifiedBadge className="h-3.5 w-3.5 fill-none text-white" />}
           <span className="font-bold tracking-tight">VERIFIED</span>
         </Badge>
       );
@@ -62,7 +69,7 @@ export function ReputationBadge({ tier, className, showIcon = true }: Reputation
             className
           )}
         >
-          {showIcon && <ShieldCheck className="h-3.5 w-3.5" />}
+          {showIcon && <PremiumBasicBadge className="h-3.5 w-3.5 fill-none text-slate-100" />}
           <span className="font-bold tracking-tight">BASIC</span>
         </Badge>
       );
@@ -75,7 +82,7 @@ export function ReputationBadge({ tier, className, showIcon = true }: Reputation
             className
           )}
         >
-          {showIcon && <CheckCircle2 className="h-3.5 w-3.5 opacity-30" />}
+          {showIcon && <PremiumStandardBadge className="h-3.5 w-3.5 opacity-40 fill-none text-muted-foreground" />}
           <span className="font-medium tracking-tight uppercase">Standard</span>
         </Badge>
       );

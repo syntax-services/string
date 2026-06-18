@@ -160,7 +160,7 @@ export default function CustomerMessages() {
           try {
             await supabase.from("messages").insert({
               conversation_id: selectedConversation!.id,
-              sender_id: customerId,
+              sender_id: user!.id,
               sender_type: "customer",
               content: `[AUDIO_NOTE]:${base64Audio}`,
             });
@@ -187,7 +187,7 @@ export default function CustomerMessages() {
       try {
         await supabase.from("messages").insert({
           conversation_id: selectedConversation!.id,
-          sender_id: customerId,
+          sender_id: user!.id,
           sender_type: "customer",
           content: `[AUDIO_NOTE]:https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3`,
         });
@@ -245,7 +245,7 @@ export default function CustomerMessages() {
     try {
       await supabase.from("messages").insert({
         conversation_id: selectedConversation.id,
-        sender_id: customerId,
+        sender_id: user.id,
         sender_type: "customer",
         content: `[BID_OFFER]:${JSON.stringify(payload)}`,
       });
@@ -369,7 +369,7 @@ export default function CustomerMessages() {
     try {
       await supabase.from("messages").insert({
         conversation_id: selectedConversation.id,
-        sender_id: customerId,
+        sender_id: user.id,
         sender_type: "customer",
         content: newMessage.trim(),
       });
@@ -388,7 +388,7 @@ export default function CustomerMessages() {
 
   return (
     <DashboardLayout>
-      <div className="h-[calc(100vh-8rem)] lg:h-[calc(100vh-6rem)] flex flex-col">
+      <div className="h-[calc(100vh-10rem)] lg:h-[calc(100vh-8rem)] flex flex-col">
         <div className="flex items-center gap-3 mb-4">
           {selectedConversation && (
             <Button
@@ -493,7 +493,7 @@ export default function CustomerMessages() {
                 </div>
 
                 {/* Messages */}
-                <ScrollArea className="flex-1 p-4">
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-none scroll-smooth bg-card/10">
                   <div className="space-y-4">
                     {messages.map((msg) => (
                       <div
@@ -579,75 +579,79 @@ export default function CustomerMessages() {
                     ))}
                     <div ref={messagesEndRef} />
                   </div>
-                </ScrollArea>
+                </div>
 
                 {/* Input */}
-                <div className="p-4 border-t border-border">
+                <div className="p-3 border-t border-border/10 bg-card/40">
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
                       handleSend();
                     }}
-                    className="flex gap-2"
+                    className="flex items-center gap-2 max-w-4xl mx-auto"
                   >
-                    <button
-                      type="button"
-                      onClick={() => toast({ title: "Attachments Synced", description: "Supabase storage ready. Upload photos under 10MB." })}
-                      className="h-10 w-10 rounded-full border border-border/40 hover:bg-accent flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm shrink-0 bg-card text-foreground hover:text-primary cursor-pointer"
-                      title="Upload photos"
-                    >
-                      <Plus className="h-4.5 w-4.5" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setBidOpen(true)}
-                      className="h-10 w-10 rounded-full border border-border/40 hover:bg-accent flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm shrink-0 bg-card text-foreground hover:text-primary cursor-pointer"
-                      title="Place Escrow Bid Order"
-                    >
-                      <ShoppingBag className="h-4.5 w-4.5" />
-                    </button>
-                    {isRecording ? (
-                      <div className="flex-1 flex items-center justify-between px-3.5 py-1 bg-destructive/10 border border-destructive/20 text-destructive rounded-xl text-xs font-bold animate-pulse">
-                        <span className="flex items-center gap-1.5">
-                          <span className="h-2.5 w-2.5 rounded-full bg-destructive inline-block" />
-                          Recording Audio... {formatDuration(recordingDuration)}
-                        </span>
-                        <Button
-                          type="button"
-                          onClick={stopRecording}
-                          variant="ghost"
-                          size="sm"
-                          className="text-xs h-7 text-destructive hover:bg-destructive/20 hover:text-destructive flex items-center gap-1 font-bold rounded-lg border border-destructive/30 px-2 shrink-0 animate-bounce"
-                        >
-                          <Square className="h-3 w-3" />
-                          Stop & Send
-                        </Button>
-                      </div>
-                    ) : (
-                      <>
+                    <div className="flex-1 flex items-center gap-2 bg-muted/20 border border-border/10 rounded-full px-3 py-1.5 shadow-none focus-within:border-primary/20 focus-within:ring-1 focus-within:ring-primary/10 transition-all duration-300">
+                      <button
+                        type="button"
+                        onClick={() => toast({ title: "Attachments Synced", description: "Supabase storage ready. Upload photos under 10MB." })}
+                        className="h-7 w-7 rounded-full hover:bg-muted/40 flex items-center justify-center transition-all duration-200 text-muted-foreground hover:text-foreground shrink-0 cursor-pointer"
+                        title="Upload photos"
+                      >
+                        <Plus className="h-4 w-4" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setBidOpen(true)}
+                        className="h-7 w-7 rounded-full hover:bg-muted/40 flex items-center justify-center transition-all duration-200 text-muted-foreground hover:text-foreground shrink-0 cursor-pointer"
+                        title="Place Escrow Bid Order"
+                      >
+                        <ShoppingBag className="h-4 w-4" />
+                      </button>
+                      
+                      {isRecording ? (
+                        <div className="flex-1 flex items-center justify-between px-1 text-destructive text-xs font-semibold animate-pulse">
+                          <span className="flex items-center gap-1.5">
+                            <span className="h-2 w-2 rounded-full bg-destructive inline-block" />
+                            Rec {formatDuration(recordingDuration)}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={stopRecording}
+                            className="text-[10px] uppercase tracking-wider text-destructive hover:underline font-extrabold flex items-center gap-0.5 shrink-0"
+                          >
+                            Stop & Send
+                          </button>
+                        </div>
+                      ) : (
                         <Input
                           value={newMessage}
                           onChange={(e) => setNewMessage(e.target.value)}
                           placeholder="Type a message..."
-                          className="google-input flex-1"
+                          className="flex-1 bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0 h-7 text-xs px-0 placeholder:text-muted-foreground/60 shadow-none text-foreground font-medium"
                         />
+                      )}
+
+                      {!isRecording && (
                         <button
                           type="button"
                           onClick={startRecording}
-                          className="h-10 w-10 rounded-full border border-border/40 hover:bg-accent flex items-center justify-center transition-all duration-200 active:scale-95 shadow-sm shrink-0 bg-card text-foreground hover:text-primary cursor-pointer"
+                          className="h-7 w-7 rounded-full hover:bg-muted/40 flex items-center justify-center transition-all duration-200 text-muted-foreground hover:text-foreground shrink-0 cursor-pointer"
                           title="Record voice note"
                         >
-                          <Mic className="h-4.5 w-4.5" />
+                          <Mic className="h-4 w-4" />
                         </button>
-                        <Button
-                          type="submit"
-                          disabled={sending || !newMessage.trim()}
-                          size="icon"
-                          className="flex-shrink-0"
-                        >
-                          <Send className="h-4 w-4" />
-                        </Button>
-                      </>
+                      )}
+                    </div>
+                    
+                    {!isRecording && (
+                      <Button
+                        type="submit"
+                        disabled={sending || !newMessage.trim()}
+                        size="icon"
+                        className="h-8.5 w-8.5 rounded-full shrink-0 bg-primary/90 hover:bg-primary shadow-sm hover:shadow active:scale-95 transition-all text-primary-foreground"
+                      >
+                        <Send className="h-3.5 w-3.5" />
+                      </Button>
                     )}
                   </form>
                 </div>

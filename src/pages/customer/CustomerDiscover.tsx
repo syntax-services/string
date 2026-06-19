@@ -70,6 +70,13 @@ export default function CustomerDiscover() {
   const [priceFilter, setPriceFilter] = useState("all");
   const [loading, setLoading] = useState(true);
   const [selectedItem, setSelectedItem] = useState<DiscoverItem | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const [imageIndex, setImageIndex] = useState(0);
   const [followedBusinessIds, setFollowedBusinessIds] = useState<string[]>([]);
 
@@ -271,7 +278,7 @@ export default function CustomerDiscover() {
       <div className="min-h-screen bg-background pb-20 px-4 md:px-6 animate-fade-in max-w-7xl mx-auto">
         
         {/* Fixed Search / Filter Bar */}
-        <div className="fixed top-16 left-0 right-0 z-30 border-b border-border/10 bg-background/95 backdrop-blur-xl">
+        <div className={cn("fixed left-0 right-0 z-30 transition-all duration-300 border-b border-border/10 bg-background/95 backdrop-blur-xl", isScrolled ? "top-[3.25rem]" : "top-16")}>
           <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 md:px-6">
             <div className="relative w-full max-w-[360px]">
               <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground/60" />

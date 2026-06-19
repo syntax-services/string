@@ -370,6 +370,15 @@ export default function BusinessMessages() {
   }, [selectedConversation]);
 
   useEffect(() => {
+    if (selectedConversation) {
+      document.body.classList.add("chat-active");
+    } else {
+      document.body.classList.remove("chat-active");
+    }
+    return () => document.body.classList.remove("chat-active");
+  }, [selectedConversation]);
+
+  useEffect(() => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
     }

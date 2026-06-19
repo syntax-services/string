@@ -48,7 +48,7 @@ export function BottomNav({ isVisible = true }: BottomNavProps) {
   return (
     <nav
       className={cn(
-        "md:hidden fixed z-50 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] shadow-xl",
+        "bottom-nav md:hidden fixed z-50 transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] shadow-xl",
         isVisible
           ? "bottom-0 left-0 right-0 h-[4.75rem] border-t border-border/40 bg-background/80 backdrop-blur-xl safe-area-bottom shadow-black/5"
           : "bottom-5 left-1/2 -translate-x-1/2 w-[210px] h-[3.75rem] rounded-full border border-primary/20 bg-background/95 backdrop-blur-2xl shadow-primary/5 px-2 flex items-center"

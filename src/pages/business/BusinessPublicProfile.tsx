@@ -298,8 +298,8 @@ export default function BusinessPublicProfile() {
   }
 
   const businessType = business.business_type || "goods";
-  const showProducts = businessType === "goods" || businessType === "both";
-  const showServices = businessType === "services" || businessType === "both";
+  const showProducts = products.length > 0 || businessType === "goods" || businessType === "both";
+  const showServices = services.length > 0 || businessType === "services" || businessType === "both";
 
   return (
     <DashboardLayout>

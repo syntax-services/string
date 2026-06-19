@@ -221,7 +221,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
       {/* Header - hides on scroll down, shows on scroll up */}
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 flex items-center justify-between transition-all duration-300 px-4 md:px-6",
+          "dashboard-header fixed top-0 left-0 right-0 z-40 flex items-center justify-between transition-all duration-300 px-4 md:px-6",
           isScrolled 
             ? "h-[3.25rem] border-b border-transparent bg-transparent shadow-none backdrop-blur-none md:border-primary/20 md:bg-background/60 md:backdrop-blur-md md:shadow-[0_2px_15px_rgba(0,0,0,0.04)]" 
             : "h-16 border-b border-transparent bg-transparent"

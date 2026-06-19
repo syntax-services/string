@@ -262,6 +262,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         });
         if (isMounted) {
           setLoading(false);
+      // Silently clean up expired premium subscriptions on auth resolve
+      supabase.rpc('expire_premium_subscriptions').then(() => {}).catch(() => {});
         }
         authHydratedRef.current = true;
         return;
@@ -270,6 +272,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (options.skipProfileRefresh) {
         if (isMounted && options.blockUI) {
           setLoading(false);
+      // Silently clean up expired premium subscriptions on auth resolve
+      supabase.rpc('expire_premium_subscriptions').then(() => {}).catch(() => {});
         }
         authHydratedRef.current = true;
         return;
@@ -284,6 +288,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       applyResolvedState(nextState);
       if (options.blockUI) {
         setLoading(false);
+      // Silently clean up expired premium subscriptions on auth resolve
+      supabase.rpc('expire_premium_subscriptions').then(() => {}).catch(() => {});
       }
       authHydratedRef.current = true;
     };

@@ -146,7 +146,7 @@ export default function BusinessMessages() {
       };
 
       mediaRecorder.onstop = async () => {
-        const audioBlob = new Blob(audioChunksRef.current, { type: "audio/webm" });
+        const audioBlob = new Blob(audioChunksRef.current, { type: mediaRecorder.mimeType || "audio/webm" });
         setSending(true);
         try {
           const fileName = `audio_${Date.now()}.webm`;
@@ -493,7 +493,7 @@ export default function BusinessMessages() {
 
   return (
     <DashboardLayout>
-      <div className="h-[calc(100vh-10rem)] lg:h-[calc(100vh-8rem)] flex flex-col">
+      <div className="h-[calc(100dvh-10rem)] lg:h-[calc(100dvh-8rem)] flex flex-col">
         <div className="flex items-center gap-3 mb-4">
           {selectedConversation && (
             <Button

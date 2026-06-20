@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { Switch } from "@/components/ui/switch";
 import {
   Dialog,
   DialogContent,
@@ -48,6 +49,7 @@ interface ServiceFormData {
   availability: "available" | "busy" | "unavailable";
   location_coverage: string[];
   images: string[];
+  is_orderable: boolean;
 }
 
 const defaultFormData: ServiceFormData = {
@@ -61,6 +63,7 @@ const defaultFormData: ServiceFormData = {
   availability: "available",
   location_coverage: [],
   images: [],
+  is_orderable: false,
 };
 
 const serviceCategories = [
@@ -147,6 +150,7 @@ export default function BusinessServices() {
       availability: (service.is_available ? "available" : "unavailable") as ServiceFormData["availability"],
       location_coverage: [],
       images: service.images || [],
+      is_orderable: service.is_orderable || false,
     });
     setIsDialogOpen(true);
   };
@@ -168,6 +172,7 @@ export default function BusinessServices() {
         duration_estimate: formData.duration_estimate || null,
         is_available: formData.availability === "available",
         images: formData.images,
+        is_orderable: formData.is_orderable || false,
       };
 
       if (editingService) {
@@ -407,6 +412,18 @@ export default function BusinessServices() {
                   />
                 </div>
 
+                <div className="flex items-center justify-between rounded-xl border border-border/60 p-3 bg-muted/20">
+                  <div className="space-y-0.5">
+                    <Label htmlFor="is_orderable" className="text-xs font-bold text-foreground">Orderable Service</Label>
+                    <p className="text-[10px] text-muted-foreground leading-normal max-w-[280px]">Allows clients to add this service to their cart and checkout instantly.</p>
+                  </div>
+                  <Switch
+                    id="is_orderable"
+                    checked={formData.is_orderable}
+                    onCheckedChange={(checked) => setFormData({ ...formData, is_orderable: checked })}
+                  />
+                </div>
+
                 <div>
                   <Label>Service Locations</Label>
                   <div className="flex gap-2 mt-1">
@@ -488,11 +505,16 @@ export default function BusinessServices() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
                           <h3 className="font-medium text-foreground truncate">{service.name}</h3>
                           <Badge variant={service.is_available ? "default" : "secondary"}>
                             {service.is_available ? "Available" : "Unavailable"}
                           </Badge>
+                          {service.is_orderable && (
+                            <Badge variant="outline" className="border-primary/30 text-primary bg-primary/5">
+                              Orderable
+                            </Badge>
+                          )}
                         </div>
                         {service.category && (
                           <p className="text-sm text-muted-foreground">{service.category}</p>

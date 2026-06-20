@@ -47,7 +47,7 @@ import { format } from "date-fns";
 import { playPremiumMatchChime } from "@/hooks/useAudioSignals";
 import { cn } from "@/lib/utils";
 import { StructuredLocationPicker } from "@/components/location/StructuredLocationPicker";
-import { StructuredLocationSelection, formatStructuredLocation } from "@/hooks/useStructuredLocations";
+import { StructuredLocationSelection, formatStructuredLocation, getLocationCoords } from "@/hooks/useStructuredLocations";
 
 export default function CustomerProfile() {
   const { profile, signOut, refreshProfile, isAdmin, hasBothRoles, switchRole } = useAuth();
@@ -187,6 +187,12 @@ export default function CustomerProfile() {
       const formattedLocation = formatStructuredLocation(businessLocation);
 
       // 1. Call the secure onboarding RPC which bypasses RLS issues
+      const coords = getLocationCoords(businessLocation);
+      const dbLandmarkId = businessLocation.landmark?.id && !businessLocation.landmark.id.startsWith("default-")
+        ? businessLocation.landmark.id
+        : null;
+
+      // 1. Call the secure onboarding RPC which bypasses RLS issues
       const { data: rpcData, error: rpcError } = await supabase.rpc("complete_onboarding_setup", {
         p_full_name: profile.full_name || "Merchant",
         p_phone: profile.phone || "",
@@ -196,11 +202,11 @@ export default function CustomerProfile() {
           businessType: businessType,
           streetAddress: formattedLocation,
           areaName: businessLocation.area.name,
-          latitude: businessLocation.landmark.latitude,
-          longitude: businessLocation.landmark.longitude,
+          latitude: coords.latitude,
+          longitude: coords.longitude,
           locationAreaId: businessLocation.area.id,
           locationStreetId: businessLocation.street.id,
-          locationLandmarkId: businessLocation.landmark.id,
+          locationLandmarkId: dbLandmarkId,
         },
         p_customer_data: null
       });
@@ -213,11 +219,11 @@ export default function CustomerProfile() {
           business_location: formattedLocation,
           street_address: formattedLocation,
           area_name: businessLocation.area.name,
-          latitude: businessLocation.landmark.latitude,
-          longitude: businessLocation.landmark.longitude,
+          latitude: coords.latitude,
+          longitude: coords.longitude,
           location_area_id: businessLocation.area.id,
           location_street_id: businessLocation.street.id,
-          location_landmark_id: businessLocation.landmark.id,
+          location_landmark_id: dbLandmarkId,
           location_verified: false,
         })
         .eq("user_id", profile.user_id);
@@ -571,7 +577,7 @@ export default function CustomerProfile() {
         {/* Profile Header Block */}
         <div className="flex flex-col items-center text-center mt-6 space-y-4">
           <div className="relative group cursor-pointer" onClick={handleAvatarClick}>
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-primary/80 opacity-70 blur-md group-hover:opacity-100 transition duration-500" />
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-primary/80 opacity-40 group-hover:opacity-70 transition duration-500" />
             <div className="relative h-32 w-32 rounded-full border-4 border-background bg-card flex items-center justify-center overflow-hidden shadow-2xl">
               {uploading ? (
                 <div className="flex flex-col items-center justify-center gap-1.5">
@@ -641,7 +647,7 @@ export default function CustomerProfile() {
             className="w-full max-w-[280px] mt-2 animate-in fade-in slide-in-from-top-2 duration-500 cursor-pointer active:scale-98 transition-all"
           >
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500/10 to-teal-500/10 dark:from-emerald-500/10 dark:to-teal-500/5 border border-emerald-500/20 p-3 shadow-md shadow-emerald-500/5 flex items-center justify-between">
-              <div className="absolute top-0 right-0 w-16 h-16 bg-emerald-500/5 rounded-full blur-xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-16 h-16 bg-emerald-500/10 rounded-full pointer-events-none" />
               <div className="text-left space-y-0.5">
                 <span className="text-[9px] font-black uppercase tracking-widest text-emerald-500 dark:text-emerald-400">Referral Balance</span>
                 <p className="text-lg font-black text-foreground font-mono tracking-tight leading-none mt-0.5">

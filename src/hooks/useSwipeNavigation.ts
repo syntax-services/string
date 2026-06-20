@@ -22,9 +22,72 @@ export function useSwipeNavigation() {
     let currentY = 0;
     let isValidGesture = false;
     let isGestureChecked = false;
+    let activeTimeouts: any[] = [];
+
+    const addTimeout = (fn: () => void, delay: number) => {
+      const id = setTimeout(() => {
+        activeTimeouts = activeTimeouts.filter(t => t !== id);
+        fn();
+      }, delay);
+      activeTimeouts.push(id);
+      return id;
+    };
+
+    const clearAllTimeouts = () => {
+      activeTimeouts.forEach(clearTimeout);
+      activeTimeouts = [];
+    };
+
+    const resetStyles = () => {
+      const tabSlider = document.querySelector('.tab-slider') as HTMLElement;
+      const currentPage = document.querySelector('.current-page-container') as HTMLElement;
+      const prevPage = document.querySelector('.previous-page-container') as HTMLElement;
+      const peekOverlay = document.querySelector('.peek-overlay') as HTMLElement;
+
+      if (tabSlider) {
+        tabSlider.style.transition = '';
+        tabSlider.style.transform = '';
+        tabSlider.style.willChange = '';
+      }
+      if (currentPage) {
+        currentPage.style.transition = '';
+        currentPage.style.animation = '';
+        currentPage.style.transform = '';
+        currentPage.style.willChange = '';
+      }
+      if (prevPage) {
+        prevPage.style.transition = '';
+        prevPage.style.transform = '';
+        prevPage.style.opacity = '';
+        prevPage.style.willChange = '';
+      }
+      if (peekOverlay) {
+        peekOverlay.style.transition = '';
+        peekOverlay.style.opacity = '';
+        peekOverlay.style.willChange = '';
+      }
+    };
 
     const handleTouchStart = (e: TouchEvent) => {
       if (e.touches.length !== 1) return;
+
+      const touch = e.touches[0];
+      startX = touch.clientX;
+      startY = touch.clientY;
+      currentX = touch.clientX;
+      currentY = touch.clientY;
+      startTime = Date.now();
+
+      // Clear any pending transitions/snaps immediately on a new touch to avoid style collisions
+      clearAllTimeouts();
+      resetStyles();
+
+      // Ignore left edge touch start completely to let browser native back gesture execute
+      if (startX < 50) {
+        isValidGesture = false;
+        isGestureChecked = true;
+        return;
+      }
 
       const target = e.target as HTMLElement;
 
@@ -53,12 +116,6 @@ export function useSwipeNavigation() {
         }
       }
 
-      const touch = e.touches[0];
-      startX = touch.clientX;
-      startY = touch.clientY;
-      currentX = touch.clientX;
-      currentY = touch.clientY;
-      startTime = Date.now();
       isValidGesture = false; // Starts false, will set to true only if horizontal swipe detected in touchmove
       isGestureChecked = false;
     };
@@ -222,7 +279,7 @@ export function useSwipeNavigation() {
             // Animate sliding off-screen to the right
             dialog.style.transition = 'transform 0.22s cubic-bezier(0.16, 1, 0.3, 1)';
             dialog.style.transform = 'translateX(100%)';
-            setTimeout(() => {
+            addTimeout(() => {
               const escapeEvent = new KeyboardEvent("keydown", {
                 key: "Escape",
                 code: "Escape",
@@ -234,7 +291,7 @@ export function useSwipeNavigation() {
               document.dispatchEvent(escapeEvent);
               
               // Reset transform after closed so it starts clean next time
-              setTimeout(() => {
+              addTimeout(() => {
                 dialog.style.transform = '';
                 dialog.style.transition = '';
               }, 50);
@@ -243,7 +300,7 @@ export function useSwipeNavigation() {
             // Animate snap-back
             dialog.style.transition = 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)';
             dialog.style.transform = 'translateX(0)';
-            setTimeout(() => {
+            addTimeout(() => {
               dialog.style.transform = '';
               dialog.style.transition = '';
             }, 250);
@@ -270,18 +327,18 @@ export function useSwipeNavigation() {
               const targetIdx = currentIndex + 1;
               tabSlider.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
               tabSlider.style.transform = `translateX(-${targetIdx * 100}%)`;
-              setTimeout(() => {
+              addTimeout(() => {
                 navigate(tabs[targetIdx]);
-                setTimeout(resetStyles, 100);
+                addTimeout(resetStyles, 100);
               }, 300);
             } else if (deltaX > 0 && currentIndex > 0) {
               // Complete Swipe Right -> Prev Tab
               const targetIdx = currentIndex - 1;
               tabSlider.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
               tabSlider.style.transform = `translateX(-${targetIdx * 100}%)`;
-              setTimeout(() => {
+              addTimeout(() => {
                 navigate(tabs[targetIdx]);
-                setTimeout(resetStyles, 100);
+                addTimeout(resetStyles, 100);
               }, 300);
             } else {
               snapBack();
@@ -295,23 +352,23 @@ export function useSwipeNavigation() {
             const isBackTriggered = deltaX > 100 || (velocity > 0.3 && deltaX > 50);
             if (isBackTriggered) {
               // Complete Back Swipe (slide current off screen to right)
-              currentPage.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+              currentPage.style.transition = 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
               currentPage.style.transform = 'translateX(100%)';
               
               if (prevPage) {
-                prevPage.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+                prevPage.style.transition = 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
                 prevPage.style.transform = 'translateX(0) scale(1)';
                 prevPage.style.opacity = '1';
               }
               if (peekOverlay) {
-                peekOverlay.style.transition = 'opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+                peekOverlay.style.transition = 'opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
                 peekOverlay.style.opacity = '0';
               }
 
-              setTimeout(() => {
+              addTimeout(() => {
                 navigate(-1);
-                setTimeout(resetStyles, 100);
-              }, 300);
+                addTimeout(resetStyles, 50);
+              }, 200);
             } else {
               snapBack();
             }
@@ -325,55 +382,32 @@ export function useSwipeNavigation() {
 
       // Helper functions
       function snapBack() {
+        const isCustomerTab = customerTabs.includes(pathname);
+        const tabs = isCustomerTab ? customerTabs : businessTabs;
+        const currentIndex = tabs.indexOf(pathname);
+
         if (tabSlider) {
-          const tabs = isCustomerTab ? customerTabs : businessTabs;
-          const currentIndex = tabs.indexOf(pathname);
-          tabSlider.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+          tabSlider.style.transition = 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)';
           tabSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
         if (currentPage) {
-          currentPage.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+          currentPage.style.transition = 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)';
           currentPage.style.transform = 'translateX(0)';
         }
 
         if (prevPage) {
-          prevPage.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+          prevPage.style.transition = 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1)';
           prevPage.style.transform = 'translateX(-20%) scale(0.95)';
           prevPage.style.opacity = '0';
         }
 
         if (peekOverlay) {
-          peekOverlay.style.transition = 'opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+          peekOverlay.style.transition = 'opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1)';
           peekOverlay.style.opacity = '1';
         }
 
-        setTimeout(resetStyles, 350);
-      }
-
-      function resetStyles() {
-        if (tabSlider) {
-          tabSlider.style.transition = '';
-          tabSlider.style.transform = '';
-          tabSlider.style.willChange = '';
-        }
-        if (currentPage) {
-          currentPage.style.transition = '';
-          currentPage.style.animation = '';
-          currentPage.style.transform = '';
-          currentPage.style.willChange = '';
-        }
-        if (prevPage) {
-          prevPage.style.transition = '';
-          prevPage.style.transform = '';
-          prevPage.style.opacity = '';
-          prevPage.style.willChange = '';
-        }
-        if (peekOverlay) {
-          peekOverlay.style.transition = '';
-          peekOverlay.style.opacity = '';
-          peekOverlay.style.willChange = '';
-        }
+        addTimeout(resetStyles, 250);
       }
     };
 
@@ -382,6 +416,7 @@ export function useSwipeNavigation() {
     window.addEventListener("touchend", handleTouchEnd, { passive: true });
 
     return () => {
+      clearAllTimeouts();
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("touchend", handleTouchEnd);

@@ -1,0 +1,60 @@
+{
+  "streets": [
+    {
+      "name": "Ago-Iwoye Ishara Remo road",
+      "highway": "secondary",
+      "lat": 6.97229781191336,
+      "lon": 3.829817922021663
+    },
+    {
+      "name": "Idode Road",
+      "highway": "tertiary",
+      "lat": 6.943182327777779,
+      "lon": 3.927433713888889
+    },
+    {
+      "name": "Igan Road",
+      "highway": "tertiary",
+      "lat": 6.948350924999997,
+      "lon": 3.912061300000001
+    },
+    {
+      "name": "Onabamiro Road",
+      "highway": "residential",
+      "lat": 6.944936060526317,
+      "lon": 3.917096281578946
+    },
+    {
+      "name": "Fibigbade Street",
+      "highway": "residential",
+      "lat": 6.941585171153843,
+      "lon": 3.909088850000001
+    },
+    {
+      "name": "konigba",
+      "highway": "residential",
+      "lat": 6.9424616000000015,
+      "lon": 3.903984545
+    },
+    {
+      "name": "Kunle Odugbesan Street",
+      "highway": "residential",
+      "lat": 6.94626020625,
+      "lon": 3.92820430625
+    },
+    {
+      "name": "Odugbesan Street",
+      "highway": "residential",
+      "lat": 6.946685889655173,
+      "lon": 3.926575037931035
+    }
+  ],
+  "landmarks": [
+    {
+      "name": "St. Paul's Anglican Church",
+      "type": "place_of_worship",
+      "lat": 6.9400474,
+      "lon": 3.9150729
+    }
+  ]
+}

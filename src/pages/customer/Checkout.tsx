@@ -13,7 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Loader2, ArrowLeft, Truck, Store, ShieldCheck } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { StructuredLocationPicker } from "@/components/location/StructuredLocationPicker";
-import { StructuredLocationSelection, formatStructuredLocation } from "@/hooks/useStructuredLocations";
+import { StructuredLocationSelection, formatStructuredLocation, getLocationCoords } from "@/hooks/useStructuredLocations";
 import { estimateDeliveryFee } from "@/lib/structuredDelivery";
 
 export default function Checkout() {
@@ -99,13 +99,12 @@ export default function Checkout() {
 
   const discountAmount = hasIdicDiscount ? Math.round(subtotal * 0.1) : 0;
 
-  // Calculate delivery fee for each store to the selected landmark coordinates.
+  // Calculate delivery fee for each store to the selected coordinates.
   const computedDeliveryFees = useMemo(() => {
     const fees: Record<string, number> = {};
-    if (deliveryType !== "standard" || !checkoutBusinesses) return fees;
+    if (deliveryType !== "standard" || !checkoutBusinesses || !deliveryLocation) return fees;
 
-    const target = deliveryLocation?.landmark;
-    if (!target) return fees;
+    const target = getLocationCoords(deliveryLocation);
 
     checkoutBusinesses.forEach(biz => {
       const estimate = estimateDeliveryFee(
@@ -122,10 +121,12 @@ export default function Checkout() {
     const distances: Record<string, number> = {};
     if (deliveryType !== "standard" || !checkoutBusinesses || !deliveryLocation) return distances;
 
+    const target = getLocationCoords(deliveryLocation);
+
     checkoutBusinesses.forEach((biz) => {
       const estimate = estimateDeliveryFee(
         { latitude: Number(biz.latitude), longitude: Number(biz.longitude) },
-        { latitude: deliveryLocation.landmark.latitude, longitude: deliveryLocation.landmark.longitude },
+        { latitude: target.latitude, longitude: target.longitude },
       );
 
       distances[biz.id] = estimate?.estimatedRoadDistanceKm ?? 0;
@@ -194,17 +195,22 @@ export default function Checkout() {
       const fullDeliveryAddress = [structuredAddress, address.trim()].filter(Boolean).join(" - ");
 
       if (deliveryType === "standard" && deliveryLocation) {
+        const coords = getLocationCoords(deliveryLocation);
+        const dbLandmarkId = deliveryLocation.landmark?.id && !deliveryLocation.landmark.id.startsWith("default-")
+          ? deliveryLocation.landmark.id
+          : null;
+
         await (supabase as any)
           .from("customers")
           .update({
             location_area_id: deliveryLocation.area.id,
             location_street_id: deliveryLocation.street.id,
-            location_landmark_id: deliveryLocation.landmark.id,
+            location_landmark_id: dbLandmarkId,
             location: deliveryLocation.area.name,
             area_name: deliveryLocation.area.name,
             street_address: fullDeliveryAddress,
-            latitude: deliveryLocation.landmark.latitude,
-            longitude: deliveryLocation.landmark.longitude,
+            latitude: coords.latitude,
+            longitude: coords.longitude,
           })
           .eq("id", customer.id);
       }
@@ -238,12 +244,14 @@ export default function Checkout() {
           total: bizTotal,
           delivery_address: deliveryType === "pickup" ? null : fullDeliveryAddress || null,
           delivery_notes: deliveryType === "standard" && instructions.trim() ? `Instructions: ${instructions.trim()}` : null,
-          delivery_landmark_id: deliveryType === "standard" ? deliveryLocation?.landmark.id ?? null : null,
+          delivery_landmark_id: deliveryType === "standard" && deliveryLocation?.landmark?.id && !deliveryLocation.landmark.id.startsWith("default-")
+            ? deliveryLocation.landmark.id
+            : null,
           delivery_distance_km: deliveryType === "standard" ? computedDeliveryDistances[bizId] ?? null : null,
           delivery_pricing: deliveryType === "standard" ? {
             area: deliveryLocation?.area.name,
             street: deliveryLocation?.street.name,
-            landmark: deliveryLocation?.landmark.name,
+            landmark: deliveryLocation?.landmark?.name || "General / Other",
             rate_per_km: 250,
             curvature_multiplier: 1.3,
           } : {},
@@ -443,7 +451,7 @@ export default function Checkout() {
 
               {deliveryType === "standard" && deliveryLocation && (
                 <div className="rounded-xl border border-primary/10 bg-primary/[0.03] p-3 text-[11px] text-muted-foreground">
-                  <p className="font-bold text-foreground">Deliver to {deliveryLocation.landmark.name}</p>
+                  <p className="font-bold text-foreground">Deliver to {deliveryLocation.landmark?.name || "General / Other"}</p>
                   <p>{deliveryLocation.street.name}, {deliveryLocation.area.name}</p>
                 </div>
               )}

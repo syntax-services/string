@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
+import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { supabase } from "@/integrations/supabase/client";
@@ -54,6 +55,7 @@ interface DiscoverItem {
   business: Business;
   isService: boolean;
   aspectRatio: string;
+  isOrderable?: boolean;
 }
 
 export default function CustomerDiscover() {
@@ -88,7 +90,7 @@ export default function CustomerDiscover() {
           .select(`
             id, company_name, logo_url, verified,
             products(id, name, business_id, price, image_url, images, description, category, tags),
-            services(id, name, business_id, images, price_min, price_max, description)
+            services(id, name, business_id, images, price_min, price_max, description, is_orderable)
           `)
           .order("created_at", { ascending: false });
 
@@ -162,7 +164,8 @@ export default function CustomerDiscover() {
                   tags: null,
                   business: businessObj,
                   isService: true,
-                  aspectRatio: Math.random() > 0.5 ? "aspect-[4/5]" : "aspect-square"
+                  aspectRatio: Math.random() > 0.5 ? "aspect-[4/5]" : "aspect-square",
+                  isOrderable: srv.is_orderable || false
                 });
               });
             }
@@ -277,59 +280,62 @@ export default function CustomerDiscover() {
     <DashboardLayout>
       <div className="min-h-screen bg-background pb-20 px-4 md:px-6 animate-fade-in max-w-7xl mx-auto">
         
-        {/* Fixed Search / Filter Bar */}
-        <div className={cn("fixed left-0 right-0 z-30 transition-all duration-300 border-b border-border/10 bg-background/95 backdrop-blur-xl", isScrolled ? "top-[3.25rem]" : "top-16")}>
-          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 md:px-6">
-            <div className="relative w-full max-w-[360px]">
-              <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground/60" />
-              <Input
-                placeholder="Search stores, products..."
-                className="h-8 rounded-full border-border/10 bg-muted/25 pl-9 text-xs font-medium shadow-none transition-all duration-300 hover:bg-muted/40 focus-visible:bg-card focus-visible:ring-primary/10"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            </div>
-            <div className="flex gap-2 overflow-x-auto pb-0.5 scrollbar-none">
-              {[
-                ["all", "All"],
-                ["products", "Products"],
-                ["services", "Services"],
-              ].map(([value, label]) => (
-                <button
-                  key={value}
-                  type="button"
-                  onClick={() => setItemTypeFilter(value as "all" | "products" | "services")}
-                  className={cn(
-                    "h-7 rounded-full border px-3 text-[11px] font-bold transition-colors shrink-0",
-                    itemTypeFilter === value ? "border-primary bg-primary text-primary-foreground" : "border-border/20 bg-muted/20 text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  {label}
-                </button>
-              ))}
-              <select
-                value={categoryFilter}
-                onChange={(e) => setCategoryFilter(e.target.value)}
-                className="h-7 rounded-full border border-border/20 bg-muted/20 px-3 text-[11px] font-bold text-foreground outline-none shrink-0"
-              >
-                <option value="all">All Categories</option>
-                {categoryOptions.map((category) => (
-                  <option key={category} value={category}>{category}</option>
+        {/* Fixed Search / Filter Bar via Portal */}
+        {createPortal(
+          <div className={cn("fixed left-0 right-0 z-30 transition-all duration-300 border-b border-border/10 bg-background/95 backdrop-blur-xl", isScrolled ? "top-[3.25rem]" : "top-16")}>
+            <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 md:px-6">
+              <div className="relative w-full max-w-[360px]">
+                <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground/60" />
+                <Input
+                  placeholder="Search stores, products..."
+                  className="h-8 rounded-full border-border/10 bg-muted/25 pl-9 text-xs font-medium shadow-none transition-all duration-300 hover:bg-muted/40 focus-visible:bg-card focus-visible:ring-primary/10"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
+              <div className="flex gap-2 overflow-x-auto pb-0.5 scrollbar-none">
+                {[
+                  ["all", "All"],
+                  ["products", "Products"],
+                  ["services", "Services"],
+                ].map(([value, label]) => (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => setItemTypeFilter(value as "all" | "products" | "services")}
+                    className={cn(
+                      "h-7 rounded-full border px-3 text-[11px] font-bold transition-colors shrink-0",
+                      itemTypeFilter === value ? "border-primary bg-primary text-primary-foreground" : "border-border/20 bg-muted/20 text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {label}
+                  </button>
                 ))}
-              </select>
-              <select
-                value={priceFilter}
-                onChange={(e) => setPriceFilter(e.target.value)}
-                className="h-7 rounded-full border border-border/20 bg-muted/20 px-3 text-[11px] font-bold text-foreground outline-none shrink-0"
-              >
-                <option value="all">Any Price</option>
-                <option value="under5k">Under ₦5k</option>
-                <option value="5to20k">₦5k - ₦20k</option>
-                <option value="20kplus">Above ₦20k</option>
-              </select>
+                <select
+                  value={categoryFilter}
+                  onChange={(e) => setCategoryFilter(e.target.value)}
+                  className="h-7 rounded-full border border-border/20 bg-muted/20 px-3 text-[11px] font-bold text-foreground outline-none shrink-0"
+                >
+                  <option value="all">All Categories</option>
+                  {categoryOptions.map((category) => (
+                    <option key={category} value={category}>{category}</option>
+                  ))}
+                </select>
+                <select
+                  value={priceFilter}
+                  onChange={(e) => setPriceFilter(e.target.value)}
+                  className="h-7 rounded-full border border-border/20 bg-muted/20 px-3 text-[11px] font-bold text-foreground outline-none shrink-0"
+                >
+                  <option value="all">Any Price</option>
+                  <option value="under5k">Under ₦5k</option>
+                  <option value="5to20k">₦5k - ₦20k</option>
+                  <option value="20kplus">Above ₦20k</option>
+                </select>
+              </div>
             </div>
-          </div>
-        </div>
+          </div>,
+          document.getElementById("search-bar-portal") || document.body
+        )}
         <div className="h-24" />
 
         {/* Masonry Feed */}
@@ -398,14 +404,16 @@ export default function CustomerDiscover() {
                       </p>
                     </div>
                     {/* Add to Cart Premium String Button */}
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
-                      className="h-8 w-8 shrink-0 rounded-full hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
-                      onClick={(e) => handleAddToCart(item, e)}
-                    >
-                      <ShoppingBag className="h-5 w-5" />
-                    </Button>
+                    {(!item.isService || item.isOrderable) && (
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="h-8 w-8 shrink-0 rounded-full hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
+                        onClick={(e) => handleAddToCart(item, e)}
+                      >
+                        <ShoppingBag className="h-5 w-5" />
+                      </Button>
+                    )}
                   </div>
                   
                   {/* Store Name */}
@@ -543,14 +551,24 @@ export default function CustomerDiscover() {
               </ScrollArea>
 
               <div className="p-4 border-t border-border/40 bg-card shrink-0 flex gap-3">
-                <Button 
-                  className="flex-1 h-12 rounded-full font-bold text-base shadow-premium"
-                  onClick={() => { handleAddToCart(selectedItem); setSelectedItem(null); }}
-                  disabled={addToCart.isPending}
-                >
-                  {addToCart.isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <ShoppingBag className="mr-2 h-6 w-6" />}
-                  Add to Cart
-                </Button>
+                {(!selectedItem.isService || selectedItem.isOrderable) ? (
+                  <Button 
+                    className="flex-1 h-12 rounded-full font-bold text-base shadow-premium"
+                    onClick={() => { handleAddToCart(selectedItem); setSelectedItem(null); }}
+                    disabled={addToCart.isPending}
+                  >
+                    {addToCart.isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <ShoppingBag className="mr-2 h-6 w-6" />}
+                    Add to Cart
+                  </Button>
+                ) : (
+                  <Button 
+                    variant="outline"
+                    className="flex-1 h-12 rounded-full font-bold text-base border-primary/20 text-primary hover:bg-primary/5"
+                    onClick={() => { if (selectedItem?.business?.id) { navigate(`/business/${selectedItem.business.id}`); setSelectedItem(null); } }}
+                  >
+                    Inquire in Store
+                  </Button>
+                )}
                 <Button variant="secondary" className="h-12 w-12 rounded-full p-0" onClick={() => { if (selectedItem?.business?.id) navigate(`/business/${selectedItem.business.id}`) }}>
                   <Store className="h-5 w-5" />
                 </Button>

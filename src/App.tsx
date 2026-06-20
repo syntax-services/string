@@ -7,6 +7,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { Suspense, lazy, useEffect } from "react";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { TermsGuard } from "@/components/auth/TermsGuard";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import Landing from "./pages/Landing";
 import Auth from "./pages/Auth";
 import Onboarding from "./pages/Onboarding";
@@ -132,10 +133,10 @@ const App = () => (
           <Sonner />
           <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <ScrollToTop />
-            <SwipeNavigation />
-            <Suspense fallback={<PageLoader />}>
-              <TermsGuard>
-                <Routes>
+            <ErrorBoundary>
+              <Suspense fallback={<PageLoader />}>
+                <TermsGuard>
+                  <Routes>
                   <Route path="/" element={<Landing />} />
                   <Route path="/auth" element={<Auth />} />
                   <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -202,11 +203,13 @@ const App = () => (
                     }
                   />
                   <Route path="/admin-dashboard" element={<Navigate to="/admin" replace />} />
+                  <Route path="/checkout" element={<Navigate to="/customer/checkout" replace />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </TermsGuard>
             </Suspense>
+            </ErrorBoundary>
           </BrowserRouter>
         </TooltipProvider>
       </ThemeProvider>

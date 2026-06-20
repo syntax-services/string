@@ -15,7 +15,7 @@ import { useReferral } from "@/hooks/useReferral";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { StructuredLocationPicker } from "@/components/location/StructuredLocationPicker";
-import { StructuredLocationSelection, formatStructuredLocation } from "@/hooks/useStructuredLocations";
+import { StructuredLocationSelection, formatStructuredLocation, getLocationCoords } from "@/hooks/useStructuredLocations";
 import {
   Building2,
   MapPin,
@@ -259,6 +259,11 @@ export default function BusinessSettings() {
       const locationChanged = selectedLocationLabel !== initialLocation;
 
       // Update business data
+      const finalCoords = structuredLocation ? getLocationCoords(structuredLocation) : null;
+      const finalLandmarkId = structuredLocation?.landmark?.id && !structuredLocation.landmark.id.startsWith("default-")
+        ? structuredLocation.landmark.id
+        : null;
+
       await (supabase as any)
         .from("businesses")
         .update({
@@ -267,13 +272,13 @@ export default function BusinessSettings() {
           business_location: selectedLocationLabel,
           products_services: businessData.products_services,
           website: businessData.website,
-          latitude: structuredLocation?.landmark.latitude ?? businessData.latitude,
-          longitude: structuredLocation?.landmark.longitude ?? businessData.longitude,
+          latitude: finalCoords ? finalCoords.latitude : businessData.latitude,
+          longitude: finalCoords ? finalCoords.longitude : businessData.longitude,
           area_name: structuredLocation?.area.name ?? undefined,
           street_address: selectedLocationLabel,
           location_area_id: structuredLocation?.area.id ?? businessData.location_area_id ?? null,
           location_street_id: structuredLocation?.street.id ?? businessData.location_street_id ?? null,
-          location_landmark_id: structuredLocation?.landmark.id ?? businessData.location_landmark_id ?? null,
+          location_landmark_id: structuredLocation ? finalLandmarkId : (businessData.location_landmark_id ?? null),
           location_verified: locationChanged ? false : businessData.location_verified,
         })
         .eq("id", businessData.id);
@@ -282,11 +287,11 @@ export default function BusinessSettings() {
         setBusinessData(prev => prev ? {
           ...prev,
           business_location: selectedLocationLabel,
-          latitude: structuredLocation?.landmark.latitude ?? prev.latitude,
-          longitude: structuredLocation?.landmark.longitude ?? prev.longitude,
+          latitude: finalCoords ? finalCoords.latitude : prev.latitude,
+          longitude: finalCoords ? finalCoords.longitude : prev.longitude,
           location_area_id: structuredLocation?.area.id ?? prev.location_area_id,
           location_street_id: structuredLocation?.street.id ?? prev.location_street_id,
-          location_landmark_id: structuredLocation?.landmark.id ?? prev.location_landmark_id,
+          location_landmark_id: structuredLocation ? finalLandmarkId : prev.location_landmark_id,
           location_verified: false
         } : null);
         setInitialLocation(selectedLocationLabel);

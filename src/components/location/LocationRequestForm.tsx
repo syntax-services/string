@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { MapPin, Loader2, CheckCircle, Clock } from "lucide-react";
 import { toast } from "sonner";
 import { StructuredLocationPicker } from "@/components/location/StructuredLocationPicker";
-import { StructuredLocationSelection, formatStructuredLocation } from "@/hooks/useStructuredLocations";
+import { StructuredLocationSelection, formatStructuredLocation, getLocationCoords } from "@/hooks/useStructuredLocations";
 
 interface LocationRequestFormProps {
   onSuccess?: () => void;
@@ -40,6 +40,10 @@ export function LocationRequestForm({ onSuccess, required = false }: LocationReq
     try {
       const formattedLocation = formatStructuredLocation(selectedLocation);
       const streetAddress = [formattedLocation, locationNote.trim()].filter(Boolean).join(" - ");
+      const coords = getLocationCoords(selectedLocation);
+      const dbLandmarkId = selectedLocation.landmark?.id && !selectedLocation.landmark.id.startsWith("default-")
+        ? selectedLocation.landmark.id
+        : null;
 
       // Create location request
       const { error: requestError } = await (supabase as any)
@@ -49,8 +53,8 @@ export function LocationRequestForm({ onSuccess, required = false }: LocationReq
           user_type: profile.user_type,
           street_address: streetAddress,
           area_name: selectedLocation.area.name,
-          latitude: selectedLocation.landmark.latitude,
-          longitude: selectedLocation.landmark.longitude,
+          latitude: coords.latitude,
+          longitude: coords.longitude,
         });
 
       if (requestError) throw requestError;
@@ -63,11 +67,11 @@ export function LocationRequestForm({ onSuccess, required = false }: LocationReq
         .update({
           street_address: streetAddress,
           area_name: selectedLocation.area.name,
-          latitude: selectedLocation.landmark.latitude,
-          longitude: selectedLocation.landmark.longitude,
+          latitude: coords.latitude,
+          longitude: coords.longitude,
           location_area_id: selectedLocation.area.id,
           location_street_id: selectedLocation.street.id,
-          location_landmark_id: selectedLocation.landmark.id,
+          location_landmark_id: dbLandmarkId,
           location_verified: false,
         })
         .eq("user_id", user.id);

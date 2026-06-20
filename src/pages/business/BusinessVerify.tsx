@@ -18,7 +18,7 @@ import { StringVerifiedIcon } from "@/components/business/VerificationBadge";
 import { playVerificationChime } from "@/hooks/useAudioSignals";
 import { InterlockingLoader } from "@/components/ui/interlocking-loader";
 import { StructuredLocationPicker } from "@/components/location/StructuredLocationPicker";
-import { StructuredLocationSelection, formatStructuredLocation } from "@/hooks/useStructuredLocations";
+import { StructuredLocationSelection, formatStructuredLocation, getLocationCoords } from "@/hooks/useStructuredLocations";
 
 export default function BusinessVerify() {
   const { user } = useAuth();
@@ -129,6 +129,7 @@ export default function BusinessVerify() {
 
       const formattedLocation = formatStructuredLocation(selectedLocation);
       const streetAddress = [formattedLocation, locationNote.trim()].filter(Boolean).join(" - ");
+      const coords = getLocationCoords(selectedLocation);
 
       // Insert location & identity verification request
       const { error } = await (supabase as any)
@@ -140,8 +141,8 @@ export default function BusinessVerify() {
           area_name: selectedLocation.area.name,
           admin_notes: `[Trade Details]: ${tradeDescription.trim()} | [ID Type]: ${idType.toUpperCase()} | [Secure ID hash]: ${idNumber.trim()}`,
           status: "pending",
-          latitude: selectedLocation.landmark.latitude,
-          longitude: selectedLocation.landmark.longitude,
+          latitude: coords.latitude,
+          longitude: coords.longitude,
           video_url: videoUrl || null,
         });
 

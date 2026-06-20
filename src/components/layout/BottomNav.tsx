@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useUnreadCount } from "@/hooks/useUnreadCount";
 import {
   PremiumHome,
   PremiumDiscover,
@@ -14,14 +15,14 @@ import { cn } from "@/lib/utils";
 export const customerNavItems = [
   { href: "/customer", label: "Store", icon: PremiumStore },
   { href: "/customer/discover", label: "Discover", icon: Search },
-  { href: "/customer/messages", label: "Inbox", icon: PremiumMessage },
+  { href: "/customer/messages", label: "Inbox", icon: PremiumMessage, id: "messages" },
   { href: "/customer/profile", label: "Profile", icon: PremiumUser },
 ];
 
 export const businessNavItems = [
   { href: "/business", label: "Store", icon: PremiumStore },
   { href: "/business/discover", label: "Discover", icon: Search },
-  { href: "/business/messages", label: "Inbox", icon: PremiumMessage },
+  { href: "/business/messages", label: "Inbox", icon: PremiumMessage, id: "messages" },
   { href: "/business/profile", label: "Profile", icon: PremiumUser },
 ];
 
@@ -37,6 +38,7 @@ interface BottomNavProps {
 export function BottomNav({ isVisible = true }: BottomNavProps) {
   const { resolvedUserType, profile } = useAuth();
   const location = useLocation();
+  const unreadCount = useUnreadCount();
 
   const navItems =
     resolvedUserType === "admin"
@@ -67,6 +69,7 @@ export function BottomNav({ isVisible = true }: BottomNavProps) {
           const isActive = location.pathname === item.href;
           const isProfileTab = item.label === "Profile";
           const hasAvatar = isProfileTab && profile?.avatar_url;
+          const showBadge = item.id === "messages" && unreadCount > 0;
 
           return (
             <Link
@@ -74,10 +77,15 @@ export function BottomNav({ isVisible = true }: BottomNavProps) {
               to={item.href}
               viewTransition
               className={cn(
-                "flex flex-col items-center justify-center transition-all duration-300 active:scale-95",
+                "flex flex-col items-center justify-center transition-all duration-300 active:scale-95 relative",
                 isVisible ? "flex-1 py-2 px-1 gap-1.5" : "w-11 h-11 rounded-full hover:bg-accent/40"
               )}
             >
+              {showBadge && (
+                <span className="absolute top-1 right-2 lg:right-3 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-primary px-1 text-[9px] font-bold text-white ring-2 ring-background z-10 animate-fade-in">
+                  {unreadCount > 99 ? '99+' : unreadCount}
+                </span>
+              )}
               {hasAvatar ? (
                 <div className={cn(
                   "rounded-full border overflow-hidden transition-all duration-300 bg-muted flex items-center justify-center shrink-0",

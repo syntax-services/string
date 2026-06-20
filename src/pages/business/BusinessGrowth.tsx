@@ -60,7 +60,7 @@ export default function BusinessGrowth() {
           ))}
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-1">
           <Card className="border-primary/10 bg-primary/5">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -88,31 +88,6 @@ export default function BusinessGrowth() {
                 View Ranking Score
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <MousePointer2 className="h-5 w-5 text-green-500" />
-                Market Trends
-              </CardTitle>
-              <CardDescription>General recommendations based on platform demand</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                 <div className="p-3 rounded-lg border border-dashed border-border bg-muted/20">
-                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-1">Trending Industry</p>
-                    <p className="text-sm font-semibold">Home Services & Logistics</p>
-                 </div>
-                 <div className="p-3 rounded-lg border border-dashed border-border bg-muted/20">
-                    <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-1">Top Search Query</p>
-                    <p className="text-sm font-semibold">"Same day delivery"</p>
-                 </div>
-                 <p className="text-xs text-muted-foreground">
-                   Tip: Align your product tags with these trends to capture more traffic.
-                 </p>
-              </div>
             </CardContent>
           </Card>
         </div>

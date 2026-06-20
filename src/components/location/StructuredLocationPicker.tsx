@@ -11,6 +11,7 @@ import {
   useLocationAreas,
   useLocationLandmarks,
   useLocationStreets,
+  areaCoordinates,
 } from "@/hooks/useStructuredLocations";
 
 interface StructuredLocationPickerProps {
@@ -20,6 +21,7 @@ interface StructuredLocationPickerProps {
   compact?: boolean;
 }
 
+
 export function StructuredLocationPicker({
   label = "Location",
   value = null,
@@ -28,7 +30,7 @@ export function StructuredLocationPicker({
 }: StructuredLocationPickerProps) {
   const [areaId, setAreaId] = useState(value?.area.id ?? "");
   const [streetId, setStreetId] = useState(value?.street.id ?? "");
-  const [landmarkId, setLandmarkId] = useState(value?.landmark.id ?? "");
+  const [landmarkId, setLandmarkId] = useState(value?.landmark?.id ?? "");
 
   const { data: areas = [], isLoading: loadingAreas } = useLocationAreas();
   const { data: streets = [], isLoading: loadingStreets } = useLocationStreets(areaId);
@@ -37,8 +39,8 @@ export function StructuredLocationPicker({
   useEffect(() => {
     setAreaId(value?.area.id ?? "");
     setStreetId(value?.street.id ?? "");
-    setLandmarkId(value?.landmark.id ?? "");
-  }, [value?.area.id, value?.street.id, value?.landmark.id]);
+    setLandmarkId(value?.landmark?.id ?? "");
+  }, [value?.area.id, value?.street.id, value?.landmark?.id]);
 
   const selectedArea = useMemo(
     () => areas.find((area) => area.id === areaId) ?? null,
@@ -48,9 +50,30 @@ export function StructuredLocationPicker({
     () => streets.find((street) => street.id === streetId) ?? null,
     [streets, streetId],
   );
+
+  // Generate combined landmarks (including the default street landmark)
+  const combinedLandmarks = useMemo(() => {
+    if (!selectedStreet || !selectedArea) return [];
+    
+    const areaSlug = selectedArea.slug?.toLowerCase() || "";
+    const fallback = areaCoordinates[areaSlug] || { lat: 6.9318, lng: 3.9248 };
+    
+    const defaultOpt: LocationLandmark = {
+      id: `default-${selectedStreet.id}`,
+      street_id: selectedStreet.id,
+      name: `General / Other (${selectedStreet.name})`,
+      slug: `general-${selectedStreet.slug}`,
+      latitude: fallback.lat,
+      longitude: fallback.lng,
+      kind: "street"
+    };
+
+    return [defaultOpt, ...landmarks];
+  }, [landmarks, selectedStreet, selectedArea]);
+
   const selectedLandmark = useMemo(
-    () => landmarks.find((landmark) => landmark.id === landmarkId) ?? null,
-    [landmarks, landmarkId],
+    () => combinedLandmarks.find((landmark) => landmark.id === landmarkId) ?? null,
+    [combinedLandmarks, landmarkId],
   );
 
   const emitSelection = (
@@ -58,8 +81,8 @@ export function StructuredLocationPicker({
     nextStreet: LocationStreet | null,
     nextLandmark: LocationLandmark | null,
   ) => {
-    if (nextArea && nextStreet && nextLandmark) {
-      onChange({ area: nextArea, street: nextStreet, landmark: nextLandmark });
+    if (nextArea && nextStreet) {
+      onChange({ area: nextArea, street: nextStreet, landmark: nextLandmark || null });
       return;
     }
 
@@ -70,10 +93,10 @@ export function StructuredLocationPicker({
     <div className="space-y-2">
       <div className="flex items-center justify-between gap-2">
         <Label className="text-xs font-bold uppercase text-muted-foreground">{label}</Label>
-        {selectedLandmark && (
+        {(selectedLandmark || (selectedArea && selectedStreet)) && (
           <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-primary">
             <MapPin className="h-3 w-3" />
-            {selectedLandmark.latitude.toFixed(4)}, {selectedLandmark.longitude.toFixed(4)}
+            {(selectedLandmark?.latitude ?? (areaCoordinates[selectedArea.slug?.toLowerCase() || ""]?.lat ?? 6.9318)).toFixed(4)}, {(selectedLandmark?.longitude ?? (areaCoordinates[selectedArea.slug?.toLowerCase() || ""]?.lng ?? 3.9248)).toFixed(4)}
           </span>
         )}
       </div>
@@ -107,6 +130,7 @@ export function StructuredLocationPicker({
           onValueChange={(nextStreetId) => {
             const nextStreet = streets.find((street) => street.id === nextStreetId) ?? null;
             setStreetId(nextStreetId);
+            
             setLandmarkId("");
             emitSelection(selectedArea, nextStreet, null);
           }}
@@ -125,18 +149,18 @@ export function StructuredLocationPicker({
 
         <Select
           value={landmarkId}
-          disabled={!streetId || loadingLandmarks}
+          disabled={!streetId}
           onValueChange={(nextLandmarkId) => {
-            const nextLandmark = landmarks.find((landmark) => landmark.id === nextLandmarkId) ?? null;
+            const nextLandmark = combinedLandmarks.find((landmark) => landmark.id === nextLandmarkId) ?? null;
             setLandmarkId(nextLandmarkId);
             emitSelection(selectedArea, selectedStreet, nextLandmark);
           }}
         >
           <SelectTrigger className={compact ? "h-9 rounded-xl text-xs" : "h-11 rounded-xl"}>
-            <SelectValue placeholder={loadingLandmarks ? "Loading..." : "Landmark"} />
+            <SelectValue placeholder={loadingLandmarks ? "Loading..." : "No specific landmark (Optional)"} />
           </SelectTrigger>
           <SelectContent>
-            {landmarks.map((landmark) => (
+            {combinedLandmarks.map((landmark) => (
               <SelectItem key={landmark.id} value={landmark.id}>
                 {landmark.name}
               </SelectItem>

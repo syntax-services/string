@@ -303,6 +303,9 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
       {/* Spacer for fixed header */}
       <div className="h-16" />
 
+      {/* Portal for discover page search bars */}
+      <div id="search-bar-portal" className="relative z-30" />
+
       {/* Email Verification Banner */}
       {!isEmailVerified && user && (
         <div className="bg-destructive/10 border-b border-destructive/20 px-4 py-2 flex items-center justify-between animate-in slide-in-from-top duration-300">

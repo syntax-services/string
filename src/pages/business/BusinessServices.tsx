@@ -172,7 +172,6 @@ export default function BusinessServices() {
         duration_estimate: formData.duration_estimate || null,
         is_available: formData.availability === "available",
         images: formData.images,
-        is_orderable: formData.is_orderable || false,
       };
 
       if (editingService) {

@@ -89,8 +89,8 @@ export default function CustomerDiscover() {
           .from("public_businesses")
           .select(`
             id, company_name, logo_url, verified,
-            products(id, name, business_id, price, image_url, images, description, category, tags, is_orderable),
-            services(id, name, business_id, images, price_min, price_max, description, is_orderable)
+            products(id, name, business_id, price, image_url, images, description, category, tags),
+            services(id, name, business_id, images, price_min, price_max, description)
           `)
           .order("created_at", { ascending: false });
 

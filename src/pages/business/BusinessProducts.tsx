@@ -144,7 +144,6 @@ export default function BusinessProducts() {
         is_rare: isRare,
         tags: tags.length > 0 ? tags : null,
         in_stock: inStock,
-        is_orderable: isOrderable,
         image_url: finalImageUrl,
         business_id: business?.id,
       };

@@ -562,7 +562,7 @@ export default function CustomerMessages() {
           <div
             className={cn(
               "flex-1 flex flex-col bg-background",
-              selectedConversation && "fixed inset-0 z-[80]",
+              selectedConversation && "fixed top-0 left-0 right-0 h-[100dvh] z-[80]",
               !selectedConversation && "hidden lg:flex"
             )}
           >

@@ -89,7 +89,7 @@ export default function CustomerDiscover() {
           .from("public_businesses")
           .select(`
             id, company_name, logo_url, verified,
-            products(id, name, business_id, price, image_url, images, description, category, tags),
+            products(id, name, business_id, price, image_url, images, description, category, tags, is_orderable),
             services(id, name, business_id, images, price_min, price_max, description, is_orderable)
           `)
           .order("created_at", { ascending: false });
@@ -146,7 +146,8 @@ export default function CustomerDiscover() {
                   tags: prod.tags || null,
                   business: businessObj,
                   isService: false,
-                  aspectRatio: Math.random() > 0.5 ? "aspect-[3/4]" : "aspect-square"
+                  aspectRatio: Math.random() > 0.5 ? "aspect-[3/4]" : "aspect-square",
+                  isOrderable: prod.is_orderable ?? true
                 });
               });
             }
@@ -279,10 +280,8 @@ export default function CustomerDiscover() {
   return (
     <DashboardLayout>
       <div className="min-h-screen bg-background pb-20 px-4 md:px-6 animate-fade-in max-w-7xl mx-auto">
-        
-        {/* Fixed Search / Filter Bar via Portal */}
-        {createPortal(
-          <div className={cn("fixed left-0 right-0 z-30 transition-all duration-300 border-b border-border/10 bg-background/95 backdrop-blur-xl", isScrolled ? "top-[3.25rem]" : "top-16")}>
+                {/* Sticky Search / Filter Bar */}
+          <div className={cn("sticky z-40 transition-all duration-300 border-b border-border/10 bg-background/95 backdrop-blur-xl", isScrolled ? "top-[3.25rem]" : "top-16")} style={{ margin: '0 -1rem' }}>
             <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 md:px-6">
               <div className="relative w-full max-w-[360px]">
                 <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground/60" />
@@ -333,10 +332,8 @@ export default function CustomerDiscover() {
                 </select>
               </div>
             </div>
-          </div>,
-          document.getElementById("search-bar-portal") || document.body
-        )}
-        <div className="h-24" />
+          </div>
+          <div className="h-4" />
 
         {/* Masonry Feed */}
         {loading ? (
@@ -404,7 +401,7 @@ export default function CustomerDiscover() {
                       </p>
                     </div>
                     {/* Add to Cart Premium String Button */}
-                    {(!item.isService || item.isOrderable) && (
+                    {item.isOrderable && (
                       <Button 
                         variant="ghost" 
                         size="icon" 
@@ -551,7 +548,7 @@ export default function CustomerDiscover() {
               </ScrollArea>
 
               <div className="p-4 border-t border-border/40 bg-card shrink-0 flex gap-3">
-                {(!selectedItem.isService || selectedItem.isOrderable) ? (
+                {selectedItem.isOrderable ? (
                   <Button 
                     className="flex-1 h-12 rounded-full font-bold text-base shadow-premium"
                     onClick={() => { handleAddToCart(selectedItem); setSelectedItem(null); }}

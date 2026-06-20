@@ -38,6 +38,7 @@ interface Product {
   is_rare: boolean;
   commission_percent: number | null;
   tags: string[] | null;
+  is_orderable?: boolean;
 }
 
 export default function BusinessProducts() {
@@ -56,6 +57,7 @@ export default function BusinessProducts() {
   const [isRare, setIsRare] = useState(false);
   const [tags, setTags] = useState<string[]>([]);
   const [inStock, setInStock] = useState(true);
+  const [isOrderable, setIsOrderable] = useState(true);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
 
@@ -80,7 +82,7 @@ export default function BusinessProducts() {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("products")
-        .select("id, name, description, price, compare_at_price, image_url, in_stock, is_rare, commission_percent, tags")
+        .select("id, name, description, price, compare_at_price, image_url, in_stock, is_rare, commission_percent, tags, is_orderable")
         .eq("business_id", business?.id)
         .order("created_at", { ascending: false });
       if (error) throw error;
@@ -98,6 +100,7 @@ export default function BusinessProducts() {
     setIsRare(false);
     setTags([]);
     setInStock(true);
+    setIsOrderable(true);
     setImageUrl(null);
     setImageFile(null);
     setEditingProduct(null);
@@ -114,6 +117,7 @@ export default function BusinessProducts() {
       setIsRare(product.is_rare || false);
       setTags(product.tags || []);
       setInStock(product.in_stock);
+      setIsOrderable(product.is_orderable ?? true);
       setImageUrl(product.image_url);
     } else {
       resetForm();
@@ -163,6 +167,7 @@ export default function BusinessProducts() {
         is_rare: isRare,
         tags: tags.length > 0 ? tags : null,
         in_stock: inStock,
+        is_orderable: isOrderable,
         image_url: finalImageUrl,
         business_id: business?.id,
       };
@@ -360,6 +365,17 @@ export default function BusinessProducts() {
                       onCheckedChange={setIsRare}
                     />
                   </div>
+                  <div className="flex items-center justify-between border rounded-lg p-3 col-span-2">
+                    <div className="space-y-0.5">
+                      <Label htmlFor="is-orderable" className="text-sm">Orderable Product</Label>
+                      <p className="text-[10px] text-muted-foreground">Allows customers to add this product to their cart.</p>
+                    </div>
+                    <Switch
+                      id="is-orderable"
+                      checked={isOrderable}
+                      onCheckedChange={setIsOrderable}
+                    />
+                  </div>
                 </div>
 
                 {/* Save Button */}
@@ -427,7 +443,7 @@ export default function BusinessProducts() {
                       </div>
                       <div className="flex items-center gap-2 mt-1">
                         <span className="font-bold text-primary">
-                         <p className="font-medium">{'\u20A6'}{product.price.toLocaleString()}</p>
+                         <p className="font-medium">{'\u20A6'}{product.price?.toLocaleString()}</p>
                         </span>
                         {product.compare_at_price && (
                           <span className="text-xs text-muted-foreground line-through">
@@ -492,14 +508,21 @@ export default function BusinessProducts() {
                         ₦{product.price.toLocaleString()}
                       </span>
                     )}
-                    <span
-                      className={`text-xs px-2 py-1 rounded-full ${product.in_stock
-                        ? "bg-foreground/10 text-foreground"
-                        : "bg-muted text-muted-foreground"
-                        }`}
-                    >
-                      {product.in_stock ? "In Stock" : "Out of Stock"}
-                    </span>
+                    <div className="flex gap-2">
+                      {!product.is_orderable && (
+                        <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground border border-border/50">
+                          Non-orderable
+                        </span>
+                      )}
+                      <span
+                        className={`text-xs px-2 py-1 rounded-full ${product.in_stock
+                          ? "bg-foreground/10 text-foreground"
+                          : "bg-muted text-muted-foreground"
+                          }`}
+                      >
+                        {product.in_stock ? "In Stock" : "Out of Stock"}
+                      </span>
+                    </div>
                   </div>
                 </CardContent>
               </Card>

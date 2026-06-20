@@ -15,6 +15,7 @@ import { Plus, Pencil, Trash2, Package, ImageIcon, Loader2 } from "lucide-react"
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
+import { useBusiness, useBusinessProducts } from "@/hooks/useBusiness";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -62,34 +63,10 @@ export default function BusinessProducts() {
   const [imageFile, setImageFile] = useState<File | null>(null);
 
   // Fetch business ID
-  const { data: business } = useQuery({
-    queryKey: ["business", user?.id],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("businesses")
-        .select("id")
-        .eq("user_id", user?.id)
-        .single();
-      if (error) throw error;
-      return data;
-    },
-    enabled: !!user?.id,
-  });
+  const { data: business } = useBusiness();
 
   // Fetch products
-  const { data: products, isLoading } = useQuery({
-    queryKey: ["products", business?.id],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("products")
-        .select("id, name, description, price, compare_at_price, image_url, in_stock, is_rare, commission_percent, tags, is_orderable")
-        .eq("business_id", business?.id)
-        .order("created_at", { ascending: false });
-      if (error) throw error;
-      return data as Product[];
-    },
-    enabled: !!business?.id,
-  });
+  const { data: products = [], isLoading } = useBusinessProducts(business?.id);
 
   const resetForm = () => {
     setName("");
@@ -184,7 +161,8 @@ export default function BusinessProducts() {
       }
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["products", business?.id] });
+      queryClient.invalidateQueries({ queryKey: ["business-products"] });
+      queryClient.invalidateQueries({ queryKey: ["products"] });
       toast.success(editingProduct ? "Product updated!" : "Product added!");
       setIsDialogOpen(false);
       resetForm();
@@ -200,7 +178,8 @@ export default function BusinessProducts() {
       if (error) throw error;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["products", business?.id] });
+      queryClient.invalidateQueries({ queryKey: ["business-products"] });
+      queryClient.invalidateQueries({ queryKey: ["products"] });
       toast.success("Product deleted");
     },
     onError: () => {

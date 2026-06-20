@@ -147,7 +147,7 @@ export default function BusinessProfile() {
     { icon: PremiumSettings, label: "Settings", href: "/business/settings" },
   ];
 
-  const avatarUrl = business?.logo_url || business?.cover_image_url;
+  const avatarUrl = business?.logo_url || business?.cover_image_url || profile?.avatar_url;
 
   return (
     <DashboardLayout>
@@ -166,7 +166,7 @@ export default function BusinessProfile() {
               ) : avatarUrl ? (
                 <img
                   src={avatarUrl}
-                  alt={business?.company_name}
+                  alt={business?.company_name || profile?.full_name || "Business Profile"}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
@@ -194,7 +194,7 @@ export default function BusinessProfile() {
  
           <div className="space-y-1">
             <h2 className="text-xl font-medium tracking-tight text-foreground flex items-center justify-center gap-1.5">
-              {business?.company_name || "Business Profile"}
+              {business?.company_name || profile?.full_name || "Business Profile"}
               <VerificationBadge 
                 tier={(business?.verification_tier as "none" | "verified" | "premium") || "none"} 
                 size="sm"

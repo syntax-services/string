@@ -31,7 +31,7 @@ export function useCustomerOrders(customerId: string | undefined) {
       
       const { data, error } = await supabase
         .from("orders")
-        .select("*, businesses(company_name, cover_image_url)")
+        .select("*, businesses(company_name, cover_image_url), runner:profiles!orders_runner_id_fkey(full_name, phone)")
         .eq("customer_id", customerId)
         .order("created_at", { ascending: false });
 

@@ -63,7 +63,7 @@ export default function TermsOfService() {
                     <section className="space-y-4">
                         <h2 className="text-2xl font-semibold text-foreground">5. Payments and Fees</h2>
                         <p>
-                            Payments are processed through our partner Paystack. String may charge service fees or commissions on transactions as disclosed at the point of sale. Where String is facilitating an escrow-style flow, payouts, releases, reversals, reviews, or holds may be delayed while we complete fraud checks, delivery confirmation, dispute review, compliance review, or other safety processes. All fees are non-refundable unless otherwise required by law.
+                            Payments are processed through our partner Squad. String may charge service fees or commissions on transactions as disclosed at the point of sale. Where String is facilitating an escrow-style flow, payouts, releases, reversals, reviews, or holds may be delayed while we complete fraud checks, delivery confirmation, dispute review, compliance review, or other safety processes. All fees are non-refundable unless otherwise required by law.
                         </p>
                     </section>
 

@@ -1,87 +1,76 @@
-# Theme Migration & Feature Implementations
+# Squad Wallet, BVN/NIN Verification, and Anti-Money Laundering (AML) Plan
 
-This document outlines the implementation plan to migrate the platform theme, enhance the offers system, build a robust referral system, restructure the authentication flow, and fix mobile navigation issues.
-
-## User Review Required
-
-> [!IMPORTANT]
-> The theme change will touch global CSS variables. The new primary color will be a modern, clean Blue (e.g., Tailwind's `blue-600` for light mode and a suitable shade for dark mode). Please confirm if you have a specific hex code for the blue color or if a standard clean marketplace blue is acceptable.
-
-> [!IMPORTANT]
-> For the **2 Levels of Verification**, I plan to implement it as follows:
-> - **Level 1**: Email Verification (already exists via Supabase Auth).
-> - **Level 2**: Profile Completion & Phone Verification (or ID Verification if required).
-> Please confirm if this matches your expectation for the 2 levels.
-
-## Proposed Changes
-
-### 1. Theme Migration (Blue Palette)
-Update global CSS tokens to shift the monochrome aesthetic to a clean blue marketplace standard.
-
-#### [MODIFY] src/index.css
-- Update `--primary` and `--primary-foreground` to a clean blue.
-- Adjust `--ring` and active states to match the blue theme.
-- Ensure dark mode variables (`.dark`) map correctly to a legible dark blue palette.
+This document outlines the design and implementation steps for a multi-sided compliance and GTCO Squad payment system. 
 
 ---
 
-### 2. Offers System Enhancements
-The `CreateOfferPanel` already supports products, services, employment, and collaborations with images and videos. We will add the required trust and communication features.
+## 🛠️ Proposed Changes
 
-#### [NEW] supabase/migrations/[timestamp]_enhance_offers.sql
-- Add `phone_number` and `allow_calls` columns to the `offers` table.
-- Add `verification_level` to the `profiles` table to track trust scores.
+### 1. Database & Schema Enhancements
 
-#### [MODIFY] src/components/offers/CreateOfferPanel.tsx
-- Add a UI check: Only allow users with Verification Level 2 to create offers.
-- Add an "Allow Calls" toggle and a phone number input field to the form.
-- Pass these new fields to the `createOffer` mutation.
-
----
-
-### 3. Referral System
-Implement a comprehensive referral points system with backend validation and admin analytics.
-
-#### [NEW] supabase/migrations/[timestamp]_referral_system.sql
-- Create `referral_codes` table (maps `user_id` to a unique `code`).
-- Create `referrals` table (`referrer_id`, `referred_id`, `points_awarded`, `status`).
-- Create `user_points` table to track total points.
-- Create an RPC function `process_referral` to securely award points when a referred user signs up or completes onboarding.
-
-#### [MODIFY] src/pages/admin/AdminDashboard.tsx
-- Update the statistics query to fetch total referrals and points distributed.
-- Add a new "Referrals" card to the dashboard overview.
+We will create a new database migration file `supabase/migrations/20260701010000_squad_aml_verification.sql` to add:
+*   **Verification Level**: Add `verification_level` (1 = email verified, 2 = NIN/BVN verified) to the `profiles` table.
+*   **Verification Data**: Add encrypted `nin_hash` and `bvn_hash` columns (using cryptographically secure hashing) to `profiles` to preserve user privacy.
+*   **Squad Account Data**: Add `squad_subaccount_id` and `squad_virtual_account` fields to `profiles` for GTCO Squad sub-account mappings.
+*   **Wallet Balances**: Add `wallet_balance` NUMERIC(12,2) to `profiles` representing deposit balances.
+*   **AML Engine Columns**: Add columns to track transaction velocities:
+    *   `total_funded` NUMERIC(12,2)
+    *   `total_spent` NUMERIC(12,2)
+    *   `last_withdrawn_at` TIMESTAMPTZ
+    *   `aml_flagged` BOOLEAN DEFAULT false
+*   **Updated RPCs**: Redefine `get_customer_conversations` and `get_business_conversations` to return the verification statuses (`verified` for businesses, and `verification_level` for customers).
 
 ---
 
-### 4. Auth & Onboarding Restructuring
-Make the Signup and Login pages distinct to prevent user confusion, moving basic fields from Onboarding to the initial Auth step.
+### 2. NIN/BVN Verification UI & Blocks
 
-#### [MODIFY] src/pages/Auth.tsx
-- Expand the Signup form to include `Full Name` and `Phone Number` inputs.
-- Pass these fields securely to Supabase during the `signUp` call (using `user_metadata`).
-
-#### [MODIFY] src/pages/Onboarding.tsx
-- Remove "Step 1: Basic Info" (Full Name and Phone) from the onboarding flow.
-- The onboarding will now immediately start at selecting the "User Type" (Customer vs. Business).
+*   **Shopper Profile Verification Panel**:
+    *   Add a **"Verify Account (NIN/BVN)"** form in [CustomerProfile.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/customer/CustomerProfile.tsx) and [CustomerSettings.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/customer/CustomerSettings.tsx).
+    *   When a user inputs a valid 11-digit NIN or 11-digit BVN, it mocks/validates with the verification API, updates their profile status to `verification_level = 2`, and awards them a verified checkmark.
+*   **Checkout Verification Blocks**:
+    *   Add validation check in [Checkout.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/customer/Checkout.tsx): Before placing a `"delivery"` order, the customer must have completed NIN/BVN verification (`verification_level >= 2`). Toggles an alert banner redirecting them to their profile to verify if unverified.
+*   **Unverified User Badges**:
+    *   **Customer Chat List**: In [CustomerMessages.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/customer/CustomerMessages.tsx), if the merchant is not verified (`selectedConversation.verified === false`), render an `"Unverified Business"` red badge next to their header and sidebar list items.
+    *   **Merchant Chat List**: In [BusinessMessages.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/business/BusinessMessages.tsx), if the customer has `verification_level < 2`, display an `"Unverified Customer"` gray badge.
 
 ---
 
-### 5. Mobile Navigation Fix
-Prevent UI glitches on mobile devices by removing the "Sign in" button and only showing "Get Started".
+### 3. Squad (HabariPay) Payment Sub-accounts & Payouts
 
-#### [MODIFY] src/pages/Landing.tsx
-- Add responsive Tailwind classes (`hidden md:inline-flex`) to the "Sign in" button in the top navigation header.
-- Ensure the "Get Started" button remains visible and perfectly aligned on small screens.
+We will transition the backend gateway from Paystack to GTCO Squad:
+*   **Squad Sub-account Creation**:
+    *   When a new profile is fetched in `AuthContext.tsx` or a user signs up, if they do not have a `squad_subaccount_id`, create a sub-account by calling the Squad Subaccount API.
+*   **Squad Deposit & Withdrawal Integration**:
+    *   **Initialize Payment**: Rewrite [initialize-payment](file:///C:/Users/Administrator/Documents/string/supabase/functions/initialize-payment/index.ts) to hit Squad's Initiate Transaction endpoint: `https://api-d.squadco.com/transaction/initiate`.
+    *   **Withdraw Payouts**: Rewrite [paystack-payout](file:///C:/Users/Administrator/Documents/string/supabase/functions/paystack-payout/index.ts) to rename/use Squad's transfer and payout endpoints.
+    *   **Squad Webhook Handler**: Create [squad-webhook](file:///C:/Users/Administrator/Documents/string/supabase/functions/squad-webhook/index.ts) (which verifies Squad's webhook payload using HMAC SHA-512 signature `x-squad-signature`), promoting paid orders and adding funded amounts to user balances.
 
-## Verification Plan
+---
 
-### Automated Tests
-- Run `npm run build` to ensure no TypeScript or Vite build errors occur after refactoring Auth and Onboarding interfaces.
+### 4. Smart Anti-Money Laundering (AML) System
 
-### Manual Verification
-1. **Theme Check**: Toggle between light and dark modes to ensure the blue theme looks clean and accessible on all components.
-2. **Auth Flow**: Sign up a new user, verifying that Name and Phone are captured upfront, and Onboarding skips Step 1.
-3. **Referrals**: Generate a referral code, sign up a secondary account with it, and verify points are awarded in the Supabase DB and visible in the Admin Dashboard.
-4. **Offers**: Attempt to create an offer. Verify the "Allow Calls" option works and the 2-level verification check is enforced.
-5. **Mobile View**: Inspect the Landing page on a simulated mobile device to ensure the "Sign in" button is hidden and the logo no longer glitches.
+To prevent illicit funds wash trading, the system will apply strict transaction monitoring:
+*   **Deposit-to-Spent Ratio (70% Rule)**:
+    *   Runners/shoppers requesting payouts must have purchased items (represented by `total_spent`) worth at least **70%** of their total funded balance (`total_funded`).
+    *   If a user funds their account and immediately requests a cash-out without matching order invoices, the transaction is blocked and the profile gets flagged as `aml_flagged = true`.
+*   **High Value Limit Limits**:
+    *   Single transactions above ₦50,000 are rejected if the user is unverified (`verification_level < 2`).
+*   **Cooling Period**:
+    *   A mandatory 24-hour lockup is enforced between account funding and withdrawal requests.
+
+---
+
+## 🧪 Verification Plan
+
+### Automated Checks
+*   Run the TypeScript compiler to ensure type-safety:
+    ```bash
+    npx tsc --noEmit
+    ```
+
+### Manual Checkout Verification
+1.  **Checkout Block**: Try placing a delivery order as an unverified shopper. Confirm checkout displays the block warning.
+2.  **Verify NIN/BVN**: Submit an identity document. Verify the profile upgrades to Level 2.
+3.  **Checkout Success**: Try checkout again. Verify it succeeds.
+4.  **AML Velocity Flag**: Try funding ₦10,000 and immediately requesting a cash-out. Confirm the AML block flags the transaction.
+5.  **Messages Badges**: Verify unverified badges render correctly in chat conversations.

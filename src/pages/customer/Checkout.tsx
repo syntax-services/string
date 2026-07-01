@@ -170,6 +170,16 @@ export default function Checkout() {
   }
 
   const handlePayment = async () => {
+    if (deliveryType === "standard" && (!profile?.verification_level || profile.verification_level < 2)) {
+      toast({
+        variant: "destructive",
+        title: "Identity Verification Required",
+        description: "Please verify your NIN or BVN in your profile before requesting delivery.",
+      });
+      navigate("/customer/profile");
+      return;
+    }
+
     if (deliveryType === "standard" && !deliveryLocation) {
       toast({ variant: "destructive", title: "Choose your delivery landmark" });
       return;
@@ -352,6 +362,18 @@ export default function Checkout() {
 
             {deliveryType === "standard" && (
               <div className="space-y-4 animate-in fade-in slide-in-from-top-4 duration-300">
+                {(!profile?.verification_level || profile.verification_level < 2) && (
+                  <div className="bg-destructive/10 border border-destructive/20 rounded-2xl p-4 text-destructive space-y-2">
+                    <p className="text-xs font-bold uppercase tracking-wider">Identity Verification Required</p>
+                    <p className="text-[11px] text-muted-foreground leading-tight">
+                      You must complete Level 2 identity verification (NIN/BVN) in your profile page before you can place orders for delivery.
+                    </p>
+                    <Button size="sm" variant="destructive" onClick={() => navigate("/customer/profile")} className="w-full font-bold text-xs h-8 rounded-xl">
+                      Go to Profile to Verify
+                    </Button>
+                  </div>
+                )}
+
                 <h2 className="text-lg font-bold tracking-tight text-foreground">Delivery Address</h2>
                 <div className="space-y-4">
                   <StructuredLocationPicker

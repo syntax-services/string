@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
-  requiredUserType?: "customer" | "business" | "admin";
+  requiredUserType?: "customer" | "business" | "admin" | "runner";
   allowAdminBootstrap?: boolean;
 }
 

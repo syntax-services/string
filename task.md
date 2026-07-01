@@ -1,23 +1,15 @@
-# Checklist - Discover, Messaging, IDIC Toggle, and Location Verification
+# Checklist - Squad, Verification, and AML
 
-- `[x]` 1. Create SQL Migration (`supabase/migrations/20260618020000_chat_attachments_bucket.sql`)
-- `[x]` 2. Discover Page Search & Follow Fixes
-  - `[x]` Update `CustomerDiscover.tsx` search layout and optimistic follow state updates.
-  - `[x]` Update `BusinessDiscover.tsx` search layout and optimistic follow state updates.
-- `[x]` 3. Stacked Store Showcase
-  - `[x]` Update `BusinessPublicProfile.tsx` to render products and services concurrently.
-  - `[x]` Add View on Google Maps button.
-- `[x]` 4. IDIC Dashboard Global Switch
-  - `[x]` Update `StringAdmin.tsx` with toggle control in system settings.
-  - `[x]` Update `CustomerProfile.tsx` to conditionally hide registration card.
-  - `[x]` Update `IDICDashboard.tsx` to block and redirect if disabled.
-- `[x]` 5. Messaging & Voice Note Storage
-  - `[x]` Update `CustomerMessages.tsx` with image upload, audio storage, scroll fix, and business logos.
-  - `[x]` Update `BusinessMessages.tsx` with image upload, audio storage, scroll fix, and customer avatars.
-- `[x]` 6. OOU Location Picker & Verification
-  - `[x]` Update `Checkout.tsx` with zone picker and dynamic delivery fee calculation.
-  - `[x]` Update `BusinessOverview.tsx` to enforce verification with banner.
-  - `[x]` Update `BusinessSettings.tsx` with OOU presets and reset verification on save.
-  - `[x]` Update `StringAdmin.tsx` verification card with company name and Google Maps link.
-- `[x]` 7. Verification & Build
-  - `[x]` Run Vite compilation check (TypeScript verified via `tsc --noEmit`).
+- `[x]` 1. Create SQL Migration (`supabase/migrations/20260701010000_squad_aml_verification.sql`)
+- `[x]` 2. NIN/BVN Verification Panels
+  - `[x]` Add verification form to `CustomerProfile.tsx` and `CustomerSettings.tsx`.
+- `[x]` 3. Verification Blocks & Badges
+  - `[x]` Enforce Level 2 block for delivery orders in `Checkout.tsx`.
+  - `[x]` Display "Unverified User" badges in `CustomerMessages.tsx` and `BusinessMessages.tsx`.
+- `[x]` 4. Squad Payment Gateway
+  - `[x]` Rewrite `initialize-payment` edge function for Squad.
+  - `[x]` Create `squad-webhook` edge function.
+- `[x]` 5. Anti-Money Laundering (AML) Controls
+  - `[x]` Add deposit-to-spent checks and limit velocity block controls in withdrawal code.
+- `[x]` 6. Verification & Compilation
+  - `[x]` Run TypeScript type-safety check (Successful, 0 errors).

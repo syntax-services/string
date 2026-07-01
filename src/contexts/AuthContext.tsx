@@ -3,9 +3,10 @@ import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 import { applyPalette } from '@/lib/theme';
 import { toast } from 'sonner';
+import { useQueryClient } from '@tanstack/react-query';
 
 type AccountType = 'customer' | 'business';
-type ResolvedUserType = AccountType | 'admin';
+type ResolvedUserType = AccountType | 'admin' | 'runner';
 
 interface Profile {
   id: string;
@@ -25,6 +26,9 @@ interface Profile {
   banned?: boolean;
   idic_department?: string | null;
   idic_code?: string | null;
+  is_runner?: boolean;
+  runner_active?: boolean;
+  runner_balance?: number;
   created_at: string;
   updated_at: string;
 }
@@ -44,7 +48,7 @@ interface AuthContextType {
   refreshProfile: () => Promise<void>;
   isEmailVerified: boolean;
   hasBothRoles: boolean;
-  switchRole: (role: 'customer' | 'business') => Promise<void>;
+  switchRole: (role: 'customer' | 'business' | 'runner') => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -58,6 +62,7 @@ export const useAuth = () => {
 };
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const queryClient = useQueryClient();
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -92,6 +97,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     if (nextResolvedUserType === 'admin') {
       return '/admin';
+    }
+
+    if (nextResolvedUserType === 'runner') {
+      return '/runner';
     }
 
     return nextResolvedUserType === 'business' ? '/business' : '/customer';
@@ -219,7 +228,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       accountType: chosenAccountType,
       resolvedUserType: nextIsAdmin && activeAdminMode
         ? 'admin'
-        : chosenAccountType,
+        : (activeRoleView === 'runner' && rawProfile?.is_runner ? 'runner' : chosenAccountType),
       isAdmin: nextIsAdmin,
       hasBothRoles: hasBoth,
     };
@@ -232,6 +241,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const nextState = await fetchResolvedAuthState(user.id);
     applyResolvedState(nextState);
+    queryClient.invalidateQueries({ queryKey: ["business"] });
   };
 
   useEffect(() => {
@@ -427,26 +437,30 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     });
   };
 
-  const switchRole = async (targetRole: 'customer' | 'business') => {
+  const switchRole = async (targetRole: 'customer' | 'business' | 'runner') => {
     localStorage.setItem("string_active_role_view", targetRole);
     
     // Optimistic UI updates
-    setAccountType(targetRole);
-    setResolvedUserType(targetRole);
-    if (profile) {
-      setProfile({ ...profile, user_type: targetRole });
-    }
+    if (targetRole === 'runner') {
+      setResolvedUserType('runner');
+    } else {
+      setAccountType(targetRole);
+      setResolvedUserType(targetRole);
+      if (profile) {
+        setProfile({ ...profile, user_type: targetRole });
+      }
 
-    if (user) {
-      try {
-        const { error } = await supabase
-          .from('profiles')
-          .update({ user_type: targetRole })
-          .eq('user_id', user.id);
-        if (error) throw error;
-      } catch (err: any) {
-        console.error("Failed to update profile user_type in database:", err);
-        toast.error(`Database sync issue: ${err.message || err.toString()}`);
+      if (user) {
+        try {
+          const { error } = await supabase
+            .from('profiles')
+            .update({ user_type: targetRole })
+            .eq('user_id', user.id);
+          if (error) throw error;
+        } catch (err: any) {
+          console.error("Failed to update profile user_type in database:", err);
+          toast.error(`Database sync issue: ${err.message || err.toString()}`);
+        }
       }
     }
     await refreshProfile();

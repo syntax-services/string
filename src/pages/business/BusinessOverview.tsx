@@ -19,15 +19,6 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { formatDistanceToNow } from "date-fns";
-import { 
-  AreaChart, 
-  Area, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  ResponsiveContainer 
-} from "recharts";
 
 export default function BusinessOverview() {
   const { profile } = useAuth();
@@ -256,130 +247,15 @@ export default function BusinessOverview() {
           )}
         </div>
 
-        {/* Primary Dashboard Core: Charts & Reputation Progress */}
-        <div className="grid gap-4 lg:grid-cols-3">
-          
-          {/* sleek Glassmorphic Chart */}
-          <div className="lg:col-span-2 dashboard-card flex flex-col justify-between h-[300px]">
-            <div>
-              <h3 className="font-bold text-sm uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                <TrendingUp className="h-4 w-4 text-primary" />
-                Revenue Trend (Last 7 Days)
-              </h3>
-              <p className="text-xs text-muted-foreground mt-0.5">Net dynamic earnings from completed services & product deliveries</p>
-            </div>
-            
-            <div className="h-48 mt-4 w-full">
-              {isLoading ? (
-                <Skeleton className="h-full w-full rounded-2xl" />
-              ) : revenueData.some(d => d.revenue > 0) ? (
-                <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={revenueData}>
-                    <defs>
-                      <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.25}/>
-                        <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
-                      </linearGradient>
-                    </defs>
-                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border)/0.2)" vertical={false} />
-                    <XAxis 
-                      dataKey="day" 
-                      stroke="hsl(var(--muted-foreground))" 
-                      fontSize={10} 
-                      tickLine={false} 
-                      axisLine={false} 
-                    />
-                    <YAxis 
-                      stroke="hsl(var(--muted-foreground))" 
-                      fontSize={10} 
-                      tickLine={false} 
-                      axisLine={false}
-                      tickFormatter={(v) => `₦${(v / 1000).toFixed(0)}k`}
-                    />
-                    <Tooltip 
-                      formatter={(v: number) => [`₦${v.toLocaleString()}`, "Net Revenue"]}
-                      contentStyle={{
-                        backgroundColor: "hsl(var(--card))",
-                        border: "1px solid hsl(var(--border)/0.6)",
-                        borderRadius: "1rem",
-                        boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
-                      }}
-                    />
-                    <Area 
-                      type="monotone" 
-                      dataKey="revenue" 
-                      stroke="hsl(var(--primary))" 
-                      strokeWidth={2}
-                      fillOpacity={1} 
-                      fill="url(#revenueGradient)" 
-                    />
-                  </AreaChart>
-                </ResponsiveContainer>
-              ) : (
-                <div className="h-full flex flex-col items-center justify-center text-muted-foreground border border-dashed border-border/40 rounded-2xl bg-muted/5 p-4">
-                  <TrendingUp className="h-8 w-8 text-muted-foreground/40 mb-1" />
-                  <span className="text-xs font-semibold">No recorded sales this week</span>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Gamified Growth progress */}
-          <div className="dashboard-card flex flex-col justify-between h-[300px]">
-            <div>
-              <h3 className="font-bold text-sm uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                <Award className="h-4 w-4 text-primary" />
-                Growth & Reputation
-              </h3>
-              <p className="text-xs text-muted-foreground mt-0.5">Scale your profile ranking weight</p>
-            </div>
-
-            <div className="space-y-4 my-2">
-              <div className="rounded-2xl bg-muted/40 border border-border/20 p-3">
-                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Current Badge</p>
-                <p className="font-bold text-foreground text-sm mt-0.5">{repTier}</p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  {reputationScore >= 4.5 
-                    ? "Maximum search priority active! You are an elite platform partner." 
-                    : "Complete more deliveries and secure high ratings to scale matching weight."}
-                </p>
-              </div>
-
-              {/* Progress bar */}
-              <div className="space-y-1">
-                <div className="flex justify-between text-xs font-semibold">
-                  <span className="text-muted-foreground">Order Target ({completedTotal}/{nextTarget})</span>
-                  <span className="text-primary">{Math.round(progressPercent)}%</span>
-                </div>
-                <div className="h-2 w-full bg-muted rounded-full overflow-hidden border border-border/10">
-                  <div 
-                    className="h-full bg-primary rounded-full transition-all duration-500" 
-                    style={{ width: `${progressPercent}%` }}
-                  />
-                </div>
-              </div>
-            </div>
-
-            <button 
-              onClick={() => {
-                if (!business?.location_verified) {
-                  navigate("/business/verify");
-                } else if (business?.verification_tier !== "premium") {
-                  navigate("/business/boost");
-                } else {
-                  navigate("/business/settings");
-                }
-              }}
-              className="w-full text-center py-2 bg-primary/10 hover:bg-primary/15 text-primary rounded-xl font-bold text-xs transition-all duration-300"
-            >
-              {!business?.location_verified 
-                ? "Get Verified (Free)" 
-                : business?.verification_tier !== "premium" 
-                  ? "Boost Visibility (Premium)" 
-                  : "Configure Settings"}
-            </button>
-          </div>
-
+        {/* View Detailed Analytics Button */}
+        <div className="flex justify-center py-2">
+          <Button 
+            onClick={() => navigate("/business/analytics")}
+            className="w-full sm:w-auto px-8 py-6 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-md shadow-primary/20 transition-all duration-300 active:scale-95 flex items-center justify-center gap-2"
+          >
+            <TrendingUp className="h-5 w-5" />
+            View Detailed Analytics
+          </Button>
         </div>
 
         {/* Bottom Grid: Live Activity Stream & Actions/Info */}

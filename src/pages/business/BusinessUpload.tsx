@@ -2,6 +2,7 @@ import { useState } from "react";
 import { optimizeImage } from "@/lib/imageOptimizer";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { useBusiness } from "@/hooks/useBusiness";
+import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -37,6 +38,7 @@ const serviceCategories = [
 ];
 
 export default function BusinessUpload() {
+  const { user } = useAuth();
   const { data: business } = useBusiness();
   const queryClient = useQueryClient();
   const [activeTab, setActiveTab] = useState("product");
@@ -66,11 +68,12 @@ export default function BusinessUpload() {
   const [locationInput, setLocationInput] = useState("");
 
   const uploadImage = async (file: File, bucket: string = "product-images"): Promise<string | null> => {
-    if (!business?.id) return null;
+    const rootFolder = bucket === "service-images" ? user?.id : business?.id;
+    if (!rootFolder) return null;
     const optimizedFile = await optimizeImage(file);
     const fileExt = optimizedFile.name.split(".").pop();
     const folderPath = bucket === "service-images" ? "services/" : "";
-    const fileName = `${business.id}/${folderPath}${Date.now()}.${fileExt}`;
+    const fileName = `${rootFolder}/${folderPath}${Date.now()}.${fileExt}`;
 
     const { error: uploadError } = await supabase.storage
       .from(bucket)
@@ -100,7 +103,17 @@ export default function BusinessUpload() {
 
   const handleServiceImagesChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
-    if (!files || !business?.id) return;
+    if (!files) return;
+
+    if (!user?.id) {
+      toast.error("User session not found. Please log in again.");
+      return;
+    }
+
+    if (!business?.id) {
+      toast.error("Business profile not found. Please set up your business settings.");
+      return;
+    }
 
     setUploading(true);
     const newUrls: string[] = [];
@@ -142,7 +155,10 @@ export default function BusinessUpload() {
 
   const handleProductSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!business?.id) return;
+    if (!business?.id) {
+      toast.error("Business profile not found. Please complete business onboarding first.");
+      return;
+    }
 
     // Content filter check
     if (!isContentSafe(productName) || !isContentSafe(productDescription)) {
@@ -183,7 +199,10 @@ export default function BusinessUpload() {
 
   const handleServiceSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!business?.id) return;
+    if (!business?.id) {
+      toast.error("Business profile not found. Please complete business onboarding first.");
+      return;
+    }
 
     // Content filter check
     if (!isContentSafe(serviceName) || !isContentSafe(serviceDescription)) {
@@ -202,8 +221,8 @@ export default function BusinessUpload() {
         price_min: servicePriceMin ? parseFloat(servicePriceMin) : null,
         price_max: servicePriceMax ? parseFloat(servicePriceMax) : null,
         duration_estimate: serviceDuration || null,
-        availability: serviceAvailability,
-        location_coverage: serviceLocations,
+        is_available: serviceAvailability === "available",
+        tags: serviceLocations.length > 0 ? serviceLocations : null,
         images: serviceImages,
       });
 

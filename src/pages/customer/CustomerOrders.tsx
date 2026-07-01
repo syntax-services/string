@@ -347,6 +347,40 @@ export default function CustomerOrders() {
                 </div>
               )}
 
+              {/* Courier/Runner Info */}
+              {selectedOrder.delivery_method === "delivery" && (
+                <div className="bg-muted/30 p-3 rounded-2xl border border-border/10 space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Courier/Runner Details</p>
+                    {selectedOrder.runner ? (
+                      <Badge className="bg-emerald-500/10 text-emerald-600 border-none scale-90 capitalize font-black">
+                        {selectedOrder.delivery_status || "accepted"}
+                      </Badge>
+                    ) : (
+                      <Badge variant="outline" className="scale-90 font-black">
+                        Awaiting Courier
+                      </Badge>
+                    )}
+                  </div>
+                  {selectedOrder.runner ? (
+                    <div className="text-xs space-y-1 text-foreground/80">
+                      <p>
+                        Courier: <span className="font-bold text-foreground">{selectedOrder.runner.full_name}</span>
+                      </p>
+                      {selectedOrder.runner.phone && (
+                        <p>
+                          Phone: <a href={`tel:${selectedOrder.runner.phone}`} className="font-bold text-primary underline">{selectedOrder.runner.phone}</a>
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <p className="text-[11px] text-muted-foreground">
+                      This order is posted to the Runner Gig Board. A student runner will claim it shortly.
+                    </p>
+                  )}
+                </div>
+              )}
+
               <div>
                 <p className="text-sm text-muted-foreground mb-2">Items</p>
                 <div className="space-y-2">

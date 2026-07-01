@@ -26,7 +26,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: "How do I secure transactions on String?",
-    answer: "All listings and hiring agreements utilize Paystack escrow and payment integrations. Settlements are safely secured until service verification completes or goods are confirmed delivered.",
+    answer: "All listings and hiring agreements utilize Squad escrow and payment integrations. Settlements are safely secured until service verification completes or goods are confirmed delivered.",
   },
   {
     question: "How do I upgrade to a Premium business tier?",

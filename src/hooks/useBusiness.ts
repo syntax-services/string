@@ -35,7 +35,7 @@ export function useBusinessOrders(businessId: string | undefined) {
       
       const { data, error } = await supabase
         .from("orders")
-        .select("*")
+        .select("*, runner:profiles!orders_runner_id_fkey(full_name, phone)")
         .eq("business_id", businessId)
         .neq("status", "draft") // Exclude unpaid draft orders
         .order("created_at", { ascending: false });

@@ -25,8 +25,8 @@ export function useUnreadCount() {
             const { data: convs } = await supabase.rpc("get_business_conversations", {
               p_business_id: businessData.id,
             });
-            if (isMounted && convs) {
-              const totalUnread = (convs as any[]).reduce((sum, c) => sum + (c.unread_count || 0), 0);
+            if (isMounted && Array.isArray(convs)) {
+              const totalUnread = convs.reduce((sum, c) => sum + (c.unread_count || 0), 0);
               setUnreadCount(totalUnread);
             }
           }
@@ -42,8 +42,8 @@ export function useUnreadCount() {
             const { data: convs } = await supabase.rpc("get_customer_conversations", {
               p_customer_id: customerData.id,
             });
-            if (isMounted && convs) {
-              const totalUnread = (convs as any[]).reduce((sum, c) => sum + (c.unread_count || 0), 0);
+            if (isMounted && Array.isArray(convs)) {
+              const totalUnread = convs.reduce((sum, c) => sum + (c.unread_count || 0), 0);
               setUnreadCount(totalUnread);
             }
           }

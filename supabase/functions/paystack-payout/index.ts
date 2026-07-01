@@ -12,9 +12,9 @@ serve(async (req) => {
   }
 
   try {
-    const PAYSTACK_SECRET_KEY = Deno.env.get("PAYSTACK_SECRET_KEY");
-    if (!PAYSTACK_SECRET_KEY) {
-      throw new Error("PAYSTACK_SECRET_KEY is not configured in the environment variables");
+    const SQUAD_SECRET_KEY = Deno.env.get("SQUAD_SECRET_KEY") || Deno.env.get("PAYSTACK_SECRET_KEY");
+    if (!SQUAD_SECRET_KEY) {
+      throw new Error("SQUAD_SECRET_KEY is not configured in the environment variables");
     }
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
@@ -50,7 +50,7 @@ serve(async (req) => {
       throw new Error("Withdrawal request not found");
     }
 
-    // Security check: Must belong to requesting user or be processed by admin
+    // Security check
     if (wdRequest.user_id !== user.id) {
       const { data: adminRole } = await supabase
         .from("user_roles")
@@ -68,89 +68,153 @@ serve(async (req) => {
       throw new Error("Withdrawal request is already processed or in progress");
     }
 
-    const amountInKobo = Math.round(Number(wdRequest.amount) * 100);
-    const bankCode = wdRequest.bank_name; // Store bank code in bank_name field for Paystack API compatibility
+    // Fetch user profile for AML checks
+    const { data: profile, error: profError } = await supabase
+      .from("profiles")
+      .select("verification_level, wallet_balance, total_funded, total_spent, aml_flagged, last_withdrawn_at")
+      .eq("user_id", wdRequest.user_id)
+      .single();
+
+    if (profError || !profile) {
+      throw new Error("User profile not found for compliance validation");
+    }
+
+    // --- Smart AML (Anti-Money Laundering) Safeguards ---
+    const withdrawalAmount = Number(wdRequest.amount);
+
+    // AML Rule 1: Level 2 identity verification requirement
+    if (!profile.verification_level || profile.verification_level < 2) {
+      await supabase
+        .from("withdrawal_requests")
+        .update({
+          status: "rejected",
+          admin_notes: "AML Reject: User has not completed Level 2 Identity Verification (NIN/BVN)."
+        })
+        .eq("id", wdRequest.id);
+      throw new Error("AML Block: Level 2 Identity Verification (NIN/BVN) is required for payout withdrawals.");
+    }
+
+    // AML Rule 2: Flagged account lockout
+    if (profile.aml_flagged) {
+      await supabase
+        .from("withdrawal_requests")
+        .update({
+          status: "rejected",
+          admin_notes: "AML Reject: Account is currently flagged for suspicious activity."
+        })
+        .eq("id", wdRequest.id);
+      throw new Error("AML Block: Account is flagged for suspicious activity and transfers are suspended.");
+    }
+
+    // AML Rule 3: Single Transaction High-value cap
+    if (withdrawalAmount > 50000) {
+      await supabase
+        .from("withdrawal_requests")
+        .update({
+          status: "rejected",
+          admin_notes: "AML Reject: Single payout request exceeds maximum limit of ₦50,000."
+        })
+        .eq("id", wdRequest.id);
+      throw new Error("AML Block: Payout requests are capped at a maximum of ₦50,000 per transaction.");
+    }
+
+    // AML Rule 4: Velocity / Wash Trading Check (70% Rule)
+    // User must have spent at least 70% of total funded deposits on product/service purchases
+    const funded = Number(profile.total_funded || 0);
+    const spent = Number(profile.total_spent || 0);
+    if (funded > 0 && spent / funded < 0.70) {
+      // Flag the user profile for suspicious laundering velocity
+      await supabase
+        .from("profiles")
+        .update({ aml_flagged: true })
+        .eq("user_id", wdRequest.user_id);
+
+      await supabase
+        .from("withdrawal_requests")
+        .update({
+          status: "rejected",
+          admin_notes: `AML Reject: Suspicious deposit-to-spend ratio. Spent: ₦${spent}, Funded: ₦${funded} (Ratio: ${((spent/funded)*100).toFixed(1)}% < 70%). Account has been flagged.`
+        })
+        .eq("id", wdRequest.id);
+
+      throw new Error("AML Block: Suspicious transaction velocity. Your account has been flagged for compliance review.");
+    }
+
+    // AML Rule 5: 24-hour Payout Cooling Period
+    if (profile.last_withdrawn_at) {
+      const hoursSinceLast = (Date.now() - new Date(profile.last_withdrawn_at).getTime()) / 3600000;
+      if (hoursSinceLast < 24) {
+        await supabase
+          .from("withdrawal_requests")
+          .update({
+            status: "rejected",
+            admin_notes: "AML Reject: 24-hour cooling period violation."
+          })
+          .eq("id", wdRequest.id);
+        throw new Error("AML Block: A mandatory 24-hour cooling period is enforced between payout withdrawals.");
+      }
+    }
+
+    const amountInKobo = Math.round(withdrawalAmount * 100);
+    const bankCode = wdRequest.bank_name;
     const accountNumber = wdRequest.account_number;
     const accountName = wdRequest.account_name;
 
-    console.log(`Processing payout for request ${wdRequest.id} of ₦${wdRequest.amount} to bank code ${bankCode}, acct ${accountNumber}`);
+    console.log(`Processing Squad transfer request ${wdRequest.id} of ₦${withdrawalAmount} to bank ${bankCode}, acct ${accountNumber}`);
 
-    // Step 1: Create Transfer Recipient on Paystack
-    const recipientResponse = await fetch("https://api.paystack.co/transferrecipient", {
+    // Call Squad Transfer API
+    const squadResponse = await fetch("https://api-d.squadco.com/payout/transfer", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${PAYSTACK_SECRET_KEY}`,
+        Authorization: `Bearer ${SQUAD_SECRET_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        type: "nuban",
-        name: accountName,
-        account_number: accountNumber,
-        bank_code: bankCode,
-        currency: "NGN",
-        description: `Coupon Payout for ${wdRequest.profiles?.full_name || 'User'}`
-      })
-    });
-
-    const recipientData = await recipientResponse.json();
-    
-    if (!recipientResponse.ok || !recipientData.status || !recipientData.data) {
-      throw new Error(recipientData.message || "Failed to create transfer recipient on Paystack");
-    }
-
-    const recipientCode = recipientData.data.recipient_code;
-    console.log(`Created Paystack recipient code: ${recipientCode}`);
-
-    // Step 2: Initiate Transfer on Paystack
-    const transferResponse = await fetch("https://api.paystack.co/transfer", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${PAYSTACK_SECRET_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        source: "balance",
         amount: amountInKobo,
-        recipient: recipientCode,
-        reason: "String Coupon Withdrawal payout",
-        reference: `WD-${wdRequest.id.substring(0, 8)}`
+        bank_code: bankCode,
+        account_number: accountNumber,
+        account_name: accountName,
+        remarks: "String Wallet Cashout Withdrawal Payout",
+        transaction_reference: `WD-${wdRequest.id.substring(0, 8)}`
       })
     });
 
-    const transferData = await transferResponse.json();
+    const squadData = await squadResponse.json();
 
-    if (!transferResponse.ok || !transferData.status || !transferData.data) {
-      throw new Error(transferData.message || "Failed to initiate bank transfer on Paystack");
+    if (!squadResponse.ok || !squadData.success) {
+      throw new Error(squadData.message || "Failed to initiate transfer via Squad API");
     }
 
-    const transferCode = transferData.data.transfer_code;
-    const transferStatus = transferData.data.status; // e.g. success, open, pending, processing, failed
+    const txRef = squadData.data?.transaction_reference || `WD-${wdRequest.id.substring(0, 8)}`;
+    const txStatus = squadData.data?.status || "success";
 
-    console.log(`Paystack transfer initiated: ${transferCode}, status: ${transferStatus}`);
+    console.log(`Squad transfer success: ref=${txRef}, status=${txStatus}`);
 
-    // Step 3: Update Withdrawal Request Status in Database
-    const dbStatus = (transferStatus === "success" || transferStatus === "processing" || transferStatus === "pending")
+    // Update Withdrawal Request status in database
+    const dbStatus = (txStatus === "success" || txStatus === "processing" || txStatus === "pending")
       ? "processing"
       : "rejected";
 
-    const { error: updateError } = await supabase
+    await supabase
       .from("withdrawal_requests")
       .update({
         status: dbStatus,
-        admin_notes: `Processed via Paystack transfer. Code: ${transferCode}. Status: ${transferStatus}.`,
+        admin_notes: `Processed via Squad transfer. Ref: ${txRef}. Status: ${txStatus}.`,
         processed_at: new Date().toISOString()
       })
       .eq("id", wdRequest.id);
 
-    if (updateError) {
-      console.error("Failed to update withdrawal status in DB:", updateError);
-    }
+    // Update last withdrawn timestamp on profile
+    await supabase
+      .from("profiles")
+      .update({ last_withdrawn_at: new Date().toISOString() })
+      .eq("user_id", wdRequest.user_id);
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: "Paystack payout initiated successfully",
-        transferCode,
+        message: "Squad transfer initiated successfully",
+        transactionReference: txRef,
         status: dbStatus
       }),
       {
@@ -160,7 +224,7 @@ serve(async (req) => {
     );
 
   } catch (error: any) {
-    console.error("Paystack payout edge function error:", error);
+    console.error("Payout edge function error:", error);
     return new Response(
       JSON.stringify({ success: false, error: error.message || "Payout processing failed" }),
       {

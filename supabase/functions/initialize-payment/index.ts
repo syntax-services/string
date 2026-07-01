@@ -67,9 +67,9 @@ serve(async (req) => {
   }
 
   try {
-    const PAYSTACK_SECRET_KEY = Deno.env.get("PAYSTACK_SECRET_KEY");
-    if (!PAYSTACK_SECRET_KEY) {
-      throw new Error("PAYSTACK_SECRET_KEY is not configured");
+    const SQUAD_SECRET_KEY = Deno.env.get("SQUAD_SECRET_KEY") || Deno.env.get("PAYSTACK_SECRET_KEY");
+    if (!SQUAD_SECRET_KEY) {
+      throw new Error("SQUAD_SECRET_KEY is not configured");
     }
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
@@ -234,44 +234,60 @@ serve(async (req) => {
     }
 
     const amountInKobo = Math.round(paymentAmount * 100);
+    const transactionRef = `squad_tx_${Math.random().toString(36).substring(2)}${Date.now()}`;
 
-    const paystackResponse = await fetch("https://api.paystack.co/transaction/initialize", {
+    // Get user's profile to see if they have a squad subaccount
+    const { data: userProfile } = await supabase
+      .from("profiles")
+      .select("squad_subaccount_id")
+      .eq("user_id", user.id)
+      .maybeSingle();
+
+    const requestBody: any = {
+      email,
+      amount: amountInKobo,
+      currency: "NGN",
+      initiate_type: "inline",
+      transaction_ref: transactionRef,
+      callback_url: getCallbackUrl(req),
+      meta: {
+        order_id: resolvedOrderId,
+        job_id: jobId ?? null,
+        user_id: user.id,
+        delivery_type: normalizedDeliveryType,
+        ...safeMetadata,
+      }
+    };
+
+    if (userProfile?.squad_subaccount_id) {
+      requestBody.subaccount_id = userProfile.squad_subaccount_id;
+    }
+
+    const squadResponse = await fetch("https://api-d.squadco.com/transaction/initiate", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${PAYSTACK_SECRET_KEY}`,
+        Authorization: `Bearer ${SQUAD_SECRET_KEY}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email,
-        amount: amountInKobo,
-        currency: "NGN",
-        callback_url: getCallbackUrl(req),
-        metadata: {
-          order_id: resolvedOrderId,
-          job_id: jobId ?? null,
-          user_id: user.id,
-          delivery_type: normalizedDeliveryType,
-          ...safeMetadata,
-        },
-      }),
+      body: JSON.stringify(requestBody),
     });
 
-    const paystackData = await paystackResponse.json() as {
-      status: boolean;
+    const squadData = await squadResponse.json() as {
+      status: number;
+      success: boolean;
       message?: string;
       data?: {
-        authorization_url: string;
-        access_code: string;
-        reference: string;
+        checkout_url: string;
+        transaction_ref: string;
+        merchant_id: string;
       };
     };
 
-    if (!paystackResponse.ok || !paystackData.status || !paystackData.data) {
+    if (!squadResponse.ok || !squadData.success || !squadData.data) {
       if (createdOrderId) {
         await supabase.from("orders").delete().eq("id", createdOrderId);
       }
-
-      throw new Error(paystackData.message || "Failed to initialize payment");
+      throw new Error(squadData.message || "Failed to initialize payment with Squad");
     }
 
     const { error: txError } = await supabase.from("payment_transactions").insert({
@@ -280,11 +296,12 @@ serve(async (req) => {
       amount: paymentAmount,
       currency: "NGN",
       status: "pending",
-      paystack_reference: paystackData.data.reference,
-      paystack_access_code: paystackData.data.access_code,
+      paystack_reference: squadData.data.transaction_ref,
+      paystack_access_code: squadData.data.merchant_id,
       metadata: {
         initialized_at: new Date().toISOString(),
         delivery_type: normalizedDeliveryType,
+        payment_gateway: "squad",
       },
     });
 
@@ -292,16 +309,15 @@ serve(async (req) => {
       if (createdOrderId) {
         await supabase.from("orders").delete().eq("id", createdOrderId);
       }
-
       throw new Error("Failed to store payment transaction");
     }
 
     return new Response(
       JSON.stringify({
         success: true,
-        authorization_url: paystackData.data.authorization_url,
-        access_code: paystackData.data.access_code,
-        reference: paystackData.data.reference,
+        authorization_url: squadData.data.checkout_url,
+        access_code: squadData.data.merchant_id,
+        reference: squadData.data.transaction_ref,
         order_id: resolvedOrderId,
       }),
       {

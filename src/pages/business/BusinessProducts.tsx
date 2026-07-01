@@ -127,12 +127,19 @@ export default function BusinessProducts() {
 
   const saveMutation = useMutation({
     mutationFn: async () => {
+      if (!business?.id) {
+        throw new Error("Business profile not found. Please set up your business settings.");
+      }
+
       let finalImageUrl = imageUrl;
 
       if (imageFile) {
         setUploading(true);
-        finalImageUrl = await uploadImage(imageFile);
-        setUploading(false);
+        try {
+          finalImageUrl = await uploadImage(imageFile);
+        } finally {
+          setUploading(false);
+        }
       }
 
       const productData = {
@@ -145,7 +152,7 @@ export default function BusinessProducts() {
         tags: tags.length > 0 ? tags : null,
         in_stock: inStock,
         image_url: finalImageUrl,
-        business_id: business?.id,
+        business_id: business.id,
       };
 
       if (editingProduct) {
@@ -166,8 +173,8 @@ export default function BusinessProducts() {
       setIsDialogOpen(false);
       resetForm();
     },
-    onError: () => {
-      toast.error("Failed to save product");
+    onError: (error: Error) => {
+      toast.error(error.message || "Failed to save product");
     },
   });
 

@@ -218,13 +218,12 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header - hides on scroll down, shows on scroll up */}
       <header
         className={cn(
-          "dashboard-header fixed top-0 left-0 right-0 z-40 flex items-center justify-between transition-all duration-300 px-4 md:px-6",
+          "dashboard-header fixed top-0 left-0 right-0 z-40 flex items-center justify-between transition-all duration-300 px-4 md:px-6 border-b border-border/10 bg-background/95 backdrop-blur-xl",
           isScrolled 
-            ? "h-[3.25rem] border-b border-transparent bg-transparent shadow-none backdrop-blur-none md:border-primary/20 md:bg-background/60 md:backdrop-blur-md md:shadow-[0_2px_15px_rgba(0,0,0,0.04)]" 
-            : "h-16 border-b border-transparent bg-transparent"
+            ? "h-[3.25rem] shadow-[0_2px_15px_rgba(0,0,0,0.02)]" 
+            : "h-16"
         )}
       >
         <Link to="/" viewTransition className="flex items-center gap-2">
@@ -254,10 +253,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
           })}
         </div>
 
-        <div className={cn(
-          "flex items-center gap-2 transition-all duration-300",
-          isScrolled ? "opacity-0 pointer-events-none -translate-y-4 md:opacity-100 md:pointer-events-auto md:translate-y-0" : "opacity-100"
-        )}>
+        <div className="flex items-center gap-2">
           {isAdmin && resolvedUserType !== "admin" && (
             <button
               onClick={handleSwitchToAdmin}
@@ -304,7 +300,13 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
       <div className="h-16" />
 
       {/* Portal for discover page search bars */}
-      <div id="search-bar-portal" className="relative z-30" />
+      <div 
+        id="search-bar-portal" 
+        className={cn(
+          "sticky z-30 bg-background/95 backdrop-blur-xl transition-all duration-300 border-b border-border/10 empty:hidden",
+          isScrolled ? "top-[3.25rem]" : "top-16"
+        )} 
+      />
 
       {/* Email Verification Banner */}
       {!isEmailVerified && user && (

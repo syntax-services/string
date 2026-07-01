@@ -6,6 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Wrench, Plus, Pencil, Trash2, ImagePlus, X, Loader2 } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -79,6 +80,7 @@ const serviceCategories = [
 ];
 
 export default function BusinessServices() {
+  const { user } = useAuth();
   const { data: business } = useBusiness();
   const { data: services = [], isLoading } = useBusinessServices(business?.id);
   const queryClient = useQueryClient();
@@ -91,17 +93,17 @@ export default function BusinessServices() {
   const [locationInput, setLocationInput] = useState("");
 
   const uploadImage = async (file: File): Promise<string | null> => {
-    if (!business?.id) return null;
+    if (!user?.id) return null;
     const optimizedFile = await optimizeImage(file);
     const fileExt = optimizedFile.name.split(".").pop();
-    const fileName = `${business.id}/services/${Date.now()}.${fileExt}`;
+    const fileName = `${user.id}/services/${Date.now()}.${fileExt}`;
 
     const { error: uploadError } = await supabase.storage
       .from("service-images")
       .upload(fileName, optimizedFile);
 
     if (uploadError) {
-      toast.error("Failed to upload image");
+      toast.error(`Failed to upload image: ${uploadError.message}`);
       return null;
     }
 
@@ -111,7 +113,17 @@ export default function BusinessServices() {
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
-    if (!files || !business?.id) return;
+    if (!files) return;
+    
+    if (!user?.id) {
+      toast.error("User session not found. Please log in again.");
+      return;
+    }
+    
+    if (!business?.id) {
+      toast.error("Business profile not found. Please set up your business settings.");
+      return;
+    }
 
     setUploading(true);
     const newUrls: string[] = [];
@@ -157,7 +169,10 @@ export default function BusinessServices() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!business) return;
+    if (!business?.id) {
+      toast.error("Business profile not found. Please set up your business settings.");
+      return;
+    }
 
     setSaving(true);
     try {

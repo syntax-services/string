@@ -75,6 +75,11 @@ export default function BusinessDiscover() {
   const [selectedItem, setSelectedItem] = useState<DiscoverItem | null>(null);
   const [imageIndex, setImageIndex] = useState(0);
   const [followedBusinessIds, setFollowedBusinessIds] = useState<string[]>([]);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -274,9 +279,7 @@ export default function BusinessDiscover() {
   return (
     <DashboardLayout>
       <div className="min-h-screen bg-background pb-20 px-4 md:px-6 animate-fade-in max-w-7xl mx-auto">
-        
-        {/* Sticky Search / Filter Bar */}
-        <div className="sticky top-[3.25rem] md:top-16 z-40 border-b border-border/10 bg-background/95 backdrop-blur-xl" style={{ margin: '0 -1rem' }}>
+        {mounted && document.getElementById("search-bar-portal") && createPortal(
           <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 md:px-6">
             <div className="relative w-full max-w-[360px]">
               <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground/60" />
@@ -326,8 +329,9 @@ export default function BusinessDiscover() {
                 <option value="20kplus">Above ₦20k</option>
               </select>
             </div>
-          </div>
-        </div>
+          </div>,
+          document.getElementById("search-bar-portal")!
+        )}
         <div className="h-4" />
 
         {/* Masonry Feed */}
@@ -433,7 +437,7 @@ export default function BusinessDiscover() {
       }}>
         <DialogContent className="max-w-md w-[95vw] rounded-[32px] p-0 overflow-hidden bg-background border-border/50 gap-0">
           {selectedItem && (
-            <div className="flex flex-col max-h-[85vh]">
+            <div className="flex flex-col h-[85vh]">
               <div className="relative w-full aspect-square bg-muted shrink-0 group">
                 {selectedItem.images && selectedItem.images.length > 0 ? (
                   <>

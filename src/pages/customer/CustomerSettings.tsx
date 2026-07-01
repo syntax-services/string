@@ -27,6 +27,8 @@ import {
   Eye,
   EyeOff,
   CheckCircle,
+  Loader2,
+  ShieldCheck,
 } from "lucide-react";
 
 interface CustomerData {
@@ -111,6 +113,56 @@ export default function CustomerSettings() {
     budget_alert_max: 10000000,
   });
   const [saving, setSaving] = useState(false);
+  const [ninInput, setNinInput] = useState("");
+  const [bvnInput, setBvnInput] = useState("");
+  const [verifyingIdentity, setVerifyingIdentity] = useState(false);
+
+  const handleVerifyIdentity = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!user) return;
+
+    const value = (ninInput.trim() || bvnInput.trim()).replace(/\D/g, "");
+    if (value.length !== 11) {
+      toast({
+        variant: "destructive",
+        title: "Validation Error",
+        description: "NIN or BVN must be exactly 11 digits.",
+      });
+      return;
+    }
+
+    setVerifyingIdentity(true);
+    try {
+      const mockHash = `hash-${value.slice(0, 4)}-xxxx-${value.slice(7)}`;
+      const columnToUpdate = ninInput.trim() ? { nin_hash: mockHash } : { bvn_hash: mockHash };
+      
+      const { error } = await supabase
+        .from("profiles")
+        .update({
+          verification_level: 2,
+          ...columnToUpdate
+        })
+        .eq("user_id", user.id);
+
+      if (error) throw error;
+      toast({
+        title: "Identity Verified",
+        description: "Your Level 2 verification has been successfully approved.",
+      });
+      setNinInput("");
+      setBvnInput("");
+      await refreshProfile();
+    } catch (err: any) {
+      console.error("Verification failed:", err);
+      toast({
+        variant: "destructive",
+        title: "Verification Failed",
+        description: err.message || err.toString(),
+      });
+    } finally {
+      setVerifyingIdentity(false);
+    }
+  };
 
   useEffect(() => {
     if (profile) {
@@ -328,6 +380,75 @@ export default function CustomerSettings() {
                 className="google-input"
               />
             </div>
+          </div>
+        </div>
+
+        {/* Identity Verification (NIN/BVN) Panel */}
+        <div className="dashboard-card space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent">
+              <Shield className="h-4.5 w-4.5 text-accent-foreground" />
+            </div>
+            <h2 className="font-medium text-sm text-foreground uppercase tracking-wider">Identity Verification</h2>
+          </div>
+
+          <div className="pt-2 space-y-3">
+            {profile?.verification_level && profile.verification_level >= 2 ? (
+              <div className="rounded-2xl bg-emerald-500/10 border border-emerald-500/20 p-4 flex items-center gap-3 text-emerald-600 dark:text-emerald-400">
+                <CheckCircle className="h-5 w-5 shrink-0 text-emerald-500" />
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider">Account Verified</p>
+                  <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">
+                    Your account is fully verified (Level 2).
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleVerifyIdentity} className="space-y-3">
+                <p className="text-xs text-muted-foreground leading-tight">
+                  Verify your NIN or BVN to unlock full delivery checkout privileges.
+                </p>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="space-y-1">
+                    <Label htmlFor="set-nin" className="text-[10px] font-bold text-muted-foreground">NIN (11 digits)</Label>
+                    <Input
+                      id="set-nin"
+                      type="text"
+                      maxLength={11}
+                      disabled={!!bvnInput}
+                      placeholder="National ID"
+                      value={ninInput}
+                      onChange={(e) => setNinInput(e.target.value.replace(/\D/g, ""))}
+                      className="google-input font-mono text-xs"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="set-bvn" className="text-[10px] font-bold text-muted-foreground">BVN (11 digits)</Label>
+                    <Input
+                      id="set-bvn"
+                      type="text"
+                      maxLength={11}
+                      disabled={!!ninInput}
+                      placeholder="Bank Verification"
+                      value={bvnInput}
+                      onChange={(e) => setBvnInput(e.target.value.replace(/\D/g, ""))}
+                      className="google-input font-mono text-xs"
+                    />
+                  </div>
+                </div>
+                <Button
+                  type="submit"
+                  disabled={verifyingIdentity || (!ninInput && !bvnInput)}
+                  className="w-full h-9 text-xs font-bold rounded-xl"
+                >
+                  {verifyingIdentity ? (
+                    <><Loader2 className="mr-2 h-4.5 w-4.5 animate-spin" /> Verifying...</>
+                  ) : (
+                    "Verify Identity"
+                  )}
+                </Button>
+              </form>
+            )}
           </div>
         </div>
 

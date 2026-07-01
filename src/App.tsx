@@ -63,6 +63,7 @@ const CustomerNotifications = lazy(() => import("./pages/customer/CustomerNotifi
 const PaymentCallback = lazy(() => import("./pages/customer/PaymentCallback"));
 const Checkout = lazy(() => import("./pages/customer/Checkout"));
 const IDICDashboard = lazy(() => import("./pages/customer/IDICDashboard"));
+const RunnerDashboard = lazy(() => import("./pages/runner/RunnerDashboard"));
 
 // Business core pages (Statically imported for instant, zero-delay tab switching)
 import BusinessOverview from "./pages/business/BusinessOverview";
@@ -161,6 +162,9 @@ const App = () => (
                   <Route path="/customer/messages" element={<ProtectedRoute requiredUserType="customer"><CustomerMessages /></ProtectedRoute>} />
                   <Route path="/payment-callback" element={<ProtectedRoute><PaymentCallback /></ProtectedRoute>} />
                   <Route path="/idic" element={<ProtectedRoute><IDICDashboard /></ProtectedRoute>} />
+
+                  {/* Runner Routes */}
+                  <Route path="/runner" element={<ProtectedRoute requiredUserType="runner"><RunnerDashboard /></ProtectedRoute>} />
 
                   {/* Business Routes */}
                   <Route path="/business" element={<ProtectedRoute requiredUserType="business"><BusinessOverview /></ProtectedRoute>} />

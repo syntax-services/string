@@ -48,10 +48,61 @@
 
 ---
 
-## 🛠️ 6. Build & Compilation Verification
+## 🛠️ 6. Discover Details Modal Height Fix
 
-- Verified type-safety across the entire application using the TypeScript compiler:
+- **Flexbox Height Constraint**: Fixed a critical CSS layout bug where the item/service details dialog content collapsed to 0 height under the product/service image inside `max-h-[85vh]` because flex-grow lacked a height constraint.
+- **Restored Layout**: Changed the container to `h-[85vh]` in both [CustomerDiscover.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/customer/CustomerDiscover.tsx) and [BusinessDiscover.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/business/BusinessDiscover.tsx) to restore the full display of specifications, descriptions, and call-to-action buttons (Add to Cart / Inquire in Store).
+
+---
+
+## 🧪 7. Build, Compilation & E2E Verification
+
+- **TypeScript compilation check**: Verified type-safety across the entire application using the TypeScript compiler:
   ```bash
   npx tsc --noEmit
   ```
   The compiler successfully verified all routes, states, and files without error.
+- **Live E2E Test Suite**: Ran the comprehensive live E2E test suite:
+  ```bash
+  node scratch/live_test_suite.cjs
+  ```
+  The test successfully executed and logged shopper logins, item details modal interactions, messaging channels, merchant onboarding, catalog uploads for both products and services, and image optimization assets.
+
+---
+
+## ⚡ 8. Campus Courier/Runner Gig Delivery System
+
+- **SQL Migration**: Created `supabase/migrations/20260701000000_runner_delivery_system.sql` introducing runner role states (`is_runner`, `runner_active`, `runner_balance`), matching constraints for runner cash-out withdrawals, and atomic RPC functions:
+  - `accept_delivery_gig(p_order_id, p_runner_id)`: Atomically assigns courier to an order.
+  - `complete_delivery_gig(p_order_id, p_runner_id)`: Transitions order to delivered and credits delivery fee directly to the runner's wallet balance.
+- **Runner Dashboard Interface**: Created [RunnerDashboard.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/runner/RunnerDashboard.tsx) enabling registered runners to toggle availability, view and accept open gigs from a public board (detailing pick-up store, drop-off landmark, distance, and fee payout), track active items from pick-up to delivery, and view transaction logs with cash-out requests.
+- **Shopper Onboarding**: Integrated registration toggles and role view switch buttons inside [CustomerProfile.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/customer/CustomerProfile.tsx) to seamlessly transition active shopper profiles to runner view.
+- **Route Enforcements**: Registered protected `/runner` routes in [App.tsx](file:///C:/Users/Administrator/Documents/string/src/App.tsx) and updated [ProtectedRoute.tsx](file:///C:/Users/Administrator/Documents/string/src/components/auth/ProtectedRoute.tsx) to validate runner access.
+- **Order Tracking Synchronization**: Enhanced order tracking details in both [CustomerOrders.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/customer/CustomerOrders.tsx) and [BusinessOrders.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/business/BusinessOrders.tsx) to pull real-time courier statuses and display assigned courier names/phones.
+- **TypeScript Verification**: Verified total type-safety under the compiler checks:
+  ```bash
+  npx tsc --noEmit
+  ```
+  Compilation completed successfully with zero type errors.
+
+---
+
+## 🔒 9. Squad Payments, BVN/NIN Verification, and Compliance (AML)
+
+- **SQL Migration**: Created `supabase/migrations/20260701010000_squad_aml_verification.sql` which adds verification states (`verification_level`, `nin_hash`, `bvn_hash`), wallet parameters (`wallet_balance`, `total_funded`, `total_spent`), and compliance tracking flags (`aml_flagged`).
+- **NIN/BVN Identity Verification Panels**: Added verification inputs and submission callbacks in both [CustomerProfile.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/customer/CustomerProfile.tsx) and [CustomerSettings.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/customer/CustomerSettings.tsx) enabling Level 2 verification.
+- **Unverified Chat Badges**: Redefined `get_customer_conversations` and `get_business_conversations` RPCs to retrieve user status, adding prominent "Unverified User" badges in [CustomerMessages.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/customer/CustomerMessages.tsx) and [BusinessMessages.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/business/BusinessMessages.tsx).
+- **Checkout Enforcement Guard**: Integrated a block check in [Checkout.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/customer/Checkout.tsx) preventing checkout on delivery orders if the customer has not completed Level 2 verification.
+- **Squad Gateway & Webhooks**: Swapped Paystack initialize endpoints in [initialize-payment](file:///C:/Users/Administrator/Documents/string/supabase/functions/initialize-payment/index.ts) with GTCO Squad Initiate APIs, and created [squad-webhook](file:///C:/Users/Administrator/Documents/string/supabase/functions/squad-webhook/index.ts) to verify incoming payouts and credit customer balances.
+- **Anti-Money Laundering (AML) Safeguards**: Rewrote payout functions in [paystack-payout](file:///C:/Users/Administrator/Documents/string/supabase/functions/paystack-payout/index.ts) (mapped routing) to enforce:
+  1. NIN/BVN level checks.
+  2. Suspend withdrawals on flagged accounts.
+  3. Single payout cap (₦50,000 max).
+  4. Deposit-to-spend ratio check (70% must be spent on product orders to prevent cash wash).
+  5. Mandatory 24-hour withdrawal cooling period.
+- **TypeScript Check**: Completed compiler verification checks:
+  ```bash
+  npx tsc --noEmit
+  ```
+  Result: 0 compilation errors.
+

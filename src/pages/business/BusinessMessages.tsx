@@ -20,6 +20,7 @@ interface Conversation {
   last_message: string | null;
   last_message_at: string;
   unread_count: number;
+  verification_level?: number;
 }
 
 interface Message {
@@ -562,8 +563,13 @@ export default function BusinessMessages() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between">
-                            <span className="font-medium text-foreground truncate">
+                            <span className="font-medium text-foreground truncate flex items-center gap-1.5">
                               {conv.customer_name}
+                              {(!conv.verification_level || conv.verification_level < 2) && (
+                                <Badge variant="outline" className="text-[8px] scale-90 px-1 border-muted text-muted-foreground font-black">
+                                  Unverified
+                                </Badge>
+                              )}
                             </span>
                             {conv.unread_count > 0 && (
                               <span className="h-5 w-5 rounded-full bg-primary text-xs text-primary-foreground flex items-center justify-center">
@@ -606,8 +612,13 @@ export default function BusinessMessages() {
                     <ArrowLeft className="h-5 w-5" />
                   </Button>
                   <div className="min-w-0">
-                    <h2 className="font-semibold text-sm text-foreground truncate">
+                    <h2 className="font-semibold text-sm text-foreground truncate flex items-center gap-1.5">
                       {selectedConversation.customer_name}
+                      {(!selectedConversation.verification_level || selectedConversation.verification_level < 2) && (
+                        <Badge variant="outline" className="text-[9px] px-1 border-muted text-muted-foreground font-black">
+                          Unverified
+                        </Badge>
+                      )}
                     </h2>
                     <p className="text-[11px] text-muted-foreground">Direct message</p>
                   </div>

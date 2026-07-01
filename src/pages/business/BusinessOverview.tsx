@@ -10,19 +10,84 @@ import {
 import { 
   MessageSquare, Package, Briefcase, Star, DollarSign, 
   ArrowUpRight, Award, ShieldCheck, CheckCircle2, TrendingUp, Clock, Flame,
-  AlertTriangle
+  AlertTriangle, Loader2, Store
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { formatDistanceToNow } from "date-fns";
+import { StructuredLocationSelection, formatStructuredLocation, getLocationCoords } from "@/hooks/useStructuredLocations";
+import { StructuredLocationPicker } from "@/components/location/StructuredLocationPicker";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function BusinessOverview() {
   const { profile } = useAuth();
   const { data: business, isLoading: businessLoading } = useBusiness();
+  const queryClient = useQueryClient();
+
+  // Business registration states for onboarding fallback
+  const [setupBizName, setSetupBizName] = useState("");
+  const [setupBizType, setSetupBizType] = useState<"goods" | "services" | "both">("both");
+  const [setupBizLocation, setSetupBizLocation] = useState<StructuredLocationSelection | null>(null);
+  const [registeringBusiness, setRegisteringBusiness] = useState(false);
+
+  const handleRegisterBusiness = async () => {
+    if (!setupBizName || !setupBizLocation || !profile?.id) return;
+    setRegisteringBusiness(true);
+    try {
+      const formattedLocation = formatStructuredLocation(setupBizLocation);
+      const coords = getLocationCoords(setupBizLocation);
+      const dbLandmarkId = setupBizLocation.landmark?.id && !setupBizLocation.landmark.id.startsWith("default-")
+        ? setupBizLocation.landmark.id
+        : null;
+
+      // 1. Call the secure onboarding RPC which bypasses RLS issues
+      const { error: rpcError } = await supabase.rpc("complete_onboarding_setup", {
+        p_full_name: profile.full_name || "Merchant",
+        p_user_type: "business",
+        p_business_data: {
+          companyName: setupBizName,
+          businessType: setupBizType,
+          areaName: setupBizLocation.area.name,
+          locationAreaId: setupBizLocation.area.id,
+          locationStreetId: setupBizLocation.street.id,
+        }
+      });
+
+      if (rpcError) throw rpcError;
+
+      // 2. Update the business coordinates
+      const { error: updateError } = await supabase
+        .from("businesses")
+        .update({
+          business_location: formattedLocation,
+          area_name: setupBizLocation.area.name,
+          location_area_id: setupBizLocation.area.id,
+          location_street_id: setupBizLocation.street.id,
+          location_landmark_id: dbLandmarkId,
+          latitude: coords.lat,
+          longitude: coords.lng,
+          location_verified: true, // Auto-verify onboarding location coordinates
+        })
+        .eq("user_id", profile.id);
+
+      if (updateError) throw updateError;
+
+      toast.success(`Merchant Shop "${setupBizName}" successfully initialized! 🚀`);
+      queryClient.invalidateQueries({ queryKey: ["business"] });
+    } catch (err: any) {
+      console.error("Failed to register business:", err);
+      toast.error(`Could not register business: ${err.message || err.toString()}`);
+    } finally {
+      setRegisteringBusiness(false);
+    }
+  };
   const { data: stats, isLoading: statsLoading } = useBusinessStats(business?.id);
   const { data: orders = [], isLoading: ordersLoading } = useBusinessOrders(business?.id);
   const { data: jobs = [], isLoading: jobsLoading } = useBusinessJobs(business?.id);
@@ -129,6 +194,78 @@ export default function BusinessOverview() {
       icon: DollarSign,
     },
   ];
+
+  if (!businessLoading && !business) {
+    return (
+      <DashboardLayout>
+        <div className="max-w-xl mx-auto space-y-6 pb-24 lg:pb-8 animate-fade-in mt-6 text-left">
+          <Card className="border border-border/40 bg-background/40 backdrop-blur-xl shadow-xl p-6 sm:p-8 rounded-3xl">
+            <CardHeader className="text-center pb-4">
+              <div className="mx-auto h-12 w-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-3 animate-pulse">
+                <Store className="h-6 w-6" />
+              </div>
+              <CardTitle className="text-2xl font-bold text-foreground">Initialize Merchant Studio Node</CardTitle>
+              <CardDescription className="text-xs text-muted-foreground mt-1">
+                Provision a secondary merchant profile under this login. Switch back and forth anytime!
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-1">
+                <Label htmlFor="setup-biz-name" className="text-xs font-semibold">Business Shop Name *</Label>
+                <Input
+                  id="setup-biz-name"
+                  value={setupBizName}
+                  onChange={(e) => setSetupBizName(e.target.value)}
+                  placeholder="e.g. Campus Corner Cafe"
+                  className="rounded-xl mt-1"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <Label className="text-xs font-semibold">Business Type *</Label>
+                <Select value={setupBizType} onValueChange={(val: any) => setSetupBizType(val)}>
+                  <SelectTrigger className="rounded-xl mt-1">
+                    <SelectValue placeholder="Select business type" />
+                  </SelectTrigger>
+                  <SelectContent className="rounded-xl">
+                    <SelectItem value="goods">🏪 Goods (Food, drinks, accessories, etc.)</SelectItem>
+                    <SelectItem value="services">🛠️ Services (Styling, Tutoring, coding, etc.)</SelectItem>
+                    <SelectItem value="both">💼 Both Goods & Services</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-1">
+                <StructuredLocationPicker
+                  label="Store pickup / delivery point *"
+                  value={setupBizLocation}
+                  onChange={setSetupBizLocation}
+                  compact
+                />
+              </div>
+
+              <Button
+                onClick={handleRegisterBusiness}
+                disabled={registeringBusiness || !setupBizName || !setupBizLocation}
+                className="w-full mt-4 bg-primary hover:bg-primary/95 text-white font-bold py-3 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
+              >
+                {registeringBusiness ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Launching...
+                  </>
+                ) : (
+                  <>
+                    Launch Merchant Studio 🚀
+                  </>
+                )}
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </DashboardLayout>
+    );
+  }
 
   return (
     <DashboardLayout>

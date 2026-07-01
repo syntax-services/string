@@ -99,6 +99,7 @@ export default function BusinessUpload() {
       setProductImageFile(file);
       setProductImageUrl(URL.createObjectURL(file));
     }
+    e.target.value = ""; // Reset value to allow selecting same file again
   };
 
   const handleServiceImagesChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -127,6 +128,7 @@ export default function BusinessUpload() {
 
     setServiceImages([...serviceImages, ...newUrls].slice(0, 5));
     setUploading(false);
+    e.target.value = ""; // Reset value to allow selecting same file again
   };
 
   const resetProductForm = () => {
@@ -155,7 +157,8 @@ export default function BusinessUpload() {
 
   const handleProductSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!business?.id) {
+    const activeBusiness = business;
+    if (!activeBusiness || !activeBusiness.id) {
       toast.error("Business profile not found. Please complete business onboarding first.");
       return;
     }
@@ -168,7 +171,7 @@ export default function BusinessUpload() {
 
     setSaving(true);
     try {
-      let finalImageUrl = productImageUrl;
+      let finalImageUrl = null;
       if (productImageFile) {
         setUploading(true);
         finalImageUrl = await uploadImage(productImageFile, "product-images");
@@ -176,7 +179,7 @@ export default function BusinessUpload() {
       }
 
       const { error } = await supabase.from("products").insert({
-        business_id: business.id,
+        business_id: activeBusiness.id,
         name: productName.trim(),
         description: productDescription.trim() || null,
         price: productPrice ? parseFloat(productPrice) : null,
@@ -199,7 +202,8 @@ export default function BusinessUpload() {
 
   const handleServiceSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!business?.id) {
+    const activeBusiness = business;
+    if (!activeBusiness || !activeBusiness.id) {
       toast.error("Business profile not found. Please complete business onboarding first.");
       return;
     }
@@ -213,7 +217,7 @@ export default function BusinessUpload() {
     setSaving(true);
     try {
       const { error } = await supabase.from("services").insert({
-        business_id: business.id,
+        business_id: activeBusiness.id,
         name: serviceName.trim(),
         description: serviceDescription.trim() || null,
         category: serviceCategory || null,
@@ -293,14 +297,15 @@ export default function BusinessUpload() {
                           <span>Click to upload</span>
                         </div>
                       )}
-                      <input
-                        id="product-image"
-                        type="file"
-                        accept="image/*"
-                        onChange={handleProductImageChange}
-                        className="hidden"
-                      />
                     </div>
+                    <input
+                      id="product-image"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleProductImageChange}
+                      onClick={(e) => e.stopPropagation()}
+                      className="hidden"
+                    />
                   </div>
 
                   <div>
@@ -447,7 +452,7 @@ export default function BusinessUpload() {
 
                   <div>
                     <Label>Category</Label>
-                    <Select value={serviceCategory} onValueChange={setServiceCategory}>
+                    <Select value={serviceCategory || undefined} onValueChange={setServiceCategory}>
                       <SelectTrigger className="mt-1">
                         <SelectValue placeholder="Select category" />
                       </SelectTrigger>

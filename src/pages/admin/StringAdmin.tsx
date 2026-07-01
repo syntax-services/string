@@ -377,6 +377,89 @@ export default function StringAdmin() {
   const [messageRecipientType, setMessageRecipientType] = useState<'all' | 'businesses' | 'customers'>('all');
   const [messagePinned, setMessagePinned] = useState(false);
 
+  // Real-time message monitoring state
+  const [liveMessages, setLiveMessages] = useState<any[]>([]);
+
+  useEffect(() => {
+    // Initial fetch of last 50 messages
+    const fetchMessages = async () => {
+      const { data, error } = await supabase
+        .from("messages")
+        .select(`
+          id,
+          content,
+          sender_type,
+          created_at,
+          attachments,
+          sender_id,
+          conversations (
+            id,
+            businesses (
+              company_name
+            ),
+            customers (
+              profiles (
+                full_name
+              )
+            )
+          )
+        `)
+        .order("created_at", { ascending: false })
+        .limit(50);
+
+      if (error) {
+        console.error("Error fetching admin live messages:", error);
+      } else if (data) {
+        setLiveMessages(data);
+      }
+    };
+
+    fetchMessages();
+
+    // Subscribe to new messages
+    const channel = supabase
+      .channel("admin-messages-monitor")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "messages" },
+        async (payload) => {
+          // Re-fetch to get complete relations (joins) for the new message
+          const { data, error } = await supabase
+            .from("messages")
+            .select(`
+              id,
+              content,
+              sender_type,
+              created_at,
+              attachments,
+              sender_id,
+              conversations (
+                id,
+                businesses (
+                  company_name
+                ),
+                customers (
+                  profiles (
+                    full_name
+                  )
+                )
+              )
+            `)
+            .eq("id", payload.new.id)
+            .single();
+
+          if (!error && data) {
+            setLiveMessages((prev) => [data, ...prev].slice(0, 50));
+          }
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, []);
+
   const simulateBid = () => {
     const mockBid = {
       id: "bid-" + Math.floor(Math.random() * 1000),
@@ -3128,6 +3211,90 @@ export default function StringAdmin() {
                 </CardContent>
               </Card>
             </div>
+
+            {/* Platform User-to-User Live Chat Monitor */}
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="flex items-center gap-2">
+                      <span className="relative flex h-2.5 w-2.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                      </span>
+                      Platform Chat Monitor (Live Feed)
+                    </CardTitle>
+                    <CardDescription>
+                      Monitor real-time user-to-business communications on campus.
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ScrollArea className="h-[450px] w-full">
+                  <div className="space-y-4 pr-4">
+                    {liveMessages.length === 0 ? (
+                      <div className="text-center py-12 text-muted-foreground text-sm border border-dashed rounded-xl">
+                        No messages sent in this session yet.
+                      </div>
+                    ) : (
+                      liveMessages.map((msg: any) => {
+                        const conversation = msg.conversations;
+                        const shopperName = conversation?.customers?.profiles?.full_name || "Shopper";
+                        const storeName = conversation?.businesses?.company_name || "Merchant";
+                        const isFromStore = msg.sender_type === "business";
+
+                        return (
+                          <div
+                            key={msg.id}
+                            className="p-4 rounded-xl border border-border/40 bg-card hover:bg-muted/10 transition-colors space-y-2 text-left"
+                          >
+                            <div className="flex items-center justify-between flex-wrap gap-2 text-xs">
+                              <div className="flex items-center gap-2">
+                                <span className="font-semibold text-foreground">{shopperName}</span>
+                                <span className="text-muted-foreground">↔</span>
+                                <span className="font-semibold text-primary">{storeName}</span>
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <Badge
+                                  variant={isFromStore ? "default" : "secondary"}
+                                  className="text-[10px] font-bold"
+                                >
+                                  {isFromStore ? "From Store" : "From Customer"}
+                                </Badge>
+                                <span className="text-muted-foreground font-mono">
+                                  {formatDistanceToNow(new Date(msg.created_at), { addSuffix: true })}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="p-3 rounded-lg bg-muted/30 border border-border/20 text-sm text-foreground break-words font-medium">
+                              {msg.content}
+                            </div>
+
+                            {msg.attachments && msg.attachments.length > 0 && (
+                              <div className="flex flex-wrap gap-2 mt-2">
+                                {msg.attachments.map((attachmentUrl: string, idx: number) => (
+                                  <a
+                                    key={idx}
+                                    href={attachmentUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-xs font-semibold text-primary hover:underline flex items-center gap-1 bg-primary/5 px-2 py-1 rounded border border-primary/20"
+                                  >
+                                    📎 Attachment {idx + 1}
+                                  </a>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })
+                    )}
+                  </div>
+                </ScrollArea>
+              </CardContent>
+            </Card>
           </TabsContent>
 
           {/* Commission Tab */}

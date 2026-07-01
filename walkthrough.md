@@ -106,3 +106,12 @@
   ```
   Result: 0 compilation errors.
 
+---
+
+## 📦 10. Product & Service Upload Bug Fixes
+
+- **Database Column Schema Alignment**: Fixed a critical backend insertion crash inside [BusinessUpload.tsx](file:///C:/Users/Administrator/Documents/string/src/pages/business/BusinessUpload.tsx) where adding services attempted to send `availability` and `location_coverage` fields that did not exist in the database table schema. Mapped `availability` to `is_available` (boolean) and mapped `location_coverage` to `tags` (array of text).
+- **Public Storage Buckets Assertion**: Created migration `20260701020000_force_public_buckets.sql` to explicitly force both `product-images` and `service-images` buckets to be public, bypassing any remote conflicts or pre-existing private settings.
+- **Onboarding Access Warnings**: Added descriptive error notifications informing merchants if they attempt to upload items before their business onboarding has been completed.
+
+

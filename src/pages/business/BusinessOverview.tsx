@@ -27,7 +27,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function BusinessOverview() {
-  const { profile } = useAuth();
+  const { profile, user, refreshProfile } = useAuth();
   const { data: business, isLoading: businessLoading } = useBusiness();
   const queryClient = useQueryClient();
 
@@ -69,6 +69,8 @@ export default function BusinessOverview() {
 
       if (rpcError) throw rpcError;
 
+      if (!user?.id) throw new Error("User session not found");
+
       // 2. Update the business coordinates
       const { error: updateError } = await supabase
         .from("businesses")
@@ -82,10 +84,11 @@ export default function BusinessOverview() {
           longitude: coords.lng,
           location_verified: true, // Auto-verify onboarding location coordinates
         })
-        .eq("user_id", profile.id);
+        .eq("user_id", user.id);
 
       if (updateError) throw updateError;
 
+      await refreshProfile();
       toast.success(`Merchant Shop "${setupBizName}" successfully initialized! 🚀`);
       queryClient.invalidateQueries({ queryKey: ["business"] });
     } catch (err: any) {

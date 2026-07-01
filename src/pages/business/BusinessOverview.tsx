@@ -50,14 +50,21 @@ export default function BusinessOverview() {
       // 1. Call the secure onboarding RPC which bypasses RLS issues
       const { error: rpcError } = await supabase.rpc("complete_onboarding_setup", {
         p_full_name: profile.full_name || "Merchant",
+        p_phone: profile.phone || "",
         p_user_type: "business",
         p_business_data: {
           companyName: setupBizName,
           businessType: setupBizType,
+          streetAddress: formattedLocation,
+          businessLocation: formattedLocation,
           areaName: setupBizLocation.area.name,
+          latitude: coords.lat,
+          longitude: coords.lng,
           locationAreaId: setupBizLocation.area.id,
           locationStreetId: setupBizLocation.street.id,
-        }
+          locationLandmarkId: dbLandmarkId,
+        },
+        p_customer_data: null
       });
 
       if (rpcError) throw rpcError;

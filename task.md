@@ -23,3 +23,16 @@
   - Applied migration `20260908150000_tiktok_merchant_social_commerce.sql` to database.
   - Linked TikTok sandbox account `Syntax` (`-000r24VtS3F9HHv7AqcnM8OYPI7-ryiFrdp`).
   - Extracted verified `access_token` and `refresh_token` and saved directly into `tech prologue/.env`.
+
+## Active Task: String Expo Go Mobile Application
+- [x] **Architecture & Project Scaffolding**: Setup `mobile/` with Expo SDK 52, TypeScript, React Navigation v7, Reanimated, and Lucide icons.
+- [x] **Encrypted Key-Broker Security Layer**: Created `supabase/functions/mobile-key-broker` (deployed) and `mobile/src/lib/security/keyVault.ts` (XOR split-entropy obfuscation) preventing raw credential leakage.
+- [x] **Pinterest-Style Bottom Navigation Dock**: Built floating capsule tab bar with bold tactile icons (`strokeWidth: 2.8`), haptics, and customer/business dynamic switching.
+- [x] **Logo-Free Functional Top Bar**: Implemented `AppHeader.tsx` with campus location selector, cart trigger, and clean navigation.
+- [x] **Auth & Onboarding Suite**: Welcome screen, Student/Merchant login, registration, password reset, and campus onboarding (`screens/auth/*`).
+- [x] **Customer Marketplace Suite**: Discover feed, product/service details, cart & escrow checkout, live orders, messages, and settings (`screens/customer/*`).
+- [x] **Business Dashboard Suite**: Merchant overview, product catalog manager, camera upload, order PIN verification, TikTok boost hub, and payouts (`screens/business/*`).
+- [x] **Real-Time Direct Messaging Suite**: Conversations list and chat detail with image/audio support and live Supabase channels (`screens/messages/*`).
+- [x] **Root App Coordinator**: `App.tsx`, `index.js`, and `RootNavigator.tsx` tying together all flows and state providers.
+- [x] **Verification & Packaging**: Dependencies installed, `tsc --noEmit` passed with 0 errors, and Expo Go manifest validated (`npx expo config`).
+

@@ -28,7 +28,7 @@ import {
   Plus,
   X,
 } from 'lucide-react-native';
-import * as WebBrowser from 'expo-web-browser';
+import { Linking } from 'react-native';
 import {
   StructuredLocationPicker,
 } from '../../components/location/StructuredLocationPicker';
@@ -170,7 +170,7 @@ export const CustomerSettingsScreen: React.FC = () => {
       if (error) throw error;
 
       if (data?.url) {
-        await WebBrowser.openBrowserAsync(data.url);
+        await Linking.openURL(data.url);
       } else {
         Alert.alert('Didit Verification', 'Session initialized. Please complete verification in browser.');
       }

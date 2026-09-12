@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import * as SplashScreen from 'expo-splash-screen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -12,16 +11,11 @@ import { RootNavigator } from './src/navigation/RootNavigator';
 import { colors } from './src/theme/colors';
 import { ErrorBoundary } from './src/components/common/ErrorBoundary';
 
-// Keep the splash screen visible while we fetch resources
-SplashScreen.preventAutoHideAsync().catch(() => {
-  // Ignore error if already hidden
-});
-
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 2,
-      staleTime: 1000 * 60 * 2, // 2 minutes
+      staleTime: 1000 * 60 * 2,
     },
   },
 });
@@ -41,10 +35,6 @@ const stringNavigationTheme = {
 };
 
 export default function App() {
-  const onNavigationReady = () => {
-    SplashScreen.hideAsync().catch(() => {});
-  };
-
   return (
     <ErrorBoundary>
       <SafeAreaProvider>
@@ -53,7 +43,7 @@ export default function App() {
             <CartProvider>
               <View style={styles.root}>
                 <StatusBar style="light" backgroundColor={colors.background} />
-                <NavigationContainer theme={stringNavigationTheme} onReady={onNavigationReady}>
+                <NavigationContainer theme={stringNavigationTheme}>
                   <RootNavigator />
                 </NavigationContainer>
               </View>

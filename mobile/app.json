@@ -2,7 +2,7 @@
     "expo":  {
                  "name":  "String",
                  "slug":  "string-campus",
-                 "version":  "1.0.9",
+                 "version":  "1.0.10",
                  "orientation":  "portrait",
                  "icon":  "./assets/icon.png",
                  "userInterfaceStyle":  "dark",
@@ -22,7 +22,7 @@
                                                       "backgroundColor":  "#000000"
                                                   },
                                  "package":  "com.string.campus.app",
-                                 "versionCode":  10
+                                 "versionCode":  11
                              },
                  "web":  {
                              "favicon":  "./assets/favicon.png"
@@ -32,6 +32,17 @@
                                            "projectId":  "137f3920-98aa-4d27-9506-69b5552dbfe5"
                                        }
                            },
-                 "owner":  "sntax"
+                 "owner":  "sntax",
+                 "plugins":  [
+                                 [
+                                     "expo-build-properties",
+                                     {
+                                         "android":  {
+                                                         "kotlinVersion":  "1.9.25",
+                                                         "newArchEnabled":  false
+                                                     }
+                                     }
+                                 ]
+                             ]
              }
 }

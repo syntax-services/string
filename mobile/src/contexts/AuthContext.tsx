@@ -4,15 +4,6 @@ import { supabase } from '../lib/supabase';
 import { Profile, Business, AccountType, ResolvedUserType } from '../types';
 import * as SecureStore from 'expo-secure-store';
 
-import * as WebBrowser from 'expo-web-browser';
-import { makeRedirectUri } from 'expo-auth-session';
-
-try {
-  WebBrowser.maybeCompleteAuthSession();
-} catch (_err) {
-  // Gracefully suppress on initial native cold-launch
-}
-
 interface AuthContextType {
   user: User | null;
   session: Session | null;
@@ -171,51 +162,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const signInWithGoogle = async (): Promise<{ error: Error | null }> => {
-    try {
-      const redirectUrl = makeRedirectUri({
-        scheme: 'stringapp',
-        path: 'auth/callback',
-      });
-
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          redirectTo: redirectUrl,
-          skipBrowserRedirect: true,
-        },
-      });
-
-      if (error) throw error;
-      if (!data?.url) throw new Error('No authentication URL returned from Google.');
-
-      const result = await WebBrowser.openAuthSessionAsync(data.url, redirectUrl);
-
-      if (result.type === 'success' && result.url) {
-        const url = result.url;
-        const queryParams = new URLSearchParams(
-          url.includes('#') ? url.split('#')[1] : url.split('?')[1]
-        );
-        const accessToken = queryParams.get('access_token');
-        const refreshToken = queryParams.get('refresh_token');
-
-        if (accessToken && refreshToken) {
-          const { error: sessionError } = await supabase.auth.setSession({
-            access_token: accessToken,
-            refresh_token: refreshToken,
-          });
-          if (sessionError) throw sessionError;
-        } else {
-          const code = queryParams.get('code');
-          if (code) {
-            const { error: codeError } = await supabase.auth.exchangeCodeForSession(code);
-            if (codeError) throw codeError;
-          }
-        }
-      }
-      return { error: null };
-    } catch (err: any) {
-      return { error: err };
-    }
+    return { error: new Error("Google Sign-in temporarily disabled to fix native crashes.") };
   };
 
   const signOut = async () => {

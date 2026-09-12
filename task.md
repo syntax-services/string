@@ -35,4 +35,8 @@
 - [x] **Real-Time Direct Messaging Suite**: Conversations list and chat detail with image/audio support and live Supabase channels (`screens/messages/*`).
 - [x] **Root App Coordinator**: `App.tsx`, `index.js`, and `RootNavigator.tsx` tying together all flows and state providers.
 - [x] **Verification & Packaging**: Dependencies installed, `tsc --noEmit` passed with 0 errors, and Expo Go manifest validated (`npx expo config`).
+- [x] **Expo EAS Cloud Deployment**: Deployed to Expo account `@sntax/string-campus` (Project ID: `137f3920-98aa-4d27-9506-69b5552dbfe5`, Update Group ID: `4074f711-de5a-4fb2-ac67-2371cba09531`).
+- [x] **GitHub Version Control Sync**: All code and EAS configs committed and pushed to `origin/main` (`57e60fc` & `4bd0994`).
+- [x] **Standalone Android APK Generation**: EAS Build `79327339-b934-40be-85c0-8bdab0538328` finished successfully with direct `.apk` binary: [string-campus.apk](https://expo.dev/artifacts/eas/S6gVrEHvcavv15C20BTyN2lhM66QX-YOncKKUwlFT-w.apk).
+
 

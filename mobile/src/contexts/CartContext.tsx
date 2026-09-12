@@ -29,13 +29,15 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [selectedLandmark, setSelectedLandmark] = useState<string | null>(null);
 
   useEffect(() => {
-    SecureStore.getItemAsync('string_mobile_cart').then((data) => {
-      if (data) {
-        try {
-          setItems(JSON.parse(data));
-        } catch {}
-      }
-    });
+    SecureStore.getItemAsync('string_mobile_cart')
+      .then((data) => {
+        if (data) {
+          try {
+            setItems(JSON.parse(data));
+          } catch {}
+        }
+      })
+      .catch(() => {});
   }, []);
 
   const saveCart = (newItems: CartItem[]) => {

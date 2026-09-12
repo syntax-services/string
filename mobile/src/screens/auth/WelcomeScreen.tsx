@@ -66,20 +66,19 @@ export const WelcomeScreen: React.FC = () => {
         {/* Bottom Actions */}
         <View style={styles.actionsSection}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('Login')}
+            onPress={() => navigation.navigate('SignUp')}
             style={styles.primaryButton}
             activeOpacity={0.85}
           >
-            <Text style={styles.primaryButtonText}>Sign In to Account</Text>
+            <Text style={styles.primaryButtonText}>Create Account</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate('CustomerApp')}
+            onPress={() => navigation.navigate('Login')}
             style={styles.ghostButton}
             activeOpacity={0.7}
           >
-            <Compass size={18} color={colors.textSecondary} strokeWidth={2.2} />
-            <Text style={styles.ghostButtonText}>Browse Marketplace as Guest</Text>
+            <Text style={styles.ghostButtonText}>Already have an account? Sign In</Text>
           </TouchableOpacity>
         </View>
       </View>

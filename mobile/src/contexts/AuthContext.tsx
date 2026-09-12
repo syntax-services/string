@@ -7,7 +7,11 @@ import * as SecureStore from 'expo-secure-store';
 import * as WebBrowser from 'expo-web-browser';
 import { makeRedirectUri } from 'expo-auth-session';
 
-WebBrowser.maybeCompleteAuthSession();
+try {
+  WebBrowser.maybeCompleteAuthSession();
+} catch (_err) {
+  // Gracefully suppress on initial native cold-launch
+}
 
 interface AuthContextType {
   user: User | null;

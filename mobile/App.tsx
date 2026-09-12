@@ -9,6 +9,7 @@ import { AuthProvider } from './src/contexts/AuthContext';
 import { CartProvider } from './src/contexts/CartContext';
 import { RootNavigator } from './src/navigation/RootNavigator';
 import { colors } from './src/theme/colors';
+import { ErrorBoundary } from './src/components/common/ErrorBoundary';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,20 +36,22 @@ const stringNavigationTheme = {
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <CartProvider>
-            <View style={styles.root}>
-              <StatusBar style="light" backgroundColor={colors.background} />
-              <NavigationContainer theme={stringNavigationTheme}>
-                <RootNavigator />
-              </NavigationContainer>
-            </View>
-          </CartProvider>
-        </AuthProvider>
-      </QueryClientProvider>
-    </SafeAreaProvider>
+    <ErrorBoundary>
+      <SafeAreaProvider>
+        <QueryClientProvider client={queryClient}>
+          <AuthProvider>
+            <CartProvider>
+              <View style={styles.root}>
+                <StatusBar style="light" backgroundColor={colors.background} />
+                <NavigationContainer theme={stringNavigationTheme}>
+                  <RootNavigator />
+                </NavigationContainer>
+              </View>
+            </CartProvider>
+          </AuthProvider>
+        </QueryClientProvider>
+      </SafeAreaProvider>
+    </ErrorBoundary>
   );
 }
 

@@ -38,8 +38,16 @@
 - [x] **Customer Settings (1:1 with `CustomerSettings.tsx`)**: All 8 complete sections: Profile Info, Didit KYC, Search Preferences (radius slider, interests, budget), Notifications, Privacy & 2FA/Biometrics, GPS, Appearance, and Supabase persistence.
 - [x] **App Icon Safe-Zone Fix**: 1024x1024 assets with ~95px safe-zone padding inside Android circular/squircle mask so the twin-rings emblem is never clipped. Bumped version to 1.0.2 (code 3).
 - [x] **Zero-Bug Verification**: `npm run typecheck` passed with 0 errors in both mobile and web.
-- [ ] **Git Version Control Sync**: Commit and push changes to `origin/main`.
-- [ ] **EAS OTA Update**: Publish update to Expo Go channel.
-- [ ] **EAS Standalone Android APK Build**: Trigger preview build and deliver direct `.apk` download URL.
+- [x] **Android Cold Startup Crash Root-Cause Resolution**:
+  - Guarded top-level `WebBrowser.maybeCompleteAuthSession()` in `AuthContext.tsx` with `try/catch`.
+  - Added native `ErrorBoundary.tsx` wrapping `App.tsx` to trap uncaught JavaScript exceptions gracefully.
+  - Resolved typo in obfuscated Supabase key and added fail-safe fallback in `keyVault.ts`.
+  - Protected `SecureStore` cart hydration against unhandled promise rejections.
+  - Aligned dependencies with `react-native@0.76.9`.
+- [x] **Git Version Control Sync**: All commits pushed to GitHub (`origin/main`).
+- [x] **EAS OTA Update**: Published to `preview` branch (`Update group ID: 8b2f3a3a-1493-418d-87e3-72c759db83a3`).
+- [x] **EAS Standalone Android APK v1.0.3**:
+  - Direct APK URL: `https://expo.dev/artifacts/eas/bNEj0EijLGQG2a3X3bKxrkpZut-zth75dx8ICsLub3Q.apk`
+  - Build Details: `https://expo.dev/accounts/sntax/projects/string-campus/builds/c324c560-e448-4609-8b04-5ecf828410af`
 
 

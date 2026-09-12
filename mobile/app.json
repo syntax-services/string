@@ -37,6 +37,16 @@
     },
     "updates": {
       "url": "https://u.expo.dev/137f3920-98aa-4d27-9506-69b5552dbfe5"
-    }
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "kotlinVersion": "1.9.25"
+          }
+        }
+      ]
+    ]
   }
 }

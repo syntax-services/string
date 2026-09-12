@@ -106,7 +106,7 @@ export const SignUpScreen: React.FC = () => {
           <View style={styles.header}>
             <View style={styles.logoContainer}>
               <Image
-                source={require('../../../public/string logo icon.png')}
+                source={require('../../../assets/string-logo-icon.png')}
                 style={styles.logo}
                 contentFit="contain"
               />

@@ -89,11 +89,11 @@ export const BusinessOrdersScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <AppHeader title="Customer Orders" subtitle={`${orders.length} orders`} showBack={false} showCart={false} />
+      <AppHeader title="Customer Orders" subtitle={`${orders.length} orders`} showBack={true} showCart={false} />
 
       {loading ? (
         <View style={styles.loading}>
-          <ActivityIndicator size="large" color={colors.accentCyan} />
+          <ActivityIndicator size="large" color={colors.primary} />
           <Text style={styles.loadingText}>Fetching incoming orders...</Text>
         </View>
       ) : (
@@ -102,7 +102,7 @@ export const BusinessOrdersScreen: React.FC = () => {
           keyExtractor={(item) => item.id}
           contentContainerStyle={styles.listContent}
           refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.accentCyan} />
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.primary} />
           }
           renderItem={({ item }) => (
             <View style={styles.orderCard}>

@@ -15,6 +15,8 @@ export interface Profile {
   referral_code_used: string | null;
   campus_location?: string | null;
   verification_level?: number | null;
+  idic_code?: string | null;
+  idic_department?: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -30,7 +32,9 @@ export interface Business {
   logo_url: string | null;
   banner_url?: string | null;
   verified: boolean | null;
+  location_verified?: boolean | null;
   verification_tier?: string;
+  views_count?: number | null;
   is_open_now?: boolean;
   created_at?: string;
 }

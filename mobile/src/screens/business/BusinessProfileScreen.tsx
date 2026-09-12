@@ -87,7 +87,7 @@ export const BusinessProfileScreen: React.FC = () => {
       <AppHeader
         title="Store Profile"
         subtitle="Manage public campus presence"
-        showBack
+        showBack={navigation.canGoBack()}
         rightAction={
           <TouchableOpacity
             onPress={handleSave}
@@ -112,7 +112,7 @@ export const BusinessProfileScreen: React.FC = () => {
         <View style={styles.card}>
           <View style={styles.storeHeaderRow}>
             <View style={styles.storeAvatar}>
-              <Store size={28} color={colors.accentCyan} />
+              <Store size={28} color={colors.primary} />
             </View>
             <View style={styles.storeHeaderInfo}>
               <View style={styles.nameRow}>

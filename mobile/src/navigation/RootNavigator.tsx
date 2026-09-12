@@ -60,7 +60,7 @@ const AuthNavigator = () => (
   </AuthStack.Navigator>
 );
 
-// Customer Bottom Tab Navigator with Pinterest Bar
+// Customer Bottom Tab Navigator (1:1 Web Parity: Store, Inbox, Profile)
 const CustomerTabNavigator = () => (
   <CustomerTab.Navigator
     tabBar={(props) => <PinterestTabBar {...props} />}
@@ -70,24 +70,14 @@ const CustomerTabNavigator = () => (
     }}
   >
     <CustomerTab.Screen
-      name="CustomerOverview"
-      component={CustomerOverviewScreen}
-      options={{ tabBarLabel: 'Feed' }}
-    />
-    <CustomerTab.Screen
       name="CustomerDiscover"
       component={CustomerDiscoverScreen}
-      options={{ tabBarLabel: 'Discover' }}
-    />
-    <CustomerTab.Screen
-      name="CustomerOrders"
-      component={CustomerOrdersScreen}
-      options={{ tabBarLabel: 'Orders' }}
+      options={{ tabBarLabel: 'Store' }}
     />
     <CustomerTab.Screen
       name="CustomerMessages"
       component={ConversationsScreen}
-      options={{ tabBarLabel: 'Messages' }}
+      options={{ tabBarLabel: 'Inbox' }}
     />
     <CustomerTab.Screen
       name="CustomerProfile"
@@ -97,7 +87,7 @@ const CustomerTabNavigator = () => (
   </CustomerTab.Navigator>
 );
 
-// Business Bottom Tab Navigator with Pinterest Bar
+// Business Bottom Tab Navigator (1:1 Web Parity: Store, Inbox, Profile)
 const BusinessTabNavigator = () => (
   <BusinessTab.Navigator
     tabBar={(props) => <PinterestTabBar {...props} />}
@@ -109,27 +99,17 @@ const BusinessTabNavigator = () => (
     <BusinessTab.Screen
       name="BusinessOverview"
       component={BusinessOverviewScreen}
-      options={{ tabBarLabel: 'Overview' }}
-    />
-    <BusinessTab.Screen
-      name="BusinessProducts"
-      component={BusinessProductsScreen}
-      options={{ tabBarLabel: 'Goods' }}
-    />
-    <BusinessTab.Screen
-      name="BusinessOrders"
-      component={BusinessOrdersScreen}
-      options={{ tabBarLabel: 'Orders' }}
+      options={{ tabBarLabel: 'Store' }}
     />
     <BusinessTab.Screen
       name="BusinessMessages"
       component={ConversationsScreen}
-      options={{ tabBarLabel: 'Messages' }}
+      options={{ tabBarLabel: 'Inbox' }}
     />
     <BusinessTab.Screen
-      name="BusinessGrowth"
-      component={TikTokBoostScreen}
-      options={{ tabBarLabel: 'Growth' }}
+      name="BusinessProfile"
+      component={BusinessProfileScreen}
+      options={{ tabBarLabel: 'Profile' }}
     />
   </BusinessTab.Navigator>
 );
@@ -175,6 +155,16 @@ export const RootNavigator: React.FC = () => {
 
           {/* Customer Stack Routes */}
           <Stack.Screen
+            name="CustomerOrders"
+            component={CustomerOrdersScreen}
+            options={{ presentation: 'card' }}
+          />
+          <Stack.Screen
+            name="CustomerOverview"
+            component={CustomerOverviewScreen}
+            options={{ presentation: 'card' }}
+          />
+          <Stack.Screen
             name="ProductDetail"
             component={ProductDetailScreen}
             options={{ presentation: 'card' }}
@@ -191,6 +181,16 @@ export const RootNavigator: React.FC = () => {
           />
 
           {/* Business Stack Routes */}
+          <Stack.Screen
+            name="BusinessOrders"
+            component={BusinessOrdersScreen}
+            options={{ presentation: 'card' }}
+          />
+          <Stack.Screen
+            name="BusinessProducts"
+            component={BusinessProductsScreen}
+            options={{ presentation: 'card' }}
+          />
           <Stack.Screen
             name="AddEditProduct"
             component={AddEditProductScreen}

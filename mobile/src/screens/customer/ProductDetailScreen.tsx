@@ -241,7 +241,7 @@ export const ProductDetailScreen: React.FC = () => {
           style={styles.buyNowBtn}
           activeOpacity={0.85}
         >
-          <Text style={styles.buyNowText}>Instant Buy</Text>
+          <Text style={styles.buyNowText}>Buy Now</Text>
         </TouchableOpacity>
       </SafeAreaView>
     </View>

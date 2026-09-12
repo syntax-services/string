@@ -74,7 +74,7 @@ export const BusinessProductsScreen: React.FC = () => {
       <AppHeader
         title="Store Catalog"
         subtitle={`${products.length} products`}
-        showBack={false}
+        showBack={true}
         showCart={false}
         rightAction={
           <TouchableOpacity
@@ -89,7 +89,7 @@ export const BusinessProductsScreen: React.FC = () => {
 
       {loading ? (
         <View style={styles.loading}>
-          <ActivityIndicator size="large" color={colors.accentCyan} />
+          <ActivityIndicator size="large" color={colors.primary} />
           <Text style={styles.loadingText}>Loading your listings...</Text>
         </View>
       ) : (

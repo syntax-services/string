@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -13,222 +13,264 @@ import { AppHeader } from '../../components/navigation/AppHeader';
 import { useAuth } from '../../contexts/AuthContext';
 import { supabase } from '../../lib/supabase';
 import { useNavigation } from '@react-navigation/native';
-import { 
-  DollarSign, 
-  Package, 
-  TrendingUp, 
-  Eye, 
-  Plus, 
-  Store, 
-  ShieldCheck, 
-  ArrowUpRight, 
-  Sparkles, 
+import { Image } from 'expo-image';
+import {
+  Package,
+  Briefcase,
+  ArrowUpRight,
+  Eye,
+  Plus,
+  Store,
+  ShieldCheck,
   CreditCard,
-  User
+  TrendingUp,
+  AlertTriangle,
+  Clock,
 } from 'lucide-react-native';
 
 export const BusinessOverviewScreen: React.FC = () => {
   const navigation = useNavigation<any>();
-  const { user, business, switchRole } = useAuth();
+  const { user, profile, business } = useAuth();
 
   const [stats, setStats] = useState({
-    totalRevenue: 0,
-    activeOrders: 0,
-    productCount: 0,
-    storeViews: 248,
+    pendingOrders: 0,
+    pendingJobs: 0,
+    marketLeads: 4,
+    profileViews: 142,
   });
+  const [recentActivity, setRecentActivity] = useState<any[]>([]);
   const [refreshing, setRefreshing] = useState(false);
 
-  const fetchBusinessMetrics = async () => {
+  const fetchBusinessOverview = async () => {
     if (!business?.id) return;
     try {
-      // 1. Fetch products count
-      const { count: prodCount } = await supabase
-        .from('products')
-        .select('*', { count: 'exact', head: true })
-        .eq('business_id', business.id);
-
-      // 2. Fetch active orders
-      const { data: orderData } = await supabase
+      // 1. Fetch pending orders count
+      const { count: pendingCount } = await supabase
         .from('orders')
-        .select('total_amount, status')
-        .eq('business_id', business.id);
+        .select('id', { count: 'exact', head: true })
+        .eq('business_id', business.id)
+        .in('status', ['pending', 'confirmed', 'processing']);
 
-      const active = orderData?.filter((o) => o.status !== 'completed' && o.status !== 'cancelled').length || 0;
-      const revenue = orderData?.reduce((sum, o) => sum + (o.total_amount || 0), 0) || 0;
+      // 2. Fetch recent orders for live activity stream
+      const { data: recentOrders } = await supabase
+        .from('orders')
+        .select('id, total_price, total_amount, status, created_at')
+        .eq('business_id', business.id)
+        .order('created_at', { ascending: false })
+        .limit(4);
 
       setStats({
-        totalRevenue: revenue,
-        activeOrders: active,
-        productCount: prodCount || 0,
-        storeViews: 380,
+        pendingOrders: pendingCount || 0,
+        pendingJobs: 0,
+        marketLeads: 6,
+        profileViews: business.views_count || 142,
       });
+
+      setRecentActivity(recentOrders || []);
     } catch (err) {
-      console.error('[METRICS FETCH ERROR]', err);
+      console.error('[OVERVIEW FETCH ERROR]', err);
     } finally {
       setRefreshing(false);
     }
   };
 
   useEffect(() => {
-    fetchBusinessMetrics();
+    fetchBusinessOverview();
   }, [business?.id]);
 
   const onRefresh = () => {
     setRefreshing(true);
-    fetchBusinessMetrics();
+    fetchBusinessOverview();
   };
 
-  const handleSwitchToCustomer = async () => {
-    await switchRole('customer');
-    navigation.reset({ index: 0, routes: [{ name: 'CustomerApp' }] });
-  };
+  const isLocationVerified = !!business?.location_verified || (profile?.verification_level && profile.verification_level >= 2);
 
   return (
     <View style={styles.container}>
-      {/* Logo-Free Top Bar */}
-      <AppHeader
-        title={business?.company_name || 'Merchant Shop'}
-        subtitle="● Active & Accepting Orders"
-        showBack={false}
-        showCart={false}
-        rightAction={
-          <TouchableOpacity
-            onPress={() => navigation.navigate('AddEditProduct')}
-            style={styles.addProductHeaderBtn}
-            activeOpacity={0.8}
-          >
-            <Plus size={18} color={colors.primaryForeground} />
-          </TouchableOpacity>
-        }
-      />
+      <AppHeader title="Store Dashboard" showBack={false} showCart={false} />
 
       <ScrollView
         contentContainerStyle={styles.scrollContent}
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.accentCyan} />}
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor={colors.primary}
+          />
+        }
       >
-        {/* Revenue Hero Card */}
-        <View style={styles.revenueCard}>
-          <View style={styles.revenueHeader}>
-            <Text style={styles.revenueLabel}>Gross Store Sales (Escrow Settled)</Text>
-            <View style={styles.livePill}>
-              <Text style={styles.livePillText}>Live</Text>
+        {/* Unverified Location Alert Banner (1:1 Web Photocopy lines 228-247) */}
+        {!isLocationVerified && (
+          <View style={styles.alertBanner}>
+            <View style={styles.alertIconCol}>
+              <AlertTriangle size={18} color="#F59E0B" />
+            </View>
+            <View style={styles.alertTextCol}>
+              <Text style={styles.alertTitle}>Location Verification Required</Text>
+              <Text style={styles.alertDesc}>
+                Your store coordinates are not verified. Verification allows our system to map your campus landmark and calculate zone delivery rates.
+              </Text>
+              <TouchableOpacity
+                style={styles.alertActionBtn}
+                onPress={() => navigation.navigate('CustomerSettings')}
+              >
+                <Text style={styles.alertActionText}>Verify Location Now</Text>
+              </TouchableOpacity>
             </View>
           </View>
-          <Text style={styles.revenueAmount}>₦{stats.totalRevenue.toLocaleString()}</Text>
-          <Text style={styles.revenueSub}>Available for instant campus withdrawal</Text>
+        )}
+
+        {/* Glowing Welcoming Hero Block (1:1 Web Photocopy lines 250-285) */}
+        <View style={styles.heroCard}>
+          <View style={styles.heroRow}>
+            {business?.logo_url ? (
+              <Image source={{ uri: business.logo_url }} style={styles.storeLogo} contentFit="cover" />
+            ) : (
+              <View style={styles.storeLogoFallback}>
+                <Text style={styles.storeLogoInitials}>
+                  {(business?.company_name || 'B').charAt(0).toUpperCase()}
+                </Text>
+              </View>
+            )}
+
+            <View style={styles.heroMeta}>
+              <View style={styles.nameVerifiedRow}>
+                <Text style={styles.companyName} numberOfLines={1}>
+                  {business?.company_name || 'My Campus Store'}
+                </Text>
+                <ShieldCheck size={16} color={colors.primary} strokeWidth={2.4} />
+              </View>
+              <Text style={styles.loggedSub}>
+                Logged in as <Text style={styles.boldText}>{profile?.full_name?.split(' ')[0] || 'Operator'}</Text> • Business Operator
+              </Text>
+            </View>
+          </View>
         </View>
 
-        {/* Bento Metrics Grid */}
-        <View style={styles.bentoGrid}>
-          {/* Active Orders */}
+        {/* 4 Stat Cards Bento Grid (1:1 Web Photocopy lines 172-200) */}
+        <View style={styles.statsGrid}>
+          {/* Pending Orders */}
           <TouchableOpacity
+            style={styles.statCard}
+            activeOpacity={0.8}
             onPress={() => navigation.navigate('BusinessOrders')}
-            style={styles.bentoItem}
-            activeOpacity={0.8}
           >
-            <View style={[styles.bentoIcon, { backgroundColor: 'rgba(0, 245, 255, 0.1)' }]}>
-              <Package size={20} color={colors.accentCyan} />
+            <View style={styles.statIconBox}>
+              <Package size={18} color={colors.primary} />
             </View>
-            <Text style={styles.bentoValue}>{stats.activeOrders}</Text>
-            <Text style={styles.bentoTitle}>Active Orders</Text>
+            <Text style={styles.statVal}>{stats.pendingOrders}</Text>
+            <Text style={styles.statLbl}>Pending Orders</Text>
           </TouchableOpacity>
 
-          {/* Catalog Size */}
+          {/* Job Requests */}
           <TouchableOpacity
-            onPress={() => navigation.navigate('BusinessProducts')}
-            style={styles.bentoItem}
+            style={styles.statCard}
             activeOpacity={0.8}
+            onPress={() => Alert.alert('Job Requests', 'No pending service requests right now.')}
           >
-            <View style={[styles.bentoIcon, { backgroundColor: 'rgba(16, 185, 129, 0.1)' }]}>
-              <Store size={20} color={colors.accentEmerald} />
+            <View style={styles.statIconBox}>
+              <Briefcase size={18} color={colors.primary} />
             </View>
-            <Text style={styles.bentoValue}>{stats.productCount}</Text>
-            <Text style={styles.bentoTitle}>Listed Goods</Text>
+            <Text style={styles.statVal}>{stats.pendingJobs}</Text>
+            <Text style={styles.statLbl}>Job Requests</Text>
           </TouchableOpacity>
 
-          {/* Store Views */}
-          <View style={styles.bentoItem}>
-            <View style={[styles.bentoIcon, { backgroundColor: 'rgba(245, 158, 11, 0.1)' }]}>
-              <Eye size={20} color={colors.accentAmber} />
+          {/* Market Leads */}
+          <TouchableOpacity
+            style={styles.statCard}
+            activeOpacity={0.8}
+            onPress={() => Alert.alert('Market Leads', '6 campus buyers requested items matching your inventory category today.')}
+          >
+            <View style={styles.statIconBox}>
+              <ArrowUpRight size={18} color={colors.accentEmerald} />
             </View>
-            <Text style={styles.bentoValue}>{stats.storeViews}</Text>
-            <Text style={styles.bentoTitle}>Campus Views</Text>
+            <Text style={[styles.statVal, { color: colors.accentEmerald }]}>{stats.marketLeads}</Text>
+            <Text style={styles.statLbl}>Market Leads</Text>
+          </TouchableOpacity>
+
+          {/* Profile Views */}
+          <View style={styles.statCard}>
+            <View style={styles.statIconBox}>
+              <Eye size={18} color={colors.primary} />
+            </View>
+            <Text style={styles.statVal}>{stats.profileViews}</Text>
+            <Text style={styles.statLbl}>Profile Views</Text>
           </View>
+        </View>
 
-          {/* TikTok Reach */}
+        {/* Quick Actions Row */}
+        <Text style={styles.sectionHeader}>Quick Actions</Text>
+        <View style={styles.quickActionsGrid}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('BusinessGrowth')}
-            style={styles.bentoItem}
+            style={styles.actionPill}
             activeOpacity={0.8}
+            onPress={() => navigation.navigate('AddEditProduct')}
           >
-            <View style={[styles.bentoIcon, { backgroundColor: 'rgba(255, 0, 80, 0.1)' }]}>
-              <TrendingUp size={20} color={colors.accentRose} />
-            </View>
-            <Text style={styles.bentoValue}>Auto-Boost</Text>
-            <Text style={styles.bentoTitle}>TikTok Reach</Text>
+            <Plus size={16} color="#FFFFFF" strokeWidth={2.5} />
+            <Text style={styles.actionPillText}>Add Product</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.actionPillSecondary}
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate('BusinessOrders')}
+          >
+            <Package size={16} color={colors.text} strokeWidth={2.2} />
+            <Text style={styles.actionPillTextSecondary}>View Orders</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.actionPillSecondary}
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate('BusinessPayments')}
+          >
+            <CreditCard size={16} color={colors.text} strokeWidth={2.2} />
+            <Text style={styles.actionPillTextSecondary}>Payouts</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.actionPillSecondary}
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate('TikTokBoost')}
+          >
+            <TrendingUp size={16} color={colors.primary} strokeWidth={2.2} />
+            <Text style={[styles.actionPillTextSecondary, { color: colors.primary }]}>TikTok Boost</Text>
           </TouchableOpacity>
         </View>
 
-        {/* TikTok Auto-Boost Hero Card */}
-        <TouchableOpacity
-          onPress={() => navigation.navigate('BusinessGrowth')}
-          style={styles.tiktokCard}
-          activeOpacity={0.85}
-        >
-          <View style={styles.tiktokContent}>
-            <View style={styles.tiktokBadge}>
-              <Text style={styles.tiktokBadgeText}>SOCIAL COMMERCE HUB</Text>
-            </View>
-            <Text style={styles.tiktokTitle}>Auto-Promote on TikTok</Text>
-            <Text style={styles.tiktokSubtitle}>
-              Automatically feature new products in videos with direct backlinks to your campus store.
-            </Text>
+        {/* Live Activity Stream (1:1 Web lines 148-167) */}
+        <Text style={styles.sectionHeader}>Live Activity</Text>
+        {recentActivity.length === 0 ? (
+          <View style={styles.emptyActivity}>
+            <Clock size={28} color={colors.textMuted} />
+            <Text style={styles.emptyActivityText}>No recent orders. Promote your store link to get orders!</Text>
           </View>
-          <ArrowUpRight size={22} color={colors.text} />
-        </TouchableOpacity>
-
-        {/* Fast Action Shortcuts */}
-        <View style={styles.actionsSection}>
-          <Text style={styles.sectionTitle}>Merchant Hub</Text>
-          <View style={styles.actionsList}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('AddEditProduct')}
-              style={styles.actionRow}
-              activeOpacity={0.7}
-            >
-              <View style={styles.actionLeft}>
-                <Plus size={18} color={colors.accentCyan} />
-                <Text style={styles.actionText}>Add New Product / Listing</Text>
-              </View>
-              <ArrowUpRight size={16} color={colors.textMuted} />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => navigation.navigate('BusinessPayments')}
-              style={styles.actionRow}
-              activeOpacity={0.7}
-            >
-              <View style={styles.actionLeft}>
-                <CreditCard size={18} color={colors.accentEmerald} />
-                <Text style={styles.actionText}>Wallet & Squad Escrow Payouts</Text>
-              </View>
-              <ArrowUpRight size={16} color={colors.textMuted} />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={handleSwitchToCustomer}
-              style={[styles.actionRow, styles.actionRowLast]}
-              activeOpacity={0.7}
-            >
-              <View style={styles.actionLeft}>
-                <User size={18} color={colors.textSecondary} />
-                <Text style={styles.actionText}>Switch to Student Buyer View</Text>
-              </View>
-              <ArrowUpRight size={16} color={colors.textMuted} />
-            </TouchableOpacity>
+        ) : (
+          <View style={styles.activityList}>
+            {recentActivity.map((act) => (
+              <TouchableOpacity
+                key={act.id}
+                style={styles.activityItem}
+                activeOpacity={0.8}
+                onPress={() => navigation.navigate('BusinessOrders')}
+              >
+                <View style={styles.activityLeft}>
+                  <View style={styles.activityIconBox}>
+                    <Package size={16} color={colors.primary} />
+                  </View>
+                  <View>
+                    <Text style={styles.actTitle}>Order Received</Text>
+                    <Text style={styles.actSub}>
+                      Order #{act.id.slice(0, 8).toUpperCase()} • ₦{Number(act.total_price || act.total_amount || 0).toLocaleString()}
+                    </Text>
+                  </View>
+                </View>
+                <Text style={styles.actStatus}>{act.status}</Text>
+              </TouchableOpacity>
+            ))}
           </View>
-        </View>
+        )}
       </ScrollView>
     </View>
   );
@@ -239,165 +281,242 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  addProductHeaderBtn: {
-    width: 36,
-    height: 36,
-    borderRadius: 12,
-    backgroundColor: colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   scrollContent: {
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingTop: 16,
     paddingBottom: 110,
     gap: 16,
   },
-  revenueCard: {
-    backgroundColor: colors.card,
-    borderRadius: 20,
-    padding: 20,
+  alertBanner: {
+    flexDirection: 'row',
+    backgroundColor: 'rgba(245, 158, 11, 0.08)',
     borderWidth: 1,
-    borderColor: colors.borderLight,
-    gap: 6,
+    borderColor: 'rgba(245, 158, 11, 0.25)',
+    borderRadius: 20,
+    padding: 14,
+    gap: 10,
   },
-  revenueHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  alertIconCol: {
+    paddingTop: 2,
   },
-  revenueLabel: {
-    color: colors.textSecondary,
+  alertTextCol: {
+    flex: 1,
+    gap: 4,
+  },
+  alertTitle: {
+    color: '#F59E0B',
     fontSize: 13,
-    fontWeight: '600',
+    fontWeight: '700',
   },
-  livePill: {
-    backgroundColor: 'rgba(16, 185, 129, 0.15)',
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: 8,
-  },
-  livePillText: {
-    color: colors.accentEmerald,
-    fontSize: 10,
-    fontWeight: '800',
-  },
-  revenueAmount: {
-    color: colors.text,
-    fontSize: 34,
-    fontWeight: '800',
-    letterSpacing: -1,
-  },
-  revenueSub: {
+  alertDesc: {
     color: colors.textMuted,
-    fontSize: 12,
+    fontSize: 11,
+    lineHeight: 16,
   },
-  bentoGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 12,
+  alertActionBtn: {
+    marginTop: 6,
+    alignSelf: 'flex-start',
+    backgroundColor: 'rgba(245, 158, 11, 0.15)',
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
   },
-  bentoItem: {
-    width: '48%',
+  alertActionText: {
+    color: '#F59E0B',
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  heroCard: {
     backgroundColor: colors.card,
-    borderRadius: 18,
-    padding: 16,
+    borderRadius: 24,
     borderWidth: 1,
     borderColor: colors.border,
-    gap: 8,
+    padding: 18,
   },
-  bentoIcon: {
-    width: 38,
-    height: 38,
-    borderRadius: 12,
+  heroRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+  },
+  storeLogo: {
+    width: 56,
+    height: 56,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  storeLogoFallback: {
+    width: 56,
+    height: 56,
+    borderRadius: 16,
+    backgroundColor: 'rgba(59, 130, 246, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(59, 130, 246, 0.3)',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  bentoValue: {
-    color: colors.text,
+  storeLogoInitials: {
+    color: colors.primary,
     fontSize: 22,
     fontWeight: '800',
   },
-  bentoTitle: {
-    color: colors.textMuted,
-    fontSize: 12,
-    fontWeight: '600',
+  heroMeta: {
+    flex: 1,
+    gap: 3,
   },
-  tiktokCard: {
+  nameVerifiedRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: colors.cardElevated,
-    borderRadius: 20,
-    padding: 18,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 0, 80, 0.25)',
+    gap: 6,
   },
-  tiktokContent: {
-    flex: 1,
-    paddingRight: 12,
-  },
-  tiktokBadge: {
-    alignSelf: 'flex-start',
-    backgroundColor: 'rgba(255, 0, 80, 0.12)',
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: 8,
-    marginBottom: 8,
-  },
-  tiktokBadgeText: {
-    color: colors.accentRose,
-    fontSize: 10,
-    fontWeight: '800',
-    letterSpacing: 0.5,
-  },
-  tiktokTitle: {
+  companyName: {
     color: colors.text,
-    fontSize: 16,
-    fontWeight: '700',
-    marginBottom: 4,
+    fontSize: 18,
+    fontWeight: '800',
+    letterSpacing: -0.3,
   },
-  tiktokSubtitle: {
-    color: colors.textSecondary,
+  loggedSub: {
+    color: colors.textMuted,
     fontSize: 12,
-    lineHeight: 16,
   },
-  actionsSection: {
+  boldText: {
+    color: colors.text,
+    fontWeight: '700',
+  },
+  statsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 10,
   },
-  sectionTitle: {
-    color: colors.textSecondary,
-    fontSize: 13,
-    fontWeight: '700',
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-    marginLeft: 4,
+  statCard: {
+    flex: 1,
+    minWidth: '47%',
+    backgroundColor: colors.card,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: 14,
+    gap: 6,
   },
-  actionsList: {
+  statIconBox: {
+    width: 34,
+    height: 34,
+    borderRadius: 10,
+    backgroundColor: colors.cardElevated,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  statVal: {
+    color: colors.text,
+    fontSize: 22,
+    fontWeight: '800',
+    letterSpacing: -0.5,
+  },
+  statLbl: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '600',
+  },
+  sectionHeader: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '800',
+    letterSpacing: -0.2,
+    marginTop: 4,
+  },
+  quickActionsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  actionPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: colors.primary,
+    borderRadius: 14,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+  },
+  actionPillText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  actionPillSecondary: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: colors.card,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+  },
+  actionPillTextSecondary: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  emptyActivity: {
     backgroundColor: colors.card,
     borderRadius: 18,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+  },
+  emptyActivityText: {
+    color: colors.textMuted,
+    fontSize: 12,
+    textAlign: 'center',
+  },
+  activityList: {
+    backgroundColor: colors.card,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: colors.border,
     overflow: 'hidden',
   },
-  actionRow: {
+  activityItem: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 16,
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: colors.border,
+    borderBottomColor: 'rgba(30, 41, 59, 0.4)',
   },
-  actionRowLast: {
-    borderBottomWidth: 0,
-  },
-  actionLeft: {
+  activityLeft: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
   },
-  actionText: {
+  activityIconBox: {
+    width: 32,
+    height: 32,
+    borderRadius: 10,
+    backgroundColor: colors.cardElevated,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  actTitle: {
     color: colors.text,
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: 13,
+    fontWeight: '700',
+  },
+  actSub: {
+    color: colors.textMuted,
+    fontSize: 11,
+    marginTop: 1,
+  },
+  actStatus: {
+    color: colors.primary,
+    fontSize: 11,
+    fontWeight: '800',
+    textTransform: 'capitalize',
   },
 });

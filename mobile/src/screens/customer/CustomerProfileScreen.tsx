@@ -126,6 +126,22 @@ export const CustomerProfileScreen: React.FC = () => {
             activeOpacity={0.7}
           >
             <View style={styles.menuItemLeft}>
+              <ShieldCheck size={18} color={profile?.verification_level && profile.verification_level >= 2 ? colors.accentEmerald : colors.primary} />
+              <Text style={styles.menuItemText}>
+                {profile?.verification_level && profile.verification_level >= 2
+                  ? 'Identity Verified (Level 2)'
+                  : 'Verify Identity (NIN / Didit)'}
+              </Text>
+            </View>
+            <ChevronRight size={18} color={colors.textMuted} />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate('CustomerSettings')}
+            style={styles.menuItem}
+            activeOpacity={0.7}
+          >
+            <View style={styles.menuItemLeft}>
               <Settings size={18} color={colors.text} />
               <Text style={styles.menuItemText}>Security & Settings</Text>
             </View>

@@ -24,19 +24,17 @@
   - Linked TikTok sandbox account `Syntax` (`-000r24VtS3F9HHv7AqcnM8OYPI7-ryiFrdp`).
   - Extracted verified `access_token` and `refresh_token` and saved directly into `tech prologue/.env`.
 
-## Active Task: String Expo Go Mobile Application
-- [x] **Architecture & Project Scaffolding**: Setup `mobile/` with Expo SDK 52, TypeScript, React Navigation v7, Reanimated, and Lucide icons.
-- [x] **Encrypted Key-Broker Security Layer**: Created `supabase/functions/mobile-key-broker` (deployed) and `mobile/src/lib/security/keyVault.ts` (XOR split-entropy obfuscation) preventing raw credential leakage.
-- [x] **Pinterest-Style Bottom Navigation Dock**: Built floating capsule tab bar with bold tactile icons (`strokeWidth: 2.8`), haptics, and customer/business dynamic switching.
-- [x] **Logo-Free Functional Top Bar**: Implemented `AppHeader.tsx` with campus location selector, cart trigger, and clean navigation.
-- [x] **Auth & Onboarding Suite**: Welcome screen, Student/Merchant login, registration, password reset, and campus onboarding (`screens/auth/*`).
-- [x] **Customer Marketplace Suite**: Discover feed, product/service details, cart & escrow checkout, live orders, messages, and settings (`screens/customer/*`).
-- [x] **Business Dashboard Suite**: Merchant overview, product catalog manager, camera upload, order PIN verification, TikTok boost hub, and payouts (`screens/business/*`).
-- [x] **Real-Time Direct Messaging Suite**: Conversations list and chat detail with image/audio support and live Supabase channels (`screens/messages/*`).
-- [x] **Root App Coordinator**: `App.tsx`, `index.js`, and `RootNavigator.tsx` tying together all flows and state providers.
-- [x] **Verification & Packaging**: Dependencies installed, `tsc --noEmit` passed with 0 errors, and Expo Go manifest validated (`npx expo config`).
-- [x] **Expo EAS Cloud Deployment**: Deployed to Expo account `@sntax/string-campus` (Project ID: `137f3920-98aa-4d27-9506-69b5552dbfe5`, Update Group ID: `4074f711-de5a-4fb2-ac67-2371cba09531`).
-- [x] **GitHub Version Control Sync**: All code and EAS configs committed and pushed to `origin/main` (`57e60fc` & `4bd0994`).
-- [x] **Standalone Android APK Generation**: EAS Build `79327339-b934-40be-85c0-8bdab0538328` finished successfully with direct `.apk` binary: [string-campus.apk](https://expo.dev/artifacts/eas/S6gVrEHvcavv15C20BTyN2lhM66QX-YOncKKUwlFT-w.apk).
+## Active Task: String Mobile Web Parity & Standalone APK v1.0.1
+- [x] **Theme & Styling Parity**: Aligned `colors.ts` with web's Cobalt Obsidian palette (`#090B10` background, `#12151C` card, `#3B82F6` primary, `#1E293B` borders).
+- [x] **Auth Suite Parity & Google OAuth**: Replicated web `Auth.tsx` on `LoginScreen` and `SignUpScreen` with official multicolor Google Sign-In, String logo, referral bonus text, and token exchange.
+- [x] **Pinterest Floating Bottom Dock**: Floating capsule pill (`borderRadius: 9999`), bold tactile icons (`strokeWidth: 2.8`), pure-white/primary active highlights, user avatar support, and zero floating cyan dots.
+- [x] **Customer Overview Feed (1:1 with `CustomerOverview.tsx`)**: Replicated social discovery feed with For You / Following switcher, merchant headers, verified badges, curvilinear media cards, likes, comments, and order buttons.
+- [x] **Structured Campus Location System**: Implemented `useStructuredLocations.ts` and `StructuredLocationPicker.tsx` querying `location_areas`, `location_streets`, and `location_landmarks`.
+- [x] **Customer Settings (1:1 with `CustomerSettings.tsx`)**: All 8 complete sections: Profile Info, Didit KYC, Search Preferences (radius slider, interests, budget), Notifications, Privacy & 2FA/Biometrics, GPS, Appearance, and Supabase persistence.
+- [x] **App Icon Safe-Zone Fix**: Generated 1024x1024 assets with ~95px safe-zone padding inside Android circular/squircle mask so the twin-rings emblem is never clipped. Bumped version to 1.0.1 (code 2).
+- [x] **Zero-Bug Verification**: `npm run typecheck` passed with 0 errors.
+- [ ] **Git Version Control Sync**: Commit and push changes to `origin/main`.
+- [ ] **EAS OTA Update**: Publish update to Expo Go channel.
+- [ ] **EAS Standalone Android APK Build**: Trigger preview build and deliver direct `.apk` download URL.
 
 

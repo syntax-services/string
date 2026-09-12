@@ -14,6 +14,7 @@ export interface Profile {
   coupon_balance: number;
   referral_code_used: string | null;
   campus_location?: string | null;
+  verification_level?: number | null;
   created_at: string;
   updated_at: string;
 }

@@ -15,12 +15,14 @@ import {
 import { colors } from '../../theme/colors';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { Lock, Mail, User, Tag, ChevronLeft, CheckSquare, Square } from 'lucide-react-native';
+import { Lock, Mail, User, Tag, ChevronLeft, Eye, EyeOff } from 'lucide-react-native';
+import { Image } from 'expo-image';
+import { GoogleIcon } from '../../components/atoms/GoogleIcon';
 
 export const SignUpScreen: React.FC = () => {
   const navigation = useNavigation<any>();
   const route = useRoute<any>();
-  const { signUp } = useAuth();
+  const { signUp, signInWithGoogle } = useAuth();
 
   const [role, setRole] = useState<'customer' | 'business'>(
     route.params?.initialRole || 'customer'
@@ -28,9 +30,12 @@ export const SignUpScreen: React.FC = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [referralCode, setReferralCode] = useState('');
-  const [acceptedTerms, setAcceptedTerms] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
   const handleSignUp = async () => {
     if (!fullName.trim() || !email.trim() || !password) {
@@ -38,13 +43,13 @@ export const SignUpScreen: React.FC = () => {
       return;
     }
 
-    if (password.length < 6) {
-      Alert.alert('Weak Password', 'Password must be at least 6 characters long.');
+    if (password.length < 8) {
+      Alert.alert('Weak Password', 'Password must be at least 8 characters.');
       return;
     }
 
-    if (!acceptedTerms) {
-      Alert.alert('Terms Required', 'Please accept the String Terms of Service.');
+    if (password !== confirmPassword) {
+      Alert.alert('Password Mismatch', "Passwords don't match.");
       return;
     }
 
@@ -57,13 +62,27 @@ export const SignUpScreen: React.FC = () => {
     setIsSubmitting(false);
 
     if (error) {
-      Alert.alert('Registration Failed', error.message || 'Could not register account.');
+      let message = error.message;
+      if (message.includes('already registered')) {
+        message = 'This email is already registered. Please sign in instead.';
+      }
+      Alert.alert('Registration Failed', message);
     } else {
       Alert.alert(
-        'Account Created',
-        'Verification link sent if required, or you can now sign in.',
-        [{ text: 'Proceed to Onboarding', onPress: () => navigation.navigate('Onboarding') }]
+        'Check Your Email',
+        'A secure link has been sent to your mail for confirmation.',
+        [{ text: 'Continue', onPress: () => navigation.navigate('Onboarding') }]
       );
+    }
+  };
+
+  const handleGoogleSignUp = async () => {
+    setIsGoogleLoading(true);
+    const { error } = await signInWithGoogle();
+    setIsGoogleLoading(false);
+
+    if (error) {
+      Alert.alert('Google Sign-In Failed', error.message || 'Failed to initialize Google login.');
     }
   };
 
@@ -74,18 +93,26 @@ export const SignUpScreen: React.FC = () => {
         style={{ flex: 1 }}
       >
         <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
-          {/* Header */}
+          {/* Header Back Button */}
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
             activeOpacity={0.7}
           >
-            <ChevronLeft size={24} color={colors.text} />
+            <ChevronLeft size={22} color={colors.text} />
           </TouchableOpacity>
 
+          {/* Logo & Heading (Matching Web Auth.tsx) */}
           <View style={styles.header}>
+            <View style={styles.logoContainer}>
+              <Image
+                source={require('../../../public/string logo icon.png')}
+                style={styles.logo}
+                contentFit="contain"
+              />
+            </View>
             <Text style={styles.title}>Join String</Text>
-            <Text style={styles.subtitle}>Create your campus marketplace profile.</Text>
+            <Text style={styles.subtitle}>Create your account and start connecting</Text>
           </View>
 
           {/* Role Switcher Pill */}
@@ -114,97 +141,152 @@ export const SignUpScreen: React.FC = () => {
           <View style={styles.form}>
             {/* Full Name */}
             <View style={styles.inputGroup}>
-              <Text style={styles.label}>Full Name / Brand Name</Text>
+              <Text style={styles.label}>Full Name</Text>
               <View style={styles.inputWrapper}>
                 <User size={18} color={colors.textMuted} style={styles.inputIcon} />
                 <TextInput
                   style={styles.input}
-                  placeholder="e.g. David Adeleke"
+                  placeholder="John Doe"
                   placeholderTextColor={colors.textPlaceholder}
                   value={fullName}
                   onChangeText={setFullName}
+                  editable={!isSubmitting && !isGoogleLoading}
                 />
               </View>
             </View>
 
             {/* Email */}
             <View style={styles.inputGroup}>
-              <Text style={styles.label}>Campus Email</Text>
+              <Text style={styles.label}>Email</Text>
               <View style={styles.inputWrapper}>
                 <Mail size={18} color={colors.textMuted} style={styles.inputIcon} />
                 <TextInput
                   style={styles.input}
-                  placeholder="name@unilag.edu.ng"
+                  placeholder="you@example.com"
                   placeholderTextColor={colors.textPlaceholder}
                   value={email}
                   onChangeText={setEmail}
                   keyboardType="email-address"
                   autoCapitalize="none"
+                  autoCorrect={false}
+                  editable={!isSubmitting && !isGoogleLoading}
                 />
               </View>
             </View>
 
             {/* Password */}
             <View style={styles.inputGroup}>
-              <Text style={styles.label}>Create Password</Text>
+              <Text style={styles.label}>Password</Text>
               <View style={styles.inputWrapper}>
                 <Lock size={18} color={colors.textMuted} style={styles.inputIcon} />
                 <TextInput
                   style={styles.input}
-                  placeholder="At least 6 characters"
+                  placeholder="••••••••"
                   placeholderTextColor={colors.textPlaceholder}
                   value={password}
                   onChangeText={setPassword}
-                  secureTextEntry
+                  secureTextEntry={!showPassword}
+                  autoCapitalize="none"
+                  editable={!isSubmitting && !isGoogleLoading}
                 />
+                <TouchableOpacity
+                  onPress={() => setShowPassword(!showPassword)}
+                  style={styles.eyeButton}
+                  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                >
+                  {showPassword ? (
+                    <EyeOff size={18} color={colors.textMuted} />
+                  ) : (
+                    <Eye size={18} color={colors.textMuted} />
+                  )}
+                </TouchableOpacity>
               </View>
             </View>
 
-            {/* Referral Code (Optional) */}
+            {/* Confirm Password */}
             <View style={styles.inputGroup}>
-              <Text style={styles.label}>Referral Code (Optional)</Text>
+              <Text style={styles.label}>Confirm Password</Text>
+              <View style={styles.inputWrapper}>
+                <Lock size={18} color={colors.textMuted} style={styles.inputIcon} />
+                <TextInput
+                  style={styles.input}
+                  placeholder="••••••••"
+                  placeholderTextColor={colors.textPlaceholder}
+                  value={confirmPassword}
+                  onChangeText={setConfirmPassword}
+                  secureTextEntry={!showConfirmPassword}
+                  autoCapitalize="none"
+                  editable={!isSubmitting && !isGoogleLoading}
+                />
+                <TouchableOpacity
+                  onPress={() => setShowConfirmPassword(!showConfirmPassword)}
+                  style={styles.eyeButton}
+                  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                >
+                  {showConfirmPassword ? (
+                    <EyeOff size={18} color={colors.textMuted} />
+                  ) : (
+                    <Eye size={18} color={colors.textMuted} />
+                  )}
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            {/* Referral Code (Optional, Matching Web) */}
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>Referral Code (optional)</Text>
               <View style={styles.inputWrapper}>
                 <Tag size={18} color={colors.textMuted} style={styles.inputIcon} />
                 <TextInput
                   style={styles.input}
-                  placeholder="e.g. STRING2026"
+                  placeholder="STR-XXXXXX"
                   placeholderTextColor={colors.textPlaceholder}
                   value={referralCode}
-                  onChangeText={setReferralCode}
+                  onChangeText={(val) => setReferralCode(val.toUpperCase())}
                   autoCapitalize="characters"
+                  editable={!isSubmitting && !isGoogleLoading}
                 />
               </View>
-            </View>
-
-            {/* Terms Checkbox */}
-            <TouchableOpacity
-              onPress={() => setAcceptedTerms(!acceptedTerms)}
-              style={styles.termsRow}
-              activeOpacity={0.8}
-            >
-              {acceptedTerms ? (
-                <CheckSquare size={20} color={colors.accentCyan} />
-              ) : (
-                <Square size={20} color={colors.textMuted} />
-              )}
-              <Text style={styles.termsText}>
-                I agree to the <Text style={styles.termsHighlight}>String Escrow Terms</Text> and Campus Safety Code.
+              <Text style={styles.helperText}>
+                Have a friend on String? Enter their code to earn bonus points!
               </Text>
-            </TouchableOpacity>
+            </View>
 
             {/* Submit Button */}
             <TouchableOpacity
               onPress={handleSignUp}
-              style={[styles.submitButton, isSubmitting && styles.submitButtonDisabled]}
-              disabled={isSubmitting}
+              style={[styles.submitButton, isSubmitting && styles.buttonDisabled]}
+              disabled={isSubmitting || isGoogleLoading}
               activeOpacity={0.85}
             >
               {isSubmitting ? (
                 <ActivityIndicator color={colors.primaryForeground} />
               ) : (
-                <Text style={styles.submitButtonText}>
-                  {role === 'business' ? 'Open Merchant Shop' : 'Create Student Account'}
-                </Text>
+                <Text style={styles.submitButtonText}>Create account</Text>
+              )}
+            </TouchableOpacity>
+
+            {/* Social Divider (Matching Web) */}
+            <View style={styles.dividerRow}>
+              <View style={styles.dividerLine} />
+              <Text style={styles.dividerText}>OR CONTINUE WITH</Text>
+              <View style={styles.dividerLine} />
+            </View>
+
+            {/* Google Login Button */}
+            <TouchableOpacity
+              onPress={handleGoogleSignUp}
+              style={[styles.googleButton, isGoogleLoading && styles.buttonDisabled]}
+              disabled={isSubmitting || isGoogleLoading}
+              activeOpacity={0.8}
+            >
+              {isGoogleLoading ? (
+                <ActivityIndicator color={colors.text} />
+              ) : (
+                <>
+                  <GoogleIcon size={20} />
+                  <Text style={styles.googleButtonText}>Continue with Google</Text>
+                </>
               )}
             </TouchableOpacity>
           </View>
@@ -213,7 +295,7 @@ export const SignUpScreen: React.FC = () => {
           <View style={styles.footer}>
             <Text style={styles.footerText}>Already have an account? </Text>
             <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-              <Text style={styles.footerLink}>Sign In</Text>
+              <Text style={styles.footerLink}>Sign in</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -229,48 +311,65 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 24,
-    paddingTop: 10,
+    paddingTop: 8,
     paddingBottom: 40,
   },
   backButton: {
-    width: 40,
-    height: 40,
+    width: 38,
+    height: 38,
     borderRadius: 12,
     backgroundColor: colors.cardElevated,
     borderWidth: 1,
     borderColor: colors.border,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20,
+    marginBottom: 16,
   },
   header: {
+    alignItems: 'center',
     marginBottom: 20,
+  },
+  logoContainer: {
+    width: 56,
+    height: 56,
+    borderRadius: 16,
+    backgroundColor: '#0A0A0A',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.08)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 14,
+  },
+  logo: {
+    width: 42,
+    height: 42,
   },
   title: {
     color: colors.text,
-    fontSize: 28,
-    fontWeight: '800',
-    letterSpacing: -0.8,
+    fontSize: 24,
+    fontWeight: '700',
+    letterSpacing: -0.5,
     marginBottom: 6,
   },
   subtitle: {
     color: colors.textSecondary,
-    fontSize: 15,
+    fontSize: 14,
+    textAlign: 'center',
   },
   roleToggle: {
     flexDirection: 'row',
     backgroundColor: colors.card,
-    borderRadius: 14,
-    padding: 4,
+    borderRadius: 12,
+    padding: 3,
     borderWidth: 1,
     borderColor: colors.border,
-    marginBottom: 24,
+    marginBottom: 18,
   },
   roleOption: {
     flex: 1,
-    paddingVertical: 10,
+    paddingVertical: 9,
     alignItems: 'center',
-    borderRadius: 10,
+    borderRadius: 9,
   },
   roleOptionActive: {
     backgroundColor: colors.cardElevated,
@@ -280,32 +379,37 @@ const styles = StyleSheet.create({
   roleOptionText: {
     color: colors.textMuted,
     fontSize: 13,
-    fontWeight: '600',
+    fontWeight: '500',
   },
   roleOptionTextActive: {
     color: colors.text,
     fontWeight: '700',
   },
   form: {
-    gap: 16,
+    gap: 14,
   },
   inputGroup: {
-    gap: 6,
+    gap: 5,
   },
   label: {
     color: colors.textSecondary,
     fontSize: 13,
-    fontWeight: '600',
+    fontWeight: '500',
+  },
+  helperText: {
+    color: colors.textMuted,
+    fontSize: 11,
+    marginTop: 2,
   },
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.card,
-    borderRadius: 14,
+    borderRadius: 12,
     borderWidth: 1,
     borderColor: colors.border,
     paddingHorizontal: 14,
-    height: 50,
+    height: 48,
   },
   inputIcon: {
     marginRight: 10,
@@ -313,44 +417,65 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     color: colors.text,
-    fontSize: 15,
+    fontSize: 14,
   },
-  termsRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    marginTop: 4,
-  },
-  termsText: {
-    color: colors.textSecondary,
-    fontSize: 12,
-    flex: 1,
-  },
-  termsHighlight: {
-    color: colors.accentCyan,
-    fontWeight: '600',
+  eyeButton: {
+    padding: 6,
   },
   submitButton: {
     backgroundColor: colors.primary,
-    height: 52,
-    borderRadius: 14,
+    height: 48,
+    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 8,
+    marginTop: 6,
   },
-  submitButtonDisabled: {
+  buttonDisabled: {
     opacity: 0.6,
   },
   submitButtonText: {
     color: colors.primaryForeground,
-    fontSize: 16,
-    fontWeight: '700',
+    fontSize: 15,
+    fontWeight: '600',
+  },
+  dividerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 8,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: colors.border,
+  },
+  dividerText: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '600',
+    letterSpacing: 0.8,
+    marginHorizontal: 12,
+  },
+  googleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 48,
+    borderRadius: 12,
+    backgroundColor: colors.card,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.14)',
+    gap: 10,
+  },
+  googleButtonText: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '600',
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 28,
+    marginTop: 24,
   },
   footerText: {
     color: colors.textMuted,
@@ -359,6 +484,7 @@ const styles = StyleSheet.create({
   footerLink: {
     color: colors.text,
     fontSize: 14,
-    fontWeight: '700',
+    fontWeight: '600',
+    textDecorationLine: 'underline',
   },
 });

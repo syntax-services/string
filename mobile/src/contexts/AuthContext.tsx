@@ -4,6 +4,11 @@ import { supabase } from '../lib/supabase';
 import { Profile, Business, AccountType, ResolvedUserType } from '../types';
 import * as SecureStore from 'expo-secure-store';
 
+import * as WebBrowser from 'expo-web-browser';
+import { makeRedirectUri } from 'expo-auth-session';
+
+WebBrowser.maybeCompleteAuthSession();
+
 interface AuthContextType {
   user: User | null;
   session: Session | null;
@@ -16,6 +21,7 @@ interface AuthContextType {
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signUp: (email: string, password: string, metadata?: { full_name?: string; account_type?: string; referral_code?: string }) => Promise<{ error: Error | null }>;
+  signInWithGoogle: () => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
   switchRole: (role: AccountType) => Promise<void>;
   refreshProfile: () => Promise<void>;
@@ -160,6 +166,54 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+  const signInWithGoogle = async (): Promise<{ error: Error | null }> => {
+    try {
+      const redirectUrl = makeRedirectUri({
+        scheme: 'stringapp',
+        path: 'auth/callback',
+      });
+
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: redirectUrl,
+          skipBrowserRedirect: true,
+        },
+      });
+
+      if (error) throw error;
+      if (!data?.url) throw new Error('No authentication URL returned from Google.');
+
+      const result = await WebBrowser.openAuthSessionAsync(data.url, redirectUrl);
+
+      if (result.type === 'success' && result.url) {
+        const url = result.url;
+        const queryParams = new URLSearchParams(
+          url.includes('#') ? url.split('#')[1] : url.split('?')[1]
+        );
+        const accessToken = queryParams.get('access_token');
+        const refreshToken = queryParams.get('refresh_token');
+
+        if (accessToken && refreshToken) {
+          const { error: sessionError } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken,
+          });
+          if (sessionError) throw sessionError;
+        } else {
+          const code = queryParams.get('code');
+          if (code) {
+            const { error: codeError } = await supabase.auth.exchangeCodeForSession(code);
+            if (codeError) throw codeError;
+          }
+        }
+      }
+      return { error: null };
+    } catch (err: any) {
+      return { error: err };
+    }
+  };
+
   const signOut = async () => {
     await supabase.auth.signOut();
     setUser(null);
@@ -200,6 +254,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         loading,
         signIn,
         signUp,
+        signInWithGoogle,
         signOut,
         switchRole,
         refreshProfile,

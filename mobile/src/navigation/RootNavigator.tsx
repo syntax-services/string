@@ -16,6 +16,7 @@ import { ForgotPasswordScreen } from '../screens/auth/ForgotPasswordScreen';
 import { OnboardingScreen } from '../screens/auth/OnboardingScreen';
 
 // Customer Screens
+import { CustomerOverviewScreen } from '../screens/customer/CustomerOverviewScreen';
 import { CustomerDiscoverScreen } from '../screens/customer/CustomerDiscoverScreen';
 import { CustomerSearchScreen } from '../screens/customer/CustomerSearchScreen';
 import { CustomerOrdersScreen } from '../screens/customer/CustomerOrdersScreen';
@@ -69,24 +70,24 @@ const CustomerTabNavigator = () => (
     }}
   >
     <CustomerTab.Screen
+      name="CustomerOverview"
+      component={CustomerOverviewScreen}
+      options={{ tabBarLabel: 'Feed' }}
+    />
+    <CustomerTab.Screen
       name="CustomerDiscover"
       component={CustomerDiscoverScreen}
       options={{ tabBarLabel: 'Discover' }}
     />
     <CustomerTab.Screen
-      name="CustomerSearch"
-      component={CustomerSearchScreen}
-      options={{ tabBarLabel: 'Search' }}
+      name="CustomerOrders"
+      component={CustomerOrdersScreen}
+      options={{ tabBarLabel: 'Orders' }}
     />
     <CustomerTab.Screen
       name="CustomerMessages"
       component={ConversationsScreen}
       options={{ tabBarLabel: 'Messages' }}
-    />
-    <CustomerTab.Screen
-      name="CustomerOrders"
-      component={CustomerOrdersScreen}
-      options={{ tabBarLabel: 'Orders' }}
     />
     <CustomerTab.Screen
       name="CustomerProfile"

@@ -1,38 +1,35 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Platform } from 'react-native';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { 
-  Compass, 
-  Search, 
-  MessageSquare, 
-  ShoppingBag, 
-  User, 
-  LayoutGrid, 
-  Package, 
-  ClipboardList, 
-  TrendingUp 
+import {
+  Home,
+  Search,
+  MessageCircle,
+  ShoppingBag,
+  User,
+  Store,
+  Package,
+  ClipboardList,
+  TrendingUp,
 } from 'lucide-react-native';
 import { colors } from '../../theme/colors';
 import * as Haptics from 'expo-haptics';
-
-interface TabConfig {
-  name: string;
-  icon: React.ComponentType<{ size: number; color: string; strokeWidth: number }>;
-}
+import { useAuth } from '../../contexts/AuthContext';
+import { Image } from 'expo-image';
 
 const CUSTOMER_TABS: Record<string, React.ComponentType<any>> = {
-  CustomerDiscover: Compass,
-  CustomerSearch: Search,
-  CustomerMessages: MessageSquare,
+  CustomerOverview: Home,
+  CustomerDiscover: Search,
   CustomerOrders: ShoppingBag,
+  CustomerMessages: MessageCircle,
   CustomerProfile: User,
 };
 
 const BUSINESS_TABS: Record<string, React.ComponentType<any>> = {
-  BusinessOverview: LayoutGrid,
+  BusinessOverview: Store,
   BusinessProducts: Package,
   BusinessOrders: ClipboardList,
-  BusinessMessages: MessageSquare,
+  BusinessMessages: MessageCircle,
   BusinessGrowth: TrendingUp,
 };
 
@@ -41,15 +38,20 @@ export const PinterestTabBar: React.FC<BottomTabBarProps> = ({
   descriptors,
   navigation,
 }) => {
+  const { profile } = useAuth();
+
   return (
-    <View style={styles.container}>
+    <View style={styles.container} pointerEvents="box-none">
       <View style={styles.dockCapsule}>
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key];
           const isFocused = state.index === index;
 
           const IconComponent =
-            CUSTOMER_TABS[route.name] || BUSINESS_TABS[route.name] || Compass;
+            CUSTOMER_TABS[route.name] || BUSINESS_TABS[route.name] || Home;
+
+          const isProfileTab = route.name.includes('Profile');
+          const hasAvatar = isProfileTab && !!profile?.avatar_url;
 
           const onPress = () => {
             if (Platform.OS !== 'web') {
@@ -81,12 +83,26 @@ export const PinterestTabBar: React.FC<BottomTabBarProps> = ({
               style={styles.tabButton}
             >
               <View style={[styles.iconWrapper, isFocused && styles.iconWrapperActive]}>
-                <IconComponent
-                  size={26}
-                  color={isFocused ? colors.tabBarActive : colors.tabBarInactive}
-                  strokeWidth={isFocused ? 2.8 : 2.2}
-                />
-                {isFocused && <View style={styles.activeDot} />}
+                {hasAvatar ? (
+                  <View
+                    style={[
+                      styles.avatarBorder,
+                      isFocused && styles.avatarBorderActive,
+                    ]}
+                  >
+                    <Image
+                      source={{ uri: profile.avatar_url! }}
+                      style={styles.avatarImage}
+                      contentFit="cover"
+                    />
+                  </View>
+                ) : (
+                  <IconComponent
+                    size={24}
+                    color={isFocused ? colors.primary : colors.tabBarInactive}
+                    strokeWidth={isFocused ? 2.8 : 2.2}
+                  />
+                )}
               </View>
             </TouchableOpacity>
           );
@@ -99,52 +115,61 @@ export const PinterestTabBar: React.FC<BottomTabBarProps> = ({
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    bottom: Platform.OS === 'ios' ? 30 : 20,
-    left: 20,
-    right: 20,
+    bottom: Platform.OS === 'ios' ? 26 : 18,
+    left: 0,
+    right: 0,
     alignItems: 'center',
+    zIndex: 100,
   },
   dockCapsule: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: colors.tabBarBg,
-    borderRadius: 40,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
+    backgroundColor: colors.card,
+    borderRadius: 9999,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
     borderWidth: 1,
-    borderColor: colors.tabBarBorder,
-    width: '100%',
-    maxWidth: 420,
+    borderColor: colors.border,
+    width: '90%',
+    maxWidth: 360,
     // Deep tactile shadow
     shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.6,
-    shadowRadius: 20,
-    elevation: 16,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.5,
+    shadowRadius: 16,
+    elevation: 12,
   },
   tabButton: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 6,
+    paddingVertical: 4,
   },
   iconWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 6,
-    borderRadius: 20,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
   },
   iconWrapperActive: {
-    transform: [{ scale: 1.08 }],
+    backgroundColor: 'rgba(59, 130, 246, 0.12)',
   },
-  activeDot: {
-    width: 4,
-    height: 4,
-    borderRadius: 2,
-    backgroundColor: colors.tabBarIndicator,
-    marginTop: 4,
-    position: 'absolute',
-    bottom: -2,
+  avatarBorder: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    borderWidth: 1.5,
+    borderColor: colors.tabBarInactive,
+    overflow: 'hidden',
+  },
+  avatarBorderActive: {
+    borderColor: colors.primary,
+    borderWidth: 2,
+  },
+  avatarImage: {
+    width: '100%',
+    height: '100%',
   },
 });

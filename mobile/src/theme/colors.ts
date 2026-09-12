@@ -1,30 +1,40 @@
+// String Theme Design System - Replicating Web Cobalt Obsidian Palette
 export const colors = {
-  background: '#000000',
-  card: '#0A0A0A',
-  cardElevated: '#121212',
-  cardSubtle: '#181818',
-  surface: '#121212',
-  surfaceElevated: '#181818',
+  // Midnight Obsidian Backgrounds & Surfaces
+  background: '#090B10',
+  card: '#12151C',
+  cardElevated: '#181C26',
+  cardSubtle: '#1C2230',
+  surface: '#12151C',
+  surfaceElevated: '#181C26',
   
-  // High contrast text
-  text: '#FFFFFF',
-  textSecondary: '#A1A1AA',
-  textMuted: '#71717A',
-  textPlaceholder: '#52525B',
+  // High contrast text & typography
+  text: '#F8FAFC',
+  textSecondary: '#94A3B8',
+  textMuted: '#64748B',
+  textPlaceholder: '#475569',
   destructive: '#EF4444',
+  destructiveForeground: '#FFFFFF',
 
-  // Liquid glass borders
-  border: 'rgba(255, 255, 255, 0.08)',
-  borderLight: 'rgba(255, 255, 255, 0.14)',
-  borderHighlight: 'rgba(255, 255, 255, 0.22)',
+  // Borders & Dividers
+  border: '#1E293B',
+  borderLight: '#334155',
+  borderHighlight: 'rgba(255, 255, 255, 0.16)',
 
-  // High contrast pops (Linear / Raycast aesthetic)
-  primary: '#FFFFFF',
-  primaryForeground: '#000000',
-  accentCyan: '#00F5FF',
+  // Brand Primary (Cobalt Blue - matching web hsl(224, 85%, 62%))
+  primary: '#3B82F6',
+  primaryForeground: '#FFFFFF',
+  primaryDark: '#2563EB',
+
+  // Secondary & Accents
+  secondary: '#1E293B',
+  secondaryForeground: '#F8FAFC',
+  accent: '#1E293B',
+  accentForeground: '#F8FAFC',
+  accentCyan: '#06B6D4',
   accentEmerald: '#10B981',
   accentAmber: '#F59E0B',
-  accentRose: '#FF0050',
+  accentRose: '#F43F5E',
   accentViolet: '#8B5CF6',
 
   // Status tokens
@@ -34,13 +44,14 @@ export const colors = {
   warningBg: 'rgba(245, 158, 11, 0.12)',
   error: '#EF4444',
   errorBg: 'rgba(239, 68, 68, 0.12)',
+  info: '#3B82F6',
 
-  // Pinterest tab bar specific
-  tabBarBg: 'rgba(12, 12, 12, 0.92)',
-  tabBarBorder: 'rgba(255, 255, 255, 0.12)',
-  tabBarActive: '#FFFFFF',
-  tabBarInactive: '#666666',
-  tabBarIndicator: '#FFFFFF',
+  // Floating dock bar
+  tabBarBg: '#0F131A',
+  tabBarBorder: '#1E293B',
+  tabBarActive: '#3B82F6',
+  tabBarInactive: '#64748B',
+  tabBarIndicator: '#3B82F6',
 };
 
 export const typography = {

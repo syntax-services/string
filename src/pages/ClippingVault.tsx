@@ -58,12 +58,24 @@ export interface CampaignSlot {
 // When new clips arrive, simply drop the .mp4 files into public/campaigns/ and populate this array.
 const CEO_CAMPAIGNS: CampaignSlot[] = [
   {
-    campaignId: "ceo_camp_1",
-    campaignName: "Campaign Drop Alpha (CEO Slot 1)",
-    category: "High-Virality Music & Entertainment",
-    status: "Standby For Drop",
-    payout: "$1,000 / 1M Views",
-    clips: []
+    campaignId: "ceo_zeds_dead",
+    campaignName: "Zeds Dead — Fan Hype & Highlight Campaign",
+    category: "EDM Festival & Bass Music (Clipr Agency)",
+    status: "Live & Active (Strict CEO Exclusive)",
+    payout: "$3.50 / 1k Views ($175 Max)",
+    clips: [
+      {
+        id: "zeds_dead_unreal_drop",
+        title: "Wait For The Drop... 🔥 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/zeds_dead/zeds_dead_unreal_drop.mp4",
+        description: "What in the world did I just watch?! 🤯 Zeds Dead live at Red Rocks Amphitheatre was pure insanity. Wear headphones for that bass! 🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead", "#BassMusic", "#EDMFestival", "#Dubstep", "#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s infinite loop with FPV drone dive over 10,000 crowd into spaceship stage with bold hook captions."
+      }
+    ]
   },
   {
     campaignId: "ceo_camp_2",

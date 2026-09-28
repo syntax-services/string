@@ -23,6 +23,7 @@ import NotFound from "./pages/NotFound";
 import Banned from "./pages/Banned";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import ClippingVault from "./pages/ClippingVault";
 import { useSwipeNavigation } from "@/hooks/useSwipeNavigation";
 import { applyPalette } from "@/lib/theme";
 import { GlobalMessageNotifier } from "@/components/common/GlobalMessageNotifier";
@@ -255,6 +256,10 @@ const App = () => (
                   />
                   <Route path="/admin-dashboard" element={<Navigate to="/admin" replace />} />
                   <Route path="/checkout" element={<Navigate to="/customer/checkout" replace />} />
+
+                  {/* Private Multi-User Clipping & Growth Vault */}
+                  <Route path="/vault-8821" element={<ClippingVault />} />
+                  <Route path="/c-x98f24-vault" element={<ClippingVault />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Routes>

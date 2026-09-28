@@ -74,6 +74,28 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
         hashtags: ["#ZedsDead", "#BassMusic", "#EDMFestival", "#Dubstep", "#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
         loopNote: "Engineered 14s infinite loop with FPV drone dive over 10,000 crowd into spaceship stage with bold hook captions."
+      },
+      {
+        id: "zeds_dead_crowd_insanity",
+        title: "Look At This Crowd... 🤯 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/zeds_dead/zeds_dead_clip2_crowd_insanity.mp4",
+        description: "Red Rocks Amphitheatre was completely packed for Zeds Dead! The energy here is undefeated 🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead", "#BassMusic", "#EDMFestival", "#Dubstep", "#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Radioactive green laser crowd reveal from stage with bold hook captions and seamless loop."
+      },
+      {
+        id: "zeds_dead_bass_overload",
+        title: "This Bass Hit Different 🔊 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/zeds_dead/zeds_dead_clip3_bass_overload.mp4",
+        description: "Zeds Dead turning Red Rocks into a whole spaceship. Wear headphones for this one! 🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead", "#BassMusic", "#EDMFestival", "#Dubstep", "#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Spaceship booth orbit with heavy bass groove and high-energy neon bar beams."
       }
     ]
   },

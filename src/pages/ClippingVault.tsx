@@ -39,7 +39,8 @@ export interface CampaignClip {
   duration: string;
   quality: string;
   videoSrc: string; // Direct repository relative path e.g. /campaigns/campaign_name/clip1.mp4
-  caption: string;
+  description: string; // Full YouTube video description with contextual summary and targeted hashtags
+  hashtags?: string[]; // Optional tag array for quick keyword copying
   payoutRate: string;
   loopNote: string;
 }
@@ -96,12 +97,19 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
 // Lazy-Loaded Deferred Video Component (Loads video byte streams only when triggered)
 function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [copiedTitle, setCopiedTitle] = useState(false);
+  const [copiedDesc, setCopiedDesc] = useState(false);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(clip.caption);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopyTitle = () => {
+    navigator.clipboard.writeText(clip.title);
+    setCopiedTitle(true);
+    setTimeout(() => setCopiedTitle(false), 2000);
+  };
+
+  const handleCopyDesc = () => {
+    navigator.clipboard.writeText(clip.description);
+    setCopiedDesc(true);
+    setTimeout(() => setCopiedDesc(false), 2000);
   };
 
   return (
@@ -139,9 +147,23 @@ function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
         </div>
 
         <div className="p-4 space-y-3">
-          <h4 className="font-bold text-sm text-white line-clamp-1 group-hover:text-blue-400 transition-colors">
-            {clip.title}
-          </h4>
+          <div>
+            <span className="text-[10px] font-mono text-blue-400 uppercase tracking-wider font-semibold block mb-0.5">
+              YouTube Shorts Title
+            </span>
+            <h4 className="font-bold text-sm text-white line-clamp-2 group-hover:text-blue-400 transition-colors">
+              {clip.title}
+            </h4>
+          </div>
+
+          <div className="bg-[#0a0d14] border border-[#1b2234] rounded-xl p-2.5 space-y-1">
+            <span className="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider block">
+              Description & Hashtags
+            </span>
+            <p className="text-[11px] text-neutral-300 font-sans leading-relaxed line-clamp-3 whitespace-pre-wrap">
+              {clip.description}
+            </p>
+          </div>
 
           <div className="bg-[#0a0d14] border border-[#1b2234] rounded-xl p-2.5 space-y-1">
             <div className="text-[10px] text-neutral-400 flex items-center justify-between">
@@ -156,22 +178,23 @@ function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
       </div>
 
       <div className="p-4 pt-0 space-y-2">
-        <button
-          onClick={handleCopy}
-          className="w-full py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-all flex items-center justify-center gap-1.5 shadow-md shadow-blue-600/20 active:scale-[0.98]"
-        >
-          {copied ? (
-            <>
-              <Check className="w-3.5 h-3.5 text-emerald-300" />
-              <span>Title & Caption Copied!</span>
-            </>
-          ) : (
-            <>
-              <Copy className="w-3.5 h-3.5" />
-              <span>Copy Title & SEO Caption</span>
-            </>
-          )}
-        </button>
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            onClick={handleCopyTitle}
+            className="py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-all flex items-center justify-center gap-1.5 shadow-md shadow-blue-600/20 active:scale-[0.98]"
+          >
+            {copiedTitle ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Copy className="w-3.5 h-3.5" />}
+            <span>{copiedTitle ? "Title Copied!" : "Copy Title"}</span>
+          </button>
+
+          <button
+            onClick={handleCopyDesc}
+            className="py-2.5 px-3 rounded-xl bg-[#1e2638] hover:bg-[#253046] border border-[#2a364f] text-neutral-200 font-semibold text-xs transition-all flex items-center justify-center gap-1.5 active:scale-[0.98]"
+          >
+            {copiedDesc ? <Check className="w-3.5 h-3.5 text-emerald-300" /> : <Copy className="w-3.5 h-3.5" />}
+            <span>{copiedDesc ? "Desc Copied!" : "Copy Desc & Tags"}</span>
+          </button>
+        </div>
 
         <a
           href={clip.videoSrc}

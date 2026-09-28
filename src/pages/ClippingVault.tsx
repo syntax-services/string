@@ -144,47 +144,11 @@ export default function ClippingVault() {
     deckB.addEventListener("timeupdate", handleTimeUpdate);
     deckA.addEventListener("ended", handleEnded);
     deckB.addEventListener("ended", handleEnded);
-
-    // Auto-pause when leaving tab/window, Auto-resume when coming back
-    const handleVisibility = () => {
-      const activeEl = activeDeckRef.current === "A" ? deckA : deckB;
-      const idleEl = activeDeckRef.current === "A" ? deckB : deckA;
-
-      if (document.hidden) {
-        activeEl.pause();
-        if (isTransitioningRef.current) idleEl.pause();
-      } else {
-        activeEl.play().catch(() => {});
-        if (isTransitioningRef.current) idleEl.play().catch(() => {});
-      }
-    };
-
-    const handleBlur = () => {
-      const activeEl = activeDeckRef.current === "A" ? deckA : deckB;
-      const idleEl = activeDeckRef.current === "A" ? deckB : deckA;
-      activeEl.pause();
-      if (isTransitioningRef.current) idleEl.pause();
-    };
-
-    const handleFocus = () => {
-      const activeEl = activeDeckRef.current === "A" ? deckA : deckB;
-      const idleEl = activeDeckRef.current === "A" ? deckB : deckA;
-      activeEl.play().catch(() => {});
-      if (isTransitioningRef.current) idleEl.play().catch(() => {});
-    };
-
-    document.addEventListener("visibilitychange", handleVisibility);
-    window.addEventListener("blur", handleBlur);
-    window.addEventListener("focus", handleFocus);
-
     return () => {
       deckA.removeEventListener("timeupdate", handleTimeUpdate);
       deckB.removeEventListener("timeupdate", handleTimeUpdate);
       deckA.removeEventListener("ended", handleEnded);
       deckB.removeEventListener("ended", handleEnded);
-      document.removeEventListener("visibilitychange", handleVisibility);
-      window.removeEventListener("blur", handleBlur);
-      window.removeEventListener("focus", handleFocus);
     };
   }, [currentUser]);
 

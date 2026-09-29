@@ -706,12 +706,6 @@ function DeferredVideoCard({
           <Download className="w-3.5 h-3.5" />
           <span>Direct Clip Download</span>
         </a>
-        {downloadToast && (
-          <div className="fixed bottom-6 right-6 bg-[#0c101a] border border-blue-500 text-white font-bold text-xs py-3 px-5 rounded-xl shadow-2xl z-50 flex items-center gap-2.5 animate-bounce">
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-ping" />
-            <span>{downloadToast}</span>
-          </div>
-        )}
       </div>
     </div>
   );
@@ -1124,6 +1118,13 @@ export default function ClippingVault() {
         </div>
 
       </main>
+
+      {downloadToast && (
+        <div className="fixed bottom-6 right-6 bg-[#0c101a] border border-blue-500 text-white font-bold text-xs py-3 px-5 rounded-xl shadow-2xl z-50 flex items-center gap-2.5 animate-bounce">
+          <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-ping" />
+          <span>{downloadToast}</span>
+        </div>
+      )}
     </div>
   );
 }

@@ -58,54 +58,242 @@ export interface CampaignSlot {
 // When new clips arrive, simply drop the .mp4 files into public/campaigns/ and populate this array.
 const CEO_CAMPAIGNS: CampaignSlot[] = [
   {
-    campaignId: "ceo_zeds_dead",
-    campaignName: "Zeds Dead — Fan Hype & Highlight Campaign",
-    category: "EDM Festival & Bass Music (Clipr Agency)",
+    campaignId: "ceo_tech_prologue",
+    campaignName: "Channel 1: Tech Prologue (10 Shorts)",
+    category: "Stage Architecture, Lasers & Drone Dynamics (Clipr Agency)",
     status: "Live & Active (Strict CEO Exclusive)",
     payout: "$3.50 / 1k Views ($175 Max)",
     clips: [
       {
-        id: "zeds_dead_unreal_drop",
-        title: "Wait For The Drop... 🔥 @zedsdead #shorts",
+        id: "tech_prologue_01",
+        title: "Most Insane Production Ever 🤯 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/zeds_dead/zeds_dead_unreal_drop.mp4",
-        description: "What in the world did I just watch?! 🤯 Zeds Dead live at Red Rocks Amphitheatre was pure insanity. Wear headphones for that bass! 🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        hashtags: ["#ZedsDead", "#BassMusic", "#EDMFestival", "#Dubstep", "#FestivalSeason"],
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_01.mp4",
+        description: "The production engineering behind Zeds Dead at Red Rocks is next level. That stage build is straight out of the year 3000! ⚡\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
-        loopNote: "Engineered 14s infinite loop with FPV drone dive over 10,000 crowd into spaceship stage with bold hook captions."
+        loopNote: "Engineered 14s loop with bold hook typography ('MOST INSANE PRODUCTION EVER') and seamless audio crossfade."
       },
       {
-        id: "zeds_dead_crowd_insanity",
-        title: "Look At This Crowd... 🤯 @zedsdead #shorts",
+        id: "tech_prologue_02",
+        title: "This Belongs On The Big Screen 🎥 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/zeds_dead/zeds_dead_clip2_crowd_insanity.mp4",
-        description: "Red Rocks Amphitheatre was completely packed for Zeds Dead! The energy here is undefeated 🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        hashtags: ["#ZedsDead", "#BassMusic", "#EDMFestival", "#Dubstep", "#FestivalSeason"],
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_02.mp4",
+        description: "Cinema-grade lighting and drone choreography at Red Rocks. Zeds Dead shows are a masterclass in visual design.\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
-        loopNote: "Radioactive green laser crowd reveal from stage with bold hook captions and seamless loop."
+        loopNote: "Engineered 14s loop with bold hook typography ('THIS BELONGS ON THE BIG SCREEN') and seamless audio crossfade."
       },
       {
-        id: "zeds_dead_bass_overload",
-        title: "This Bass Hit Different 🔊 @zedsdead #shorts",
+        id: "tech_prologue_03",
+        title: "Stage Design From The Year 3000 🛸 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/zeds_dead/zeds_dead_clip3_bass_overload.mp4",
-        description: "Zeds Dead turning Red Rocks into a whole spaceship. Wear headphones for this one! 🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        hashtags: ["#ZedsDead", "#BassMusic", "#EDMFestival", "#Dubstep", "#FestivalSeason"],
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_03.mp4",
+        description: "The futuristic custom spaceship cockpit DJ booth built for Zeds Dead. Look at those control consoles! 🛰️\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
-        loopNote: "Spaceship booth orbit with heavy bass groove and high-energy neon bar beams."
+        loopNote: "Engineered 14s loop with bold hook typography ('STAGE DESIGN FROM YEAR 3000') and seamless audio crossfade."
+      },
+      {
+        id: "tech_prologue_04",
+        title: "Flame Cannons At 140 BPM 🔥 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_04.mp4",
+        description: "Every single pyrotechnic burst timed to milliseconds. The live audio engineering here is unbelievable.\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('FLAME CANNONS AT 140 BPM') and seamless audio crossfade."
+      },
+      {
+        id: "tech_prologue_05",
+        title: "FPV Drone Flight Path Over 10,000 Fans 🚁 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_05.mp4",
+        description: "The precision needed to fly an FPV drone through concert lasers and over 10,000 screaming fans at Red Rocks! 🤯\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('FPV DRONE FLIGHT PATH') and seamless audio crossfade."
+      },
+      {
+        id: "tech_prologue_06",
+        title: "Red Rocks Natural Acoustic Power 🗿 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_06.mp4",
+        description: "Bass bouncing off 300-million-year-old red sandstone monoliths. There is no venue on earth with acoustics like this.\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('RED ROCKS ACOUSTIC TESTING') and seamless audio crossfade."
+      },
+      {
+        id: "tech_prologue_07",
+        title: "Sub-Bass Frequency Test 🔊 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_07.mp4",
+        description: "Listen to that sub-bass resonance. Turn your sound up to feel what 120,000 watts of PK Sound feels like! ⚡\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('SUB-BASS FREQUENCY CHECK') and seamless audio crossfade."
+      },
+      {
+        id: "tech_prologue_08",
+        title: "360° Stage Orbit Visuals 🌐 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_08.mp4",
+        description: "A 360-degree sweep of the entire Dead Rocks stage setup. Look at how the LED floor syncs with the bassline!\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('360° STAGE ORBIT') and seamless audio crossfade."
+      },
+      {
+        id: "tech_prologue_09",
+        title: "Next-Gen Concert Display Tech ⚡ @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_09.mp4",
+        description: "The curved LED panoramic screens wrapping the amphitheater. The visuals make the amphitheater look like an alien spaceship!\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('LED CURVATURE DISPLAY TECH') and seamless audio crossfade."
+      },
+      {
+        id: "tech_prologue_10",
+        title: "Zeds Dead Shows Are Pure Cinema 🎬 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_10.mp4",
+        description: "Combining cinema-grade live direction with cutting-edge bass music. Zeds Dead sets the industry benchmark.\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('ZEDS DEAD SHOWS ARE CINEMA') and seamless audio crossfade."
       }
     ]
   },
   {
-    campaignId: "ceo_camp_2",
-    campaignName: "Campaign Drop Beta (CEO Slot 2)",
-    category: "Viral Streamer / Gaming & IRL",
-    status: "Standby For Drop",
-    payout: "$850 - $1,000 / 1M Views",
-    clips: []
+    campaignId: "ceo_viral_clips",
+    campaignName: "Channel 2: Viral Clips (10 Shorts)",
+    category: "Bass Drops, Crowd Energy & Viral FOMO (Clipr Agency)",
+    status: "Live & Active (Strict CEO Exclusive)",
+    payout: "$3.50 / 1k Views ($175 Max)",
+    clips: [
+      {
+        id: "viral_clips_01",
+        title: "Wait For The Drop... 🔥 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/viral_clips/viral_clips_01.mp4",
+        description: "What the h*ll did I just watch?! 🤯 Zeds Dead live at Red Rocks Amphitheatre was pure insanity. Wear headphones for that bass! 🔥\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('WAIT FOR THE DROP...') and seamless audio crossfade."
+      },
+      {
+        id: "viral_clips_02",
+        title: "Look At This Crowd... 🤯 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/viral_clips/viral_clips_02.mp4",
+        description: "Red Rocks Amphitheatre was completely packed for Zeds Dead! The energy here is undefeated 🔥\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('LOOK AT THIS CROWD...') and seamless audio crossfade."
+      },
+      {
+        id: "viral_clips_03",
+        title: "What The H*ll Am I Looking At?! 😱 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/viral_clips/viral_clips_03.mp4",
+        description: "10,000 people moving as one single wave under the lasers! Zeds Dead crowds are unmatched.\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('WHAT THE H*LL AM I LOOKING AT') and seamless audio crossfade."
+      },
+      {
+        id: "viral_clips_04",
+        title: "The Bass Is About To Hit 🔊 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/viral_clips/viral_clips_04.mp4",
+        description: "Bass you can actually feel in your chest. Wear your best headphones and crank the volume up! 🎧\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('THIS BASS IS ABOUT TO HIT') and seamless audio crossfade."
+      },
+      {
+        id: "viral_clips_05",
+        title: "POV: You Chose The Right Festival 🎪 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/viral_clips/viral_clips_05.mp4",
+        description: "When the bass drops and 10,000 people lose their minds together! Pure festival magic with Zeds Dead ✨\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('POV: YOU CHOSE RIGHT FESTIVAL') and seamless audio crossfade."
+      },
+      {
+        id: "viral_clips_06",
+        title: "The Hardest Drop Of The Night 💀 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/viral_clips/viral_clips_06.mp4",
+        description: "Zeds Dead dropping absolute filth at Red Rocks. Hands down the heaviest drop of the entire weekend! 🔥\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('HARDEST DROP OF THE NIGHT') and seamless audio crossfade."
+      },
+      {
+        id: "viral_clips_07",
+        title: "Everyone Was Waiting For This Drop ⏳ @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/viral_clips/viral_clips_07.mp4",
+        description: "The tension in the crowd right before this drop was electric. Zeds Dead live is something else! ⚡\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('EVERYONE WAS WAITING FOR THIS') and seamless audio crossfade."
+      },
+      {
+        id: "viral_clips_08",
+        title: "This Is Why People Love Zeds Dead ❤️ @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/viral_clips/viral_clips_08.mp4",
+        description: "From 2009 to now, Zeds Dead continues to dominate festival mainstages across the globe. Kings of bass! 👑\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('WHY PEOPLE LOVE ZEDS DEAD') and seamless audio crossfade."
+      },
+      {
+        id: "viral_clips_09",
+        title: "The Crowd Lost Their Entire Minds 🤯 @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/viral_clips/viral_clips_09.mp4",
+        description: "When the pyro hits at the exact same second as the sub-bass! Dead Rocks was pure insanity 🔥\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('THE CROWD LOST THEIR MINDS') and seamless audio crossfade."
+      },
+      {
+        id: "viral_clips_10",
+        title: "You Can Feel The Energy Through The Screen ⚡ @zedsdead #shorts",
+        duration: "0:14",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/viral_clips/viral_clips_10.mp4",
+        description: "Turn your brightness up, put your headphones on, and experience Zeds Dead live at Red Rocks! 🎧🔥\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
+        payoutRate: "$3.50 / 1k Views (Clipr Agency)",
+        loopNote: "Engineered 14s loop with bold hook typography ('FEEL THE ENERGY THROUGH SCREEN') and seamless audio crossfade."
+      }
+    ]
   }
 ];
 

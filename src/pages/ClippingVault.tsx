@@ -719,8 +719,24 @@ export default function ClippingVault() {
   const [passwordInput, setPasswordInput] = useState("");
   const [authError, setAuthError] = useState("");
   const [selectedClipIds, setSelectedClipIds] = useState<string[]>([]);
-  const [activeBatchFilter, setActiveBatchFilter] = useState<string>("all");
+  const [activeBatchFilter, setActiveBatchFilter] = useState<Record<string, string>>({});
   const [downloadToast, setDownloadToast] = useState<string>("");
+
+  const handleToggleSelect = (clipId: string) => {
+    setSelectedClipIds(prev => 
+      prev.includes(clipId) ? prev.filter(id => id !== clipId) : [...prev, clipId]
+    );
+  };
+
+  const handleSelectAllInCamp = (clips: CampaignClip[]) => {
+    const allIds = clips.map(c => c.id);
+    const allSelected = allIds.length > 0 && allIds.every(id => selectedClipIds.includes(id));
+    if (allSelected) {
+      setSelectedClipIds(prev => prev.filter(id => !allIds.includes(id)));
+    } else {
+      setSelectedClipIds(prev => Array.from(new Set([...prev, ...allIds])));
+    }
+  };
 
   const handleBulkDownload = (items: { url: string; name: string }[]) => {
     if (!items.length) return;
@@ -741,17 +757,9 @@ export default function ClippingVault() {
       a.click();
       document.body.removeChild(a);
       idx++;
-      setTimeout(downloadNext, 500);
+      setTimeout(downloadNext, 600);
     };
     downloadNext();
-  };
-
-  const handleSelectAllVisible = () => {
-    if (!activeCampaign) return;
-    const visibleClips = activeCampaign.clips.filter(
-      c => activeBatchFilter === "all" || c.batchTag === activeBatchFilter
-    );
-    setSelectedClipIds(visibleClips.map(c => c.id));
   };
 
   // Dual-Deck Crossfade References
@@ -1073,51 +1081,161 @@ export default function ClippingVault() {
 
         {/* Campaign Slots (Empty State / Ready for Drop) */}
         <div className="space-y-6">
-          {campaigns.map((camp, idx) => (
-            <div 
-              key={camp.campaignId}
-              className="bg-[#10141e] border border-[#1b2234] rounded-2xl p-6 shadow-xl space-y-4"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#1b2234] gap-2">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 font-bold">
-                      Slot {idx + 1} // Dedicated
+          {campaigns.map((camp, idx) => {
+            const currentBatch = activeBatchFilter[camp.campaignId] || "all";
+            const visibleClips = camp.clips.filter(c => 
+              currentBatch === "all" || currentBatch === "All Drops" || c.batchTag === currentBatch
+            );
+            const selectedInCamp = visibleClips.filter(c => selectedClipIds.includes(c.id));
+            const isAllSelected = visibleClips.length > 0 && visibleClips.every(c => selectedClipIds.includes(c.id));
+
+            return (
+              <div 
+                key={camp.campaignId}
+                className="bg-[#10141e] border border-[#1b2234] rounded-2xl p-6 shadow-xl space-y-4"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#1b2234] gap-2">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 font-bold">
+                        Slot {idx + 1} // Dedicated
+                      </span>
+                      <span className="text-xs text-neutral-400">{camp.category}</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white">{camp.campaignName}</h3>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-mono text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-lg">
+                      {camp.payout}
                     </span>
-                    <span className="text-xs text-neutral-400">{camp.category}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-white">{camp.campaignName}</h3>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-lg">
-                    {camp.payout}
-                  </span>
-                </div>
+                {camp.clips.length > 0 ? (
+                  <>
+                    {/* Bulk Selection and Batch Filter Action Bar */}
+                    <div className="bg-[#0b0e17] border border-[#1b2337] rounded-xl p-3.5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 shadow-lg">
+                      {/* Left: Select All button + Batch filters */}
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <button
+                          onClick={() => handleSelectAllInCamp(visibleClips)}
+                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                            isAllSelected
+                              ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                              : "bg-[#141b29] hover:bg-[#1a2336] text-neutral-300 border border-[#232f48]"
+                          }`}
+                        >
+                          <Check className={`w-3.5 h-3.5 ${isAllSelected ? "opacity-100" : "opacity-40"}`} />
+                          <span>{isAllSelected ? "Deselect All" : `Select All (${visibleClips.length})`}</span>
+                        </button>
+
+                        {/* Batch tag pills */}
+                        {camp.batches && camp.batches.length > 0 && (
+                          <div className="flex items-center gap-1.5 bg-[#101522] p-1 rounded-lg border border-[#1a2336]">
+                            {camp.batches.map(batch => {
+                              const isActive = (currentBatch === batch) || (batch === "All Drops" && currentBatch === "all");
+                              return (
+                                <button
+                                  key={batch}
+                                  onClick={() => setActiveBatchFilter(prev => ({ ...prev, [camp.campaignId]: batch === "All Drops" ? "all" : batch }))}
+                                  className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all ${
+                                    isActive
+                                      ? "bg-blue-600 text-white shadow-sm"
+                                      : "text-neutral-400 hover:text-white"
+                                  }`}
+                                >
+                                  {batch}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Right: Download Actions */}
+                      <div className="flex items-center gap-2 justify-end flex-wrap">
+                        {selectedInCamp.length > 0 && (
+                          <button
+                            onClick={() => handleBulkDownload(selectedInCamp.map(c => ({ url: c.videoSrc, name: `${c.id}.mp4` })))}
+                            className="flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow-lg shadow-blue-600/30 transition-all animate-pulse active:scale-95"
+                          >
+                            <Download className="w-3.5 h-3.5" />
+                            <span>Download Selected ({selectedInCamp.length})</span>
+                          </button>
+                        )}
+
+                        <button
+                          onClick={() => handleBulkDownload(visibleClips.map(c => ({ url: c.videoSrc, name: `${c.id}.mp4` })))}
+                          className="flex items-center gap-1.5 bg-[#141b29] hover:bg-[#1e273c] border border-[#232f48] text-white text-xs font-bold px-3.5 py-1.5 rounded-lg transition-all active:scale-95"
+                        >
+                          <Download className="w-3.5 h-3.5 text-blue-400" />
+                          <span>Download All ({visibleClips.length})</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                      {visibleClips.map(clip => (
+                        <DeferredVideoCard 
+                          key={clip.id} 
+                          clip={clip} 
+                          isSelected={selectedClipIds.includes(clip.id)}
+                          onToggleSelect={() => handleToggleSelect(clip.id)}
+                        />
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <div className="py-12 px-4 border border-dashed border-[#1b2234] rounded-xl flex flex-col items-center justify-center text-center bg-[#0a0d14]/50">
+                    <div className="w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center mb-3">
+                      <Clock className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <h4 className="text-sm font-bold text-white mb-1">Awaiting Campaign Footage</h4>
+                    <p className="text-xs text-neutral-400 max-w-md leading-relaxed">
+                      This dedicated campaign slot is primed. As soon as the new campaign drops, video clips will appear here ready with instant copy captions, engineered loops, and direct downloads.
+                    </p>
+                  </div>
+                )}
               </div>
-
-              {camp.clips.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                  {camp.clips.map(clip => (
-                    <DeferredVideoCard key={clip.id} clip={clip} />
-                  ))}
-                </div>
-              ) : (
-                <div className="py-12 px-4 border border-dashed border-[#1b2234] rounded-xl flex flex-col items-center justify-center text-center bg-[#0a0d14]/50">
-                  <div className="w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center mb-3">
-                    <Clock className="w-5 h-5 text-blue-400" />
-                  </div>
-                  <h4 className="text-sm font-bold text-white mb-1">Awaiting Campaign Footage</h4>
-                  <p className="text-xs text-neutral-400 max-w-md leading-relaxed">
-                    This dedicated campaign slot is primed. As soon as the new campaign drops, video clips will appear here ready with instant copy captions, engineered loops, and direct downloads.
-                  </p>
-                </div>
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </main>
+
+      {/* Global Floating Action Bar for Selected Clips */}
+      {selectedClipIds.length > 0 && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#0e1422]/95 backdrop-blur-xl border border-blue-500/50 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-4 animate-in fade-in slide-in-from-bottom-5">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-ping" />
+            <span className="text-xs font-extrabold tracking-wide">
+              {selectedClipIds.length} {selectedClipIds.length === 1 ? "Clip" : "Clips"} Selected
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => {
+                const allClips = campaigns.flatMap(c => c.clips);
+                const toDownload = allClips.filter(c => selectedClipIds.includes(c.id));
+                handleBulkDownload(toDownload.map(c => ({ url: c.videoSrc, name: `${c.id}.mp4` })));
+              }}
+              className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg shadow-blue-600/30 flex items-center gap-1.5 transition-all active:scale-95"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download Selected ({selectedClipIds.length})</span>
+            </button>
+
+            <button
+              onClick={() => setSelectedClipIds([])}
+              className="bg-[#192236] hover:bg-[#222e49] text-neutral-300 hover:text-white text-xs font-semibold px-3 py-2 rounded-xl transition-all"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      )}
 
       {downloadToast && (
         <div className="fixed bottom-6 right-6 bg-[#0c101a] border border-blue-500 text-white font-bold text-xs py-3 px-5 rounded-xl shadow-2xl z-50 flex items-center gap-2.5 animate-bounce">

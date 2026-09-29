@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Lock, LogOut, Download, Copy, Check, 
   Shield, Flame, Sparkles, Clock, AlertCircle, ArrowUpRight,
-  Zap, Play, CheckCircle2
+  Zap, Play, CheckCircle2, Trash2, RotateCcw, Archive
 } from "lucide-react";
 
 // User Credentials
@@ -648,11 +648,17 @@ const LILSHEY_CAMPAIGNS: CampaignSlot[] = [
 function DeferredVideoCard({ 
   clip, 
   isSelected, 
-  onToggleSelect 
+  onToggleSelect,
+  onOffload,
+  onRestore,
+  isOffloaded
 }: { 
   clip: CampaignClip; 
   isSelected?: boolean; 
-  onToggleSelect?: () => void; 
+  onToggleSelect?: () => void;
+  onOffload?: () => void;
+  onRestore?: () => void;
+  isOffloaded?: boolean;
 }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -756,17 +762,24 @@ function DeferredVideoCard({
         <div className="p-4 space-y-3">
           {/* Top Row: Multi-Select Toggle & Bold Time Added */}
           <div className="flex items-center justify-between gap-2 flex-wrap pb-1 border-b border-[#1a2336]">
-            <button
-              onClick={onToggleSelect}
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
-                isSelected 
-                  ? "bg-blue-600 text-white shadow-md shadow-blue-600/30" 
-                  : "bg-[#141a27] text-neutral-400 hover:text-white border border-[#232d43]"
-              }`}
-            >
-              <Check className={`w-3.5 h-3.5 ${isSelected ? "opacity-100" : "opacity-40"}`} />
-              <span>{isSelected ? "Selected" : "Select"}</span>
-            </button>
+            {isOffloaded ? (
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                <Archive className="w-3.5 h-3.5" />
+                <span>POSTED / OFFLOADED</span>
+              </div>
+            ) : (
+              <button
+                onClick={onToggleSelect}
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                  isSelected 
+                    ? "bg-blue-600 text-white shadow-md shadow-blue-600/30" 
+                    : "bg-[#141a27] text-neutral-400 hover:text-white border border-[#232d43]"
+                }`}
+              >
+                <Check className={`w-3.5 h-3.5 ${isSelected ? "opacity-100" : "opacity-40"}`} />
+                <span>{isSelected ? "Selected" : "Select"}</span>
+              </button>
+            )}
 
             {clip.addedTime && (
               <div className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-mono font-extrabold bg-emerald-500/15 border border-emerald-500/35 text-emerald-400">
@@ -825,14 +838,36 @@ function DeferredVideoCard({
           </button>
         </div>
 
-        <a
-          href={clip.videoSrc}
-          download
-          className="w-full py-2 px-3 rounded-xl bg-[#141926] hover:bg-[#1b2234] border border-[#1b2234] text-neutral-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all"
-        >
-          <Download className="w-3.5 h-3.5" />
-          <span>Direct Clip Download</span>
-        </a>
+        <div className="grid grid-cols-2 gap-2">
+          <a
+            href={clip.videoSrc}
+            download
+            className="py-2 px-3 rounded-xl bg-[#141926] hover:bg-[#1b2234] border border-[#1b2234] text-neutral-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Download</span>
+          </a>
+
+          {isOffloaded ? (
+            <button
+              onClick={onRestore}
+              className="py-2 px-3 rounded-xl bg-purple-600/25 hover:bg-purple-600/45 border border-purple-500/40 text-purple-200 hover:text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all active:scale-[0.98]"
+              title="Restore clip to active workspace"
+            >
+              <RotateCcw className="w-3.5 h-3.5 text-purple-400" />
+              <span>Restore</span>
+            </button>
+          ) : (
+            <button
+              onClick={onOffload}
+              className="py-2 px-3 rounded-xl bg-rose-950/40 hover:bg-rose-900/60 border border-rose-800/40 text-rose-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all active:scale-[0.98]"
+              title="Offload video (mark as posted to clear workspace)"
+            >
+              <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+              <span>Offload / Posted</span>
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -847,7 +882,76 @@ export default function ClippingVault() {
   const [authError, setAuthError] = useState("");
   const [selectedClipIds, setSelectedClipIds] = useState<string[]>([]);
   const [activeBatchFilter, setActiveBatchFilter] = useState<Record<string, string>>({});
+  const [slotTab, setSlotTab] = useState<Record<string, "active" | "offloaded">>({});
   const [downloadToast, setDownloadToast] = useState<string>("");
+
+  const [offloadedClipIds, setOffloadedClipIds] = useState<string[]>(() => {
+    const user = localStorage.getItem("clipping_user") || "ceo";
+    try {
+      const saved = localStorage.getItem(`clipping_offloaded_${user}`);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    if (!currentUser) return;
+    try {
+      const saved = localStorage.getItem(`clipping_offloaded_${currentUser}`);
+      setOffloadedClipIds(saved ? JSON.parse(saved) : []);
+    } catch {
+      setOffloadedClipIds([]);
+    }
+    setSelectedClipIds([]);
+  }, [currentUser]);
+
+  const handleOffloadClips = (clipIds: string[]) => {
+    if (!clipIds.length) return;
+    const user = currentUser || "ceo";
+    setOffloadedClipIds(prev => {
+      const next = Array.from(new Set([...prev, ...clipIds]));
+      try {
+        localStorage.setItem(`clipping_offloaded_${user}`, JSON.stringify(next));
+      } catch (e) {
+        console.error("Storage save error:", e);
+      }
+      return next;
+    });
+    setSelectedClipIds(prev => prev.filter(id => !clipIds.includes(id)));
+    setDownloadToast(`✓ Offloaded ${clipIds.length} posted ${clipIds.length === 1 ? "video" : "videos"} from your workspace.`);
+    setTimeout(() => setDownloadToast(""), 4000);
+  };
+
+  const handleRestoreClip = (clipId: string) => {
+    const user = currentUser || "ceo";
+    setOffloadedClipIds(prev => {
+      const next = prev.filter(id => id !== clipId);
+      try {
+        localStorage.setItem(`clipping_offloaded_${user}`, JSON.stringify(next));
+      } catch (e) {
+        console.error("Storage save error:", e);
+      }
+      return next;
+    });
+    setDownloadToast("✓ Restored video to active workspace.");
+    setTimeout(() => setDownloadToast(""), 3000);
+  };
+
+  const handleRestoreAllInSlot = (slotClipIds: string[]) => {
+    const user = currentUser || "ceo";
+    setOffloadedClipIds(prev => {
+      const next = prev.filter(id => !slotClipIds.includes(id));
+      try {
+        localStorage.setItem(`clipping_offloaded_${user}`, JSON.stringify(next));
+      } catch (e) {
+        console.error("Storage save error:", e);
+      }
+      return next;
+    });
+    setDownloadToast("✓ Restored all videos to active workspace.");
+    setTimeout(() => setDownloadToast(""), 3000);
+  };
 
   const handleToggleSelect = (clipId: string) => {
     setSelectedClipIds(prev => 
@@ -1206,13 +1310,22 @@ export default function ClippingVault() {
           </div>
         </section>
 
-        {/* Campaign Slots (Empty State / Ready for Drop) */}
+        {/* Campaign Slots */}
         <div className="space-y-6">
           {campaigns.map((camp, idx) => {
+            const currentTab = slotTab[camp.campaignId] || "active";
             const currentBatch = activeBatchFilter[camp.campaignId] || "all";
-            const visibleClips = camp.clips.filter(c => 
+
+            // Partition into active vs offloaded for current user account
+            const allActiveClips = camp.clips.filter(c => !offloadedClipIds.includes(c.id));
+            const allOffloadedClips = camp.clips.filter(c => offloadedClipIds.includes(c.id));
+
+            // Select clips to display based on active tab
+            const targetClips = currentTab === "active" ? allActiveClips : allOffloadedClips;
+            const visibleClips = targetClips.filter(c => 
               currentBatch === "all" || currentBatch === "All Drops" || c.batchTag === currentBatch
             );
+
             const selectedInCamp = visibleClips.filter(c => selectedClipIds.includes(c.id));
             const isAllSelected = visibleClips.length > 0 && visibleClips.every(c => selectedClipIds.includes(c.id));
 
@@ -1221,7 +1334,7 @@ export default function ClippingVault() {
                 key={camp.campaignId}
                 className="bg-[#10141e] border border-[#1b2234] rounded-2xl p-6 shadow-xl space-y-4"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#1b2234] gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#1b2234] gap-3">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 font-bold">
@@ -1232,8 +1345,35 @@ export default function ClippingVault() {
                     <h3 className="text-lg font-bold text-white">{camp.campaignName}</h3>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-lg">
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    {/* Active vs Offloaded / Posted Tabs */}
+                    <div className="flex items-center bg-[#0a0e17] p-1 rounded-xl border border-[#1b2336]">
+                      <button
+                        onClick={() => setSlotTab(prev => ({ ...prev, [camp.campaignId]: "active" }))}
+                        className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                          currentTab === "active"
+                            ? "bg-blue-600 text-white shadow-sm"
+                            : "text-neutral-400 hover:text-white"
+                        }`}
+                      >
+                        Active ({allActiveClips.length})
+                      </button>
+                      {allOffloadedClips.length > 0 && (
+                        <button
+                          onClick={() => setSlotTab(prev => ({ ...prev, [camp.campaignId]: "offloaded" }))}
+                          className={`px-3 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
+                            currentTab === "offloaded"
+                              ? "bg-purple-600 text-white shadow-sm"
+                              : "text-purple-300 hover:text-purple-100"
+                          }`}
+                        >
+                          <Archive className="w-3 h-3" />
+                          <span>Posted / Offloaded ({allOffloadedClips.length})</span>
+                        </button>
+                      )}
+                    </div>
+
+                    <span className="text-xs font-mono text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1.5 rounded-lg">
                       {camp.payout}
                     </span>
                   </div>
@@ -1241,77 +1381,144 @@ export default function ClippingVault() {
 
                 {camp.clips.length > 0 ? (
                   <>
-                    {/* Bulk Selection and Batch Filter Action Bar */}
-                    <div className="bg-[#0b0e17] border border-[#1b2337] rounded-xl p-3.5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 shadow-lg">
-                      {/* Left: Select All button + Batch filters */}
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <button
-                          onClick={() => handleSelectAllInCamp(visibleClips)}
-                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                            isAllSelected
-                              ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
-                              : "bg-[#141b29] hover:bg-[#1a2336] text-neutral-300 border border-[#232f48]"
-                          }`}
-                        >
-                          <Check className={`w-3.5 h-3.5 ${isAllSelected ? "opacity-100" : "opacity-40"}`} />
-                          <span>{isAllSelected ? "Deselect All" : `Select All (${visibleClips.length})`}</span>
-                        </button>
-
-                        {/* Batch tag pills */}
-                        {camp.batches && camp.batches.length > 0 && (
-                          <div className="flex items-center gap-1.5 bg-[#101522] p-1 rounded-lg border border-[#1a2336]">
-                            {camp.batches.map(batch => {
-                              const isActive = (currentBatch === batch) || (batch === "All Drops" && currentBatch === "all");
-                              return (
-                                <button
-                                  key={batch}
-                                  onClick={() => setActiveBatchFilter(prev => ({ ...prev, [camp.campaignId]: batch === "All Drops" ? "all" : batch }))}
-                                  className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all ${
-                                    isActive
-                                      ? "bg-blue-600 text-white shadow-sm"
-                                      : "text-neutral-400 hover:text-white"
-                                  }`}
-                                >
-                                  {batch}
-                                </button>
-                              );
-                            })}
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Right: Download Actions */}
-                      <div className="flex items-center gap-2 justify-end flex-wrap">
-                        {selectedInCamp.length > 0 && (
+                    {/* Action Bar */}
+                    {currentTab === "active" ? (
+                      <div className="bg-[#0b0e17] border border-[#1b2337] rounded-xl p-3.5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 shadow-lg">
+                        {/* Left: Select All button + Batch filters */}
+                        <div className="flex items-center gap-2 flex-wrap">
                           <button
-                            onClick={() => handleBulkDownload(selectedInCamp.map(c => ({ url: c.videoSrc, name: `${c.id}.mp4` })))}
-                            className="flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow-lg shadow-blue-600/30 transition-all animate-pulse active:scale-95"
+                            onClick={() => handleSelectAllInCamp(visibleClips)}
+                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                              isAllSelected
+                                ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                                : "bg-[#141b29] hover:bg-[#1a2336] text-neutral-300 border border-[#232f48]"
+                            }`}
                           >
-                            <Download className="w-3.5 h-3.5" />
-                            <span>Download Selected ({selectedInCamp.length})</span>
+                            <Check className={`w-3.5 h-3.5 ${isAllSelected ? "opacity-100" : "opacity-40"}`} />
+                            <span>{isAllSelected ? "Deselect All" : `Select All (${visibleClips.length})`}</span>
+                          </button>
+
+                          {/* Batch tag pills */}
+                          {camp.batches && camp.batches.length > 0 && (
+                            <div className="flex items-center gap-1.5 bg-[#101522] p-1 rounded-lg border border-[#1a2336]">
+                              {camp.batches.map(batch => {
+                                const isActive = (currentBatch === batch) || (batch === "All Drops" && currentBatch === "all");
+                                return (
+                                  <button
+                                    key={batch}
+                                    onClick={() => setActiveBatchFilter(prev => ({ ...prev, [camp.campaignId]: batch === "All Drops" ? "all" : batch }))}
+                                    className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all ${
+                                      isActive
+                                        ? "bg-blue-600 text-white shadow-sm"
+                                        : "text-neutral-400 hover:text-white"
+                                    }`}
+                                  >
+                                    {batch}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Right: Actions (Download or Delete/Offload) */}
+                        <div className="flex items-center gap-2 justify-end flex-wrap">
+                          {selectedInCamp.length > 0 && (
+                            <>
+                              <button
+                                onClick={() => handleBulkDownload(selectedInCamp.map(c => ({ url: c.videoSrc, name: `${c.id}.mp4` })))}
+                                className="flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow-lg shadow-blue-600/30 transition-all active:scale-95"
+                              >
+                                <Download className="w-3.5 h-3.5" />
+                                <span>Download Selected ({selectedInCamp.length})</span>
+                              </button>
+
+                              <button
+                                onClick={() => handleOffloadClips(selectedInCamp.map(c => c.id))}
+                                className="flex items-center gap-1.5 bg-rose-600/90 hover:bg-rose-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg shadow-rose-600/30 transition-all active:scale-95"
+                                title="Offload selected clips from your active workspace"
+                              >
+                                <Trash2 className="w-3.5 h-3.5" />
+                                <span>Delete / Offload ({selectedInCamp.length})</span>
+                              </button>
+                            </>
+                          )}
+
+                          <button
+                            onClick={() => handleBulkDownload(visibleClips.map(c => ({ url: c.videoSrc, name: `${c.id}.mp4` })))}
+                            className="flex items-center gap-1.5 bg-[#141b29] hover:bg-[#1e273c] border border-[#232f48] text-white text-xs font-bold px-3.5 py-1.5 rounded-lg transition-all active:scale-95"
+                          >
+                            <Download className="w-3.5 h-3.5 text-blue-400" />
+                            <span>Download All ({visibleClips.length})</span>
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      /* Offloaded Tab Action Bar */
+                      <div className="bg-[#0b0e17] border border-purple-900/40 rounded-xl p-3.5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 shadow-lg">
+                        <div className="flex items-center gap-2 text-xs text-purple-300 font-medium">
+                          <Archive className="w-4 h-4 text-purple-400" />
+                          <span>Showing <strong>{visibleClips.length}</strong> videos offloaded for your account. You can restore or download them anytime.</span>
+                        </div>
+
+                        <div className="flex items-center gap-2 justify-end">
+                          <button
+                            onClick={() => handleRestoreAllInSlot(allOffloadedClips.map(c => c.id))}
+                            className="flex items-center gap-1.5 bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/40 text-purple-200 hover:text-white text-xs font-bold px-3.5 py-1.5 rounded-lg transition-all"
+                          >
+                            <RotateCcw className="w-3.5 h-3.5" />
+                            <span>Restore All to Workspace</span>
+                          </button>
+
+                          <button
+                            onClick={() => handleBulkDownload(visibleClips.map(c => ({ url: c.videoSrc, name: `${c.id}.mp4` })))}
+                            className="flex items-center gap-1.5 bg-[#141b29] hover:bg-[#1e273c] border border-[#232f48] text-white text-xs font-bold px-3.5 py-1.5 rounded-lg transition-all active:scale-95"
+                          >
+                            <Download className="w-3.5 h-3.5 text-blue-400" />
+                            <span>Download All ({visibleClips.length})</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
+
+                    {visibleClips.length > 0 ? (
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        {visibleClips.map(clip => (
+                          <DeferredVideoCard 
+                            key={clip.id} 
+                            clip={clip} 
+                            isSelected={selectedClipIds.includes(clip.id)}
+                            onToggleSelect={() => handleToggleSelect(clip.id)}
+                            onOffload={() => handleOffloadClips([clip.id])}
+                            onRestore={() => handleRestoreClip(clip.id)}
+                            isOffloaded={offloadedClipIds.includes(clip.id)}
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="py-10 px-4 border border-[#232d43] bg-[#0c101a]/70 rounded-xl flex flex-col items-center justify-center text-center">
+                        <div className="w-12 h-12 rounded-xl bg-purple-600/15 border border-purple-500/30 flex items-center justify-center mb-3">
+                          <CheckCircle2 className="w-6 h-6 text-purple-400" />
+                        </div>
+                        <h4 className="text-sm font-bold text-white mb-1">
+                          {currentTab === "active" ? "All Clips Posted & Offloaded! 🎉" : "No Offloaded Clips"}
+                        </h4>
+                        <p className="text-xs text-neutral-400 max-w-md mb-3">
+                          {currentTab === "active" 
+                            ? "Your workspace for this slot is clear. You can review, download, or restore any posted clips from the Offloaded tab anytime."
+                            : "You haven't offloaded any clips in this campaign slot yet."}
+                        </p>
+                        {currentTab === "active" && allOffloadedClips.length > 0 && (
+                          <button
+                            onClick={() => setSlotTab(prev => ({ ...prev, [camp.campaignId]: "offloaded" }))}
+                            className="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-lg transition-all"
+                          >
+                            <Archive className="w-3.5 h-3.5" />
+                            <span>View Offloaded Clips ({allOffloadedClips.length})</span>
                           </button>
                         )}
-
-                        <button
-                          onClick={() => handleBulkDownload(visibleClips.map(c => ({ url: c.videoSrc, name: `${c.id}.mp4` })))}
-                          className="flex items-center gap-1.5 bg-[#141b29] hover:bg-[#1e273c] border border-[#232f48] text-white text-xs font-bold px-3.5 py-1.5 rounded-lg transition-all active:scale-95"
-                        >
-                          <Download className="w-3.5 h-3.5 text-blue-400" />
-                          <span>Download All ({visibleClips.length})</span>
-                        </button>
                       </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                      {visibleClips.map(clip => (
-                        <DeferredVideoCard 
-                          key={clip.id} 
-                          clip={clip} 
-                          isSelected={selectedClipIds.includes(clip.id)}
-                          onToggleSelect={() => handleToggleSelect(clip.id)}
-                        />
-                      ))}
-                    </div>
+                    )}
                   </>
                 ) : (
                   <div className="py-12 px-4 border border-dashed border-[#1b2234] rounded-xl flex flex-col items-center justify-center text-center bg-[#0a0d14]/50">
@@ -1333,7 +1540,7 @@ export default function ClippingVault() {
 
       {/* Global Floating Action Bar for Selected Clips */}
       {selectedClipIds.length > 0 && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#0e1422]/95 backdrop-blur-xl border border-blue-500/50 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-4 animate-in fade-in slide-in-from-bottom-5">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#0e1422]/95 backdrop-blur-xl border border-blue-500/50 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom-5 flex-wrap justify-center">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-ping" />
             <span className="text-xs font-extrabold tracking-wide">
@@ -1348,10 +1555,19 @@ export default function ClippingVault() {
                 const toDownload = allClips.filter(c => selectedClipIds.includes(c.id));
                 handleBulkDownload(toDownload.map(c => ({ url: c.videoSrc, name: `${c.id}.mp4` })));
               }}
-              className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg shadow-blue-600/30 flex items-center gap-1.5 transition-all active:scale-95"
+              className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-lg shadow-blue-600/30 flex items-center gap-1.5 transition-all active:scale-95"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>Download Selected ({selectedClipIds.length})</span>
+              <span>Download Selected</span>
+            </button>
+
+            <button
+              onClick={() => handleOffloadClips(selectedClipIds)}
+              className="bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-lg shadow-rose-600/30 flex items-center gap-1.5 transition-all active:scale-95"
+              title="Offload selected clips from your account workspace"
+            >
+              <Trash2 className="w-3.5 h-3.5" />
+              <span>Delete / Offload</span>
             </button>
 
             <button

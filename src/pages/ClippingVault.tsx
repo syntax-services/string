@@ -49,6 +49,8 @@ export interface CampaignClip {
   hashtags?: string[]; // Optional tag array for quick keyword copying
   payoutRate: string;
   loopNote: string;
+  addedTime?: string;
+  batchTag?: string;
 }
 
 export interface CampaignSlot {
@@ -57,6 +59,7 @@ export interface CampaignSlot {
   category: string;
   status: string;
   payout: string;
+  batches?: string[];
   clips: CampaignClip[];
 }
 
@@ -69,13 +72,16 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
     category: "Stage Architecture, Lasers & Drone Dynamics (Clipr Agency)",
     status: "Live & Active (Strict CEO Exclusive)",
     payout: "$3.50 / 1k Views ($175 Max)",
+    batches: ["All Drops", "Overnight Drop (1:30 AM)"],
     clips: [
       {
         id: "tech_prologue_01",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "Most Insane Production Ever 🤯 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/tech_prologue/tech_prologue_01.mp4",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_01.mp4?v=v3",
         description: "The production engineering behind Zeds Dead at Red Rocks is next level. That stage build is straight out of the year 3000! ⚡\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -83,10 +89,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "tech_prologue_02",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "This Belongs On The Big Screen 🎥 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/tech_prologue/tech_prologue_02.mp4",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_02.mp4?v=v3",
         description: "Cinema-grade lighting and drone choreography at Red Rocks. Zeds Dead shows are a masterclass in visual design.\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -94,10 +102,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "tech_prologue_03",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "Stage Design From The Year 3000 🛸 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/tech_prologue/tech_prologue_03.mp4",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_03.mp4?v=v3",
         description: "The futuristic custom spaceship cockpit DJ booth built for Zeds Dead. Look at those control consoles! 🛰️\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -105,10 +115,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "tech_prologue_04",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "Flame Cannons At 140 BPM 🔥 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/tech_prologue/tech_prologue_04.mp4",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_04.mp4?v=v3",
         description: "Every single pyrotechnic burst timed to milliseconds. The live audio engineering here is unbelievable.\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -116,10 +128,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "tech_prologue_05",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "FPV Drone Flight Path Over 10,000 Fans 🚁 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/tech_prologue/tech_prologue_05.mp4",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_05.mp4?v=v3",
         description: "The precision needed to fly an FPV drone through concert lasers and over 10,000 screaming fans at Red Rocks! 🤯\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -127,10 +141,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "tech_prologue_06",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "Red Rocks Natural Acoustic Power 🗿 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/tech_prologue/tech_prologue_06.mp4",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_06.mp4?v=v3",
         description: "Bass bouncing off 300-million-year-old red sandstone monoliths. There is no venue on earth with acoustics like this.\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -138,10 +154,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "tech_prologue_07",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "Sub-Bass Frequency Test 🔊 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/tech_prologue/tech_prologue_07.mp4",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_07.mp4?v=v3",
         description: "Listen to that sub-bass resonance. Turn your sound up to feel what 120,000 watts of PK Sound feels like! ⚡\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -149,10 +167,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "tech_prologue_08",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "360° Stage Orbit Visuals 🌐 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/tech_prologue/tech_prologue_08.mp4",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_08.mp4?v=v3",
         description: "A 360-degree sweep of the entire Dead Rocks stage setup. Look at how the LED floor syncs with the bassline!\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -160,10 +180,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "tech_prologue_09",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "Next-Gen Concert Display Tech ⚡ @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/tech_prologue/tech_prologue_09.mp4",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_09.mp4?v=v3",
         description: "The curved LED panoramic screens wrapping the amphitheater. The visuals make the amphitheater look like an alien spaceship!\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -171,10 +193,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "tech_prologue_10",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "Zeds Dead Shows Are Pure Cinema 🎬 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/tech_prologue/tech_prologue_10.mp4",
+        videoSrc: "/campaigns/tech_prologue/tech_prologue_10.mp4?v=v3",
         description: "Combining cinema-grade live direction with cutting-edge bass music. Zeds Dead sets the industry benchmark.\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -191,10 +215,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
     clips: [
       {
         id: "viral_clips_01",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "Wait For The Drop... 🔥 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/viral_clips/viral_clips_01.mp4",
+        videoSrc: "/campaigns/viral_clips/viral_clips_01.mp4?v=v3",
         description: "What the h*ll did I just watch?! 🤯 Zeds Dead live at Red Rocks Amphitheatre was pure insanity. Wear headphones for that bass! 🔥\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -202,10 +228,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "viral_clips_02",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "Look At This Crowd... 🤯 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/viral_clips/viral_clips_02.mp4",
+        videoSrc: "/campaigns/viral_clips/viral_clips_02.mp4?v=v3",
         description: "Red Rocks Amphitheatre was completely packed for Zeds Dead! The energy here is undefeated 🔥\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -213,10 +241,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "viral_clips_03",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "What The H*ll Am I Looking At?! 😱 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/viral_clips/viral_clips_03.mp4",
+        videoSrc: "/campaigns/viral_clips/viral_clips_03.mp4?v=v3",
         description: "10,000 people moving as one single wave under the lasers! Zeds Dead crowds are unmatched.\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -224,10 +254,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "viral_clips_04",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "The Bass Is About To Hit 🔊 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/viral_clips/viral_clips_04.mp4",
+        videoSrc: "/campaigns/viral_clips/viral_clips_04.mp4?v=v3",
         description: "Bass you can actually feel in your chest. Wear your best headphones and crank the volume up! 🎧\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -235,10 +267,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "viral_clips_05",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "POV: You Chose The Right Festival 🎪 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/viral_clips/viral_clips_05.mp4",
+        videoSrc: "/campaigns/viral_clips/viral_clips_05.mp4?v=v3",
         description: "When the bass drops and 10,000 people lose their minds together! Pure festival magic with Zeds Dead ✨\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -246,10 +280,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "viral_clips_06",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "The Hardest Drop Of The Night 💀 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/viral_clips/viral_clips_06.mp4",
+        videoSrc: "/campaigns/viral_clips/viral_clips_06.mp4?v=v3",
         description: "Zeds Dead dropping absolute filth at Red Rocks. Hands down the heaviest drop of the entire weekend! 🔥\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -257,10 +293,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "viral_clips_07",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "Everyone Was Waiting For This Drop ⏳ @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/viral_clips/viral_clips_07.mp4",
+        videoSrc: "/campaigns/viral_clips/viral_clips_07.mp4?v=v3",
         description: "The tension in the crowd right before this drop was electric. Zeds Dead live is something else! ⚡\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -268,10 +306,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "viral_clips_08",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "This Is Why People Love Zeds Dead ❤️ @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/viral_clips/viral_clips_08.mp4",
+        videoSrc: "/campaigns/viral_clips/viral_clips_08.mp4?v=v3",
         description: "From 2009 to now, Zeds Dead continues to dominate festival mainstages across the globe. Kings of bass! 👑\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -279,10 +319,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "viral_clips_09",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "The Crowd Lost Their Entire Minds 🤯 @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/viral_clips/viral_clips_09.mp4",
+        videoSrc: "/campaigns/viral_clips/viral_clips_09.mp4?v=v3",
         description: "When the pyro hits at the exact same second as the sub-bass! Dead Rocks was pure insanity 🔥\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -290,10 +332,12 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "viral_clips_10",
+        addedTime: "Sep 29, 2026 • 01:30 AM",
+        batchTag: "Overnight Drop (1:30 AM)",
         title: "You Can Feel The Energy Through The Screen ⚡ @zedsdead #shorts",
         duration: "0:14",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/viral_clips/viral_clips_10.mp4",
+        videoSrc: "/campaigns/viral_clips/viral_clips_10.mp4?v=v3",
         description: "Turn your brightness up, put your headphones on, and experience Zeds Dead live at Red Rocks! 🎧🔥\\n\\n@zedsdead\\n\\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
         hashtags: ["#ZedsDead","#BassMusic","#EDMFestival","#Dubstep","#FestivalSeason"],
         payoutRate: "$3.50 / 1k Views (Clipr Agency)",
@@ -310,13 +354,16 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
     category: "Gaming Platformer & Redemption Arc (Clipster / Atari)",
     status: "Live & Active (Strict Habeeb Exclusive)",
     payout: "$1,500 / 1M Views ($1,500 Profile Cap)",
+    batches: ["All Drops", "Today's Drop (4:30 PM)"],
     clips: [
       {
         id: "bubsy_ugc_01",
+        addedTime: "Sep 29, 2026 • 04:30 PM",
+        batchTag: "Today's Drop (4:30 PM)",
         title: "Gaming's biggest joke just got a redemption arc 💀 #shorts",
         duration: "0:12",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_01.mp4",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_01.mp4?v=v3",
         description: "I genuinely wasn't expecting this to be this good... Bubsy has spent 30 years being the punchline of gaming, and now they drop a genuinely incredible 3D platformer?! 🤯\n\n#Bubsy #Bubsy4D #Gaming #Platformer #GamingCommunity",
         hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
         payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
@@ -324,10 +371,12 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "bubsy_ugc_02",
+        addedTime: "Sep 29, 2026 • 04:30 PM",
+        batchTag: "Today's Drop (4:30 PM)",
         title: "We got a new Bubsy game before GTA 6... 🤯 #shorts",
         duration: "0:12",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_02.mp4",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_02.mp4?v=v3",
         description: "Nobody had 'Bubsy comeback' on their 2026 gaming bingo card. But look at this movement tech! Genuinely one of the smoothest platformers I've played recently.\n\n#Bubsy #Bubsy4D #Gaming #GamingShorts #RetroGaming",
         hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
         payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
@@ -335,10 +384,12 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "bubsy_ugc_03",
+        addedTime: "Sep 29, 2026 • 04:30 PM",
+        batchTag: "Today's Drop (4:30 PM)",
         title: "The internet's favorite punching bag is back 👀 #shorts",
         duration: "0:12",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_03.mp4",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_03.mp4?v=v3",
         description: "Imagine being roasted for 30 straight years and then dropping a 3D platformer with movement mechanics this fluid. The comeback story is crazy!\n\n#Bubsy #Bubsy4D #IndieGames #Platformer #Gamer",
         hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
         payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
@@ -346,10 +397,12 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "bubsy_ugc_04",
+        addedTime: "Sep 29, 2026 • 04:30 PM",
+        batchTag: "Today's Drop (4:30 PM)",
         title: "The worst mascot in gaming got the biggest glow up ever 🎮 #shorts",
         duration: "0:12",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_04.mp4",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_04.mp4?v=v3",
         description: "From gaming's biggest meme to one of the cleanest 3D platformers of 2026. The physics and momentum in Bubsy 4D feel unbelievable.\n\n#Bubsy #Bubsy4D #GamingCommunity #Platformer #Shorts",
         hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
         payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
@@ -357,10 +410,12 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "bubsy_ugc_05",
+        addedTime: "Sep 29, 2026 • 04:30 PM",
+        batchTag: "Today's Drop (4:30 PM)",
         title: "Nobody had 'Bubsy comeback' on their 2026 bingo card 😭 #shorts",
         duration: "0:12",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_05.mp4",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_05.mp4?v=v3",
         description: "I can't believe I'm saying this, but Bubsy 4D might genuinely be one of the best platformers this year. That momentum system is addictive!\n\n#Bubsy #Bubsy4D #GamerLife #Speedrun #Gaming",
         hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
         payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
@@ -368,10 +423,12 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "bubsy_ugc_06",
+        addedTime: "Sep 29, 2026 • 04:30 PM",
+        batchTag: "Today's Drop (4:30 PM)",
         title: "Imagine if gaming's biggest punchline dropped a good game 🐱 #shorts",
         duration: "0:12",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_06.mp4",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_06.mp4?v=v3",
         description: "If you like Sonic, Crash Bandicoot, or Mario Odyssey, you have to try this. The controls are tight, fast, and responsive.\n\n#Bubsy #Bubsy4D #Sonic #CrashBandicoot #GamingShorts",
         hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
         payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
@@ -379,10 +436,12 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "bubsy_ugc_07",
+        addedTime: "Sep 29, 2026 • 04:30 PM",
+        batchTag: "Today's Drop (4:30 PM)",
         title: "The mascot everyone roasted for 30 years just did this... 🔥 #shorts",
         duration: "0:12",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_07.mp4",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_07.mp4?v=v3",
         description: "Who knew 2026 would be the year Bubsy redeemed himself?! Atari and Fabraz completely cooked with the movement tech here.\n\n#Bubsy #Bubsy4D #Gaming #Gameplay #VideoGames",
         hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
         payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
@@ -390,10 +449,12 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "bubsy_ugc_08",
+        addedTime: "Sep 29, 2026 • 04:30 PM",
+        batchTag: "Today's Drop (4:30 PM)",
         title: "How did THIS franchise end up making a good game?! 🤯 #shorts",
         duration: "0:12",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_08.mp4",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_08.mp4?v=v3",
         description: "I was convinced this was going to be a disaster, but the game is actually incredible. The boss fights and level design are peak.\n\n#Bubsy #Bubsy4D #GamingReview #Platformer #Shorts",
         hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
         payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
@@ -401,10 +462,12 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "bubsy_ugc_09",
+        addedTime: "Sep 29, 2026 • 04:30 PM",
+        batchTag: "Today's Drop (4:30 PM)",
         title: "Gaming's biggest underdog just pulled off the impossible 🚀 #shorts",
         duration: "0:12",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_09.mp4",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_09.mp4?v=v3",
         description: "30 years as the punchline of the internet, and now Bubsy is back with elite 3D platforming. Respect to the developers for this redemption!\n\n#Bubsy #Bubsy4D #Underdog #GamingCommunity #Shorts",
         hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
         payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
@@ -412,10 +475,12 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       },
       {
         id: "bubsy_ugc_10",
+        addedTime: "Sep 29, 2026 • 04:30 PM",
+        batchTag: "Today's Drop (4:30 PM)",
         title: "Wait... why is the new Bubsy game actually this fun? 👀 #shorts",
         duration: "0:12",
         quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_10.mp4",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_10.mp4?v=v3",
         description: "I went in expecting a meme and came out hooked. The gliding and time-trial mechanics make this so satisfying to master!\n\n#Bubsy #Bubsy4D #GamingLife #Platformer #Gamer",
         hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
         payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
@@ -453,7 +518,15 @@ const LILSHEY_CAMPAIGNS: CampaignSlot[] = [
 ];
 
 // Lazy-Loaded Deferred Video Component (Loads video byte streams only when triggered)
-function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
+function DeferredVideoCard({ 
+  clip, 
+  isSelected, 
+  onToggleSelect 
+}: { 
+  clip: CampaignClip; 
+  isSelected?: boolean; 
+  onToggleSelect?: () => void; 
+}) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -505,7 +578,9 @@ function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
   };
 
   return (
-    <div className="bg-[#10141e] border border-[#1b2234] hover:border-blue-500/40 rounded-2xl overflow-hidden flex flex-col justify-between transition-all group shadow-xl">
+    <div className={`bg-[#10141e] border rounded-2xl overflow-hidden flex flex-col justify-between transition-all group shadow-xl ${
+  isSelected ? "border-blue-500 ring-2 ring-blue-500/40 bg-[#0f1626]" : "border-[#1b2234] hover:border-blue-500/40"
+}`}>
       <div>
         <div className="relative aspect-[9/16] max-h-[340px] bg-black overflow-hidden flex items-center justify-center">
           {isLoaded ? (
@@ -552,6 +627,28 @@ function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
         </div>
 
         <div className="p-4 space-y-3">
+          {/* Top Row: Multi-Select Toggle & Bold Time Added */}
+          <div className="flex items-center justify-between gap-2 flex-wrap pb-1 border-b border-[#1a2336]">
+            <button
+              onClick={onToggleSelect}
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                isSelected 
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-600/30" 
+                  : "bg-[#141a27] text-neutral-400 hover:text-white border border-[#232d43]"
+              }`}
+            >
+              <Check className={`w-3.5 h-3.5 ${isSelected ? "opacity-100" : "opacity-40"}`} />
+              <span>{isSelected ? "Selected" : "Select"}</span>
+            </button>
+
+            {clip.addedTime && (
+              <div className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-mono font-extrabold bg-emerald-500/15 border border-emerald-500/35 text-emerald-400">
+                <Clock className="w-3.5 h-3.5" />
+                <span>ADDED: <strong>{clip.addedTime}</strong></span>
+              </div>
+            )}
+          </div>
+
           <div>
             <span className="text-[10px] font-mono text-blue-400 uppercase tracking-wider font-semibold block mb-0.5">
               YouTube Shorts Title
@@ -609,6 +706,12 @@ function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
           <Download className="w-3.5 h-3.5" />
           <span>Direct Clip Download</span>
         </a>
+        {downloadToast && (
+          <div className="fixed bottom-6 right-6 bg-[#0c101a] border border-blue-500 text-white font-bold text-xs py-3 px-5 rounded-xl shadow-2xl z-50 flex items-center gap-2.5 animate-bounce">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-ping" />
+            <span>{downloadToast}</span>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -621,6 +724,41 @@ export default function ClippingVault() {
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [authError, setAuthError] = useState("");
+  const [selectedClipIds, setSelectedClipIds] = useState<string[]>([]);
+  const [activeBatchFilter, setActiveBatchFilter] = useState<string>("all");
+  const [downloadToast, setDownloadToast] = useState<string>("");
+
+  const handleBulkDownload = (items: { url: string; name: string }[]) => {
+    if (!items.length) return;
+    setDownloadToast(`Starting download of ${items.length} clips...`);
+    let idx = 0;
+    const downloadNext = () => {
+      if (idx >= items.length) {
+        setDownloadToast(`✓ All ${items.length} videos downloaded successfully!`);
+        setTimeout(() => setDownloadToast(""), 4000);
+        return;
+      }
+      const item = items[idx];
+      setDownloadToast(`⬇ Downloading ${idx + 1} of ${items.length}: ${item.name}...`);
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.download = item.name;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      idx++;
+      setTimeout(downloadNext, 500);
+    };
+    downloadNext();
+  };
+
+  const handleSelectAllVisible = () => {
+    if (!activeCampaign) return;
+    const visibleClips = activeCampaign.clips.filter(
+      c => activeBatchFilter === "all" || c.batchTag === activeBatchFilter
+    );
+    setSelectedClipIds(visibleClips.map(c => c.id));
+  };
 
   // Dual-Deck Crossfade References
   const deckARef = useRef<HTMLAudioElement | null>(null);

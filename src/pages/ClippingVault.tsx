@@ -19,6 +19,12 @@ const USERS: Record<string, { pass: string; name: string; role: string; badge: s
     name: "Habeeb Operations",
     role: "Senior Growth Clipper",
     badge: "HABEEB VAULT (SLOTS 3 & 4)"
+  },
+  lilshey: {
+    pass: "lil_9xK#v88Rzp22LM",
+    name: "Lilshey Viral Suite",
+    role: "Viral Content Specialist",
+    badge: "LILSHEY SUITE (SLOTS 5 & 6)"
   }
 };
 
@@ -299,12 +305,123 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
 
 const HABEEB_CAMPAIGNS: CampaignSlot[] = [
   {
-    campaignId: "habeeb_camp_1",
-    campaignName: "Campaign Drop Gamma (Habeeb Slot 1)",
-    category: "High-Virality Music & Entertainment",
-    status: "Standby For Drop",
-    payout: "$1,000 / 1M Views",
-    clips: []
+    campaignId: "habeeb_bubsy_ugc",
+    campaignName: "Bubsy 4D [UGC] 2 — High-APV 12s Viral Shorts (10 Clips)",
+    category: "Gaming Platformer & Redemption Arc (Clipster / Atari)",
+    status: "Live & Active (Strict Habeeb Exclusive)",
+    payout: "$1,500 / 1M Views ($1,500 Profile Cap)",
+    clips: [
+      {
+        id: "bubsy_ugc_01",
+        title: "Gaming's biggest joke just got a redemption arc 💀 #shorts",
+        duration: "0:12",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_01.mp4",
+        description: "I genuinely wasn't expecting this to be this good... Bubsy has spent 30 years being the punchline of gaming, and now they drop a genuinely incredible 3D platformer?! 🤯\n\n#Bubsy #Bubsy4D #Gaming #Platformer #GamingCommunity",
+        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
+        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
+        loopNote: "12s ultra-high APV loop. High-speed wall running and glide movement. Seamless audio fade."
+      },
+      {
+        id: "bubsy_ugc_02",
+        title: "We got a new Bubsy game before GTA 6... 🤯 #shorts",
+        duration: "0:12",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_02.mp4",
+        description: "Nobody had 'Bubsy comeback' on their 2026 gaming bingo card. But look at this movement tech! Genuinely one of the smoothest platformers I've played recently.\n\n#Bubsy #Bubsy4D #Gaming #GamingShorts #RetroGaming",
+        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
+        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
+        loopNote: "11.8s loop. Viral GTA 6 meme hook. Smooth air gliding and rail bounce combo."
+      },
+      {
+        id: "bubsy_ugc_03",
+        title: "The internet's favorite punching bag is back 👀 #shorts",
+        duration: "0:12",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_03.mp4",
+        description: "Imagine being roasted for 30 straight years and then dropping a 3D platformer with movement mechanics this fluid. The comeback story is crazy!\n\n#Bubsy #Bubsy4D #IndieGames #Platformer #Gamer",
+        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
+        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
+        loopNote: "12s loop. Rapid air-dash chaining and coin collection combo."
+      },
+      {
+        id: "bubsy_ugc_04",
+        title: "The worst mascot in gaming got the biggest glow up ever 🎮 #shorts",
+        duration: "0:12",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_04.mp4",
+        description: "From gaming's biggest meme to one of the cleanest 3D platformers of 2026. The physics and momentum in Bubsy 4D feel unbelievable.\n\n#Bubsy #Bubsy4D #GamingCommunity #Platformer #Shorts",
+        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
+        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
+        loopNote: "12s loop. Precision jump pad chaining and vertical climb sequence."
+      },
+      {
+        id: "bubsy_ugc_05",
+        title: "Nobody had 'Bubsy comeback' on their 2026 bingo card 😭 #shorts",
+        duration: "0:12",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_05.mp4",
+        description: "I can't believe I'm saying this, but Bubsy 4D might genuinely be one of the best platformers this year. That momentum system is addictive!\n\n#Bubsy #Bubsy4D #GamerLife #Speedrun #Gaming",
+        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
+        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
+        loopNote: "12s loop. High velocity slope slide into wall climb transition."
+      },
+      {
+        id: "bubsy_ugc_06",
+        title: "Imagine if gaming's biggest punchline dropped a good game 🐱 #shorts",
+        duration: "0:12",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_06.mp4",
+        description: "If you like Sonic, Crash Bandicoot, or Mario Odyssey, you have to try this. The controls are tight, fast, and responsive.\n\n#Bubsy #Bubsy4D #Sonic #CrashBandicoot #GamingShorts",
+        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
+        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
+        loopNote: "12s loop. Sonic/Crash platformer comparison angle. Flawless loop seam."
+      },
+      {
+        id: "bubsy_ugc_07",
+        title: "The mascot everyone roasted for 30 years just did this... 🔥 #shorts",
+        duration: "0:12",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_07.mp4",
+        description: "Who knew 2026 would be the year Bubsy redeemed himself?! Atari and Fabraz completely cooked with the movement tech here.\n\n#Bubsy #Bubsy4D #Gaming #Gameplay #VideoGames",
+        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
+        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
+        loopNote: "11.5s ultra-tight loop. Loop APV targeted for >140%."
+      },
+      {
+        id: "bubsy_ugc_08",
+        title: "How did THIS franchise end up making a good game?! 🤯 #shorts",
+        duration: "0:12",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_08.mp4",
+        description: "I was convinced this was going to be a disaster, but the game is actually incredible. The boss fights and level design are peak.\n\n#Bubsy #Bubsy4D #GamingReview #Platformer #Shorts",
+        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
+        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
+        loopNote: "12s loop. High shock-value question hook. Wall kick dynamic."
+      },
+      {
+        id: "bubsy_ugc_09",
+        title: "Gaming's biggest underdog just pulled off the impossible 🚀 #shorts",
+        duration: "0:12",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_09.mp4",
+        description: "30 years as the punchline of the internet, and now Bubsy is back with elite 3D platforming. Respect to the developers for this redemption!\n\n#Bubsy #Bubsy4D #Underdog #GamingCommunity #Shorts",
+        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
+        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
+        loopNote: "12s loop. Underdog narrative angle. High-flying jump arc."
+      },
+      {
+        id: "bubsy_ugc_10",
+        title: "Wait... why is the new Bubsy game actually this fun? 👀 #shorts",
+        duration: "0:12",
+        quality: "1080x1920 (9:16 Vertical HD)",
+        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_10.mp4",
+        description: "I went in expecting a meme and came out hooked. The gliding and time-trial mechanics make this so satisfying to master!\n\n#Bubsy #Bubsy4D #GamingLife #Platformer #Gamer",
+        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
+        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
+        loopNote: "11.5s loop. Genuine discovery tone strictly adhering to UGC Brief rules."
+      }
+    ]
   },
   {
     campaignId: "habeeb_camp_2",
@@ -312,6 +429,25 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
     category: "Cinema, Suspense & Cult Lore",
     status: "Standby For Drop",
     payout: "$850 - $1,200 / 1M Views",
+    clips: []
+  }
+];
+
+const LILSHEY_CAMPAIGNS: CampaignSlot[] = [
+  {
+    campaignId: "lilshey_camp_1",
+    campaignName: "Campaign Drop Epsilon (Lilshey Slot 1)",
+    category: "High-Virality Entertainment & Gaming",
+    status: "Standby For Drop",
+    payout: "$1,000 / 1M Views",
+    clips: []
+  },
+  {
+    campaignId: "lilshey_camp_2",
+    campaignName: "Campaign Drop Zeta (Lilshey Slot 2)",
+    category: "Cinema, Lifestyle & Viral Trends",
+    status: "Standby For Drop",
+    payout: "$1,000 / 1M Views",
     clips: []
   }
 ];
@@ -646,7 +782,7 @@ export default function ClippingVault() {
   }
 
   const activeUserData = USERS[currentUser] || USERS.ceo;
-  const campaigns = currentUser === "habeeb" ? HABEEB_CAMPAIGNS : CEO_CAMPAIGNS;
+  const campaigns = currentUser === "habeeb" ? HABEEB_CAMPAIGNS : currentUser === "lilshey" ? LILSHEY_CAMPAIGNS : CEO_CAMPAIGNS;
 
   return (
     <div className="min-h-screen bg-[#0a0d14] text-white selection:bg-blue-600/30 pb-20">

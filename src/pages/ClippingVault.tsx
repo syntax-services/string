@@ -455,8 +455,41 @@ const LILSHEY_CAMPAIGNS: CampaignSlot[] = [
 // Lazy-Loaded Deferred Video Component (Loads video byte streams only when triggered)
 function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [copiedTitle, setCopiedTitle] = useState(false);
   const [copiedDesc, setCopiedDesc] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleStartStream = () => {
+    setIsLoaded(true);
+  };
+
+  useEffect(() => {
+    if (isLoaded && videoRef.current) {
+      const vid = videoRef.current;
+      vid.muted = isMuted;
+      vid.play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {
+          // Mobile browser autoplay policy fallback: mute and play smoothly
+          vid.muted = true;
+          setIsMuted(true);
+          vid.play()
+            .then(() => setIsPlaying(true))
+            .catch(err => console.error("Playback start error:", err));
+        });
+    }
+  }, [isLoaded]);
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      const nextMuted = !videoRef.current.muted;
+      videoRef.current.muted = nextMuted;
+      setIsMuted(nextMuted);
+    }
+  };
 
   const handleCopyTitle = () => {
     navigator.clipboard.writeText(clip.title);
@@ -473,20 +506,32 @@ function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
   return (
     <div className="bg-[#10141e] border border-[#1b2234] hover:border-blue-500/40 rounded-2xl overflow-hidden flex flex-col justify-between transition-all group shadow-xl">
       <div>
-        <div className="relative aspect-[9/16] max-h-[320px] bg-black overflow-hidden flex items-center justify-center">
+        <div className="relative aspect-[9/16] max-h-[340px] bg-black overflow-hidden flex items-center justify-center">
           {isLoaded ? (
-            <video
-              src={clip.videoSrc}
-              controls
-              autoPlay
-              loop
-              playsInline
-              preload="metadata"
-              className="w-full h-full object-contain"
-            />
+            <div className="relative w-full h-full flex items-center justify-center bg-black">
+              <video
+                ref={videoRef}
+                controls
+                playsInline
+                loop
+                preload="auto"
+                className="w-full h-full object-contain"
+              >
+                <source src={clip.videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              {isMuted && isPlaying && (
+                <button
+                  onClick={toggleMute}
+                  className="absolute bottom-12 left-1/2 -translate-x-1/2 bg-black/85 hover:bg-black text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full border border-white/20 flex items-center gap-1.5 backdrop-blur-md shadow-lg transition-all animate-bounce z-10"
+                >
+                  🔇 Tap to Unmute
+                </button>
+              )}
+            </div>
           ) : (
             <div 
-              onClick={() => setIsLoaded(true)}
+              onClick={handleStartStream}
               className="w-full h-full bg-[#0a0d14] flex flex-col items-center justify-center cursor-pointer group-hover:bg-[#0e131d] transition-all"
             >
               <div className="w-12 h-12 rounded-full bg-blue-600/20 border border-blue-500/40 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
@@ -496,10 +541,10 @@ function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
               <span className="text-[10px] text-neutral-400 font-mono mt-0.5">{clip.duration} • {clip.quality}</span>
             </div>
           )}
-          <div className="absolute top-2.5 left-2.5 bg-black/70 backdrop-blur-md px-2 py-0.5 rounded-md text-[10px] font-mono text-neutral-300 border border-white/10">
+          <div className="absolute top-2.5 left-2.5 bg-black/70 backdrop-blur-md px-2 py-0.5 rounded-md text-[10px] font-mono text-neutral-300 border border-white/10 pointer-events-none">
             {clip.duration}
           </div>
-          <div className="absolute top-2.5 right-2.5 bg-emerald-500/80 backdrop-blur-md px-2 py-0.5 rounded-md text-[10px] font-bold text-white">
+          <div className="absolute top-2.5 right-2.5 bg-emerald-500/80 backdrop-blur-md px-2 py-0.5 rounded-md text-[10px] font-bold text-white pointer-events-none">
             {clip.quality}
           </div>
         </div>

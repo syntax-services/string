@@ -468,6 +468,7 @@ function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
   useEffect(() => {
     if (isLoaded && videoRef.current) {
       const vid = videoRef.current;
+      vid.load();
       vid.muted = isMuted;
       vid.play()
         .then(() => setIsPlaying(true))
@@ -511,6 +512,7 @@ function DeferredVideoCard({ clip }: { clip: CampaignClip }) {
             <div className="relative w-full h-full flex items-center justify-center bg-black">
               <video
                 ref={videoRef}
+                src={clip.videoSrc}
                 controls
                 playsInline
                 loop

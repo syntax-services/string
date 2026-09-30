@@ -25,6 +25,12 @@ const USERS: Record<string, { pass: string; name: string; role: string; badge: s
     name: "Lilshey Viral Suite",
     role: "Viral Content Specialist",
     badge: "LILSHEY SUITE (SLOTS 5 & 6)"
+  },
+  usman: {
+    pass: "usm_K9#xL77Vpw32NM",
+    name: "Usman Growth Suite",
+    role: "Growth Content Specialist",
+    badge: "USMAN SUITE (SLOTS 7 & 8)"
   }
 };
 
@@ -627,20 +633,435 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
 
 const LILSHEY_CAMPAIGNS: CampaignSlot[] = [
   {
-    campaignId: "lilshey_camp_1",
-    campaignName: "Campaign Drop Epsilon (Lilshey Slot 1)",
-    category: "High-Virality Entertainment & Gaming",
-    status: "Standby For Drop",
-    payout: "$1,000 / 1M Views",
-    clips: []
+    "campaignId": "lilshey_camp_1",
+    "campaignName": "Channel 1: Viral Gaming & Rage Moments (10 Starter Shorts)",
+    "category": "Retro Gaming Nostalgia, Rage Quits & Meme Commentary",
+    "status": "Live & Active (Lilshey Exclusive)",
+    "payout": "$1,000 / 1M Views (Starter Bounty)",
+    "batches": [
+      "All Drops",
+      "Starter Channel Pack (10 Shorts)"
+    ],
+    "clips": [
+      {
+        "id": "lilshey_gaming_01",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "PlayStation 1 Games Were A Fever Dream 💀 #shorts #gaming",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_01.mp4",
+        "description": "Who approved this game in the 90s?! The camera controls alone deserve prison time 😭🎮\\n\\n#gaming #retrogaming #ps1 #ragequit #gamermoments",
+        "hashtags": [
+          "#gaming",
+          "#retrogaming",
+          "#ps1",
+          "#ragequit",
+          "#gamermoments"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13s seamless high-APV loop with impact punchline."
+      },
+      {
+        "id": "lilshey_gaming_02",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "How Did Anyone Actually Beat This Game?! 😭 #shorts #gaming",
+        "duration": "0:14",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_02.mp4",
+        "description": "Physics took a complete vacation on this level. My last two braincells trying to make this jump.\\n\\n#gaming #gamer #funnygaming #rage #throwbackgaming",
+        "hashtags": [
+          "#gaming",
+          "#gamer",
+          "#funnygaming",
+          "#rage",
+          "#throwbackgaming"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13.5s high-retention rage loop."
+      },
+      {
+        "id": "lilshey_gaming_03",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "My Anger Issues Cannot Handle This Game 🤬 #shorts #ragequit",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_03.mp4",
+        "description": "The 3-second jump delay is diabolical work. How was this sold for $50 in 1996?!\\n\\n#ragequit #funnygamermoments #retrogames #gamingmemes #epicfail",
+        "hashtags": [
+          "#ragequit",
+          "#funnygamermoments",
+          "#retrogames",
+          "#gamingmemes",
+          "#epicfail"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 12.5s rapid loop with instant restart."
+      },
+      {
+        "id": "lilshey_gaming_04",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "The NPC Just Watched Me Suffer 💀 #shorts #gaming",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_04.mp4",
+        "description": "He didn't even flinch. Cold-blooded 90s game mechanics at their finest.\\n\\n#gaminglife #videogames #meme #comedygaming #classicgames",
+        "hashtags": [
+          "#gaminglife",
+          "#videogames",
+          "#meme",
+          "#comedygaming",
+          "#classicgames"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13s comedy timing loop."
+      },
+      {
+        "id": "lilshey_gaming_05",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "Worst Camera Angle in Gaming History 🎥 #shorts #gaming",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_05.mp4",
+        "description": "Who gave the cameraman a blindfold? You literally have to guess where the platform is!\\n\\n#gamersoftiktok #retrogamingcommunity #fail #funny #gamerhumor",
+        "hashtags": [
+          "#gamersoftiktok",
+          "#retrogamingcommunity",
+          "#fail",
+          "#funny",
+          "#gamerhumor"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13s high-retention blind jump cut."
+      },
+      {
+        "id": "lilshey_gaming_06",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "The Voicelines Are Completely Unhinged 😭 #shorts #gaming",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_06.mp4",
+        "description": "The voice acting in 90s games was either Shakespeare or an absolute hostage situation.\\n\\n#gamingclips #nostalgia #90skids #voiceacting #funnyclips",
+        "hashtags": [
+          "#gamingclips",
+          "#nostalgia",
+          "#90skids",
+          "#voiceacting",
+          "#funnyclips"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13s voiceline punchline loop."
+      },
+      {
+        "id": "lilshey_gaming_07",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "A Speedrunner's Absolute Worst Nightmare ⚡ #shorts #speedrun",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_07.mp4",
+        "description": "One tap of the D-pad and you're launched into the fifth dimension at Mach 3.\\n\\n#speedrun #glitch #gamingglitches #gameplay #funnymoments",
+        "hashtags": [
+          "#speedrun",
+          "#glitch",
+          "#gamingglitches",
+          "#gameplay",
+          "#funnymoments"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 12.5s glitch-momentum loop."
+      },
+      {
+        "id": "lilshey_gaming_08",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "Missing The Final Jump After 2 Hours 💔 #shorts #gaming",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_08.mp4",
+        "description": "The sound of pure internal screaming. Hide your controllers before attempting this.\\n\\n#rage #fail #gameover #pain #gamers",
+        "hashtags": [
+          "#rage",
+          "#fail",
+          "#gameover",
+          "#pain",
+          "#gamers"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13s heartbreak-fail loop."
+      },
+      {
+        "id": "lilshey_gaming_09",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "Give The Level Designer A Life Sentence 💀 #shorts #gaming",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_09.mp4",
+        "description": "They woke up, chose pure violence, and shipped it on a CD-ROM. Unforgivable!\\n\\n#gameplayclips #retrogaming #gamingcommunity #leveldesign #viralgaming",
+        "hashtags": [
+          "#gameplayclips",
+          "#retrogaming",
+          "#gamingcommunity",
+          "#leveldesign",
+          "#viralgaming"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 12.5s level design rage loop."
+      },
+      {
+        "id": "lilshey_gaming_10",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "The Final Stage of Gamer Rage 🤐 #shorts #ragequit",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_10.mp4",
+        "description": "Not even screaming anymore, just pure empty silence. We have all been there.\\n\\n#ragequit #relatable #gamer #funny #shorts",
+        "hashtags": [
+          "#ragequit",
+          "#relatable",
+          "#gamer",
+          "#funny",
+          "#shorts"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 12.5s silent-rage loop."
+      }
+    ]
   },
   {
-    campaignId: "lilshey_camp_2",
-    campaignName: "Campaign Drop Zeta (Lilshey Slot 2)",
-    category: "Cinema, Lifestyle & Viral Trends",
-    status: "Standby For Drop",
-    payout: "$1,000 / 1M Views",
-    clips: []
+    "campaignId": "lilshey_camp_2",
+    "campaignName": "Channel 2: Cinema & Viral Trends",
+    "category": "High-Virality Entertainment",
+    "status": "Standby For Drop",
+    "payout": "$1,000 / 1M Views",
+    "batches": [
+      "All Drops"
+    ],
+    "clips": []
+  }
+];
+
+const USMAN_CAMPAIGNS: CampaignSlot[] = [
+  {
+    "campaignId": "usman_camp_1",
+    "campaignName": "Channel 1: Festival Drops & Stage Spectacle (10 Starter Shorts)",
+    "category": "EDM Festival, Epic Stage Visuals & Bass Overload",
+    "status": "Live & Active (Usman Exclusive)",
+    "payout": "$1,000 / 1M Views (Starter Bounty)",
+    "batches": [
+      "All Drops",
+      "Starter Channel Pack (10 Shorts)"
+    ],
+    "clips": [
+      {
+        "id": "usman_stage_01",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "When The Bass Dropped At 3AM in Miami 🤯 #shorts #edm",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/usman_starter/usman_stage_01.mp4",
+        "description": "Miami Factory Town was on another frequency when this drop hit. Unbelievable crowd energy!\\n\\n#EDM #Festival #Dubstep #BassMusic #MiamiNightlife",
+        "hashtags": [
+          "#EDM",
+          "#Festival",
+          "#Dubstep",
+          "#BassMusic",
+          "#MiamiNightlife"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13s festival crowd eruption loop."
+      },
+      {
+        "id": "usman_stage_02",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "Can Your Speakers Handle This Low End? 🔊 #shorts #bass",
+        "duration": "0:14",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/usman_starter/usman_stage_02.mp4",
+        "description": "Put your headphones on right now. The sub frequencies on this drop will shake your soul!\\n\\n#bassboosted #subwoofer #edmfestival #rave #drops",
+        "hashtags": [
+          "#bassboosted",
+          "#subwoofer",
+          "#edmfestival",
+          "#rave",
+          "#drops"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13.5s sub-bass frequency test loop."
+      },
+      {
+        "id": "usman_stage_03",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "Lighting Design Synced To Perfection ✨ #shorts #lasers",
+        "duration": "0:14",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/usman_starter/usman_stage_03.mp4",
+        "description": "Every single laser beam hitting precisely on the transient. This is true stage engineering.\\n\\n#lasershow #production #festivalvibes #edmfamily #visuals",
+        "hashtags": [
+          "#lasershow",
+          "#production",
+          "#festivalvibes",
+          "#edmfamily",
+          "#visuals"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 14s laser-sync visual loop."
+      },
+      {
+        "id": "usman_stage_04",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "Vintage 1950s Vocal Flipped Into Heavy Bass 🤯 #shorts #remix",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/usman_starter/usman_stage_04.mp4",
+        "description": "Taking timeless retro vocals and turning them into an absolute festival destroyer!\\n\\n#remix #bassmusic #dubstepdrop #edmlife #festivalbanger",
+        "hashtags": [
+          "#remix",
+          "#bassmusic",
+          "#dubstepdrop",
+          "#edmlife",
+          "#festivalbanger"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13s vintage flip drop loop."
+      },
+      {
+        "id": "usman_stage_05",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "The Tension Buildup Was Illegal ⚡ #shorts #edmfestival",
+        "duration": "0:14",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/usman_starter/usman_stage_05.mp4",
+        "description": "That 15-second riser had the entire arena holding their breath before the floor erupted.\\n\\n#drop #crowdreactions #festivalenergy #raveculture #electronicmusic",
+        "hashtags": [
+          "#drop",
+          "#crowdreactions",
+          "#festivalenergy",
+          "#raveculture",
+          "#electronicmusic"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13.5s riser suspense loop."
+      },
+      {
+        "id": "usman_stage_06",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "Front Row At The Mainstage Pyro Drop 🔥 #shorts #festivals",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/usman_starter/usman_stage_06.mp4",
+        "description": "You can literally feel the heat through the screen when the flame cannons fire off!\\n\\n#pyro #mainstage #festivalgoer #festivalseason #basshead",
+        "hashtags": [
+          "#pyro",
+          "#mainstage",
+          "#festivalgoer",
+          "#festivalseason",
+          "#basshead"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 12.5s pyro impact loop."
+      },
+      {
+        "id": "usman_stage_07",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "Biggie Flow Over Monster Basslines 🎤 #shorts #hiphop #edm",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/usman_starter/usman_stage_07.mp4",
+        "description": "10,000 people screaming every bar together. When hip-hop meets underground bass culture!\\n\\n#hiphopremix #rapmusic #bassdrop #crowdchorus #festivals",
+        "hashtags": [
+          "#hiphopremix",
+          "#rapmusic",
+          "#bassdrop",
+          "#crowdchorus",
+          "#festivals"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13s lyrical drop loop."
+      },
+      {
+        "id": "usman_stage_08",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "Smoothest BPM Transition You Will Hear Today 🎧 #shorts #djskills",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/usman_starter/usman_stage_08.mp4",
+        "description": "Flawless tempo transition right into the heaviest drop of the night. Masterclass behind the decks!\\n\\n#djtips #mixmag #djlifestyle #clubmusic #bangers",
+        "hashtags": [
+          "#djtips",
+          "#mixmag",
+          "#djlifestyle",
+          "#clubmusic",
+          "#bangers"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13s BPM shift loop."
+      },
+      {
+        "id": "usman_stage_09",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "FPV Drone Dive Through Red Rocks Stage 🛸 #shorts #cinematic",
+        "duration": "0:14",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/usman_starter/usman_stage_09.mp4",
+        "description": "Insane piloting skills threading the needle through the lighting trusses at Dead Rocks!\\n\\n#fpvdrone #dronecinematography #redrocks #visualeffects #epic",
+        "hashtags": [
+          "#fpvdrone",
+          "#dronecinematography",
+          "#redrocks",
+          "#visualeffects",
+          "#epic"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13.5s FPV dive loop."
+      },
+      {
+        "id": "usman_stage_10",
+        "addedTime": "Sep 30, 2026 • 05:20 PM",
+        "batchTag": "Starter Channel Pack (10 Shorts)",
+        "title": "Why Red Rocks Is The Best Venue on Earth 🏔️ #shorts #concert",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/usman_starter/usman_stage_10.mp4",
+        "description": "Natural red monolith rocks towering over 10,000 raving music fans. Pure magic!\\n\\n#redrocksamphitheatre #concertphotography #livemusic #musicfestival #bucketlist",
+        "hashtags": [
+          "#redrocksamphitheatre",
+          "#concertphotography",
+          "#livemusic",
+          "#musicfestival",
+          "#bucketlist"
+        ],
+        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
+        "loopNote": "Engineered 13s aerial venue loop."
+      }
+    ]
+  },
+  {
+    "campaignId": "usman_camp_2",
+    "campaignName": "Channel 2: Stage Lore & FPV Dynamics",
+    "category": "Drone Flybys & Lighting Engineering",
+    "status": "Standby For Drop",
+    "payout": "$1,000 / 1M Views",
+    "batches": [
+      "All Drops"
+    ],
+    "clips": []
   }
 ];
 
@@ -1200,7 +1621,7 @@ export default function ClippingVault() {
   }
 
   const activeUserData = USERS[currentUser] || USERS.ceo;
-  const campaigns = currentUser === "habeeb" ? HABEEB_CAMPAIGNS : currentUser === "lilshey" ? LILSHEY_CAMPAIGNS : CEO_CAMPAIGNS;
+  const campaigns = currentUser === "habeeb" ? HABEEB_CAMPAIGNS : currentUser === "lilshey" ? LILSHEY_CAMPAIGNS : currentUser === "usman" ? USMAN_CAMPAIGNS : CEO_CAMPAIGNS;
 
   return (
     <div className="min-h-screen bg-[#0a0d14] text-white selection:bg-blue-600/30 pb-20">
@@ -1256,7 +1677,7 @@ export default function ClippingVault() {
                 </span>
               </div>
               <h1 className="text-xl sm:text-3xl font-extrabold tracking-tight text-white">
-                {currentUser === "ceo" ? "CEO Executive Suite (2 Dedicated Campaign Slots)" : "Habeeb Operations Vault (2 Dedicated Campaign Slots)"}
+                {currentUser === "ceo" ? "CEO Executive Suite (2 Dedicated Campaign Slots)" : currentUser === "habeeb" ? "Habeeb Operations Vault (2 Dedicated Campaign Slots)" : currentUser === "lilshey" ? "Lilshey Viral Suite (2 Dedicated Campaign Slots)" : "Usman Growth Suite (2 Dedicated Campaign Slots)"}
               </h1>
               <p className="text-xs sm:text-sm text-neutral-400 mt-2 max-w-2xl leading-relaxed">
                 All ended campaigns and demo clips have been cleared. Videos will be committed directly with the repository for zero external dependencies and instant progressive streaming.

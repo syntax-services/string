@@ -482,152 +482,218 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
 
 const HABEEB_CAMPAIGNS: CampaignSlot[] = [
   {
-    campaignId: "habeeb_bubsy_ugc",
-    campaignName: "Bubsy 4D [UGC] 2 — High-APV 12s Viral Shorts (10 Clips)",
-    category: "Gaming Platformer & Redemption Arc (Clipster / Atari)",
-    status: "Live & Active (Strict Habeeb Exclusive)",
-    payout: "$1,500 / 1M Views ($1,500 Profile Cap)",
-    batches: ["All Drops", "Today's Drop (4:30 PM)"],
-    clips: [
+    "campaignId": "habeeb_bubsy_ugc",
+    "campaignName": "Campaign Drop Gamma (Habeeb Slot 1)",
+    "category": "Bubsy 4D Next-Gen Revival & Retro Nostalgia (Clipr Agency)",
+    "status": "Live & Active (Strict Habeeb Exclusive)",
+    "payout": "$1,000 / 1M Views ($500 Max)",
+    "batches": [
+      "All Drops",
+      "Narrative-Complete Drop (Sentence Boundaries)"
+    ],
+    "clips": [
       {
-        id: "bubsy_ugc_01",
-        addedTime: "Sep 29, 2026 • 04:30 PM",
-        batchTag: "Today's Drop (4:30 PM)",
-        title: "Gaming's biggest joke just got a redemption arc 💀 #shorts",
-        duration: "0:12",
-        quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_01.mp4?v=v3",
-        description: "I genuinely wasn't expecting this to be this good... Bubsy has spent 30 years being the punchline of gaming, and now they drop a genuinely incredible 3D platformer?! 🤯\n\n#Bubsy #Bubsy4D #Gaming #Platformer #GamingCommunity",
-        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
-        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
-        loopNote: "12s ultra-high APV loop. High-speed wall running and glide movement. Seamless audio fade."
+        "id": "bubsy_ugc_01",
+        "addedTime": "Sep 30, 2026 • 08:45 PM",
+        "batchTag": "Narrative-Complete Drop (Sentence Boundaries)",
+        "title": "Gaming's Biggest Joke Just Got A Redemption Arc 💀 #shorts",
+        "duration": "0:14",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/bubsy_ugc/bubsy_ugc_01.mp4?v=narrative_fix",
+        "description": "I genuinely wasn't expecting this to be this good... Bubsy has spent 30 years being the punchline of gaming, and now they drop this?! 🤯\\n\\n#Bubsy #Bubsy4D #Gaming #Platformer #GamingCommunity",
+        "hashtags": [
+          "#Bubsy",
+          "#Bubsy4D",
+          "#Gaming",
+          "#Platformer",
+          "#GamingCommunity"
+        ],
+        "payoutRate": "$1,000 / 1M Views ($500 Max)",
+        "loopNote": "14.1s complete-thought narrative cut ending at natural silence breath with balanced US gaming beat."
       },
       {
-        id: "bubsy_ugc_02",
-        addedTime: "Sep 29, 2026 • 04:30 PM",
-        batchTag: "Today's Drop (4:30 PM)",
-        title: "We got a new Bubsy game before GTA 6... 🤯 #shorts",
-        duration: "0:12",
-        quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_02.mp4?v=v3",
-        description: "Nobody had 'Bubsy comeback' on their 2026 gaming bingo card. But look at this movement tech! Genuinely one of the smoothest platformers I've played recently.\n\n#Bubsy #Bubsy4D #Gaming #GamingShorts #RetroGaming",
-        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
-        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
-        loopNote: "11.8s loop. Viral GTA 6 meme hook. Smooth air gliding and rail bounce combo."
+        "id": "bubsy_ugc_02",
+        "addedTime": "Sep 30, 2026 • 08:45 PM",
+        "batchTag": "Narrative-Complete Drop (Sentence Boundaries)",
+        "title": "We Got A New Bubsy Game Before GTA 6... 🤯 #shorts",
+        "duration": "0:14",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/bubsy_ugc/bubsy_ugc_02.mp4?v=narrative_fix",
+        "description": "Nobody had 'Bubsy comeback' on their 2026 gaming bingo card. But look at this rail bounce and glide combo! Genuinely smooth gameplay.\\n\\n#Bubsy #Bubsy4D #Gaming #GamingShorts #RetroGaming",
+        "hashtags": [
+          "#Bubsy",
+          "#Bubsy4D",
+          "#Gaming",
+          "#GamingShorts",
+          "#RetroGaming"
+        ],
+        "payoutRate": "$1,000 / 1M Views ($500 Max)",
+        "loopNote": "14.4s full sentence resolution with smooth outro audio."
       },
       {
-        id: "bubsy_ugc_03",
-        addedTime: "Sep 29, 2026 • 04:30 PM",
-        batchTag: "Today's Drop (4:30 PM)",
-        title: "The internet's favorite punching bag is back 👀 #shorts",
-        duration: "0:12",
-        quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_03.mp4?v=v3",
-        description: "Imagine being roasted for 30 straight years and then dropping a 3D platformer with movement mechanics this fluid. The comeback story is crazy!\n\n#Bubsy #Bubsy4D #IndieGames #Platformer #Gamer",
-        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
-        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
-        loopNote: "12s loop. Rapid air-dash chaining and coin collection combo."
+        "id": "bubsy_ugc_03",
+        "addedTime": "Sep 30, 2026 • 08:45 PM",
+        "batchTag": "Narrative-Complete Drop (Sentence Boundaries)",
+        "title": "This Cannot Be A Real Video Game 💀 #shorts #gaming",
+        "duration": "0:15",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/bubsy_ugc/bubsy_ugc_03.mp4?v=narrative_fix",
+        "description": "Playing through this level had me questioning reality. Who playtested this back in the 90s?! Pure chaotic nostalgia.\\n\\n#gamingmemes #retrogaming #ps1 #ragequit #gamers",
+        "hashtags": [
+          "#gamingmemes",
+          "#retrogaming",
+          "#ps1",
+          "#ragequit",
+          "#gamers"
+        ],
+        "payoutRate": "$1,000 / 1M Views ($500 Max)",
+        "loopNote": "15.5s complete sentence setup and full comedic rant landing."
       },
       {
-        id: "bubsy_ugc_04",
-        addedTime: "Sep 29, 2026 • 04:30 PM",
-        batchTag: "Today's Drop (4:30 PM)",
-        title: "The worst mascot in gaming got the biggest glow up ever 🎮 #shorts",
-        duration: "0:12",
-        quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_04.mp4?v=v3",
-        description: "From gaming's biggest meme to one of the cleanest 3D platformers of 2026. The physics and momentum in Bubsy 4D feel unbelievable.\n\n#Bubsy #Bubsy4D #GamingCommunity #Platformer #Shorts",
-        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
-        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
-        loopNote: "12s loop. Precision jump pad chaining and vertical climb sequence."
+        "id": "bubsy_ugc_04",
+        "addedTime": "Sep 30, 2026 • 08:45 PM",
+        "batchTag": "Narrative-Complete Drop (Sentence Boundaries)",
+        "title": "The Final Jump Broke My Soul 💔 #shorts #gaming",
+        "duration": "0:13",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/bubsy_ugc/bubsy_ugc_04.mp4?v=narrative_fix",
+        "description": "That last platform is pure psychological warfare. My controller was in serious danger of being thrown across the room.\\n\\n#ragequit #funnygaming #gamefail #comedy #shorts",
+        "hashtags": [
+          "#ragequit",
+          "#funnygaming",
+          "#gamefail",
+          "#comedy",
+          "#shorts"
+        ],
+        "payoutRate": "$1,000 / 1M Views ($500 Max)",
+        "loopNote": "12.5s complete reaction ending in clean speech silence."
       },
       {
-        id: "bubsy_ugc_05",
-        addedTime: "Sep 29, 2026 • 04:30 PM",
-        batchTag: "Today's Drop (4:30 PM)",
-        title: "Nobody had 'Bubsy comeback' on their 2026 bingo card 😭 #shorts",
-        duration: "0:12",
-        quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_05.mp4?v=v3",
-        description: "I can't believe I'm saying this, but Bubsy 4D might genuinely be one of the best platformers this year. That momentum system is addictive!\n\n#Bubsy #Bubsy4D #GamerLife #Speedrun #Gaming",
-        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
-        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
-        loopNote: "12s loop. High velocity slope slide into wall climb transition."
+        "id": "bubsy_ugc_05",
+        "addedTime": "Sep 30, 2026 • 08:45 PM",
+        "batchTag": "Narrative-Complete Drop (Sentence Boundaries)",
+        "title": "Worst Camera Controls In Gaming History 🎥 #shorts",
+        "duration": "0:16",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/bubsy_ugc/bubsy_ugc_05.mp4?v=narrative_fix",
+        "description": "You literally have to pray to make this landing because the camera insists on looking everywhere except where you're jumping!\\n\\n#gamersoftiktok #retrogames #fail #funny #gamerhumor",
+        "hashtags": [
+          "#gamersoftiktok",
+          "#retrogames",
+          "#fail",
+          "#funny",
+          "#gamerhumor"
+        ],
+        "payoutRate": "$1,000 / 1M Views ($500 Max)",
+        "loopNote": "15.8s complete camera rant with full context and no cutoff."
       },
       {
-        id: "bubsy_ugc_06",
-        addedTime: "Sep 29, 2026 • 04:30 PM",
-        batchTag: "Today's Drop (4:30 PM)",
-        title: "Imagine if gaming's biggest punchline dropped a good game 🐱 #shorts",
-        duration: "0:12",
-        quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_06.mp4?v=v3",
-        description: "If you like Sonic, Crash Bandicoot, or Mario Odyssey, you have to try this. The controls are tight, fast, and responsive.\n\n#Bubsy #Bubsy4D #Sonic #CrashBandicoot #GamingShorts",
-        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
-        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
-        loopNote: "12s loop. Sonic/Crash platformer comparison angle. Flawless loop seam."
+        "id": "bubsy_ugc_06",
+        "addedTime": "Sep 30, 2026 • 08:45 PM",
+        "batchTag": "Narrative-Complete Drop (Sentence Boundaries)",
+        "title": "These Voicelines Are 100% Unhinged 😭 #shorts #gaming",
+        "duration": "0:11",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/bubsy_ugc/bubsy_ugc_06.mp4?v=narrative_fix",
+        "description": "The writers were having an absolute field day in the recording booth. You can't make this stuff up!\\n\\n#voiceacting #nostalgia #90sgames #funnyclips #videogames",
+        "hashtags": [
+          "#voiceacting",
+          "#nostalgia",
+          "#90sgames",
+          "#funnyclips",
+          "#videogames"
+        ],
+        "payoutRate": "$1,000 / 1M Views ($500 Max)",
+        "loopNote": "11.0s complete dialogue punchline clip."
       },
       {
-        id: "bubsy_ugc_07",
-        addedTime: "Sep 29, 2026 • 04:30 PM",
-        batchTag: "Today's Drop (4:30 PM)",
-        title: "The mascot everyone roasted for 30 years just did this... 🔥 #shorts",
-        duration: "0:12",
-        quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_07.mp4?v=v3",
-        description: "Who knew 2026 would be the year Bubsy redeemed himself?! Atari and Fabraz completely cooked with the movement tech here.\n\n#Bubsy #Bubsy4D #Gaming #Gameplay #VideoGames",
-        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
-        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
-        loopNote: "11.5s ultra-tight loop. Loop APV targeted for >140%."
+        "id": "bubsy_ugc_07",
+        "addedTime": "Sep 30, 2026 • 08:45 PM",
+        "batchTag": "Narrative-Complete Drop (Sentence Boundaries)",
+        "title": "Accidental Speedrun Glitch In Bubsy ⚡ #shorts #speedrun",
+        "duration": "0:15",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/bubsy_ugc/bubsy_ugc_07.mp4?v=narrative_fix",
+        "description": "One wrong input and Bubsy accelerates to the speed of light. Speedrunners take notes on this movement!\\n\\n#speedrun #glitch #gamingglitches #gameplay #funnymoments",
+        "hashtags": [
+          "#speedrun",
+          "#glitch",
+          "#gamingglitches",
+          "#gameplay",
+          "#funnymoments"
+        ],
+        "payoutRate": "$1,000 / 1M Views ($500 Max)",
+        "loopNote": "15.4s complete glitch demonstration and commentary."
       },
       {
-        id: "bubsy_ugc_08",
-        addedTime: "Sep 29, 2026 • 04:30 PM",
-        batchTag: "Today's Drop (4:30 PM)",
-        title: "How did THIS franchise end up making a good game?! 🤯 #shorts",
-        duration: "0:12",
-        quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_08.mp4?v=v3",
-        description: "I was convinced this was going to be a disaster, but the game is actually incredible. The boss fights and level design are peak.\n\n#Bubsy #Bubsy4D #GamingReview #Platformer #Shorts",
-        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
-        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
-        loopNote: "12s loop. High shock-value question hook. Wall kick dynamic."
+        "id": "bubsy_ugc_08",
+        "addedTime": "Sep 30, 2026 • 08:45 PM",
+        "batchTag": "Narrative-Complete Drop (Sentence Boundaries)",
+        "title": "2 Hours Of Suffering For This Ending 💀 #shorts",
+        "duration": "0:11",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/bubsy_ugc/bubsy_ugc_08.mp4?v=narrative_fix",
+        "description": "The emotional damage after spending hours trying to beat this section. Pure classic gaming pain.\\n\\n#rage #fail #gameover #pain #gamers",
+        "hashtags": [
+          "#rage",
+          "#fail",
+          "#gameover",
+          "#pain",
+          "#gamers"
+        ],
+        "payoutRate": "$1,000 / 1M Views ($500 Max)",
+        "loopNote": "11.0s full conclusion and reaction landing."
       },
       {
-        id: "bubsy_ugc_09",
-        addedTime: "Sep 29, 2026 • 04:30 PM",
-        batchTag: "Today's Drop (4:30 PM)",
-        title: "Gaming's biggest underdog just pulled off the impossible 🚀 #shorts",
-        duration: "0:12",
-        quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_09.mp4?v=v3",
-        description: "30 years as the punchline of the internet, and now Bubsy is back with elite 3D platforming. Respect to the developers for this redemption!\n\n#Bubsy #Bubsy4D #Underdog #GamingCommunity #Shorts",
-        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
-        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
-        loopNote: "12s loop. Underdog narrative angle. High-flying jump arc."
+        "id": "bubsy_ugc_09",
+        "addedTime": "Sep 30, 2026 • 08:45 PM",
+        "batchTag": "Narrative-Complete Drop (Sentence Boundaries)",
+        "title": "Give The Level Designer Life In Prison 💀 #shorts #gaming",
+        "duration": "0:14",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/bubsy_ugc/bubsy_ugc_09.mp4?v=narrative_fix",
+        "description": "They placed spikes in places that defy the Geneva convention. Unforgivable 90s game design!\\n\\n#gameplayclips #retrogaming #gamingcommunity #leveldesign #viralgaming",
+        "hashtags": [
+          "#gameplayclips",
+          "#retrogaming",
+          "#gamingcommunity",
+          "#leveldesign",
+          "#viralgaming"
+        ],
+        "payoutRate": "$1,000 / 1M Views ($500 Max)",
+        "loopNote": "14.3s complete sentence breakdown of level design."
       },
       {
-        id: "bubsy_ugc_10",
-        addedTime: "Sep 29, 2026 • 04:30 PM",
-        batchTag: "Today's Drop (4:30 PM)",
-        title: "Wait... why is the new Bubsy game actually this fun? 👀 #shorts",
-        duration: "0:12",
-        quality: "1080x1920 (9:16 Vertical HD)",
-        videoSrc: "/campaigns/bubsy_ugc/bubsy_ugc_10.mp4?v=v3",
-        description: "I went in expecting a meme and came out hooked. The gliding and time-trial mechanics make this so satisfying to master!\n\n#Bubsy #Bubsy4D #GamingLife #Platformer #Gamer",
-        hashtags: ["#Bubsy","#Bubsy4D","#Gaming","#Platformer","#GamingCommunity"],
-        payoutRate: "$1,500 / 1M Views (Clipster / Atari)",
-        loopNote: "11.5s loop. Genuine discovery tone strictly adhering to UGC Brief rules."
+        "id": "bubsy_ugc_10",
+        "addedTime": "Sep 30, 2026 • 08:45 PM",
+        "batchTag": "Narrative-Complete Drop (Sentence Boundaries)",
+        "title": "The Silent Acceptance Of Defeat 🤐 #shorts #ragequit",
+        "duration": "0:12",
+        "quality": "1080x1920 (9:16 Vertical HD)",
+        "videoSrc": "/campaigns/bubsy_ugc/bubsy_ugc_10.mp4?v=narrative_fix",
+        "description": "When the rage transcends screaming and turns into quiet contemplation of your life choices.\\n\\n#ragequit #relatable #gamer #funny #shorts",
+        "hashtags": [
+          "#ragequit",
+          "#relatable",
+          "#gamer",
+          "#funny",
+          "#shorts"
+        ],
+        "payoutRate": "$1,000 / 1M Views ($500 Max)",
+        "loopNote": "11.6s full final resolution of the play session."
       }
     ]
   },
   {
-    campaignId: "habeeb_camp_2",
-    campaignName: "Campaign Drop Delta (Habeeb Slot 2)",
-    category: "Cinema, Suspense & Cult Lore",
-    status: "Standby For Drop",
-    payout: "$850 - $1,200 / 1M Views",
-    clips: []
+    "campaignId": "habeeb_camp_2",
+    "campaignName": "Campaign Drop Delta (Habeeb Slot 2)",
+    "category": "Cinema, Suspense & Cult Lore",
+    "status": "Standby For Drop",
+    "payout": "$850 - $1,200 / 1M Views",
+    "batches": [
+      "All Drops"
+    ],
+    "clips": []
   }
 ];
 

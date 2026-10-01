@@ -73,25 +73,25 @@ export interface CampaignSlot {
 // When new clips arrive, simply drop the .mp4 files into public/campaigns/ and populate this array.
 const CEO_CAMPAIGNS: CampaignSlot[] = [
   {
-    "campaignId": "ceo_tech_prologue",
-    "campaignName": "Channel 1: Tech Prologue (10 Unique Shorts)",
-    "category": "Stage Architecture, Lasers & Drone Dynamics (Clipr Agency)",
+    "campaignId": "ceo_zeds_dead_flagship",
+    "campaignName": "Flagship Channel: Zeds Dead (10 Masterclass Drops)",
+    "category": "Mainstage Production, Lasers & Bass Drops (Whop / Deadbeats)",
     "status": "Live & Active (Strict CEO Exclusive)",
     "payout": "$3.50 / 1k Views ($175 Max)",
     "batches": [
       "All Drops",
-      "Fresh Multi-Location Drop (6:10 PM)"
+      "Ultra-Fresh Drop • Oct 1"
     ],
     "clips": [
       {
-        "id": "tech_prologue_01",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "Most Insane Production Ever 🤯 @zedsdead #shorts",
+        "id": "zeds_dead_01",
+        "addedTime": "Oct 01, 2026 • 12:40 PM",
+        "batchTag": "Ultra-Fresh Drop • Oct 1",
+        "title": "The Lighting At This Festival Was Unreal 🤯 @zedsdead #shorts",
         "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/tech_prologue/tech_prologue_01.mp4?v=fresh1",
-        "description": "The production engineering behind Zeds Dead at Red Rocks is next level. That stage build is straight out of the year 3000! ⚡\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        "quality": "1080x1920 (9:16 Master HD)",
+        "videoSrc": "/campaigns/zeds_dead/zeds_dead_01_phuket_ascent.mp4?v=master1",
+        "description": "The stage lighting and crowd energy at Zeds Dead Miami is completely unmatched. Peak electronic music vibes! ⚡\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason #MiamiMusic",
         "hashtags": [
           "#ZedsDead",
           "#BassMusic",
@@ -100,36 +100,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
           "#FestivalSeason"
         ],
         "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 13s high-APV loop. Sourced from unique concert asset (FPV RAW 1.mov)."
+        "loopNote": "Engineered 13s high-APV loop. Mined from unreleased concert master (Phuket To Colors .mp4)."
       },
       {
-        "id": "tech_prologue_02",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "This Belongs On The Big Screen 🎥 @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/tech_prologue/tech_prologue_02.mp4?v=fresh1",
-        "description": "Cinema-grade lighting and drone choreography at Red Rocks. Zeds Dead shows are a masterclass in visual design.\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 12.5s high-APV loop. Sourced from unique concert asset (FPV RAW 3.mov)."
-      },
-      {
-        "id": "tech_prologue_03",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "Stage Design From The Year 3000 🛸 @zedsdead #shorts",
+        "id": "zeds_dead_02",
+        "addedTime": "Oct 01, 2026 • 12:40 PM",
+        "batchTag": "Ultra-Fresh Drop • Oct 1",
+        "title": "Wait For The Hardest Drop in Miami 🔊 @zedsdead #shorts",
         "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/tech_prologue/tech_prologue_03.mp4?v=fresh1",
-        "description": "The futuristic custom spaceship cockpit DJ booth built for Zeds Dead. Look at those control consoles! 🛰️\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        "quality": "1080x1920 (9:16 Master HD)",
+        "videoSrc": "/campaigns/zeds_dead/zeds_dead_02_colors_drop.mp4?v=master1",
+        "description": "Wait until this drop hits! Pure sub-bass bliss from Dylan & Zach live at Factory Town Miami.\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FactoryTown #BassDrop",
         "hashtags": [
           "#ZedsDead",
           "#BassMusic",
@@ -138,74 +119,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
           "#FestivalSeason"
         ],
         "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 13.5s high-APV loop. Sourced from unique concert asset (FPV RAW 6.mov)."
+        "loopNote": "Engineered 14s high-APV loop. Mined from unreleased concert master (Phuket To Colors .mp4)."
       },
       {
-        "id": "tech_prologue_04",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "What 100 Lasers Look Like In The Fog 🌫️ @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/tech_prologue/tech_prologue_04.mp4?v=fresh1",
-        "description": "Dense mountain fog rolling over Red Rocks illuminated by piercing green and violet laser beams. Mesmerizing! ✨\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 13s high-APV loop. Sourced from unique concert asset (FPV RAW 7.mov)."
-      },
-      {
-        "id": "tech_prologue_05",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "The Most Dangerous Stage Build in EDM ⚡ @zedsdead #shorts",
-        "duration": "0:12",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/tech_prologue/tech_prologue_05.mp4?v=fresh1",
-        "description": "Triple-tiered trussing, custom laser arrays, and heavy industrial sub-rigs. Pure stagecraft perfection! 🏗️\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 12s high-APV loop. Sourced from unique concert asset (FPV RAW 8.mov)."
-      },
-      {
-        "id": "tech_prologue_06",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "Alien Spaceship Cockpit Visuals 🛸 @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/tech_prologue/tech_prologue_06.mp4?v=fresh1",
-        "description": "You're not just watching a concert, you're commanding an interstellar dreadnought! Unbelievable screen mapping 🌌\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 13s high-APV loop. Sourced from unique concert asset (FPV RAW 9.mov)."
-      },
-      {
-        "id": "tech_prologue_07",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "Laser Ceiling Over 10,000 People 🌌 @zedsdead #shorts",
+        "id": "zeds_dead_03",
+        "addedTime": "Oct 01, 2026 • 12:40 PM",
+        "batchTag": "Ultra-Fresh Drop • Oct 1",
+        "title": "How It Feels In The Front Row 🌌 @zedsdead #shorts",
         "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/tech_prologue/tech_prologue_07.mp4?v=fresh1",
-        "description": "A solid ceiling of pure neon light shooting straight over the heads of the crowd. Pure EDM euphoria! ⚡\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        "quality": "1080x1920 (9:16 Master HD)",
+        "videoSrc": "/campaigns/zeds_dead/zeds_dead_03_euphoria_finale.mp4?v=master1",
+        "description": "Standing in the front row when Zeds Dead drops pure melodic dubstep. The entire crowd moving as one!\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason #EDMFamily",
         "hashtags": [
           "#ZedsDead",
           "#BassMusic",
@@ -214,17 +138,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
           "#FestivalSeason"
         ],
         "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 14s high-APV loop. Sourced from unique concert asset (FPV RAW 10.mov)."
+        "loopNote": "Engineered 14s high-APV loop. Mined from unreleased concert master (Phuket To Colors .mp4)."
       },
       {
-        "id": "tech_prologue_08",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "This Lighting Tech Deserves A Grammy 🏆 @zedsdead #shorts",
+        "id": "zeds_dead_04",
+        "addedTime": "Oct 01, 2026 • 12:40 PM",
+        "batchTag": "Ultra-Fresh Drop • Oct 1",
+        "title": "Sinatra Into Heavy Bass Transition 🎙️ @zedsdead #shorts",
         "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/tech_prologue/tech_prologue_08.mp4?v=fresh1",
-        "description": "The lighting designer behind Dead Rocks deserves every award imaginable. Look at how every beam locks to the snare hits! 🥁\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        "quality": "1080x1920 (9:16 Master HD)",
+        "videoSrc": "/campaigns/zeds_dead/zeds_dead_04_sinatra_groove.mp4?v=master1",
+        "description": "Classic Frank Sinatra vocal chopped straight into a devastating bassline. Only Zeds Dead could pull this off so cleanly!\n\n@zedsdead\n\n#ZedsDead #BassMusic #Dubstep #EDM #Sinatra #Remix",
         "hashtags": [
           "#ZedsDead",
           "#BassMusic",
@@ -233,68 +157,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
           "#FestivalSeason"
         ],
         "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 12.5s high-APV loop. Sourced from unique concert asset (FPV RAW 12.mov)."
+        "loopNote": "Engineered 13s high-APV loop. Mined from unreleased concert master (Sinatra Full FINAL.mp4)."
       },
       {
-        "id": "tech_prologue_09",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "The Ultimate Festival Production Peak 🏔️ @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/tech_prologue/tech_prologue_09.mp4?v=fresh1",
-        "description": "Nothing in dance music compares to Red Rocks at night with Zeds Dead at the helm. Absolute perfection! 👑\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 13s high-APV loop. Sourced from unique concert asset (FPV RAW 13.mov)."
-      },
-      {
-        "id": "tech_prologue_10",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "No One Does Festivals Like This ⚡ @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/tech_prologue/tech_prologue_10.mp4?v=fresh1",
-        "description": "From sound design to stage builds, Dylan & Zach continue to elevate live electronic music into a cinematic experience.\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 12.5s high-APV loop. Sourced from unique concert asset (FPV RAW 15.mov)."
-      }
-    ]
-  },
-  {
-    "campaignId": "ceo_viral_clips",
-    "campaignName": "Channel 2: Viral Concert Drops (10 Unique Shorts)",
-    "category": "Massive Bass Drops, Crowd Eruptions & Pyro Moments",
-    "status": "Live & Active (Strict CEO Exclusive)",
-    "payout": "$3.50 / 1k Views ($175 Max)",
-    "batches": [
-      "All Drops",
-      "Fresh Multi-Location Drop (6:10 PM)"
-    ],
-    "clips": [
-      {
-        "id": "viral_clips_01",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "This Bass Drop Was Absolutely Unreal 💀 @zedsdead #shorts",
+        "id": "zeds_dead_05",
+        "addedTime": "Oct 01, 2026 • 12:40 PM",
+        "batchTag": "Ultra-Fresh Drop • Oct 1",
+        "title": "Look At That Laser Ceiling 🚨 @zedsdead #shorts",
         "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/viral_clips/viral_clips_01.mp4?v=fresh1",
-        "description": "Zeds Dead dropping one of the dirtiest sub-bass IDs live in Miami! Sound on for full impact 🔊\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        "quality": "1080x1920 (9:16 Master HD)",
+        "videoSrc": "/campaigns/zeds_dead/zeds_dead_05_laser_breakdown.mp4?v=master1",
+        "description": "Every laser perfectly synchronized to the kick and snare. This is what peak live electronic production looks like.\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Lasers #StageDesign #Dubstep",
         "hashtags": [
           "#ZedsDead",
           "#BassMusic",
@@ -303,17 +176,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
           "#FestivalSeason"
         ],
         "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 13.5s high-APV loop. Sourced from unique concert asset (Ante Up Final.mp4)."
+        "loopNote": "Engineered 14s high-APV loop. Mined from unreleased concert master (Sinatra Full FINAL.mp4)."
       },
       {
-        "id": "viral_clips_02",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "The Entire Amphitheatre Erupted 🌋 @zedsdead #shorts",
+        "id": "zeds_dead_06",
+        "addedTime": "Oct 01, 2026 • 12:40 PM",
+        "batchTag": "Ultra-Fresh Drop • Oct 1",
+        "title": "This Sub Bass Shook The Entire Venue 📳 @zedsdead #shorts",
         "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/viral_clips/viral_clips_02.mp4?v=fresh1",
-        "description": "The moment the drop hits and thousands of fans lose it simultaneously! No crowd does it like bass music fans 💥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        "quality": "1080x1920 (9:16 Master HD)",
+        "videoSrc": "/campaigns/zeds_dead/zeds_dead_06_sub_pressure.mp4?v=master1",
+        "description": "Put on headphones right now! The sub-bass frequency on this ID was rattling the entire structure.\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #SubBass #HeadphonesRecommended",
         "hashtags": [
           "#ZedsDead",
           "#BassMusic",
@@ -322,17 +195,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
           "#FestivalSeason"
         ],
         "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 14s high-APV loop. Sourced from unique concert asset (Biggie edit final.mp4)."
+        "loopNote": "Engineered 14s high-APV loop. Mined from unreleased concert master (SINATRA SHORT FINAL.mp4)."
       },
       {
-        "id": "viral_clips_03",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "What The H*ll Am I Looking At 🛸 @zedsdead #shorts",
+        "id": "zeds_dead_07",
+        "addedTime": "Oct 01, 2026 • 12:40 PM",
+        "batchTag": "Ultra-Fresh Drop • Oct 1",
+        "title": "Dirtiest Hip Hop Flip in Dance Music 💀 @zedsdead #shorts",
         "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/viral_clips/viral_clips_03.mp4?v=fresh1",
-        "description": "Moving as one single wave under the lasers! Zeds Dead crowds are unmatched across the globe.\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        "quality": "1080x1920 (9:16 Master HD)",
+        "videoSrc": "/campaigns/zeds_dead/zeds_dead_07_biggie_flip.mp4?v=master1",
+        "description": "When Biggie Smalls gets flipped into a 140 BPM dubstep banger! The bounce on this rhythm is contagious.\n\n@zedsdead\n\n#ZedsDead #Biggie #HipHopRemix #BassMusic #Dubstep #FestivalSeason",
         "hashtags": [
           "#ZedsDead",
           "#BassMusic",
@@ -341,17 +214,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
           "#FestivalSeason"
         ],
         "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 13s high-APV loop. Sourced from unique concert asset (Jay Z Final.mp4)."
+        "loopNote": "Engineered 13s high-APV loop. Mined from unreleased concert master (Biggie edit final.mp4)."
       },
       {
-        "id": "viral_clips_04",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "The Bass Is About To Hit 🔊 @zedsdead #shorts",
+        "id": "zeds_dead_08",
+        "addedTime": "Oct 01, 2026 • 12:40 PM",
+        "batchTag": "Ultra-Fresh Drop • Oct 1",
+        "title": "When Jay Z Hits The Sub Bass 🗽 @zedsdead #shorts",
         "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/viral_clips/viral_clips_04.mp4?v=fresh1",
-        "description": "Bass you can actually feel in your chest. Wear your best headphones and crank the volume up! 🎧\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        "quality": "1080x1920 (9:16 Master HD)",
+        "videoSrc": "/campaigns/zeds_dead/zeds_dead_08_hova_overload.mp4?v=master1",
+        "description": "That Jay Z vocal chop right before the sub bass drops in. Factory Town went absolutely ballistic!\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #JayZ #FestivalVibes",
         "hashtags": [
           "#ZedsDead",
           "#BassMusic",
@@ -360,17 +233,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
           "#FestivalSeason"
         ],
         "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 13.5s high-APV loop. Sourced from unique concert asset (Shook Ones FINAL.mp4)."
+        "loopNote": "Engineered 14s high-APV loop. Mined from unreleased concert master (Jay Z Final.mp4)."
       },
       {
-        "id": "viral_clips_05",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "POV: You Chose The Right Festival 🎪 @zedsdead #shorts",
+        "id": "zeds_dead_09",
+        "addedTime": "Oct 01, 2026 • 12:40 PM",
+        "batchTag": "Ultra-Fresh Drop • Oct 1",
+        "title": "FPV Drone Dive Through The Laser Rig 🛸 @zedsdead #shorts",
         "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/viral_clips/viral_clips_05.mp4?v=fresh1",
-        "description": "When the bass drops and 10,000 people lose their minds together! Pure festival magic with Zeds Dead ✨\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        "quality": "1080x1920 (9:16 Master HD)",
+        "videoSrc": "/campaigns/zeds_dead/zeds_dead_09_pyramid_flight.mp4?v=master1",
+        "description": "High-speed FPV drone dive carving through the stage lighting pyramids. The future of concert cinematography!\n\n@zedsdead\n\n#ZedsDead #FPVDrone #StageProduction #ConcertCinematography #Lasers",
         "hashtags": [
           "#ZedsDead",
           "#BassMusic",
@@ -379,17 +252,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
           "#FestivalSeason"
         ],
         "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 14s high-APV loop. Sourced from unique concert asset (Sinatra Full FINAL.mp4)."
+        "loopNote": "Engineered 14s high-APV loop. Mined from unreleased concert master (FPV RAW 17.mov)."
       },
       {
-        "id": "viral_clips_06",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "The Hardest Drop Of The Night 💀 @zedsdead #shorts",
+        "id": "zeds_dead_10",
+        "addedTime": "Oct 01, 2026 • 12:40 PM",
+        "batchTag": "Ultra-Fresh Drop • Oct 1",
+        "title": "View From Inside The DJ Cockpit 🎛️ @zedsdead #shorts",
         "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/viral_clips/viral_clips_06.mp4?v=fresh1",
-        "description": "Zeds Dead dropping absolute filth live. Hands down the heaviest drop of the entire weekend! 🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
+        "quality": "1080x1920 (9:16 Master HD)",
+        "videoSrc": "/campaigns/zeds_dead/zeds_dead_10_cockpit_command.mp4?v=master1",
+        "description": "Ever wonder what it looks like from behind the decks looking out at a sea of thousands of festival fans? Here it is.\n\n@zedsdead\n\n#ZedsDead #DJLife #EDMFestival #BehindTheDecks #BassMusic #FestivalStage",
         "hashtags": [
           "#ZedsDead",
           "#BassMusic",
@@ -398,83 +271,7 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
           "#FestivalSeason"
         ],
         "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 13.5s high-APV loop. Sourced from unique concert asset (SINATRA SHORT FINAL.mp4)."
-      },
-      {
-        "id": "viral_clips_07",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "Everyone Was Waiting For This Drop ⏳ @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/viral_clips/viral_clips_07.mp4?v=fresh1",
-        "description": "The tension in the crowd right before this drop was electric. Zeds Dead live is something else! ⚡\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 14s high-APV loop. Sourced from unique concert asset (Phuket To Colors .mp4)."
-      },
-      {
-        "id": "viral_clips_08",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "This Is Why People Love Zeds Dead ❤️ @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/viral_clips/viral_clips_08.mp4?v=fresh1",
-        "description": "From 2009 to now, Zeds Dead continues to dominate festival mainstages across the globe. Kings of bass! 👑\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 12.5s high-APV loop. Sourced from unique concert asset (FPV RAW 11.mov)."
-      },
-      {
-        "id": "viral_clips_09",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "The Crowd Lost Their Entire Minds 🤯 @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/viral_clips/viral_clips_09.mp4?v=fresh1",
-        "description": "When the pyro hits at the exact same second as the sub-bass! Pure energy through the screen 🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 13s high-APV loop. Sourced from unique concert asset (FPV RAW 14.mov)."
-      },
-      {
-        "id": "viral_clips_10",
-        "addedTime": "Sep 29, 2026 • 06:10 PM",
-        "batchTag": "Fresh Multi-Location Drop (6:10 PM)",
-        "title": "You Can Feel The Energy Through The Screen ⚡ @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/viral_clips/viral_clips_10.mp4?v=fresh1",
-        "description": "Turn your brightness up, put your headphones on, and experience Zeds Dead live! 🎧🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #FestivalSeason",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "Engineered 13s high-APV loop. Sourced from unique concert asset (FPV RAW 16.mov)."
+        "loopNote": "Engineered 14s high-APV loop. Mined from unreleased concert master (FPV RAW 5.mov)."
       }
     ]
   }

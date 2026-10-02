@@ -607,51 +607,70 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
     "clips": [
       {
             "id": "bubsy_oct2_01",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "Bubsy 4D - The Mascot We All Thought Was Dead Is Finally Back! 🐱🔥 #shorts",
-            "duration": "0:42",
+            "duration": "0:20",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_01.mp4?v=oct2_narrative",
-            "description": "Nobody saw this coming. Atari and Fabraz just brought back one of gaming's most controversial mascots with full modern 3D movement tech and rail grinding! Is this the ultimate redemption arc? 🎮\n\n#Bubsy #Bubsy4D #GamingShorts #Platformer #RetroGaming",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_01.mp4?v=oct2_unique_v2",
+            "description": "Atari really brought back Bubsy the Bobcat in 2026! Clean momentum, vertical wall climbing, and hilarious self-aware dialogue! 🚀\n\n#Bubsy4D #Atari #GamingNews #RetroComeback #SteamGames",
             "hashtags": [
-                  "#Bubsy",
                   "#Bubsy4D",
-                  "#GamingShorts",
-                  "#Platformer",
-                  "#RetroGaming"
+                  "#Atari",
+                  "#GamingNews",
+                  "#RetroComeback",
+                  "#SteamGames"
             ],
             "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "42s complete narrative announcement showcase with graphics overhaul & movement tech."
+            "loopNote": "20s complete opening hook and mascot comeback narrative ending at natural sentence silence."
       },
       {
             "id": "bubsy_oct2_02",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
+            "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
+            "title": "How Bubsy 4D Solved 30 Years of Broken Platforming 🕹️ #shorts",
+            "duration": "0:22",
+            "quality": "1080x1920 (9:16 Master Short)",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_02.mp4?v=oct2_unique_v2",
+            "description": "They fixed the one thing everyone hated about 90s Bubsy: momentum control! Now you can chain air glides into full-speed rail slides effortlessly. 🐱💨\n\n#GameDev #Platformer #Mechanics #RetroGaming #IndieGame",
+            "hashtags": [
+                  "#GameDev",
+                  "#Platformer",
+                  "#Mechanics",
+                  "#RetroGaming",
+                  "#IndieGame"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "22s full second half breakdown of modernized momentum physics ending in clean outro."
+      },
+      {
+            "id": "bubsy_oct2_03",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "Return of The Legendary 90s Bobcat Nobody Asked For... But It Slaps! 💀 #shorts",
             "duration": "0:30",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_02.mp4?v=oct2_narrative",
-            "description": "Bubsy 4D marks the return of the infamous 90s bobcat. Nobody thought this could ever be playable, yet here we are talking about speedrunning it! 🚀\n\n#gamingcomedy #retrogames #speedrun #gamers #funnygaming",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_03.mp4?v=oct2_unique_v2",
+            "description": "Who asked for a Bubsy game in 2026? Nobody. But did they cook with this gameplay loop? Absolutely! 🐱🔥\n\n#gamingmemes #retrogaming #gamereview #funnymoments #nostalgia",
             "hashtags": [
-                  "#gamingcomedy",
-                  "#retrogames",
-                  "#speedrun",
-                  "#gamers",
-                  "#funnygaming"
+                  "#gamingmemes",
+                  "#retrogaming",
+                  "#gamereview",
+                  "#funnymoments",
+                  "#nostalgia"
             ],
             "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "30s complete narrative retrospective on the 90s bobcat's unlikely comeback."
+            "loopNote": "30s complete narrative on the hilarious irony of Bubsy's unexpected comeback."
       },
       {
-            "id": "bubsy_oct2_03",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "id": "bubsy_oct2_04",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "Bubsy 4D Might Be Gaming's Biggest Redemption Story Ever 🤯 #shorts",
-            "duration": "0:53",
+            "duration": "0:28",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_03.mp4?v=oct2_narrative",
-            "description": "Bubsy spent decades being remembered as one of the biggest disasters in video game history. But this new reboot completely rewrote the playbook with smooth physics and addictive flow states! 🕹️\n\n#gamingnews #redemptionarc #gamersoftiktok #retrogaming #gamingcommunity",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_04.mp4?v=oct2_unique_v2",
+            "description": "Bubsy spent decades being remembered as one of the biggest disasters in video game history. But this new reboot completely rewrote the playbook! 🕹️\n\n#gamingnews #redemptionarc #gamersoftiktok #retrogaming #gamingcommunity",
             "hashtags": [
                   "#gamingnews",
                   "#redemptionarc",
@@ -660,16 +679,35 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
                   "#gamingcommunity"
             ],
             "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "53s full deep-dive narrative comparing past failures to modern speedrunning flow."
+            "loopNote": "28s complete historical comparison from 90s flop to 2026 redemption ending at clean silence."
       },
       {
-            "id": "bubsy_oct2_04",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "id": "bubsy_oct2_05",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
+            "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
+            "title": "Why Modern Speedrunners Love The New Momentum Physics ⚡ #shorts",
+            "duration": "0:25",
+            "quality": "1080x1920 (9:16 Master Short)",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_05.mp4?v=oct2_unique_v2",
+            "description": "Speedrunners are finding out that chaining wall kicks and ceiling launches creates an unbeatable flow state! Atari actually made something special here. 🚀\n\n#speedrun #gametok #physics #gameplay #viralgaming",
+            "hashtags": [
+                  "#speedrun",
+                  "#gametok",
+                  "#physics",
+                  "#gameplay",
+                  "#viralgaming"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "25s full unbroken speedrun analysis and mechanics breakdown ending in clean resolution."
+      },
+      {
+            "id": "bubsy_oct2_06",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "They Turned Gaming's Most Hated Mascot Into A Fun 3D Platformer 🎮 #shorts",
-            "duration": "0:33",
+            "duration": "0:34",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_04.mp4?v=oct2_narrative",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_06.mp4?v=oct2_unique_v2",
             "description": "Taking a mascot that practically ended 90s platformers and turning him into a genuinely fast-paced, fluid acrobatic parkour game? You have to respect the turnaround! 🐱💨\n\n#videogames #parkour #indiegame #atari #gameplay",
             "hashtags": [
                   "#videogames",
@@ -682,13 +720,13 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
             "loopNote": "34s complete narrative on modern platforming acrobatics and parkour feel."
       },
       {
-            "id": "bubsy_oct2_05",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "id": "bubsy_oct2_07",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "Why Bubsy 4D Is Dividing The Entire Gaming Industry Right Now ⚖️ #shorts",
             "duration": "0:41",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_05.mp4?v=oct2_narrative",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_07.mp4?v=oct2_unique_v2",
             "description": "Mixed scores from professional critics, but the player community is going wild over the momentum mechanics! Are critics missing the point of self-aware satire? 💥\n\n#gamingcommunity #gamereviews #steamgames #gamingdrama #shorts",
             "hashtags": [
                   "#gamingcommunity",
@@ -701,13 +739,13 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
             "loopNote": "41s complete industry review breakdown: critics vs actual player sentiment."
       },
       {
-            "id": "bubsy_oct2_06",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "id": "bubsy_oct2_08",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "Bubsy 4D Dropped On Steam & The Movement Tech Is Pure Chaos 🚀 #shorts",
             "duration": "0:35",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_06.mp4?v=oct2_narrative",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_08.mp4?v=oct2_unique_v2",
             "description": "Check out Bubsy 4D live on Steam right now! Glide physics, wall bounces, and aerial launches make this an unexpected hidden gem. 🐱\n\n#steamrelease #pcgaming #speedrunner #platformer #mustplay",
             "hashtags": [
                   "#steamrelease",
@@ -720,13 +758,13 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
             "loopNote": "35s complete Steam launch gameplay showcase highlighting momentum physics."
       },
       {
-            "id": "bubsy_oct2_07",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "id": "bubsy_oct2_09",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "How Do You Reboot A Game Everyone Hated? The Bizarre Genius of Bubsy 4D 💡 #shorts",
-            "duration": "0:32",
+            "duration": "0:33",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_07.mp4?v=oct2_narrative",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_09.mp4?v=oct2_unique_v2",
             "description": "Atari and the team at Fabraz knew exactly what people thought of Bubsy, and instead of hiding it, they leaned 100% into the meme and built amazing mechanics underneath! 🎯\n\n#gamedesign #devlog #gaminghistory #retrogaming #indiegames",
             "hashtags": [
                   "#gamedesign",
@@ -736,16 +774,16 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
                   "#indiegames"
             ],
             "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "32s complete narrative breakdown of self-aware satire game design."
+            "loopNote": "33s complete narrative breakdown of self-aware satire game design."
       },
       {
-            "id": "bubsy_oct2_08",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "id": "bubsy_oct2_10",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "Mascot Platformers Were HUGE In The 90s... And One Just Returned 🐱 #shorts",
             "duration": "0:35",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_08.mp4?v=oct2_narrative",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_10.mp4?v=oct2_unique_v2",
             "description": "Back when every studio wanted their own Sonic or Mario, Bubsy stood out as the weirdest cat on the block. Seeing this aesthetic in 2026 feels like a fever dream in the best way possible! 🕹️\n\n#90skids #retrogaming #nostalgia #playstation #classicgaming",
             "hashtags": [
                   "#90skids",
@@ -758,13 +796,13 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
             "loopNote": "35s complete 90s mascot era nostalgic narrative comparison."
       },
       {
-            "id": "bubsy_oct2_09",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "id": "bubsy_oct2_11",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "The One Gaming Mascot Nobody Expected To Make A Comeback 🔥 #shorts",
-            "duration": "0:31",
+            "duration": "0:32",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_09.mp4?v=oct2_narrative",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_11.mp4?v=oct2_unique_v2",
             "description": "If you told gamers 5 years ago that Bubsy would have one of the tightest platforming momentum loops in 2026, they would have called you crazy. Never count out the bobcat! 🐾\n\n#unexpected #gaminglife #gamingfacts #gamingshorts #bobcat",
             "hashtags": [
                   "#unexpected",
@@ -774,16 +812,16 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
                   "#bobcat"
             ],
             "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "31s complete turnaround narrative on gaming's most unexpected modern reboot."
+            "loopNote": "32s complete turnaround narrative on gaming's most unexpected modern reboot."
       },
       {
-            "id": "bubsy_oct2_10",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "id": "bubsy_oct2_12",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "The Most Underrated Platformer Returns! 1992 vs 2026 (Part 1) ⚡ #shorts",
             "duration": "0:43",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_10.mp4?v=oct2_narrative",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_12.mp4?v=oct2_unique_v2",
             "description": "Back in 1992, Bubsy made waves on the Super Nintendo and Genesis. Here is how that 16-bit history led all the way to this brand new 4D playground! 🎮\n\n#snes #sega #retrogaming #evolution #gaminglore",
             "hashtags": [
                   "#snes",
@@ -796,13 +834,13 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
             "loopNote": "43s complete Part 1 narrative on Bubsy's 1992 16-bit origins leading to 4D."
       },
       {
-            "id": "bubsy_oct2_11",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "id": "bubsy_oct2_13",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "Is Bubsy 4D Actually Worth Playing In 2026? The Honest Verdict (Part 2) 🏆 #shorts",
-            "duration": "0:43",
+            "duration": "0:44",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_11.mp4?v=oct2_narrative",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_13.mp4?v=oct2_unique_v2",
             "description": "The complete breakdown of whether you should grab Bubsy 4D on Steam. Great music, self-deprecating humor, and genuine speedrunner level design! 🌟\n\n#gameverdict #gamereview #gamingrecommendations #indiegame #worthit",
             "hashtags": [
                   "#gameverdict",
@@ -812,16 +850,16 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
                   "#worthit"
             ],
             "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "43s complete Part 2 verdict covering controls, soundtrack, and replay value."
+            "loopNote": "44s complete Part 2 verdict covering controls, soundtrack, and replay value."
       },
       {
-            "id": "bubsy_oct2_12",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "id": "bubsy_oct2_14",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "What If I Told You Gaming's Most Controversial Mascot Is Actually Fire? 👀 #shorts",
             "duration": "0:26",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_12.mp4?v=oct2_narrative",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_14.mp4?v=oct2_unique_v2",
             "description": "Bubsy has had so much hate thrown his way for 3 decades, but once you start chaining these rail-slide combos, you can't put the controller down! 🐱🕹️\n\n#controversial #gamingopinions #funnymoments #gameplay #shorts",
             "hashtags": [
                   "#controversial",
@@ -834,13 +872,13 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
             "loopNote": "26s punchy complete narrative challenging the internet's hatred of Bubsy."
       },
       {
-            "id": "bubsy_oct2_13",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
+            "id": "bubsy_oct2_15",
+            "addedTime": "Oct 02, 2026 • 01:45 PM",
             "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
             "title": "Sonic Had A Forgotten 90s Rival... And He Just Came Back 👀 #shorts",
             "duration": "0:28",
             "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_13.mp4?v=oct2_narrative",
+            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_15.mp4?v=oct2_unique_v2",
             "description": "Before the mascot wars cooled off, Bubsy was actively marketed as the edgy rival to Sonic the Hedgehog. Look at how they reimagined the sonic-speed running in full 3D! 💨\n\n#sonicthehedgehog #rivalry #retrogaming #gaminghistory #rivals",
             "hashtags": [
                   "#sonicthehedgehog",
@@ -851,44 +889,6 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
             ],
             "payoutRate": "$1,000 / 1M Views ($500 Max)",
             "loopNote": "28s complete historical rivalry narrative: Sonic vs Bubsy 1993 to 2026."
-      },
-      {
-            "id": "bubsy_oct2_14",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
-            "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
-            "title": "When The Bubsy 4D Speedrun Line Actually Hits Perfectly 🎯 #shorts",
-            "duration": "0:28",
-            "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_14.mp4?v=oct2_narrative",
-            "description": "Hitting this exact bounce off the balloon right into the triple rail grind! Complete unbroken 28-second run through the sky level! ☁️🐱\n\n#speedrun #cleanrun #satisfying #gameplay #gamerclips",
-            "hashtags": [
-                  "#speedrun",
-                  "#cleanrun",
-                  "#satisfying",
-                  "#gameplay",
-                  "#gamerclips"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "28s full unbroken commentary gameplay run landing a flawless rail combo."
-      },
-      {
-            "id": "bubsy_oct2_15",
-            "addedTime": "Oct 02, 2026 • 01:15 PM",
-            "batchTag": "Today's 15 Masterclass Narrative Drops (Oct 2)",
-            "title": "The Air Glide In Bubsy 4D Defies All Known Laws of Physics 🌪️ #shorts",
-            "duration": "0:26",
-            "quality": "1080x1920 (9:16 Master Short)",
-            "videoSrc": "/campaigns/bubsy_ugc/bubsy_oct2_15.mp4?v=oct2_narrative",
-            "description": "You can literally stall in mid-air, redirect your angular momentum, and stick the landing without losing speed. The physics engine is pure joy! 🚀\n\n#platforming #gamephysics #mechanics #coolglitch #gamers",
-            "hashtags": [
-                  "#platforming",
-                  "#gamephysics",
-                  "#mechanics",
-                  "#coolglitch",
-                  "#gamers"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "26s full unbroken narrative showcasing angular glide redirect mechanics."
       }
 ]
   },

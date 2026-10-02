@@ -1856,8 +1856,7 @@ export default function ClippingVault() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5">
-            <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {/* Sleek Minimalist Tml Vibez Album Player Pill */}
             <div className="hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#131926]/90 border border-blue-500/20 backdrop-blur-md shadow-lg shadow-black/20">
               <div className="flex items-center gap-2">

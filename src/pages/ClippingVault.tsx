@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion, AnimatePresence } from "framer-motion";
 import { 
   Lock, LogOut, Download, Copy, Check, 
   Shield, Flame, Sparkles, Clock, AlertCircle, ArrowUpRight,
-  Zap, Play, CheckCircle2, Trash2, RotateCcw, Archive
+  Zap, Play, CheckCircle2, Trash2, RotateCcw, Archive,
+  Volume2, VolumeX, SkipForward, Pause, Disc3, Music
 } from "lucide-react";
 
 // User Credentials
@@ -34,16 +36,45 @@ const USERS: Record<string, { pass: string; name: string; role: string; badge: s
   }
 };
 
-// Curated Hustle Tracks for Dual-Deck Crossfade Engine
-const HUSTLE_TRACKS = [
-  "/audio/koko_slowed_hustle.mp3",
-  "/audio/wells_fargo_hustle.mp3",
-  "/audio/seyi_billion_hustle.mp3",
-  "/audio/seyi_chance_hustle.mp3"
+export interface AlbumTrack {
+  id: string;
+  title: string;
+  artist: string;
+  album: string;
+  src: string;
+  duration: number;
+}
+
+// 16-Track Master Album: Tml Vibez - A Street Kid's Diary (Disk 2) [Released Oct 2, 2026]
+const TML_VIBEZ_ALBUM: AlbumTrack[] = [
+  { id: "tml_01", title: "Eyes On Me", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_01_eyes_on_me.mp3", duration: 179 },
+  { id: "tml_02", title: "Delilah (feat. Vory)", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_02_delilah.mp3", duration: 128 },
+  { id: "tml_03", title: "Hello (feat. Victony)", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_03_hello_victony.mp3", duration: 147 },
+  { id: "tml_04", title: "Poku", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_04_poku.mp3", duration: 142 },
+  { id: "tml_05", title: "Diamond or Gold", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_05_diamond_or_gold.mp3", duration: 138 },
+  { id: "tml_06", title: "Gentleman", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_06_gentleman.mp3", duration: 130 },
+  { id: "tml_07", title: "Shuperu (feat. Ayo Maff & Shoday)", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_07_shuperu.mp3", duration: 156 },
+  { id: "tml_08", title: "SHON PE (Count Your Money)", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_08_shon_pe_count_money.mp3", duration: 149 },
+  { id: "tml_09", title: "CnF (Gbewa)", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_09_cnf_gbewa.mp3", duration: 155 },
+  { id: "tml_10", title: "Mashe", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_10_mashe.mp3", duration: 157 },
+  { id: "tml_11", title: "Allow Me (feat. Lasmid)", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_11_allow_me.mp3", duration: 158 },
+  { id: "tml_12", title: "Close To You", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_12_close_to_you.mp3", duration: 114 },
+  { id: "tml_13", title: "Eko (feat. Blaqbonez)", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_13_eko_blaqbonez.mp3", duration: 151 },
+  { id: "tml_14", title: "Sexy Mama (feat. Mavo)", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_14_sexy_mama.mp3", duration: 160 },
+  { id: "tml_15", title: "Burst My Head", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_15_burst_my_head.mp3", duration: 139 },
+  { id: "tml_16", title: "Radio", artist: "Tml Vibez", album: "A Street Kid's Diary (Disk 2)", src: "/audio/tml_16_radio.mp3", duration: 165 }
 ];
 
-const TARGET_VOLUME = 0.5; // Natural 50% grind volume
-const CROSSFADE_TIME = 3.5; // 3.5s smooth overlap
+const TARGET_VOLUME = 0.55; // Crisp background volume
+
+function shuffleTracks<T>(items: T[]): T[] {
+  const arr = [...items];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
 
 export interface CampaignClip {
   id: string;
@@ -1562,113 +1593,138 @@ export default function ClippingVault() {
     downloadNext();
   };
 
-  // Dual-Deck Crossfade References
-  const deckARef = useRef<HTMLAudioElement | null>(null);
-  const deckBRef = useRef<HTMLAudioElement | null>(null);
-  const activeDeckRef = useRef<"A" | "B">("A");
-  const isTransitioningRef = useRef(false);
+  // Dedicated Background Audio Engine (Tml Vibez - A Street Kid's Diary Disk 2)
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const playlistRef = useRef<AlbumTrack[]>([]);
   const trackIndexRef = useRef(0);
+  const lastSaveTimeRef = useRef(0);
+  const [currentTrack, setCurrentTrack] = useState<AlbumTrack>(TML_VIBEZ_ALBUM[0]);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+
+  // Helper to persist audio position per profile
+  const saveAudioProgress = (user: string, playlist: AlbumTrack[], trackId: string, time: number) => {
+    if (!user) return;
+    try {
+      localStorage.setItem(`vault_audio_profile_${user}`, JSON.stringify({
+        playlistIds: playlist.map(t => t.id),
+        trackId,
+        currentTime: Math.floor(time)
+      }));
+    } catch(e) {}
+  };
+
+  // Play next track from beginning to end
+  const playNextTrack = (user: string) => {
+    const audio = audioRef.current;
+    if (!audio || playlistRef.current.length === 0) return;
+    const nextIdx = (trackIndexRef.current + 1) % playlistRef.current.length;
+    trackIndexRef.current = nextIdx;
+    const nextTrack = playlistRef.current[nextIdx];
+    setCurrentTrack(nextTrack);
+    audio.src = nextTrack.src;
+    audio.currentTime = 0;
+    audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+    saveAudioProgress(user, playlistRef.current, nextTrack.id, 0);
+  };
 
   useEffect(() => {
     if (!currentUser) return;
+    const audio = audioRef.current;
+    if (!audio) return;
 
-    const deckA = deckARef.current;
-    const deckB = deckBRef.current;
-    if (!deckA || !deckB) return;
+    const storageKey = `vault_audio_profile_${currentUser}`;
+    let saved: { playlistIds?: string[]; trackId?: string; currentTime?: number } | null = null;
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw) saved = JSON.parse(raw);
+    } catch(e) {}
 
-    deckA.src = HUSTLE_TRACKS[trackIndexRef.current];
-    deckA.volume = 0;
-    activeDeckRef.current = "A";
+    let playlist: AlbumTrack[] = [];
+    let startIdx = 0;
+    let resumeTime = 0;
 
-    // Initial Fade In
-    deckA.play().then(() => {
-      let v = 0;
-      const fadeInInterval = setInterval(() => {
-        v += 0.05;
-        if (v >= TARGET_VOLUME) {
-          deckA.volume = TARGET_VOLUME;
-          clearInterval(fadeInInterval);
-        } else {
-          deckA.volume = v;
-        }
-      }, 70);
-    }).catch(() => {
-      const onUserGesture = () => {
-        deckA.play().catch(() => {});
-        window.removeEventListener("click", onUserGesture);
-        window.removeEventListener("touchstart", onUserGesture);
-      };
-      window.addEventListener("click", onUserGesture);
-      window.addEventListener("touchstart", onUserGesture);
-    });
+    if (saved && Array.isArray(saved.playlistIds) && saved.trackId) {
+      // Restore previous profile session playlist order
+      const map = new Map(TML_VIBEZ_ALBUM.map(t => [t.id, t]));
+      playlist = saved.playlistIds.map(id => map.get(id)).filter((t): t is AlbumTrack => !!t);
+      if (playlist.length < TML_VIBEZ_ALBUM.length) {
+        const existing = new Set(playlist.map(t => t.id));
+        const missing = TML_VIBEZ_ALBUM.filter(t => !existing.has(t.id));
+        playlist = [...playlist, ...shuffleTracks(missing)];
+      }
+      const found = playlist.findIndex(t => t.id === saved.trackId);
+      startIdx = found !== -1 ? found : 0;
+      resumeTime = typeof saved.currentTime === "number" && saved.currentTime > 0 ? saved.currentTime : 0;
+    } else {
+      // Fresh load: always randomize on load!
+      playlist = shuffleTracks(TML_VIBEZ_ALBUM);
+      startIdx = 0;
+      resumeTime = 0;
+    }
 
-    const triggerCrossfade = () => {
-      if (isTransitioningRef.current) return;
-      isTransitioningRef.current = true;
+    playlistRef.current = playlist;
+    trackIndexRef.current = startIdx;
+    const activeTrack = playlist[startIdx];
+    setCurrentTrack(activeTrack);
 
-      const activeEl = activeDeckRef.current === "A" ? deckA : deckB;
-      const idleEl = activeDeckRef.current === "A" ? deckB : deckA;
+    audio.src = activeTrack.src;
+    audio.volume = TARGET_VOLUME;
 
-      trackIndexRef.current = (trackIndexRef.current + 1) % HUSTLE_TRACKS.length;
-      idleEl.src = HUSTLE_TRACKS[trackIndexRef.current];
-      idleEl.currentTime = 0;
-      idleEl.volume = 0;
+    // Resume from where it stopped
+    if (resumeTime > 0) {
+      audio.currentTime = resumeTime;
+    }
 
-      idleEl.play().then(() => {
-        const steps = 30;
-        const intervalTime = (CROSSFADE_TIME * 1000) / steps;
-        let step = 0;
-
-        const crossfadeInterval = setInterval(() => {
-          step++;
-          const progress = step / steps;
-
-          activeEl.volume = Math.max(0, TARGET_VOLUME * (1 - progress));
-          idleEl.volume = Math.min(TARGET_VOLUME, TARGET_VOLUME * progress);
-
-          if (step >= steps) {
-            clearInterval(crossfadeInterval);
-            activeEl.pause();
-            activeEl.currentTime = 0;
-            activeEl.volume = 0;
-            idleEl.volume = TARGET_VOLUME;
-
-            activeDeckRef.current = activeDeckRef.current === "A" ? "B" : "A";
-            isTransitioningRef.current = false;
-          }
-        }, intervalTime);
+    const startPlayback = () => {
+      audio.play().then(() => {
+        setIsPlaying(true);
       }).catch(() => {
-        isTransitioningRef.current = false;
+        setIsPlaying(false);
+        const onFirstGesture = () => {
+          audio.play().then(() => setIsPlaying(true)).catch(() => {});
+          window.removeEventListener("click", onFirstGesture);
+          window.removeEventListener("touchstart", onFirstGesture);
+        };
+        window.addEventListener("click", onFirstGesture);
+        window.addEventListener("touchstart", onFirstGesture);
       });
     };
 
-    const handleTimeUpdate = (e: Event) => {
-      const el = e.target as HTMLAudioElement;
-      const currentActive = activeDeckRef.current === "A" ? deckA : deckB;
-      if (el !== currentActive || isTransitioningRef.current) return;
-      if (!el.duration || isNaN(el.duration)) return;
+    startPlayback();
 
-      if (el.currentTime >= (el.duration - CROSSFADE_TIME)) {
-        triggerCrossfade();
-      }
-    };
-
+    // Event handlers
     const handleEnded = () => {
-      if (!isTransitioningRef.current) {
-        triggerCrossfade();
+      playNextTrack(currentUser);
+    };
+
+    const handleTimeUpdate = () => {
+      const now = Date.now();
+      if (now - lastSaveTimeRef.current > 1500) {
+        lastSaveTimeRef.current = now;
+        saveAudioProgress(currentUser, playlistRef.current, playlistRef.current[trackIndexRef.current]?.id || activeTrack.id, audio.currentTime);
       }
     };
 
-    deckA.addEventListener("timeupdate", handleTimeUpdate);
-    deckB.addEventListener("timeupdate", handleTimeUpdate);
-    deckA.addEventListener("ended", handleEnded);
-    deckB.addEventListener("ended", handleEnded);
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
+    audio.addEventListener("ended", handleEnded);
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
+
+    const handleBeforeUnload = () => {
+      saveAudioProgress(currentUser, playlistRef.current, playlistRef.current[trackIndexRef.current]?.id || activeTrack.id, audio.currentTime);
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
 
     return () => {
-      deckA.removeEventListener("timeupdate", handleTimeUpdate);
-      deckB.removeEventListener("timeupdate", handleTimeUpdate);
-      deckA.removeEventListener("ended", handleEnded);
-      deckB.removeEventListener("ended", handleEnded);
+      audio.removeEventListener("ended", handleEnded);
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, [currentUser]);
 
@@ -1687,8 +1743,10 @@ export default function ClippingVault() {
   };
 
   const handleLogout = () => {
-    if (deckARef.current) deckARef.current.pause();
-    if (deckBRef.current) deckBRef.current.pause();
+    if (audioRef.current && currentUser) {
+      saveAudioProgress(currentUser, playlistRef.current, playlistRef.current[trackIndexRef.current]?.id || currentTrack.id, audioRef.current.currentTime);
+      audioRef.current.pause();
+    }
     localStorage.removeItem("clipping_user");
     setCurrentUser("");
   };
@@ -1773,9 +1831,8 @@ export default function ClippingVault() {
 
   return (
     <div className="min-h-screen bg-[#0a0d14] text-white selection:bg-blue-600/30 pb-20">
-      {/* Hidden Dual-Deck Hustle Audio Engine (Non-Stop Background Playback) */}
-      <audio ref={deckARef} preload="auto" />
-      <audio ref={deckBRef} preload="auto" />
+      {/* Tml Vibez Background Album Engine */}
+      <audio ref={audioRef} preload="auto" />
 
       {/* String Top Navigation Bar */}
       <header className="sticky top-0 z-40 bg-[#0a0d14]/90 backdrop-blur-xl border-b border-[#1b2234] px-4 sm:px-8 py-3.5">
@@ -1800,7 +1857,56 @@ export default function ClippingVault() {
           </div>
 
           <div className="flex items-center gap-2.5">
-            <button
+            <div className="flex items-center gap-4">
+            {/* Sleek Minimalist Tml Vibez Album Player Pill */}
+            <div className="hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#131926]/90 border border-blue-500/20 backdrop-blur-md shadow-lg shadow-black/20">
+              <div className="flex items-center gap-2">
+                <Disc3 className={`w-4 h-4 text-blue-400 ${isPlaying ? "animate-spin" : ""}`} style={{ animationDuration: "3s" }} />
+                <div className="text-[11px] leading-tight max-w-[190px] truncate">
+                  <span className="font-semibold text-white truncate block">{currentTrack.title}</span>
+                  <span className="text-[9.5px] text-neutral-400 truncate block">Tml Vibez • Disk 2</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-1 pl-1.5 border-l border-neutral-800">
+                <button 
+                  onClick={() => {
+                    if (!audioRef.current) return;
+                    if (isPlaying) {
+                      audioRef.current.pause();
+                    } else {
+                      audioRef.current.play().catch(() => {});
+                    }
+                  }}
+                  className="p-1 rounded-full text-neutral-300 hover:text-white hover:bg-neutral-800/60 transition"
+                  title={isPlaying ? "Pause Track" : "Play Track"}
+                >
+                  {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3 fill-current" />}
+                </button>
+
+                <button 
+                  onClick={() => playNextTrack(currentUser)}
+                  className="p-1 rounded-full text-neutral-300 hover:text-white hover:bg-neutral-800/60 transition"
+                  title="Next Song (Randomized Album)"
+                >
+                  <SkipForward className="w-3 h-3" />
+                </button>
+
+                <button 
+                  onClick={() => {
+                    if (!audioRef.current) return;
+                    audioRef.current.muted = !isMuted;
+                    setIsMuted(!isMuted);
+                  }}
+                  className="p-1 rounded-full text-neutral-300 hover:text-white hover:bg-neutral-800/60 transition"
+                  title={isMuted ? "Unmute" : "Mute"}
+                >
+                  {isMuted ? <VolumeX className="w-3 h-3 text-red-400" /> : <Volume2 className="w-3 h-3 text-blue-400" />}
+                </button>
+              </div>
+            </div>
+
+          <button
               onClick={handleLogout}
               className="flex items-center gap-1.5 bg-[#141926] hover:bg-[#1b2234] border border-[#1b2234] px-3.5 py-1.5 rounded-xl text-xs font-semibold text-neutral-300 hover:text-white transition-all"
             >

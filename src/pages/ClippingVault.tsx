@@ -893,228 +893,703 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
 ]
   },
   {
-    "campaignId": "habeeb_camp_2",
-    "campaignName": "Campaign Drop Delta (Habeeb Slot 2)",
-    "category": "Cinema, Suspense & Cult Lore",
-    "status": "Standby For Drop",
-    "payout": "$850 - $1,200 / 1M Views",
+    "campaignId": "habeeb_zeds_music",
+    "campaignName": "Zeds Dead Music Clipping (Official Electronic/Bass Tour)",
+    "category": "Electronic & Bass Music (Deadbeats Records)",
+    "status": "Live & Active (Strict Habeeb Exclusive)",
+    "payout": "$1,000 / 1M Views ($500 Max)",
     "batches": [
-      "All Drops"
+      "All Drops",
+      "Today's 20 Music Drops (Oct 2)"
     ],
-    "clips": []
+    "clips": [
+      {
+            "id": "habeeb_zeds_01",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Deep Melodic Bass Rolling Through Miami Night Air 🌊 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_01.mp4?v=oct2_music",
+            "description": "The contrast between silky atmospheric chords and chest-thumping sub-bass in Factory Town. Pure bliss! 🌴🔊\n\n#bassmusic #melodicdubstep #miaminights #festivalseason #zedsdead",
+            "hashtags": [
+                  "#bassmusic",
+                  "#melodicdubstep",
+                  "#miaminights",
+                  "#festivalseason",
+                  "#zedsdead"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s melodic chord progression floating over rolling sub pressure."
+      },
+      {
+            "id": "habeeb_zeds_02",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Rolling Festival Drums That Had 10,000 Moving 🥁 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_02.mp4?v=oct2_music",
+            "description": "Syncopated percussion breaks building up into another wave of bass. Zeds Dead always knows how to control pacing! ⚡🕺\n\n#drumandbass #dnbdrops #ravefamily #festivalvibes #edm",
+            "hashtags": [
+                  "#drumandbass",
+                  "#dnbdrops",
+                  "#ravefamily",
+                  "#festivalvibes",
+                  "#edm"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s driving drum break sequence connecting two massive drops."
+      },
+      {
+            "id": "habeeb_zeds_03",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Surviving The 4:30 AM Sunrise Bass Finale 🌅 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_03.mp4?v=oct2_music",
+            "description": "The sky was turning amber and the subwoofers were still rattling the fence line. Miami Music Week survivors know! ☀️🔥\n\n#sunriseset #afterhours #miamimusicweek #factorytown #basslife",
+            "hashtags": [
+                  "#sunriseset",
+                  "#afterhours",
+                  "#miamimusicweek",
+                  "#factorytown",
+                  "#basslife"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s sunrise set climax with amber sky and continuous sub rumble."
+      },
+      {
+            "id": "habeeb_zeds_04",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Sinatra Vocals Floating Over Pure 40Hz Bass Pressure 🎙️ @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_04.mp4?v=oct2_music",
+            "description": "Vintage crooner vocals pitched and reverberating through thousands of watts of sub power. Iconic remix! 🎩🔊\n\n#franksinatra #vintagevibes #remixculture #bassboost #musicmashup",
+            "hashtags": [
+                  "#franksinatra",
+                  "#vintagevibes",
+                  "#remixculture",
+                  "#bassboost",
+                  "#musicmashup"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s vintage vocal resonance over deep sub frequencies."
+      },
+      {
+            "id": "habeeb_zeds_05",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Full Brass Section Hook With Heavy Half-Time Wobble 🎷 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_05.mp4?v=oct2_music",
+            "description": "Listen to that brass wobble! The half-time groove had the entire venue locked in pure rhythm. 💃🕺\n\n#wobble #halftime #brass #dubstepdrop #groove",
+            "hashtags": [
+                  "#wobble",
+                  "#halftime",
+                  "#brass",
+                  "#dubstepdrop",
+                  "#groove"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s brass section wobble progression with live sync."
+      },
+      {
+            "id": "habeeb_zeds_06",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Notorious B.I.G. Flow Into Relentless Sub Pressure 👑 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_06.mp4?v=oct2_music",
+            "description": "Biggie's cadence landing right on top of the 808 kick. Brooklyn meets Toronto bass culture! 🏙️🔥\n\n#biggie #eastcoasthiphop #bassheavymusic #ravevibes #edm",
+            "hashtags": [
+                  "#biggie",
+                  "#eastcoasthiphop",
+                  "#bassheavymusic",
+                  "#ravevibes",
+                  "#edm"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s classic hip-hop rhyming sequence into heavy sub drop."
+      },
+      {
+            "id": "habeeb_zeds_07",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "High-Octane Stadium Laser Frenzy Into Deep Bass 💥 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_07.mp4?v=oct2_music",
+            "description": "The moment the green and amber beams swept the entire outdoor terrace. Unreal atmosphere! ⚡🗽\n\n#laserbeam #lightshow #stadiumvibes #miaminights #viral",
+            "hashtags": [
+                  "#laserbeam",
+                  "#lightshow",
+                  "#stadiumvibes",
+                  "#miaminights",
+                  "#viral"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s laser sweep across outdoor terrace into deep bass drop."
+      },
+      {
+            "id": "habeeb_zeds_08",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Classic Mobb Deep Hook With Earth-Shaking Bass 🎤 @zedsdead #shorts",
+            "duration": "0:14",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_08.mp4?v=oct2_music",
+            "description": "Havoc and Prodigy's legendary anthem revitalized for modern festival sound systems! 🔊💀\n\n#shookones #mobbdeep #queensbridge #bassdrop #remix",
+            "hashtags": [
+                  "#shookones",
+                  "#mobbdeep",
+                  "#queensbridge",
+                  "#bassdrop",
+                  "#remix"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "14s iconic hip-hop hook with heavy bass accompaniment."
+      },
+      {
+            "id": "habeeb_zeds_09",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Rapid Horn Breakdown Into Glitching Strobe Assault 🎺 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_09.mp4?v=oct2_music",
+            "description": "Fast tempo switch! The visual rhythm sync here is unmatched anywhere in EDM right now. ⚡\n\n#tempo #switchup #glitch #visualarts #raveculture",
+            "hashtags": [
+                  "#tempo",
+                  "#switchup",
+                  "#glitch",
+                  "#visualarts",
+                  "#raveculture"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s fast-tempo horn breakdown into rapid strobe sequence."
+      },
+      {
+            "id": "habeeb_zeds_10",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "M.O.P. Ante Up Vocal Blast Into Aggressive Dubstep 🥊 @zedsdead #shorts",
+            "duration": "0:15",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_10.mp4?v=oct2_music",
+            "description": "ANTEE UPP! The ultimate energy weapon in any Zeds Dead set. Pure chaos on the floor! 🚨💥\n\n#anteup #mop #heavydubstep #moshpit #rage",
+            "hashtags": [
+                  "#anteup",
+                  "#mop",
+                  "#heavydubstep",
+                  "#moshpit",
+                  "#rage"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "15s iconic vocal punch into heavy dubstep bounce."
+      },
+      {
+            "id": "habeeb_zeds_11",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Acrobatic Drone Barrel Roll Across Empty Amphitheatre 🌀 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_11.mp4?v=oct2_music",
+            "description": "Full inverted barrel roll 100 feet in the air above the empty seating bowl! Red Rocks rehearsals go hard. 🪨🛸\n\n#barrelroll #droneacrobatics #fpvflow #cinematicdrone #redrocks",
+            "hashtags": [
+                  "#barrelroll",
+                  "#droneacrobatics",
+                  "#fpvflow",
+                  "#cinematicdrone",
+                  "#redrocks"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s mid-air barrel roll over the venue amphitheatre."
+      },
+      {
+            "id": "habeeb_zeds_12",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "60 MPH Flyby Right In Front Of The Stage Front Rail ⚡ @zedsdead #shorts",
+            "duration": "0:14",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_12.mp4?v=oct2_music",
+            "description": "Skimming the front row barricade where thousands of fans will be headbanging tomorrow night! 🛡️🔊\n\n#frontrow #barricade #headbangers #stagefront #soundcheck",
+            "hashtags": [
+                  "#frontrow",
+                  "#barricade",
+                  "#headbangers",
+                  "#stagefront",
+                  "#soundcheck"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "14s high-speed sweep along the front barricade rail."
+      },
+      {
+            "id": "habeeb_zeds_13",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Plunging Down Vertically Right In Front Of LED Wall 🔻 @zedsdead #shorts",
+            "duration": "0:15",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_13.mp4?v=oct2_music",
+            "description": "Vertical nose dive along the 60-foot video screen. The sense of scale will give you vertigo! 🪂✨\n\n#vertigo #nosedive #ledscreen #concerttech #stagesetup",
+            "hashtags": [
+                  "#vertigo",
+                  "#nosedive",
+                  "#ledscreen",
+                  "#concerttech",
+                  "#stagesetup"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "15s vertical dive parallel to the giant central LED display."
+      },
+      {
+            "id": "habeeb_zeds_14",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Flying Under The Synchronized Emerald Laser Canopy 🟢 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_14.mp4?v=oct2_music",
+            "description": "A geometric laser ceiling moving in real time to the sub-bass pulse. Production level 100/10! 🌌👽\n\n#lasertech #lasercanopy #visualdesign #lightshow #ravemusic",
+            "hashtags": [
+                  "#lasertech",
+                  "#lasercanopy",
+                  "#visualdesign",
+                  "#lightshow",
+                  "#ravemusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s continuous flight under pulsing emerald laser grid."
+      },
+      {
+            "id": "habeeb_zeds_15",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Cyberpunk Laser Matrix Test Inside Outdoor Venue 🕸️ @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_15.mp4?v=oct2_music",
+            "description": "Slicing through a matrix of crimson and sapphire laser beams in the dark amphitheatre. Looks like a sci-fi set! 🤖✨\n\n#cyberpunk #lasermatrix #geometry #lightart #futuristic",
+            "hashtags": [
+                  "#cyberpunk",
+                  "#lasermatrix",
+                  "#geometry",
+                  "#lightart",
+                  "#futuristic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s flight through complex geometric laser matrix."
+      },
+      {
+            "id": "habeeb_zeds_16",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Subwoofer Array Proximity Run With Pulsing Neon Strobes ⚡ @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_16.mp4?v=oct2_music",
+            "description": "Hovering right in front of the center bass bins while the strobe program tests at 100% brightness! 🔊💥\n\n#bassbins #subwoofers #soundpressure #heavybass #tourlife",
+            "hashtags": [
+                  "#bassbins",
+                  "#subwoofers",
+                  "#soundpressure",
+                  "#heavybass",
+                  "#tourlife"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s sub-cabinet flyby under pulsing white strobes."
+      },
+      {
+            "id": "habeeb_zeds_17",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Colosseum Amphitheatre Flight Over Empty Tiers 🏟️ @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_17.mp4?v=oct2_music",
+            "description": "Sweeping wide across the stone amphitheatre tiers. The acoustics and visual lines in this venue are legendary! 🏔️✨\n\n#amphitheatre #colosseum #redrocks #concerts #naturemeetsmusic",
+            "hashtags": [
+                  "#amphitheatre",
+                  "#colosseum",
+                  "#redrocks",
+                  "#concerts",
+                  "#naturemeetsmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s panoramic flight across venue amphitheatre tiers."
+      },
+      {
+            "id": "habeeb_zeds_18",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Dramatic Low-Altitude Cruise Over VIP Terrace 🍹 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_18.mp4?v=oct2_music",
+            "description": "Cruising 6 feet above the VIP terrace tables out toward the main stage glow. Pure movie aesthetic! 🎬🌟\n\n#vipexperience #terrace #nightlife #cinema #cinematography",
+            "hashtags": [
+                  "#vipexperience",
+                  "#terrace",
+                  "#nightlife",
+                  "#cinema",
+                  "#cinematography"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s low-altitude cruise over venue terraces."
+      },
+      {
+            "id": "habeeb_zeds_19",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Massive Monolith LED Tower Illumination Sequence 🖥️ @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_19.mp4?v=oct2_music",
+            "description": "Testing the central monolith screens. High-contrast visuals firing at 60 FPS in complete synchronicity! 🔥⚡\n\n#monolith #ledscreens #visualartist #stagecraft #tourtesting",
+            "hashtags": [
+                  "#monolith",
+                  "#ledscreens",
+                  "#visualartist",
+                  "#stagecraft",
+                  "#tourtesting"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s tower illumination sequence with high-contrast graphics."
+      },
+      {
+            "id": "habeeb_zeds_20",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 20 Music Drops (Oct 2)",
+            "title": "Peak Laser Convergence Flight At Rehearsal Test 🎯 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/habeeb_zeds/habeeb_zeds_20.mp4?v=oct2_music",
+            "description": "The moment all 40 lasers converge onto a single focal point above the crowd. Goosebumps every single time! 🌟🛸\n\n#convergence #lasershow #basshead #electronicmusic #zedsdead",
+            "hashtags": [
+                  "#convergence",
+                  "#lasershow",
+                  "#basshead",
+                  "#electronicmusic",
+                  "#zedsdead"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s peak laser convergence sequence at final flight test."
+      }
+]
   }
 ];
 
 const LILSHEY_CAMPAIGNS: CampaignSlot[] = [
   {
-    "campaignId": "lilshey_camp_1",
-    "campaignName": "Channel 1: Viral Gaming & Rage Moments (10 Starter Shorts)",
-    "category": "Retro Gaming Nostalgia, Rage Quits & Meme Commentary",
-    "status": "Live & Active (Lilshey Exclusive)",
-    "payout": "$1,000 / 1M Views (Starter Bounty)",
+    "campaignId": "lilshey_zeds_music",
+    "campaignName": "Zeds Dead Music Clipping (Official Tour Drop)",
+    "category": "Electronic & Bass Music (Deadbeats Records)",
+    "status": "Live & Active (Strict Lilshey Exclusive)",
+    "payout": "$1,000 / 1M Views ($500 Max)",
     "batches": [
       "All Drops",
-      "Starter Channel Pack (10 Shorts)"
+      "Today's 15 Music Drops (Oct 2)"
     ],
     "clips": [
       {
-        "id": "lilshey_gaming_01",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "PlayStation 1 Games Were A Fever Dream 💀 #shorts #gaming",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_01.mp4",
-        "description": "Who approved this game in the 90s?! The camera controls alone deserve prison time 😭🎮\\n\\n#gaming #retrogaming #ps1 #ragequit #gamermoments",
-        "hashtags": [
-          "#gaming",
-          "#retrogaming",
-          "#ps1",
-          "#ragequit",
-          "#gamermoments"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13s seamless high-APV loop with impact punchline."
+            "id": "lilshey_zeds_01",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "The Hypnotic Vocal Buildup At 3 AM In Miami 🔮 @zedsdead #shorts",
+            "duration": "0:15",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_01.mp4?v=oct2_music",
+            "description": "Factory Town was completely in a trance when this vocal buildup started floating over the 140 BPM sub pressure. 🌙🔊\n\n#zedsdead #bassmusic #miamimusicweek #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#miamimusicweek",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "15s hypnotic vocal intro building tension before the chromatic laser explosion."
       },
       {
-        "id": "lilshey_gaming_02",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "How Did Anyone Actually Beat This Game?! 😭 #shorts #gaming",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_02.mp4",
-        "description": "Physics took a complete vacation on this level. My last two braincells trying to make this jump.\\n\\n#gaming #gamer #funnygaming #rage #throwbackgaming",
-        "hashtags": [
-          "#gaming",
-          "#gamer",
-          "#funnygaming",
-          "#rage",
-          "#throwbackgaming"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13.5s high-retention rage loop."
+            "id": "lilshey_zeds_02",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "When The Chromatic Lasers Explode In 4K 🌈 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_02.mp4?v=oct2_music",
+            "description": "Every single laser in the venue fired at the exact same millisecond. Pure sensory overload in Factory Town! ⚡💥\n\n#rave #lasers #visuals #festivalseason #basshead",
+            "hashtags": [
+                  "#rave",
+                  "#lasers",
+                  "#visuals",
+                  "#festivalseason",
+                  "#basshead"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s peak visual energy with full chromatic laser spread across the crowd."
       },
       {
-        "id": "lilshey_gaming_03",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "My Anger Issues Cannot Handle This Game 🤬 #shorts #ragequit",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_03.mp4",
-        "description": "The 3-second jump delay is diabolical work. How was this sold for $50 in 1996?!\\n\\n#ragequit #funnygamermoments #retrogames #gamingmemes #epicfail",
-        "hashtags": [
-          "#ragequit",
-          "#funnygamermoments",
-          "#retrogames",
-          "#gamingmemes",
-          "#epicfail"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 12.5s rapid loop with instant restart."
+            "id": "lilshey_zeds_03",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "Second Drop Stole Everyone's Breath Away 🌪️ @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_03.mp4?v=oct2_music",
+            "description": "Just when the crowd thought they caught their breath, Zeds Dead doubled down with this filthy second drop! 🐱🔊\n\n#edmtok #bassdrop #drops #headbanger #ravegirls",
+            "hashtags": [
+                  "#edmtok",
+                  "#bassdrop",
+                  "#drops",
+                  "#headbanger",
+                  "#ravegirls"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s secondary bass drop highlighting massive crowd reaction."
       },
       {
-        "id": "lilshey_gaming_04",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "The NPC Just Watched Me Suffer 💀 #shorts #gaming",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_04.mp4",
-        "description": "He didn't even flinch. Cold-blooded 90s game mechanics at their finest.\\n\\n#gaminglife #videogames #meme #comedygaming #classicgames",
-        "hashtags": [
-          "#gaminglife",
-          "#videogames",
-          "#meme",
-          "#comedygaming",
-          "#classicgames"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13s comedy timing loop."
+            "id": "lilshey_zeds_04",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "Frank Sinatra Horns Cut Into Heavy Dubstep 🎺 @zedsdead #shorts",
+            "duration": "0:15",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_04.mp4?v=oct2_music",
+            "description": "Taking classic 1950s swing brass and slamming it straight into a sub-bass rumble! Nobody merges genres like Zeds Dead. 🎷🔥\n\n#retromusic #oldschool #bassboosted #remix #electronic",
+            "hashtags": [
+                  "#retromusic",
+                  "#oldschool",
+                  "#bassboosted",
+                  "#remix",
+                  "#electronic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "15s vintage swing intro leading straight into the first brass hit."
       },
       {
-        "id": "lilshey_gaming_05",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "Worst Camera Angle in Gaming History 🎥 #shorts #gaming",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_05.mp4",
-        "description": "Who gave the cameraman a blindfold? You literally have to guess where the platform is!\\n\\n#gamersoftiktok #retrogamingcommunity #fail #funny #gamerhumor",
-        "hashtags": [
-          "#gamersoftiktok",
-          "#retrogamingcommunity",
-          "#fail",
-          "#funny",
-          "#gamerhumor"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13s high-retention blind jump cut."
+            "id": "lilshey_zeds_05",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "The Swing Groove That Controlled The Entire Venue 🎩 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_05.mp4?v=oct2_music",
+            "description": "Look at the entire outdoor terrace bouncing in sync to this swing rhythm. Pure infectious festival energy! 💃🕺\n\n#festivalvibes #danceparty #openair #miaminights #ravevibes",
+            "hashtags": [
+                  "#festivalvibes",
+                  "#danceparty",
+                  "#openair",
+                  "#miaminights",
+                  "#ravevibes"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s continuous swing bounce with synchronized outdoor crowd movement."
       },
       {
-        "id": "lilshey_gaming_06",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "The Voicelines Are Completely Unhinged 😭 #shorts #gaming",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_06.mp4",
-        "description": "The voice acting in 90s games was either Shakespeare or an absolute hostage situation.\\n\\n#gamingclips #nostalgia #90skids #voiceacting #funnyclips",
-        "hashtags": [
-          "#gamingclips",
-          "#nostalgia",
-          "#90skids",
-          "#voiceacting",
-          "#funnyclips"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13s voiceline punchline loop."
+            "id": "lilshey_zeds_06",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "Biggie Smalls Vocals Chopped Over 140 BPM Sub 👑 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_06.mp4?v=oct2_music",
+            "description": "The King of New York acapella floating over rolling sub frequencies. The bass pressure in the chest was real! 🗽🔊\n\n#notoriousbig #hiphopedm #bassculture #sounddesign #dnb",
+            "hashtags": [
+                  "#notoriousbig",
+                  "#hiphopedm",
+                  "#bassculture",
+                  "#sounddesign",
+                  "#dnb"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s hip-hop vocal chop over heavy sub-bass rhythm."
       },
       {
-        "id": "lilshey_gaming_07",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "A Speedrunner's Absolute Worst Nightmare ⚡ #shorts #speedrun",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_07.mp4",
-        "description": "One tap of the D-pad and you're launched into the fifth dimension at Mach 3.\\n\\n#speedrun #glitch #gamingglitches #gameplay #funnymoments",
-        "hashtags": [
-          "#speedrun",
-          "#glitch",
-          "#gamingglitches",
-          "#gameplay",
-          "#funnymoments"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 12.5s glitch-momentum loop."
+            "id": "lilshey_zeds_07",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "NYC Rap Acapella Into Aggressive Sub Rattle 🚨 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_07.mp4?v=oct2_music",
+            "description": "When Jay Z's iconic flow gets backed by stadium subwoofers, the whole zip code feels the bass shake! 🏙️💥\n\n#jayz #subwoofer #caraudio #stadiumbass #hype",
+            "hashtags": [
+                  "#jayz",
+                  "#subwoofer",
+                  "#caraudio",
+                  "#stadiumbass",
+                  "#hype"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s Jay-Z vocal flow colliding with heavy 808 sub."
       },
       {
-        "id": "lilshey_gaming_08",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "Missing The Final Jump After 2 Hours 💔 #shorts #gaming",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_08.mp4",
-        "description": "The sound of pure internal screaming. Hide your controllers before attempting this.\\n\\n#rage #fail #gameover #pain #gamers",
-        "hashtags": [
-          "#rage",
-          "#fail",
-          "#gameover",
-          "#pain",
-          "#gamers"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13s heartbreak-fail loop."
+            "id": "lilshey_zeds_08",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "Shook Ones Pt II Sample Resampled Into Filthy Bass 🎹 @zedsdead #shorts",
+            "duration": "0:15",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_08.mp4?v=oct2_music",
+            "description": "That legendary 1995 Queensbridge piano hook right before the low-end frequency drops. Legendary tribute! 🎹💀\n\n#mobbdeep #90shiphop #bassheads #rave #undergroundbass",
+            "hashtags": [
+                  "#mobbdeep",
+                  "#90shiphop",
+                  "#bassheads",
+                  "#rave",
+                  "#undergroundbass"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "15s iconic piano progression into deep sub bass hit."
       },
       {
-        "id": "lilshey_gaming_09",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "Give The Level Designer A Life Sentence 💀 #shorts #gaming",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_09.mp4",
-        "description": "They woke up, chose pure violence, and shipped it on a CD-ROM. Unforgivable!\\n\\n#gameplayclips #retrogaming #gamingcommunity #leveldesign #viralgaming",
-        "hashtags": [
-          "#gameplayclips",
-          "#retrogaming",
-          "#gamingcommunity",
-          "#leveldesign",
-          "#viralgaming"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 12.5s level design rage loop."
+            "id": "lilshey_zeds_09",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "16 Bars Of Brass & Strobe Synchronicity 🎺 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_09.mp4?v=oct2_music",
+            "description": "Blinding white strobes matching every high-frequency brass hit in Miami! Audio-visual production at its highest peak. ⚡🎺\n\n#strobelights #lightingcrew #stageproduction #musicfestival",
+            "hashtags": [
+                  "#strobelights",
+                  "#lightingcrew",
+                  "#stageproduction",
+                  "#musicfestival"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s rapid brass chops accompanied by intense strobe lighting."
       },
       {
-        "id": "lilshey_gaming_10",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "The Final Stage of Gamer Rage 🤐 #shorts #ragequit",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/lilshey_starter/lilshey_gaming_10.mp4",
-        "description": "Not even screaming anymore, just pure empty silence. We have all been there.\\n\\n#ragequit #relatable #gamer #funny #shorts",
-        "hashtags": [
-          "#ragequit",
-          "#relatable",
-          "#gamer",
-          "#funny",
-          "#shorts"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 12.5s silent-rage loop."
+            "id": "lilshey_zeds_10",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "FPV Drone Inside Empty Amphitheatre Rehearsal 🛸 @zedsdead #shorts",
+            "duration": "0:15",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_10.mp4?v=oct2_music",
+            "description": "Watch this high-speed drone dive straight toward the main stage subwoofers during sound check. Insane pilot skill! 🚀🎧\n\n#fpvdrone #behindthescenes #production #tourlife #redrocks",
+            "hashtags": [
+                  "#fpvdrone",
+                  "#behindthescenes",
+                  "#production",
+                  "#tourlife",
+                  "#redrocks"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "15s acrobatic FPV drone flight passing right past main stage speaker stacks."
+      },
+      {
+            "id": "lilshey_zeds_11",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "FPV Drone Climbing The 80-Foot Lighting Truss 🏗️ @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_11.mp4?v=oct2_music",
+            "description": "Climbing through the industrial steel rigging high above the stage floor. The scale of this tour rig is massive! 🌌⚡\n\n#rigging #stagelife #fpvpilot #lightingdesign #concertvenue",
+            "hashtags": [
+                  "#rigging",
+                  "#stagelife",
+                  "#fpvpilot",
+                  "#lightingdesign",
+                  "#concertvenue"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s vertical ascent through high-altitude lighting truss structures."
+      },
+      {
+            "id": "lilshey_zeds_12",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "Supersonic FPV Dive Right Over The CDJ Booth 🎛️ @zedsdead #shorts",
+            "duration": "0:15",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_12.mp4?v=oct2_music",
+            "description": "Coming in hot at 50 MPH and leveling out inches from the DJ mixer! Precision flying at the outdoor amphitheatre. 🎯✨\n\n#djbooth #pioneerdj #fpvracing #redrocksamphitheater #stagegear",
+            "hashtags": [
+                  "#djbooth",
+                  "#pioneerdj",
+                  "#fpvracing",
+                  "#redrocksamphitheater",
+                  "#stagegear"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "15s high-velocity dive over the DJ performance platform."
+      },
+      {
+            "id": "lilshey_zeds_13",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "360 Drone Spin In Front Of Massive LED Wall 🌀 @zedsdead #shorts",
+            "duration": "0:15",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_13.mp4?v=oct2_music",
+            "description": "Inverted roll right in front of the giant deadbeats logo on the LED screen. Cinematic drone cinematography! 🎥👾\n\n#dronecinematography #aerobatics #visualeffects #stageart",
+            "hashtags": [
+                  "#dronecinematography",
+                  "#aerobatics",
+                  "#visualeffects",
+                  "#stageart"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "15s rotational acrobatic move framed against the central LED screen."
+      },
+      {
+            "id": "lilshey_zeds_14",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "Flying Under A Ceiling Of Pure Neon Green Lasers 🟢 @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_14.mp4?v=oct2_music",
+            "description": "Cutting through the atmospheric fog under a roof of slicing emerald lasers. Looks straight out of the Matrix! 🟩🛸\n\n#lasertunnel #thematrix #laserlights #indoorrave #electronicmusic",
+            "hashtags": [
+                  "#lasertunnel",
+                  "#thematrix",
+                  "#laserlights",
+                  "#indoorrave",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s glide through dense neon green laser ceiling."
+      },
+      {
+            "id": "lilshey_zeds_15",
+            "addedTime": "Oct 02, 2026 • 02:30 PM",
+            "batchTag": "Today's 15 Music Drops (Oct 2)",
+            "title": "FPV Drone Threading The Gap Between LED Towers 🏙️ @zedsdead #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_15.mp4?v=oct2_music",
+            "description": "Only 4 feet of clearance between multi-million dollar video walls! High stakes flying before showtime. 🕹️🔥\n\n#highstakes #dronefails #skillcheck #liveproduction #deadbeats",
+            "hashtags": [
+                  "#highstakes",
+                  "#dronefails",
+                  "#skillcheck",
+                  "#liveproduction",
+                  "#deadbeats"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "16s precision gap-threading between main stage LED pillars."
       }
-    ]
+]
   },
   {
     "campaignId": "lilshey_camp_2",
-    "campaignName": "Channel 2: Cinema & Viral Trends",
-    "category": "High-Virality Entertainment",
+    "campaignName": "Campaign Drop Beta (Lilshey Slot 2)",
+    "category": "Cinema & Viral Trends",
     "status": "Standby For Drop",
-    "payout": "$1,000 / 1M Views",
+    "payout": "$850 - $1,200 / 1M Views",
     "batches": [
       "All Drops"
     ],
@@ -1572,6 +2047,9 @@ export default function ClippingVault() {
   const [currentUser, setCurrentUser] = useState<string>(() => {
     return localStorage.getItem("clipping_user") || "";
   });
+  const [habeebCampaignChoice, setHabeebCampaignChoice] = useState<string>(() => {
+    return localStorage.getItem("habeeb_campaign_choice") || "";
+  });
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [authError, setAuthError] = useState("");
@@ -1837,6 +2315,11 @@ export default function ClippingVault() {
     }
   };
 
+    const selectHabeebCampaign = (choice: "bubsy" | "zedsdead") => {
+    setHabeebCampaignChoice(choice);
+    localStorage.setItem("habeeb_campaign_choice", choice);
+  };
+
   const handleLogout = () => {
     if (audioRef.current && currentUser) {
       saveAudioProgress(currentUser, playlistRef.current, playlistRef.current[trackIndexRef.current]?.id || currentTrack.id, audioRef.current.currentTime);
@@ -1845,6 +2328,66 @@ export default function ClippingVault() {
     localStorage.removeItem("clipping_user");
     setCurrentUser("");
   };
+
+  if (currentUser === "habeeb" && !habeebCampaignChoice) {
+    return (
+      <div className="min-h-screen bg-[#0a0d14] flex items-center justify-center p-4">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="w-full max-w-xl bg-[#10141e] border border-[#1b2234] rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden"
+        >
+          <div className="text-center mb-8">
+            <span className="text-xs font-mono text-blue-400 uppercase tracking-widest font-bold block mb-2">
+              HABEEB OPERATIONS VAULT
+            </span>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Select Your Clipping Focus
+            </h1>
+            <p className="text-xs sm:text-sm text-neutral-400 mt-2">
+              Choose your active workspace to keep your feed uncluttered. Your choice is saved automatically and can be switched anytime.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <button
+              onClick={() => selectHabeebCampaign("bubsy")}
+              className="group p-6 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-amber-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+            >
+              <div className="text-3xl mb-3">🐱</div>
+              <h3 className="text-base font-bold text-white group-hover:text-amber-300 transition-colors flex items-center justify-between">
+                Bubsy 4D
+                <span className="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-mono">15 Shorts</span>
+              </h3>
+              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
+                Mascot platformer revival, comedic lore, and momentum speedrunning clips.
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-amber-400 font-semibold flex items-center gap-1">
+                Enter Bubsy Workspace →
+              </div>
+            </button>
+
+            <button
+              onClick={() => selectHabeebCampaign("zedsdead")}
+              className="group p-6 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-purple-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+            >
+              <div className="text-3xl mb-3">🔊</div>
+              <h3 className="text-base font-bold text-white group-hover:text-purple-300 transition-colors flex items-center justify-between">
+                Zeds Dead Music
+                <span className="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-mono">20 Drops</span>
+              </h3>
+              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
+                Miami Factory Town live drops, heavy sub frequencies, and tour laser FPV runs.
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-purple-400 font-semibold flex items-center gap-1">
+                Enter Music Workspace →
+              </div>
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   if (!currentUser) {
     return (
@@ -1922,7 +2465,13 @@ export default function ClippingVault() {
   }
 
   const activeUserData = USERS[currentUser] || USERS.ceo;
-  const campaigns = currentUser === "habeeb" ? HABEEB_CAMPAIGNS : currentUser === "lilshey" ? LILSHEY_CAMPAIGNS : currentUser === "usman" ? USMAN_CAMPAIGNS : CEO_CAMPAIGNS;
+  const campaigns = currentUser === "habeeb" 
+    ? (habeebCampaignChoice === "zedsdead" ? [HABEEB_CAMPAIGNS[1]] : [HABEEB_CAMPAIGNS[0]])
+    : currentUser === "lilshey" 
+    ? LILSHEY_CAMPAIGNS 
+    : currentUser === "usman" 
+    ? USMAN_CAMPAIGNS 
+    : CEO_CAMPAIGNS;
 
   return (
     <div className="min-h-screen bg-[#0a0d14] text-white selection:bg-blue-600/30 pb-20">
@@ -1999,6 +2548,31 @@ export default function ClippingVault() {
                 </button>
               </div>
             </div>
+
+          {currentUser === "habeeb" && (
+            <div className="hidden sm:flex items-center gap-1 bg-[#10141e] border border-[#1b2234] p-1 rounded-xl">
+              <button
+                onClick={() => selectHabeebCampaign("bubsy")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  habeebCampaignChoice !== "zedsdead"
+                    ? "bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                <span>🐱</span> Bubsy 4D (15)
+              </button>
+              <button
+                onClick={() => selectHabeebCampaign("zedsdead")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  habeebCampaignChoice === "zedsdead"
+                    ? "bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-sm"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                <span>🔊</span> Zeds Dead (20)
+              </button>
+            </div>
+          )}
 
           <button
               onClick={handleLogout}

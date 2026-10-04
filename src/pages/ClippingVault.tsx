@@ -1097,112 +1097,790 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
   },
   {
     "campaignId": "habeeb_moonpay_xgl",
-    "campaignName": "MoonPay X Games League Winter Draft ($2.50 CPM)",
-    "category": "Action Sports, Snowboarding & Freeski (Clipfarm x MoonPay)",
-    "status": "Live & Active (Strict Habeeb Exclusive)",
-    "payout": "$2.50 / 1K Views ($500 Max)",
+    "campaignName": "MoonPay X Games League (XGL) Winter Draft 2026",
+    "category": "Action Sports & Winter Athletes (X Games)",
+    "status": "Live & Active (Strict Exclusive)",
+    "payout": "$2.50 / 1k Views ($500 Max)",
     "batches": [
-      "All Drops",
-      "Today's MoonPay XGL Drops (Oct 4)"
+        "All Drops",
+        "Today's MoonPay XGL Drops (Oct 4)"
     ],
     "clips": [
-      {
+        {
             "id": "habeeb_moonpay_01",
-            "addedTime": "Oct 04, 2026 • 10:20 AM",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
             "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
             "title": "He Pulled Off The First EVER 2340 Spin In Human History 🤯 @moonpayhq #shorts",
-            "duration": "0:21",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/moonpay_xgl/sample_draft_part.mp4",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_01.mp4?v=oct4_moonpay",
             "description": "Hiroto Ogiwara did the impossible by landing a 2340 spin in competition! Golden State locked him in immediately during the X Games League Winter Draft 🏂⚡\n\nAthlete IG: Instagram @hiroto_ogiwara @moonpayhq @moonpay\n\n#snowboarding #XGLDraft #xgames #2340 #insanetricks #shorts",
             "hashtags": [
-                  "#snowboarding",
-                  "#XGLDraft",
-                  "#xgames",
-                  "#2340",
-                  "#shorts"
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
             ],
             "payoutRate": "$2.50 / 1K Views ($500 Max)",
-            "loopNote": "2-Part MoonPay Formula: 2340 highlight stunt (0-11s) -> MoonPay Draft Pick reveal (12-21s). Must have 40%+ US/UK/CA/AU audience."
-      },
-      {
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (54m) + Hiroto Ogiwara highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @hiroto_ogiwara. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
             "id": "habeeb_moonpay_02",
-            "addedTime": "Oct 04, 2026 • 10:20 AM",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
             "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
             "title": "Scotty James TIED Shaun White's Historic X Games Record 🏆 @moonpayhq #shorts",
-            "duration": "0:15",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/moonpay_xgl/sample_draft_part.mp4",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_02.mp4?v=oct4_moonpay",
             "description": "Australian icon Scotty James matches Shaun White with his 5th consecutive SuperPipe Gold Medal! The SuperPipe GOAT debate is officially open.\n\nAthlete IG: Instagram @scottyjames31 @moonpayhq\n\n#ScottyJames #ShaunWhite #XGames #Snowboarding #SuperPipe #shorts",
             "hashtags": [
-                  "#ScottyJames",
-                  "#ShaunWhite",
-                  "#XGames",
-                  "#Snowboarding",
-                  "#SuperPipe"
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
             ],
             "payoutRate": "$2.50 / 1K Views ($500 Max)",
-            "loopNote": "2-Part MoonPay Formula: Draft pick announcement -> SuperPipe gold run. Must have 40%+ US/UK/CA/AU audience."
-      },
-      {
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (1h 07m) + Scotty James highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @scottyjames31. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
             "id": "habeeb_moonpay_03",
-            "addedTime": "Oct 04, 2026 • 10:20 AM",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
             "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
             "title": "Eileen Gu Dominates The Slopes Like Nobody Else On Earth 🎿 @moonpayhq #shorts",
-            "duration": "0:18",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/moonpay_xgl/sample_draft_part.mp4",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_03.mp4?v=oct4_moonpay",
             "description": "The most decorated Olympic freeskier gets picked first overall. Flawless rail transfers and triple corks in the Aspen powder!\n\nAthlete IG: Instagram @eileengu @moonpayhq\n\n#eileengu #freeski #xgames #olympics #winterdraft #shorts",
             "hashtags": [
-                  "#eileengu",
-                  "#freeski",
-                  "#xgames",
-                  "#olympics",
-                  "#shorts"
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
             ],
             "payoutRate": "$2.50 / 1K Views ($500 Max)",
-            "loopNote": "2-Part MoonPay Formula: Golden State draft pick + slopestyle highlight run. Must have 40%+ US/UK/CA/AU audience."
-      },
-      {
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (21m) + Eileen Gu highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @eileengu. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
             "id": "habeeb_moonpay_04",
-            "addedTime": "Oct 04, 2026 • 10:20 AM",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
             "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
             "title": "Su Yiming's Gravity-Defying Gold Medal Run Was Pure Art 🏂 @moonpayhq #shorts",
-            "duration": "0:16",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/moonpay_xgl/sample_draft_part.mp4",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_04.mp4?v=oct4_moonpay",
             "description": "2x Olympic gold medalist Su Yiming stomping 1980 rotations with effortless style. Park City made the right choice!\n\nAthlete IG: Instagram @mingsuyi @moonpayhq\n\n#suyiming #snowboard #xgames #olympics #winterdraft #shorts",
             "hashtags": [
-                  "#suyiming",
-                  "#snowboard",
-                  "#xgames",
-                  "#olympics",
-                  "#shorts"
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
             ],
             "payoutRate": "$2.50 / 1K Views ($500 Max)",
-            "loopNote": "2-Part MoonPay Formula: Park City draft pick + 1980 rotation highlight. Must have 40%+ US/UK/CA/AU audience."
-      },
-      {
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (1h 09m) + Su Yiming highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @mingsuyi. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
             "id": "habeeb_moonpay_05",
-            "addedTime": "Oct 04, 2026 • 10:20 AM",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
             "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
             "title": "Mark McMorris Makes History With His 25th X Games Medal 🏅 @moonpayhq #shorts",
-            "duration": "0:17",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/moonpay_xgl/sample_draft_part.mp4",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_05.mp4?v=oct4_moonpay",
             "description": "25 medals deep and still competing at the absolute highest level. Mark McMorris is an action sports living legend!\n\nAthlete IG: Instagram @markmcmorris @moonpayhq\n\n#markmcmorris #snowboarding #xgames #legend #winterdraft #shorts",
             "hashtags": [
-                  "#markmcmorris",
-                  "#snowboarding",
-                  "#xgames",
-                  "#legend",
-                  "#shorts"
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
             ],
             "payoutRate": "$2.50 / 1K Views ($500 Max)",
-            "loopNote": "2-Part MoonPay Formula: XC New York draft pick + 25th medal run celebration. Must have 40%+ US/UK/CA/AU audience."
-      }
-]
-  }
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (1h 22m) + Mark McMorris highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @markmcmorris. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_06",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "17-Year-Old Mia Brookes Shatters World Snowboard Record 🌍 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_06.mp4?v=oct4_moonpay",
+            "description": "Youngest snowboard slopestyle world champion in history stomping flat spins and cab 1440s like it's nothing!\n\nAthlete IG: Instagram @mia_brookes @moonpayhq\n\n#miabrookes #snowboarding #worldchampion #xgames #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (1h 28m) + Mia Brookes highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @mia_brookes. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_07",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Birk Ruud Lands Insane Triple Cork 1980 In Aspen 🇳🇴 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_07.mp4?v=oct4_moonpay",
+            "description": "Olympic Big Air Gold medalist Birk Ruud stomping triple cork 1980 with surgical precision!\n\nAthlete IG: Instagram @birk_ruud @moonpayhq\n\n#birkruud #freeski #bigair #triplecork #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (1h 39m) + Birk Ruud highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @birk_ruud. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_08",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Mathilde Gremaud Doubles Down With Historic Gold Sweep 🇨🇭 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_08.mp4?v=oct4_moonpay",
+            "description": "Olympic Big Air & Slopestyle gold sweep! Mathilde Gremaud is in a league of her own.\n\nAthlete IG: Instagram @mathilde_gremaud @moonpayhq\n\n#mathildegremaud #freeski #slopestyle #olympics #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (23m) + Mathilde Gremaud highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @mathilde_gremaud. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_09",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Yuto Totsuka Hits 23 Feet Out Of The SuperPipe 🚀 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_09.mp4?v=oct4_moonpay",
+            "description": "Massive 23-foot amplitude back-to-back 1440 combos in the freezing Aspen halfpipe!\n\nAthlete IG: Instagram @yuto_totsuka @moonpayhq\n\n#yutototsuka #superpipe #snowboarding #halfpipe #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (1h 48m) + Yuto Totsuka highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @yuto_totsuka. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_10",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Alex Hall Invents A New Ski Trick Nobody Has Ever Seen 🧠 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_10.mp4?v=oct4_moonpay",
+            "description": "Creative wizard Alex Hall landing 2160 rotation with butter pretzel rail dismount!\n\nAthlete IG: Instagram @alexhallskiing @moonpayhq\n\n#alexhall #freeski #creative #knucklehuck #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (26m) + Alex Hall highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @alexhallskiing. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_11",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Red Gerard Rail Precision Is On Another Level 🇺🇸 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_11.mp4?v=oct4_moonpay",
+            "description": "Olympic slopestyle prodigy Red Gerard slicing through rails and disaster 450 out!\n\nAthlete IG: Instagram @redgerard @moonpayhq\n\n#redgerard #slopestyle #snowboard #rails #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (46m) + Red Gerard highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @redgerard. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_12",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "15-Year-Old Gaon Choi Breaks Chloe Kim's Historic Record 🇰🇷 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_12.mp4?v=oct4_moonpay",
+            "description": "Korean super-teen Gaon Choi becomes the youngest SuperPipe gold medalist in X Games history!\n\nAthlete IG: Instagram @gaon_choi_ @moonpayhq\n\n#gaonchoi #halfpipe #xgames #recordbreaker #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (50m) + Gaon Choi highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @gaon_choi_. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_13",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Taiga Hasegawa Stomps 4 Different 1980 Spins In One Session 🌪️ @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_13.mp4?v=oct4_moonpay",
+            "description": "The only human on earth who can spin 1980 degrees in all four directions on a snowboard!\n\nAthlete IG: Instagram @taigahasegawa @moonpayhq\n\n#taigahasegawa #bigair #snowboard #quadspin #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (1h 03m) + Taiga Hasegawa highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @taigahasegawa. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_14",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Naomi Urness Dominates The Big Air Jumps With Pure Steeze ⛷️ @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_14.mp4?v=oct4_moonpay",
+            "description": "Smooth cork 1080 blunt grab with effortless landing in the fresh winter powder!\n\nAthlete IG: Instagram @naomi.urness @moonpayhq\n\n#naomiurness #freeski #bigair #xgames #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (1h 13m) + Naomi Urness highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @naomi.urness. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_15",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Marcus Kleveland Rewrites Snowboard Physics On The Knuckle 🛸 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_15.mp4?v=oct4_moonpay",
+            "description": "The inventor of the knuckle huck revolution landing butter spins into switch backflips!\n\nAthlete IG: Instagram @marcuskleveland @moonpayhq\n\n#marcuskleveland #knucklehuck #snowboard #physics #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (1h 18m) + Marcus Kleveland highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @marcuskleveland. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_16",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Tess Ledeux Becomes First Woman To Land Double Cork 1620 🇫🇷 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_16.mp4?v=oct4_moonpay",
+            "description": "Historic double cork 1620 stomp in X Games Big Air competition!\n\nAthlete IG: Instagram @tessledeux @moonpayhq\n\n#tessledeux #freeski #bigair #xgames #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (30m) + Tess Ledeux highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @tessledeux. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_17",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Chloe Kim Still Undefeated On The Halfpipe At Full Speed 👸 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_17.mp4?v=oct4_moonpay",
+            "description": "Undefeated 2x Olympic halfpipe champion sending back-to-back 1080s with insane height!\n\nAthlete IG: Instagram @chloekim @moonpayhq\n\n#chloekim #halfpipe #snowboard #queen #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (44m) + Chloe Kim highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @chloekim. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_18",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Ayumu Hirano Lands The Lethal Triple Cork 1440 👑 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_18.mp4?v=oct4_moonpay",
+            "description": "Frontside triple cork 1440 in the Olympic SuperPipe! Nobody flies higher than Ayumu.\n\nAthlete IG: Instagram @ayumuhirano1129 @moonpayhq\n\n#ayumuhirano #triplecork #snowboarding #goldmedal #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (52m) + Ayumu Hirano highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @ayumuhirano1129. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_19",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Anna Gasser Stunned The Crowd With This Triple Underflip 🇦🇹 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_19.mp4?v=oct4_moonpay",
+            "description": "First woman to stomp a cab triple underflip in major winter sports competition!\n\nAthlete IG: Instagram @annagassersnow @moonpayhq\n\n#annagasser #bigair #snowboard #pioneer #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (1h 02m) + Anna Gasser highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @annagassersnow. Audience must be 40%+ US/UK/CA/AU."
+        },
+        {
+            "id": "habeeb_moonpay_20",
+            "addedTime": "Oct 04, 2026 • 11:15 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Zeb Powell Knuckle Huck Run Had The Entire Crowd In Tears 😂 @moonpayhq #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Vertical Master)",
+            "videoSrc": "/campaigns/moonpay_xgl/moonpay_20.mp4?v=oct4_moonpay",
+            "description": "Coffin slide into no-grab backflip on a 203cm board! Pure action sports entertainment.\n\nAthlete IG: Instagram @zebpowelll @moonpayhq\n\n#zebpowell #knucklehuck #creative #snowboard #shorts",
+            "hashtags": [
+                "#snowboarding",
+                "#XGLDraft",
+                "#xgames",
+                "#moonpay",
+                "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft Pick from livestream (1h 15m) + Zeb Powell highlights. Mandatory Tags: @moonpayhq @moonpay Instagram @zebpowelll. Audience must be 40%+ US/UK/CA/AU."
+        }
+    ]
+},
+  {
+    "campaignId": "habeeb_duel_shorts",
+    "campaignName": "Duel [CLIPPING - YT SHORTS] (Official Campaign)",
+    "category": "1v1 PvP Gaming, Bets, IRL & Arena Reactions",
+    "status": "Live & Active (Strict Exclusive)",
+    "payout": "$10.00 / 1k Views (Min 1,750 Views)",
+    "batches": [
+        "All Drops",
+        "Duel [YT Shorts] Exclusive Drops"
+    ],
+    "clips": [
+        {
+            "id": "duel_shorts_01",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "He Almost Hit The Impossible 5000 IQ Guess 😱 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_01.mp4?v=duel_yt",
+            "description": "He was literally inches away from a perfect 5k score on GeoGuessr PvP Duel! His reaction is pure comedy 💀\n\n#duel #geoguessr #pvp #gamingmoments #ragequit #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HE ALMOST HIT A 5000 IQ GUESS'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_02",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "Bro Really Got 68 Points In A $1,000 Match 💀 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_02.mp4?v=duel_yt",
+            "description": "When you talk all that trash before the round and then end up with 68 points... I'd log off forever 😂\n\n#duel #gametok #pvp #funnyclips #gamingfails #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('BRO GOT ONLY 68 POINTS IN DUEL'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_03",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "Literally The Hardest Round In Duel History 🧠 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_03.mp4?v=duel_yt",
+            "description": "Not a single soul could identify this location. The confusion on both faces is unmatched!\n\n#duel #geoguessr #impossible #iqtest #gamingclips #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('THE HARDEST ROUND IN DUEL HISTORY'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_04",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "The Most Horrendous Guess In Duel History 😭 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_04.mp4?v=duel_yt",
+            "description": "He was on the complete opposite side of the planet! How do you even mess up that bad?! 💀\n\n#duel #fails #geoguessr #twitchfails #gamingmoment #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('THE WORST GUESS YOU WILL EVER SEE'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_05",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "He Absolutely Snapped During The Match 🤬 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_05.mp4?v=duel_yt",
+            "description": "The psychological warfare in 1v1 duels is actually insane! Neither of them backed down 🔥\n\n#duel #trashtalk #pvp #streamerclips #competitive #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HE COULD NOT HANDLE THE TRASH TALK'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_06",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "Roasting His Opponent Into Another Dimension 💀 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_06.mp4?v=duel_yt",
+            "description": "You can hear the exact second his opponent lost all hope and confidence! Duel 1v1 toxicity at its finest 😂\n\n#duel #roast #funny #gamer #comeback #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('ROASTING HIS ENTIRE EXISTENCE'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_07",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "When The CSGO Duel Gets Too Personal 🎯 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_07.mp4?v=duel_yt",
+            "description": "High stakes clutch round with everything on the line! Watch till the last second for the reaction 💥\n\n#duel #csgo #clutch #1v1 #gamingclips #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('WHEN CSGO DUELS GET PERSONAL'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_08",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "Magician Blows Everyone's Mind At Duel Arena 🪄 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_08.mp4?v=duel_yt",
+            "description": "He literally levitated Duel chips in mid-air right in front of everyone! How is this even physically possible?! 🤯\n\n#duel #magic #mindblown #arena #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('THE STORY OF HOW HE GOT ARRESTED'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_09",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "How Much Of Your Brain Do You Actually Use? 🧠 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_09.mp4?v=duel_yt",
+            "description": "Debating peak mental focus and IQ during high stakes competitive gaming and duels!\n\n#duel #mindset #psychology #focus #iqtest #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HUMAN BRAIN CAPACITY IS INSANE'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_10",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "Does Money Actually Make You Happy? 💰 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_10.mp4?v=duel_yt",
+            "description": "A brutally honest perspective on wealth, freedom, and happiness from high roller streamers.\n\n#duel #money #mindset #happiness #deepquotes #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('DOES MONEY ACTUALLY MAKE YOU HAPPY'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_11",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "What Happens When AI Replaces Everything? 🤖 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_11.mp4?v=duel_yt",
+            "description": "Is AI going to take over content creation and gaming within the next 2 years? Listen closely.\n\n#duel #ai #future #technology #podcast #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('THE TRUTH ABOUT AI TAKING OVER'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_12",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "What 7 Days Of Water Fasting Does To You 💧 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_12.mp4?v=duel_yt",
+            "description": "Extreme mental clarity or pure torture? His experience trying a prolonged water fast!\n\n#duel #health #fasting #discipline #wellness #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('WHAT 7 DAYS OF WATER FASTING DOES'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_13",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "He Hit The Legendary 1,000x Multiplier Live 🍭 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_13.mp4?v=duel_yt",
+            "description": "The tumble kept going and going until the 1,000x bomb dropped! Watch the screen shake 💣\n\n#duel #bigwin #multiplier #sweetbonanza #insaneluck #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HE HIT A 1000X MULTIPLIER LIVE'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_14",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "Explaining Duel To Girls In Public 💀 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_14.mp4?v=duel_yt",
+            "description": "Trying to explain 1v1 PvP wager matches to random girls at the event... the awkwardness is 10/10 😂\n\n#duel #irl #awkward #funny #publicinterview #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HOW TO EXPLAIN DUEL TO ANYONE'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_15",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "What Actually Happens Behind The Scenes At Duel 🏢 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_15.mp4?v=duel_yt",
+            "description": "Exclusive tour inside the high-energy gaming house and production floor at Duel!\n\n#duel #behindthescenes #hq #esports #streamerhouse #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('BEHIND THE SCENES AT DUEL HQ'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_16",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "The Juggling Trick That Broke The Arena 🤹 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_16.mp4?v=duel_yt",
+            "description": "He didn't drop a single item for 2 minutes straight in front of a live crowd! Insane hand-eye coordination.\n\n#duel #talent #juggling #crowdreaction #mindblown #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('IMPOSSIBLE SPEED JUGGLING TRICK'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_17",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "This Street Magic Trick Fooled Everyone 🪄 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_17.mp4?v=duel_yt",
+            "description": "Watch his hands closely because you will still miss how he pulled this off right in front of them!\n\n#duel #magic #streetmagic #illusions #reaction #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HOW DID HE PULL THIS TRICK OFF'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_18",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "Mike Perry Unfiltered Backstage At Duel Arena 🥊 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_18.mp4?v=duel_yt",
+            "description": "Mike Perry never has a filter! Backstage interview before stepping inside the arena.\n\n#duel #mikeperry #bkfc #ufc #combatsports #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('MIKE PERRY GOES COMPLETELY UNHINGED'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_19",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "IShowSpeed's Most Chaotic Duel Reaction ⚡ #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_19.mp4?v=duel_yt",
+            "description": "Speed jumping out of his gaming chair screaming at the screen! Pure unadulterated chaos ⚡\n\n#duel #ishowspeed #speed #streamer #funnyreaction #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('IShowSpeed COULD NOT BELIEVE THIS'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        },
+        {
+            "id": "duel_shorts_20",
+            "addedTime": "Oct 04, 2026 • 11:00 AM",
+            "batchTag": "Duel [YT Shorts] Exclusive Drops",
+            "title": "xQc Speechless At The Final Second Outcome 🤯 #shorts",
+            "duration": "0:11",
+            "quality": "1080x1920 (9:16 Shorts HD)",
+            "videoSrc": "/campaigns/duel_shorts/duel_20.mp4?v=duel_yt",
+            "description": "Even xQc had to pause and rewatch the replay 3 times to understand what just happened!\n\n#duel #xqc #kickstream #reactions #gamingmoments #shorts",
+            "hashtags": [
+                "#duel",
+                "#shorts",
+                "#gaming",
+                "#pvp",
+                "#viral"
+            ],
+            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
+            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('xQc STUNNED BY HIGH STAKES MATCH'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+        }
+    ]
+}
 ];
 
 const LILSHEY_CAMPAIGNS: CampaignSlot[] = [
@@ -1966,7 +2644,7 @@ export default function ClippingVault() {
     return localStorage.getItem("clipping_user") || "";
   });
   const [habeebCampaignChoice, setHabeebCampaignChoice] = useState<string>(() => {
-    return localStorage.getItem("habeeb_campaign_choice") || "";
+    return localStorage.getItem("habeeb_campaign_choice") || "all";
   });
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
@@ -2233,7 +2911,7 @@ export default function ClippingVault() {
     }
   };
 
-    const selectHabeebCampaign = (choice: "bubsy" | "zedsdead" | "moonpay") => {
+    const selectHabeebCampaign = (choice: "bubsy" | "zedsdead" | "moonpay" | "duel" | "all") => {
     setHabeebCampaignChoice(choice);
     localStorage.setItem("habeeb_campaign_choice", choice);
   };
@@ -2267,7 +2945,58 @@ export default function ClippingVault() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <button
+              onClick={() => selectHabeebCampaign("moonpay")}
+              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-emerald-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+            >
+              <div className="text-3xl mb-3">🏂</div>
+              <h3 className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors flex items-center justify-between">
+                MoonPay XGL
+                <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full font-mono">$2.50 CPM</span>
+              </h3>
+              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
+                X Games League Winter Draft 2026. 20 drops ready with official draft pick reveal + athlete stunts.
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
+                Enter MoonPay →
+              </div>
+            </button>
+
+            <button
+              onClick={() => selectHabeebCampaign("duel")}
+              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-rose-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+            >
+              <div className="text-3xl mb-3">⚔️</div>
+              <h3 className="text-base font-bold text-white group-hover:text-rose-300 transition-colors flex items-center justify-between">
+                Duel [Shorts]
+                <span className="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full font-mono">$10.00 CPM</span>
+              </h3>
+              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
+                Duel PvP 1v1 bets, viral streamer reactions & arena clips. YouTube Shorts ONLY with top hooks.
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-rose-400 font-semibold flex items-center gap-1">
+                Enter Duel →
+              </div>
+            </button>
+
+            <button
+              onClick={() => selectHabeebCampaign("zedsdead")}
+              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-purple-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+            >
+              <div className="text-3xl mb-3">🔊</div>
+              <h3 className="text-base font-bold text-white group-hover:text-purple-300 transition-colors flex items-center justify-between">
+                Zeds Dead
+                <span className="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-mono">20 Drops</span>
+              </h3>
+              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
+                Miami Factory Town live audio drops, heavy sub frequencies, and tour FPV runs.
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-purple-400 font-semibold flex items-center gap-1">
+                Enter Music →
+              </div>
+            </button>
+
             <button
               onClick={() => selectHabeebCampaign("bubsy")}
               className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-amber-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
@@ -2282,40 +3011,6 @@ export default function ClippingVault() {
               </p>
               <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-amber-400 font-semibold flex items-center gap-1">
                 Enter Bubsy →
-              </div>
-            </button>
-
-            <button
-              onClick={() => selectHabeebCampaign("zedsdead")}
-              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-purple-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
-            >
-              <div className="text-3xl mb-3">🔊</div>
-              <h3 className="text-base font-bold text-white group-hover:text-purple-300 transition-colors flex items-center justify-between">
-                Zeds Dead
-                <span className="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-mono">20 Drops</span>
-              </h3>
-              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
-                Miami Factory Town live drops, heavy sub frequencies, and tour FPV runs.
-              </p>
-              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-purple-400 font-semibold flex items-center gap-1">
-                Enter Music →
-              </div>
-            </button>
-
-            <button
-              onClick={() => selectHabeebCampaign("moonpay")}
-              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-emerald-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
-            >
-              <div className="text-3xl mb-3">🏂</div>
-              <h3 className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors flex items-center justify-between">
-                MoonPay XGL
-                <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full font-mono">$2.50 CPM</span>
-              </h3>
-              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
-                X Games League Winter Draft. Draft pick reveal + athlete world-record highlights.
-              </p>
-              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
-                Enter MoonPay →
               </div>
             </button>
           </div>
@@ -2485,20 +3180,40 @@ export default function ClippingVault() {
             </div>
 
           {currentUser === "habeeb" && (
-            <div className="hidden sm:flex items-center gap-1 bg-[#10141e] border border-[#1b2234] p-1 rounded-xl">
+            <div className="hidden md:flex items-center gap-1 bg-[#10141e]/90 backdrop-blur-md border border-[#1b2234] p-1 rounded-xl shadow-lg">
               <button
-                onClick={() => selectHabeebCampaign("bubsy")}
-                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
-                  habeebCampaignChoice === "bubsy" || (!habeebCampaignChoice && habeebCampaignChoice !== "zedsdead" && habeebCampaignChoice !== "moonpay")
-                    ? "bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm"
+                onClick={() => selectHabeebCampaign("all")}
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 cursor-pointer ${
+                  habeebCampaignChoice === "all" || !habeebCampaignChoice
+                    ? "bg-blue-500/20 text-blue-300 border border-blue-500/40 shadow-sm"
                     : "text-neutral-400 hover:text-white"
                 }`}
               >
-                <span>🐱</span> Bubsy 4D (15)
+                <span>✨</span> All Channels (75)
+              </button>
+              <button
+                onClick={() => selectHabeebCampaign("moonpay")}
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 cursor-pointer ${
+                  habeebCampaignChoice === "moonpay"
+                    ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                <span>🏂</span> MoonPay ($2.50)
+              </button>
+              <button
+                onClick={() => selectHabeebCampaign("duel")}
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 cursor-pointer ${
+                  habeebCampaignChoice === "duel"
+                    ? "bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                <span>⚔️</span> Duel ($10)
               </button>
               <button
                 onClick={() => selectHabeebCampaign("zedsdead")}
-                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 cursor-pointer ${
                   habeebCampaignChoice === "zedsdead"
                     ? "bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-sm"
                     : "text-neutral-400 hover:text-white"
@@ -2507,14 +3222,14 @@ export default function ClippingVault() {
                 <span>🔊</span> Zeds Dead (20)
               </button>
               <button
-                onClick={() => selectHabeebCampaign("moonpay")}
-                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
-                  habeebCampaignChoice === "moonpay"
-                    ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm"
+                onClick={() => selectHabeebCampaign("bubsy")}
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 cursor-pointer ${
+                  habeebCampaignChoice === "bubsy"
+                    ? "bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm"
                     : "text-neutral-400 hover:text-white"
                 }`}
               >
-                <span>🏂</span> MoonPay ($2.50)
+                <span>🐱</span> Bubsy (15)
               </button>
             </div>
           )}
@@ -2597,6 +3312,172 @@ export default function ClippingVault() {
             </div>
           </div>
         </section>
+
+        {/* Interactive Campaign Switcher Deck for Habeeb */}
+        {currentUser === "habeeb" && (
+          <section className="bg-[#10141e]/90 backdrop-blur-xl border border-[#1b2234] rounded-2xl p-5 sm:p-6 shadow-2xl relative overflow-hidden">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-blue-400 font-bold">
+                    CAMPAIGN WORKSPACE CHANNELS (HABEEB EXCLUSIVE)
+                  </span>
+                </div>
+                <h2 className="text-lg sm:text-xl font-extrabold text-white tracking-tight flex items-center gap-2">
+                  Select Videos Channel To Clip
+                  <span className="text-xs font-normal text-neutral-400 hidden sm:inline">
+                    (Pick & switch freely anytime • 75 total drops ready)
+                  </span>
+                </h2>
+              </div>
+
+              <div className="flex items-center gap-1.5 bg-[#0a0d14] border border-[#1b2234] p-1 rounded-xl">
+                <button
+                  onClick={() => selectHabeebCampaign("all")}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    habeebCampaignChoice === "all" || !habeebCampaignChoice
+                      ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+                      : "text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  ✨ View All (75)
+                </button>
+              </div>
+            </div>
+
+            {/* BentoGrid Cards for Campaign Switcher */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+              {/* 1. MoonPay XGL */}
+              <button
+                onClick={() => selectHabeebCampaign("moonpay")}
+                className={`group p-4 rounded-xl text-left transition-all duration-300 relative overflow-hidden cursor-pointer border ${
+                  habeebCampaignChoice === "moonpay"
+                    ? "bg-gradient-to-b from-emerald-950/40 via-[#0e171b] to-[#0a0d14] border-emerald-500 shadow-lg shadow-emerald-500/10 ring-1 ring-emerald-500/50"
+                    : "bg-[#0d111a] hover:bg-[#121824] border-[#1e2638] hover:border-emerald-500/40"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-2xl">🏂</span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    $2.50 CPM • $500 Max
+                  </span>
+                </div>
+                <h3 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors flex items-center justify-between">
+                  MoonPay XGL 2026
+                  {habeebCampaignChoice === "moonpay" && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  )}
+                </h3>
+                <p className="text-[11px] text-neutral-400 mt-1 leading-relaxed">
+                  Winter Draft 2-Part Formula: Broadcast pick + stunt highlights. 40%+ US/UK/CA/AU.
+                </p>
+                <div className="mt-3 pt-2.5 border-t border-[#1b2234] flex items-center justify-between text-[11px]">
+                  <span className="text-neutral-400">20 Master Drops</span>
+                  <span className="font-semibold text-emerald-400">
+                    {habeebCampaignChoice === "moonpay" ? "Active View ✓" : "Switch Here →"}
+                  </span>
+                </div>
+              </button>
+
+              {/* 2. Duel [YT Shorts] */}
+              <button
+                onClick={() => selectHabeebCampaign("duel")}
+                className={`group p-4 rounded-xl text-left transition-all duration-300 relative overflow-hidden cursor-pointer border ${
+                  habeebCampaignChoice === "duel"
+                    ? "bg-gradient-to-b from-rose-950/40 via-[#180e12] to-[#0a0d14] border-rose-500 shadow-lg shadow-rose-500/10 ring-1 ring-rose-500/50"
+                    : "bg-[#0d111a] hover:bg-[#121824] border-[#1e2638] hover:border-rose-500/40"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-2xl">⚔️</span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                    $10.00 CPM
+                  </span>
+                </div>
+                <h3 className="text-sm font-bold text-white group-hover:text-rose-300 transition-colors flex items-center justify-between">
+                  Duel [YT Shorts]
+                  {habeebCampaignChoice === "duel" && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400 animate-ping"></span>
+                  )}
+                </h3>
+                <p className="text-[11px] text-neutral-400 mt-1 leading-relaxed">
+                  YouTube Shorts ONLY. Top on-screen hooks, 1% min engagement, min 1,750 views.
+                </p>
+                <div className="mt-3 pt-2.5 border-t border-[#1b2234] flex items-center justify-between text-[11px]">
+                  <span className="text-neutral-400">20 Viral Drops</span>
+                  <span className="font-semibold text-rose-400">
+                    {habeebCampaignChoice === "duel" ? "Active View ✓" : "Switch Here →"}
+                  </span>
+                </div>
+              </button>
+
+              {/* 3. Zeds Dead Music */}
+              <button
+                onClick={() => selectHabeebCampaign("zedsdead")}
+                className={`group p-4 rounded-xl text-left transition-all duration-300 relative overflow-hidden cursor-pointer border ${
+                  habeebCampaignChoice === "zedsdead"
+                    ? "bg-gradient-to-b from-purple-950/40 via-[#140e1b] to-[#0a0d14] border-purple-500 shadow-lg shadow-purple-500/10 ring-1 ring-purple-500/50"
+                    : "bg-[#0d111a] hover:bg-[#121824] border-[#1e2638] hover:border-purple-500/40"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-2xl">🔊</span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                    $3.50 CPM (Clipr)
+                  </span>
+                </div>
+                <h3 className="text-sm font-bold text-white group-hover:text-purple-300 transition-colors flex items-center justify-between">
+                  Zeds Dead Music
+                  {habeebCampaignChoice === "zedsdead" && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping"></span>
+                  )}
+                </h3>
+                <p className="text-[11px] text-neutral-400 mt-1 leading-relaxed">
+                  Miami Factory Town live audio drops, 140 BPM wobbles, laser-synced FPV runs.
+                </p>
+                <div className="mt-3 pt-2.5 border-t border-[#1b2234] flex items-center justify-between text-[11px]">
+                  <span className="text-neutral-400">20 Unique Drops</span>
+                  <span className="font-semibold text-purple-400">
+                    {habeebCampaignChoice === "zedsdead" ? "Active View ✓" : "Switch Here →"}
+                  </span>
+                </div>
+              </button>
+
+              {/* 4. Bubsy 4D */}
+              <button
+                onClick={() => selectHabeebCampaign("bubsy")}
+                className={`group p-4 rounded-xl text-left transition-all duration-300 relative overflow-hidden cursor-pointer border ${
+                  habeebCampaignChoice === "bubsy"
+                    ? "bg-gradient-to-b from-amber-950/40 via-[#1a140d] to-[#0a0d14] border-amber-500 shadow-lg shadow-amber-500/10 ring-1 ring-amber-500/50"
+                    : "bg-[#0d111a] hover:bg-[#121824] border-[#1e2638] hover:border-amber-500/40"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-2xl">🐱</span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                    $3.00 CPM
+                  </span>
+                </div>
+                <h3 className="text-sm font-bold text-white group-hover:text-amber-300 transition-colors flex items-center justify-between">
+                  Bubsy 4D
+                  {habeebCampaignChoice === "bubsy" && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
+                  )}
+                </h3>
+                <p className="text-[11px] text-neutral-400 mt-1 leading-relaxed">
+                  Retro mascot platformer revival, comedic speedrunning, and lore gameplay clips.
+                </p>
+                <div className="mt-3 pt-2.5 border-t border-[#1b2234] flex items-center justify-between text-[11px]">
+                  <span className="text-neutral-400">15 Classic Drops</span>
+                  <span className="font-semibold text-amber-400">
+                    {habeebCampaignChoice === "bubsy" ? "Active View ✓" : "Switch Here →"}
+                  </span>
+                </div>
+              </button>
+            </div>
+          </section>
+        )}
 
         {/* Campaign Slots */}
         <div className="space-y-6">

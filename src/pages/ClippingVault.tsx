@@ -104,492 +104,302 @@ export interface CampaignSlot {
 // When new clips arrive, simply drop the .mp4 files into public/campaigns/ and populate this array.
 const CEO_CAMPAIGNS: CampaignSlot[] = [
   {
-    "campaignId": "ceo_zeds_dead_daily_oct2",
-    "campaignName": "Channel 1: Zeds Dead (Today's 25 Unique Drops - Oct 2)",
+    "campaignId": "ceo_zeds_dead_daily_oct4",
+    "campaignName": "Channel 1: Zeds Dead (Today's 15 Unique Drops - Oct 4)",
     "category": "Mainstage Production, Lasers & Drone Acrobatics (Clipr Agency)",
     "status": "Live & Active (Strict CEO Exclusive)",
     "payout": "$3.50 / 1k Views ($175 Max)",
     "batches": [
       "All Drops",
-      "Today's 25 Unique Drops (Oct 2)"
+      "Today's 15 Unique Drops (Oct 4)"
     ],
     "clips": [
       {
-        "id": "zeds_dead_oct2_01",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Ante Up Second Bounce Drop Was Vicious 🥊 @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_01_ante_up_bounce.mp4?v=oct2",
-        "description": "When the Ante Up flip switches into that second dubstep bounce! Dylan & Zach tore Factory Town apart with this ID 🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMFestival #Dubstep #AnteUp #HipHopRemix",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (13s). Sourced from unreleased concert asset (Ante Up Final.mp4)."
+            "id": "zeds_dead_oct4_01",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Ante Up Original Vocal Buildup Before The Chaos 🥊 @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_01.mp4?v=oct4",
+            "description": "The 12-second buildup where the whole crowd recognized the classic M.O.P. sample! Miami was electric 🔥\n\n@zedsdead\n\n#ZedsDead #AnteUp #BassMusic #EDMDrop #FestivalEnergy",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#AnteUp",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s unique intro buildup cut from Ante Up Final."
       },
       {
-        "id": "zeds_dead_oct2_02",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Biggie Smalls Into 140 BPM Heavy Bass 👑 @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_02_biggie_vocal_intro.mp4?v=oct2",
-        "description": "The vocal buildup of the Biggie edit before the drop. The suspense in the crowd was unreal!\n\n@zedsdead\n\n#ZedsDead #BiggieSmalls #Dubstep #BassMusic #HipHopFlip #EDM",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (13s). Sourced from unreleased concert asset (Biggie edit final.mp4)."
+            "id": "zeds_dead_oct4_02",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Biggie Smalls Acapella Vinyl Scratch Into Sub 👑 @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_02.mp4?v=oct4",
+            "description": "Vinyl spin-in straight into Christopher Wallace's unmistakable voice floating over low-end pressure! 🗽🔊\n\n@zedsdead\n\n#ZedsDead #BiggieSmalls #HipHopRemix #BassCulture #Dubstep",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BiggieSmalls",
+                  "#HipHopRemix",
+                  "#BassCulture",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s vinyl scratch and vocal intro cut from Biggie edit final."
       },
       {
-        "id": "zeds_dead_oct2_03",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Jay Z Strobe Buildup At 3 AM In Miami 🗽 @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_03_jayz_sub_pressure.mp4?v=oct2",
-        "description": "3 AM in Miami and Zeds Dead drops the Jay Z buildup with blinding strobes. Pure rave energy!\n\n@zedsdead\n\n#ZedsDead #JayZ #FactoryTown #MiamiRave #Dubstep #BassMusic",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (13s). Sourced from unreleased concert asset (Jay Z Final.mp4)."
+            "id": "zeds_dead_oct4_03",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Stadium Crowd Roar Before The Subwoofers Hit 🚨 @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_03.mp4?v=oct4",
+            "description": "When Jay Z's vocals echoed through the outdoor amphitheatre right before the bass drops! 🏙️💥\n\n@zedsdead\n\n#ZedsDead #JayZFlip #StadiumVibes #SubPressure #EDMFestival",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#JayZFlip",
+                  "#StadiumVibes",
+                  "#SubPressure",
+                  "#EDMFestival"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s crowd roar and intro sequence cut from Jay Z Final."
       },
       {
-        "id": "zeds_dead_oct2_04",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Mobb Deep Drums Live At Factory Town 🥁 @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_04_shook_ones_drum_intro.mp4?v=oct2",
-        "description": "Those classic Mobb Deep snares echoing across the outdoor amphitheatre. Nobody flips hip hop like Zeds Dead.\n\n@zedsdead\n\n#ZedsDead #MobbDeep #ShookOnes #HipHopDubstep #BassMusic #MiamiEDM",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (13s). Sourced from unreleased concert asset (Shook Ones FINAL.mp4)."
+            "id": "zeds_dead_oct4_04",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Hypnotic Eastern Synth Wave At 3:30 AM In Miami 🔮 @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_04.mp4?v=oct4",
+            "description": "Atmospheric synthesizer melodies cutting through the humid Miami night air. Pure hypnotic trance! 🌙✨\n\n@zedsdead\n\n#ZedsDead #MelodicBass #FestivalNights #FactoryTown #ElectronicMusic",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#MelodicBass",
+                  "#FestivalNights",
+                  "#FactoryTown",
+                  "#ElectronicMusic"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s melodic bridge transition cut from Phuket To Colors."
       },
       {
-        "id": "zeds_dead_oct2_05",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "The Rolling Snare Buildup That Shook Miami 🌪️ @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_05_phuket_rolling_snare.mp4?v=oct2",
-        "description": "The accelerated rolling snare riser building up tension right before the colors drop! Pure mastery.\n\n@zedsdead\n\n#ZedsDead #SnareRoll #BassDrop #EDMFestival #Dubstep #BuildUp",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (Phuket To Colors .mp4)."
+            "id": "zeds_dead_oct4_05",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Blinding Strobe Acceleration Into Second Drop ⚡ @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_05.mp4?v=oct4",
+            "description": "The snare roll speed doubles every 2 bars while the blinding white strobes ramp to maximum intensity! 💥⚡\n\n@zedsdead\n\n#ZedsDead #StrobeLights #SnareRoll #BassDrop #FestivalVisuals",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#StrobeLights",
+                  "#SnareRoll",
+                  "#BassDrop",
+                  "#FestivalVisuals"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s high-speed strobe buildup cut from Phuket To Colors."
       },
       {
-        "id": "zeds_dead_oct2_06",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Floating In Deep Purple Lasers 💜 @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_06_phuket_purple_break.mp4?v=oct2",
-        "description": "The hypnotic purple laser canopy bathing the crowd during the melodic breakdown. Mesmerizing visual design!\n\n@zedsdead\n\n#ZedsDead #PurpleLasers #MelodicBass #VisualDesign #FestivalLights",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (Phuket To Colors .mp4)."
+            "id": "zeds_dead_oct4_06",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Surviving Till Sunrise At Factory Town Miami 🌅 @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_06.mp4?v=oct4",
+            "description": "The amber morning light breaking over the crowd while the final sub bass notes reverberate! ☀️🔊\n\n@zedsdead\n\n#ZedsDead #SunriseSet #MiamiMusicWeek #BassLife #RaveSurvivors",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#SunriseSet",
+                  "#MiamiMusicWeek",
+                  "#BassLife",
+                  "#RaveSurvivors"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s sunrise finale outro cut from Phuket To Colors."
       },
       {
-        "id": "zeds_dead_oct2_07",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "The Entire Miami Crowd Singing Along 🗣️ @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_07_phuket_crowd_outro.mp4?v=oct2",
-        "description": "Thousands of fans singing the melody word for word as the set reaches its emotional climax. Incredible unity!\n\n@zedsdead\n\n#ZedsDead #CrowdSingalong #FestivalFamily #EDMCommunity #Unforgettable",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (Phuket To Colors .mp4)."
+            "id": "zeds_dead_oct4_07",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Glitched Big Band Horns Over Heavy Half-Time Groove 🎷 @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_07.mp4?v=oct4",
+            "description": "Full brass section chopped and looped over rhythmic 140 BPM wobble bass! Pure genius blend. 🎩🔥\n\n@zedsdead\n\n#ZedsDead #FrankSinatra #SwingEDM #WobbleBass #VintageRemix",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#FrankSinatra",
+                  "#SwingEDM",
+                  "#WobbleBass",
+                  "#VintageRemix"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s glitched swing brass drop cut from Sinatra Full."
       },
       {
-        "id": "zeds_dead_oct2_08",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Big Band Brass Cut Into Dubstep Chords 🎺 @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_08_sinatra_brass_climax.mp4?v=oct2",
-        "description": "Frank Sinatra's big-band horn section diced directly into heavyweight dubstep stabs. Masterclass production!\n\n@zedsdead\n\n#ZedsDead #FrankSinatra #BrassFlip #BigBandEDM #DubstepRemix",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (Sinatra Full FINAL.mp4)."
+            "id": "zeds_dead_oct4_08",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Classic 1950s Swing Trumpet Drops Into Dubstep 🎺 @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_08.mp4?v=oct4",
+            "description": "Vintage gramophone horns echoing before the massive bass hits the dancefloor! 🎷💥\n\n@zedsdead\n\n#ZedsDead #RetroBass #SwingStep #ElectronicMusic #BassBoosted",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#RetroBass",
+                  "#SwingStep",
+                  "#ElectronicMusic",
+                  "#BassBoosted"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s vintage brass intro cut from SINATRA SHORT."
       },
       {
-        "id": "zeds_dead_oct2_09",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Rapid Tempo Switch That Caught Everyone Off Guard 🚨 @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_09_sinatra_fast_tempo.mp4?v=oct2",
-        "description": "Dylan and Zach pulling off an insane double-time tempo acceleration live on the decks. Watch the crowd erupt!\n\n@zedsdead\n\n#ZedsDead #TempoSwitch #DJSkills #Dubstep #BassHead",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (SINATRA SHORT FINAL.mp4)."
+            "id": "zeds_dead_oct4_09",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Gliding Under A Glowing Emerald Laser Canopy 🟢 @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_09.mp4?v=oct4",
+            "description": "A continuous sheet of green laser beams directly above the drone. Looks like the Matrix! 🟩🛸\n\n@zedsdead\n\n#ZedsDead #FPVDrone #LaserCanopy #StageProduction #TheMatrix",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#FPVDrone",
+                  "#LaserCanopy",
+                  "#StageProduction",
+                  "#TheMatrix"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s high-altitude cruise under laser canopy from FPV RAW 14."
       },
       {
-        "id": "zeds_dead_oct2_10",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Drone Spiraling Down 60 Feet Through Trussing 🌀 @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_10_jamboree_spiral_14.mp4?v=oct2",
-        "description": "Insane precision FPV pilot diving down through three layers of aluminum trussing without touching a wire!\n\n@zedsdead\n\n#ZedsDead #FPVDrone #PrecisionFlight #StageRigging #ExtremeCinematography",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (FPV RAW 14.mov)."
+            "id": "zeds_dead_oct4_10",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Inverted Drone Flip Inside The Laser Cage 🌀 @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_10.mp4?v=oct4",
+            "description": "Full 360 barrel roll upside down inside a cage of converging laser beams! Insane drone piloting. 🕹️⚡\n\n@zedsdead\n\n#ZedsDead #BarrelRoll #DronePilot #VisualDesign #ExtremeFPV",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BarrelRoll",
+                  "#DronePilot",
+                  "#VisualDesign",
+                  "#ExtremeFPV"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s aerobatic barrel roll cut from FPV RAW 15."
       },
       {
-        "id": "zeds_dead_oct2_11",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Incredible Flyby of Massive Subwoofer Arrays 🔊 @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_11_jamboree_speaker_sweep_15.mp4?v=oct2",
-        "description": "Flying right in front of the giant PK Sound subwoofer stacks. You can literally see the air vibrating!\n\n@zedsdead\n\n#ZedsDead #PKSound #Subwoofers #BassMusic #FestivalRig",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (FPV RAW 15.mov)."
+            "id": "zeds_dead_oct4_11",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Diving Through Freezing Stage Fog At 50 MPH 🌫️ @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_11.mp4?v=oct4",
+            "description": "Punching right through the dense white cryo cloud above the stage. Pure cinematic thrill! 🪂✨\n\n@zedsdead\n\n#ZedsDead #CryoFog #StageTech #SpeedDive #DroneCinema",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#CryoFog",
+                  "#StageTech",
+                  "#SpeedDive",
+                  "#DroneCinema"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s cryo fog dive cut from FPV RAW 16."
       },
       {
-        "id": "zeds_dead_oct2_12",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Sky-High Dive Across The Amphitheatre Bowl 🦅 @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_12_jamboree_bowl_dive_15.mp4?v=oct2",
-        "description": "FPV drone climbing high above the arena before rocketing down towards the DJ platform. Breathtaking angle!\n\n@zedsdead\n\n#ZedsDead #Amphitheatre #DroneDive #ConcertVisuals #EpicShots",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (FPV RAW 15.mov)."
+            "id": "zeds_dead_oct4_12",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Cruising 80 Feet Above The Empty Stage Roof 🏗️ @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_12.mp4?v=oct4",
+            "description": "Slicing through the steel framework high above the venue floor before the gates open! 🌌⚡\n\n@zedsdead\n\n#ZedsDead #SteelTruss #ConcertRigging #TourRehearsal #EpicViews",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#SteelTruss",
+                  "#ConcertRigging",
+                  "#TourRehearsal",
+                  "#EpicViews"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s high-altitude truss cruise cut from FPV RAW 18."
       },
       {
-        "id": "zeds_dead_oct2_13",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Inches From The CDJs And Mixer Decks 🎚️ @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_13_jamboree_mixer_closeup_16.mp4?v=oct2",
-        "description": "Close-up drone flyby passing right over the Pioneer DJ setup. The level of flight control is astonishing!\n\n@zedsdead\n\n#ZedsDead #PioneerDJ #CDJ3000 #BehindTheDecks #DJGear",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (13s). Sourced from unreleased concert asset (FPV RAW 16.mov)."
+            "id": "zeds_dead_oct4_13",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "High-Speed Drone Flyby Right Over The DJ Decks 🎛️ @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_13.mp4?v=oct4",
+            "description": "Skimming inches above the CDJ mixers and monitor speakers! Millimeter precision flying. 🎯✨\n\n@zedsdead\n\n#ZedsDead #DJDecks #PioneerDJ #DroneSkill #StageCraft",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#DJDecks",
+                  "#PioneerDJ",
+                  "#DroneSkill",
+                  "#StageCraft"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s console flyby cut from FPV RAW 1."
       },
       {
-        "id": "zeds_dead_oct2_14",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Giant Neon Laser Arc Over The Stage 🌈 @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_14_jamboree_laser_arc_17.mp4?v=oct2",
-        "description": "Hovering directly under a rainbow laser arch spanning 120 feet across the stage width. Cinema quality!\n\n@zedsdead\n\n#ZedsDead #LaserArch #StageLighting #ConcertProduction #EDMVisuals",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (FPV RAW 17.mov)."
+            "id": "zeds_dead_oct4_14",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Vertical Rocket Climb Along Steel Lighting Tower 🚀 @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_14.mp4?v=oct4",
+            "description": "Full-throttle vertical ascent up the center lighting monolith into the night sky! 🌌🔥\n\n@zedsdead\n\n#ZedsDead #VerticalClimb #LightingMonolith #DroneRocket #TourLife",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#VerticalClimb",
+                  "#LightingMonolith",
+                  "#DroneRocket",
+                  "#TourLife"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s vertical climb cut from FPV RAW 3."
       },
       {
-        "id": "zeds_dead_oct2_15",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Pulsing Strobe Flight Run Towards The Front ⚡ @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_15_jamboree_pulse_approach_18.mp4?v=oct2",
-        "description": "Drone racing towards the stage front apron as blinding white blinders pulse in rhythm. Epic pacing!\n\n@zedsdead\n\n#ZedsDead #Strobes #DroneRacing #FestivalVibes #BassNation",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (13s). Sourced from unreleased concert asset (FPV RAW 18.mov)."
-      },
-      {
-        "id": "zeds_dead_oct2_16",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Testing The Massive LED Monolith Wall 🖥️ @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_16_n1_led_wall_1.mp4?v=oct2",
-        "description": "Night 1 stage technicians calibrating the massive 8K LED back wall. The resolution from the drone is staggering!\n\n@zedsdead\n\n#ZedsDead #LEDWall #StageTech #ConcertEngineering #DeadRocks",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (FPV RAW 1.mov)."
-      },
-      {
-        "id": "zeds_dead_oct2_17",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Amber Laser Grid Cutting The Night Sky 🌌 @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_17_n1_amber_laser_field_3.mp4?v=oct2",
-        "description": "Rare amber and gold laser diodes shooting straight into the Colorado sky during tour dress rehearsal.\n\n@zedsdead\n\n#ZedsDead #AmberLasers #LaserDiode #RedRocks #ColoradoEDM",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (13s). Sourced from unreleased concert asset (FPV RAW 3.mov)."
-      },
-      {
-        "id": "zeds_dead_oct2_18",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Eerie Beauty Of The Empty Arena Before Showtime 🏟️ @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_18_n1_empty_bowl_sweep_4.mp4?v=oct2",
-        "description": "The calm before the storm. Sweeping across the empty red sandstone benches before 10,000 bassheads arrive.\n\n@zedsdead\n\n#ZedsDead #CalmBeforeTheStorm #RedRocksAmphitheatre #BassCulture #LiveMusic",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (13s). Sourced from unreleased concert asset (FPV RAW 4.mov)."
-      },
-      {
-        "id": "zeds_dead_oct2_19",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "From The Front Row Riser Looking Straight Up ⬆️ @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_19_n1_center_riser_5.mp4?v=oct2",
-        "description": "Drone pulling a steep vertical climb right from the front barricade straight into the lighting rig.\n\n@zedsdead\n\n#ZedsDead #VerticalClimb #FPVDrone #StageCraft #BassShow",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (FPV RAW 5.mov)."
-      },
-      {
-        "id": "zeds_dead_oct2_20",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Inside The Futuristic Spaceship DJ Cockpit 🛸 @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_20_n2_spaceship_cockpit_6.mp4?v=oct2",
-        "description": "Look at the custom spaceship console built for the Dead Rocks stage design. Straight out of sci-fi cinema!\n\n@zedsdead\n\n#ZedsDead #SpaceshipCockpit #StageDesign #Futuristic #SciFiEDM",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (FPV RAW 6.mov)."
-      },
-      {
-        "id": "zeds_dead_oct2_21",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "The Massive Laser Pyramid Fully Activated 📐 @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_21_n2_laser_pyramid_ceiling_6.mp4?v=oct2",
-        "description": "The moment the full laser pyramid rig reaches 100% output. A solid ceiling of emerald green beams!\n\n@zedsdead\n\n#ZedsDead #LaserPyramid #FullPower #EDMProduction #FestivalStage",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (FPV RAW 6.mov)."
-      },
-      {
-        "id": "zeds_dead_oct2_22",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Crimson Lasers Slicing Through Thick Mountain Fog 🌫️ @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_22_n2_crimson_fog_sea_7.mp4?v=oct2",
-        "description": "Heavy atmospheric cryo fog rolling down the natural rocks illuminated in blood red. Hauntingly gorgeous!\n\n@zedsdead\n\n#ZedsDead #CryoFog #Atmosphere #CrimsonLasers #StageArt",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (FPV RAW 7.mov)."
-      },
-      {
-        "id": "zeds_dead_oct2_23",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Freefall Drone Descent Right Over The Center Sub 🎯 @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_23_n2_truss_vertical_drop_8.mp4?v=oct2",
-        "description": "Freefalling down from the main speaker cluster right down to stage floor level. Heart-pounding perspective!\n\n@zedsdead\n\n#ZedsDead #FreefallDrone #ExtremeFPV #AdrenalineRush #StageFlight",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (13s). Sourced from unreleased concert asset (FPV RAW 8.mov)."
-      },
-      {
-        "id": "zeds_dead_oct2_24",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "100 Strobes Firing Simultaneously In Total Darkness ⚡ @zedsdead #shorts",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_24_n2_white_strobe_blizzard_9.mp4?v=oct2",
-        "description": "When the entire lighting rig goes completely pitch black before hitting you with a whiteout strobe blizzard!\n\n@zedsdead\n\n#ZedsDead #Whiteout #StrobeBlizzard #FestivalLighting #RaveMoments",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (13s). Sourced from unreleased concert asset (FPV RAW 9.mov)."
-      },
-      {
-        "id": "zeds_dead_oct2_25",
-        "addedTime": "Oct 02, 2026 • 09:20 AM",
-        "batchTag": "Today's 25 Unique Drops (Oct 2)",
-        "title": "Full 360 Colosseum Panorama Over The Amphitheatre 🏟️ @zedsdead #shorts",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Master HD)",
-        "videoSrc": "/campaigns/zeds_dead/zeds_dead_oct2_25_n2_colosseum_panorama_10.mp4?v=oct2",
-        "description": "The ultimate panoramic shot showing the entire venue illuminated in full production splendor. Iconic finale!\n\n@zedsdead\n\n#ZedsDead #ColosseumShot #360Panorama #Amphitheatre #GrandFinale",
-        "hashtags": [
-          "#ZedsDead",
-          "#BassMusic",
-          "#EDMFestival",
-          "#Dubstep",
-          "#FestivalSeason"
-        ],
-        "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-        "loopNote": "100% unique visual cut (14s). Sourced from unreleased concert asset (FPV RAW 10.mov)."
+            "id": "zeds_dead_oct4_15",
+            "addedTime": "Oct 04, 2026 • 10:15 AM",
+            "batchTag": "Today's 15 Unique Drops (Oct 4)",
+            "title": "Panoramic High Flight Around The Illuminated Red Rocks 🏟️ @zedsdead #shorts",
+            "duration": "0:12",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_15.mp4?v=oct4",
+            "description": "Sweeping wide across the stone amphitheatre rows under the night lights. Truly iconic venue! 🪨✨\n\n@zedsdead\n\n#ZedsDead #RedRocks #Amphitheatre #DroneFlight #ConcertExperience",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#RedRocks",
+                  "#Amphitheatre",
+                  "#DroneFlight",
+                  "#ConcertExperience"
+            ],
+            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
+            "loopNote": "12s panoramic night flight cut from FPV RAW 4."
       }
-    ]
+]
   }
 ];
 
@@ -1282,6 +1092,114 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
             ],
             "payoutRate": "$1,000 / 1M Views ($500 Max)",
             "loopNote": "16s peak laser convergence sequence at final flight test."
+      }
+]
+  },
+  {
+    "campaignId": "habeeb_moonpay_xgl",
+    "campaignName": "MoonPay X Games League Winter Draft ($2.50 CPM)",
+    "category": "Action Sports, Snowboarding & Freeski (Clipfarm x MoonPay)",
+    "status": "Live & Active (Strict Habeeb Exclusive)",
+    "payout": "$2.50 / 1K Views ($500 Max)",
+    "batches": [
+      "All Drops",
+      "Today's MoonPay XGL Drops (Oct 4)"
+    ],
+    "clips": [
+      {
+            "id": "habeeb_moonpay_01",
+            "addedTime": "Oct 04, 2026 • 10:20 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "He Pulled Off The First EVER 2340 Spin In Human History 🤯 @moonpayhq #shorts",
+            "duration": "0:21",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/moonpay_xgl/sample_draft_part.mp4",
+            "description": "Hiroto Ogiwara did the impossible by landing a 2340 spin in competition! Golden State locked him in immediately during the X Games League Winter Draft 🏂⚡\n\nAthlete IG: Instagram @hiroto_ogiwara @moonpayhq @moonpay\n\n#snowboarding #XGLDraft #xgames #2340 #insanetricks #shorts",
+            "hashtags": [
+                  "#snowboarding",
+                  "#XGLDraft",
+                  "#xgames",
+                  "#2340",
+                  "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: 2340 highlight stunt (0-11s) -> MoonPay Draft Pick reveal (12-21s). Must have 40%+ US/UK/CA/AU audience."
+      },
+      {
+            "id": "habeeb_moonpay_02",
+            "addedTime": "Oct 04, 2026 • 10:20 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Scotty James TIED Shaun White's Historic X Games Record 🏆 @moonpayhq #shorts",
+            "duration": "0:15",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/moonpay_xgl/sample_draft_part.mp4",
+            "description": "Australian icon Scotty James matches Shaun White with his 5th consecutive SuperPipe Gold Medal! The SuperPipe GOAT debate is officially open.\n\nAthlete IG: Instagram @scottyjames31 @moonpayhq\n\n#ScottyJames #ShaunWhite #XGames #Snowboarding #SuperPipe #shorts",
+            "hashtags": [
+                  "#ScottyJames",
+                  "#ShaunWhite",
+                  "#XGames",
+                  "#Snowboarding",
+                  "#SuperPipe"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Draft pick announcement -> SuperPipe gold run. Must have 40%+ US/UK/CA/AU audience."
+      },
+      {
+            "id": "habeeb_moonpay_03",
+            "addedTime": "Oct 04, 2026 • 10:20 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Eileen Gu Dominates The Slopes Like Nobody Else On Earth 🎿 @moonpayhq #shorts",
+            "duration": "0:18",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/moonpay_xgl/sample_draft_part.mp4",
+            "description": "The most decorated Olympic freeskier gets picked first overall. Flawless rail transfers and triple corks in the Aspen powder!\n\nAthlete IG: Instagram @eileengu @moonpayhq\n\n#eileengu #freeski #xgames #olympics #winterdraft #shorts",
+            "hashtags": [
+                  "#eileengu",
+                  "#freeski",
+                  "#xgames",
+                  "#olympics",
+                  "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Golden State draft pick + slopestyle highlight run. Must have 40%+ US/UK/CA/AU audience."
+      },
+      {
+            "id": "habeeb_moonpay_04",
+            "addedTime": "Oct 04, 2026 • 10:20 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Su Yiming's Gravity-Defying Gold Medal Run Was Pure Art 🏂 @moonpayhq #shorts",
+            "duration": "0:16",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/moonpay_xgl/sample_draft_part.mp4",
+            "description": "2x Olympic gold medalist Su Yiming stomping 1980 rotations with effortless style. Park City made the right choice!\n\nAthlete IG: Instagram @mingsuyi @moonpayhq\n\n#suyiming #snowboard #xgames #olympics #winterdraft #shorts",
+            "hashtags": [
+                  "#suyiming",
+                  "#snowboard",
+                  "#xgames",
+                  "#olympics",
+                  "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: Park City draft pick + 1980 rotation highlight. Must have 40%+ US/UK/CA/AU audience."
+      },
+      {
+            "id": "habeeb_moonpay_05",
+            "addedTime": "Oct 04, 2026 • 10:20 AM",
+            "batchTag": "Today's MoonPay XGL Drops (Oct 4)",
+            "title": "Mark McMorris Makes History With His 25th X Games Medal 🏅 @moonpayhq #shorts",
+            "duration": "0:17",
+            "quality": "1080x1920 (9:16 Vertical HD)",
+            "videoSrc": "/campaigns/moonpay_xgl/sample_draft_part.mp4",
+            "description": "25 medals deep and still competing at the absolute highest level. Mark McMorris is an action sports living legend!\n\nAthlete IG: Instagram @markmcmorris @moonpayhq\n\n#markmcmorris #snowboarding #xgames #legend #winterdraft #shorts",
+            "hashtags": [
+                  "#markmcmorris",
+                  "#snowboarding",
+                  "#xgames",
+                  "#legend",
+                  "#shorts"
+            ],
+            "payoutRate": "$2.50 / 1K Views ($500 Max)",
+            "loopNote": "2-Part MoonPay Formula: XC New York draft pick + 25th medal run celebration. Must have 40%+ US/UK/CA/AU audience."
       }
 ]
   }
@@ -2315,7 +2233,7 @@ export default function ClippingVault() {
     }
   };
 
-    const selectHabeebCampaign = (choice: "bubsy" | "zedsdead") => {
+    const selectHabeebCampaign = (choice: "bubsy" | "zedsdead" | "moonpay") => {
     setHabeebCampaignChoice(choice);
     localStorage.setItem("habeeb_campaign_choice", choice);
   };
@@ -2335,7 +2253,7 @@ export default function ClippingVault() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="w-full max-w-xl bg-[#10141e] border border-[#1b2234] rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden"
+          className="w-full max-w-3xl bg-[#10141e] border border-[#1b2234] rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden"
         >
           <div className="text-center mb-8">
             <span className="text-xs font-mono text-blue-400 uppercase tracking-widest font-bold block mb-2">
@@ -2344,15 +2262,15 @@ export default function ClippingVault() {
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               Select Your Clipping Focus
             </h1>
-            <p className="text-xs sm:text-sm text-neutral-400 mt-2">
-              Choose your active workspace to keep your feed uncluttered. Your choice is saved automatically and can be switched anytime.
+            <p className="text-xs sm:text-sm text-neutral-400 mt-2 max-w-lg mx-auto">
+              Choose your active workspace to keep your dashboard clean. Switch between campaigns anytime from the top navigation bar.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <button
               onClick={() => selectHabeebCampaign("bubsy")}
-              className="group p-6 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-amber-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-amber-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
             >
               <div className="text-3xl mb-3">🐱</div>
               <h3 className="text-base font-bold text-white group-hover:text-amber-300 transition-colors flex items-center justify-between">
@@ -2360,27 +2278,44 @@ export default function ClippingVault() {
                 <span className="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-mono">15 Shorts</span>
               </h3>
               <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
-                Mascot platformer revival, comedic lore, and momentum speedrunning clips.
+                Mascot platformer revival, comedic speedrunning, and lore clips.
               </p>
               <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-amber-400 font-semibold flex items-center gap-1">
-                Enter Bubsy Workspace →
+                Enter Bubsy →
               </div>
             </button>
 
             <button
               onClick={() => selectHabeebCampaign("zedsdead")}
-              className="group p-6 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-purple-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-purple-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
             >
               <div className="text-3xl mb-3">🔊</div>
               <h3 className="text-base font-bold text-white group-hover:text-purple-300 transition-colors flex items-center justify-between">
-                Zeds Dead Music
+                Zeds Dead
                 <span className="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-mono">20 Drops</span>
               </h3>
               <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
-                Miami Factory Town live drops, heavy sub frequencies, and tour laser FPV runs.
+                Miami Factory Town live drops, heavy sub frequencies, and tour FPV runs.
               </p>
               <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-purple-400 font-semibold flex items-center gap-1">
-                Enter Music Workspace →
+                Enter Music →
+              </div>
+            </button>
+
+            <button
+              onClick={() => selectHabeebCampaign("moonpay")}
+              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-emerald-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+            >
+              <div className="text-3xl mb-3">🏂</div>
+              <h3 className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors flex items-center justify-between">
+                MoonPay XGL
+                <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full font-mono">$2.50 CPM</span>
+              </h3>
+              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
+                X Games League Winter Draft. Draft pick reveal + athlete world-record highlights.
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
+                Enter MoonPay →
               </div>
             </button>
           </div>
@@ -2466,7 +2401,7 @@ export default function ClippingVault() {
 
   const activeUserData = USERS[currentUser] || USERS.ceo;
   const campaigns = currentUser === "habeeb" 
-    ? (habeebCampaignChoice === "zedsdead" ? [HABEEB_CAMPAIGNS[1]] : [HABEEB_CAMPAIGNS[0]])
+    ? (habeebCampaignChoice === "zedsdead" ? [HABEEB_CAMPAIGNS[1]] : habeebCampaignChoice === "moonpay" ? [HABEEB_CAMPAIGNS[2]] : [HABEEB_CAMPAIGNS[0]])
     : currentUser === "lilshey" 
     ? LILSHEY_CAMPAIGNS 
     : currentUser === "usman" 
@@ -2553,8 +2488,8 @@ export default function ClippingVault() {
             <div className="hidden sm:flex items-center gap-1 bg-[#10141e] border border-[#1b2234] p-1 rounded-xl">
               <button
                 onClick={() => selectHabeebCampaign("bubsy")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
-                  habeebCampaignChoice !== "zedsdead"
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  habeebCampaignChoice === "bubsy" || (!habeebCampaignChoice && habeebCampaignChoice !== "zedsdead" && habeebCampaignChoice !== "moonpay")
                     ? "bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm"
                     : "text-neutral-400 hover:text-white"
                 }`}
@@ -2563,13 +2498,23 @@ export default function ClippingVault() {
               </button>
               <button
                 onClick={() => selectHabeebCampaign("zedsdead")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                   habeebCampaignChoice === "zedsdead"
                     ? "bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-sm"
                     : "text-neutral-400 hover:text-white"
                 }`}
               >
                 <span>🔊</span> Zeds Dead (20)
+              </button>
+              <button
+                onClick={() => selectHabeebCampaign("moonpay")}
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  habeebCampaignChoice === "moonpay"
+                    ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                <span>🏂</span> MoonPay ($2.50)
               </button>
             </div>
           )}

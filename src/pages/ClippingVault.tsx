@@ -3096,7 +3096,15 @@ export default function ClippingVault() {
 
   const activeUserData = USERS[currentUser] || USERS.ceo;
   const campaigns = currentUser === "habeeb" 
-    ? (habeebCampaignChoice === "zedsdead" ? [HABEEB_CAMPAIGNS[1]] : habeebCampaignChoice === "moonpay" ? [HABEEB_CAMPAIGNS[2]] : [HABEEB_CAMPAIGNS[0]])
+    ? (habeebCampaignChoice === "zedsdead" 
+        ? [HABEEB_CAMPAIGNS[1]] 
+        : habeebCampaignChoice === "moonpay" 
+        ? [HABEEB_CAMPAIGNS[2]]
+        : habeebCampaignChoice === "duel"
+        ? [HABEEB_CAMPAIGNS[3]]
+        : habeebCampaignChoice === "bubsy"
+        ? [HABEEB_CAMPAIGNS[0]]
+        : HABEEB_CAMPAIGNS)
     : currentUser === "lilshey" 
     ? LILSHEY_CAMPAIGNS 
     : currentUser === "usman" 

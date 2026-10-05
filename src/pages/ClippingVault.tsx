@@ -104,302 +104,1455 @@ export interface CampaignSlot {
 // When new clips arrive, simply drop the .mp4 files into public/campaigns/ and populate this array.
 const CEO_CAMPAIGNS: CampaignSlot[] = [
   {
-    "campaignId": "ceo_zeds_dead_daily_oct4",
-    "campaignName": "Channel 1: Zeds Dead (Today's 15 Unique Drops - Oct 4)",
-    "category": "Mainstage Production, Lasers & Drone Acrobatics (Clipr Agency)",
-    "status": "Live & Active (Strict CEO Exclusive)",
-    "payout": "$3.50 / 1k Views ($175 Max)",
-    "batches": [
-      "All Drops",
-      "Today's 15 Unique Drops (Oct 4)"
+    campaignId: "ceo_zeds_dead_3days",
+    campaignName: "Channel 1: Zeds Dead (3-Day Drop Pack - 75 Unique Videos)",
+    category: "Mainstage Production, Lasers & Drone Acrobatics (Deadbeats / Clipr)",
+    status: "Live & Active (Strict CEO Exclusive)",
+    payout: "$3.50 / 1k Views ($175 Max)",
+    batches: [
+      "All Drops (75)",
+      "Day 1 - Today's Drop (25 Videos)",
+      "Day 2 - Reserve Pack (25 Videos)",
+      "Day 3 - Reserve Pack (25 Videos)"
     ],
-    "clips": [
+    clips: [
       {
-            "id": "zeds_dead_oct4_01",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Ante Up Original Vocal Buildup Before The Chaos 🥊 @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_01",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Ante Up Vocal Buildup Before The Drop 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_01.mp4?v=oct4",
-            "description": "The 12-second buildup where the whole crowd recognized the classic M.O.P. sample! Miami was electric 🔥\n\n@zedsdead\n\n#ZedsDead #AnteUp #BassMusic #EDMDrop #FestivalEnergy",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_01.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: ANTE UP VOCAL BUILDUP BEFORE THE DROP. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#AnteUp",
                   "#BassMusic",
                   "#EDMDrop",
-                  "#FestivalEnergy"
-            ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s unique intro buildup cut from Ante Up Final."
-      },
-      {
-            "id": "zeds_dead_oct4_02",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Biggie Smalls Acapella Vinyl Scratch Into Sub 👑 @zedsdead #shorts",
-            "duration": "0:12",
-            "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_02.mp4?v=oct4",
-            "description": "Vinyl spin-in straight into Christopher Wallace's unmistakable voice floating over low-end pressure! 🗽🔊\n\n@zedsdead\n\n#ZedsDead #BiggieSmalls #HipHopRemix #BassCulture #Dubstep",
-            "hashtags": [
-                  "#ZedsDead",
-                  "#BiggieSmalls",
-                  "#HipHopRemix",
-                  "#BassCulture",
+                  "#FestivalEnergy",
                   "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s vinyl scratch and vocal intro cut from Biggie edit final."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Ante Up Final.mp4 (0s - 10.0s). Top hook: \"ANTE UP VOCAL BUILDUP BEFORE THE DROP\"."
       },
       {
-            "id": "zeds_dead_oct4_03",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Stadium Crowd Roar Before The Subwoofers Hit 🚨 @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_02",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Biggie Smalls Vinyl Scratch Flip 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_03.mp4?v=oct4",
-            "description": "When Jay Z's vocals echoed through the outdoor amphitheatre right before the bass drops! 🏙️💥\n\n@zedsdead\n\n#ZedsDead #JayZFlip #StadiumVibes #SubPressure #EDMFestival",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_02.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: BIGGIE SMALLS VINYL SCRATCH FLIP. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#JayZFlip",
-                  "#StadiumVibes",
-                  "#SubPressure",
-                  "#EDMFestival"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s crowd roar and intro sequence cut from Jay Z Final."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Ante Up Final.mp4 (10s - 20.0s). Top hook: \"BIGGIE SMALLS VINYL SCRATCH FLIP\"."
       },
       {
-            "id": "zeds_dead_oct4_04",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Hypnotic Eastern Synth Wave At 3:30 AM In Miami 🔮 @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_03",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Stadium Crowd Roar At Red Rocks 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_04.mp4?v=oct4",
-            "description": "Atmospheric synthesizer melodies cutting through the humid Miami night air. Pure hypnotic trance! 🌙✨\n\n@zedsdead\n\n#ZedsDead #MelodicBass #FestivalNights #FactoryTown #ElectronicMusic",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_03.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: STADIUM CROWD ROAR AT RED ROCKS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#MelodicBass",
-                  "#FestivalNights",
-                  "#FactoryTown",
-                  "#ElectronicMusic"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s melodic bridge transition cut from Phuket To Colors."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Ante Up Final.mp4 (20s - 30.0s). Top hook: \"STADIUM CROWD ROAR AT RED ROCKS\"."
       },
       {
-            "id": "zeds_dead_oct4_05",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Blinding Strobe Acceleration Into Second Drop ⚡ @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_04",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Hypnotic 3am Synth In Miami 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_05.mp4?v=oct4",
-            "description": "The snare roll speed doubles every 2 bars while the blinding white strobes ramp to maximum intensity! 💥⚡\n\n@zedsdead\n\n#ZedsDead #StrobeLights #SnareRoll #BassDrop #FestivalVisuals",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_04.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: HYPNOTIC 3AM SYNTH IN MIAMI. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#StrobeLights",
-                  "#SnareRoll",
-                  "#BassDrop",
-                  "#FestivalVisuals"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s high-speed strobe buildup cut from Phuket To Colors."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Biggie edit final.mp4 (0s - 10.0s). Top hook: \"HYPNOTIC 3AM SYNTH IN MIAMI\"."
       },
       {
-            "id": "zeds_dead_oct4_06",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Surviving Till Sunrise At Factory Town Miami 🌅 @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_05",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Blinding Strobe Acceleration Drop 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_06.mp4?v=oct4",
-            "description": "The amber morning light breaking over the crowd while the final sub bass notes reverberate! ☀️🔊\n\n@zedsdead\n\n#ZedsDead #SunriseSet #MiamiMusicWeek #BassLife #RaveSurvivors",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_05.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: BLINDING STROBE ACCELERATION DROP. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#SunriseSet",
-                  "#MiamiMusicWeek",
-                  "#BassLife",
-                  "#RaveSurvivors"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s sunrise finale outro cut from Phuket To Colors."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Biggie edit final.mp4 (10s - 20.0s). Top hook: \"BLINDING STROBE ACCELERATION DROP\"."
       },
       {
-            "id": "zeds_dead_oct4_07",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Glitched Big Band Horns Over Heavy Half-Time Groove 🎷 @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_06",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Factory Town Sunrise Finale 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_07.mp4?v=oct4",
-            "description": "Full brass section chopped and looped over rhythmic 140 BPM wobble bass! Pure genius blend. 🎩🔥\n\n@zedsdead\n\n#ZedsDead #FrankSinatra #SwingEDM #WobbleBass #VintageRemix",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_06.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: FACTORY TOWN SUNRISE FINALE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#FrankSinatra",
-                  "#SwingEDM",
-                  "#WobbleBass",
-                  "#VintageRemix"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s glitched swing brass drop cut from Sinatra Full."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Biggie edit final.mp4 (20s - 30.0s). Top hook: \"FACTORY TOWN SUNRISE FINALE\"."
       },
       {
-            "id": "zeds_dead_oct4_08",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Classic 1950s Swing Trumpet Drops Into Dubstep 🎺 @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_07",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Glitched Big Band Swing Bass 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_08.mp4?v=oct4",
-            "description": "Vintage gramophone horns echoing before the massive bass hits the dancefloor! 🎷💥\n\n@zedsdead\n\n#ZedsDead #RetroBass #SwingStep #ElectronicMusic #BassBoosted",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_07.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: GLITCHED BIG BAND SWING BASS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#RetroBass",
-                  "#SwingStep",
-                  "#ElectronicMusic",
-                  "#BassBoosted"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s vintage brass intro cut from SINATRA SHORT."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Biggie edit final.mp4 (30s - 40.0s). Top hook: \"GLITCHED BIG BAND SWING BASS\"."
       },
       {
-            "id": "zeds_dead_oct4_09",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Gliding Under A Glowing Emerald Laser Canopy 🟢 @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_08",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "1950s Vintage Trumpet Dubstep Flip 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_09.mp4?v=oct4",
-            "description": "A continuous sheet of green laser beams directly above the drone. Looks like the Matrix! 🟩🛸\n\n@zedsdead\n\n#ZedsDead #FPVDrone #LaserCanopy #StageProduction #TheMatrix",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_08.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: 1950s VINTAGE TRUMPET DUBSTEP FLIP. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#FPVDrone",
-                  "#LaserCanopy",
-                  "#StageProduction",
-                  "#TheMatrix"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s high-altitude cruise under laser canopy from FPV RAW 14."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Biggie edit final.mp4 (40s - 50.0s). Top hook: \"1950s VINTAGE TRUMPET DUBSTEP FLIP\"."
       },
       {
-            "id": "zeds_dead_oct4_10",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Inverted Drone Flip Inside The Laser Cage 🌀 @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_09",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Gliding Under An Emerald Laser Canopy 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_10.mp4?v=oct4",
-            "description": "Full 360 barrel roll upside down inside a cage of converging laser beams! Insane drone piloting. 🕹️⚡\n\n@zedsdead\n\n#ZedsDead #BarrelRoll #DronePilot #VisualDesign #ExtremeFPV",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_09.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: GLIDING UNDER AN EMERALD LASER CANOPY. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#BarrelRoll",
-                  "#DronePilot",
-                  "#VisualDesign",
-                  "#ExtremeFPV"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s aerobatic barrel roll cut from FPV RAW 15."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Jay Z Final.mp4 (0s - 10.0s). Top hook: \"GLIDING UNDER AN EMERALD LASER CANOPY\"."
       },
       {
-            "id": "zeds_dead_oct4_11",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Diving Through Freezing Stage Fog At 50 MPH 🌫️ @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_10",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Inverted Barrel Roll Inside Laser Cage 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_11.mp4?v=oct4",
-            "description": "Punching right through the dense white cryo cloud above the stage. Pure cinematic thrill! 🪂✨\n\n@zedsdead\n\n#ZedsDead #CryoFog #StageTech #SpeedDive #DroneCinema",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_10.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: INVERTED BARREL ROLL INSIDE LASER CAGE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#CryoFog",
-                  "#StageTech",
-                  "#SpeedDive",
-                  "#DroneCinema"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s cryo fog dive cut from FPV RAW 16."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Jay Z Final.mp4 (10s - 20.0s). Top hook: \"INVERTED BARREL ROLL INSIDE LASER CAGE\"."
       },
       {
-            "id": "zeds_dead_oct4_12",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Cruising 80 Feet Above The Empty Stage Roof 🏗️ @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_11",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Diving Through Stage Cryo Fog At 50 Mph 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_12.mp4?v=oct4",
-            "description": "Slicing through the steel framework high above the venue floor before the gates open! 🌌⚡\n\n@zedsdead\n\n#ZedsDead #SteelTruss #ConcertRigging #TourRehearsal #EpicViews",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_11.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: DIVING THROUGH STAGE CRYO FOG AT 50 MPH. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#SteelTruss",
-                  "#ConcertRigging",
-                  "#TourRehearsal",
-                  "#EpicViews"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s high-altitude truss cruise cut from FPV RAW 18."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Jay Z Final.mp4 (20s - 30.0s). Top hook: \"DIVING THROUGH STAGE CRYO FOG AT 50 MPH\"."
       },
       {
-            "id": "zeds_dead_oct4_13",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "High-Speed Drone Flyby Right Over The DJ Decks 🎛️ @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_12",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Full Red Rocks Crowd Jumping Together 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_13.mp4?v=oct4",
-            "description": "Skimming inches above the CDJ mixers and monitor speakers! Millimeter precision flying. 🎯✨\n\n@zedsdead\n\n#ZedsDead #DJDecks #PioneerDJ #DroneSkill #StageCraft",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_12.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: FULL RED ROCKS CROWD JUMPING TOGETHER. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#DJDecks",
-                  "#PioneerDJ",
-                  "#DroneSkill",
-                  "#StageCraft"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s console flyby cut from FPV RAW 1."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Jay Z Final.mp4 (30s - 40.0s). Top hook: \"FULL RED ROCKS CROWD JUMPING TOGETHER\"."
       },
       {
-            "id": "zeds_dead_oct4_14",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Vertical Rocket Climb Along Steel Lighting Tower 🚀 @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_13",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Surfing Laser Beams Over 10000 Heads 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_14.mp4?v=oct4",
-            "description": "Full-throttle vertical ascent up the center lighting monolith into the night sky! 🌌🔥\n\n@zedsdead\n\n#ZedsDead #VerticalClimb #LightingMonolith #DroneRocket #TourLife",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_13.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: SURFING LASER BEAMS OVER 10000 HEADS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#VerticalClimb",
-                  "#LightingMonolith",
-                  "#DroneRocket",
-                  "#TourLife"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s vertical climb cut from FPV RAW 3."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (0s - 10.0s). Top hook: \"SURFING LASER BEAMS OVER 10000 HEADS\"."
       },
       {
-            "id": "zeds_dead_oct4_15",
-            "addedTime": "Oct 04, 2026 • 10:15 AM",
-            "batchTag": "Today's 15 Unique Drops (Oct 4)",
-            "title": "Panoramic High Flight Around The Illuminated Red Rocks 🏟️ @zedsdead #shorts",
-            "duration": "0:12",
+            "id": "ceo_zeds_d1_14",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Fpv Dive Bomb Directly Into Dj Booth 🔥 @zedsdead #shorts",
+            "duration": "0:10",
             "quality": "1080x1920 (9:16 Master HD)",
-            "videoSrc": "/campaigns/ceo_zeds_oct4/ceo_zeds_oct4_15.mp4?v=oct4",
-            "description": "Sweeping wide across the stone amphitheatre rows under the night lights. Truly iconic venue! 🪨✨\n\n@zedsdead\n\n#ZedsDead #RedRocks #Amphitheatre #DroneFlight #ConcertExperience",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_14.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: FPV DIVE BOMB DIRECTLY INTO DJ BOOTH. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
             "hashtags": [
                   "#ZedsDead",
-                  "#RedRocks",
-                  "#Amphitheatre",
-                  "#DroneFlight",
-                  "#ConcertExperience"
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
             ],
-            "payoutRate": "$3.50 / 1k Views (Clipr Agency)",
-            "loopNote": "12s panoramic night flight cut from FPV RAW 4."
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (10s - 20.0s). Top hook: \"FPV DIVE BOMB DIRECTLY INTO DJ BOOTH\"."
+      },
+      {
+            "id": "ceo_zeds_d1_15",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Panoramic Sunset Over The Monolith 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_15.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: PANORAMIC SUNSET OVER THE MONOLITH. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (20s - 30.0s). Top hook: \"PANORAMIC SUNSET OVER THE MONOLITH\"."
+      },
+      {
+            "id": "ceo_zeds_d1_16",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "When The Sub-bass Shakes Your Phone 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_16.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: WHEN THE SUB-BASS SHAKES YOUR PHONE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (30s - 40.0s). Top hook: \"WHEN THE SUB-BASS SHAKES YOUR PHONE\"."
+      },
+      {
+            "id": "ceo_zeds_d1_17",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Shook Ones Chords In The Open Air 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_17.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: SHOOK ONES CHORDS IN THE OPEN AIR. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (40s - 50.0s). Top hook: \"SHOOK ONES CHORDS IN THE OPEN AIR\"."
+      },
+      {
+            "id": "ceo_zeds_d1_18",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Sinatra Swing Wobble Meltdown 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_18.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: SINATRA SWING WOBBLE MELTDOWN. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (50s - 60.0s). Top hook: \"SINATRA SWING WOBBLE MELTDOWN\"."
+      },
+      {
+            "id": "ceo_zeds_d1_19",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Retro Gramophone Meets 140 Bpm 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_19.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: RETRO GRAMOPHONE MEETS 140 BPM. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (60s - 70.0s). Top hook: \"RETRO GRAMOPHONE MEETS 140 BPM\"."
+      },
+      {
+            "id": "ceo_zeds_d1_20",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Laser Tunnel Flight At 45 Degrees 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_20.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: LASER TUNNEL FLIGHT AT 45 DEGREES. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (70s - 80.0s). Top hook: \"LASER TUNNEL FLIGHT AT 45 DEGREES\"."
+      },
+      {
+            "id": "ceo_zeds_d1_21",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Amphitheatre Acoustics Hit Different 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_21.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: AMPHITHEATRE ACOUSTICS HIT DIFFERENT. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (80s - 90.0s). Top hook: \"AMPHITHEATRE ACOUSTICS HIT DIFFERENT\"."
+      },
+      {
+            "id": "ceo_zeds_d1_22",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Factory Town 4am Hypnosis 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_22.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: FACTORY TOWN 4AM HYPNOSIS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (90s - 100.0s). Top hook: \"FACTORY TOWN 4AM HYPNOSIS\"."
+      },
+      {
+            "id": "ceo_zeds_d1_23",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Unreleased Bassline Test In Miami 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_23.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: UNRELEASED BASSLINE TEST IN MIAMI. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (100s - 110.0s). Top hook: \"UNRELEASED BASSLINE TEST IN MIAMI\"."
+      },
+      {
+            "id": "ceo_zeds_d1_24",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "High Altitude Dive Through Light Beams 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_24.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: HIGH ALTITUDE DIVE THROUGH LIGHT BEAMS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (110s - 120.0s). Top hook: \"HIGH ALTITUDE DIVE THROUGH LIGHT BEAMS\"."
+      },
+      {
+            "id": "ceo_zeds_d1_25",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 - Today's Drop (25 Videos)",
+            "title": "Deadbeats Anthem Live Finale 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d1_25.mp4?v=d1_drop",
+            "description": "Official Zeds Dead music clipping cut: DEADBEATS ANTHEM LIVE FINALE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (120s - 130.0s). Top hook: \"DEADBEATS ANTHEM LIVE FINALE\"."
+      },
+      {
+            "id": "ceo_zeds_d2_01",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Bass Resonance At Maximum Pressure 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_01.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: BASS RESONANCE AT MAXIMUM PRESSURE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (130s - 140.0s). Top hook: \"BASS RESONANCE AT MAXIMUM PRESSURE\"."
+      },
+      {
+            "id": "ceo_zeds_d2_02",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Unreal Fpv Drone Chase Over Red Rocks 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_02.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: UNREAL FPV DRONE CHASE OVER RED ROCKS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (140s - 150.0s). Top hook: \"UNREAL FPV DRONE CHASE OVER RED ROCKS\"."
+      },
+      {
+            "id": "ceo_zeds_d2_03",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "That Instant Drop Reaction 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_03.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: THAT INSTANT DROP REACTION. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (150s - 160.0s). Top hook: \"THAT INSTANT DROP REACTION\"."
+      },
+      {
+            "id": "ceo_zeds_d2_04",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Can Your Earphones Survive This Sub 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_04.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: CAN YOUR EARPHONES SURVIVE THIS SUB. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Phuket To Colors .mp4 (160s - 170.0s). Top hook: \"CAN YOUR EARPHONES SURVIVE THIS SUB\"."
+      },
+      {
+            "id": "ceo_zeds_d2_05",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Vintage Hip Hop Chopped Over Wobble 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_05.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: VINTAGE HIP HOP CHOPPED OVER WOBBLE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Shook Ones FINAL.mp4 (0s - 10.0s). Top hook: \"VINTAGE HIP HOP CHOPPED OVER WOBBLE\"."
+      },
+      {
+            "id": "ceo_zeds_d2_06",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "The Purest Synth Leads In Edm 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_06.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: THE PUREST SYNTH LEADS IN EDM. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Shook Ones FINAL.mp4 (10s - 20.0s). Top hook: \"THE PUREST SYNTH LEADS IN EDM\"."
+      },
+      {
+            "id": "ceo_zeds_d2_07",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Crowd In Absolute Disbelief 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_07.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: CROWD IN ABSOLUTE DISBELIEF. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Shook Ones FINAL.mp4 (20s - 30.0s). Top hook: \"CROWD IN ABSOLUTE DISBELIEF\"."
+      },
+      {
+            "id": "ceo_zeds_d2_08",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Lasers Cutting Through Colorado Sky 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_08.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: LASERS CUTTING THROUGH COLORADO SKY. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Shook Ones FINAL.mp4 (30s - 40.0s). Top hook: \"LASERS CUTTING THROUGH COLORADO SKY\"."
+      },
+      {
+            "id": "ceo_zeds_d2_09",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "High Speed Glide Over 10000 Fans 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_09.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: HIGH SPEED GLIDE OVER 10000 FANS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Sinatra Full FINAL.mp4 (0s - 10.0s). Top hook: \"HIGH SPEED GLIDE OVER 10000 FANS\"."
+      },
+      {
+            "id": "ceo_zeds_d2_10",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Factory Town Soundsystem Vibrations 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_10.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: FACTORY TOWN SOUNDSYSTEM VIBRATIONS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Sinatra Full FINAL.mp4 (10s - 20.0s). Top hook: \"FACTORY TOWN SOUNDSYSTEM VIBRATIONS\"."
+      },
+      {
+            "id": "ceo_zeds_d2_11",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Unreleased Zeds Dead Dubplate 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_11.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: UNRELEASED ZEDS DEAD DUBPLATE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Sinatra Full FINAL.mp4 (20s - 30.0s). Top hook: \"UNRELEASED ZEDS DEAD DUBPLATE\"."
+      },
+      {
+            "id": "ceo_zeds_d2_12",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Cryo Cannons Erupting On The Drop 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_12.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: CRYO CANNONS ERUPTING ON THE DROP. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Sinatra Full FINAL.mp4 (30s - 40.0s). Top hook: \"CRYO CANNONS ERUPTING ON THE DROP\"."
+      },
+      {
+            "id": "ceo_zeds_d2_13",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "When The Bass Shakes The Mountains 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_13.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: WHEN THE BASS SHAKES THE MOUNTAINS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Sinatra Full FINAL.mp4 (40s - 50.0s). Top hook: \"WHEN THE BASS SHAKES THE MOUNTAINS\"."
+      },
+      {
+            "id": "ceo_zeds_d2_14",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Retro Classic Turned Into Festival Destroyer 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_14.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: RETRO CLASSIC TURNED INTO FESTIVAL DESTROYER. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Sinatra Full FINAL.mp4 (50s - 60.0s). Top hook: \"RETRO CLASSIC TURNED INTO FESTIVAL DESTROYER\"."
+      },
+      {
+            "id": "ceo_zeds_d2_15",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Amber Sunrise Over Factory Town 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_15.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: AMBER SUNRISE OVER FACTORY TOWN. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Sinatra Full FINAL.mp4 (60s - 70.0s). Top hook: \"AMBER SUNRISE OVER FACTORY TOWN\"."
+      },
+      {
+            "id": "ceo_zeds_d2_16",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Hypnotic Chord Progression Intro 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_16.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: HYPNOTIC CHORD PROGRESSION INTRO. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Sinatra Full FINAL.mp4 (70s - 80.0s). Top hook: \"HYPNOTIC CHORD PROGRESSION INTRO\"."
+      },
+      {
+            "id": "ceo_zeds_d2_17",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "The Sub Pressure You Feel In Your Chest 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_17.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: THE SUB PRESSURE YOU FEEL IN YOUR CHEST. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Sinatra Full FINAL.mp4 (80s - 90.0s). Top hook: \"THE SUB PRESSURE YOU FEEL IN YOUR CHEST\"."
+      },
+      {
+            "id": "ceo_zeds_d2_18",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Fpv Piloting Reaches Another Dimension 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_18.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: FPV PILOTING REACHES ANOTHER DIMENSION. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from Sinatra Full FINAL.mp4 (90s - 100.0s). Top hook: \"FPV PILOTING REACHES ANOTHER DIMENSION\"."
+      },
+      {
+            "id": "ceo_zeds_d2_19",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Colorado Night Sky Illuminated 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_19.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: COLORADO NIGHT SKY ILLUMINATED. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from SINATRA SHORT FINAL.mp4 (0s - 10.0s). Top hook: \"COLORADO NIGHT SKY ILLUMINATED\"."
+      },
+      {
+            "id": "ceo_zeds_d2_20",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Mop Sample Echoing Through Stadium 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_20.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: MOP SAMPLE ECHOING THROUGH STADIUM. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from SINATRA SHORT FINAL.mp4 (10s - 20.0s). Top hook: \"MOP SAMPLE ECHOING THROUGH STADIUM\"."
+      },
+      {
+            "id": "ceo_zeds_d2_21",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Perfectly Synced Lighting Grid 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_21.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: PERFECTLY SYNCED LIGHTING GRID. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from SINATRA SHORT FINAL.mp4 (20s - 30.0s). Top hook: \"PERFECTLY SYNCED LIGHTING GRID\"."
+      },
+      {
+            "id": "ceo_zeds_d2_22",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Swing Step Bounce Is Unmatched 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_22.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: SWING STEP BOUNCE IS UNMATCHED. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from SINATRA SHORT FINAL.mp4 (30s - 40.0s). Top hook: \"SWING STEP BOUNCE IS UNMATCHED\"."
+      },
+      {
+            "id": "ceo_zeds_d2_23",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Heavyweight Bassline Takeover 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_23.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: HEAVYWEIGHT BASSLINE TAKEOVER. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from SINATRA SHORT FINAL.mp4 (40s - 50.0s). Top hook: \"HEAVYWEIGHT BASSLINE TAKEOVER\"."
+      },
+      {
+            "id": "ceo_zeds_d2_24",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Speed Acceleration Into Drop Two 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_24.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: SPEED ACCELERATION INTO DROP TWO. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from SINATRA SHORT FINAL.mp4 (50s - 60.0s). Top hook: \"SPEED ACCELERATION INTO DROP TWO\"."
+      },
+      {
+            "id": "ceo_zeds_d2_25",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 - Reserve Pack (25 Videos)",
+            "title": "Midnight In Miami Hits Different 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d2_25.mp4?v=d2_drop",
+            "description": "Official Zeds Dead music clipping cut: MIDNIGHT IN MIAMI HITS DIFFERENT. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from SINATRA SHORT FINAL.mp4 (60s - 70.0s). Top hook: \"MIDNIGHT IN MIAMI HITS DIFFERENT\"."
+      },
+      {
+            "id": "ceo_zeds_d3_01",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "The Buildup That Gives Chills Every Time 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_01.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: THE BUILDUP THAT GIVES CHILLS EVERY TIME. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 14.mov (0s - 10.0s). Top hook: \"THE BUILDUP THAT GIVES CHILLS EVERY TIME\"."
+      },
+      {
+            "id": "ceo_zeds_d3_02",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Inverted Sky Dive Over Red Rocks 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_02.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: INVERTED SKY DIVE OVER RED ROCKS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 14.mov (10s - 20.0s). Top hook: \"INVERTED SKY DIVE OVER RED ROCKS\"."
+      },
+      {
+            "id": "ceo_zeds_d3_03",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Retro Acoustics Sliced By Wobbles 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_03.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: RETRO ACOUSTICS SLICED BY WOBBLES. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 14.mov (20s - 30.0s). Top hook: \"RETRO ACOUSTICS SLICED BY WOBBLES\"."
+      },
+      {
+            "id": "ceo_zeds_d3_04",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "This Is What Peak Festival Energy Feels Like 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_04.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: THIS IS WHAT PEAK FESTIVAL ENERGY FEELS LIKE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 14.mov (30s - 40.0s). Top hook: \"THIS IS WHAT PEAK FESTIVAL ENERGY FEELS LIKE\"."
+      },
+      {
+            "id": "ceo_zeds_d3_05",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Stadium Light Show Timed To The Millisecond 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_05.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: STADIUM LIGHT SHOW TIMED TO THE MILLISECOND. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 15.mov (0s - 10.0s). Top hook: \"STADIUM LIGHT SHOW TIMED TO THE MILLISECOND\"."
+      },
+      {
+            "id": "ceo_zeds_d3_06",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Factory Town Ambience At Dawn 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_06.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: FACTORY TOWN AMBIENCE AT DAWN. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 15.mov (10s - 20.0s). Top hook: \"FACTORY TOWN AMBIENCE AT DAWN\"."
+      },
+      {
+            "id": "ceo_zeds_d3_07",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Classic Rap Vocal Floating Over Sub 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_07.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: CLASSIC RAP VOCAL FLOATING OVER SUB. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 15.mov (20s - 30.0s). Top hook: \"CLASSIC RAP VOCAL FLOATING OVER SUB\"."
+      },
+      {
+            "id": "ceo_zeds_d3_08",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Drone Pilot Risks It All Over The Crowd 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_08.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: DRONE PILOT RISKS IT ALL OVER THE CROWD. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 15.mov (30s - 40.0s). Top hook: \"DRONE PILOT RISKS IT ALL OVER THE CROWD\"."
+      },
+      {
+            "id": "ceo_zeds_d3_09",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Unfiltered Bass Pressure Test 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_09.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: UNFILTERED BASS PRESSURE TEST. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 15.mov (40s - 50.0s). Top hook: \"UNFILTERED BASS PRESSURE TEST\"."
+      },
+      {
+            "id": "ceo_zeds_d3_10",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "The 140 Bpm Heavyweight Anthem 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_10.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: THE 140 BPM HEAVYWEIGHT ANTHEM. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 16.mov (0s - 10.0s). Top hook: \"THE 140 BPM HEAVYWEIGHT ANTHEM\"."
+      },
+      {
+            "id": "ceo_zeds_d3_11",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Immersive Laser Canopy Glide 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_11.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: IMMERSIVE LASER CANOPY GLIDE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 16.mov (10s - 20.0s). Top hook: \"IMMERSIVE LASER CANOPY GLIDE\"."
+      },
+      {
+            "id": "ceo_zeds_d3_12",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "When 10000 People Scream The Vocal 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_12.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: WHEN 10000 PEOPLE SCREAM THE VOCAL. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 16.mov (20s - 30.0s). Top hook: \"WHEN 10000 PEOPLE SCREAM THE VOCAL\"."
+      },
+      {
+            "id": "ceo_zeds_d3_13",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "The Smoothest Drone Dive Of 2026 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_13.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: THE SMOOTHEST DRONE DIVE OF 2026. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 16.mov (30s - 40.0s). Top hook: \"THE SMOOTHEST DRONE DIVE OF 2026\"."
+      },
+      {
+            "id": "ceo_zeds_d3_14",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Timeless Hip Hop Flip Stomped Live 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_14.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: TIMELESS HIP HOP FLIP STOMPED LIVE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 17.mov (0s - 10.0s). Top hook: \"TIMELESS HIP HOP FLIP STOMPED LIVE\"."
+      },
+      {
+            "id": "ceo_zeds_d3_15",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Cryo Cloud Envelops The Stage 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_15.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: CRYO CLOUD ENVELOPS THE STAGE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 17.mov (10s - 20.0s). Top hook: \"CRYO CLOUD ENVELOPS THE STAGE\"."
+      },
+      {
+            "id": "ceo_zeds_d3_16",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Factory Town Bass Purists Assemble 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_16.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: FACTORY TOWN BASS PURISTS ASSEMBLE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 17.mov (20s - 30.0s). Top hook: \"FACTORY TOWN BASS PURISTS ASSEMBLE\"."
+      },
+      {
+            "id": "ceo_zeds_d3_17",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "The Moment The Sub Woofers Unload 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_17.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: THE MOMENT THE SUB WOOFERS UNLOAD. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 17.mov (30s - 40.0s). Top hook: \"THE MOMENT THE SUB WOOFERS UNLOAD\"."
+      },
+      {
+            "id": "ceo_zeds_d3_18",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Cinematic Fpv Over Monolith Rocks 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_18.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: CINEMATIC FPV OVER MONOLITH ROCKS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 17.mov (40s - 50.0s). Top hook: \"CINEMATIC FPV OVER MONOLITH ROCKS\"."
+      },
+      {
+            "id": "ceo_zeds_d3_19",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Unreal Audience Roar On The Switch 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_19.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: UNREAL AUDIENCE ROAR ON THE SWITCH. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 17.mov (50s - 60.0s). Top hook: \"UNREAL AUDIENCE ROAR ON THE SWITCH\"."
+      },
+      {
+            "id": "ceo_zeds_d3_20",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Swing Step Synths Take Control 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_20.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: SWING STEP SYNTHS TAKE CONTROL. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 17.mov (60s - 70.0s). Top hook: \"SWING STEP SYNTHS TAKE CONTROL\"."
+      },
+      {
+            "id": "ceo_zeds_d3_21",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Nightfall Lightning Show At Red Rocks 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_21.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: NIGHTFALL LIGHTNING SHOW AT RED ROCKS. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 18.mov (0s - 10.0s). Top hook: \"NIGHTFALL LIGHTNING SHOW AT RED ROCKS\"."
+      },
+      {
+            "id": "ceo_zeds_d3_22",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Peak Time Festival Anthem 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_22.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: PEAK TIME FESTIVAL ANTHEM. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 18.mov (10s - 20.0s). Top hook: \"PEAK TIME FESTIVAL ANTHEM\"."
+      },
+      {
+            "id": "ceo_zeds_d3_23",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Unmatched Miami Music Week Energy 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_23.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: UNMATCHED MIAMI MUSIC WEEK ENERGY. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 18.mov (20s - 30.0s). Top hook: \"UNMATCHED MIAMI MUSIC WEEK ENERGY\"."
+      },
+      {
+            "id": "ceo_zeds_d3_24",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "The Accelerating Snare Roll Finale 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_24.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: THE ACCELERATING SNARE ROLL FINALE. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 1.mov (0s - 10.0s). Top hook: \"THE ACCELERATING SNARE ROLL FINALE\"."
+      },
+      {
+            "id": "ceo_zeds_d3_25",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 - Reserve Pack (25 Videos)",
+            "title": "Legendary Outro Under The Morning Sun 🔥 @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/ceo_zeds_3days/ceo_zeds_d3_25.mp4?v=d3_drop",
+            "description": "Official Zeds Dead music clipping cut: LEGENDARY OUTRO UNDER THE MORNING SUN. Experience peak festival sound and visuals! 🔊🔥\n\n@zedsdead\n\n#ZedsDead #BassMusic #EDMDrop #FestivalEnergy #Dubstep #Shorts",
+            "hashtags": [
+                  "#ZedsDead",
+                  "#BassMusic",
+                  "#EDMDrop",
+                  "#FestivalEnergy",
+                  "#Dubstep"
+            ],
+            "payoutRate": "$3.50 / 1k Views ($175 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 1.mov (10s - 20.0s). Top hook: \"LEGENDARY OUTRO UNDER THE MORNING SUN\"."
       }
 ]
+  },
+  {
+    campaignId: "ceo_camp_2",
+    campaignName: "Channel 2: Viral Gaming & Web3 (Duel & XGL)",
+    category: "Gaming Clips & High Stakes Drops",
+    status: "Standby For Drop",
+    payout: "$10.00 CPM (Duel) / $2.50 CPM (XGL)",
+    batches: [
+      "All Drops (20)"
+    ],
+    clips: []
   }
 ];
 
@@ -1500,696 +2653,1270 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
     ],
     "clips": [
         {
-            "id": "duel_shorts_01",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "He Almost Hit The Impossible 5000 IQ Guess 😱 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_01.mp4?v=duel_yt",
-            "description": "He was literally inches away from a perfect 5k score on GeoGuessr PvP Duel! His reaction is pure comedy 💀\n\n#duel #geoguessr #pvp #gamingmoments #ragequit #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HE ALMOST HIT A 5000 IQ GUESS'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_01",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Clavicular Calls Out Sneako For Disrespecting Duel 🤬 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_01.mp4?v=sneako_vital",
+                "description": "Clavicular did NOT hold back on Sneako after his comments about Duel! The tension between them was insane 💀\n\n#duel #sneako #clavicular #streamerdrama #reaction #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('CLAVICULAR CALLS OUT SNEAKO FOR DISRESPECTING DUEL'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_02",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "Bro Really Got 68 Points In A $1,000 Match 💀 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_02.mp4?v=duel_yt",
-            "description": "When you talk all that trash before the round and then end up with 68 points... I'd log off forever 😂\n\n#duel #gametok #pvp #funnyclips #gamingfails #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('BRO GOT ONLY 68 POINTS IN DUEL'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_02",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako And Vitaly React To Insane Duel Win 🤯 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_02.mp4?v=sneako_vital",
+                "description": "Vitaly and Sneako could not believe the final second multiplier on Duel! Both of them lost their minds live on stream 🔥\n\n#duel #sneako #vitaly #kickstream #viralmoments #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO AND VITALY GET SHOCKED BY DUEL WIN'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_03",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "Literally The Hardest Round In Duel History 🧠 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_03.mp4?v=duel_yt",
-            "description": "Not a single soul could identify this location. The confusion on both faces is unmatched!\n\n#duel #geoguessr #impossible #iqtest #gamingclips #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('THE HARDEST ROUND IN DUEL HISTORY'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_03",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako Snaps At Chat Over TTS Duel Donation 🤬 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_03.mp4?v=sneako_vital",
+                "description": "When chat won't stop sending Duel donation TTS messages and Sneako completely loses his temper! 😂\n\n#duel #sneako #rage #funnymoments #streamerfails #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO SNAPS AT CHAT OVER DUEL DONATION'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_04",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "The Most Horrendous Guess In Duel History 😭 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_04.mp4?v=duel_yt",
-            "description": "He was on the complete opposite side of the planet! How do you even mess up that bad?! 💀\n\n#duel #fails #geoguessr #twitchfails #gamingmoment #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('THE WORST GUESS YOU WILL EVER SEE'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_04",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako Perma-Bans Duel Spammer Live On Kick 🚫 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_04.mp4?v=sneako_vital",
+                "description": "He really paid money just to troll Sneako with Duel TTS until he got banned live in front of 30,000 viewers! 💀\n\n#duel #sneako #banned #kick #troll #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO BANS DUEL TTS SPAMMER ON STREAM'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_05",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "He Absolutely Snapped During The Match 🤬 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_05.mp4?v=duel_yt",
-            "description": "The psychological warfare in 1v1 duels is actually insane! Neither of them backed down 🔥\n\n#duel #trashtalk #pvp #streamerclips #competitive #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HE COULD NOT HANDLE THE TRASH TALK'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_05",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako Debates If Duel Is Halal Or Haram ☪️ #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_05.mp4?v=sneako_vital",
+                "description": "Sneako breaking down the mechanics of Duel PvP and arguing with chat whether peer-to-peer wagering is halal 🤔\n\n#duel #sneako #halal #debate #streamer #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO DEBATES IF DUEL IS ACTUALLY HALAL'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_06",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "Roasting His Opponent Into Another Dimension 💀 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_06.mp4?v=duel_yt",
-            "description": "You can hear the exact second his opponent lost all hope and confidence! Duel 1v1 toxicity at its finest 😂\n\n#duel #roast #funny #gamer #comeback #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('ROASTING HIS ENTIRE EXISTENCE'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_06",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Clavicular Tries To Convince Sneako Duel Is Halal 😂 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_06.mp4?v=sneako_vital",
+                "description": "Clavicular giving Sneako a whole theological lecture on why Duel has no house edge and is pure skill! 🧠\n\n#duel #clavicular #sneako #funny #debate #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('CLAVICULAR CONVINCES SNEAKO DUEL IS HALAL'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_07",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "When The CSGO Duel Gets Too Personal 🎯 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_07.mp4?v=duel_yt",
-            "description": "High stakes clutch round with everything on the line! Watch till the last second for the reaction 💥\n\n#duel #csgo #clutch #1v1 #gamingclips #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('WHEN CSGO DUELS GET PERSONAL'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_07",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako Realizes Duel Has A 0% House Edge 🤯 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_07.mp4?v=sneako_vital",
+                "description": "Sneako discovers how Duel actually works without any casino house edge. Pure player vs player competition!\n\n#duel #sneako #pvp #houseedge #gaming #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO EXPOSES DUEL ZERO HOUSE EDGE'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_08",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "Magician Blows Everyone's Mind At Duel Arena 🪄 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_08.mp4?v=duel_yt",
-            "description": "He literally levitated Duel chips in mid-air right in front of everyone! How is this even physically possible?! 🤯\n\n#duel #magic #mindblown #arena #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('THE STORY OF HOW HE GOT ARRESTED'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_08",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "'You Are Disrespecting Duel Right Now!' 😡 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_08.mp4?v=sneako_vital",
+                "description": "He stood up for Duel against everyone in the room! The argument got way too heated 🔥\n\n#duel #sneako #argument #drama #streamers #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('STOP DISRESPECTING DUEL RIGHT NOW'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_09",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "How Much Of Your Brain Do You Actually Use? 🧠 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_09.mp4?v=duel_yt",
-            "description": "Debating peak mental focus and IQ during high stakes competitive gaming and duels!\n\n#duel #mindset #psychology #focus #iqtest #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HUMAN BRAIN CAPACITY IS INSANE'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_09",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako Calls Clavicular To Squash The Beef 📞 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_09.mp4?v=sneako_vital",
+                "description": "Sneako pulls out his phone on stream and dials Clavicular to address the Duel feud in real time!\n\n#duel #sneako #phonecall #clavicular #beef #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO CALLS CLAVICULAR LIVE ON STREAM'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_10",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "Does Money Actually Make You Happy? 💰 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_10.mp4?v=duel_yt",
-            "description": "A brutally honest perspective on wealth, freedom, and happiness from high roller streamers.\n\n#duel #money #mindset #happiness #deepquotes #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('DOES MONEY ACTUALLY MAKE YOU HAPPY'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_10",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako Addresses The Viral Video With Clavicular 🎬 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_10.mp4?v=sneako_vital",
+                "description": "Sneako reacts to the trending clip that had everyone talking on Twitter and Kick all week long!\n\n#duel #sneako #response #trending #viral #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO ADDRESSES CLAVICULAR DRAMA'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_11",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "What Happens When AI Replaces Everything? 🤖 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_11.mp4?v=duel_yt",
-            "description": "Is AI going to take over content creation and gaming within the next 2 years? Listen closely.\n\n#duel #ai #future #technology #podcast #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('THE TRUTH ABOUT AI TAKING OVER'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_11",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Chat Will Not Stop Trolling Sneako With Duel Donos 💀 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_11.mp4?v=sneako_vital",
+                "description": "His face when another $100 donation pops up on screen mentioning Duel! Pure agony 😂\n\n#duel #sneako #tts #funnyreaction #streamer #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('ANOTHER INSANE DUEL DONATION TO SNEAKO'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_12",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "What 7 Days Of Water Fasting Does To You 💧 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_12.mp4?v=duel_yt",
-            "description": "Extreme mental clarity or pure torture? His experience trying a prolonged water fast!\n\n#duel #health #fasting #discipline #wellness #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('WHAT 7 DAYS OF WATER FASTING DOES'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_12",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako Threatens Legal Action Over Duel Drama ⚖️ #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_12.mp4?v=sneako_vital",
+                "description": "Sneako says his lawyers are already drafting up papers after what happened on stream! 😳\n\n#duel #sneako #lawsuit #drama #lawyer #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO THREATENS TO SUE OVER DUEL CONTROVERSY'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_13",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "He Hit The Legendary 1,000x Multiplier Live 🍭 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_13.mp4?v=duel_yt",
-            "description": "The tumble kept going and going until the 1,000x bomb dropped! Watch the screen shake 💣\n\n#duel #bigwin #multiplier #sweetbonanza #insaneluck #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HE HIT A 1000X MULTIPLIER LIVE'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_13",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako Finally Logs Into Duel Live On Stream 🎮 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_13.mp4?v=sneako_vital",
+                "description": "After months of chat asking him, Sneako finally tests out Duel for himself! His first impression says it all.\n\n#duel #sneako #firsttime #pvp #gaming #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO FINALLY TRIES DUEL ON LIVE STREAM'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_14",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "Explaining Duel To Girls In Public 💀 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_14.mp4?v=duel_yt",
-            "description": "Trying to explain 1v1 PvP wager matches to random girls at the event... the awkwardness is 10/10 😂\n\n#duel #irl #awkward #funny #publicinterview #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HOW TO EXPLAIN DUEL TO ANYONE'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_14",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Monarch Drops A Huge Duel Donation On Sneako 💰 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_14.mp4?v=sneako_vital",
+                "description": "Monarch caught Sneako off guard with a massive donation on stream! The message had him stunned.\n\n#duel #monarch #sneako #streamerdonation #bigwin #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('MONARCH DROPS A CRAZY DONO ON SNEAKO'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_15",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "What Actually Happens Behind The Scenes At Duel 🏢 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_15.mp4?v=duel_yt",
-            "description": "Exclusive tour inside the high-energy gaming house and production floor at Duel!\n\n#duel #behindthescenes #hq #esports #streamerhouse #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('BEHIND THE SCENES AT DUEL HQ'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_15",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Nelli Confronts Sneako About Playing Duel Off-Stream 👀 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_15.mp4?v=sneako_vital",
+                "description": "Nelli puts Sneako on blast for staying up until 4 AM playing 1v1 matches on Duel! 😂\n\n#duel #sneako #nelli #exposed #funnyclips #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('NELLI ASKS SNEAKO ABOUT HIS DUEL ADDICTION'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_16",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "The Juggling Trick That Broke The Arena 🤹 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_16.mp4?v=duel_yt",
-            "description": "He didn't drop a single item for 2 minutes straight in front of a live crowd! Insane hand-eye coordination.\n\n#duel #talent #juggling #crowdreaction #mindblown #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('IMPOSSIBLE SPEED JUGGLING TRICK'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_16",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako Prepares Official Apology Statement To Duel 📄 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_16.mp4?v=sneako_vital",
+                "description": "Sneako on his notes app drafting a formal apology after disrespecting Duel during his broadcast!\n\n#duel #sneako #apology #statement #streamerlife #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO PREPARES APOLOGY TO DUEL PLATFORM'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_17",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "This Street Magic Trick Fooled Everyone 🪄 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_17.mp4?v=duel_yt",
-            "description": "Watch his hands closely because you will still miss how he pulled this off right in front of them!\n\n#duel #magic #streetmagic #illusions #reaction #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('HOW DID HE PULL THIS TRICK OFF'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_17",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako Reads His Duel Apology Out Loud To Chat 💀 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_17.mp4?v=sneako_vital",
+                "description": "Chat made him read every single word out loud without laughing! The most awkward 60 seconds ever 😂\n\n#duel #sneako #apologyletter #kickstream #funnymoments #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO READS DUEL OFFICIAL APOLOGY LETTER'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_18",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "Mike Perry Unfiltered Backstage At Duel Arena 🥊 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_18.mp4?v=duel_yt",
-            "description": "Mike Perry never has a filter! Backstage interview before stepping inside the arena.\n\n#duel #mikeperry #bkfc #ufc #combatsports #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('MIKE PERRY GOES COMPLETELY UNHINGED'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_18",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "The Donation That Made Sneako Want To Walk Off Stream 🚪 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_18.mp4?v=sneako_vital",
+                "description": "He literally pushed his chair back and stared into the ceiling when this donation came in 😭\n\n#duel #sneako #ragequit #streamerfails #funny #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('CHAT SENDS ANOTHER DUEL DONO TO SNEAKO'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_19",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "IShowSpeed's Most Chaotic Duel Reaction ⚡ #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_19.mp4?v=duel_yt",
-            "description": "Speed jumping out of his gaming chair screaming at the screen! Pure unadulterated chaos ⚡\n\n#duel #ishowspeed #speed #streamer #funnyreaction #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('IShowSpeed COULD NOT BELIEVE THIS'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_19",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Sneako Begs Viewers To Stop Sending Duel Donos 🙏 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_19.mp4?v=sneako_vital",
+                "description": "'Please bro, I am begging you, stop mentioning Duel in the TTS!' Chat took that as a challenge 😂\n\n#duel #sneako #begging #troll #kick #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('SNEAKO GETS SICK OF DUEL DONATIONS'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         },
         {
-            "id": "duel_shorts_20",
-            "addedTime": "Oct 04, 2026 • 11:00 AM",
-            "batchTag": "Duel [YT Shorts] Exclusive Drops",
-            "title": "xQc Speechless At The Final Second Outcome 🤯 #shorts",
-            "duration": "0:11",
-            "quality": "1080x1920 (9:16 Shorts HD)",
-            "videoSrc": "/campaigns/duel_shorts/duel_20.mp4?v=duel_yt",
-            "description": "Even xQc had to pause and rewatch the replay 3 times to understand what just happened!\n\n#duel #xqc #kickstream #reactions #gamingmoments #shorts",
-            "hashtags": [
-                "#duel",
-                "#shorts",
-                "#gaming",
-                "#pvp",
-                "#viral"
-            ],
-            "payoutRate": "$10.00 / 1K Views (Min 1,750 Views, Max 35/day)",
-            "loopNote": "Duel YT Shorts Formula: On-screen top hook ('xQc STUNNED BY HIGH STAKES MATCH'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
+                "id": "duel_20",
+                "addedTime": "Oct 04, 2026 • 05:00 PM",
+                "batchTag": "Today's 20 Viral Drops (Oct 4)",
+                "title": "Clavicular vs Sneako Live Duel Showdown 🥊 #shorts",
+                "duration": "0:11",
+                "quality": "1080x1920 (9:16 Shorts HD)",
+                "videoSrc": "/campaigns/duel_shorts/duel_20.mp4?v=sneako_vital",
+                "description": "The ultimate faceoff! Clavicular and Sneako go head-to-head on Duel to settle their dispute once and for all 🔥\n\n#duel #sneako #clavicular #showdown #pvp #shorts",
+                "hashtags": [
+                        "#duel",
+                        "#sneako",
+                        "#shorts",
+                        "#streamer",
+                        "#gaming"
+                ],
+                "payoutRate": "$10.00 CPM ($2,000 Max)",
+                "loopNote": "Duel YT Shorts Formula: On-screen top hook ('CLAVICULAR AND SNEAKO DUEL SHOWDOWN'). YouTube Shorts ONLY. Min 7s length. Min 1% engagement. 40%+ Tier-1 (US/UK/CA/AU)."
         }
-    ]
-}
+      ]
+  }
 ];
 
 const LILSHEY_CAMPAIGNS: CampaignSlot[] = [
   {
-    "campaignId": "lilshey_zeds_music",
-    "campaignName": "Zeds Dead Music Clipping (Official Tour Drop)",
-    "category": "Electronic & Bass Music (Deadbeats Records)",
-    "status": "Live & Active (Strict Lilshey Exclusive)",
-    "payout": "$1,000 / 1M Views ($500 Max)",
-    "batches": [
-      "All Drops",
-      "Today's 15 Music Drops (Oct 2)"
+    campaignId: "lilshey_zeds_music",
+    campaignName: "Zeds Dead Music Clipping (3-Day Drop Pack - 45 Unique Videos)",
+    category: "Electronic & Bass Music (Deadbeats Records)",
+    status: "Live & Active (Strict Lilshey Exclusive)",
+    payout: "$1,000 / 1M Views ($500 Max)",
+    batches: [
+      "All Drops (45)",
+      "Day 1 Drop (15 Videos)",
+      "Day 2 Drop (15 Videos)",
+      "Day 3 Drop (15 Videos)"
     ],
-    "clips": [
+    clips: [
       {
-            "id": "lilshey_zeds_01",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "The Hypnotic Vocal Buildup At 3 AM In Miami 🔮 @zedsdead #shorts",
-            "duration": "0:15",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_01.mp4?v=oct2_music",
-            "description": "Factory Town was completely in a trance when this vocal buildup started floating over the 140 BPM sub pressure. 🌙🔊\n\n#zedsdead #bassmusic #miamimusicweek #dubstep #electronicmusic",
+            "id": "lilshey_zeds_d1_01",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "Hypnotic 3am Vocal Buildup In Miami ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_01.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: HYPNOTIC 3AM VOCAL BUILDUP IN MIAMI. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
             "hashtags": [
                   "#zedsdead",
                   "#bassmusic",
-                  "#miamimusicweek",
+                  "#festivalseason",
                   "#dubstep",
                   "#electronicmusic"
             ],
             "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "15s hypnotic vocal intro building tension before the chromatic laser explosion."
+            "loopNote": "10s high-retention cut from FPV RAW 1.mov (20s - 30.0s). Top hook: \"HYPNOTIC 3AM VOCAL BUILDUP IN MIAMI\"."
       },
       {
-            "id": "lilshey_zeds_02",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "When The Chromatic Lasers Explode In 4K 🌈 @zedsdead #shorts",
-            "duration": "0:16",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_02.mp4?v=oct2_music",
-            "description": "Every single laser in the venue fired at the exact same millisecond. Pure sensory overload in Factory Town! ⚡💥\n\n#rave #lasers #visuals #festivalseason #basshead",
+            "id": "lilshey_zeds_d1_02",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "Cryo Fog Eruption Over Factory Town ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_02.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: CRYO FOG ERUPTION OVER FACTORY TOWN. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
             "hashtags": [
-                  "#rave",
-                  "#lasers",
-                  "#visuals",
+                  "#zedsdead",
+                  "#bassmusic",
                   "#festivalseason",
-                  "#basshead"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "16s peak visual energy with full chromatic laser spread across the crowd."
-      },
-      {
-            "id": "lilshey_zeds_03",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "Second Drop Stole Everyone's Breath Away 🌪️ @zedsdead #shorts",
-            "duration": "0:16",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_03.mp4?v=oct2_music",
-            "description": "Just when the crowd thought they caught their breath, Zeds Dead doubled down with this filthy second drop! 🐱🔊\n\n#edmtok #bassdrop #drops #headbanger #ravegirls",
-            "hashtags": [
-                  "#edmtok",
-                  "#bassdrop",
-                  "#drops",
-                  "#headbanger",
-                  "#ravegirls"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "16s secondary bass drop highlighting massive crowd reaction."
-      },
-      {
-            "id": "lilshey_zeds_04",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "Frank Sinatra Horns Cut Into Heavy Dubstep 🎺 @zedsdead #shorts",
-            "duration": "0:15",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_04.mp4?v=oct2_music",
-            "description": "Taking classic 1950s swing brass and slamming it straight into a sub-bass rumble! Nobody merges genres like Zeds Dead. 🎷🔥\n\n#retromusic #oldschool #bassboosted #remix #electronic",
-            "hashtags": [
-                  "#retromusic",
-                  "#oldschool",
-                  "#bassboosted",
-                  "#remix",
-                  "#electronic"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "15s vintage swing intro leading straight into the first brass hit."
-      },
-      {
-            "id": "lilshey_zeds_05",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "The Swing Groove That Controlled The Entire Venue 🎩 @zedsdead #shorts",
-            "duration": "0:16",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_05.mp4?v=oct2_music",
-            "description": "Look at the entire outdoor terrace bouncing in sync to this swing rhythm. Pure infectious festival energy! 💃🕺\n\n#festivalvibes #danceparty #openair #miaminights #ravevibes",
-            "hashtags": [
-                  "#festivalvibes",
-                  "#danceparty",
-                  "#openair",
-                  "#miaminights",
-                  "#ravevibes"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "16s continuous swing bounce with synchronized outdoor crowd movement."
-      },
-      {
-            "id": "lilshey_zeds_06",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "Biggie Smalls Vocals Chopped Over 140 BPM Sub 👑 @zedsdead #shorts",
-            "duration": "0:16",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_06.mp4?v=oct2_music",
-            "description": "The King of New York acapella floating over rolling sub frequencies. The bass pressure in the chest was real! 🗽🔊\n\n#notoriousbig #hiphopedm #bassculture #sounddesign #dnb",
-            "hashtags": [
-                  "#notoriousbig",
-                  "#hiphopedm",
-                  "#bassculture",
-                  "#sounddesign",
-                  "#dnb"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "16s hip-hop vocal chop over heavy sub-bass rhythm."
-      },
-      {
-            "id": "lilshey_zeds_07",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "NYC Rap Acapella Into Aggressive Sub Rattle 🚨 @zedsdead #shorts",
-            "duration": "0:16",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_07.mp4?v=oct2_music",
-            "description": "When Jay Z's iconic flow gets backed by stadium subwoofers, the whole zip code feels the bass shake! 🏙️💥\n\n#jayz #subwoofer #caraudio #stadiumbass #hype",
-            "hashtags": [
-                  "#jayz",
-                  "#subwoofer",
-                  "#caraudio",
-                  "#stadiumbass",
-                  "#hype"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "16s Jay-Z vocal flow colliding with heavy 808 sub."
-      },
-      {
-            "id": "lilshey_zeds_08",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "Shook Ones Pt II Sample Resampled Into Filthy Bass 🎹 @zedsdead #shorts",
-            "duration": "0:15",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_08.mp4?v=oct2_music",
-            "description": "That legendary 1995 Queensbridge piano hook right before the low-end frequency drops. Legendary tribute! 🎹💀\n\n#mobbdeep #90shiphop #bassheads #rave #undergroundbass",
-            "hashtags": [
-                  "#mobbdeep",
-                  "#90shiphop",
-                  "#bassheads",
-                  "#rave",
-                  "#undergroundbass"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "15s iconic piano progression into deep sub bass hit."
-      },
-      {
-            "id": "lilshey_zeds_09",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "16 Bars Of Brass & Strobe Synchronicity 🎺 @zedsdead #shorts",
-            "duration": "0:16",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_09.mp4?v=oct2_music",
-            "description": "Blinding white strobes matching every high-frequency brass hit in Miami! Audio-visual production at its highest peak. ⚡🎺\n\n#strobelights #lightingcrew #stageproduction #musicfestival",
-            "hashtags": [
-                  "#strobelights",
-                  "#lightingcrew",
-                  "#stageproduction",
-                  "#musicfestival"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "16s rapid brass chops accompanied by intense strobe lighting."
-      },
-      {
-            "id": "lilshey_zeds_10",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "FPV Drone Inside Empty Amphitheatre Rehearsal 🛸 @zedsdead #shorts",
-            "duration": "0:15",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_10.mp4?v=oct2_music",
-            "description": "Watch this high-speed drone dive straight toward the main stage subwoofers during sound check. Insane pilot skill! 🚀🎧\n\n#fpvdrone #behindthescenes #production #tourlife #redrocks",
-            "hashtags": [
-                  "#fpvdrone",
-                  "#behindthescenes",
-                  "#production",
-                  "#tourlife",
-                  "#redrocks"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "15s acrobatic FPV drone flight passing right past main stage speaker stacks."
-      },
-      {
-            "id": "lilshey_zeds_11",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "FPV Drone Climbing The 80-Foot Lighting Truss 🏗️ @zedsdead #shorts",
-            "duration": "0:16",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_11.mp4?v=oct2_music",
-            "description": "Climbing through the industrial steel rigging high above the stage floor. The scale of this tour rig is massive! 🌌⚡\n\n#rigging #stagelife #fpvpilot #lightingdesign #concertvenue",
-            "hashtags": [
-                  "#rigging",
-                  "#stagelife",
-                  "#fpvpilot",
-                  "#lightingdesign",
-                  "#concertvenue"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "16s vertical ascent through high-altitude lighting truss structures."
-      },
-      {
-            "id": "lilshey_zeds_12",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "Supersonic FPV Dive Right Over The CDJ Booth 🎛️ @zedsdead #shorts",
-            "duration": "0:15",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_12.mp4?v=oct2_music",
-            "description": "Coming in hot at 50 MPH and leveling out inches from the DJ mixer! Precision flying at the outdoor amphitheatre. 🎯✨\n\n#djbooth #pioneerdj #fpvracing #redrocksamphitheater #stagegear",
-            "hashtags": [
-                  "#djbooth",
-                  "#pioneerdj",
-                  "#fpvracing",
-                  "#redrocksamphitheater",
-                  "#stagegear"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "15s high-velocity dive over the DJ performance platform."
-      },
-      {
-            "id": "lilshey_zeds_13",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "360 Drone Spin In Front Of Massive LED Wall 🌀 @zedsdead #shorts",
-            "duration": "0:15",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_13.mp4?v=oct2_music",
-            "description": "Inverted roll right in front of the giant deadbeats logo on the LED screen. Cinematic drone cinematography! 🎥👾\n\n#dronecinematography #aerobatics #visualeffects #stageart",
-            "hashtags": [
-                  "#dronecinematography",
-                  "#aerobatics",
-                  "#visualeffects",
-                  "#stageart"
-            ],
-            "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "15s rotational acrobatic move framed against the central LED screen."
-      },
-      {
-            "id": "lilshey_zeds_14",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "Flying Under A Ceiling Of Pure Neon Green Lasers 🟢 @zedsdead #shorts",
-            "duration": "0:16",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_14.mp4?v=oct2_music",
-            "description": "Cutting through the atmospheric fog under a roof of slicing emerald lasers. Looks straight out of the Matrix! 🟩🛸\n\n#lasertunnel #thematrix #laserlights #indoorrave #electronicmusic",
-            "hashtags": [
-                  "#lasertunnel",
-                  "#thematrix",
-                  "#laserlights",
-                  "#indoorrave",
+                  "#dubstep",
                   "#electronicmusic"
             ],
             "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "16s glide through dense neon green laser ceiling."
+            "loopNote": "10s high-retention cut from FPV RAW 1.mov (30s - 40.0s). Top hook: \"CRYO FOG ERUPTION OVER FACTORY TOWN\"."
       },
       {
-            "id": "lilshey_zeds_15",
-            "addedTime": "Oct 02, 2026 • 02:30 PM",
-            "batchTag": "Today's 15 Music Drops (Oct 2)",
-            "title": "FPV Drone Threading The Gap Between LED Towers 🏙️ @zedsdead #shorts",
-            "duration": "0:16",
-            "quality": "1080x1920 (9:16 Vertical HD)",
-            "videoSrc": "/campaigns/lilshey_zeds/lilshey_zeds_15.mp4?v=oct2_music",
-            "description": "Only 4 feet of clearance between multi-million dollar video walls! High stakes flying before showtime. 🕹️🔥\n\n#highstakes #dronefails #skillcheck #liveproduction #deadbeats",
+            "id": "lilshey_zeds_d1_03",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "Gliding Through Emerald Laser Beams ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_03.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: GLIDING THROUGH EMERALD LASER BEAMS. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
             "hashtags": [
-                  "#highstakes",
-                  "#dronefails",
-                  "#skillcheck",
-                  "#liveproduction",
-                  "#deadbeats"
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
             ],
             "payoutRate": "$1,000 / 1M Views ($500 Max)",
-            "loopNote": "16s precision gap-threading between main stage LED pillars."
+            "loopNote": "10s high-retention cut from FPV RAW 3.mov (0s - 10.0s). Top hook: \"GLIDING THROUGH EMERALD LASER BEAMS\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_04",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "That Sub Bass Drop At 140 Bpm ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_04.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: THAT SUB BASS DROP AT 140 BPM. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 3.mov (10s - 20.0s). Top hook: \"THAT SUB BASS DROP AT 140 BPM\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_05",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "The Sunrise Chords Hit Different ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_05.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: THE SUNRISE CHORDS HIT DIFFERENT. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 3.mov (20s - 30.0s). Top hook: \"THE SUNRISE CHORDS HIT DIFFERENT\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_06",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "Weightless Drone Flight Over The Main Stage ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_06.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: WEIGHTLESS DRONE FLIGHT OVER THE MAIN STAGE. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 4.mov (0s - 10.0s). Top hook: \"WEIGHTLESS DRONE FLIGHT OVER THE MAIN STAGE\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_07",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "Analog Jazz Meets Modern Sub Woofers ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_07.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: ANALOG JAZZ MEETS MODERN SUB WOOFERS. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 4.mov (10s - 20.0s). Top hook: \"ANALOG JAZZ MEETS MODERN SUB WOOFERS\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_08",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "The Moment The Whole Arena Froze ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_08.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: THE MOMENT THE WHOLE ARENA FROZE. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 4.mov (20s - 30.0s). Top hook: \"THE MOMENT THE WHOLE ARENA FROZE\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_09",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "Sub-bass Frequencies Tested At High Altitude ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_09.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: SUB-BASS FREQUENCIES TESTED AT HIGH ALTITUDE. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 5.mov (0s - 10.0s). Top hook: \"SUB-BASS FREQUENCIES TESTED AT HIGH ALTITUDE\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_10",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "Electric Vibes Rolling Through Miami ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_10.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: ELECTRIC VIBES ROLLING THROUGH MIAMI. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 5.mov (10s - 20.0s). Top hook: \"ELECTRIC VIBES ROLLING THROUGH MIAMI\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_11",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "The Pure Audience Adrenaline Rush ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_11.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: THE PURE AUDIENCE ADRENALINE RUSH. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 5.mov (20s - 30.0s). Top hook: \"THE PURE AUDIENCE ADRENALINE RUSH\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_12",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "Unreleased Summer Tour Edit Dropped Live ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_12.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: UNRELEASED SUMMER TOUR EDIT DROPPED LIVE. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 5.mov (30s - 40.0s). Top hook: \"UNRELEASED SUMMER TOUR EDIT DROPPED LIVE\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_13",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "Lasers Reflecting Off Red Rocks Monoliths ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_13.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: LASERS REFLECTING OFF RED ROCKS MONOLITHS. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 5.mov (40s - 50.0s). Top hook: \"LASERS REFLECTING OFF RED ROCKS MONOLITHS\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_14",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "Timeless Hip Hop Vocal Chops In The Air ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_14.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: TIMELESS HIP HOP VOCAL CHOPS IN THE AIR. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 5.mov (50s - 60.0s). Top hook: \"TIMELESS HIP HOP VOCAL CHOPS IN THE AIR\"."
+      },
+      {
+            "id": "lilshey_zeds_d1_15",
+            "addedTime": "Oct 04, 2026 • 09:00 AM",
+            "batchTag": "Day 1 Drop (15 Videos)",
+            "title": "Earthquake Bass Vibrations Detected ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d1_15.mp4?v=d1_drop",
+            "description": "Zeds Dead live tour edit: EARTHQUAKE BASS VIBRATIONS DETECTED. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 5.mov (60s - 70.0s). Top hook: \"EARTHQUAKE BASS VIBRATIONS DETECTED\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_01",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "Retro Vocal Chopped Over Heavy Sub ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_01.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: RETRO VOCAL CHOPPED OVER HEAVY SUB. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 10.mov (0s - 10.0s). Top hook: \"RETRO VOCAL CHOPPED OVER HEAVY SUB\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_02",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "Red Rocks Night Sky Filled With Lasers ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_02.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: RED ROCKS NIGHT SKY FILLED WITH LASERS. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 10.mov (10s - 20.0s). Top hook: \"RED ROCKS NIGHT SKY FILLED WITH LASERS\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_03",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "The Buildup That Gives Instant Goosebumps ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_03.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: THE BUILDUP THAT GIVES INSTANT GOOSEBUMPS. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 10.mov (20s - 30.0s). Top hook: \"THE BUILDUP THAT GIVES INSTANT GOOSEBUMPS\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_04",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "When The Bassline Takes Over The Floor ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_04.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: WHEN THE BASSLINE TAKES OVER THE FLOOR. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 10.mov (30s - 40.0s). Top hook: \"WHEN THE BASSLINE TAKES OVER THE FLOOR\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_05",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "Unreleased Summer Tour Id Tested ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_05.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: UNRELEASED SUMMER TOUR ID TESTED. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 10.mov (40s - 50.0s). Top hook: \"UNRELEASED SUMMER TOUR ID TESTED\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_06",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "The Coolest Fpv Angle Of The Entire Tour ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_06.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: THE COOLEST FPV ANGLE OF THE ENTIRE TOUR. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 10.mov (50s - 60.0s). Top hook: \"THE COOLEST FPV ANGLE OF THE ENTIRE TOUR\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_07",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "Vintage Swing Sample Flipped Into Chaos ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_07.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: VINTAGE SWING SAMPLE FLIPPED INTO CHAOS. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 10.mov (60s - 70.0s). Top hook: \"VINTAGE SWING SAMPLE FLIPPED INTO CHAOS\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_08",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "The Chord Progression That Broke Tiktok ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_08.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: THE CHORD PROGRESSION THAT BROKE TIKTOK. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 11.mov (0s - 10.0s). Top hook: \"THE CHORD PROGRESSION THAT BROKE TIKTOK\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_09",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "Miami Music Week Sunrise Anthem ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_09.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: MIAMI MUSIC WEEK SUNRISE ANTHEM. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 11.mov (10s - 20.0s). Top hook: \"MIAMI MUSIC WEEK SUNRISE ANTHEM\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_10",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "The Exact Reaction When Bass Kicks In ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_10.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: THE EXACT REACTION WHEN BASS KICKS IN. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 12.mov (0s - 10.0s). Top hook: \"THE EXACT REACTION WHEN BASS KICKS IN\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_11",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "Chasing Laser Beams Through Open Sky ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_11.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: CHASING LASER BEAMS THROUGH OPEN SKY. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 12.mov (10s - 20.0s). Top hook: \"CHASING LASER BEAMS THROUGH OPEN SKY\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_12",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "Stage Pyro Erupting On The Second Drop ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_12.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: STAGE PYRO ERUPTING ON THE SECOND DROP. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 12.mov (20s - 30.0s). Top hook: \"STAGE PYRO ERUPTING ON THE SECOND DROP\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_13",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "Deep Dubplate Groove Spreading Through Crowd ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_13.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: DEEP DUBPLATE GROOVE SPREADING THROUGH CROWD. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 13.mov (0s - 10.0s). Top hook: \"DEEP DUBPLATE GROOVE SPREADING THROUGH CROWD\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_14",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "When 10000 Voices Sing In Harmony ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_14.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: WHEN 10000 VOICES SING IN HARMONY. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 13.mov (10s - 20.0s). Top hook: \"WHEN 10000 VOICES SING IN HARMONY\"."
+      },
+      {
+            "id": "lilshey_zeds_d2_15",
+            "addedTime": "Oct 05, 2026 • 09:00 AM",
+            "batchTag": "Day 2 Drop (15 Videos)",
+            "title": "Surreal Aerial Drift Over Dj Platform ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d2_15.mp4?v=d2_drop",
+            "description": "Zeds Dead live tour edit: SURREAL AERIAL DRIFT OVER DJ PLATFORM. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 13.mov (20s - 30.0s). Top hook: \"SURREAL AERIAL DRIFT OVER DJ PLATFORM\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_01",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "Inverted Barrel Roll Over 10000 Heads ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_01.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: INVERTED BARREL ROLL OVER 10000 HEADS. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 13.mov (30s - 40.0s). Top hook: \"INVERTED BARREL ROLL OVER 10000 HEADS\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_02",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "Can Your Speakers Survive This Sub Drop ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_02.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: CAN YOUR SPEAKERS SURVIVE THIS SUB DROP. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 13.mov (40s - 50.0s). Top hook: \"CAN YOUR SPEAKERS SURVIVE THIS SUB DROP\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_03",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "Factory Town At 4-30 In The Morning ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_03.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: FACTORY TOWN AT 4-30 IN THE MORNING. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (0s - 10.0s). Top hook: \"FACTORY TOWN AT 4-30 IN THE MORNING\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_04",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "Stage Production Timed To Perfection ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_04.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: STAGE PRODUCTION TIMED TO PERFECTION. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (10s - 20.0s). Top hook: \"STAGE PRODUCTION TIMED TO PERFECTION\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_05",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "The Moment The Whole Crowd Jumped ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_05.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: THE MOMENT THE WHOLE CROWD JUMPED. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (20s - 30.0s). Top hook: \"THE MOMENT THE WHOLE CROWD JUMPED\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_06",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "Crisp Analog Drums Cutting Through Night ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_06.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: CRISP ANALOG DRUMS CUTTING THROUGH NIGHT. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (30s - 40.0s). Top hook: \"CRISP ANALOG DRUMS CUTTING THROUGH NIGHT\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_07",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "The Heaviest Sub Drop Of The Weekend ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_07.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: THE HEAVIEST SUB DROP OF THE WEEKEND. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (40s - 50.0s). Top hook: \"THE HEAVIEST SUB DROP OF THE WEEKEND\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_08",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "Panoramic Mountain View Dipped In Lasers ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_08.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: PANORAMIC MOUNTAIN VIEW DIPPED IN LASERS. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (50s - 60.0s). Top hook: \"PANORAMIC MOUNTAIN VIEW DIPPED IN LASERS\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_09",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "That Chill Down Your Spine When Vocals Hit ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_09.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: THAT CHILL DOWN YOUR SPINE WHEN VOCALS HIT. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (60s - 70.0s). Top hook: \"THAT CHILL DOWN YOUR SPINE WHEN VOCALS HIT\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_10",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "Fpv Pilot Pushing Limits Over The Booth ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_10.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: FPV PILOT PUSHING LIMITS OVER THE BOOTH. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (70s - 80.0s). Top hook: \"FPV PILOT PUSHING LIMITS OVER THE BOOTH\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_11",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "Classic Zeds Dead Energy Takes Over ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_11.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: CLASSIC ZEDS DEAD ENERGY TAKES OVER. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (80s - 90.0s). Top hook: \"CLASSIC ZEDS DEAD ENERGY TAKES OVER\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_12",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "Midnight Crowd Reaction At Maximum Hype ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_12.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: MIDNIGHT CROWD REACTION AT MAXIMUM HYPE. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (90s - 100.0s). Top hook: \"MIDNIGHT CROWD REACTION AT MAXIMUM HYPE\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_13",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "The Cleanest Bassline Transition Of 2026 ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_13.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: THE CLEANEST BASSLINE TRANSITION OF 2026. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (100s - 110.0s). Top hook: \"THE CLEANEST BASSLINE TRANSITION OF 2026\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_14",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "High Voltage Strobes Melting The Stage ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_14.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: HIGH VOLTAGE STROBES MELTING THE STAGE. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (110s - 120.0s). Top hook: \"HIGH VOLTAGE STROBES MELTING THE STAGE\"."
+      },
+      {
+            "id": "lilshey_zeds_d3_15",
+            "addedTime": "Oct 06, 2026 • 09:00 AM",
+            "batchTag": "Day 3 Drop (15 Videos)",
+            "title": "Unforgettable Finale Under Colorado Stars ✨ @zedsdead #shorts",
+            "duration": "0:10",
+            "quality": "1080x1920 (9:16 Master HD)",
+            "videoSrc": "/campaigns/lilshey_zeds_3days/lilshey_zeds_d3_15.mp4?v=d3_drop",
+            "description": "Zeds Dead live tour edit: UNFORGETTABLE FINALE UNDER COLORADO STARS. Silky atmosphere building into earth-shaking sub frequencies! ⚡✨\n\n@zedsdead\n\n#zedsdead #bassmusic #festivalseason #dubstep #electronicmusic",
+            "hashtags": [
+                  "#zedsdead",
+                  "#bassmusic",
+                  "#festivalseason",
+                  "#dubstep",
+                  "#electronicmusic"
+            ],
+            "payoutRate": "$1,000 / 1M Views ($500 Max)",
+            "loopNote": "10s high-retention cut from FPV RAW 6.mov (120s - 130.0s). Top hook: \"UNFORGETTABLE FINALE UNDER COLORADO STARS\"."
       }
 ]
   },
   {
-    "campaignId": "lilshey_camp_2",
-    "campaignName": "Campaign Drop Beta (Lilshey Slot 2)",
-    "category": "Cinema & Viral Trends",
-    "status": "Standby For Drop",
-    "payout": "$850 - $1,200 / 1M Views",
-    "batches": [
+    campaignId: "lilshey_camp_2",
+    campaignName: "Campaign Drop Beta (Lilshey Slot 2)",
+    category: "Cinema & Viral Trends",
+    status: "Standby For Drop",
+    payout: "$850 - $1,200 / 1M Views",
+    batches: [
       "All Drops"
     ],
-    "clips": []
+    clips: []
   }
 ];
 

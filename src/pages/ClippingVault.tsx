@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   motion, AnimatePresence } from "framer-motion";
 import { 
-  Lock, LogOut, Download, Copy, Check, 
+  Lock, LogOut, Download, Copy, Check, Link as LinkIcon, ExternalLink, 
   Shield, Flame, Sparkles, Clock, AlertCircle, ArrowUpRight,
   Zap, Play, CheckCircle2, Trash2, RotateCcw, Archive,
   Volume2, VolumeX, SkipForward, Pause, Disc3, Music
@@ -5905,7 +5905,10 @@ function DeferredVideoCard({
   onToggleSelect,
   onOffload,
   onRestore,
-  isOffloaded
+  isOffloaded,
+  cachedLink,
+  onSaveLink,
+  onRemoveLink
 }: { 
   clip: CampaignClip; 
   isSelected?: boolean; 
@@ -5913,7 +5916,13 @@ function DeferredVideoCard({
   onOffload?: () => void;
   onRestore?: () => void;
   isOffloaded?: boolean;
+  cachedLink?: { url: string; time: string; title: string };
+  onSaveLink?: (url: string) => void;
+  onRemoveLink?: () => void;
 }) {
+  const [linkInput, setLinkInput] = useState(cachedLink?.url || "");
+  const [isEditingLink, setIsEditingLink] = useState(false);
+  const [copiedCachedLink, setCopiedCachedLink] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -6074,6 +6083,87 @@ function DeferredVideoCard({
       </div>
 
       <div className="p-4 pt-0 space-y-2">
+        {/* Whop Link Cacher Quick Bar */}
+        <div className="bg-[#0b0e17] border border-[#1b2234] p-2.5 rounded-xl space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-bold flex items-center gap-1">
+              <LinkIcon className="w-3 h-3" />
+              Whop Link Cacher
+            </span>
+            {cachedLink && (
+              <span className="text-[9px] text-neutral-400 font-mono">
+                Cached {cachedLink.time}
+              </span>
+            )}
+          </div>
+
+          {cachedLink ? (
+            <div className="flex items-center gap-1.5">
+              <input 
+                type="text" 
+                readOnly 
+                value={cachedLink.url} 
+                className="w-full bg-[#070a10] border border-emerald-500/40 rounded-lg px-2.5 py-1.5 text-xs font-mono text-emerald-300 selection:bg-emerald-500/30 truncate" 
+              />
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(cachedLink.url);
+                  setCopiedCachedLink(true);
+                  setTimeout(() => setCopiedCachedLink(false), 2000);
+                }}
+                className="py-1.5 px-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1 shadow-md shrink-0 active:scale-95"
+                title="Copy Link for Whop"
+              >
+                {copiedCachedLink ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                <span>{copiedCachedLink ? "Copied" : "Copy"}</span>
+              </button>
+              {onRemoveLink && (
+                <button
+                  onClick={onRemoveLink}
+                  className="p-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-400 hover:text-rose-400 transition"
+                  title="Clear link"
+                >
+                  <Trash2 className="w-3 h-3" />
+                </button>
+              )}
+            </div>
+          ) : isEditingLink ? (
+            <div className="flex items-center gap-1.5">
+              <input
+                type="text"
+                placeholder="Paste YouTube Short link..."
+                value={linkInput}
+                onChange={e => setLinkInput(e.target.value)}
+                className="w-full bg-[#070a10] border border-blue-500/50 rounded-lg px-2.5 py-1.5 text-xs font-mono text-white placeholder-neutral-500 focus:outline-none"
+              />
+              <button
+                onClick={() => {
+                  if (linkInput.trim() && onSaveLink) {
+                    onSaveLink(linkInput.trim());
+                    setIsEditingLink(false);
+                  }
+                }}
+                className="py-1.5 px-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shrink-0"
+              >
+                Save
+              </button>
+              <button
+                onClick={() => setIsEditingLink(false)}
+                className="py-1.5 px-2 rounded-lg bg-neutral-800 text-neutral-400 text-xs shrink-0"
+              >
+                ✕
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setIsEditingLink(true)}
+              className="w-full py-1.5 px-3 rounded-lg bg-[#121826] hover:bg-[#1a2336] border border-[#232f48] text-neutral-300 hover:text-white text-xs font-medium flex items-center justify-center gap-1.5 transition-all text-center"
+            >
+              <span>+ Cache Uploaded Short Link</span>
+            </button>
+          )}
+        </div>
+
         <div className="grid grid-cols-2 gap-2">
           <button
             onClick={handleCopyTitle}
@@ -6142,6 +6232,41 @@ export default function ClippingVault() {
   const [slotTab, setSlotTab] = useState<Record<string, "active" | "offloaded">>({});
   const [visibleLimit, setVisibleLimit] = useState<Record<string, number>>({});
   const [downloadToast, setDownloadToast] = useState<string>("");
+  const [showLinkCacher, setShowLinkCacher] = useState<boolean>(false);
+  const [cachedLinks, setCachedLinks] = useState<Record<string, { url: string; time: string; title: string }>>(() => {
+    try {
+      const saved = localStorage.getItem("clipping_cached_links_ceo");
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  const saveCachedLink = (clipId: string, url: string, title: string) => {
+    setCachedLinks(prev => {
+      const next = {
+        ...prev,
+        [clipId]: { url, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), title }
+      };
+      try {
+        localStorage.setItem("clipping_cached_links_ceo", JSON.stringify(next));
+      } catch (e) {}
+      return next;
+    });
+    setDownloadToast("✓ Link saved to Link Cacher for Whop!");
+    setTimeout(() => setDownloadToast(""), 3000);
+  };
+
+  const removeCachedLink = (clipId: string) => {
+    setCachedLinks(prev => {
+      const next = { ...prev };
+      delete next[clipId];
+      try {
+        localStorage.setItem("clipping_cached_links_ceo", JSON.stringify(next));
+      } catch (e) {}
+      return next;
+    });
+  };
 
   const [offloadedClipIds, setOffloadedClipIds] = useState<string[]>(() => {
     const user = localStorage.getItem("clipping_user") || "ceo";
@@ -6808,7 +6933,27 @@ export default function ClippingVault() {
             </div>
           )}
 
-          <button
+          {currentUser === "ceo" && (
+              <button
+                onClick={() => setShowLinkCacher(prev => !prev)}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md active:scale-95 ${
+                  showLinkCacher
+                    ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-emerald-500/25 ring-2 ring-emerald-400/50"
+                    : "bg-[#101726] hover:bg-[#172238] border border-emerald-500/40 text-emerald-300"
+                }`}
+                title="Toggle Link Cacher for Whop Clipr Submissions"
+              >
+                <LinkIcon className="w-3.5 h-3.5" />
+                <span>Link Cacher</span>
+                {Object.keys(cachedLinks).length > 0 && (
+                  <span className="ml-0.5 px-1.5 py-0.2 rounded-full text-[10px] bg-emerald-400 text-black font-extrabold font-mono">
+                    {Object.keys(cachedLinks).length}
+                  </span>
+                )}
+              </button>
+            )}
+
+            <button
               onClick={handleLogout}
               className="flex items-center gap-1.5 bg-[#141926] hover:bg-[#1b2234] border border-[#1b2234] px-3.5 py-1.5 rounded-xl text-xs font-semibold text-neutral-300 hover:text-white transition-all"
             >
@@ -7336,6 +7481,9 @@ export default function ClippingVault() {
                                 onOffload={() => handleOffloadClips([clip.id])}
                                 onRestore={() => handleRestoreClip(clip.id)}
                                 isOffloaded={offloadedClipIds.includes(clip.id)}
+                                cachedLink={cachedLinks[clip.id]}
+                                onSaveLink={(url) => saveCachedLink(clip.id, url, clip.title)}
+                                onRemoveLink={() => removeCachedLink(clip.id)}
                               />
                             ))}
                         </div>
@@ -7411,6 +7559,103 @@ export default function ClippingVault() {
         </div>
 
       </main>
+
+      {/* Dedicated Whop Link Cacher Quick-Drawer */}
+      <AnimatePresence>
+        {showLinkCacher && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: 20 }}
+            className="fixed inset-x-4 bottom-6 sm:inset-x-auto sm:right-6 sm:bottom-6 sm:w-[480px] z-50 bg-[#0e1422]/98 backdrop-blur-2xl border border-emerald-500/40 rounded-3xl p-6 shadow-2xl text-white space-y-4 max-h-[80vh] flex flex-col"
+          >
+            <div className="flex items-center justify-between pb-3 border-b border-[#1b2234]">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+                  <LinkIcon className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="font-extrabold text-sm text-white">Whop Link Cacher Suite</h3>
+                  <span className="text-[10px] text-emerald-400 font-mono">1-Tap Copy & Submission Sync</span>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowLinkCacher(false)}
+                className="w-7 h-7 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-400 hover:text-white flex items-center justify-center text-xs font-bold transition"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="text-xs text-neutral-400 leading-relaxed">
+              Copy your published YouTube Short URLs directly into Whop's Clipr Rewards dashboard. Once submitted, tap <strong className="text-purple-300">Offload</strong> on the card to clear it.
+            </div>
+
+            {Object.keys(cachedLinks).length === 0 ? (
+              <div className="bg-[#080b12] border border-[#172033] rounded-2xl p-6 text-center space-y-2 my-auto">
+                <span className="text-2xl">⚡</span>
+                <h4 className="text-xs font-bold text-neutral-300">No Cached Links Yet</h4>
+                <p className="text-[11px] text-neutral-500 max-w-xs mx-auto">
+                  As you post videos to YouTube, paste their links directly on each card or use the quick adder below.
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-2 overflow-y-auto pr-1 flex-1 max-h-[380px]">
+                {Object.entries(cachedLinks).map(([clipId, item]) => (
+                  <div key={clipId} className="bg-[#090d16] border border-emerald-500/30 rounded-xl p-3 space-y-1.5 group hover:border-emerald-500/60 transition">
+                    <div className="flex items-center justify-between text-[11px]">
+                      <span className="font-mono text-blue-400 font-bold uppercase truncate max-w-[200px]">{clipId}</span>
+                      <span className="text-neutral-500 text-[10px]">{item.time}</span>
+                    </div>
+                    <p className="text-xs text-white font-medium line-clamp-1">{item.title}</p>
+                    <div className="flex items-center gap-1.5 pt-1">
+                      <input 
+                        type="text" 
+                        readOnly 
+                        value={item.url} 
+                        className="w-full bg-[#05070c] border border-[#1b2234] rounded-lg px-2.5 py-1 text-xs font-mono text-emerald-300 truncate" 
+                      />
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(item.url);
+                          setDownloadToast("✓ Link copied! Ready to paste into Whop Clipr.");
+                          setTimeout(() => setDownloadToast(""), 3000);
+                        }}
+                        className="py-1 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shrink-0 flex items-center gap-1 shadow-md active:scale-95"
+                      >
+                        <Copy className="w-3 h-3" />
+                        <span>Copy</span>
+                      </button>
+                      <button
+                        onClick={() => removeCachedLink(clipId)}
+                        className="p-1 rounded-lg hover:bg-neutral-800 text-neutral-500 hover:text-rose-400 transition shrink-0"
+                        title="Remove"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="pt-2 border-t border-[#1b2234] flex items-center justify-between">
+              <span className="text-[11px] font-mono text-neutral-400">
+                {Object.keys(cachedLinks).length} {Object.keys(cachedLinks).length === 1 ? "Link" : "Links"} Stored
+              </span>
+              <a
+                href="https://whop.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 transition"
+              >
+                <span>Open Whop</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Global Floating Action Bar for Selected Clips */}
       {selectedClipIds.length > 0 && (

@@ -1544,16 +1544,777 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
 ]
   },
   {
-    campaignId: "ceo_camp_2",
-    campaignName: "Channel 2: Viral Gaming & Web3 (Duel & XGL)",
-    category: "Gaming Clips & High Stakes Drops",
-    status: "Standby For Drop",
-    payout: "$10.00 CPM (Duel) / $2.50 CPM (XGL)",
-    batches: [
-      "All Drops (20)"
-    ],
-    clips: []
-  }
+  "campaignId": "ceo_sideshift_ai",
+  "campaignName": "Channel 2: SideShift (AI Creator Marketer - 20 Master Drops)",
+  "category": "AI Marketing, Autonomous Creator Scaling & UGC Operations (sideshift.app)",
+  "status": "Live & Active (Strict CEO Exclusive)",
+  "payout": "$1.50 / 1k Views ($300 Max • $1,000 Budget)",
+  "batches": [
+    "All Drops (20)",
+    "Launch Campaign (20 Master Drops)"
+  ],
+  "clips": [
+    {
+      "id": "ceo_sideshift_01",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How Top DTC Brands Scale 1,000 Influencers On Autopilot 🤖 #ai #marketing",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_01.mp4?v=sideshift_launch",
+      "description": "Stop manually DMing creators. SideShift's AI Creator Marketer finds, contacts, and negotiates with creators while you sleep! 📈\\n\\n🔗 sideshift.app\\n\\n#SideShift #CreatorMarketing #UGC #GrowthHacking #Ecommerce #SaaS",
+      "hashtags": [
+        "#SideShift",
+        "#CreatorMarketing",
+        "#UGC",
+        "#GrowthHacking",
+        "#Ecommerce",
+        "#SaaS"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s viral hook on scaling creator marketing without agencies."
+    },
+    {
+      "id": "ceo_sideshift_02",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "SideShift AI Finds Creators Who Actually Drive Sales 🤯 #marketingtips",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_02.mp4?v=sideshift_launch",
+      "description": "Most agencies match vanity metrics. SideShift analyzes deep audience sentiment and past conversion velocity! 🎯\\n\\n🔗 sideshift.app\\n\\n#SideShift #AICreator #InfluencerMarketing #PerformanceMarketing #DTC",
+      "hashtags": [
+        "#SideShift",
+        "#AICreator",
+        "#InfluencerMarketing",
+        "#PerformanceMarketing",
+        "#DTC"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s breakdown of AI sentiment matching vs vanity metrics."
+    },
+    {
+      "id": "ceo_sideshift_03",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "The Death of Traditional Influencer Agencies? 👀 #businessgrowth",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_03.mp4?v=sideshift_launch",
+      "description": "Why pay a $10,000 monthly agency retainer when an AI creator marketer can do 10x the outreach in 2 minutes? 🔥\\n\\n🔗 sideshift.app\\n\\n#SideShift #AgencyLife #StartupTips #Productivity #BusinessHacks",
+      "hashtags": [
+        "#SideShift",
+        "#AgencyLife",
+        "#StartupTips",
+        "#Productivity",
+        "#BusinessHacks"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s comparison: $10k/month retainer vs autonomous AI."
+    },
+    {
+      "id": "ceo_sideshift_04",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How To Automate Creator Contracts & Deliverables in 60s ✍️ #ecommerce",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_04.mp4?v=sideshift_launch",
+      "description": "From offer letter to signed contract and brief delivery—SideShift automates the entire creator operations stack! 💼\\n\\n🔗 sideshift.app\\n\\n#SideShift #CreatorEconomy #SaaS #Operations #Growth",
+      "hashtags": [
+        "#SideShift",
+        "#CreatorEconomy",
+        "#SaaS",
+        "#Operations",
+        "#Growth"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s workflow demo from initial offer to signed agreement."
+    },
+    {
+      "id": "ceo_sideshift_05",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "This AI Marketer Ran A 50-Creator Campaign In 1 Day ⚡ #growthhacks",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_05.mp4?v=sideshift_launch",
+      "description": "Imagine briefing 50 top-tier creators before lunchtime. SideShift makes high-velocity creator marketing effortless! 🚀\\n\\n🔗 sideshift.app\\n\\n#SideShift #UGCStrategy #MarketingStrategy #ViralMarketing #Scale",
+      "hashtags": [
+        "#SideShift",
+        "#UGCStrategy",
+        "#MarketingStrategy",
+        "#ViralMarketing",
+        "#Scale"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s case study on 50 creators briefed before lunchtime."
+    },
+    {
+      "id": "ceo_sideshift_06",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "Why High-Ticket Brands Are Switching To SideShift AI 🏆 #dtcbrands",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_06.mp4?v=sideshift_launch",
+      "description": "High AOV brands require vetted creators with authentic authority. See how SideShift's AI filters out fake engagement! 🛡️\\n\\n🔗 sideshift.app\\n\\n#SideShift #BrandStrategy #LuxuryMarketing #EcommerceTips #AI",
+      "hashtags": [
+        "#SideShift",
+        "#BrandStrategy",
+        "#LuxuryMarketing",
+        "#EcommerceTips",
+        "#AI"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s precision vetting breakdown for luxury & high AOV."
+    },
+    {
+      "id": "ceo_sideshift_07",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "SideShift vs Manual Outreach: The Real Math Behind 10x ROI 📊 #roi",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_07.mp4?v=sideshift_launch",
+      "description": "Breakdown of cost per acquisition: 30 hours of manual outreach vs 5 minutes with SideShift AI. The math speaks for itself! 💰\\n\\n🔗 sideshift.app\\n\\n#SideShift #MarketingROI #CostPerAcquisition #DigitalMarketing",
+      "hashtags": [
+        "#SideShift",
+        "#MarketingROI",
+        "#CostPerAcquisition",
+        "#DigitalMarketing"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s CAC math: 30 hours manual outreach vs 5 mins AI."
+    },
+    {
+      "id": "ceo_sideshift_08",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "The Exact Secret To Dominating TikTok Shop & UGC In 2026 📱 #tiktokgrowth",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_08.mp4?v=sideshift_launch",
+      "description": "If you want thousands of organic TikTok videos for your product, you need an autonomous creator engine like SideShift! ✨\\n\\n🔗 sideshift.app\\n\\n#SideShift #TikTokShop #TikTokMadeMeBuyIt #UGCCommunity #Viral",
+      "hashtags": [
+        "#SideShift",
+        "#TikTokShop",
+        "#TikTokMadeMeBuyIt",
+        "#UGCCommunity",
+        "#Viral"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s viral seeding architecture for consumer goods."
+    },
+    {
+      "id": "ceo_sideshift_09",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How An AI Marketer Handles Rate Negotiations For You 🤝 #creatorstrategy",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_09.mp4?v=sideshift_launch",
+      "description": "No more guessing what creators charge. SideShift benchmarks fair CPM rates and secures optimal deals dynamically! 🤝\\n\\n🔗 sideshift.app\\n\\n#SideShift #Negotiation #InfluencerRates #CreatorEconomy #Business",
+      "hashtags": [
+        "#SideShift",
+        "#Negotiation",
+        "#InfluencerRates",
+        "#CreatorEconomy",
+        "#Business"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s dynamic rate benchmark negotiation demonstration."
+    },
+    {
+      "id": "ceo_sideshift_10",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "Build An Army of Brand Ambassadors On Total Autopilot 👑 #brandbuilding",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_10.mp4?v=sideshift_launch",
+      "description": "Turn 100 passionate micro-creators into an army of recurring advocates with SideShift's automated relationship builder! 🌟\\n\\n🔗 sideshift.app\\n\\n#SideShift #BrandAmbassadors #CommunityBuilding #ScaleYourBrand",
+      "hashtags": [
+        "#SideShift",
+        "#BrandAmbassadors",
+        "#CommunityBuilding",
+        "#ScaleYourBrand"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s flywheel: turning 100 micro-creators into advocates."
+    },
+    {
+      "id": "ceo_sideshift_11",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How To Predict Creator ROI Before Spending A Dollar 🔮 #analytics",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_11.mp4?v=sideshift_launch",
+      "description": "Predictive engagement scoring means zero wasted ad spend. Let SideShift vet your creator roster with precision data! 📊\\n\\n🔗 sideshift.app\\n\\n#SideShift #DataAnalytics #MarketingData #AdSpend #Growth",
+      "hashtags": [
+        "#SideShift",
+        "#DataAnalytics",
+        "#MarketingData",
+        "#AdSpend",
+        "#Growth"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s predictive modeling on past click-through velocity."
+    },
+    {
+      "id": "ceo_sideshift_12",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "From 0 to 500k Views: The AI Influencer Seeding Method 🌊 #viralstrategy",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_12.mp4?v=sideshift_launch",
+      "description": "The secret playbook to getting 30 creators posting about your product on the exact same launch date! 🚀\\n\\n🔗 sideshift.app\\n\\n#SideShift #ProductLaunch #ViralReach #SocialProof #Marketing101",
+      "hashtags": [
+        "#SideShift",
+        "#ProductLaunch",
+        "#ViralReach",
+        "#SocialProof",
+        "#Marketing101"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s same-day sync posting playbook for massive reach."
+    },
+    {
+      "id": "ceo_sideshift_13",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "The Ultimate Creator Marketing Cheat Code For Startups 💡 #startuphacks",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_13.mp4?v=sideshift_launch",
+      "description": "Bootstrapped founders don't have time to manage 20 creator chats. SideShift gives you an enterprise marketing team in one tool! ⚡\\n\\n🔗 sideshift.app\\n\\n#SideShift #Bootstrapping #LeanStartup #FounderLife #Growth",
+      "hashtags": [
+        "#SideShift",
+        "#Bootstrapping",
+        "#LeanStartup",
+        "#FounderLife",
+        "#Growth"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s bootstrapping breakdown: enterprise team in 1 tool."
+    },
+    {
+      "id": "ceo_sideshift_14",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "Why SideShift's AI Creator Marketer Is Breaking The Internet 🔥 #trendingtech",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_14.mp4?v=sideshift_launch",
+      "description": "Meet the world's first true AI Creator Marketer. From talent discovery to performance tracking, it does it all! 🤖\\n\\n🔗 sideshift.app\\n\\n#SideShift #ArtificialIntelligence #TechTrends #FutureOfWork",
+      "hashtags": [
+        "#SideShift",
+        "#ArtificialIntelligence",
+        "#TechTrends",
+        "#FutureOfWork"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s showcase of autonomous AI creator agent running live."
+    },
+    {
+      "id": "ceo_sideshift_15",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How Solo Founders Are Running Agency-Level UGC Campaigns 💼 #entrepreneurship",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_15.mp4?v=sideshift_launch",
+      "description": "One founder, zero employees, 100 creators onboarded in 72 hours. See what's possible with modern AI tooling! 🛠️\\n\\n🔗 sideshift.app\\n\\n#SideShift #SoloFounder #MicroSaaS #IndieHacker #Marketing",
+      "hashtags": [
+        "#SideShift",
+        "#SoloFounder",
+        "#MicroSaaS",
+        "#IndieHacker",
+        "#Marketing"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s solo founder stack onboarded 100 creators in 72h."
+    },
+    {
+      "id": "ceo_sideshift_16",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "The Cleanest Way To Track Creator Affiliate Conversions 🛒 #affiliatemarketing",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_16.mp4?v=sideshift_launch",
+      "description": "Track every single referral link, conversion, and payout without spreadsheet nightmares. Clean, real-time attribution! 📈\\n\\n🔗 sideshift.app\\n\\n#SideShift #AffiliateProgram #Attribution #Revenue #Tracking",
+      "hashtags": [
+        "#SideShift",
+        "#AffiliateProgram",
+        "#Attribution",
+        "#Revenue",
+        "#Tracking"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s real-time attribution demo without spreadsheets."
+    },
+    {
+      "id": "ceo_sideshift_17",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "Stop Wasting Time On Dead Creator Leads 🚫 #salestips",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_17.mp4?v=sideshift_launch",
+      "description": "80% of creator emails go unread. SideShift targets active creators who actively accept brand partnerships! 📬\\n\\n🔗 sideshift.app\\n\\n#SideShift #Outreach #EmailMarketing #CreatorCollab #Productivity",
+      "hashtags": [
+        "#SideShift",
+        "#Outreach",
+        "#EmailMarketing",
+        "#CreatorCollab",
+        "#Productivity"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s active vs dead email filter comparison."
+    },
+    {
+      "id": "ceo_sideshift_18",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How Top Fashion & Beauty Brands Scale Authentic Reviews 💄 #ugctips",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_18.mp4?v=sideshift_launch",
+      "description": "Aesthetic alignment is everything in beauty and lifestyle. SideShift matches creators based on visual tone and audience demographic! 🌸\\n\\n🔗 sideshift.app\\n\\n#SideShift #BeautyMarketing #LifestyleBrand #VisualSearch #UGC",
+      "hashtags": [
+        "#SideShift",
+        "#BeautyMarketing",
+        "#LifestyleBrand",
+        "#VisualSearch",
+        "#UGC"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s visual aesthetic matching demonstration."
+    },
+    {
+      "id": "ceo_sideshift_19",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "The Secret Weapon Behind 7-Figure Shopify Brands 💎 #shopifydropshipping",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_19.mp4?v=sideshift_launch",
+      "description": "Organic UGC is the highest-converting ad creative for Shopify stores. Feed your ad account with endless creator assets! 🎬\\n\\n🔗 sideshift.app\\n\\n#SideShift #Shopify #Dropshipping #FacebookAds #CreativeStrategy",
+      "hashtags": [
+        "#SideShift",
+        "#Shopify",
+        "#Dropshipping",
+        "#FacebookAds",
+        "#CreativeStrategy"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s feeding Facebook ads with endless organic UGC."
+    },
+    {
+      "id": "ceo_sideshift_20",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "SideShift AI: The New Standard In Creator Marketing 🚀 #futureofmarketing",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_20.mp4?v=sideshift_launch",
+      "description": "Creator marketing just entered the AI era. Don't get left behind doing manual work. Launch your campaign with SideShift today! 🌐\\n\\n🔗 sideshift.app\\n\\n#SideShift #Innovation #MarketingAutomation #Scale",
+      "hashtags": [
+        "#SideShift",
+        "#Innovation",
+        "#MarketingAutomation",
+        "#Scale"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s vision of the future of autonomous creator campaigns."
+    }
+  ]
+},
+  {
+  "campaignId": "ceo_social_reckoning",
+  "campaignName": "Channel 3: The Social Reckoning (Upcoming Movie - 20 Drops)",
+  "category": "Hollywood Cinema, Whistleblower Files & Tech Empire Fallout (Tier 1)",
+  "status": "Live & Active (Strict CEO Exclusive)",
+  "payout": "$1.00 / 1k Views ($750 Max • $2,500 Budget)",
+  "batches": [
+    "All Drops (20)",
+    "Official Movie Teaser (20 Drops)"
+  ],
+  "clips": [
+    {
+      "id": "ceo_reckoning_01",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Social Reckoning: The Movie Zuckerberg Never Wanted Made 🤫 #thesocialnetwork #movies",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_01.mp4?v=reckoning_teaser",
+      "description": "16 years after The Social Network, the reckoning has arrived. The whistleblower leaks, internal documents, and congressional battles come to the big screen! 🎬🍿\\n\\n#TheSocialReckoning #TheSocialNetwork #MarkZuckerberg #MovieTeaser #Cinema2026 #MustWatch",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#TheSocialNetwork",
+        "#MarkZuckerberg",
+        "#MovieTeaser",
+        "#Cinema2026"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s dramatic hook on whistleblower leaks & congressional fallout."
+    },
+    {
+      "id": "ceo_reckoning_02",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Zuckerberg vs Congress: The Wildest Cinematic Showdown Coming 🏛️ #hollywood",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_02.mp4?v=reckoning_teaser",
+      "description": "When algorithms meet democracy. The Social Reckoning captures the intense behind-the-scenes drama of tech giants facing accountability! 🔥\\n\\n#TheSocialReckoning #SiliconValley #SenateHearing #Meta #Zuck #MovieNews",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#SiliconValley",
+        "#SenateHearing",
+        "#Meta",
+        "#MovieNews"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s high-voltage Senate hearing drama confrontation."
+    },
+    {
+      "id": "ceo_reckoning_03",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "From Harvard Dorms To A $1 Trillion Empire Under Fire 📉 #movietrailer",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_03.mp4?v=reckoning_teaser",
+      "description": "'You don't get to 3 billion users without making a few enemies.' The epic spiritual successor to the Fincher/Sorkin classic is here! ⚡\\n\\n#TheSocialReckoning #DavidFincher #AaronSorkin #JesseEisenberg #TechHistory",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#DavidFincher",
+        "#AaronSorkin",
+        "#JesseEisenberg",
+        "#TechHistory"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s modern sequel hook: Fincher/Sorkin legacy continued."
+    },
+    {
+      "id": "ceo_reckoning_04",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Who Is Playing Mark Zuckerberg in The Social Reckoning? 🎭 #castreveal",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_04.mp4?v=reckoning_teaser",
+      "description": "The casting rumors are insane. Check out who brings the tech titan back to life in this intense Silicon Valley thriller! 🤯\\n\\n#TheSocialReckoning #CastReveal #MovieTok #BehindTheScenes #FilmBuff",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#CastReveal",
+        "#MovieTok",
+        "#BehindTheScenes",
+        "#FilmBuff"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s cast breakdown & uncanny character transformation."
+    },
+    {
+      "id": "ceo_reckoning_05",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Whistleblower Who Exposed Silicon Valley's Biggest Secret 📁 #whistleblower",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_05.mp4?v=reckoning_teaser",
+      "description": "They knew the psychological impact on teens for years. The Social Reckoning brings the real whistleblower story to Hollywood! 📄\\n\\n#TheSocialReckoning #MetaLeaks #FacebookFiles #Documentary #Drama",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#MetaLeaks",
+        "#FacebookFiles",
+        "#Documentary",
+        "#Drama"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s leaked internal files & teen mental health research."
+    },
+    {
+      "id": "ceo_reckoning_06",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Social Network (2010) vs The Social Reckoning (2026) 🎬 #cinematography",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_06.mp4?v=reckoning_teaser",
+      "description": "2010 was about the creation. 2026 is about the fallout. How The Social Reckoning continues the greatest tech saga ever made! 🎥\\n\\n#TheSocialReckoning #FilmAnalysis #MovieComparisons #CinemaClips",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#FilmAnalysis",
+        "#MovieComparisons",
+        "#CinemaClips"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s side-by-side comparison: Creation vs Fallout."
+    },
+    {
+      "id": "ceo_reckoning_07",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Eduardo Saverin's Secret Reaction To The New Movie 💼 #eduardosaverin",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_07.mp4?v=reckoning_teaser",
+      "description": "From freezing bank accounts to multi-billionaire venture capitalist—where does Eduardo stand as Facebook faces its reckoning? 💰\\n\\n#TheSocialReckoning #EduardoSaverin #AndrewGarfield #TechDrama",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#EduardoSaverin",
+        "#AndrewGarfield",
+        "#TechDrama"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s where the original founders stand during the reckoning."
+    },
+    {
+      "id": "ceo_reckoning_08",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Dialogue In The Social Reckoning Is Pure Sorkin Gold ✍️ #screenplay",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_08.mp4?v=reckoning_teaser",
+      "description": "'A million users isn't cool. You know what's cool? A government subpoena.' The sharpest screenplay of the year! ✍️⚡\\n\\n#TheSocialReckoning #Screenwriting #AaronSorkin #MovieQuotes #Masterpiece",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#Screenwriting",
+        "#AaronSorkin",
+        "#MovieQuotes"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s rapid-fire intellectual dialogue & courtroom exchange."
+    },
+    {
+      "id": "ceo_reckoning_09",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Cambridge Analytica Scandal Like You Have Never Seen It 🕵️ #conspiracy",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_09.mp4?v=reckoning_teaser",
+      "description": "87 million profiles harvested in secret. The Social Reckoning reveals the dark nexus of data harvesting and political warfare! 🗳️\\n\\n#TheSocialReckoning #CambridgeAnalytica #DataPrivacy #CyberSecurity",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#CambridgeAnalytica",
+        "#DataPrivacy",
+        "#CyberSecurity"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s data harvesting nexus & 87 million voter profiles."
+    },
+    {
+      "id": "ceo_reckoning_10",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Can Any Movie Top The Iconic Trent Reznor Soundtrack? 🎹 #soundtrack",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_10.mp4?v=reckoning_teaser",
+      "description": "The dark, pulsing ambient soundtrack of The Social Reckoning will give you literal chills. Ambient masterclass! 🎧\\n\\n#TheSocialReckoning #TrentReznor #AtticusRoss #FilmScore #Soundtrack",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#TrentReznor",
+        "#AtticusRoss",
+        "#FilmScore",
+        "#Soundtrack"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s pulsing industrial electronic score teaser."
+    },
+    {
+      "id": "ceo_reckoning_11",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Scene That Had Early Test Audiences Gasping In Shock 😱 #filmreaction",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_11.mp4?v=reckoning_teaser",
+      "description": "Early test screenings report this boardroom confrontation scene rivals the iconic laptop-smashing moment from 2010! 💻💥\\n\\n#TheSocialReckoning #MovieReactions #EarlyScreening #FilmCommunity",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#MovieReactions",
+        "#EarlyScreening",
+        "#FilmCommunity"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s explosive boardroom showdown rivaling laptop smash."
+    },
+    {
+      "id": "ceo_reckoning_12",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Why Mark Zuckerberg Will Hate Every Second Of This Film 🛑 #techbillionaires",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_12.mp4?v=reckoning_teaser",
+      "description": "No PR team could stop this story. The Social Reckoning exposes the boardroom debates when algorithms prioritized outrage over safety! 📱\\n\\n#TheSocialReckoning #Zuckerberg #TechNews #Controversy #BigTech",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#Zuckerberg",
+        "#TechNews",
+        "#Controversy",
+        "#BigTech"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s algorithm outrage prioritization exposed."
+    },
+    {
+      "id": "ceo_reckoning_13",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Metaverse Pivot: How A $50 Billion Bet Changed The Game 🥽 #metaverse",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_13.mp4?v=reckoning_teaser",
+      "description": "When reality became too turbulent, they tried to build a virtual world. Inside the $50B Metaverse gamble! 🌐\\n\\n#TheSocialReckoning #VR #MetaQuest #FutureTech #SiliconValley",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#VR",
+        "#MetaQuest",
+        "#FutureTech",
+        "#SiliconValley"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s virtual reality dream amidst company crisis."
+    },
+    {
+      "id": "ceo_reckoning_14",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Is This The Movie That Finally Wins The Oscar In 2027? 🏆 #oscars",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_14.mp4?v=reckoning_teaser",
+      "description": "Critics are already predicting Best Picture, Best Actor, and Best Screenplay nominations for The Social Reckoning! 🌟\\n\\n#TheSocialReckoning #AcademyAwards #OscarContender #MustSeeMovies",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#AcademyAwards",
+        "#OscarContender",
+        "#MustSeeMovies"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s awards season buzz & Best Picture forecast."
+    },
+    {
+      "id": "ceo_reckoning_15",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Real Story Behind The 'Delete Facebook' Movement 🚫 #deletefacebook",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_15.mp4?v=reckoning_teaser",
+      "description": "Remember when millions boycotted the platform in 2018? The Social Reckoning takes you behind the closed doors during the panic! 🚪\\n\\n#TheSocialReckoning #SocialMediaCleanse #DigitalAddiction #Culture",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#SocialMediaCleanse",
+        "#DigitalAddiction",
+        "#Culture"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s inside the 2018 user exodus and internal panic."
+    },
+    {
+      "id": "ceo_reckoning_16",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Sean Parker's Legacy: Did The Napster Bad Boy Predict It All? 🕶️ #seanparker",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_16.mp4?v=reckoning_teaser",
+      "description": "'Drop the 'The'. Just Facebook.' Did Sean Parker see the dark consequences coming from the very beginning? 🕶️🍸\\n\\n#TheSocialReckoning #JustinTimberlake #Napster #StartupHistory",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#JustinTimberlake",
+        "#Napster",
+        "#StartupHistory"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s revisiting Parker's prophecy on psychological exploitation."
+    },
+    {
+      "id": "ceo_reckoning_17",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Social Reckoning Official Trailer Breakdown & Easter Eggs 🔍 #trailerbreakdown",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_17.mp4?v=reckoning_teaser",
+      "description": "Every single Easter egg hidden in the teaser trailer! Did you spot the subtle homage to the 2010 opening scene? 🔎\\n\\n#TheSocialReckoning #EasterEggs #FilmTheory #TrailerBreakdown",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#EasterEggs",
+        "#FilmTheory",
+        "#TrailerBreakdown"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s subtle 2010 easter eggs spotted in the trailer."
+    },
+    {
+      "id": "ceo_reckoning_18",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Algorithm Of Outrage: How Social Media Rewired Our Brains 🧠 #psychology",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_18.mp4?v=reckoning_teaser",
+      "description": "The infinite scroll wasn't an accident. It was psychological engineering. The Social Reckoning pulls back the curtain! 🔄\\n\\n#TheSocialReckoning #Dopamine #MentalHealth #TechEthics",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#Dopamine",
+        "#MentalHealth",
+        "#TechEthics"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s psychological engineering behind infinite scroll."
+    },
+    {
+      "id": "ceo_reckoning_19",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Inside The Secret Deposition Tapes: Fact vs Fiction 📼 #deposition",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_19.mp4?v=reckoning_teaser",
+      "description": "We compared the movie's deposition lines to the real Congressional transcripts. You won't believe how accurate it is! ⚖️\\n\\n#TheSocialReckoning #FactVsFiction #TrueStory #LegalDrama",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#FactVsFiction",
+        "#TrueStory",
+        "#LegalDrama"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s fact vs fiction comparison with Congressional records."
+    },
+    {
+      "id": "ceo_reckoning_20",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Why The Social Reckoning Is The Most Important Movie Of Our Decade 🌍 #mustwatch",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_20.mp4?v=reckoning_teaser",
+      "description": "We are all living inside Mark Zuckerberg's experiment. The Social Reckoning is the movie defining our generation! 🎬🔥\\n\\n#TheSocialReckoning #Cinema2026 #MustWatch #FilmTok #Generational",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#Cinema2026",
+        "#MustWatch",
+        "#FilmTok",
+        "#Generational"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s definitive cultural verdict on living in Zuck's world."
+    }
+  ]
+}
 ];
 
 const HABEEB_CAMPAIGNS: CampaignSlot[] = [
@@ -3034,6 +3795,779 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
         }
       ]
   }
+,
+{
+  "campaignId": "habeeb_sideshift_ai",
+  "campaignName": "Channel 5: SideShift (AI Creator Marketer - 20 Master Drops)",
+  "category": "AI Marketing, Autonomous Creator Scaling & UGC Operations (sideshift.app)",
+  "status": "Live & Active (Strict Habeeb Exclusive)",
+  "payout": "$1.50 / 1k Views ($300 Max • $1,000 Budget)",
+  "batches": [
+    "All Drops (20)",
+    "Launch Campaign (20 Master Drops)"
+  ],
+  "clips": [
+    {
+      "id": "habeeb_sideshift_01",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How Top DTC Brands Scale 1,000 Influencers On Autopilot 🤖 #ai #marketing",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_01.mp4?v=sideshift_launch",
+      "description": "Stop manually DMing creators. SideShift's AI Creator Marketer finds, contacts, and negotiates with creators while you sleep! 📈\\n\\n🔗 sideshift.app\\n\\n#SideShift #CreatorMarketing #UGC #GrowthHacking #Ecommerce #SaaS",
+      "hashtags": [
+        "#SideShift",
+        "#CreatorMarketing",
+        "#UGC",
+        "#GrowthHacking",
+        "#Ecommerce",
+        "#SaaS"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s viral hook on scaling creator marketing without agencies."
+    },
+    {
+      "id": "habeeb_sideshift_02",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "SideShift AI Finds Creators Who Actually Drive Sales 🤯 #marketingtips",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_02.mp4?v=sideshift_launch",
+      "description": "Most agencies match vanity metrics. SideShift analyzes deep audience sentiment and past conversion velocity! 🎯\\n\\n🔗 sideshift.app\\n\\n#SideShift #AICreator #InfluencerMarketing #PerformanceMarketing #DTC",
+      "hashtags": [
+        "#SideShift",
+        "#AICreator",
+        "#InfluencerMarketing",
+        "#PerformanceMarketing",
+        "#DTC"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s breakdown of AI sentiment matching vs vanity metrics."
+    },
+    {
+      "id": "habeeb_sideshift_03",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "The Death of Traditional Influencer Agencies? 👀 #businessgrowth",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_03.mp4?v=sideshift_launch",
+      "description": "Why pay a $10,000 monthly agency retainer when an AI creator marketer can do 10x the outreach in 2 minutes? 🔥\\n\\n🔗 sideshift.app\\n\\n#SideShift #AgencyLife #StartupTips #Productivity #BusinessHacks",
+      "hashtags": [
+        "#SideShift",
+        "#AgencyLife",
+        "#StartupTips",
+        "#Productivity",
+        "#BusinessHacks"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s comparison: $10k/month retainer vs autonomous AI."
+    },
+    {
+      "id": "habeeb_sideshift_04",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How To Automate Creator Contracts & Deliverables in 60s ✍️ #ecommerce",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_04.mp4?v=sideshift_launch",
+      "description": "From offer letter to signed contract and brief delivery—SideShift automates the entire creator operations stack! 💼\\n\\n🔗 sideshift.app\\n\\n#SideShift #CreatorEconomy #SaaS #Operations #Growth",
+      "hashtags": [
+        "#SideShift",
+        "#CreatorEconomy",
+        "#SaaS",
+        "#Operations",
+        "#Growth"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s workflow demo from initial offer to signed agreement."
+    },
+    {
+      "id": "habeeb_sideshift_05",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "This AI Marketer Ran A 50-Creator Campaign In 1 Day ⚡ #growthhacks",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_05.mp4?v=sideshift_launch",
+      "description": "Imagine briefing 50 top-tier creators before lunchtime. SideShift makes high-velocity creator marketing effortless! 🚀\\n\\n🔗 sideshift.app\\n\\n#SideShift #UGCStrategy #MarketingStrategy #ViralMarketing #Scale",
+      "hashtags": [
+        "#SideShift",
+        "#UGCStrategy",
+        "#MarketingStrategy",
+        "#ViralMarketing",
+        "#Scale"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s case study on 50 creators briefed before lunchtime."
+    },
+    {
+      "id": "habeeb_sideshift_06",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "Why High-Ticket Brands Are Switching To SideShift AI 🏆 #dtcbrands",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_06.mp4?v=sideshift_launch",
+      "description": "High AOV brands require vetted creators with authentic authority. See how SideShift's AI filters out fake engagement! 🛡️\\n\\n🔗 sideshift.app\\n\\n#SideShift #BrandStrategy #LuxuryMarketing #EcommerceTips #AI",
+      "hashtags": [
+        "#SideShift",
+        "#BrandStrategy",
+        "#LuxuryMarketing",
+        "#EcommerceTips",
+        "#AI"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s precision vetting breakdown for luxury & high AOV."
+    },
+    {
+      "id": "habeeb_sideshift_07",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "SideShift vs Manual Outreach: The Real Math Behind 10x ROI 📊 #roi",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_07.mp4?v=sideshift_launch",
+      "description": "Breakdown of cost per acquisition: 30 hours of manual outreach vs 5 minutes with SideShift AI. The math speaks for itself! 💰\\n\\n🔗 sideshift.app\\n\\n#SideShift #MarketingROI #CostPerAcquisition #DigitalMarketing",
+      "hashtags": [
+        "#SideShift",
+        "#MarketingROI",
+        "#CostPerAcquisition",
+        "#DigitalMarketing"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s CAC math: 30 hours manual outreach vs 5 mins AI."
+    },
+    {
+      "id": "habeeb_sideshift_08",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "The Exact Secret To Dominating TikTok Shop & UGC In 2026 📱 #tiktokgrowth",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_08.mp4?v=sideshift_launch",
+      "description": "If you want thousands of organic TikTok videos for your product, you need an autonomous creator engine like SideShift! ✨\\n\\n🔗 sideshift.app\\n\\n#SideShift #TikTokShop #TikTokMadeMeBuyIt #UGCCommunity #Viral",
+      "hashtags": [
+        "#SideShift",
+        "#TikTokShop",
+        "#TikTokMadeMeBuyIt",
+        "#UGCCommunity",
+        "#Viral"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s viral seeding architecture for consumer goods."
+    },
+    {
+      "id": "habeeb_sideshift_09",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How An AI Marketer Handles Rate Negotiations For You 🤝 #creatorstrategy",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_09.mp4?v=sideshift_launch",
+      "description": "No more guessing what creators charge. SideShift benchmarks fair CPM rates and secures optimal deals dynamically! 🤝\\n\\n🔗 sideshift.app\\n\\n#SideShift #Negotiation #InfluencerRates #CreatorEconomy #Business",
+      "hashtags": [
+        "#SideShift",
+        "#Negotiation",
+        "#InfluencerRates",
+        "#CreatorEconomy",
+        "#Business"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s dynamic rate benchmark negotiation demonstration."
+    },
+    {
+      "id": "habeeb_sideshift_10",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "Build An Army of Brand Ambassadors On Total Autopilot 👑 #brandbuilding",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_10.mp4?v=sideshift_launch",
+      "description": "Turn 100 passionate micro-creators into an army of recurring advocates with SideShift's automated relationship builder! 🌟\\n\\n🔗 sideshift.app\\n\\n#SideShift #BrandAmbassadors #CommunityBuilding #ScaleYourBrand",
+      "hashtags": [
+        "#SideShift",
+        "#BrandAmbassadors",
+        "#CommunityBuilding",
+        "#ScaleYourBrand"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s flywheel: turning 100 micro-creators into advocates."
+    },
+    {
+      "id": "habeeb_sideshift_11",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How To Predict Creator ROI Before Spending A Dollar 🔮 #analytics",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_11.mp4?v=sideshift_launch",
+      "description": "Predictive engagement scoring means zero wasted ad spend. Let SideShift vet your creator roster with precision data! 📊\\n\\n🔗 sideshift.app\\n\\n#SideShift #DataAnalytics #MarketingData #AdSpend #Growth",
+      "hashtags": [
+        "#SideShift",
+        "#DataAnalytics",
+        "#MarketingData",
+        "#AdSpend",
+        "#Growth"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s predictive modeling on past click-through velocity."
+    },
+    {
+      "id": "habeeb_sideshift_12",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "From 0 to 500k Views: The AI Influencer Seeding Method 🌊 #viralstrategy",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_12.mp4?v=sideshift_launch",
+      "description": "The secret playbook to getting 30 creators posting about your product on the exact same launch date! 🚀\\n\\n🔗 sideshift.app\\n\\n#SideShift #ProductLaunch #ViralReach #SocialProof #Marketing101",
+      "hashtags": [
+        "#SideShift",
+        "#ProductLaunch",
+        "#ViralReach",
+        "#SocialProof",
+        "#Marketing101"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s same-day sync posting playbook for massive reach."
+    },
+    {
+      "id": "habeeb_sideshift_13",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "The Ultimate Creator Marketing Cheat Code For Startups 💡 #startuphacks",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_13.mp4?v=sideshift_launch",
+      "description": "Bootstrapped founders don't have time to manage 20 creator chats. SideShift gives you an enterprise marketing team in one tool! ⚡\\n\\n🔗 sideshift.app\\n\\n#SideShift #Bootstrapping #LeanStartup #FounderLife #Growth",
+      "hashtags": [
+        "#SideShift",
+        "#Bootstrapping",
+        "#LeanStartup",
+        "#FounderLife",
+        "#Growth"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s bootstrapping breakdown: enterprise team in 1 tool."
+    },
+    {
+      "id": "habeeb_sideshift_14",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "Why SideShift's AI Creator Marketer Is Breaking The Internet 🔥 #trendingtech",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_14.mp4?v=sideshift_launch",
+      "description": "Meet the world's first true AI Creator Marketer. From talent discovery to performance tracking, it does it all! 🤖\\n\\n🔗 sideshift.app\\n\\n#SideShift #ArtificialIntelligence #TechTrends #FutureOfWork",
+      "hashtags": [
+        "#SideShift",
+        "#ArtificialIntelligence",
+        "#TechTrends",
+        "#FutureOfWork"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s showcase of autonomous AI creator agent running live."
+    },
+    {
+      "id": "habeeb_sideshift_15",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How Solo Founders Are Running Agency-Level UGC Campaigns 💼 #entrepreneurship",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_15.mp4?v=sideshift_launch",
+      "description": "One founder, zero employees, 100 creators onboarded in 72 hours. See what's possible with modern AI tooling! 🛠️\\n\\n🔗 sideshift.app\\n\\n#SideShift #SoloFounder #MicroSaaS #IndieHacker #Marketing",
+      "hashtags": [
+        "#SideShift",
+        "#SoloFounder",
+        "#MicroSaaS",
+        "#IndieHacker",
+        "#Marketing"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s solo founder stack onboarded 100 creators in 72h."
+    },
+    {
+      "id": "habeeb_sideshift_16",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "The Cleanest Way To Track Creator Affiliate Conversions 🛒 #affiliatemarketing",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_16.mp4?v=sideshift_launch",
+      "description": "Track every single referral link, conversion, and payout without spreadsheet nightmares. Clean, real-time attribution! 📈\\n\\n🔗 sideshift.app\\n\\n#SideShift #AffiliateProgram #Attribution #Revenue #Tracking",
+      "hashtags": [
+        "#SideShift",
+        "#AffiliateProgram",
+        "#Attribution",
+        "#Revenue",
+        "#Tracking"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s real-time attribution demo without spreadsheets."
+    },
+    {
+      "id": "habeeb_sideshift_17",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "Stop Wasting Time On Dead Creator Leads 🚫 #salestips",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_17.mp4?v=sideshift_launch",
+      "description": "80% of creator emails go unread. SideShift targets active creators who actively accept brand partnerships! 📬\\n\\n🔗 sideshift.app\\n\\n#SideShift #Outreach #EmailMarketing #CreatorCollab #Productivity",
+      "hashtags": [
+        "#SideShift",
+        "#Outreach",
+        "#EmailMarketing",
+        "#CreatorCollab",
+        "#Productivity"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s active vs dead email filter comparison."
+    },
+    {
+      "id": "habeeb_sideshift_18",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "How Top Fashion & Beauty Brands Scale Authentic Reviews 💄 #ugctips",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_18.mp4?v=sideshift_launch",
+      "description": "Aesthetic alignment is everything in beauty and lifestyle. SideShift matches creators based on visual tone and audience demographic! 🌸\\n\\n🔗 sideshift.app\\n\\n#SideShift #BeautyMarketing #LifestyleBrand #VisualSearch #UGC",
+      "hashtags": [
+        "#SideShift",
+        "#BeautyMarketing",
+        "#LifestyleBrand",
+        "#VisualSearch",
+        "#UGC"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s visual aesthetic matching demonstration."
+    },
+    {
+      "id": "habeeb_sideshift_19",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "The Secret Weapon Behind 7-Figure Shopify Brands 💎 #shopifydropshipping",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_19.mp4?v=sideshift_launch",
+      "description": "Organic UGC is the highest-converting ad creative for Shopify stores. Feed your ad account with endless creator assets! 🎬\\n\\n🔗 sideshift.app\\n\\n#SideShift #Shopify #Dropshipping #FacebookAds #CreativeStrategy",
+      "hashtags": [
+        "#SideShift",
+        "#Shopify",
+        "#Dropshipping",
+        "#FacebookAds",
+        "#CreativeStrategy"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s feeding Facebook ads with endless organic UGC."
+    },
+    {
+      "id": "habeeb_sideshift_20",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Launch Campaign (20 Master Drops)",
+      "title": "SideShift AI: The New Standard In Creator Marketing 🚀 #futureofmarketing",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_20.mp4?v=sideshift_launch",
+      "description": "Creator marketing just entered the AI era. Don't get left behind doing manual work. Launch your campaign with SideShift today! 🌐\\n\\n🔗 sideshift.app\\n\\n#SideShift #Innovation #MarketingAutomation #Scale",
+      "hashtags": [
+        "#SideShift",
+        "#Innovation",
+        "#MarketingAutomation",
+        "#Scale"
+      ],
+      "payoutRate": "$1.50 / 1k Views ($300 Max)",
+      "loopNote": "10s vision of the future of autonomous creator campaigns."
+    }
+  ]
+},
+{
+  "campaignId": "habeeb_social_reckoning",
+  "campaignName": "Channel 6: The Social Reckoning (Upcoming Movie - 20 Drops)",
+  "category": "Hollywood Cinema, Whistleblower Files & Tech Empire Fallout (Tier 1)",
+  "status": "Live & Active (Strict Habeeb Exclusive)",
+  "payout": "$1.00 / 1k Views ($750 Max • $2,500 Budget)",
+  "batches": [
+    "All Drops (20)",
+    "Official Movie Teaser (20 Drops)"
+  ],
+  "clips": [
+    {
+      "id": "habeeb_reckoning_01",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Social Reckoning: The Movie Zuckerberg Never Wanted Made 🤫 #thesocialnetwork #movies",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_01.mp4?v=reckoning_teaser",
+      "description": "16 years after The Social Network, the reckoning has arrived. The whistleblower leaks, internal documents, and congressional battles come to the big screen! 🎬🍿\\n\\n#TheSocialReckoning #TheSocialNetwork #MarkZuckerberg #MovieTeaser #Cinema2026 #MustWatch",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#TheSocialNetwork",
+        "#MarkZuckerberg",
+        "#MovieTeaser",
+        "#Cinema2026"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s dramatic hook on whistleblower leaks & congressional fallout."
+    },
+    {
+      "id": "habeeb_reckoning_02",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Zuckerberg vs Congress: The Wildest Cinematic Showdown Coming 🏛️ #hollywood",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_02.mp4?v=reckoning_teaser",
+      "description": "When algorithms meet democracy. The Social Reckoning captures the intense behind-the-scenes drama of tech giants facing accountability! 🔥\\n\\n#TheSocialReckoning #SiliconValley #SenateHearing #Meta #Zuck #MovieNews",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#SiliconValley",
+        "#SenateHearing",
+        "#Meta",
+        "#MovieNews"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s high-voltage Senate hearing drama confrontation."
+    },
+    {
+      "id": "habeeb_reckoning_03",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "From Harvard Dorms To A $1 Trillion Empire Under Fire 📉 #movietrailer",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_03.mp4?v=reckoning_teaser",
+      "description": "'You don't get to 3 billion users without making a few enemies.' The epic spiritual successor to the Fincher/Sorkin classic is here! ⚡\\n\\n#TheSocialReckoning #DavidFincher #AaronSorkin #JesseEisenberg #TechHistory",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#DavidFincher",
+        "#AaronSorkin",
+        "#JesseEisenberg",
+        "#TechHistory"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s modern sequel hook: Fincher/Sorkin legacy continued."
+    },
+    {
+      "id": "habeeb_reckoning_04",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Who Is Playing Mark Zuckerberg in The Social Reckoning? 🎭 #castreveal",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_04.mp4?v=reckoning_teaser",
+      "description": "The casting rumors are insane. Check out who brings the tech titan back to life in this intense Silicon Valley thriller! 🤯\\n\\n#TheSocialReckoning #CastReveal #MovieTok #BehindTheScenes #FilmBuff",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#CastReveal",
+        "#MovieTok",
+        "#BehindTheScenes",
+        "#FilmBuff"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s cast breakdown & uncanny character transformation."
+    },
+    {
+      "id": "habeeb_reckoning_05",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Whistleblower Who Exposed Silicon Valley's Biggest Secret 📁 #whistleblower",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_05.mp4?v=reckoning_teaser",
+      "description": "They knew the psychological impact on teens for years. The Social Reckoning brings the real whistleblower story to Hollywood! 📄\\n\\n#TheSocialReckoning #MetaLeaks #FacebookFiles #Documentary #Drama",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#MetaLeaks",
+        "#FacebookFiles",
+        "#Documentary",
+        "#Drama"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s leaked internal files & teen mental health research."
+    },
+    {
+      "id": "habeeb_reckoning_06",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Social Network (2010) vs The Social Reckoning (2026) 🎬 #cinematography",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_06.mp4?v=reckoning_teaser",
+      "description": "2010 was about the creation. 2026 is about the fallout. How The Social Reckoning continues the greatest tech saga ever made! 🎥\\n\\n#TheSocialReckoning #FilmAnalysis #MovieComparisons #CinemaClips",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#FilmAnalysis",
+        "#MovieComparisons",
+        "#CinemaClips"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s side-by-side comparison: Creation vs Fallout."
+    },
+    {
+      "id": "habeeb_reckoning_07",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Eduardo Saverin's Secret Reaction To The New Movie 💼 #eduardosaverin",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_07.mp4?v=reckoning_teaser",
+      "description": "From freezing bank accounts to multi-billionaire venture capitalist—where does Eduardo stand as Facebook faces its reckoning? 💰\\n\\n#TheSocialReckoning #EduardoSaverin #AndrewGarfield #TechDrama",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#EduardoSaverin",
+        "#AndrewGarfield",
+        "#TechDrama"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s where the original founders stand during the reckoning."
+    },
+    {
+      "id": "habeeb_reckoning_08",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Dialogue In The Social Reckoning Is Pure Sorkin Gold ✍️ #screenplay",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_08.mp4?v=reckoning_teaser",
+      "description": "'A million users isn't cool. You know what's cool? A government subpoena.' The sharpest screenplay of the year! ✍️⚡\\n\\n#TheSocialReckoning #Screenwriting #AaronSorkin #MovieQuotes #Masterpiece",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#Screenwriting",
+        "#AaronSorkin",
+        "#MovieQuotes"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s rapid-fire intellectual dialogue & courtroom exchange."
+    },
+    {
+      "id": "habeeb_reckoning_09",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Cambridge Analytica Scandal Like You Have Never Seen It 🕵️ #conspiracy",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_09.mp4?v=reckoning_teaser",
+      "description": "87 million profiles harvested in secret. The Social Reckoning reveals the dark nexus of data harvesting and political warfare! 🗳️\\n\\n#TheSocialReckoning #CambridgeAnalytica #DataPrivacy #CyberSecurity",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#CambridgeAnalytica",
+        "#DataPrivacy",
+        "#CyberSecurity"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s data harvesting nexus & 87 million voter profiles."
+    },
+    {
+      "id": "habeeb_reckoning_10",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Can Any Movie Top The Iconic Trent Reznor Soundtrack? 🎹 #soundtrack",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_10.mp4?v=reckoning_teaser",
+      "description": "The dark, pulsing ambient soundtrack of The Social Reckoning will give you literal chills. Ambient masterclass! 🎧\\n\\n#TheSocialReckoning #TrentReznor #AtticusRoss #FilmScore #Soundtrack",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#TrentReznor",
+        "#AtticusRoss",
+        "#FilmScore",
+        "#Soundtrack"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s pulsing industrial electronic score teaser."
+    },
+    {
+      "id": "habeeb_reckoning_11",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Scene That Had Early Test Audiences Gasping In Shock 😱 #filmreaction",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_11.mp4?v=reckoning_teaser",
+      "description": "Early test screenings report this boardroom confrontation scene rivals the iconic laptop-smashing moment from 2010! 💻💥\\n\\n#TheSocialReckoning #MovieReactions #EarlyScreening #FilmCommunity",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#MovieReactions",
+        "#EarlyScreening",
+        "#FilmCommunity"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s explosive boardroom showdown rivaling laptop smash."
+    },
+    {
+      "id": "habeeb_reckoning_12",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Why Mark Zuckerberg Will Hate Every Second Of This Film 🛑 #techbillionaires",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_12.mp4?v=reckoning_teaser",
+      "description": "No PR team could stop this story. The Social Reckoning exposes the boardroom debates when algorithms prioritized outrage over safety! 📱\\n\\n#TheSocialReckoning #Zuckerberg #TechNews #Controversy #BigTech",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#Zuckerberg",
+        "#TechNews",
+        "#Controversy",
+        "#BigTech"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s algorithm outrage prioritization exposed."
+    },
+    {
+      "id": "habeeb_reckoning_13",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Metaverse Pivot: How A $50 Billion Bet Changed The Game 🥽 #metaverse",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_13.mp4?v=reckoning_teaser",
+      "description": "When reality became too turbulent, they tried to build a virtual world. Inside the $50B Metaverse gamble! 🌐\\n\\n#TheSocialReckoning #VR #MetaQuest #FutureTech #SiliconValley",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#VR",
+        "#MetaQuest",
+        "#FutureTech",
+        "#SiliconValley"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s virtual reality dream amidst company crisis."
+    },
+    {
+      "id": "habeeb_reckoning_14",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Is This The Movie That Finally Wins The Oscar In 2027? 🏆 #oscars",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_14.mp4?v=reckoning_teaser",
+      "description": "Critics are already predicting Best Picture, Best Actor, and Best Screenplay nominations for The Social Reckoning! 🌟\\n\\n#TheSocialReckoning #AcademyAwards #OscarContender #MustSeeMovies",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#AcademyAwards",
+        "#OscarContender",
+        "#MustSeeMovies"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s awards season buzz & Best Picture forecast."
+    },
+    {
+      "id": "habeeb_reckoning_15",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Real Story Behind The 'Delete Facebook' Movement 🚫 #deletefacebook",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_15.mp4?v=reckoning_teaser",
+      "description": "Remember when millions boycotted the platform in 2018? The Social Reckoning takes you behind the closed doors during the panic! 🚪\\n\\n#TheSocialReckoning #SocialMediaCleanse #DigitalAddiction #Culture",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#SocialMediaCleanse",
+        "#DigitalAddiction",
+        "#Culture"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s inside the 2018 user exodus and internal panic."
+    },
+    {
+      "id": "habeeb_reckoning_16",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Sean Parker's Legacy: Did The Napster Bad Boy Predict It All? 🕶️ #seanparker",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_16.mp4?v=reckoning_teaser",
+      "description": "'Drop the 'The'. Just Facebook.' Did Sean Parker see the dark consequences coming from the very beginning? 🕶️🍸\\n\\n#TheSocialReckoning #JustinTimberlake #Napster #StartupHistory",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#JustinTimberlake",
+        "#Napster",
+        "#StartupHistory"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s revisiting Parker's prophecy on psychological exploitation."
+    },
+    {
+      "id": "habeeb_reckoning_17",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "The Social Reckoning Official Trailer Breakdown & Easter Eggs 🔍 #trailerbreakdown",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_17.mp4?v=reckoning_teaser",
+      "description": "Every single Easter egg hidden in the teaser trailer! Did you spot the subtle homage to the 2010 opening scene? 🔎\\n\\n#TheSocialReckoning #EasterEggs #FilmTheory #TrailerBreakdown",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#EasterEggs",
+        "#FilmTheory",
+        "#TrailerBreakdown"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s subtle 2010 easter eggs spotted in the trailer."
+    },
+    {
+      "id": "habeeb_reckoning_18",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Algorithm Of Outrage: How Social Media Rewired Our Brains 🧠 #psychology",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_18.mp4?v=reckoning_teaser",
+      "description": "The infinite scroll wasn't an accident. It was psychological engineering. The Social Reckoning pulls back the curtain! 🔄\\n\\n#TheSocialReckoning #Dopamine #MentalHealth #TechEthics",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#Dopamine",
+        "#MentalHealth",
+        "#TechEthics"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s psychological engineering behind infinite scroll."
+    },
+    {
+      "id": "habeeb_reckoning_19",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Inside The Secret Deposition Tapes: Fact vs Fiction 📼 #deposition",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_19.mp4?v=reckoning_teaser",
+      "description": "We compared the movie's deposition lines to the real Congressional transcripts. You won't believe how accurate it is! ⚖️\\n\\n#TheSocialReckoning #FactVsFiction #TrueStory #LegalDrama",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#FactVsFiction",
+        "#TrueStory",
+        "#LegalDrama"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s fact vs fiction comparison with Congressional records."
+    },
+    {
+      "id": "habeeb_reckoning_20",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Official Movie Teaser (20 Drops)",
+      "title": "Why The Social Reckoning Is The Most Important Movie Of Our Decade 🌍 #mustwatch",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_20.mp4?v=reckoning_teaser",
+      "description": "We are all living inside Mark Zuckerberg's experiment. The Social Reckoning is the movie defining our generation! 🎬🔥\\n\\n#TheSocialReckoning #Cinema2026 #MustWatch #FilmTok #Generational",
+      "hashtags": [
+        "#TheSocialReckoning",
+        "#Cinema2026",
+        "#MustWatch",
+        "#FilmTok",
+        "#Generational"
+      ],
+      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
+      "loopNote": "10s definitive cultural verdict on living in Zuck's world."
+    }
+  ]
+}
 ];
 
 const LILSHEY_CAMPAIGNS: CampaignSlot[] = [
@@ -3922,219 +5456,418 @@ const LILSHEY_CAMPAIGNS: CampaignSlot[] = [
 
 const USMAN_CAMPAIGNS: CampaignSlot[] = [
   {
-    "campaignId": "usman_camp_1",
-    "campaignName": "Channel 1: Festival Drops & Stage Spectacle (10 Starter Shorts)",
-    "category": "EDM Festival, Epic Stage Visuals & Bass Overload",
-    "status": "Live & Active (Usman Exclusive)",
-    "payout": "$1,000 / 1M Views (Starter Bounty)",
-    "batches": [
-      "All Drops",
-      "Starter Channel Pack (10 Shorts)"
-    ],
-    "clips": [
-      {
-        "id": "usman_stage_01",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "When The Bass Dropped At 3AM in Miami 🤯 #shorts #edm",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/usman_starter/usman_stage_01.mp4",
-        "description": "Miami Factory Town was on another frequency when this drop hit. Unbelievable crowd energy!\\n\\n#EDM #Festival #Dubstep #BassMusic #MiamiNightlife",
-        "hashtags": [
-          "#EDM",
-          "#Festival",
-          "#Dubstep",
-          "#BassMusic",
-          "#MiamiNightlife"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13s festival crowd eruption loop."
-      },
-      {
-        "id": "usman_stage_02",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "Can Your Speakers Handle This Low End? 🔊 #shorts #bass",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/usman_starter/usman_stage_02.mp4",
-        "description": "Put your headphones on right now. The sub frequencies on this drop will shake your soul!\\n\\n#bassboosted #subwoofer #edmfestival #rave #drops",
-        "hashtags": [
-          "#bassboosted",
-          "#subwoofer",
-          "#edmfestival",
-          "#rave",
-          "#drops"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13.5s sub-bass frequency test loop."
-      },
-      {
-        "id": "usman_stage_03",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "Lighting Design Synced To Perfection ✨ #shorts #lasers",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/usman_starter/usman_stage_03.mp4",
-        "description": "Every single laser beam hitting precisely on the transient. This is true stage engineering.\\n\\n#lasershow #production #festivalvibes #edmfamily #visuals",
-        "hashtags": [
-          "#lasershow",
-          "#production",
-          "#festivalvibes",
-          "#edmfamily",
-          "#visuals"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 14s laser-sync visual loop."
-      },
-      {
-        "id": "usman_stage_04",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "Vintage 1950s Vocal Flipped Into Heavy Bass 🤯 #shorts #remix",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/usman_starter/usman_stage_04.mp4",
-        "description": "Taking timeless retro vocals and turning them into an absolute festival destroyer!\\n\\n#remix #bassmusic #dubstepdrop #edmlife #festivalbanger",
-        "hashtags": [
-          "#remix",
-          "#bassmusic",
-          "#dubstepdrop",
-          "#edmlife",
-          "#festivalbanger"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13s vintage flip drop loop."
-      },
-      {
-        "id": "usman_stage_05",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "The Tension Buildup Was Illegal ⚡ #shorts #edmfestival",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/usman_starter/usman_stage_05.mp4",
-        "description": "That 15-second riser had the entire arena holding their breath before the floor erupted.\\n\\n#drop #crowdreactions #festivalenergy #raveculture #electronicmusic",
-        "hashtags": [
-          "#drop",
-          "#crowdreactions",
-          "#festivalenergy",
-          "#raveculture",
-          "#electronicmusic"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13.5s riser suspense loop."
-      },
-      {
-        "id": "usman_stage_06",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "Front Row At The Mainstage Pyro Drop 🔥 #shorts #festivals",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/usman_starter/usman_stage_06.mp4",
-        "description": "You can literally feel the heat through the screen when the flame cannons fire off!\\n\\n#pyro #mainstage #festivalgoer #festivalseason #basshead",
-        "hashtags": [
-          "#pyro",
-          "#mainstage",
-          "#festivalgoer",
-          "#festivalseason",
-          "#basshead"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 12.5s pyro impact loop."
-      },
-      {
-        "id": "usman_stage_07",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "Biggie Flow Over Monster Basslines 🎤 #shorts #hiphop #edm",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/usman_starter/usman_stage_07.mp4",
-        "description": "10,000 people screaming every bar together. When hip-hop meets underground bass culture!\\n\\n#hiphopremix #rapmusic #bassdrop #crowdchorus #festivals",
-        "hashtags": [
-          "#hiphopremix",
-          "#rapmusic",
-          "#bassdrop",
-          "#crowdchorus",
-          "#festivals"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13s lyrical drop loop."
-      },
-      {
-        "id": "usman_stage_08",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "Smoothest BPM Transition You Will Hear Today 🎧 #shorts #djskills",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/usman_starter/usman_stage_08.mp4",
-        "description": "Flawless tempo transition right into the heaviest drop of the night. Masterclass behind the decks!\\n\\n#djtips #mixmag #djlifestyle #clubmusic #bangers",
-        "hashtags": [
-          "#djtips",
-          "#mixmag",
-          "#djlifestyle",
-          "#clubmusic",
-          "#bangers"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13s BPM shift loop."
-      },
-      {
-        "id": "usman_stage_09",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "FPV Drone Dive Through Red Rocks Stage 🛸 #shorts #cinematic",
-        "duration": "0:14",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/usman_starter/usman_stage_09.mp4",
-        "description": "Insane piloting skills threading the needle through the lighting trusses at Dead Rocks!\\n\\n#fpvdrone #dronecinematography #redrocks #visualeffects #epic",
-        "hashtags": [
-          "#fpvdrone",
-          "#dronecinematography",
-          "#redrocks",
-          "#visualeffects",
-          "#epic"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13.5s FPV dive loop."
-      },
-      {
-        "id": "usman_stage_10",
-        "addedTime": "Sep 30, 2026 • 05:20 PM",
-        "batchTag": "Starter Channel Pack (10 Shorts)",
-        "title": "Why Red Rocks Is The Best Venue on Earth 🏔️ #shorts #concert",
-        "duration": "0:13",
-        "quality": "1080x1920 (9:16 Vertical HD)",
-        "videoSrc": "/campaigns/usman_starter/usman_stage_10.mp4",
-        "description": "Natural red monolith rocks towering over 10,000 raving music fans. Pure magic!\\n\\n#redrocksamphitheatre #concertphotography #livemusic #musicfestival #bucketlist",
-        "hashtags": [
-          "#redrocksamphitheatre",
-          "#concertphotography",
-          "#livemusic",
-          "#musicfestival",
-          "#bucketlist"
-        ],
-        "payoutRate": "$1,000 / 1M Views (Starter Bounty)",
-        "loopNote": "Engineered 13s aerial venue loop."
-      }
-    ]
-  },
-  {
-    "campaignId": "usman_camp_2",
-    "campaignName": "Channel 2: Stage Lore & FPV Dynamics",
-    "category": "Drone Flybys & Lighting Engineering",
-    "status": "Standby For Drop",
-    "payout": "$1,000 / 1M Views",
-    "batches": [
-      "All Drops"
-    ],
-    "clips": []
-  }
+  "campaignId": "usman_zeds_tour",
+  "campaignName": "Channel 1: Zeds Dead (Official Electronic Tour - 20 Drops)",
+  "category": "Mainstage Production, Lasers & Bass Overload (Deadbeats / Clipr)",
+  "status": "Live & Active (Usman Exclusive)",
+  "payout": "$3.50 / 1k Views ($175 Max)",
+  "batches": [
+    "All Drops (20)",
+    "Zeds Dead Tour Drops (20 Videos)"
+  ],
+  "clips": [
+    {
+      "id": "usman_zeds_01",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Sub-Bass Pressure Testing Red Rocks Amphitheatre 🏔️ @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_01.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Sub-Bass Pressure Testing Red Rocks Amphitheatre 🏔️. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #01 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_02",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Ante Up Vocal Buildup Before The Drop Hits 🔥 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_02.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Ante Up Vocal Buildup Before The Drop Hits 🔥. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #02 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_03",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Biggie Smalls Vinyl Scratch Flip In Miami 👑 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_03.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Biggie Smalls Vinyl Scratch Flip In Miami 👑. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #03 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_04",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "FPV Drone Dive Through The Laser Forest 🛸 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_04.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: FPV Drone Dive Through The Laser Forest 🛸. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #04 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_05",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Hypnotic 3AM Synth Wave Across Factory Town 🌊 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_05.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Hypnotic 3AM Synth Wave Across Factory Town 🌊. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #05 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_06",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "10,000 People Screaming Every Bar In Unison 🎤 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_06.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: 10,000 People Screaming Every Bar In Unison 🎤. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #06 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_07",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Stage Pyro Firing On The Exact Transient Beat 🔥 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_07.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Stage Pyro Firing On The Exact Transient Beat 🔥. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #07 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_08",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Smoothest 140 BPM Double Drop Transition 🎧 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_08.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Smoothest 140 BPM Double Drop Transition 🎧. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #08 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_09",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Vintage 1950s Vocal Flipped Into Relentless Wobble 🎷 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_09.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Vintage 1950s Vocal Flipped Into Relentless Wobble 🎷. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #09 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_10",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Unreal Crowd Roar As The Bassline Accelerates ⚡ @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_10.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Unreal Crowd Roar As The Bassline Accelerates ⚡. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #10 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_11",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Morning Sunrise Outro In Miami Music Week 🌅 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_11.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Morning Sunrise Outro In Miami Music Week 🌅. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #11 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_12",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Nightfall Lightning Synced With Deadbeats Sound ⚡ @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_12.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Nightfall Lightning Synced With Deadbeats Sound ⚡. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #12 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_13",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Peak Festival Energy Front Row Subwoofer View 🔊 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_13.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Peak Festival Energy Front Row Subwoofer View 🔊. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #13 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_14",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Cinematic FPV Skim Over Monolith Rocks 🛸 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_14.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Cinematic FPV Skim Over Monolith Rocks 🛸. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #14 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_15",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "The 15-Second Tension Riser That Stole The Show 🤯 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_15.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: The 15-Second Tension Riser That Stole The Show 🤯. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #15 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_16",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Classic Toronto Bass Energy Over 808 Drums 🥁 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_16.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Classic Toronto Bass Energy Over 808 Drums 🥁. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #16 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_17",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Sinatra Chords Over Heavy 40Hz Sub Frequencies 🎩 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_17.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Sinatra Chords Over Heavy 40Hz Sub Frequencies 🎩. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #17 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_18",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Heavy Half-Time Brass Groove In The Open Air 🎺 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_18.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Heavy Half-Time Brass Groove In The Open Air 🎺. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #18 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_19",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "The Accelerating Snare Roll Mainstage Climax 🚨 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_19.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: The Accelerating Snare Roll Mainstage Climax 🚨. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #19 with high-retention loop."
+    },
+    {
+      "id": "usman_zeds_20",
+      "addedTime": "Oct 06, 2026 • 10:00 AM",
+      "batchTag": "Zeds Dead Tour Drops (20 Videos)",
+      "title": "Legendary Deadbeats Festival Finale Performance 🏆 @zedsdead #shorts",
+      "duration": "0:10",
+      "quality": "1080x1920 (9:16 Vertical HD)",
+      "videoSrc": "/campaigns/usman_zeds_tour/usman_zeds_20.mp4?v=usman_zeds_tour",
+      "description": "Official Zeds Dead music clipping cut: Legendary Deadbeats Festival Finale Performance 🏆. Pure electronic & bass music energy! 🔊⚡\\n\\n@zedsdead\\n\\n#ZedsDead #Deadbeats #BassMusic #EDM #FestivalVibes #Shorts",
+      "hashtags": [
+        "#ZedsDead",
+        "#Deadbeats",
+        "#BassMusic",
+        "#EDM",
+        "#FestivalVibes",
+        "#Shorts"
+      ],
+      "payoutRate": "$3.50 / 1k Views ($175 Max)",
+      "loopNote": "Engineered 10s festival audio cut #20 with high-retention loop."
+    }
+  ]
+}
 ];
 
 // Lazy-Loaded Deferred Video Component (Loads video byte streams only when triggered)
@@ -4379,6 +6112,7 @@ export default function ClippingVault() {
   const [selectedClipIds, setSelectedClipIds] = useState<string[]>([]);
   const [activeBatchFilter, setActiveBatchFilter] = useState<Record<string, string>>({});
   const [slotTab, setSlotTab] = useState<Record<string, "active" | "offloaded">>({});
+  const [visibleLimit, setVisibleLimit] = useState<Record<string, number>>({});
   const [downloadToast, setDownloadToast] = useState<string>("");
 
   const [offloadedClipIds, setOffloadedClipIds] = useState<string[]>(() => {
@@ -4638,7 +6372,7 @@ export default function ClippingVault() {
     }
   };
 
-    const selectHabeebCampaign = (choice: "bubsy" | "zedsdead" | "moonpay" | "duel" | "all") => {
+    const selectHabeebCampaign = (choice: "sideshift" | "reckoning" | "duel" | "moonpay" | "zedsdead" | "bubsy" | "all") => {
     setHabeebCampaignChoice(choice);
     localStorage.setItem("habeeb_campaign_choice", choice);
   };
@@ -4672,7 +6406,60 @@ export default function ClippingVault() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+            <button
+              onClick={() => selectHabeebCampaign("sideshift")}
+              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-cyan-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+            >
+              <div className="text-3xl mb-3">🤖</div>
+              <h3 className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors flex items-center justify-between">
+                SideShift AI
+                <span className="text-[10px] bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded-full font-mono">$1.50 CPM</span>
+              </h3>
+              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
+                Autonomous AI Creator Marketer launch. 20 master drops ready with automated creator outreach & UGC scaling hooks.
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-cyan-400 font-semibold flex items-center gap-1">
+                Enter SideShift →
+              </div>
+            </button>
+
+            <button
+              onClick={() => selectHabeebCampaign("reckoning")}
+              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-indigo-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+            >
+              <div className="text-3xl mb-3">🎬</div>
+              <h3 className="text-base font-bold text-white group-hover:text-indigo-300 transition-colors flex items-center justify-between">
+                Social Reckoning
+                <span className="text-[10px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full font-mono">$1.00 CPM • Tier 1</span>
+              </h3>
+              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
+                The Social Reckoning movie follow-up. 20 teaser drops ready with Zuckerberg congressional fallout & whistleblower leaks.
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-indigo-400 font-semibold flex items-center gap-1">
+                Enter Movie →
+              </div>
+            </button>
+
+            <button
+              onClick={() => selectHabeebCampaign("duel")}
+              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-rose-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+            >
+              <div className="text-3xl mb-3">⚔️</div>
+              <h3 className="text-base font-bold text-white group-hover:text-rose-300 transition-colors flex items-center justify-between">
+                Duel [Shorts]
+                <span className="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full font-mono">$10.00 CPM</span>
+              </h3>
+              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
+                Duel PvP 1v1 bets, Sneako viral reactions & arena clips. YouTube Shorts ONLY with top hooks.
+              </p>
+              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-rose-400 font-semibold flex items-center gap-1">
+                Enter Duel →
+              </div>
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <button
               onClick={() => selectHabeebCampaign("moonpay")}
               className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-emerald-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
@@ -4823,12 +6610,16 @@ export default function ClippingVault() {
 
   const activeUserData = USERS[currentUser] || USERS.ceo;
   const campaigns = currentUser === "habeeb" 
-    ? (habeebCampaignChoice === "zedsdead" 
-        ? [HABEEB_CAMPAIGNS[1]] 
-        : habeebCampaignChoice === "moonpay" 
-        ? [HABEEB_CAMPAIGNS[2]]
+    ? (habeebCampaignChoice === "sideshift"
+        ? [HABEEB_CAMPAIGNS.find(c => c.campaignId === "habeeb_sideshift_ai") || HABEEB_CAMPAIGNS[0]]
+        : habeebCampaignChoice === "reckoning"
+        ? [HABEEB_CAMPAIGNS.find(c => c.campaignId === "habeeb_social_reckoning") || HABEEB_CAMPAIGNS[0]]
         : habeebCampaignChoice === "duel"
         ? [HABEEB_CAMPAIGNS[3]]
+        : habeebCampaignChoice === "moonpay"
+        ? [HABEEB_CAMPAIGNS[2]]
+        : habeebCampaignChoice === "zedsdead"
+        ? [HABEEB_CAMPAIGNS[1]]
         : habeebCampaignChoice === "bubsy"
         ? [HABEEB_CAMPAIGNS[0]]
         : HABEEB_CAMPAIGNS)
@@ -4924,7 +6715,27 @@ export default function ClippingVault() {
                     : "text-neutral-400 hover:text-white"
                 }`}
               >
-                <span>✨</span> All Channels (75)
+                <span>✨</span> All Channels (115)
+              </button>
+              <button
+                onClick={() => selectHabeebCampaign("sideshift")}
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 cursor-pointer ${
+                  habeebCampaignChoice === "sideshift"
+                    ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-sm"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                <span>🤖</span> SideShift ($1.50)
+              </button>
+              <button
+                onClick={() => selectHabeebCampaign("reckoning")}
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 cursor-pointer ${
+                  habeebCampaignChoice === "reckoning"
+                    ? "bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 shadow-sm"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                <span>🎬</span> Reckoning ($1.00)
               </button>
               <button
                 onClick={() => selectHabeebCampaign("moonpay")}
@@ -5062,7 +6873,7 @@ export default function ClippingVault() {
                 <h2 className="text-lg sm:text-xl font-extrabold text-white tracking-tight flex items-center gap-2">
                   Select Videos Channel To Clip
                   <span className="text-xs font-normal text-neutral-400 hidden sm:inline">
-                    (Pick & switch freely anytime • 75 total drops ready)
+                    (Pick & switch freely anytime • 115 total drops ready)
                   </span>
                 </h2>
               </div>
@@ -5076,13 +6887,111 @@ export default function ClippingVault() {
                       : "text-neutral-400 hover:text-white"
                   }`}
                 >
-                  ✨ View All (75)
+                  ✨ View All (115)
                 </button>
               </div>
             </div>
 
             {/* BentoGrid Cards for Campaign Switcher */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-3.5">
+              {/* SideShift AI */}
+              <button
+                onClick={() => selectHabeebCampaign("sideshift")}
+                className={`group p-4 rounded-xl text-left transition-all duration-300 relative overflow-hidden cursor-pointer border ${
+                  habeebCampaignChoice === "sideshift"
+                    ? "bg-gradient-to-b from-cyan-950/40 via-[#0e171b] to-[#0a0d14] border-cyan-500 shadow-lg shadow-cyan-500/10 ring-1 ring-cyan-500/50"
+                    : "bg-[#0d111a] hover:bg-[#121824] border-[#1e2638] hover:border-cyan-500/40"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-2xl">🤖</span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                    $1.50 CPM • $300 Max
+                  </span>
+                </div>
+                <h3 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors flex items-center justify-between">
+                  SideShift AI
+                  {habeebCampaignChoice === "sideshift" && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                  )}
+                </h3>
+                <p className="text-[11px] text-neutral-400 mt-1 leading-relaxed">
+                  Autonomous AI Creator Marketer launch. Scale UGC & creator outreach on autopilot.
+                </p>
+                <div className="mt-3 pt-2.5 border-t border-[#1b2234] flex items-center justify-between text-[11px]">
+                  <span className="text-neutral-400">20 Master Drops</span>
+                  <span className="font-semibold text-cyan-400">
+                    {habeebCampaignChoice === "sideshift" ? "Active View ✓" : "Switch Here →"}
+                  </span>
+                </div>
+              </button>
+
+              {/* The Social Reckoning */}
+              <button
+                onClick={() => selectHabeebCampaign("reckoning")}
+                className={`group p-4 rounded-xl text-left transition-all duration-300 relative overflow-hidden cursor-pointer border ${
+                  habeebCampaignChoice === "reckoning"
+                    ? "bg-gradient-to-b from-indigo-950/40 via-[#131124] to-[#0a0d14] border-indigo-500 shadow-lg shadow-indigo-500/10 ring-1 ring-indigo-500/50"
+                    : "bg-[#0d111a] hover:bg-[#121824] border-[#1e2638] hover:border-indigo-500/40"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-2xl">🎬</span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                    $1.00 CPM • $750 Max (Tier 1)
+                  </span>
+                </div>
+                <h3 className="text-sm font-bold text-white group-hover:text-indigo-300 transition-colors flex items-center justify-between">
+                  Social Reckoning
+                  {habeebCampaignChoice === "reckoning" && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-ping"></span>
+                  )}
+                </h3>
+                <p className="text-[11px] text-neutral-400 mt-1 leading-relaxed">
+                  The Social Network movie follow-up. Meta whistleblower leaks & congressional battles.
+                </p>
+                <div className="mt-3 pt-2.5 border-t border-[#1b2234] flex items-center justify-between text-[11px]">
+                  <span className="text-neutral-400">20 Movie Drops</span>
+                  <span className="font-semibold text-indigo-400">
+                    {habeebCampaignChoice === "reckoning" ? "Active View ✓" : "Switch Here →"}
+                  </span>
+                </div>
+              </button>
+
+              {/* Duel */}
+              <button
+                onClick={() => selectHabeebCampaign("duel")}
+                className={`group p-4 rounded-xl text-left transition-all duration-300 relative overflow-hidden cursor-pointer border ${
+                  habeebCampaignChoice === "duel"
+                    ? "bg-gradient-to-b from-rose-950/40 via-[#180e12] to-[#0a0d14] border-rose-500 shadow-lg shadow-rose-500/10 ring-1 ring-rose-500/50"
+                    : "bg-[#0d111a] hover:bg-[#121824] border-[#1e2638] hover:border-rose-500/40"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-2.5">
+                  <span className="text-2xl">⚔️</span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                    $10.00 CPM
+                  </span>
+                </div>
+                <h3 className="text-sm font-bold text-white group-hover:text-rose-300 transition-colors flex items-center justify-between">
+                  Duel [YT Shorts]
+                  {habeebCampaignChoice === "duel" && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400 animate-ping"></span>
+                  )}
+                </h3>
+                <p className="text-[11px] text-neutral-400 mt-1 leading-relaxed">
+                  YouTube Shorts ONLY. Sneako viral moments, top hooks, min 1,750 views.
+                </p>
+                <div className="mt-3 pt-2.5 border-t border-[#1b2234] flex items-center justify-between text-[11px]">
+                  <span className="text-neutral-400">20 Viral Drops</span>
+                  <span className="font-semibold text-rose-400">
+                    {habeebCampaignChoice === "duel" ? "Active View ✓" : "Switch Here →"}
+                  </span>
+                </div>
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
               {/* 1. MoonPay XGL */}
               <button
                 onClick={() => selectHabeebCampaign("moonpay")}
@@ -5386,18 +7295,51 @@ export default function ClippingVault() {
                     )}
 
                     {visibleClips.length > 0 ? (
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {visibleClips.map(clip => (
-                          <DeferredVideoCard 
-                            key={clip.id} 
-                            clip={clip} 
-                            isSelected={selectedClipIds.includes(clip.id)}
-                            onToggleSelect={() => handleToggleSelect(clip.id)}
-                            onOffload={() => handleOffloadClips([clip.id])}
-                            onRestore={() => handleRestoreClip(clip.id)}
-                            isOffloaded={offloadedClipIds.includes(clip.id)}
-                          />
-                        ))}
+                      <div className="space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                          {visibleClips
+                            .slice(0, visibleLimit[camp.campaignId] || 12)
+                            .map(clip => (
+                              <DeferredVideoCard 
+                                key={clip.id} 
+                                clip={clip} 
+                                isSelected={selectedClipIds.includes(clip.id)}
+                                onToggleSelect={() => handleToggleSelect(clip.id)}
+                                onOffload={() => handleOffloadClips([clip.id])}
+                                onRestore={() => handleRestoreClip(clip.id)}
+                                isOffloaded={offloadedClipIds.includes(clip.id)}
+                              />
+                            ))}
+                        </div>
+
+                        {/* Notion-Speed Pagination Control */}
+                        {visibleClips.length > (visibleLimit[camp.campaignId] || 12) && (
+                          <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#0d121c] border border-[#1b2234] p-4 rounded-xl">
+                            <span className="text-xs text-neutral-400 font-mono">
+                              Displaying <strong className="text-white">{Math.min(visibleClips.length, visibleLimit[camp.campaignId] || 12)}</strong> of <strong className="text-white">{visibleClips.length}</strong> videos (Ultra-fast Notion view)
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => setVisibleLimit(prev => ({
+                                  ...prev,
+                                  [camp.campaignId]: (prev[camp.campaignId] || 12) + 12
+                                }))}
+                                className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-md shadow-blue-600/20 active:scale-95"
+                              >
+                                Show 12 More Videos ↓
+                              </button>
+                              <button
+                                onClick={() => setVisibleLimit(prev => ({
+                                  ...prev,
+                                  [camp.campaignId]: visibleClips.length
+                                }))}
+                                className="px-3.5 py-2 rounded-xl bg-[#171f2f] hover:bg-[#202a3f] text-neutral-300 hover:text-white border border-[#232f48] text-xs font-semibold transition-all"
+                              >
+                                Show All ({visibleClips.length})
+                              </button>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     ) : (
                       <div className="py-10 px-4 border border-[#232d43] bg-[#0c101a]/70 rounded-xl flex flex-col items-center justify-center text-center">

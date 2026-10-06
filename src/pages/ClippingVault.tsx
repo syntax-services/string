@@ -1561,18 +1561,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "How Top DTC Brands Scale 1,000 Influencers On Autopilot 🤖 #ai #marketing",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_01.mp4?v=sideshift_launch",
-      "description": "Stop manually DMing creators. SideShift's AI Creator Marketer finds, contacts, and negotiates with creators while you sleep! 📈\\n\\n🔗 sideshift.app\\n\\n#SideShift #CreatorMarketing #UGC #GrowthHacking #Ecommerce #SaaS",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_01.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#CreatorMarketing",
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
         "#UGC",
-        "#GrowthHacking",
-        "#Ecommerce",
-        "#SaaS"
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s viral hook on scaling creator marketing without agencies."
+      "loopNote": "10s cut (clip #01) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_02",
@@ -1581,17 +1580,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "SideShift AI Finds Creators Who Actually Drive Sales 🤯 #marketingtips",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_02.mp4?v=sideshift_launch",
-      "description": "Most agencies match vanity metrics. SideShift analyzes deep audience sentiment and past conversion velocity! 🎯\\n\\n🔗 sideshift.app\\n\\n#SideShift #AICreator #InfluencerMarketing #PerformanceMarketing #DTC",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_02.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#AICreator",
+        "#AICreatorMarketer",
         "#InfluencerMarketing",
-        "#PerformanceMarketing",
-        "#DTC"
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s breakdown of AI sentiment matching vs vanity metrics."
+      "loopNote": "10s cut (clip #02) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_03",
@@ -1600,17 +1599,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "The Death of Traditional Influencer Agencies? 👀 #businessgrowth",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_03.mp4?v=sideshift_launch",
-      "description": "Why pay a $10,000 monthly agency retainer when an AI creator marketer can do 10x the outreach in 2 minutes? 🔥\\n\\n🔗 sideshift.app\\n\\n#SideShift #AgencyLife #StartupTips #Productivity #BusinessHacks",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_03.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#AgencyLife",
-        "#StartupTips",
-        "#Productivity",
-        "#BusinessHacks"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s comparison: $10k/month retainer vs autonomous AI."
+      "loopNote": "10s cut (clip #03) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_04",
@@ -1619,17 +1618,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "How To Automate Creator Contracts & Deliverables in 60s ✍️ #ecommerce",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_04.mp4?v=sideshift_launch",
-      "description": "From offer letter to signed contract and brief delivery—SideShift automates the entire creator operations stack! 💼\\n\\n🔗 sideshift.app\\n\\n#SideShift #CreatorEconomy #SaaS #Operations #Growth",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_04.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#CreatorEconomy",
-        "#SaaS",
-        "#Operations",
-        "#Growth"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s workflow demo from initial offer to signed agreement."
+      "loopNote": "10s cut (clip #04) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_05",
@@ -1638,17 +1637,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "This AI Marketer Ran A 50-Creator Campaign In 1 Day ⚡ #growthhacks",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_05.mp4?v=sideshift_launch",
-      "description": "Imagine briefing 50 top-tier creators before lunchtime. SideShift makes high-velocity creator marketing effortless! 🚀\\n\\n🔗 sideshift.app\\n\\n#SideShift #UGCStrategy #MarketingStrategy #ViralMarketing #Scale",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_05.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#UGCStrategy",
-        "#MarketingStrategy",
-        "#ViralMarketing",
-        "#Scale"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s case study on 50 creators briefed before lunchtime."
+      "loopNote": "10s cut (clip #05) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_06",
@@ -1657,17 +1656,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "Why High-Ticket Brands Are Switching To SideShift AI 🏆 #dtcbrands",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_06.mp4?v=sideshift_launch",
-      "description": "High AOV brands require vetted creators with authentic authority. See how SideShift's AI filters out fake engagement! 🛡️\\n\\n🔗 sideshift.app\\n\\n#SideShift #BrandStrategy #LuxuryMarketing #EcommerceTips #AI",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_06.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#BrandStrategy",
-        "#LuxuryMarketing",
-        "#EcommerceTips",
-        "#AI"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s precision vetting breakdown for luxury & high AOV."
+      "loopNote": "10s cut (clip #06) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_07",
@@ -1676,16 +1675,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "SideShift vs Manual Outreach: The Real Math Behind 10x ROI 📊 #roi",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_07.mp4?v=sideshift_launch",
-      "description": "Breakdown of cost per acquisition: 30 hours of manual outreach vs 5 minutes with SideShift AI. The math speaks for itself! 💰\\n\\n🔗 sideshift.app\\n\\n#SideShift #MarketingROI #CostPerAcquisition #DigitalMarketing",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_07.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#MarketingROI",
-        "#CostPerAcquisition",
-        "#DigitalMarketing"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s CAC math: 30 hours manual outreach vs 5 mins AI."
+      "loopNote": "10s cut (clip #07) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_08",
@@ -1694,17 +1694,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "The Exact Secret To Dominating TikTok Shop & UGC In 2026 📱 #tiktokgrowth",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_08.mp4?v=sideshift_launch",
-      "description": "If you want thousands of organic TikTok videos for your product, you need an autonomous creator engine like SideShift! ✨\\n\\n🔗 sideshift.app\\n\\n#SideShift #TikTokShop #TikTokMadeMeBuyIt #UGCCommunity #Viral",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_08.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#TikTokShop",
-        "#TikTokMadeMeBuyIt",
-        "#UGCCommunity",
-        "#Viral"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s viral seeding architecture for consumer goods."
+      "loopNote": "10s cut (clip #08) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_09",
@@ -1713,17 +1713,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "How An AI Marketer Handles Rate Negotiations For You 🤝 #creatorstrategy",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_09.mp4?v=sideshift_launch",
-      "description": "No more guessing what creators charge. SideShift benchmarks fair CPM rates and secures optimal deals dynamically! 🤝\\n\\n🔗 sideshift.app\\n\\n#SideShift #Negotiation #InfluencerRates #CreatorEconomy #Business",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_09.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#Negotiation",
-        "#InfluencerRates",
-        "#CreatorEconomy",
-        "#Business"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s dynamic rate benchmark negotiation demonstration."
+      "loopNote": "10s cut (clip #09) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_10",
@@ -1732,16 +1732,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "Build An Army of Brand Ambassadors On Total Autopilot 👑 #brandbuilding",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_10.mp4?v=sideshift_launch",
-      "description": "Turn 100 passionate micro-creators into an army of recurring advocates with SideShift's automated relationship builder! 🌟\\n\\n🔗 sideshift.app\\n\\n#SideShift #BrandAmbassadors #CommunityBuilding #ScaleYourBrand",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_10.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#BrandAmbassadors",
-        "#CommunityBuilding",
-        "#ScaleYourBrand"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s flywheel: turning 100 micro-creators into advocates."
+      "loopNote": "10s cut (clip #10) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_11",
@@ -1750,17 +1751,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "How To Predict Creator ROI Before Spending A Dollar 🔮 #analytics",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_11.mp4?v=sideshift_launch",
-      "description": "Predictive engagement scoring means zero wasted ad spend. Let SideShift vet your creator roster with precision data! 📊\\n\\n🔗 sideshift.app\\n\\n#SideShift #DataAnalytics #MarketingData #AdSpend #Growth",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_11.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#DataAnalytics",
-        "#MarketingData",
-        "#AdSpend",
-        "#Growth"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s predictive modeling on past click-through velocity."
+      "loopNote": "10s cut (clip #11) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_12",
@@ -1769,17 +1770,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "From 0 to 500k Views: The AI Influencer Seeding Method 🌊 #viralstrategy",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_12.mp4?v=sideshift_launch",
-      "description": "The secret playbook to getting 30 creators posting about your product on the exact same launch date! 🚀\\n\\n🔗 sideshift.app\\n\\n#SideShift #ProductLaunch #ViralReach #SocialProof #Marketing101",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_12.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#ProductLaunch",
-        "#ViralReach",
-        "#SocialProof",
-        "#Marketing101"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s same-day sync posting playbook for massive reach."
+      "loopNote": "10s cut (clip #12) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_13",
@@ -1788,17 +1789,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "The Ultimate Creator Marketing Cheat Code For Startups 💡 #startuphacks",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_13.mp4?v=sideshift_launch",
-      "description": "Bootstrapped founders don't have time to manage 20 creator chats. SideShift gives you an enterprise marketing team in one tool! ⚡\\n\\n🔗 sideshift.app\\n\\n#SideShift #Bootstrapping #LeanStartup #FounderLife #Growth",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_13.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#Bootstrapping",
-        "#LeanStartup",
-        "#FounderLife",
-        "#Growth"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s bootstrapping breakdown: enterprise team in 1 tool."
+      "loopNote": "10s cut (clip #13) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_14",
@@ -1807,16 +1808,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "Why SideShift's AI Creator Marketer Is Breaking The Internet 🔥 #trendingtech",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_14.mp4?v=sideshift_launch",
-      "description": "Meet the world's first true AI Creator Marketer. From talent discovery to performance tracking, it does it all! 🤖\\n\\n🔗 sideshift.app\\n\\n#SideShift #ArtificialIntelligence #TechTrends #FutureOfWork",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_14.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#ArtificialIntelligence",
-        "#TechTrends",
-        "#FutureOfWork"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s showcase of autonomous AI creator agent running live."
+      "loopNote": "10s cut (clip #14) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_15",
@@ -1825,17 +1827,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "How Solo Founders Are Running Agency-Level UGC Campaigns 💼 #entrepreneurship",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_15.mp4?v=sideshift_launch",
-      "description": "One founder, zero employees, 100 creators onboarded in 72 hours. See what's possible with modern AI tooling! 🛠️\\n\\n🔗 sideshift.app\\n\\n#SideShift #SoloFounder #MicroSaaS #IndieHacker #Marketing",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_15.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#SoloFounder",
-        "#MicroSaaS",
-        "#IndieHacker",
-        "#Marketing"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s solo founder stack onboarded 100 creators in 72h."
+      "loopNote": "10s cut (clip #15) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_16",
@@ -1844,17 +1846,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "The Cleanest Way To Track Creator Affiliate Conversions 🛒 #affiliatemarketing",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_16.mp4?v=sideshift_launch",
-      "description": "Track every single referral link, conversion, and payout without spreadsheet nightmares. Clean, real-time attribution! 📈\\n\\n🔗 sideshift.app\\n\\n#SideShift #AffiliateProgram #Attribution #Revenue #Tracking",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_16.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#AffiliateProgram",
-        "#Attribution",
-        "#Revenue",
-        "#Tracking"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s real-time attribution demo without spreadsheets."
+      "loopNote": "10s cut (clip #16) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_17",
@@ -1863,17 +1865,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "Stop Wasting Time On Dead Creator Leads 🚫 #salestips",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_17.mp4?v=sideshift_launch",
-      "description": "80% of creator emails go unread. SideShift targets active creators who actively accept brand partnerships! 📬\\n\\n🔗 sideshift.app\\n\\n#SideShift #Outreach #EmailMarketing #CreatorCollab #Productivity",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_17.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#Outreach",
-        "#EmailMarketing",
-        "#CreatorCollab",
-        "#Productivity"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s active vs dead email filter comparison."
+      "loopNote": "10s cut (clip #17) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_18",
@@ -1882,17 +1884,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "How Top Fashion & Beauty Brands Scale Authentic Reviews 💄 #ugctips",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_18.mp4?v=sideshift_launch",
-      "description": "Aesthetic alignment is everything in beauty and lifestyle. SideShift matches creators based on visual tone and audience demographic! 🌸\\n\\n🔗 sideshift.app\\n\\n#SideShift #BeautyMarketing #LifestyleBrand #VisualSearch #UGC",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_18.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#BeautyMarketing",
-        "#LifestyleBrand",
-        "#VisualSearch",
-        "#UGC"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s visual aesthetic matching demonstration."
+      "loopNote": "10s cut (clip #18) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_19",
@@ -1901,17 +1903,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "The Secret Weapon Behind 7-Figure Shopify Brands 💎 #shopifydropshipping",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_19.mp4?v=sideshift_launch",
-      "description": "Organic UGC is the highest-converting ad creative for Shopify stores. Feed your ad account with endless creator assets! 🎬\\n\\n🔗 sideshift.app\\n\\n#SideShift #Shopify #Dropshipping #FacebookAds #CreativeStrategy",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_19.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#Shopify",
-        "#Dropshipping",
-        "#FacebookAds",
-        "#CreativeStrategy"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s feeding Facebook ads with endless organic UGC."
+      "loopNote": "10s cut (clip #19) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "ceo_sideshift_20",
@@ -1920,16 +1922,17 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "title": "SideShift AI: The New Standard In Creator Marketing 🚀 #futureofmarketing",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_20.mp4?v=sideshift_launch",
-      "description": "Creator marketing just entered the AI era. Don't get left behind doing manual work. Launch your campaign with SideShift today! 🌐\\n\\n🔗 sideshift.app\\n\\n#SideShift #Innovation #MarketingAutomation #Scale",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_20.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#Innovation",
-        "#MarketingAutomation",
-        "#Scale"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s vision of the future of autonomous creator campaigns."
+      "loopNote": "10s cut (clip #20) from Nicholas Lawton official SideShift launch announcement."
     }
   ]
 },
@@ -1938,7 +1941,7 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
   "campaignName": "Channel 3: The Social Reckoning (Upcoming Movie - 20 Drops)",
   "category": "Hollywood Cinema, Whistleblower Files & Tech Empire Fallout (Tier 1)",
   "status": "Live & Active (Strict CEO Exclusive)",
-  "payout": "$1.00 / 1k Views ($750 Max • $2,500 Budget)",
+  "payout": "$1.00 CPM ($2,500 Budget • Highlight.live)",
   "batches": [
     "All Drops (20)",
     "Official Movie Teaser (20 Drops)"
@@ -1948,370 +1951,381 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
       "id": "ceo_reckoning_01",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Social Reckoning: The Movie Zuckerberg Never Wanted Made 🤫 #thesocialnetwork #movies",
-      "duration": "0:10",
+      "title": "Official Trailer Scene: The Social Reckoning in Theatres Oct 9 🎬",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_01.mp4?v=reckoning_teaser",
-      "description": "16 years after The Social Network, the reckoning has arrived. The whistleblower leaks, internal documents, and congressional battles come to the big screen! 🎬🍿\\n\\n#TheSocialReckoning #TheSocialNetwork #MarkZuckerberg #MovieTeaser #Cinema2026 #MustWatch",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_01.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nExperience the gripping drama of tech accountability on the big screen.\n\n#TheSocialReckoning #MovieTrailer #Cinema2026 #ComingSoon #FilmTok #MustWatch",
       "hashtags": [
         "#TheSocialReckoning",
-        "#TheSocialNetwork",
-        "#MarkZuckerberg",
-        "#MovieTeaser",
-        "#Cinema2026"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s dramatic hook on whistleblower leaks & congressional fallout."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #01). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_02",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Zuckerberg vs Congress: The Wildest Cinematic Showdown Coming 🏛️ #hollywood",
-      "duration": "0:10",
+      "title": "Congressional Hearing Testimony | The Social Reckoning 🏛️",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_02.mp4?v=reckoning_teaser",
-      "description": "When algorithms meet democracy. The Social Reckoning captures the intense behind-the-scenes drama of tech giants facing accountability! 🔥\\n\\n#TheSocialReckoning #SiliconValley #SenateHearing #Meta #Zuck #MovieNews",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_02.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nInside the halls of Congress as tech leadership faces questions.\n\n#TheSocialReckoning #InTheatres #Cinema2026 #MovieScene #ComingSoon",
       "hashtags": [
         "#TheSocialReckoning",
-        "#SiliconValley",
-        "#SenateHearing",
-        "#Meta",
-        "#MovieNews"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s high-voltage Senate hearing drama confrontation."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #02). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_03",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "From Harvard Dorms To A $1 Trillion Empire Under Fire 📉 #movietrailer",
-      "duration": "0:10",
+      "title": "Inside The High-Stakes Boardroom | The Social Reckoning 💼",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_03.mp4?v=reckoning_teaser",
-      "description": "'You don't get to 3 billion users without making a few enemies.' The epic spiritual successor to the Fincher/Sorkin classic is here! ⚡\\n\\n#TheSocialReckoning #DavidFincher #AaronSorkin #JesseEisenberg #TechHistory",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_03.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nA behind-the-scenes look at the crucial decisions that shaped the tech landscape.\n\n#TheSocialReckoning #NewMovie #InTheatres #FilmLovers",
       "hashtags": [
         "#TheSocialReckoning",
-        "#DavidFincher",
-        "#AaronSorkin",
-        "#JesseEisenberg",
-        "#TechHistory"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s modern sequel hook: Fincher/Sorkin legacy continued."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #03). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_04",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Who Is Playing Mark Zuckerberg in The Social Reckoning? 🎭 #castreveal",
-      "duration": "0:10",
+      "title": "Official Trailer Spotlight: The Social Reckoning Oct 9 🎬",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_04.mp4?v=reckoning_teaser",
-      "description": "The casting rumors are insane. Check out who brings the tech titan back to life in this intense Silicon Valley thriller! 🤯\\n\\n#TheSocialReckoning #CastReveal #MovieTok #BehindTheScenes #FilmBuff",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_04.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nDon't miss the most anticipated tech drama coming this fall to theatres nationwide.\n\n#TheSocialReckoning #ComingSoon #MovieNight #InTheatres",
       "hashtags": [
         "#TheSocialReckoning",
-        "#CastReveal",
-        "#MovieTok",
-        "#BehindTheScenes",
-        "#FilmBuff"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s cast breakdown & uncanny character transformation."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #04). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_05",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Whistleblower Who Exposed Silicon Valley's Biggest Secret 📁 #whistleblower",
-      "duration": "0:10",
+      "title": "The Whistleblower Revelations | The Social Reckoning 📁",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_05.mp4?v=reckoning_teaser",
-      "description": "They knew the psychological impact on teens for years. The Social Reckoning brings the real whistleblower story to Hollywood! 📄\\n\\n#TheSocialReckoning #MetaLeaks #FacebookFiles #Documentary #Drama",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_05.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nThe journey of courage and truth that brought internal files to light.\n\n#TheSocialReckoning #InTheatres #FilmCommunity #October9",
       "hashtags": [
         "#TheSocialReckoning",
-        "#MetaLeaks",
-        "#FacebookFiles",
-        "#Documentary",
-        "#Drama"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s leaked internal files & teen mental health research."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #05). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_06",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Social Network (2010) vs The Social Reckoning (2026) 🎬 #cinematography",
-      "duration": "0:10",
+      "title": "High Tension Legal Showdown | The Social Reckoning ⚖️",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_06.mp4?v=reckoning_teaser",
-      "description": "2010 was about the creation. 2026 is about the fallout. How The Social Reckoning continues the greatest tech saga ever made! 🎥\\n\\n#TheSocialReckoning #FilmAnalysis #MovieComparisons #CinemaClips",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_06.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nWitness the legal confrontation that challenged the tech industry.\n\n#TheSocialReckoning #MovieScene #InTheatres #October9",
       "hashtags": [
         "#TheSocialReckoning",
-        "#FilmAnalysis",
-        "#MovieComparisons",
-        "#CinemaClips"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s side-by-side comparison: Creation vs Fallout."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #06). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_07",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Eduardo Saverin's Secret Reaction To The New Movie 💼 #eduardosaverin",
-      "duration": "0:10",
+      "title": "Epic Cinema Teaser: The Social Reckoning Oct 9 🎥",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_07.mp4?v=reckoning_teaser",
-      "description": "From freezing bank accounts to multi-billionaire venture capitalist—where does Eduardo stand as Facebook faces its reckoning? 💰\\n\\n#TheSocialReckoning #EduardoSaverin #AndrewGarfield #TechDrama",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_07.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nComing exclusively to theatres on October 9.\n\n#TheSocialReckoning #FilmBuff #MovieTrailer #InTheatres",
       "hashtags": [
         "#TheSocialReckoning",
-        "#EduardoSaverin",
-        "#AndrewGarfield",
-        "#TechDrama"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s where the original founders stand during the reckoning."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #07). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_08",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Dialogue In The Social Reckoning Is Pure Sorkin Gold ✍️ #screenplay",
-      "duration": "0:10",
+      "title": "Aaron Sorkin Dialogue Spotlight | The Social Reckoning ✍️",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_08.mp4?v=reckoning_teaser",
-      "description": "'A million users isn't cool. You know what's cool? A government subpoena.' The sharpest screenplay of the year! ✍️⚡\\n\\n#TheSocialReckoning #Screenwriting #AaronSorkin #MovieQuotes #Masterpiece",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_08.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nFeaturing the sharp storytelling and rapid dialogue of modern cinema.\n\n#TheSocialReckoning #Screenwriting #InTheatres #MovieLovers",
       "hashtags": [
         "#TheSocialReckoning",
-        "#Screenwriting",
-        "#AaronSorkin",
-        "#MovieQuotes"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s rapid-fire intellectual dialogue & courtroom exchange."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #08). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_09",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Cambridge Analytica Scandal Like You Have Never Seen It 🕵️ #conspiracy",
-      "duration": "0:10",
+      "title": "The Turning Point Scene | The Social Reckoning ⚡",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_09.mp4?v=reckoning_teaser",
-      "description": "87 million profiles harvested in secret. The Social Reckoning reveals the dark nexus of data harvesting and political warfare! 🗳️\\n\\n#TheSocialReckoning #CambridgeAnalytica #DataPrivacy #CyberSecurity",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_09.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nWhen the digital empire reached the point of no return.\n\n#TheSocialReckoning #InTheatres #October9 #MovieScene",
       "hashtags": [
         "#TheSocialReckoning",
-        "#CambridgeAnalytica",
-        "#DataPrivacy",
-        "#CyberSecurity"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s data harvesting nexus & 87 million voter profiles."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #09). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_10",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Can Any Movie Top The Iconic Trent Reznor Soundtrack? 🎹 #soundtrack",
-      "duration": "0:10",
+      "title": "Press Conference Flashbulbs | The Social Reckoning 📸",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_10.mp4?v=reckoning_teaser",
-      "description": "The dark, pulsing ambient soundtrack of The Social Reckoning will give you literal chills. Ambient masterclass! 🎧\\n\\n#TheSocialReckoning #TrentReznor #AtticusRoss #FilmScore #Soundtrack",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_10.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nThe media storm surrounding the biggest tech story of our time.\n\n#TheSocialReckoning #InTheatres #ComingSoon #FilmTok",
       "hashtags": [
         "#TheSocialReckoning",
-        "#TrentReznor",
-        "#AtticusRoss",
-        "#FilmScore",
-        "#Soundtrack"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s pulsing industrial electronic score teaser."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #10). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_11",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Scene That Had Early Test Audiences Gasping In Shock 😱 #filmreaction",
-      "duration": "0:10",
+      "title": "Senate Subpoena Moment | The Social Reckoning 📜",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_11.mp4?v=reckoning_teaser",
-      "description": "Early test screenings report this boardroom confrontation scene rivals the iconic laptop-smashing moment from 2010! 💻💥\\n\\n#TheSocialReckoning #MovieReactions #EarlyScreening #FilmCommunity",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_11.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nThe official summons that changed Silicon Valley forever.\n\n#TheSocialReckoning #InTheatres #October9 #NewRelease",
       "hashtags": [
         "#TheSocialReckoning",
-        "#MovieReactions",
-        "#EarlyScreening",
-        "#FilmCommunity"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s explosive boardroom showdown rivaling laptop smash."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #11). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_12",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Why Mark Zuckerberg Will Hate Every Second Of This Film 🛑 #techbillionaires",
-      "duration": "0:10",
+      "title": "Executive Suite Late Night | The Social Reckoning 🏙️",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_12.mp4?v=reckoning_teaser",
-      "description": "No PR team could stop this story. The Social Reckoning exposes the boardroom debates when algorithms prioritized outrage over safety! 📱\\n\\n#TheSocialReckoning #Zuckerberg #TechNews #Controversy #BigTech",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_12.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nLate night deliberations inside headquarters before the public testimony.\n\n#TheSocialReckoning #InTheatres #October9 #Cinema",
       "hashtags": [
         "#TheSocialReckoning",
-        "#Zuckerberg",
-        "#TechNews",
-        "#Controversy",
-        "#BigTech"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s algorithm outrage prioritization exposed."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #12). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_13",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Metaverse Pivot: How A $50 Billion Bet Changed The Game 🥽 #metaverse",
-      "duration": "0:10",
+      "title": "Internal Documents Uncovered | The Social Reckoning 📑",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_13.mp4?v=reckoning_teaser",
-      "description": "When reality became too turbulent, they tried to build a virtual world. Inside the $50B Metaverse gamble! 🌐\\n\\n#TheSocialReckoning #VR #MetaQuest #FutureTech #SiliconValley",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_13.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nInvestigative reporting that uncovers what was known behind closed doors.\n\n#TheSocialReckoning #InTheatres #October9 #MovieClips",
       "hashtags": [
         "#TheSocialReckoning",
-        "#VR",
-        "#MetaQuest",
-        "#FutureTech",
-        "#SiliconValley"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s virtual reality dream amidst company crisis."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #13). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_14",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Is This The Movie That Finally Wins The Oscar In 2027? 🏆 #oscars",
-      "duration": "0:10",
+      "title": "Global Headline Montage | The Social Reckoning 🌍",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_14.mp4?v=reckoning_teaser",
-      "description": "Critics are already predicting Best Picture, Best Actor, and Best Screenplay nominations for The Social Reckoning! 🌟\\n\\n#TheSocialReckoning #AcademyAwards #OscarContender #MustSeeMovies",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_14.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nHow a single platform captured the attention of world leaders.\n\n#TheSocialReckoning #InTheatres #October9 #MustWatch",
       "hashtags": [
         "#TheSocialReckoning",
-        "#AcademyAwards",
-        "#OscarContender",
-        "#MustSeeMovies"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s awards season buzz & Best Picture forecast."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #14). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_15",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Real Story Behind The 'Delete Facebook' Movement 🚫 #deletefacebook",
-      "duration": "0:10",
+      "title": "Dramatic Monologue Teaser | The Social Reckoning 🎭",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_15.mp4?v=reckoning_teaser",
-      "description": "Remember when millions boycotted the platform in 2018? The Social Reckoning takes you behind the closed doors during the panic! 🚪\\n\\n#TheSocialReckoning #SocialMediaCleanse #DigitalAddiction #Culture",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_15.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nPowerful performances bringing this modern saga to life.\n\n#TheSocialReckoning #InTheatres #FilmPerformance #October9",
       "hashtags": [
         "#TheSocialReckoning",
-        "#SocialMediaCleanse",
-        "#DigitalAddiction",
-        "#Culture"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s inside the 2018 user exodus and internal panic."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #15). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_16",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Sean Parker's Legacy: Did The Napster Bad Boy Predict It All? 🕶️ #seanparker",
-      "duration": "0:10",
+      "title": "Behind Closed Doors | The Social Reckoning 🚪",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_16.mp4?v=reckoning_teaser",
-      "description": "'Drop the 'The'. Just Facebook.' Did Sean Parker see the dark consequences coming from the very beginning? 🕶️🍸\\n\\n#TheSocialReckoning #JustinTimberlake #Napster #StartupHistory",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_16.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nWhat really happened in the private rooms where history was decided.\n\n#TheSocialReckoning #InTheatres #October9 #MovieNight",
       "hashtags": [
         "#TheSocialReckoning",
-        "#JustinTimberlake",
-        "#Napster",
-        "#StartupHistory"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s revisiting Parker's prophecy on psychological exploitation."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #16). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_17",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Social Reckoning Official Trailer Breakdown & Easter Eggs 🔍 #trailerbreakdown",
-      "duration": "0:10",
+      "title": "Algorithm Architecture Debate | The Social Reckoning 💻",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_17.mp4?v=reckoning_teaser",
-      "description": "Every single Easter egg hidden in the teaser trailer! Did you spot the subtle homage to the 2010 opening scene? 🔎\\n\\n#TheSocialReckoning #EasterEggs #FilmTheory #TrailerBreakdown",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_17.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nThe engineering decisions that connected billions across the globe.\n\n#TheSocialReckoning #InTheatres #October9 #TechCulture",
       "hashtags": [
         "#TheSocialReckoning",
-        "#EasterEggs",
-        "#FilmTheory",
-        "#TrailerBreakdown"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s subtle 2010 easter eggs spotted in the trailer."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #17). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_18",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Algorithm Of Outrage: How Social Media Rewired Our Brains 🧠 #psychology",
-      "duration": "0:10",
+      "title": "Emotional Courtroom Exit | The Social Reckoning 🚶",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_18.mp4?v=reckoning_teaser",
-      "description": "The infinite scroll wasn't an accident. It was psychological engineering. The Social Reckoning pulls back the curtain! 🔄\\n\\n#TheSocialReckoning #Dopamine #MentalHealth #TechEthics",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_18.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nFacing the public eye under intense scrutiny.\n\n#TheSocialReckoning #InTheatres #October9 #FilmCommunity",
       "hashtags": [
         "#TheSocialReckoning",
-        "#Dopamine",
-        "#MentalHealth",
-        "#TechEthics"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s psychological engineering behind infinite scroll."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #18). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_19",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Inside The Secret Deposition Tapes: Fact vs Fiction 📼 #deposition",
-      "duration": "0:10",
+      "title": "The Final Trailer Tease | The Social Reckoning 🎬",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_19.mp4?v=reckoning_teaser",
-      "description": "We compared the movie's deposition lines to the real Congressional transcripts. You won't believe how accurate it is! ⚖️\\n\\n#TheSocialReckoning #FactVsFiction #TrueStory #LegalDrama",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_19.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nMark your calendars for the premiere event of the fall season.\n\n#TheSocialReckoning #InTheatres #October9 #Cinema2026",
       "hashtags": [
         "#TheSocialReckoning",
-        "#FactVsFiction",
-        "#TrueStory",
-        "#LegalDrama"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s fact vs fiction comparison with Congressional records."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #19). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "ceo_reckoning_20",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Why The Social Reckoning Is The Most Important Movie Of Our Decade 🌍 #mustwatch",
-      "duration": "0:10",
+      "title": "The Social Reckoning in Theatres October 9 🎬 Don't Miss It",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_20.mp4?v=reckoning_teaser",
-      "description": "We are all living inside Mark Zuckerberg's experiment. The Social Reckoning is the movie defining our generation! 🎬🔥\\n\\n#TheSocialReckoning #Cinema2026 #MustWatch #FilmTok #Generational",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_20.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nGet your tickets early. The Social Reckoning arrives in theatres October 9.\n\n#TheSocialReckoning #InTheatres #October9 #FilmTok #MustSee",
       "hashtags": [
         "#TheSocialReckoning",
+        "#InTheatres",
+        "#October9",
         "#Cinema2026",
-        "#MustWatch",
-        "#FilmTok",
-        "#Generational"
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s definitive cultural verdict on living in Zuck's world."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #20). Rule: Exactly 7.0s length with mandatory caption."
     }
   ]
 }
@@ -3814,18 +3828,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "How Top DTC Brands Scale 1,000 Influencers On Autopilot 🤖 #ai #marketing",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_01.mp4?v=sideshift_launch",
-      "description": "Stop manually DMing creators. SideShift's AI Creator Marketer finds, contacts, and negotiates with creators while you sleep! 📈\\n\\n🔗 sideshift.app\\n\\n#SideShift #CreatorMarketing #UGC #GrowthHacking #Ecommerce #SaaS",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_01.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#CreatorMarketing",
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
         "#UGC",
-        "#GrowthHacking",
-        "#Ecommerce",
-        "#SaaS"
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s viral hook on scaling creator marketing without agencies."
+      "loopNote": "10s cut (clip #01) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_02",
@@ -3834,17 +3847,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "SideShift AI Finds Creators Who Actually Drive Sales 🤯 #marketingtips",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_02.mp4?v=sideshift_launch",
-      "description": "Most agencies match vanity metrics. SideShift analyzes deep audience sentiment and past conversion velocity! 🎯\\n\\n🔗 sideshift.app\\n\\n#SideShift #AICreator #InfluencerMarketing #PerformanceMarketing #DTC",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_02.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#AICreator",
+        "#AICreatorMarketer",
         "#InfluencerMarketing",
-        "#PerformanceMarketing",
-        "#DTC"
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s breakdown of AI sentiment matching vs vanity metrics."
+      "loopNote": "10s cut (clip #02) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_03",
@@ -3853,17 +3866,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "The Death of Traditional Influencer Agencies? 👀 #businessgrowth",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_03.mp4?v=sideshift_launch",
-      "description": "Why pay a $10,000 monthly agency retainer when an AI creator marketer can do 10x the outreach in 2 minutes? 🔥\\n\\n🔗 sideshift.app\\n\\n#SideShift #AgencyLife #StartupTips #Productivity #BusinessHacks",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_03.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#AgencyLife",
-        "#StartupTips",
-        "#Productivity",
-        "#BusinessHacks"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s comparison: $10k/month retainer vs autonomous AI."
+      "loopNote": "10s cut (clip #03) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_04",
@@ -3872,17 +3885,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "How To Automate Creator Contracts & Deliverables in 60s ✍️ #ecommerce",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_04.mp4?v=sideshift_launch",
-      "description": "From offer letter to signed contract and brief delivery—SideShift automates the entire creator operations stack! 💼\\n\\n🔗 sideshift.app\\n\\n#SideShift #CreatorEconomy #SaaS #Operations #Growth",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_04.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#CreatorEconomy",
-        "#SaaS",
-        "#Operations",
-        "#Growth"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s workflow demo from initial offer to signed agreement."
+      "loopNote": "10s cut (clip #04) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_05",
@@ -3891,17 +3904,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "This AI Marketer Ran A 50-Creator Campaign In 1 Day ⚡ #growthhacks",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_05.mp4?v=sideshift_launch",
-      "description": "Imagine briefing 50 top-tier creators before lunchtime. SideShift makes high-velocity creator marketing effortless! 🚀\\n\\n🔗 sideshift.app\\n\\n#SideShift #UGCStrategy #MarketingStrategy #ViralMarketing #Scale",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_05.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#UGCStrategy",
-        "#MarketingStrategy",
-        "#ViralMarketing",
-        "#Scale"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s case study on 50 creators briefed before lunchtime."
+      "loopNote": "10s cut (clip #05) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_06",
@@ -3910,17 +3923,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "Why High-Ticket Brands Are Switching To SideShift AI 🏆 #dtcbrands",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_06.mp4?v=sideshift_launch",
-      "description": "High AOV brands require vetted creators with authentic authority. See how SideShift's AI filters out fake engagement! 🛡️\\n\\n🔗 sideshift.app\\n\\n#SideShift #BrandStrategy #LuxuryMarketing #EcommerceTips #AI",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_06.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#BrandStrategy",
-        "#LuxuryMarketing",
-        "#EcommerceTips",
-        "#AI"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s precision vetting breakdown for luxury & high AOV."
+      "loopNote": "10s cut (clip #06) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_07",
@@ -3929,16 +3942,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "SideShift vs Manual Outreach: The Real Math Behind 10x ROI 📊 #roi",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_07.mp4?v=sideshift_launch",
-      "description": "Breakdown of cost per acquisition: 30 hours of manual outreach vs 5 minutes with SideShift AI. The math speaks for itself! 💰\\n\\n🔗 sideshift.app\\n\\n#SideShift #MarketingROI #CostPerAcquisition #DigitalMarketing",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_07.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#MarketingROI",
-        "#CostPerAcquisition",
-        "#DigitalMarketing"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s CAC math: 30 hours manual outreach vs 5 mins AI."
+      "loopNote": "10s cut (clip #07) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_08",
@@ -3947,17 +3961,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "The Exact Secret To Dominating TikTok Shop & UGC In 2026 📱 #tiktokgrowth",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_08.mp4?v=sideshift_launch",
-      "description": "If you want thousands of organic TikTok videos for your product, you need an autonomous creator engine like SideShift! ✨\\n\\n🔗 sideshift.app\\n\\n#SideShift #TikTokShop #TikTokMadeMeBuyIt #UGCCommunity #Viral",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_08.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#TikTokShop",
-        "#TikTokMadeMeBuyIt",
-        "#UGCCommunity",
-        "#Viral"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s viral seeding architecture for consumer goods."
+      "loopNote": "10s cut (clip #08) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_09",
@@ -3966,17 +3980,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "How An AI Marketer Handles Rate Negotiations For You 🤝 #creatorstrategy",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_09.mp4?v=sideshift_launch",
-      "description": "No more guessing what creators charge. SideShift benchmarks fair CPM rates and secures optimal deals dynamically! 🤝\\n\\n🔗 sideshift.app\\n\\n#SideShift #Negotiation #InfluencerRates #CreatorEconomy #Business",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_09.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#Negotiation",
-        "#InfluencerRates",
-        "#CreatorEconomy",
-        "#Business"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s dynamic rate benchmark negotiation demonstration."
+      "loopNote": "10s cut (clip #09) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_10",
@@ -3985,16 +3999,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "Build An Army of Brand Ambassadors On Total Autopilot 👑 #brandbuilding",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_10.mp4?v=sideshift_launch",
-      "description": "Turn 100 passionate micro-creators into an army of recurring advocates with SideShift's automated relationship builder! 🌟\\n\\n🔗 sideshift.app\\n\\n#SideShift #BrandAmbassadors #CommunityBuilding #ScaleYourBrand",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_10.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#BrandAmbassadors",
-        "#CommunityBuilding",
-        "#ScaleYourBrand"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s flywheel: turning 100 micro-creators into advocates."
+      "loopNote": "10s cut (clip #10) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_11",
@@ -4003,17 +4018,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "How To Predict Creator ROI Before Spending A Dollar 🔮 #analytics",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_11.mp4?v=sideshift_launch",
-      "description": "Predictive engagement scoring means zero wasted ad spend. Let SideShift vet your creator roster with precision data! 📊\\n\\n🔗 sideshift.app\\n\\n#SideShift #DataAnalytics #MarketingData #AdSpend #Growth",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_11.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#DataAnalytics",
-        "#MarketingData",
-        "#AdSpend",
-        "#Growth"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s predictive modeling on past click-through velocity."
+      "loopNote": "10s cut (clip #11) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_12",
@@ -4022,17 +4037,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "From 0 to 500k Views: The AI Influencer Seeding Method 🌊 #viralstrategy",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_12.mp4?v=sideshift_launch",
-      "description": "The secret playbook to getting 30 creators posting about your product on the exact same launch date! 🚀\\n\\n🔗 sideshift.app\\n\\n#SideShift #ProductLaunch #ViralReach #SocialProof #Marketing101",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_12.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#ProductLaunch",
-        "#ViralReach",
-        "#SocialProof",
-        "#Marketing101"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s same-day sync posting playbook for massive reach."
+      "loopNote": "10s cut (clip #12) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_13",
@@ -4041,17 +4056,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "The Ultimate Creator Marketing Cheat Code For Startups 💡 #startuphacks",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_13.mp4?v=sideshift_launch",
-      "description": "Bootstrapped founders don't have time to manage 20 creator chats. SideShift gives you an enterprise marketing team in one tool! ⚡\\n\\n🔗 sideshift.app\\n\\n#SideShift #Bootstrapping #LeanStartup #FounderLife #Growth",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_13.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#Bootstrapping",
-        "#LeanStartup",
-        "#FounderLife",
-        "#Growth"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s bootstrapping breakdown: enterprise team in 1 tool."
+      "loopNote": "10s cut (clip #13) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_14",
@@ -4060,16 +4075,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "Why SideShift's AI Creator Marketer Is Breaking The Internet 🔥 #trendingtech",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_14.mp4?v=sideshift_launch",
-      "description": "Meet the world's first true AI Creator Marketer. From talent discovery to performance tracking, it does it all! 🤖\\n\\n🔗 sideshift.app\\n\\n#SideShift #ArtificialIntelligence #TechTrends #FutureOfWork",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_14.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#ArtificialIntelligence",
-        "#TechTrends",
-        "#FutureOfWork"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s showcase of autonomous AI creator agent running live."
+      "loopNote": "10s cut (clip #14) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_15",
@@ -4078,17 +4094,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "How Solo Founders Are Running Agency-Level UGC Campaigns 💼 #entrepreneurship",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_15.mp4?v=sideshift_launch",
-      "description": "One founder, zero employees, 100 creators onboarded in 72 hours. See what's possible with modern AI tooling! 🛠️\\n\\n🔗 sideshift.app\\n\\n#SideShift #SoloFounder #MicroSaaS #IndieHacker #Marketing",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_15.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#SoloFounder",
-        "#MicroSaaS",
-        "#IndieHacker",
-        "#Marketing"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s solo founder stack onboarded 100 creators in 72h."
+      "loopNote": "10s cut (clip #15) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_16",
@@ -4097,17 +4113,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "The Cleanest Way To Track Creator Affiliate Conversions 🛒 #affiliatemarketing",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_16.mp4?v=sideshift_launch",
-      "description": "Track every single referral link, conversion, and payout without spreadsheet nightmares. Clean, real-time attribution! 📈\\n\\n🔗 sideshift.app\\n\\n#SideShift #AffiliateProgram #Attribution #Revenue #Tracking",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_16.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#AffiliateProgram",
-        "#Attribution",
-        "#Revenue",
-        "#Tracking"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s real-time attribution demo without spreadsheets."
+      "loopNote": "10s cut (clip #16) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_17",
@@ -4116,17 +4132,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "Stop Wasting Time On Dead Creator Leads 🚫 #salestips",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_17.mp4?v=sideshift_launch",
-      "description": "80% of creator emails go unread. SideShift targets active creators who actively accept brand partnerships! 📬\\n\\n🔗 sideshift.app\\n\\n#SideShift #Outreach #EmailMarketing #CreatorCollab #Productivity",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_17.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#Outreach",
-        "#EmailMarketing",
-        "#CreatorCollab",
-        "#Productivity"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s active vs dead email filter comparison."
+      "loopNote": "10s cut (clip #17) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_18",
@@ -4135,17 +4151,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "How Top Fashion & Beauty Brands Scale Authentic Reviews 💄 #ugctips",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_18.mp4?v=sideshift_launch",
-      "description": "Aesthetic alignment is everything in beauty and lifestyle. SideShift matches creators based on visual tone and audience demographic! 🌸\\n\\n🔗 sideshift.app\\n\\n#SideShift #BeautyMarketing #LifestyleBrand #VisualSearch #UGC",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_18.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#BeautyMarketing",
-        "#LifestyleBrand",
-        "#VisualSearch",
-        "#UGC"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s visual aesthetic matching demonstration."
+      "loopNote": "10s cut (clip #18) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_19",
@@ -4154,17 +4170,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "The Secret Weapon Behind 7-Figure Shopify Brands 💎 #shopifydropshipping",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_19.mp4?v=sideshift_launch",
-      "description": "Organic UGC is the highest-converting ad creative for Shopify stores. Feed your ad account with endless creator assets! 🎬\\n\\n🔗 sideshift.app\\n\\n#SideShift #Shopify #Dropshipping #FacebookAds #CreativeStrategy",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_19.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#Shopify",
-        "#Dropshipping",
-        "#FacebookAds",
-        "#CreativeStrategy"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s feeding Facebook ads with endless organic UGC."
+      "loopNote": "10s cut (clip #19) from Nicholas Lawton official SideShift launch announcement."
     },
     {
       "id": "habeeb_sideshift_20",
@@ -4173,16 +4189,17 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "title": "SideShift AI: The New Standard In Creator Marketing 🚀 #futureofmarketing",
       "duration": "0:10",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/sideshift_ai/sideshift_20.mp4?v=sideshift_launch",
-      "description": "Creator marketing just entered the AI era. Don't get left behind doing manual work. Launch your campaign with SideShift today! 🌐\\n\\n🔗 sideshift.app\\n\\n#SideShift #Innovation #MarketingAutomation #Scale",
+      "videoSrc": "/campaigns/sideshift_ai/sideshift_20.mp4?v=official_launch",
+      "description": "Introducing SideShift: the first AI creator marketer. Finds creators, negotiates rates, and scales campaigns autonomously! 🤖📈\n\n🔗 sideshift.app\n\n#SideShift #AICreatorMarketer #InfluencerMarketing #UGC #GrowthHacking",
       "hashtags": [
         "#SideShift",
-        "#Innovation",
-        "#MarketingAutomation",
-        "#Scale"
+        "#AICreatorMarketer",
+        "#InfluencerMarketing",
+        "#UGC",
+        "#GrowthHacking"
       ],
       "payoutRate": "$1.50 / 1k Views ($300 Max)",
-      "loopNote": "10s vision of the future of autonomous creator campaigns."
+      "loopNote": "10s cut (clip #20) from Nicholas Lawton official SideShift launch announcement."
     }
   ]
 },
@@ -4191,7 +4208,7 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
   "campaignName": "Channel 6: The Social Reckoning (Upcoming Movie - 20 Drops)",
   "category": "Hollywood Cinema, Whistleblower Files & Tech Empire Fallout (Tier 1)",
   "status": "Live & Active (Strict Habeeb Exclusive)",
-  "payout": "$1.00 / 1k Views ($750 Max • $2,500 Budget)",
+  "payout": "$1.00 CPM ($2,500 Budget • Highlight.live)",
   "batches": [
     "All Drops (20)",
     "Official Movie Teaser (20 Drops)"
@@ -4201,370 +4218,381 @@ const HABEEB_CAMPAIGNS: CampaignSlot[] = [
       "id": "habeeb_reckoning_01",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Social Reckoning: The Movie Zuckerberg Never Wanted Made 🤫 #thesocialnetwork #movies",
-      "duration": "0:10",
+      "title": "Official Trailer Scene: The Social Reckoning in Theatres Oct 9 🎬",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_01.mp4?v=reckoning_teaser",
-      "description": "16 years after The Social Network, the reckoning has arrived. The whistleblower leaks, internal documents, and congressional battles come to the big screen! 🎬🍿\\n\\n#TheSocialReckoning #TheSocialNetwork #MarkZuckerberg #MovieTeaser #Cinema2026 #MustWatch",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_01.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nExperience the gripping drama of tech accountability on the big screen.\n\n#TheSocialReckoning #MovieTrailer #Cinema2026 #ComingSoon #FilmTok #MustWatch",
       "hashtags": [
         "#TheSocialReckoning",
-        "#TheSocialNetwork",
-        "#MarkZuckerberg",
-        "#MovieTeaser",
-        "#Cinema2026"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s dramatic hook on whistleblower leaks & congressional fallout."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #01). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_02",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Zuckerberg vs Congress: The Wildest Cinematic Showdown Coming 🏛️ #hollywood",
-      "duration": "0:10",
+      "title": "Congressional Hearing Testimony | The Social Reckoning 🏛️",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_02.mp4?v=reckoning_teaser",
-      "description": "When algorithms meet democracy. The Social Reckoning captures the intense behind-the-scenes drama of tech giants facing accountability! 🔥\\n\\n#TheSocialReckoning #SiliconValley #SenateHearing #Meta #Zuck #MovieNews",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_02.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nInside the halls of Congress as tech leadership faces questions.\n\n#TheSocialReckoning #InTheatres #Cinema2026 #MovieScene #ComingSoon",
       "hashtags": [
         "#TheSocialReckoning",
-        "#SiliconValley",
-        "#SenateHearing",
-        "#Meta",
-        "#MovieNews"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s high-voltage Senate hearing drama confrontation."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #02). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_03",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "From Harvard Dorms To A $1 Trillion Empire Under Fire 📉 #movietrailer",
-      "duration": "0:10",
+      "title": "Inside The High-Stakes Boardroom | The Social Reckoning 💼",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_03.mp4?v=reckoning_teaser",
-      "description": "'You don't get to 3 billion users without making a few enemies.' The epic spiritual successor to the Fincher/Sorkin classic is here! ⚡\\n\\n#TheSocialReckoning #DavidFincher #AaronSorkin #JesseEisenberg #TechHistory",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_03.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nA behind-the-scenes look at the crucial decisions that shaped the tech landscape.\n\n#TheSocialReckoning #NewMovie #InTheatres #FilmLovers",
       "hashtags": [
         "#TheSocialReckoning",
-        "#DavidFincher",
-        "#AaronSorkin",
-        "#JesseEisenberg",
-        "#TechHistory"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s modern sequel hook: Fincher/Sorkin legacy continued."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #03). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_04",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Who Is Playing Mark Zuckerberg in The Social Reckoning? 🎭 #castreveal",
-      "duration": "0:10",
+      "title": "Official Trailer Spotlight: The Social Reckoning Oct 9 🎬",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_04.mp4?v=reckoning_teaser",
-      "description": "The casting rumors are insane. Check out who brings the tech titan back to life in this intense Silicon Valley thriller! 🤯\\n\\n#TheSocialReckoning #CastReveal #MovieTok #BehindTheScenes #FilmBuff",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_04.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nDon't miss the most anticipated tech drama coming this fall to theatres nationwide.\n\n#TheSocialReckoning #ComingSoon #MovieNight #InTheatres",
       "hashtags": [
         "#TheSocialReckoning",
-        "#CastReveal",
-        "#MovieTok",
-        "#BehindTheScenes",
-        "#FilmBuff"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s cast breakdown & uncanny character transformation."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #04). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_05",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Whistleblower Who Exposed Silicon Valley's Biggest Secret 📁 #whistleblower",
-      "duration": "0:10",
+      "title": "The Whistleblower Revelations | The Social Reckoning 📁",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_05.mp4?v=reckoning_teaser",
-      "description": "They knew the psychological impact on teens for years. The Social Reckoning brings the real whistleblower story to Hollywood! 📄\\n\\n#TheSocialReckoning #MetaLeaks #FacebookFiles #Documentary #Drama",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_05.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nThe journey of courage and truth that brought internal files to light.\n\n#TheSocialReckoning #InTheatres #FilmCommunity #October9",
       "hashtags": [
         "#TheSocialReckoning",
-        "#MetaLeaks",
-        "#FacebookFiles",
-        "#Documentary",
-        "#Drama"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s leaked internal files & teen mental health research."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #05). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_06",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Social Network (2010) vs The Social Reckoning (2026) 🎬 #cinematography",
-      "duration": "0:10",
+      "title": "High Tension Legal Showdown | The Social Reckoning ⚖️",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_06.mp4?v=reckoning_teaser",
-      "description": "2010 was about the creation. 2026 is about the fallout. How The Social Reckoning continues the greatest tech saga ever made! 🎥\\n\\n#TheSocialReckoning #FilmAnalysis #MovieComparisons #CinemaClips",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_06.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nWitness the legal confrontation that challenged the tech industry.\n\n#TheSocialReckoning #MovieScene #InTheatres #October9",
       "hashtags": [
         "#TheSocialReckoning",
-        "#FilmAnalysis",
-        "#MovieComparisons",
-        "#CinemaClips"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s side-by-side comparison: Creation vs Fallout."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #06). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_07",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Eduardo Saverin's Secret Reaction To The New Movie 💼 #eduardosaverin",
-      "duration": "0:10",
+      "title": "Epic Cinema Teaser: The Social Reckoning Oct 9 🎥",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_07.mp4?v=reckoning_teaser",
-      "description": "From freezing bank accounts to multi-billionaire venture capitalist—where does Eduardo stand as Facebook faces its reckoning? 💰\\n\\n#TheSocialReckoning #EduardoSaverin #AndrewGarfield #TechDrama",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_07.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nComing exclusively to theatres on October 9.\n\n#TheSocialReckoning #FilmBuff #MovieTrailer #InTheatres",
       "hashtags": [
         "#TheSocialReckoning",
-        "#EduardoSaverin",
-        "#AndrewGarfield",
-        "#TechDrama"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s where the original founders stand during the reckoning."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #07). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_08",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Dialogue In The Social Reckoning Is Pure Sorkin Gold ✍️ #screenplay",
-      "duration": "0:10",
+      "title": "Aaron Sorkin Dialogue Spotlight | The Social Reckoning ✍️",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_08.mp4?v=reckoning_teaser",
-      "description": "'A million users isn't cool. You know what's cool? A government subpoena.' The sharpest screenplay of the year! ✍️⚡\\n\\n#TheSocialReckoning #Screenwriting #AaronSorkin #MovieQuotes #Masterpiece",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_08.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nFeaturing the sharp storytelling and rapid dialogue of modern cinema.\n\n#TheSocialReckoning #Screenwriting #InTheatres #MovieLovers",
       "hashtags": [
         "#TheSocialReckoning",
-        "#Screenwriting",
-        "#AaronSorkin",
-        "#MovieQuotes"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s rapid-fire intellectual dialogue & courtroom exchange."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #08). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_09",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Cambridge Analytica Scandal Like You Have Never Seen It 🕵️ #conspiracy",
-      "duration": "0:10",
+      "title": "The Turning Point Scene | The Social Reckoning ⚡",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_09.mp4?v=reckoning_teaser",
-      "description": "87 million profiles harvested in secret. The Social Reckoning reveals the dark nexus of data harvesting and political warfare! 🗳️\\n\\n#TheSocialReckoning #CambridgeAnalytica #DataPrivacy #CyberSecurity",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_09.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nWhen the digital empire reached the point of no return.\n\n#TheSocialReckoning #InTheatres #October9 #MovieScene",
       "hashtags": [
         "#TheSocialReckoning",
-        "#CambridgeAnalytica",
-        "#DataPrivacy",
-        "#CyberSecurity"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s data harvesting nexus & 87 million voter profiles."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #09). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_10",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Can Any Movie Top The Iconic Trent Reznor Soundtrack? 🎹 #soundtrack",
-      "duration": "0:10",
+      "title": "Press Conference Flashbulbs | The Social Reckoning 📸",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_10.mp4?v=reckoning_teaser",
-      "description": "The dark, pulsing ambient soundtrack of The Social Reckoning will give you literal chills. Ambient masterclass! 🎧\\n\\n#TheSocialReckoning #TrentReznor #AtticusRoss #FilmScore #Soundtrack",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_10.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nThe media storm surrounding the biggest tech story of our time.\n\n#TheSocialReckoning #InTheatres #ComingSoon #FilmTok",
       "hashtags": [
         "#TheSocialReckoning",
-        "#TrentReznor",
-        "#AtticusRoss",
-        "#FilmScore",
-        "#Soundtrack"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s pulsing industrial electronic score teaser."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #10). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_11",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Scene That Had Early Test Audiences Gasping In Shock 😱 #filmreaction",
-      "duration": "0:10",
+      "title": "Senate Subpoena Moment | The Social Reckoning 📜",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_11.mp4?v=reckoning_teaser",
-      "description": "Early test screenings report this boardroom confrontation scene rivals the iconic laptop-smashing moment from 2010! 💻💥\\n\\n#TheSocialReckoning #MovieReactions #EarlyScreening #FilmCommunity",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_11.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nThe official summons that changed Silicon Valley forever.\n\n#TheSocialReckoning #InTheatres #October9 #NewRelease",
       "hashtags": [
         "#TheSocialReckoning",
-        "#MovieReactions",
-        "#EarlyScreening",
-        "#FilmCommunity"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s explosive boardroom showdown rivaling laptop smash."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #11). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_12",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Why Mark Zuckerberg Will Hate Every Second Of This Film 🛑 #techbillionaires",
-      "duration": "0:10",
+      "title": "Executive Suite Late Night | The Social Reckoning 🏙️",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_12.mp4?v=reckoning_teaser",
-      "description": "No PR team could stop this story. The Social Reckoning exposes the boardroom debates when algorithms prioritized outrage over safety! 📱\\n\\n#TheSocialReckoning #Zuckerberg #TechNews #Controversy #BigTech",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_12.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nLate night deliberations inside headquarters before the public testimony.\n\n#TheSocialReckoning #InTheatres #October9 #Cinema",
       "hashtags": [
         "#TheSocialReckoning",
-        "#Zuckerberg",
-        "#TechNews",
-        "#Controversy",
-        "#BigTech"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s algorithm outrage prioritization exposed."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #12). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_13",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Metaverse Pivot: How A $50 Billion Bet Changed The Game 🥽 #metaverse",
-      "duration": "0:10",
+      "title": "Internal Documents Uncovered | The Social Reckoning 📑",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_13.mp4?v=reckoning_teaser",
-      "description": "When reality became too turbulent, they tried to build a virtual world. Inside the $50B Metaverse gamble! 🌐\\n\\n#TheSocialReckoning #VR #MetaQuest #FutureTech #SiliconValley",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_13.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nInvestigative reporting that uncovers what was known behind closed doors.\n\n#TheSocialReckoning #InTheatres #October9 #MovieClips",
       "hashtags": [
         "#TheSocialReckoning",
-        "#VR",
-        "#MetaQuest",
-        "#FutureTech",
-        "#SiliconValley"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s virtual reality dream amidst company crisis."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #13). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_14",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Is This The Movie That Finally Wins The Oscar In 2027? 🏆 #oscars",
-      "duration": "0:10",
+      "title": "Global Headline Montage | The Social Reckoning 🌍",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_14.mp4?v=reckoning_teaser",
-      "description": "Critics are already predicting Best Picture, Best Actor, and Best Screenplay nominations for The Social Reckoning! 🌟\\n\\n#TheSocialReckoning #AcademyAwards #OscarContender #MustSeeMovies",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_14.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nHow a single platform captured the attention of world leaders.\n\n#TheSocialReckoning #InTheatres #October9 #MustWatch",
       "hashtags": [
         "#TheSocialReckoning",
-        "#AcademyAwards",
-        "#OscarContender",
-        "#MustSeeMovies"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s awards season buzz & Best Picture forecast."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #14). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_15",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Real Story Behind The 'Delete Facebook' Movement 🚫 #deletefacebook",
-      "duration": "0:10",
+      "title": "Dramatic Monologue Teaser | The Social Reckoning 🎭",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_15.mp4?v=reckoning_teaser",
-      "description": "Remember when millions boycotted the platform in 2018? The Social Reckoning takes you behind the closed doors during the panic! 🚪\\n\\n#TheSocialReckoning #SocialMediaCleanse #DigitalAddiction #Culture",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_15.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nPowerful performances bringing this modern saga to life.\n\n#TheSocialReckoning #InTheatres #FilmPerformance #October9",
       "hashtags": [
         "#TheSocialReckoning",
-        "#SocialMediaCleanse",
-        "#DigitalAddiction",
-        "#Culture"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s inside the 2018 user exodus and internal panic."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #15). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_16",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Sean Parker's Legacy: Did The Napster Bad Boy Predict It All? 🕶️ #seanparker",
-      "duration": "0:10",
+      "title": "Behind Closed Doors | The Social Reckoning 🚪",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_16.mp4?v=reckoning_teaser",
-      "description": "'Drop the 'The'. Just Facebook.' Did Sean Parker see the dark consequences coming from the very beginning? 🕶️🍸\\n\\n#TheSocialReckoning #JustinTimberlake #Napster #StartupHistory",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_16.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nWhat really happened in the private rooms where history was decided.\n\n#TheSocialReckoning #InTheatres #October9 #MovieNight",
       "hashtags": [
         "#TheSocialReckoning",
-        "#JustinTimberlake",
-        "#Napster",
-        "#StartupHistory"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s revisiting Parker's prophecy on psychological exploitation."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #16). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_17",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "The Social Reckoning Official Trailer Breakdown & Easter Eggs 🔍 #trailerbreakdown",
-      "duration": "0:10",
+      "title": "Algorithm Architecture Debate | The Social Reckoning 💻",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_17.mp4?v=reckoning_teaser",
-      "description": "Every single Easter egg hidden in the teaser trailer! Did you spot the subtle homage to the 2010 opening scene? 🔎\\n\\n#TheSocialReckoning #EasterEggs #FilmTheory #TrailerBreakdown",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_17.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nThe engineering decisions that connected billions across the globe.\n\n#TheSocialReckoning #InTheatres #October9 #TechCulture",
       "hashtags": [
         "#TheSocialReckoning",
-        "#EasterEggs",
-        "#FilmTheory",
-        "#TrailerBreakdown"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s subtle 2010 easter eggs spotted in the trailer."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #17). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_18",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Algorithm Of Outrage: How Social Media Rewired Our Brains 🧠 #psychology",
-      "duration": "0:10",
+      "title": "Emotional Courtroom Exit | The Social Reckoning 🚶",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_18.mp4?v=reckoning_teaser",
-      "description": "The infinite scroll wasn't an accident. It was psychological engineering. The Social Reckoning pulls back the curtain! 🔄\\n\\n#TheSocialReckoning #Dopamine #MentalHealth #TechEthics",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_18.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nFacing the public eye under intense scrutiny.\n\n#TheSocialReckoning #InTheatres #October9 #FilmCommunity",
       "hashtags": [
         "#TheSocialReckoning",
-        "#Dopamine",
-        "#MentalHealth",
-        "#TechEthics"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s psychological engineering behind infinite scroll."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #18). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_19",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Inside The Secret Deposition Tapes: Fact vs Fiction 📼 #deposition",
-      "duration": "0:10",
+      "title": "The Final Trailer Tease | The Social Reckoning 🎬",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_19.mp4?v=reckoning_teaser",
-      "description": "We compared the movie's deposition lines to the real Congressional transcripts. You won't believe how accurate it is! ⚖️\\n\\n#TheSocialReckoning #FactVsFiction #TrueStory #LegalDrama",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_19.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nMark your calendars for the premiere event of the fall season.\n\n#TheSocialReckoning #InTheatres #October9 #Cinema2026",
       "hashtags": [
         "#TheSocialReckoning",
-        "#FactVsFiction",
-        "#TrueStory",
-        "#LegalDrama"
+        "#InTheatres",
+        "#October9",
+        "#Cinema2026",
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s fact vs fiction comparison with Congressional records."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #19). Rule: Exactly 7.0s length with mandatory caption."
     },
     {
       "id": "habeeb_reckoning_20",
       "addedTime": "Oct 06, 2026 • 10:00 AM",
       "batchTag": "Official Movie Teaser (20 Drops)",
-      "title": "Why The Social Reckoning Is The Most Important Movie Of Our Decade 🌍 #mustwatch",
-      "duration": "0:10",
+      "title": "The Social Reckoning in Theatres October 9 🎬 Don't Miss It",
+      "duration": "0:07",
       "quality": "1080x1920 (9:16 Vertical HD)",
-      "videoSrc": "/campaigns/social_reckoning/reckoning_20.mp4?v=reckoning_teaser",
-      "description": "We are all living inside Mark Zuckerberg's experiment. The Social Reckoning is the movie defining our generation! 🎬🔥\\n\\n#TheSocialReckoning #Cinema2026 #MustWatch #FilmTok #Generational",
+      "videoSrc": "/campaigns/social_reckoning/reckoning_20.mp4?v=highlight_compliant",
+      "description": "The Social Reckoning is coming to theatres October 9 🎬 Don't miss it.\n\nGet your tickets early. The Social Reckoning arrives in theatres October 9.\n\n#TheSocialReckoning #InTheatres #October9 #FilmTok #MustSee",
       "hashtags": [
         "#TheSocialReckoning",
+        "#InTheatres",
+        "#October9",
         "#Cinema2026",
-        "#MustWatch",
-        "#FilmTok",
-        "#Generational"
+        "#MovieClips"
       ],
-      "payoutRate": "$1.00 / 1k Views ($750 Max • Tier 1)",
-      "loopNote": "10s definitive cultural verdict on living in Zuck's world."
+      "payoutRate": "$1.00 CPM ($2,500 Budget Cap)",
+      "loopNote": "7s Highlight.live compliant trailer cut (clip #20). Rule: Exactly 7.0s length with mandatory caption."
     }
   ]
 }

@@ -1,0 +1,146 @@
+[
+  {
+    "clipFile": "ceo_zeds_d1_07.mp4",
+    "channel": "zeds archive",
+    "channelKey": "channel_1",
+    "publishAtUtc": "2026-10-07T12:15:00.000Z",
+    "publishAtWat": "Oct 07, 2026 at 1:15 PM WAT",
+    "publishAtMst": "Oct 07, 2026 at 5:15 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_08.mp4",
+    "channel": "Bass Wave",
+    "channelKey": "channel_2",
+    "publishAtUtc": "2026-10-07T13:15:00.000Z",
+    "publishAtWat": "Oct 07, 2026 at 2:15 PM WAT",
+    "publishAtMst": "Oct 07, 2026 at 6:15 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_09.mp4",
+    "channel": "Ediiiiiitz",
+    "channelKey": "channel_3",
+    "publishAtUtc": "2026-10-07T14:15:00.000Z",
+    "publishAtWat": "Oct 07, 2026 at 3:15 PM WAT",
+    "publishAtMst": "Oct 07, 2026 at 7:15 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_10.mp4",
+    "channel": "zeds archive",
+    "channelKey": "channel_1",
+    "publishAtUtc": "2026-10-08T12:00:00.000Z",
+    "publishAtWat": "Oct 08, 2026 at 1:00 PM WAT",
+    "publishAtMst": "Oct 08, 2026 at 5:00 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_11.mp4",
+    "channel": "zeds archive",
+    "channelKey": "channel_1",
+    "publishAtUtc": "2026-10-08T21:30:00.000Z",
+    "publishAtWat": "Oct 08, 2026 at 10:30 PM WAT",
+    "publishAtMst": "Oct 08, 2026 at 2:30 PM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_12.mp4",
+    "channel": "Bass Wave",
+    "channelKey": "channel_2",
+    "publishAtUtc": "2026-10-08T13:00:00.000Z",
+    "publishAtWat": "Oct 08, 2026 at 2:00 PM WAT",
+    "publishAtMst": "Oct 08, 2026 at 6:00 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_13.mp4",
+    "channel": "Bass Wave",
+    "channelKey": "channel_2",
+    "publishAtUtc": "2026-10-08T22:30:00.000Z",
+    "publishAtWat": "Oct 08, 2026 at 11:30 PM WAT",
+    "publishAtMst": "Oct 08, 2026 at 3:30 PM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_14.mp4",
+    "channel": "Ediiiiiitz",
+    "channelKey": "channel_3",
+    "publishAtUtc": "2026-10-08T14:00:00.000Z",
+    "publishAtWat": "Oct 08, 2026 at 3:00 PM WAT",
+    "publishAtMst": "Oct 08, 2026 at 7:00 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_15.mp4",
+    "channel": "Ediiiiiitz",
+    "channelKey": "channel_3",
+    "publishAtUtc": "2026-10-08T23:30:00.000Z",
+    "publishAtWat": "Oct 08, 2026 at 12:30 PM WAT",
+    "publishAtMst": "Oct 08, 2026 at 4:30 PM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_16.mp4",
+    "channel": "zeds archive",
+    "channelKey": "channel_1",
+    "publishAtUtc": "2026-10-09T12:00:00.000Z",
+    "publishAtWat": "Oct 09, 2026 at 1:00 PM WAT",
+    "publishAtMst": "Oct 09, 2026 at 5:00 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_17.mp4",
+    "channel": "zeds archive",
+    "channelKey": "channel_1",
+    "publishAtUtc": "2026-10-09T16:00:00.000Z",
+    "publishAtWat": "Oct 09, 2026 at 5:00 PM WAT",
+    "publishAtMst": "Oct 09, 2026 at 9:00 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_18.mp4",
+    "channel": "zeds archive",
+    "channelKey": "channel_1",
+    "publishAtUtc": "2026-10-09T22:00:00.000Z",
+    "publishAtWat": "Oct 09, 2026 at 11:00 PM WAT",
+    "publishAtMst": "Oct 09, 2026 at 3:00 PM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_19.mp4",
+    "channel": "Bass Wave",
+    "channelKey": "channel_2",
+    "publishAtUtc": "2026-10-09T13:00:00.000Z",
+    "publishAtWat": "Oct 09, 2026 at 2:00 PM WAT",
+    "publishAtMst": "Oct 09, 2026 at 6:00 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_20.mp4",
+    "channel": "Bass Wave",
+    "channelKey": "channel_2",
+    "publishAtUtc": "2026-10-09T17:00:00.000Z",
+    "publishAtWat": "Oct 09, 2026 at 6:00 PM WAT",
+    "publishAtMst": "Oct 09, 2026 at 10:00 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_21.mp4",
+    "channel": "Bass Wave",
+    "channelKey": "channel_2",
+    "publishAtUtc": "2026-10-09T23:00:00.000Z",
+    "publishAtWat": "Oct 09, 2026 at 12:00 PM WAT",
+    "publishAtMst": "Oct 09, 2026 at 4:00 PM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_22.mp4",
+    "channel": "Ediiiiiitz",
+    "channelKey": "channel_3",
+    "publishAtUtc": "2026-10-09T14:00:00.000Z",
+    "publishAtWat": "Oct 09, 2026 at 3:00 PM WAT",
+    "publishAtMst": "Oct 09, 2026 at 7:00 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_23.mp4",
+    "channel": "Ediiiiiitz",
+    "channelKey": "channel_3",
+    "publishAtUtc": "2026-10-09T18:00:00.000Z",
+    "publishAtWat": "Oct 09, 2026 at 7:00 PM WAT",
+    "publishAtMst": "Oct 09, 2026 at 11:00 AM MST"
+  },
+  {
+    "clipFile": "ceo_zeds_d1_24.mp4",
+    "channel": "Ediiiiiitz",
+    "channelKey": "channel_3",
+    "publishAtUtc": "2026-10-09T24:00:00.000Z",
+    "publishAtWat": "Oct 09, 2026 at 13:00 PM WAT",
+    "publishAtMst": "Oct 09, 2026 at 5:00 PM MST"
+  }
+]

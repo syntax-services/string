@@ -34,3 +34,6 @@ supabase/functions/.env*
 .gemini
 scratch
 build.log
+*channels.json
+*credentials.json
+scripts/

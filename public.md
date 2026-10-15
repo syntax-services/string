@@ -12,7 +12,8 @@
 | `ceo_zeds_d2_04` | **Ediiiiiitz** | Peak Festival Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/412LF90TId4](https://youtube.com/shorts/412LF90TId4) | 2026-10-13T10:10:31.854Z |
 | `ceo_zeds_d2_05` | **Viral Clips** | Peak Festival Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/12cR1c0ESA8](https://youtube.com/shorts/12cR1c0ESA8) | 2026-10-13T10:13:00.039Z |
 | `ceo_zeds_d2_06` | **zeds archive** | Peak Festival Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/rI-7IFMkjcw](https://youtube.com/shorts/rI-7IFMkjcw) | 2026-10-15T14:26:48.739Z |
+| `ceo_zeds_d2_07` | **Bass Wave** | Peak Festival Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Isov87p5qBk](https://youtube.com/shorts/Isov87p5qBk) | 2026-10-15T14:28:44.371Z |
 
 
 ---
-*Last Sync:* 2026-10-15T14:26:48.740Z
+*Last Sync:* 2026-10-15T14:28:44.372Z

@@ -47,7 +47,8 @@
 | `ceo_zeds_d3_13` | **zeds archive** | The Smoothest Drone Dive Of 2026 🔥 @zedsdead #shorts | [https://youtube.com/shorts/RIR7nqR7dqA](https://youtube.com/shorts/RIR7nqR7dqA) | 2026-10-16T15:04:02.872Z |
 | `ceo_zeds_d3_14` | **Bass Wave** | Timeless Hip Hop Flip Stomped Live 🔥 @zedsdead #shorts | [https://youtube.com/shorts/-oxiRARpUB8](https://youtube.com/shorts/-oxiRARpUB8) | 2026-10-16T15:08:22.849Z |
 | `ceo_zeds_d3_15` | **Ediiiiiitz** | Cryo Cloud Envelops The Stage 🔥 @zedsdead #shorts | [https://youtube.com/shorts/YECpB3odyZA](https://youtube.com/shorts/YECpB3odyZA) | 2026-10-16T15:13:05.259Z |
+| `ceo_zeds_d3_16` | **Viral Clips** | Factory Town Bass Purists Assemble 🔥 @zedsdead #shorts | [https://youtube.com/shorts/mvlKevoDDqA](https://youtube.com/shorts/mvlKevoDDqA) | 2026-10-16T15:16:27.804Z |
 
 
 ---
-*Last Sync:* 2026-10-16T15:13:06.180Z
+*Last Sync:* 2026-10-16T15:16:27.806Z

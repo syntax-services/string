@@ -61,7 +61,8 @@
 | `ceo_zeds_d1_02` | **Ediiiiiitz** | Biggie Smalls Vinyl Scratch Flip 🔥 @zedsdead #shorts | [https://youtube.com/shorts/TKIkSyhs-rI](https://youtube.com/shorts/TKIkSyhs-rI) | 2026-10-16T21:18:28.051Z |
 | `ceo_zeds_d1_03` | **Viral Clips** | Stadium Crowd Roar At Red Rocks 🔥 @zedsdead #shorts | [https://youtube.com/shorts/TnUFjqIIyyc](https://youtube.com/shorts/TnUFjqIIyyc) | 2026-10-16T21:26:05.627Z |
 | `ceo_zeds_d1_07` | **Tech Prologue** | Glitched Big Band Swing Bass 🔥 @zedsdead #shorts | [https://youtube.com/shorts/poXmqAnvZoY](https://youtube.com/shorts/poXmqAnvZoY) | 2026-10-16T21:33:47.872Z |
+| `ceo_zeds_d1_08` | **viral clips (warmed)** | 1950s Vintage Trumpet Dubstep Flip 🔥 @zedsdead #shorts | [https://youtube.com/shorts/rvVNGXZtAu8](https://youtube.com/shorts/rvVNGXZtAu8) | 2026-10-16T21:41:45.337Z |
 
 
 ---
-*Last Sync:* 2026-10-16T21:33:47.874Z
+*Last Sync:* 2026-10-16T21:41:45.339Z

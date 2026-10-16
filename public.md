@@ -41,7 +41,8 @@
 | `ceo_zeds_d3_07` | **zeds archive** | Classic Rap Vocal Floating Over Sub 🔥 @zedsdead #shorts | [https://youtube.com/shorts/KxivvdhsLuk](https://youtube.com/shorts/KxivvdhsLuk) | 2026-10-16T12:05:09.114Z |
 | `ceo_zeds_d3_08` | **Bass Wave** | Drone Pilot Risks It All Over The Crowd 🔥 @zedsdead #shorts | [https://youtube.com/shorts/tUPWes7eRUc](https://youtube.com/shorts/tUPWes7eRUc) | 2026-10-16T12:14:39.309Z |
 | `ceo_zeds_d3_09` | **Ediiiiiitz** | Unfiltered Bass Pressure Test 🔥 @zedsdead #shorts | [https://youtube.com/shorts/lsii-M6_UYs](https://youtube.com/shorts/lsii-M6_UYs) | 2026-10-16T12:26:40.653Z |
+| `ceo_zeds_d3_10` | **Viral Clips** | The 140 Bpm Heavyweight Anthem 🔥 @zedsdead #shorts | [https://youtube.com/shorts/nFPXQXi4qHw](https://youtube.com/shorts/nFPXQXi4qHw) | 2026-10-16T12:32:50.007Z |
 
 
 ---
-*Last Sync:* 2026-10-16T12:26:40.654Z
+*Last Sync:* 2026-10-16T12:32:50.010Z

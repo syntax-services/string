@@ -43,7 +43,8 @@
 | `ceo_zeds_d3_09` | **Ediiiiiitz** | Unfiltered Bass Pressure Test 🔥 @zedsdead #shorts | [https://youtube.com/shorts/lsii-M6_UYs](https://youtube.com/shorts/lsii-M6_UYs) | 2026-10-16T12:26:40.653Z |
 | `ceo_zeds_d3_10` | **Viral Clips** | The 140 Bpm Heavyweight Anthem 🔥 @zedsdead #shorts | [https://youtube.com/shorts/nFPXQXi4qHw](https://youtube.com/shorts/nFPXQXi4qHw) | 2026-10-16T12:32:50.007Z |
 | `ceo_zeds_d3_11` | **Tech Prologue** | Immersive Laser Canopy Glide 🔥 @zedsdead #shorts | [https://youtube.com/shorts/MtPm0iGImQQ](https://youtube.com/shorts/MtPm0iGImQQ) | 2026-10-16T12:35:16.074Z |
+| `ceo_zeds_d3_12` | **viral clips (warmed)** | When 10000 People Scream The Vocal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/UGN94sZVOT4](https://youtube.com/shorts/UGN94sZVOT4) | 2026-10-16T12:38:03.465Z |
 
 
 ---
-*Last Sync:* 2026-10-16T12:35:16.092Z
+*Last Sync:* 2026-10-16T12:38:03.503Z

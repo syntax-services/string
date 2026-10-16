@@ -46,7 +46,8 @@
 | `ceo_zeds_d3_12` | **viral clips (warmed)** | When 10000 People Scream The Vocal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/UGN94sZVOT4](https://youtube.com/shorts/UGN94sZVOT4) | 2026-10-16T12:38:03.465Z |
 | `ceo_zeds_d3_13` | **zeds archive** | The Smoothest Drone Dive Of 2026 🔥 @zedsdead #shorts | [https://youtube.com/shorts/RIR7nqR7dqA](https://youtube.com/shorts/RIR7nqR7dqA) | 2026-10-16T15:04:02.872Z |
 | `ceo_zeds_d3_14` | **Bass Wave** | Timeless Hip Hop Flip Stomped Live 🔥 @zedsdead #shorts | [https://youtube.com/shorts/-oxiRARpUB8](https://youtube.com/shorts/-oxiRARpUB8) | 2026-10-16T15:08:22.849Z |
+| `ceo_zeds_d3_15` | **Ediiiiiitz** | Cryo Cloud Envelops The Stage 🔥 @zedsdead #shorts | [https://youtube.com/shorts/YECpB3odyZA](https://youtube.com/shorts/YECpB3odyZA) | 2026-10-16T15:13:05.259Z |
 
 
 ---
-*Last Sync:* 2026-10-16T15:08:22.851Z
+*Last Sync:* 2026-10-16T15:13:06.180Z

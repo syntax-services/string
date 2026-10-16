@@ -52,7 +52,8 @@
 | `ceo_zeds_d3_18` | **viral clips (warmed)** | Cinematic Fpv Over Monolith Rocks 🔥 @zedsdead #shorts | [https://youtube.com/shorts/3mBo5W5jeys](https://youtube.com/shorts/3mBo5W5jeys) | 2026-10-16T15:29:20.523Z |
 | `ceo_zeds_d3_19` | **zeds archive** | Unreal Audience Roar On The Switch 🔥 @zedsdead #shorts | [https://youtube.com/shorts/l7Pb7QrcBiw](https://youtube.com/shorts/l7Pb7QrcBiw) | 2026-10-16T18:06:21.665Z |
 | `ceo_zeds_d3_20` | **Bass Wave** | Swing Step Synths Take Control 🔥 @zedsdead #shorts | [https://youtube.com/shorts/bw9xDNQAHi8](https://youtube.com/shorts/bw9xDNQAHi8) | 2026-10-16T18:15:35.806Z |
+| `ceo_zeds_d3_21` | **Ediiiiiitz** | Nightfall Lightning Show At Red Rocks 🔥 @zedsdead #shorts | [https://youtube.com/shorts/K5su87zTgbU](https://youtube.com/shorts/K5su87zTgbU) | 2026-10-16T18:23:52.810Z |
 
 
 ---
-*Last Sync:* 2026-10-16T18:15:35.807Z
+*Last Sync:* 2026-10-16T18:23:52.835Z

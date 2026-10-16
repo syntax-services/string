@@ -48,7 +48,8 @@
 | `ceo_zeds_d3_14` | **Bass Wave** | Timeless Hip Hop Flip Stomped Live 🔥 @zedsdead #shorts | [https://youtube.com/shorts/-oxiRARpUB8](https://youtube.com/shorts/-oxiRARpUB8) | 2026-10-16T15:08:22.849Z |
 | `ceo_zeds_d3_15` | **Ediiiiiitz** | Cryo Cloud Envelops The Stage 🔥 @zedsdead #shorts | [https://youtube.com/shorts/YECpB3odyZA](https://youtube.com/shorts/YECpB3odyZA) | 2026-10-16T15:13:05.259Z |
 | `ceo_zeds_d3_16` | **Viral Clips** | Factory Town Bass Purists Assemble 🔥 @zedsdead #shorts | [https://youtube.com/shorts/mvlKevoDDqA](https://youtube.com/shorts/mvlKevoDDqA) | 2026-10-16T15:16:27.804Z |
+| `ceo_zeds_d3_17` | **Tech Prologue** | The Moment The Sub Woofers Unload 🔥 @zedsdead #shorts | [https://youtube.com/shorts/3oJuxBQ1kwo](https://youtube.com/shorts/3oJuxBQ1kwo) | 2026-10-16T15:20:29.504Z |
 
 
 ---
-*Last Sync:* 2026-10-16T15:16:27.806Z
+*Last Sync:* 2026-10-16T15:20:29.506Z

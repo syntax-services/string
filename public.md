@@ -57,7 +57,8 @@
 | `ceo_zeds_d3_23` | **Tech Prologue** | Unmatched Miami Music Week Energy 🔥 @zedsdead #shorts | [https://youtube.com/shorts/PYJVmM7D8TA](https://youtube.com/shorts/PYJVmM7D8TA) | 2026-10-16T18:39:00.561Z |
 | `ceo_zeds_d3_24` | **viral clips (warmed)** | The Accelerating Snare Roll Finale 🔥 @zedsdead #shorts | [https://youtube.com/shorts/e1u7aFcIeAk](https://youtube.com/shorts/e1u7aFcIeAk) | 2026-10-16T18:43:13.009Z |
 | `ceo_zeds_d3_25` | **zeds archive** | Legendary Outro Under The Morning Sun 🔥 @zedsdead #shorts | [https://youtube.com/shorts/SmMUq1CB3JQ](https://youtube.com/shorts/SmMUq1CB3JQ) | 2026-10-16T21:04:24.390Z |
+| `ceo_zeds_d1_01` | **Bass Wave** | Ante Up Vocal Buildup Before The Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/uVLIgz4VsXg](https://youtube.com/shorts/uVLIgz4VsXg) | 2026-10-16T21:10:50.482Z |
 
 
 ---
-*Last Sync:* 2026-10-16T21:04:24.392Z
+*Last Sync:* 2026-10-16T21:10:50.483Z

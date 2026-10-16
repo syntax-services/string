@@ -54,7 +54,8 @@
 | `ceo_zeds_d3_20` | **Bass Wave** | Swing Step Synths Take Control 🔥 @zedsdead #shorts | [https://youtube.com/shorts/bw9xDNQAHi8](https://youtube.com/shorts/bw9xDNQAHi8) | 2026-10-16T18:15:35.806Z |
 | `ceo_zeds_d3_21` | **Ediiiiiitz** | Nightfall Lightning Show At Red Rocks 🔥 @zedsdead #shorts | [https://youtube.com/shorts/K5su87zTgbU](https://youtube.com/shorts/K5su87zTgbU) | 2026-10-16T18:23:52.810Z |
 | `ceo_zeds_d3_22` | **Viral Clips** | Peak Time Festival Anthem 🔥 @zedsdead #shorts | [https://youtube.com/shorts/OPQgzqyyQo0](https://youtube.com/shorts/OPQgzqyyQo0) | 2026-10-16T18:32:23.548Z |
+| `ceo_zeds_d3_23` | **Tech Prologue** | Unmatched Miami Music Week Energy 🔥 @zedsdead #shorts | [https://youtube.com/shorts/PYJVmM7D8TA](https://youtube.com/shorts/PYJVmM7D8TA) | 2026-10-16T18:39:00.561Z |
 
 
 ---
-*Last Sync:* 2026-10-16T18:32:23.565Z
+*Last Sync:* 2026-10-16T18:39:00.582Z

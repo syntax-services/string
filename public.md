@@ -44,7 +44,8 @@
 | `ceo_zeds_d3_10` | **Viral Clips** | The 140 Bpm Heavyweight Anthem 🔥 @zedsdead #shorts | [https://youtube.com/shorts/nFPXQXi4qHw](https://youtube.com/shorts/nFPXQXi4qHw) | 2026-10-16T12:32:50.007Z |
 | `ceo_zeds_d3_11` | **Tech Prologue** | Immersive Laser Canopy Glide 🔥 @zedsdead #shorts | [https://youtube.com/shorts/MtPm0iGImQQ](https://youtube.com/shorts/MtPm0iGImQQ) | 2026-10-16T12:35:16.074Z |
 | `ceo_zeds_d3_12` | **viral clips (warmed)** | When 10000 People Scream The Vocal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/UGN94sZVOT4](https://youtube.com/shorts/UGN94sZVOT4) | 2026-10-16T12:38:03.465Z |
+| `ceo_zeds_d3_13` | **zeds archive** | The Smoothest Drone Dive Of 2026 🔥 @zedsdead #shorts | [https://youtube.com/shorts/RIR7nqR7dqA](https://youtube.com/shorts/RIR7nqR7dqA) | 2026-10-16T15:04:02.872Z |
 
 
 ---
-*Last Sync:* 2026-10-16T12:47:18.767Z
+*Last Sync:* 2026-10-16T15:04:02.910Z

@@ -65,7 +65,8 @@
 | `ceo_zeds_d1_09` | **zeds archive** | Gliding Under An Emerald Laser Canopy 🔥 @zedsdead #shorts | [https://youtube.com/shorts/ocH31cLUn7w](https://youtube.com/shorts/ocH31cLUn7w) | 2026-10-17T00:30:55.041Z |
 | `ceo_zeds_d1_10` | **Bass Wave** | Inverted Barrel Roll Inside Laser Cage 🔥 @zedsdead #shorts | [https://youtube.com/shorts/QC5m3ntJwzE](https://youtube.com/shorts/QC5m3ntJwzE) | 2026-10-17T00:33:59.887Z |
 | `ceo_zeds_d1_11` | **Ediiiiiitz** | Diving Through Stage Cryo Fog At 50 Mph 🔥 @zedsdead #shorts | [https://youtube.com/shorts/LDQNbbvXNus](https://youtube.com/shorts/LDQNbbvXNus) | 2026-10-17T00:36:38.229Z |
+| `ceo_zeds_d1_12` | **Viral Clips** | Full Red Rocks Crowd Jumping Together 🔥 @zedsdead #shorts | [https://youtube.com/shorts/NA4YqjKCfxo](https://youtube.com/shorts/NA4YqjKCfxo) | 2026-10-17T00:39:40.984Z |
 
 
 ---
-*Last Sync:* 2026-10-17T00:36:38.231Z
+*Last Sync:* 2026-10-17T00:39:40.985Z

@@ -83,7 +83,8 @@
 | `ceo_zeds_new_02` | **viral clips (warmed)** | The Accelerating Snare Roll Finale 🔥 @zedsdead #shorts | [https://youtube.com/shorts/L7yvaAhSoHQ](https://youtube.com/shorts/L7yvaAhSoHQ) | 2026-10-17T12:15:15.905Z |
 | `ceo_zeds_new_03` | **zeds archive** | Biggie Smalls Vinyl Scratch Flip 🔥 @zedsdead #shorts | [https://youtube.com/shorts/G6fQA7SxoJg](https://youtube.com/shorts/G6fQA7SxoJg) | 2026-10-17T18:03:18.461Z |
 | `ceo_zeds_new_04` | **Bass Wave** | Heavyweight 140 Bpm Sub Pressure 🔥 @zedsdead #shorts | [https://youtube.com/shorts/KWSbEt9LZqQ](https://youtube.com/shorts/KWSbEt9LZqQ) | 2026-10-17T18:07:24.106Z |
+| `ceo_zeds_new_05` | **Ediiiiiitz** | Jay-Z Vocal Slice Buildup 🔥 @zedsdead #shorts | [https://youtube.com/shorts/SGbxESoXgwE](https://youtube.com/shorts/SGbxESoXgwE) | 2026-10-17T18:10:23.818Z |
 
 
 ---
-*Last Sync:* 2026-10-17T18:07:24.172Z
+*Last Sync:* 2026-10-17T18:10:25.994Z

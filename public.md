@@ -77,7 +77,8 @@
 | `ceo_zeds_d1_21` | **viral clips (warmed)** | Amphitheatre Acoustics Hit Different 🔥 @zedsdead #shorts | [https://youtube.com/shorts/ESDHmkDDWCM](https://youtube.com/shorts/ESDHmkDDWCM) | 2026-10-17T09:00:12.237Z |
 | `ceo_zeds_d1_22` | **zeds archive** | Factory Town 4am Hypnosis 🔥 @zedsdead #shorts | [https://youtube.com/shorts/5AMTvRc3jog](https://youtube.com/shorts/5AMTvRc3jog) | 2026-10-17T12:00:33.744Z |
 | `ceo_zeds_d1_23` | **Bass Wave** | Unreleased Bassline Test In Miami 🔥 @zedsdead #shorts | [https://youtube.com/shorts/bsmb6aDG31A](https://youtube.com/shorts/bsmb6aDG31A) | 2026-10-17T12:03:01.320Z |
+| `ceo_zeds_d1_24` | **Ediiiiiitz** | High Altitude Dive Through Light Beams 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IU4J3OjWec8](https://youtube.com/shorts/IU4J3OjWec8) | 2026-10-17T12:05:54.160Z |
 
 
 ---
-*Last Sync:* 2026-10-17T12:03:01.321Z
+*Last Sync:* 2026-10-17T12:05:54.163Z

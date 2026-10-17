@@ -67,7 +67,8 @@
 | `ceo_zeds_d1_11` | **Ediiiiiitz** | Diving Through Stage Cryo Fog At 50 Mph 🔥 @zedsdead #shorts | [https://youtube.com/shorts/LDQNbbvXNus](https://youtube.com/shorts/LDQNbbvXNus) | 2026-10-17T00:36:38.229Z |
 | `ceo_zeds_d1_12` | **Viral Clips** | Full Red Rocks Crowd Jumping Together 🔥 @zedsdead #shorts | [https://youtube.com/shorts/NA4YqjKCfxo](https://youtube.com/shorts/NA4YqjKCfxo) | 2026-10-17T00:39:40.984Z |
 | `ceo_zeds_d1_13` | **Tech Prologue** | Surfing Laser Beams Over 10000 Heads 🔥 @zedsdead #shorts | [https://youtube.com/shorts/NCrgsJB8O54](https://youtube.com/shorts/NCrgsJB8O54) | 2026-10-17T00:42:20.108Z |
+| `ceo_zeds_d1_14` | **viral clips (warmed)** | Fpv Dive Bomb Directly Into Dj Booth 🔥 @zedsdead #shorts | [https://youtube.com/shorts/AU-LpTiR4Gs](https://youtube.com/shorts/AU-LpTiR4Gs) | 2026-10-17T00:45:21.415Z |
 
 
 ---
-*Last Sync:* 2026-10-17T00:42:20.110Z
+*Last Sync:* 2026-10-17T00:45:21.416Z

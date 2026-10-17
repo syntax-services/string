@@ -73,7 +73,8 @@
 | `ceo_zeds_d1_17` | **Bass Wave** | Shook Ones Chords In The Open Air 🔥 @zedsdead #shorts | [https://youtube.com/shorts/aftEzWwNS2s](https://youtube.com/shorts/aftEzWwNS2s) | 2026-10-17T08:49:18.443Z |
 | `ceo_zeds_d1_18` | **Ediiiiiitz** | Sinatra Swing Wobble Meltdown 🔥 @zedsdead #shorts | [https://youtube.com/shorts/uKWjVPDNv4s](https://youtube.com/shorts/uKWjVPDNv4s) | 2026-10-17T08:51:57.600Z |
 | `ceo_zeds_d1_19` | **Viral Clips** | Retro Gramophone Meets 140 Bpm 🔥 @zedsdead #shorts | [https://youtube.com/shorts/6cgHqo0RIg4](https://youtube.com/shorts/6cgHqo0RIg4) | 2026-10-17T08:54:48.178Z |
+| `ceo_zeds_d1_20` | **Tech Prologue** | DC & Hooks Locked In Behind The Decks 🔥 @zedsdead #shorts | [https://youtube.com/shorts/0qhuvhgRbFI](https://youtube.com/shorts/0qhuvhgRbFI) | 2026-10-17T08:57:32.272Z |
 
 
 ---
-*Last Sync:* 2026-10-17T08:54:48.180Z
+*Last Sync:* 2026-10-17T08:57:32.274Z

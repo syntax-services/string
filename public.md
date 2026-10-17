@@ -64,7 +64,8 @@
 | `ceo_zeds_d1_08` | **viral clips (warmed)** | 1950s Vintage Trumpet Dubstep Flip 🔥 @zedsdead #shorts | [https://youtube.com/shorts/rvVNGXZtAu8](https://youtube.com/shorts/rvVNGXZtAu8) | 2026-10-16T21:41:45.337Z |
 | `ceo_zeds_d1_09` | **zeds archive** | Gliding Under An Emerald Laser Canopy 🔥 @zedsdead #shorts | [https://youtube.com/shorts/ocH31cLUn7w](https://youtube.com/shorts/ocH31cLUn7w) | 2026-10-17T00:30:55.041Z |
 | `ceo_zeds_d1_10` | **Bass Wave** | Inverted Barrel Roll Inside Laser Cage 🔥 @zedsdead #shorts | [https://youtube.com/shorts/QC5m3ntJwzE](https://youtube.com/shorts/QC5m3ntJwzE) | 2026-10-17T00:33:59.887Z |
+| `ceo_zeds_d1_11` | **Ediiiiiitz** | Diving Through Stage Cryo Fog At 50 Mph 🔥 @zedsdead #shorts | [https://youtube.com/shorts/LDQNbbvXNus](https://youtube.com/shorts/LDQNbbvXNus) | 2026-10-17T00:36:38.229Z |
 
 
 ---
-*Last Sync:* 2026-10-17T00:33:59.889Z
+*Last Sync:* 2026-10-17T00:36:38.231Z

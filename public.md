@@ -81,7 +81,8 @@
 | `ceo_zeds_d1_25` | **Viral Clips** | Deadbeats Anthem Live Finale 🔥 @zedsdead #shorts | [https://youtube.com/shorts/8tT65_Lw2Iw](https://youtube.com/shorts/8tT65_Lw2Iw) | 2026-10-17T12:09:31.191Z |
 | `ceo_zeds_new_01` | **Tech Prologue** | Unreleased Ante Up Festival VIP 🔥 @zedsdead #shorts | [https://youtube.com/shorts/SyIr4oE4zfw](https://youtube.com/shorts/SyIr4oE4zfw) | 2026-10-17T12:12:17.660Z |
 | `ceo_zeds_new_02` | **viral clips (warmed)** | The Accelerating Snare Roll Finale 🔥 @zedsdead #shorts | [https://youtube.com/shorts/L7yvaAhSoHQ](https://youtube.com/shorts/L7yvaAhSoHQ) | 2026-10-17T12:15:15.905Z |
+| `ceo_zeds_new_03` | **zeds archive** | Biggie Smalls Vinyl Scratch Flip 🔥 @zedsdead #shorts | [https://youtube.com/shorts/G6fQA7SxoJg](https://youtube.com/shorts/G6fQA7SxoJg) | 2026-10-17T18:03:18.461Z |
 
 
 ---
-*Last Sync:* 2026-10-17T12:15:15.907Z
+*Last Sync:* 2026-10-17T18:03:18.464Z

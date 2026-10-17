@@ -86,7 +86,8 @@
 | `ceo_zeds_new_05` | **Ediiiiiitz** | Jay-Z Vocal Slice Buildup 🔥 @zedsdead #shorts | [https://youtube.com/shorts/SGbxESoXgwE](https://youtube.com/shorts/SGbxESoXgwE) | 2026-10-17T18:10:23.818Z |
 | `ceo_zeds_new_06` | **Viral Clips** | Factory Town Sub-Bass Meltdown 🔥 @zedsdead #shorts | [https://youtube.com/shorts/pgtCSxFnnEE](https://youtube.com/shorts/pgtCSxFnnEE) | 2026-10-17T18:13:44.473Z |
 | `ceo_zeds_new_07` | **Tech Prologue** | Shook Ones Chords In The Open Air 🔥 @zedsdead #shorts | [https://youtube.com/shorts/uiyy_8sHUW8](https://youtube.com/shorts/uiyy_8sHUW8) | 2026-10-17T18:16:34.419Z |
+| `ceo_zeds_new_08` | **viral clips (warmed)** | East Coast Rap Meets 140 Bass 🔥 @zedsdead #shorts | [https://youtube.com/shorts/3K2nND3CEqM](https://youtube.com/shorts/3K2nND3CEqM) | 2026-10-17T18:19:26.122Z |
 
 
 ---
-*Last Sync:* 2026-10-17T18:16:34.948Z
+*Last Sync:* 2026-10-17T18:19:26.175Z

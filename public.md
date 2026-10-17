@@ -78,7 +78,8 @@
 | `ceo_zeds_d1_22` | **zeds archive** | Factory Town 4am Hypnosis 🔥 @zedsdead #shorts | [https://youtube.com/shorts/5AMTvRc3jog](https://youtube.com/shorts/5AMTvRc3jog) | 2026-10-17T12:00:33.744Z |
 | `ceo_zeds_d1_23` | **Bass Wave** | Unreleased Bassline Test In Miami 🔥 @zedsdead #shorts | [https://youtube.com/shorts/bsmb6aDG31A](https://youtube.com/shorts/bsmb6aDG31A) | 2026-10-17T12:03:01.320Z |
 | `ceo_zeds_d1_24` | **Ediiiiiitz** | High Altitude Dive Through Light Beams 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IU4J3OjWec8](https://youtube.com/shorts/IU4J3OjWec8) | 2026-10-17T12:05:54.160Z |
+| `ceo_zeds_d1_25` | **Viral Clips** | Deadbeats Anthem Live Finale 🔥 @zedsdead #shorts | [https://youtube.com/shorts/8tT65_Lw2Iw](https://youtube.com/shorts/8tT65_Lw2Iw) | 2026-10-17T12:09:31.191Z |
 
 
 ---
-*Last Sync:* 2026-10-17T12:05:54.163Z
+*Last Sync:* 2026-10-17T12:09:31.226Z

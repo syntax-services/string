@@ -63,7 +63,8 @@
 | `ceo_zeds_d1_07` | **Tech Prologue** | Glitched Big Band Swing Bass 🔥 @zedsdead #shorts | [https://youtube.com/shorts/poXmqAnvZoY](https://youtube.com/shorts/poXmqAnvZoY) | 2026-10-16T21:33:47.872Z |
 | `ceo_zeds_d1_08` | **viral clips (warmed)** | 1950s Vintage Trumpet Dubstep Flip 🔥 @zedsdead #shorts | [https://youtube.com/shorts/rvVNGXZtAu8](https://youtube.com/shorts/rvVNGXZtAu8) | 2026-10-16T21:41:45.337Z |
 | `ceo_zeds_d1_09` | **zeds archive** | Gliding Under An Emerald Laser Canopy 🔥 @zedsdead #shorts | [https://youtube.com/shorts/ocH31cLUn7w](https://youtube.com/shorts/ocH31cLUn7w) | 2026-10-17T00:30:55.041Z |
+| `ceo_zeds_d1_10` | **Bass Wave** | Inverted Barrel Roll Inside Laser Cage 🔥 @zedsdead #shorts | [https://youtube.com/shorts/QC5m3ntJwzE](https://youtube.com/shorts/QC5m3ntJwzE) | 2026-10-17T00:33:59.887Z |
 
 
 ---
-*Last Sync:* 2026-10-17T00:30:55.043Z
+*Last Sync:* 2026-10-17T00:33:59.889Z

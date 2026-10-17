@@ -75,7 +75,8 @@
 | `ceo_zeds_d1_19` | **Viral Clips** | Retro Gramophone Meets 140 Bpm 🔥 @zedsdead #shorts | [https://youtube.com/shorts/6cgHqo0RIg4](https://youtube.com/shorts/6cgHqo0RIg4) | 2026-10-17T08:54:48.178Z |
 | `ceo_zeds_d1_20` | **Tech Prologue** | DC & Hooks Locked In Behind The Decks 🔥 @zedsdead #shorts | [https://youtube.com/shorts/0qhuvhgRbFI](https://youtube.com/shorts/0qhuvhgRbFI) | 2026-10-17T08:57:32.272Z |
 | `ceo_zeds_d1_21` | **viral clips (warmed)** | Amphitheatre Acoustics Hit Different 🔥 @zedsdead #shorts | [https://youtube.com/shorts/ESDHmkDDWCM](https://youtube.com/shorts/ESDHmkDDWCM) | 2026-10-17T09:00:12.237Z |
+| `ceo_zeds_d1_22` | **zeds archive** | Factory Town 4am Hypnosis 🔥 @zedsdead #shorts | [https://youtube.com/shorts/5AMTvRc3jog](https://youtube.com/shorts/5AMTvRc3jog) | 2026-10-17T12:00:33.744Z |
 
 
 ---
-*Last Sync:* 2026-10-17T09:00:12.239Z
+*Last Sync:* 2026-10-17T12:00:33.771Z

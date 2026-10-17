@@ -71,7 +71,8 @@
 | `ceo_zeds_d1_15` | **zeds archive** | Panoramic Sunset Over The Monolith 🔥 @zedsdead #shorts | [https://youtube.com/shorts/AZHggk7UaY4](https://youtube.com/shorts/AZHggk7UaY4) | 2026-10-17T07:09:05.981Z |
 | `ceo_zeds_d1_16` | **zeds archive** | When The Sub-bass Shakes Your Phone 🔥 @zedsdead #shorts | [https://youtube.com/shorts/gzovmVNehBk](https://youtube.com/shorts/gzovmVNehBk) | 2026-10-17T08:46:32.217Z |
 | `ceo_zeds_d1_17` | **Bass Wave** | Shook Ones Chords In The Open Air 🔥 @zedsdead #shorts | [https://youtube.com/shorts/aftEzWwNS2s](https://youtube.com/shorts/aftEzWwNS2s) | 2026-10-17T08:49:18.443Z |
+| `ceo_zeds_d1_18` | **Ediiiiiitz** | Sinatra Swing Wobble Meltdown 🔥 @zedsdead #shorts | [https://youtube.com/shorts/uKWjVPDNv4s](https://youtube.com/shorts/uKWjVPDNv4s) | 2026-10-17T08:51:57.600Z |
 
 
 ---
-*Last Sync:* 2026-10-17T08:49:18.446Z
+*Last Sync:* 2026-10-17T08:51:57.602Z

@@ -87,7 +87,8 @@
 | `ceo_zeds_new_06` | **Viral Clips** | Factory Town Sub-Bass Meltdown 🔥 @zedsdead #shorts | [https://youtube.com/shorts/pgtCSxFnnEE](https://youtube.com/shorts/pgtCSxFnnEE) | 2026-10-17T18:13:44.473Z |
 | `ceo_zeds_new_07` | **Tech Prologue** | Shook Ones Chords In The Open Air 🔥 @zedsdead #shorts | [https://youtube.com/shorts/uiyy_8sHUW8](https://youtube.com/shorts/uiyy_8sHUW8) | 2026-10-17T18:16:34.419Z |
 | `ceo_zeds_new_08` | **viral clips (warmed)** | East Coast Rap Meets 140 Bass 🔥 @zedsdead #shorts | [https://youtube.com/shorts/3K2nND3CEqM](https://youtube.com/shorts/3K2nND3CEqM) | 2026-10-17T18:19:26.122Z |
+| `ceo_zeds_new_11` | **Ediiiiiitz** | 5 AM Sunrise Set At Factory Town 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Z63ulbkPj4U](https://youtube.com/shorts/Z63ulbkPj4U) | 2026-10-18T12:21:01.322Z |
 
 
 ---
-*Last Sync:* 2026-10-17T18:19:26.175Z
+*Last Sync:* 2026-10-18T12:21:01.484Z

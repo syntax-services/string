@@ -91,7 +91,8 @@
 | `ceo_zeds_new_12` | **Viral Clips** | Morning Sunlight Over 10000 Fans 🔥 @zedsdead #shorts | [https://youtube.com/shorts/AXT9S-QlClI](https://youtube.com/shorts/AXT9S-QlClI) | 2026-10-18T12:23:49.034Z |
 | `ceo_zeds_new_09` | **zeds archive** | 1950s Big Band Swing Intro 🔥 @zedsdead #shorts | [https://youtube.com/shorts/WGw3HnADT3Q](https://youtube.com/shorts/WGw3HnADT3Q) | 2026-10-18T18:01:20.380Z |
 | `ceo_zeds_new_10` | **Bass Wave** | Vintage Gramophone Bass Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IS9MJvoFsr4](https://youtube.com/shorts/IS9MJvoFsr4) | 2026-10-18T18:04:58.823Z |
+| `ceo_zeds_new_13` | **Ediiiiiitz** | Peak Festival Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/FccCPXHCLXw](https://youtube.com/shorts/FccCPXHCLXw) | 2026-10-18T18:08:46.226Z |
 
 
 ---
-*Last Sync:* 2026-10-18T18:04:58.825Z
+*Last Sync:* 2026-10-18T18:08:46.228Z

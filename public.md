@@ -90,7 +90,8 @@
 | `ceo_zeds_new_11` | **Ediiiiiitz** | 5 AM Sunrise Set At Factory Town 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Z63ulbkPj4U](https://youtube.com/shorts/Z63ulbkPj4U) | 2026-10-18T12:21:01.322Z |
 | `ceo_zeds_new_12` | **Viral Clips** | Morning Sunlight Over 10000 Fans 🔥 @zedsdead #shorts | [https://youtube.com/shorts/AXT9S-QlClI](https://youtube.com/shorts/AXT9S-QlClI) | 2026-10-18T12:23:49.034Z |
 | `ceo_zeds_new_09` | **zeds archive** | 1950s Big Band Swing Intro 🔥 @zedsdead #shorts | [https://youtube.com/shorts/WGw3HnADT3Q](https://youtube.com/shorts/WGw3HnADT3Q) | 2026-10-18T18:01:20.380Z |
+| `ceo_zeds_new_10` | **Bass Wave** | Vintage Gramophone Bass Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IS9MJvoFsr4](https://youtube.com/shorts/IS9MJvoFsr4) | 2026-10-18T18:04:58.823Z |
 
 
 ---
-*Last Sync:* 2026-10-18T18:01:20.382Z
+*Last Sync:* 2026-10-18T18:04:58.825Z

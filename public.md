@@ -94,7 +94,9 @@
 | `ceo_zeds_new_13` | **Ediiiiiitz** | Peak Festival Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/FccCPXHCLXw](https://youtube.com/shorts/FccCPXHCLXw) | 2026-10-18T18:08:46.226Z |
 | `ceo_zeds_new_14` | **Tech Prologue** | Rolling Snare Intro Factory Town 🌅 @zedsdead #shorts | [https://youtube.com/shorts/c9I00PbEsAg](https://youtube.com/shorts/c9I00PbEsAg) | 2026-10-18T18:11:56.804Z |
 | `ceo_zeds_new_15` | **viral clips (warmed)** | 10000 Fans Chanting At Sunrise 🔥 @zedsdead #shorts | [https://youtube.com/shorts/VVr6HQA-dqQ](https://youtube.com/shorts/VVr6HQA-dqQ) | 2026-10-18T18:14:54.082Z |
+| `ceo_zeds_new_16` | **Bass Wave** | Sub Frequency Pressure At 6 AM 🔥 @zedsdead #shorts | [https://youtube.com/shorts/iXL4ya2P7is](https://youtube.com/shorts/iXL4ya2P7is) | 2026-10-18T22:19:59.505Z |
+| `ceo_zeds_new_17` | **Tech Prologue** | Melodic Synth Canopy Over Crowd 🌅 @zedsdead #shorts | [https://youtube.com/shorts/Xp7wSdq7KjA](https://youtube.com/shorts/Xp7wSdq7KjA) | 2026-10-18T22:25:58.985Z |
 
 
 ---
-*Last Sync:* 2026-10-18T18:14:54.092Z
+*Last Sync:* 2026-10-18T22:26:05.333Z

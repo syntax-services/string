@@ -2333,6 +2333,209 @@ const CEO_CAMPAIGNS: CampaignSlot[] = [
 
 const HABEEB_CAMPAIGNS: CampaignSlot[] = [
   {
+    "campaignId": "habeeb_all_the_smoke",
+    "campaignName": "Campaign Drop (All The Smoke Productions)",
+    "category": "All The Smoke Productions - Iconic Sports Culture & Player Stories",
+    "status": "Live & Active (Strict Habeeb Exclusive)",
+    "payout": "$1,250 / 1M Views ($1.25 CPM | $2,500.00 Budget Pool)",
+    "batches": [
+      "All Drops",
+      "Fresh 10 Masterclass Sports Story Shorts (Oct 18)"
+    ],
+    "clips": [
+      {
+        "id": "allthesmoke_01",
+        "addedTime": "Oct 18, 2026 • 05:45 PM",
+        "batchTag": "Fresh 10 Masterclass Sports Story Shorts (Oct 18)",
+        "title": "The Pregame Brawl That Launched James Harrison's Career",
+        "duration": "1:02",
+        "quality": "1080x1920 (9:16 Master Short)",
+        "videoSrc": "/campaigns/habeeb_all_the_smoke/allthesmoke_01.mp4",
+        "description": "Jerome Bettis reveals how Joey Porter brawled with William Green in the tunnel before the game, opening the door for James Harrison ('Deebo') to play and become an NFL legend! 🤯🏈 @AllTheSmokeProductions #allthesmoke #jeromebettis #steelers #jamesharrison #nfl",
+        "hashtags": [
+          "#allthesmoke",
+          "#allthesmokeproductions",
+          "#nfl",
+          "#steelers",
+          "#shorts"
+        ],
+        "payoutRate": "$1.25 CPM ($2,500.00 Budget)",
+        "loopNote": "Singular clean hook caption, complete conversational arc with natural sentence close."
+      },
+      {
+        "id": "allthesmoke_02",
+        "addedTime": "Oct 18, 2026 • 05:45 PM",
+        "batchTag": "Fresh 10 Masterclass Sports Story Shorts (Oct 18)",
+        "title": "Troy Polamalu: Weekday Mentor vs Sunday Menace",
+        "duration": "0:52",
+        "quality": "1080x1920 (9:16 Master Short)",
+        "videoSrc": "/campaigns/habeeb_all_the_smoke/allthesmoke_02.mp4",
+        "description": "Jerome Bettis on sitting next to Troy Polamalu during the week talking about faith and raising kids with his hair tied up... until game day arrives! 😤🏈 @AllTheSmokeProductions #allthesmoke #troypolamalu #jeromebettis #steelers #nfl",
+        "hashtags": [
+          "#allthesmoke",
+          "#allthesmokeproductions",
+          "#troypolamalu",
+          "#steelers",
+          "#shorts"
+        ],
+        "payoutRate": "$1.25 CPM ($2,500.00 Budget)",
+        "loopNote": "Singular clean hook caption, complete conversational arc with natural sentence close."
+      },
+      {
+        "id": "allthesmoke_03",
+        "addedTime": "Oct 18, 2026 • 05:45 PM",
+        "batchTag": "Fresh 10 Masterclass Sports Story Shorts (Oct 18)",
+        "title": "The Secret Behind Ben Roethlisberger's Shoestring Tackle",
+        "duration": "0:50",
+        "quality": "1080x1920 (9:16 Master Short)",
+        "videoSrc": "/campaigns/habeeb_all_the_smoke/allthesmoke_03.mp4",
+        "description": "The wild story behind the iconic playoff fumble tackle: Nick Harper was stabbed in the knee two days prior, which gave Big Ben just enough time to make the shoestring tackle! 🤯 @AllTheSmokeProductions #allthesmoke #jeromebettis #steelers #colts #nfl",
+        "hashtags": [
+          "#allthesmoke",
+          "#allthesmokeproductions",
+          "#steelers",
+          "#colts",
+          "#shorts"
+        ],
+        "payoutRate": "$1.25 CPM ($2,500.00 Budget)",
+        "loopNote": "Singular clean hook caption, complete conversational arc with natural sentence close."
+      },
+      {
+        "id": "allthesmoke_04",
+        "addedTime": "Oct 18, 2026 • 05:45 PM",
+        "batchTag": "Fresh 10 Masterclass Sports Story Shorts (Oct 18)",
+        "title": "The Sideline Prayer: 'Lord, If This Is How It Ends...'",
+        "duration": "1:11",
+        "quality": "1080x1920 (9:16 Master Short)",
+        "videoSrc": "/campaigns/habeeb_all_the_smoke/allthesmoke_04.mp4",
+        "description": "Jerome Bettis was completely isolated on the sideline after fumbling: 'I was the pariah. I prayed: Lord, if this is how my career ends, I'm okay with it.' Then the field goal missed! 🙌 @AllTheSmokeProductions #allthesmoke #jeromebettis #superbowl #steelers",
+        "hashtags": [
+          "#allthesmoke",
+          "#allthesmokeproductions",
+          "#jeromebettis",
+          "#steelers",
+          "#shorts"
+        ],
+        "payoutRate": "$1.25 CPM ($2,500.00 Budget)",
+        "loopNote": "Singular clean hook caption, complete conversational arc with natural sentence close."
+      },
+      {
+        "id": "allthesmoke_05",
+        "addedTime": "Oct 18, 2026 • 05:45 PM",
+        "batchTag": "Fresh 10 Masterclass Sports Story Shorts (Oct 18)",
+        "title": "Buying 70 Super Bowl Tickets in Hometown Detroit",
+        "duration": "1:01",
+        "quality": "1080x1920 (9:16 Master Short)",
+        "videoSrc": "/campaigns/habeeb_all_the_smoke/allthesmoke_05.mp4",
+        "description": "Bringing the Lombardi trophy back home to Detroit: Jerome Bettis had to buy 70 Super Bowl tickets for his family! 🏆🔥 @AllTheSmokeProductions #allthesmoke #jeromebettis #superbowlxl #detroit #steelers",
+        "hashtags": [
+          "#allthesmoke",
+          "#allthesmokeproductions",
+          "#superbowl",
+          "#detroit",
+          "#shorts"
+        ],
+        "payoutRate": "$1.25 CPM ($2,500.00 Budget)",
+        "loopNote": "Singular clean hook caption, complete conversational arc with natural sentence close."
+      },
+      {
+        "id": "allthesmoke_06",
+        "addedTime": "Oct 18, 2026 • 05:45 PM",
+        "batchTag": "Fresh 10 Masterclass Sports Story Shorts (Oct 18)",
+        "title": "Cedric Ceballos Defends Kobe: 'Say It When He Was Here'",
+        "duration": "0:50",
+        "quality": "1080x1920 (9:16 Master Short)",
+        "videoSrc": "/campaigns/habeeb_all_the_smoke/allthesmoke_06.mp4",
+        "description": "Cedric Ceballos on defending Kobe Bryant's legacy: 'Man up. If you didn't like him, say it when he was here. Don't jump on the bandwagon now that he's gone.' 🕊️🔥 @AllTheSmokeProductions #allthesmoke #kobebryant #mambamentality #lakers #nba",
+        "hashtags": [
+          "#allthesmoke",
+          "#allthesmokeproductions",
+          "#kobebryant",
+          "#lakers",
+          "#shorts"
+        ],
+        "payoutRate": "$1.25 CPM ($2,500.00 Budget)",
+        "loopNote": "Singular clean hook caption, complete conversational arc with natural sentence close."
+      },
+      {
+        "id": "allthesmoke_07",
+        "addedTime": "Oct 18, 2026 • 05:45 PM",
+        "batchTag": "Fresh 10 Masterclass Sports Story Shorts (Oct 18)",
+        "title": "Why Everyone Was Lucky Shaq Wasn't Mean",
+        "duration": "1:06",
+        "quality": "1080x1920 (9:16 Master Short)",
+        "videoSrc": "/campaigns/habeeb_all_the_smoke/allthesmoke_07.mp4",
+        "description": "Cedric Ceballos breaks down guarding Shaquille O'Neal: 'Shaq was the nicest dude in the world. If Shaq had a chip on his shoulder and got mean, the entire league was in serious trouble.' 💥 @AllTheSmokeProductions #allthesmoke #shaq #lakers #nba",
+        "hashtags": [
+          "#allthesmoke",
+          "#allthesmokeproductions",
+          "#shaq",
+          "#lakers",
+          "#shorts"
+        ],
+        "payoutRate": "$1.25 CPM ($2,500.00 Budget)",
+        "loopNote": "Singular clean hook caption, complete conversational arc with natural sentence close."
+      },
+      {
+        "id": "allthesmoke_08",
+        "addedTime": "Oct 18, 2026 • 05:45 PM",
+        "batchTag": "Fresh 10 Masterclass Sports Story Shorts (Oct 18)",
+        "title": "The Legendary Snowy Hit: Trucking Brian Urlacher",
+        "duration": "1:00",
+        "quality": "1080x1920 (9:16 Master Short)",
+        "videoSrc": "/campaigns/habeeb_all_the_smoke/allthesmoke_08.mp4",
+        "description": "The legendary snowy collision: Jerome Bettis recounts trucking Hall of Famer Brian Urlacher at the goal line for the game-clinching touchdown! 🚂🏈 @AllTheSmokeProductions #allthesmoke #jeromebettis #brianurlacher #steelers #bears",
+        "hashtags": [
+          "#allthesmoke",
+          "#allthesmokeproductions",
+          "#jeromebettis",
+          "#brianurlacher",
+          "#shorts"
+        ],
+        "payoutRate": "$1.25 CPM ($2,500.00 Budget)",
+        "loopNote": "Singular clean hook caption, complete conversational arc with natural sentence close."
+      },
+      {
+        "id": "allthesmoke_09",
+        "addedTime": "Oct 18, 2026 • 05:45 PM",
+        "batchTag": "Fresh 10 Masterclass Sports Story Shorts (Oct 18)",
+        "title": "The Bus Reveals His Top Power Running Backs of All Time",
+        "duration": "0:45",
+        "quality": "1080x1920 (9:16 Master Short)",
+        "videoSrc": "/campaigns/habeeb_all_the_smoke/allthesmoke_09.mp4",
+        "description": "The Bus names his top power running backs of all time: Jim Brown, Earl Campbell ('The Tyler Rose'), himself at three, and John Riggins! 🏆 @AllTheSmokeProductions #allthesmoke #jeromebettis #nfl #runningbacks #jimbrown",
+        "hashtags": [
+          "#allthesmoke",
+          "#allthesmokeproductions",
+          "#runningbacks",
+          "#nfl",
+          "#shorts"
+        ],
+        "payoutRate": "$1.25 CPM ($2,500.00 Budget)",
+        "loopNote": "Singular clean hook caption, complete conversational arc with natural sentence close."
+      },
+      {
+        "id": "allthesmoke_10",
+        "addedTime": "Oct 18, 2026 • 05:45 PM",
+        "batchTag": "Fresh 10 Masterclass Sports Story Shorts (Oct 18)",
+        "title": "Before Football, Jerome Bettis Was a Champion Bowler",
+        "duration": "0:49",
+        "quality": "1080x1920 (9:16 Master Short)",
+        "videoSrc": "/campaigns/habeeb_all_the_smoke/allthesmoke_10.mp4",
+        "description": "Did you know? Jerome Bettis didn't even play football until high school—he was one of the top competitive youth bowlers in the entire state of Michigan! 🎳🔥 @AllTheSmokeProductions #allthesmoke #jeromebettis #bowling #steelers #nfl",
+        "hashtags": [
+          "#allthesmoke",
+          "#allthesmokeproductions",
+          "#jeromebettis",
+          "#bowling",
+          "#shorts"
+        ],
+        "payoutRate": "$1.25 CPM ($2,500.00 Budget)",
+        "loopNote": "Singular clean hook caption, complete conversational arc with natural sentence close."
+      }
+    ]
+  },
+  {
     "campaignId": "habeeb_bubsy_ugc",
     "campaignName": "Campaign Drop Gamma (Habeeb Slot 1)",
     "category": "Bubsy 4D Next-Gen Revival & Retro Nostalgia (Clipr Agency)",
@@ -6525,7 +6728,7 @@ export default function ClippingVault() {
     }
   };
 
-    const selectHabeebCampaign = (choice: "sideshift" | "reckoning" | "duel" | "moonpay" | "zedsdead" | "bubsy" | "all") => {
+    const selectHabeebCampaign = (choice: "sideshift" | "reckoning" | "duel" | "moonpay" | "zedsdead" | "bubsy" | "allthesmoke" | "all") => {
     setHabeebCampaignChoice(choice);
     localStorage.setItem("habeeb_campaign_choice", choice);
   };
@@ -6631,19 +6834,19 @@ export default function ClippingVault() {
             </button>
 
             <button
-              onClick={() => selectHabeebCampaign("duel")}
-              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-rose-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
+              onClick={() => selectHabeebCampaign("allthesmoke")}
+              className="group p-5 bg-[#0a0d14] hover:bg-[#141926] border border-[#1b2234] hover:border-amber-500/50 rounded-2xl text-left transition-all duration-300 relative overflow-hidden active:scale-[0.98] shadow-lg cursor-pointer"
             >
-              <div className="text-3xl mb-3">⚔️</div>
-              <h3 className="text-base font-bold text-white group-hover:text-rose-300 transition-colors flex items-center justify-between">
-                Duel [Shorts]
-                <span className="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full font-mono">$10.00 CPM</span>
+              <div className="text-3xl mb-3">🏀</div>
+              <h3 className="text-base font-bold text-white group-hover:text-amber-300 transition-colors flex items-center justify-between">
+                All The Smoke
+                <span className="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-mono">$1.25 CPM</span>
               </h3>
               <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
-                Duel PvP 1v1 bets, viral streamer reactions & arena clips. YouTube Shorts ONLY with top hooks.
+                Raw uncut athlete stories & sports culture. 10 master narrative shorts featuring Jerome Bettis, Kobe & Shaq.
               </p>
-              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-rose-400 font-semibold flex items-center gap-1">
-                Enter Duel →
+              <div className="mt-4 pt-3 border-t border-[#1b2234] text-[11px] text-amber-400 font-semibold flex items-center gap-1">
+                Enter All The Smoke →
               </div>
             </button>
 
@@ -6763,18 +6966,20 @@ export default function ClippingVault() {
 
   const activeUserData = USERS[currentUser] || USERS.ceo;
   const campaigns = currentUser === "habeeb" 
-    ? (habeebCampaignChoice === "sideshift"
+    ? (habeebCampaignChoice === "allthesmoke"
+        ? [HABEEB_CAMPAIGNS.find(c => c.campaignId === "habeeb_all_the_smoke") || HABEEB_CAMPAIGNS[0]]
+        : habeebCampaignChoice === "sideshift"
         ? [HABEEB_CAMPAIGNS.find(c => c.campaignId === "habeeb_sideshift_ai") || HABEEB_CAMPAIGNS[0]]
         : habeebCampaignChoice === "reckoning"
         ? [HABEEB_CAMPAIGNS.find(c => c.campaignId === "habeeb_social_reckoning") || HABEEB_CAMPAIGNS[0]]
         : habeebCampaignChoice === "duel"
-        ? [HABEEB_CAMPAIGNS[3]]
+        ? [HABEEB_CAMPAIGNS.find(c => c.campaignId === "habeeb_duel_shorts") || HABEEB_CAMPAIGNS[0]]
         : habeebCampaignChoice === "moonpay"
-        ? [HABEEB_CAMPAIGNS[2]]
+        ? [HABEEB_CAMPAIGNS.find(c => c.campaignId === "habeeb_moonpay_xgl") || HABEEB_CAMPAIGNS[0]]
         : habeebCampaignChoice === "zedsdead"
-        ? [HABEEB_CAMPAIGNS[1]]
+        ? [HABEEB_CAMPAIGNS.find(c => c.campaignId === "habeeb_zeds_music") || HABEEB_CAMPAIGNS[0]]
         : habeebCampaignChoice === "bubsy"
-        ? [HABEEB_CAMPAIGNS[0]]
+        ? [HABEEB_CAMPAIGNS.find(c => c.campaignId === "habeeb_bubsy_ugc") || HABEEB_CAMPAIGNS[0]]
         : HABEEB_CAMPAIGNS)
     : currentUser === "lilshey" 
     ? LILSHEY_CAMPAIGNS 
@@ -6868,7 +7073,17 @@ export default function ClippingVault() {
                     : "text-neutral-400 hover:text-white"
                 }`}
               >
-                <span>✨</span> All Channels (115)
+                <span>✨</span> All Channels
+              </button>
+              <button
+                onClick={() => selectHabeebCampaign("allthesmoke")}
+                className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 cursor-pointer ${
+                  habeebCampaignChoice === "allthesmoke"
+                    ? "bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                <span>🏀</span> All The Smoke ($1.25)
               </button>
               <button
                 onClick={() => selectHabeebCampaign("sideshift")}
@@ -7197,34 +7412,34 @@ export default function ClippingVault() {
                 </div>
               </button>
 
-              {/* 2. Duel [YT Shorts] */}
+              {/* 2. All The Smoke Productions */}
               <button
-                onClick={() => selectHabeebCampaign("duel")}
+                onClick={() => selectHabeebCampaign("allthesmoke")}
                 className={`group p-4 rounded-xl text-left transition-all duration-300 relative overflow-hidden cursor-pointer border ${
-                  habeebCampaignChoice === "duel"
-                    ? "bg-gradient-to-b from-rose-950/40 via-[#180e12] to-[#0a0d14] border-rose-500 shadow-lg shadow-rose-500/10 ring-1 ring-rose-500/50"
-                    : "bg-[#0d111a] hover:bg-[#121824] border-[#1e2638] hover:border-rose-500/40"
+                  habeebCampaignChoice === "allthesmoke"
+                    ? "bg-gradient-to-b from-amber-950/40 via-[#1a140a] to-[#0a0d14] border-amber-500 shadow-lg shadow-amber-500/10 ring-1 ring-amber-500/50"
+                    : "bg-[#0d111a] hover:bg-[#121824] border-[#1e2638] hover:border-amber-500/40"
                 }`}
               >
                 <div className="flex items-center justify-between mb-2.5">
-                  <span className="text-2xl">⚔️</span>
-                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/30">
-                    $10.00 CPM
+                  <span className="text-2xl">🏀</span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                    $1.25 CPM • $2.5K Pool
                   </span>
                 </div>
-                <h3 className="text-sm font-bold text-white group-hover:text-rose-300 transition-colors flex items-center justify-between">
-                  Duel [YT Shorts]
-                  {habeebCampaignChoice === "duel" && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400 animate-ping"></span>
+                <h3 className="text-sm font-bold text-white group-hover:text-amber-300 transition-colors flex items-center justify-between">
+                  All The Smoke
+                  {habeebCampaignChoice === "allthesmoke" && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                   )}
                 </h3>
                 <p className="text-[11px] text-neutral-400 mt-1 leading-relaxed">
-                  YouTube Shorts ONLY. Top on-screen hooks, 1% min engagement, min 1,750 views.
+                  Raw uncut athlete stories & sports culture. 10 master narrative shorts featuring Jerome Bettis, Kobe & Shaq.
                 </p>
                 <div className="mt-3 pt-2.5 border-t border-[#1b2234] flex items-center justify-between text-[11px]">
-                  <span className="text-neutral-400">20 Viral Drops</span>
-                  <span className="font-semibold text-rose-400">
-                    {habeebCampaignChoice === "duel" ? "Active View ✓" : "Switch Here →"}
+                  <span className="text-neutral-400">10 Master Drops</span>
+                  <span className="font-semibold text-amber-400">
+                    {habeebCampaignChoice === "allthesmoke" ? "Active View ✓" : "Switch Here →"}
                   </span>
                 </div>
               </button>

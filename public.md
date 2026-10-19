@@ -104,7 +104,8 @@
 | `ceo_zeds_new_23` | **Viral Clips** | Brass Section Meets Modular Synth 🔥 @zedsdead #shorts | [https://youtube.com/shorts/mheXa50LCug](https://youtube.com/shorts/mheXa50LCug) | 2026-10-19T12:20:29.004Z |
 | `ceo_zeds_new_24` | **Tech Prologue** | FPV Drone Spiral Through Stage Rig 🚁 @zedsdead #shorts | [https://youtube.com/shorts/Rq_r3P3U3_s](https://youtube.com/shorts/Rq_r3P3U3_s) | 2026-10-19T12:23:45.513Z |
 | `ceo_zeds_new_25` | **viral clips (warmed)** | Power Dive Directly Over DJ Deck 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Ya7nlLcjS_A](https://youtube.com/shorts/Ya7nlLcjS_A) | 2026-10-19T12:26:59.370Z |
+| `ceo_zeds_new_26` | **Bass Wave** | Speaker Tower Close-Up At 60 MPH 🔊 @zedsdead #shorts | [https://youtube.com/shorts/EYlaImnxDTU](https://youtube.com/shorts/EYlaImnxDTU) | 2026-10-19T15:14:29.033Z |
 
 
 ---
-*Last Sync:* 2026-10-19T12:26:59.394Z
+*Last Sync:* 2026-10-19T15:14:29.051Z

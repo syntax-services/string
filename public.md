@@ -101,7 +101,8 @@
 | `ceo_zeds_new_21` | **Ediiiiiitz** | Sinatra Vocals Sliced Over 808 🔥 @zedsdead #shorts | [https://youtube.com/shorts/dxaKpGs_nEs](https://youtube.com/shorts/dxaKpGs_nEs) | 2026-10-19T08:33:38.722Z |
 | `ceo_zeds_new_19` | **zeds archive** | Unreleased Melodic Drop VIP 🔥 @zedsdead #shorts | [https://youtube.com/shorts/on1_LF3ZeVM](https://youtube.com/shorts/on1_LF3ZeVM) | 2026-10-19T08:10:20.000Z |
 | `ceo_zeds_new_22` | **Bass Wave** | Vintage Swing Tempo Acceleration 🔥 @zedsdead #shorts | [https://youtube.com/shorts/I9CsyIZywkw](https://youtube.com/shorts/I9CsyIZywkw) | 2026-10-19T12:17:38.568Z |
+| `ceo_zeds_new_23` | **Viral Clips** | Brass Section Meets Modular Synth 🔥 @zedsdead #shorts | [https://youtube.com/shorts/mheXa50LCug](https://youtube.com/shorts/mheXa50LCug) | 2026-10-19T12:20:29.004Z |
 
 
 ---
-*Last Sync:* 2026-10-19T12:17:41.961Z
+*Last Sync:* 2026-10-19T12:20:29.006Z

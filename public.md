@@ -102,7 +102,8 @@
 | `ceo_zeds_new_19` | **zeds archive** | Unreleased Melodic Drop VIP 🔥 @zedsdead #shorts | [https://youtube.com/shorts/on1_LF3ZeVM](https://youtube.com/shorts/on1_LF3ZeVM) | 2026-10-19T08:10:20.000Z |
 | `ceo_zeds_new_22` | **Bass Wave** | Vintage Swing Tempo Acceleration 🔥 @zedsdead #shorts | [https://youtube.com/shorts/I9CsyIZywkw](https://youtube.com/shorts/I9CsyIZywkw) | 2026-10-19T12:17:38.568Z |
 | `ceo_zeds_new_23` | **Viral Clips** | Brass Section Meets Modular Synth 🔥 @zedsdead #shorts | [https://youtube.com/shorts/mheXa50LCug](https://youtube.com/shorts/mheXa50LCug) | 2026-10-19T12:20:29.004Z |
+| `ceo_zeds_new_24` | **Tech Prologue** | FPV Drone Spiral Through Stage Rig 🚁 @zedsdead #shorts | [https://youtube.com/shorts/Rq_r3P3U3_s](https://youtube.com/shorts/Rq_r3P3U3_s) | 2026-10-19T12:23:45.513Z |
 
 
 ---
-*Last Sync:* 2026-10-19T12:20:29.006Z
+*Last Sync:* 2026-10-19T12:23:45.515Z

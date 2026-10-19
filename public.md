@@ -100,7 +100,8 @@
 | `ceo_zeds_new_20` | **Bass Wave** | Marathon Set Grand Finale 🌅 @zedsdead #shorts | [https://youtube.com/shorts/-qGVWWdcOuU](https://youtube.com/shorts/-qGVWWdcOuU) | 2026-10-19T08:30:54.359Z |
 | `ceo_zeds_new_21` | **Ediiiiiitz** | Sinatra Vocals Sliced Over 808 🔥 @zedsdead #shorts | [https://youtube.com/shorts/dxaKpGs_nEs](https://youtube.com/shorts/dxaKpGs_nEs) | 2026-10-19T08:33:38.722Z |
 | `ceo_zeds_new_19` | **zeds archive** | Unreleased Melodic Drop VIP 🔥 @zedsdead #shorts | [https://youtube.com/shorts/on1_LF3ZeVM](https://youtube.com/shorts/on1_LF3ZeVM) | 2026-10-19T08:10:20.000Z |
+| `ceo_zeds_new_22` | **Bass Wave** | Vintage Swing Tempo Acceleration 🔥 @zedsdead #shorts | [https://youtube.com/shorts/I9CsyIZywkw](https://youtube.com/shorts/I9CsyIZywkw) | 2026-10-19T12:17:38.568Z |
 
 
 ---
-*Last Sync:* 2026-10-19T08:57:13.608Z
+*Last Sync:* 2026-10-19T12:17:41.961Z

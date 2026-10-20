@@ -109,7 +109,8 @@
 | `ceo_zeds_micro_02` | **Tech Prologue** | Wait for the sub glide at 0:05... 🔊 @zedsdead #shorts | [https://youtube.com/shorts/G2F4e5wFKfw](https://youtube.com/shorts/G2F4e5wFKfw) | 2026-10-19T18:01:59.793Z |
 | `ceo_zeds_micro_01` | **zeds archive** | Turn your volume DOWN before 0:04... 💀 @zedsdead #shorts | [https://youtube.com/shorts/1pK95b6zBL8](https://youtube.com/shorts/1pK95b6zBL8) | 2026-10-20T09:38:20.642Z |
 | `ceo_zeds_micro_03` | **Bass Wave** | He dropped this unreleased VIP mid-set... 😳 @zedsdead #shorts | [https://youtube.com/shorts/3RntPXL33eY](https://youtube.com/shorts/3RntPXL33eY) | 2026-10-20T09:39:09.505Z |
+| `ceo_zeds_micro_04` | **Ediiiiiitz** | Nobody was ready for this bass switch... 🤯 @zedsdead #shorts | [https://youtube.com/shorts/2jkOeJd4pck](https://youtube.com/shorts/2jkOeJd4pck) | 2026-10-20T09:40:17.059Z |
 
 
 ---
-*Last Sync:* 2026-10-20T09:39:09.508Z
+*Last Sync:* 2026-10-20T09:40:17.062Z

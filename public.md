@@ -114,7 +114,8 @@
 | `ceo_zeds_micro_06` | **Tech Prologue** | Don't wear earphones at 100% volume 🔊 @zedsdead #shorts | [https://youtube.com/shorts/1EJOTQ9KPnE](https://youtube.com/shorts/1EJOTQ9KPnE) | 2026-10-20T09:42:20.105Z |
 | `ceo_zeds_micro_07` | **viral clips (warmed)** | The sound guy almost cut the power at 0:05... 💀 @zedsdead #shorts | [https://youtube.com/shorts/7WlrEKgdjVQ](https://youtube.com/shorts/7WlrEKgdjVQ) | 2026-10-20T09:43:28.279Z |
 | `ceo_zeds_micro_08` | **Bass Wave** | When 10,000 fans scream the melody line 🌅 @zedsdead #shorts | [https://youtube.com/shorts/SWnmNHsSlWk](https://youtube.com/shorts/SWnmNHsSlWk) | 2026-10-20T15:00:37.249Z |
+| `ceo_zeds_micro_09` | **Ediiiiiitz** | Sub-bass literally shook the camera lens 🔊 @zedsdead #shorts | [https://youtube.com/shorts/eTw7ZqEYg2Q](https://youtube.com/shorts/eTw7ZqEYg2Q) | 2026-10-20T15:01:24.348Z |
 
 
 ---
-*Last Sync:* 2026-10-20T15:00:37.251Z
+*Last Sync:* 2026-10-20T15:01:24.351Z

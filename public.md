@@ -111,7 +111,8 @@
 | `ceo_zeds_micro_03` | **Bass Wave** | He dropped this unreleased VIP mid-set... 😳 @zedsdead #shorts | [https://youtube.com/shorts/3RntPXL33eY](https://youtube.com/shorts/3RntPXL33eY) | 2026-10-20T09:39:09.505Z |
 | `ceo_zeds_micro_04` | **Ediiiiiitz** | Nobody was ready for this bass switch... 🤯 @zedsdead #shorts | [https://youtube.com/shorts/2jkOeJd4pck](https://youtube.com/shorts/2jkOeJd4pck) | 2026-10-20T09:40:17.059Z |
 | `ceo_zeds_micro_05` | **Viral Clips** | 5 AM sunrise set hits completely different 🌅 @zedsdead #shorts | [https://youtube.com/shorts/DZn0AzC_Q8E](https://youtube.com/shorts/DZn0AzC_Q8E) | 2026-10-20T09:41:29.397Z |
+| `ceo_zeds_micro_06` | **Tech Prologue** | Don't wear earphones at 100% volume 🔊 @zedsdead #shorts | [https://youtube.com/shorts/1EJOTQ9KPnE](https://youtube.com/shorts/1EJOTQ9KPnE) | 2026-10-20T09:42:20.105Z |
 
 
 ---
-*Last Sync:* 2026-10-20T09:41:29.402Z
+*Last Sync:* 2026-10-20T09:42:20.110Z

@@ -107,7 +107,8 @@
 | `ceo_zeds_new_26` | **Bass Wave** | Speaker Tower Close-Up At 60 MPH 🔊 @zedsdead #shorts | [https://youtube.com/shorts/EYlaImnxDTU](https://youtube.com/shorts/EYlaImnxDTU) | 2026-10-19T15:14:29.033Z |
 | `ceo_zeds_new_27` | **Tech Prologue** | Colosseum Bowl Dive Over Audience 🤯 @zedsdead #shorts | [https://youtube.com/shorts/QeaxY5kLpr4](https://youtube.com/shorts/QeaxY5kLpr4) | 2026-10-19T15:19:05.671Z |
 | `ceo_zeds_micro_02` | **Tech Prologue** | Wait for the sub glide at 0:05... 🔊 @zedsdead #shorts | [https://youtube.com/shorts/G2F4e5wFKfw](https://youtube.com/shorts/G2F4e5wFKfw) | 2026-10-19T18:01:59.793Z |
+| `ceo_zeds_micro_01` | **zeds archive** | Turn your volume DOWN before 0:04... 💀 @zedsdead #shorts | [https://youtube.com/shorts/1pK95b6zBL8](https://youtube.com/shorts/1pK95b6zBL8) | 2026-10-20T09:38:20.642Z |
 
 
 ---
-*Last Sync:* 2026-10-19T18:01:59.795Z
+*Last Sync:* 2026-10-20T09:38:20.661Z

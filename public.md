@@ -115,7 +115,8 @@
 | `ceo_zeds_micro_07` | **viral clips (warmed)** | The sound guy almost cut the power at 0:05... 💀 @zedsdead #shorts | [https://youtube.com/shorts/7WlrEKgdjVQ](https://youtube.com/shorts/7WlrEKgdjVQ) | 2026-10-20T09:43:28.279Z |
 | `ceo_zeds_micro_08` | **Bass Wave** | When 10,000 fans scream the melody line 🌅 @zedsdead #shorts | [https://youtube.com/shorts/SWnmNHsSlWk](https://youtube.com/shorts/SWnmNHsSlWk) | 2026-10-20T15:00:37.249Z |
 | `ceo_zeds_micro_09` | **Ediiiiiitz** | Sub-bass literally shook the camera lens 🔊 @zedsdead #shorts | [https://youtube.com/shorts/eTw7ZqEYg2Q](https://youtube.com/shorts/eTw7ZqEYg2Q) | 2026-10-20T15:01:24.348Z |
+| `ceo_zeds_micro_10` | **Tech Prologue** | 99% of people missed the switch at 0:05 🤯 @zedsdead #shorts | [https://youtube.com/shorts/AMnYyn5gNkY](https://youtube.com/shorts/AMnYyn5gNkY) | 2026-10-20T15:02:02.042Z |
 
 
 ---
-*Last Sync:* 2026-10-20T15:01:24.351Z
+*Last Sync:* 2026-10-20T15:02:02.055Z

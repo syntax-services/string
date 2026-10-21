@@ -133,7 +133,8 @@
 | `ceo_zeds_micro_25` | **Tech Prologue** | The swing rhythm bounce is unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/TZNw7SYkpb4](https://youtube.com/shorts/TZNw7SYkpb4) | 2026-10-21T12:47:38.247Z |
 | `ceo_zeds_micro_26` | **zeds archive** | This is what peak festival energy sounds like 🔊 @zedsdead #shorts | [https://youtube.com/shorts/4ejPWkDdKIw](https://youtube.com/shorts/4ejPWkDdKIw) | 2026-10-21T21:07:49.475Z |
 | `ceo_zeds_micro_27` | **Bass Wave** | Biggie Smalls vinyl chopped over sub-bass 🤯 @zedsdead #shorts | [https://youtube.com/shorts/gkXgs6pQrJw](https://youtube.com/shorts/gkXgs6pQrJw) | 2026-10-21T21:09:50.161Z |
+| `ceo_zeds_micro_28` | **Ediiiiiitz** | East Coast rap meets heavyweight dubstep 🔊 @zedsdead #shorts | [https://youtube.com/shorts/Y8aizT_OEh8](https://youtube.com/shorts/Y8aizT_OEh8) | 2026-10-21T21:13:22.536Z |
 
 
 ---
-*Last Sync:* 2026-10-21T21:09:50.163Z
+*Last Sync:* 2026-10-21T21:13:22.539Z

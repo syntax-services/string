@@ -129,7 +129,8 @@
 | `ceo_zeds_micro_21` | **Tech Prologue** | Gramophone flip into pure sub-bass 🔥 @zedsdead #shorts | [https://youtube.com/shorts/DmATx-CIFhU](https://youtube.com/shorts/DmATx-CIFhU) | 2026-10-21T07:24:25.342Z |
 | `ceo_zeds_micro_22` | **Bass Wave** | Watch the DJ hands at 0:04... 😳 @zedsdead #shorts | [https://youtube.com/shorts/475x6oFreXU](https://youtube.com/shorts/475x6oFreXU) | 2026-10-21T08:30:42.914Z |
 | `ceo_zeds_micro_23` | **Tech Prologue** | 1950s swing transformed into festival bass 🤯 @zedsdead #shorts | [https://youtube.com/shorts/wHvcoEbzA_A](https://youtube.com/shorts/wHvcoEbzA_A) | 2026-10-21T08:31:30.841Z |
+| `ceo_zeds_micro_24` | **Bass Wave** | Can your headphones handle this frequency? 🔊 @zedsdead #shorts | [https://youtube.com/shorts/QKDzhEsCik4](https://youtube.com/shorts/QKDzhEsCik4) | 2026-10-21T12:45:39.200Z |
 
 
 ---
-*Last Sync:* 2026-10-21T08:31:30.844Z
+*Last Sync:* 2026-10-21T12:45:39.256Z

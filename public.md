@@ -123,7 +123,8 @@
 | `ceo_zeds_micro_16` | **Bass Wave** | Testing your phone speakers on this drop 🔊 @zedsdead #shorts | [https://youtube.com/shorts/2jtoyJc8NlI](https://youtube.com/shorts/2jtoyJc8NlI) | 2026-10-21T01:09:57.632Z |
 | `ceo_zeds_micro_12` | **Bass Wave** | Would you stay until the very last track? 🌅 @zedsdead #shorts | [https://youtube.com/shorts/dIATPX42fIc](https://youtube.com/shorts/dIATPX42fIc) | 2026-10-21T00:45:07.461Z |
 | `ceo_zeds_micro_17` | **Tech Prologue** | Wait for the bass at 0:04... 💀 @zedsdead #shorts | [https://youtube.com/shorts/CetrRjfp44w](https://youtube.com/shorts/CetrRjfp44w) | 2026-10-21T01:10:28.938Z |
+| `ceo_zeds_micro_18` | **Ediiiiiitz** | When brass horns meet modular sub-bass 🔊 @zedsdead #shorts | [https://youtube.com/shorts/UUqejd3P4VY](https://youtube.com/shorts/UUqejd3P4VY) | 2026-10-21T02:00:21.671Z |
 
 
 ---
-*Last Sync:* 2026-10-21T01:10:28.941Z
+*Last Sync:* 2026-10-21T02:00:21.674Z

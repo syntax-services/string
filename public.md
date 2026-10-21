@@ -135,7 +135,9 @@
 | `ceo_zeds_micro_27` | **Bass Wave** | Biggie Smalls vinyl chopped over sub-bass 🤯 @zedsdead #shorts | [https://youtube.com/shorts/gkXgs6pQrJw](https://youtube.com/shorts/gkXgs6pQrJw) | 2026-10-21T21:09:50.161Z |
 | `ceo_zeds_micro_28` | **Ediiiiiitz** | East Coast rap meets heavyweight dubstep 🔊 @zedsdead #shorts | [https://youtube.com/shorts/Y8aizT_OEh8](https://youtube.com/shorts/Y8aizT_OEh8) | 2026-10-21T21:13:22.536Z |
 | `ceo_zeds_micro_29` | **Viral Clips** | Wait for the bassline at 0:05... 💀 @zedsdead #shorts | [https://youtube.com/shorts/dZm3icu-hwk](https://youtube.com/shorts/dZm3icu-hwk) | 2026-10-21T21:15:20.938Z |
+| `ceo_zeds_micro_30` | **Tech Prologue** | Timeless hip hop flip stomped live 🔥 @zedsdead #shorts | [https://youtube.com/shorts/bEk56rrf48w](https://youtube.com/shorts/bEk56rrf48w) | 2026-10-21T22:12:29.247Z |
+| `ceo_zeds_micro_31` | **viral clips (warmed)** | The stadium roar when this dropped 🔊 @zedsdead #shorts | [https://youtube.com/shorts/AmQv1nokU5c](https://youtube.com/shorts/AmQv1nokU5c) | 2026-10-21T22:13:51.936Z |
 
 
 ---
-*Last Sync:* 2026-10-21T21:15:20.940Z
+*Last Sync:* 2026-10-21T22:13:51.938Z

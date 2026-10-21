@@ -131,7 +131,8 @@
 | `ceo_zeds_micro_23` | **Tech Prologue** | 1950s swing transformed into festival bass 🤯 @zedsdead #shorts | [https://youtube.com/shorts/wHvcoEbzA_A](https://youtube.com/shorts/wHvcoEbzA_A) | 2026-10-21T08:31:30.841Z |
 | `ceo_zeds_micro_24` | **Bass Wave** | Can your headphones handle this frequency? 🔊 @zedsdead #shorts | [https://youtube.com/shorts/QKDzhEsCik4](https://youtube.com/shorts/QKDzhEsCik4) | 2026-10-21T12:45:39.200Z |
 | `ceo_zeds_micro_25` | **Tech Prologue** | The swing rhythm bounce is unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/TZNw7SYkpb4](https://youtube.com/shorts/TZNw7SYkpb4) | 2026-10-21T12:47:38.247Z |
+| `ceo_zeds_micro_26` | **zeds archive** | This is what peak festival energy sounds like 🔊 @zedsdead #shorts | [https://youtube.com/shorts/4ejPWkDdKIw](https://youtube.com/shorts/4ejPWkDdKIw) | 2026-10-21T21:07:49.475Z |
 
 
 ---
-*Last Sync:* 2026-10-21T12:47:38.249Z
+*Last Sync:* 2026-10-21T21:07:49.493Z

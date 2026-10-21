@@ -127,7 +127,8 @@
 | `ceo_zeds_micro_19` | **viral clips (warmed)** | The entire front row lost their minds 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Av6wjKcpy34](https://youtube.com/shorts/Av6wjKcpy34) | 2026-10-21T02:00:42.079Z |
 | `ceo_zeds_micro_20` | **Bass Wave** | Heaviest swing flip in festival history 🔊 @zedsdead #shorts | [https://youtube.com/shorts/FhjRSpYe2WA](https://youtube.com/shorts/FhjRSpYe2WA) | 2026-10-21T07:23:49.598Z |
 | `ceo_zeds_micro_21` | **Tech Prologue** | Gramophone flip into pure sub-bass 🔥 @zedsdead #shorts | [https://youtube.com/shorts/DmATx-CIFhU](https://youtube.com/shorts/DmATx-CIFhU) | 2026-10-21T07:24:25.342Z |
+| `ceo_zeds_micro_22` | **Bass Wave** | Watch the DJ hands at 0:04... 😳 @zedsdead #shorts | [https://youtube.com/shorts/475x6oFreXU](https://youtube.com/shorts/475x6oFreXU) | 2026-10-21T08:30:42.914Z |
 
 
 ---
-*Last Sync:* 2026-10-21T07:24:25.345Z
+*Last Sync:* 2026-10-21T08:30:42.917Z

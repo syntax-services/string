@@ -125,7 +125,8 @@
 | `ceo_zeds_micro_17` | **Tech Prologue** | Wait for the bass at 0:04... 💀 @zedsdead #shorts | [https://youtube.com/shorts/CetrRjfp44w](https://youtube.com/shorts/CetrRjfp44w) | 2026-10-21T01:10:28.938Z |
 | `ceo_zeds_micro_18` | **Ediiiiiitz** | When brass horns meet modular sub-bass 🔊 @zedsdead #shorts | [https://youtube.com/shorts/UUqejd3P4VY](https://youtube.com/shorts/UUqejd3P4VY) | 2026-10-21T02:00:21.671Z |
 | `ceo_zeds_micro_19` | **viral clips (warmed)** | The entire front row lost their minds 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Av6wjKcpy34](https://youtube.com/shorts/Av6wjKcpy34) | 2026-10-21T02:00:42.079Z |
+| `ceo_zeds_micro_20` | **Bass Wave** | Heaviest swing flip in festival history 🔊 @zedsdead #shorts | [https://youtube.com/shorts/FhjRSpYe2WA](https://youtube.com/shorts/FhjRSpYe2WA) | 2026-10-21T07:23:49.598Z |
 
 
 ---
-*Last Sync:* 2026-10-21T02:00:42.082Z
+*Last Sync:* 2026-10-21T07:23:49.640Z

@@ -120,7 +120,8 @@
 | `ceo_zeds_micro_13` | **Ediiiiiitz** | Vintage vocals sliced over 808 bass... 🤯 @zedsdead #shorts | [https://youtube.com/shorts/RIJP6OQbciM](https://youtube.com/shorts/RIJP6OQbciM) | 2026-10-21T00:40:31.689Z |
 | `ceo_zeds_micro_14` | **Viral Clips** | Watch what happens when tempo speeds up... 😳 @zedsdead #shorts | [https://youtube.com/shorts/xi4ua99LIPQ](https://youtube.com/shorts/xi4ua99LIPQ) | 2026-10-21T00:41:49.376Z |
 | `ceo_zeds_micro_15` | **Tech Prologue** | Drop 1 or Drop 2? Old school vs 140 bass 👇🔥 @zedsdead #shorts | [https://youtube.com/shorts/w3bglGb_cbo](https://youtube.com/shorts/w3bglGb_cbo) | 2026-10-21T00:44:13.953Z |
+| `ceo_zeds_micro_16` | **viral clips (warmed)** | Testing your phone speakers on this drop 🔊 @zedsdead #shorts | [https://youtube.com/shorts/8KP8PVvFMZE](https://youtube.com/shorts/8KP8PVvFMZE) | 2026-10-21T00:44:48.142Z |
 
 
 ---
-*Last Sync:* 2026-10-21T00:44:14.007Z
+*Last Sync:* 2026-10-21T00:44:52.853Z

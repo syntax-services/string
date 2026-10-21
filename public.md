@@ -116,7 +116,9 @@
 | `ceo_zeds_micro_08` | **Bass Wave** | When 10,000 fans scream the melody line 🌅 @zedsdead #shorts | [https://youtube.com/shorts/SWnmNHsSlWk](https://youtube.com/shorts/SWnmNHsSlWk) | 2026-10-20T15:00:37.249Z |
 | `ceo_zeds_micro_09` | **Ediiiiiitz** | Sub-bass literally shook the camera lens 🔊 @zedsdead #shorts | [https://youtube.com/shorts/eTw7ZqEYg2Q](https://youtube.com/shorts/eTw7ZqEYg2Q) | 2026-10-20T15:01:24.348Z |
 | `ceo_zeds_micro_10` | **Tech Prologue** | 99% of people missed the switch at 0:05 🤯 @zedsdead #shorts | [https://youtube.com/shorts/AMnYyn5gNkY](https://youtube.com/shorts/AMnYyn5gNkY) | 2026-10-20T15:02:02.042Z |
+| `ceo_zeds_micro_11` | **zeds archive** | The cleanest 140 dubstep drop of 2026 🔥 @zedsdead #shorts | [https://youtube.com/shorts/GbdNsM3EvFc](https://youtube.com/shorts/GbdNsM3EvFc) | 2026-10-21T00:38:55.294Z |
+| `ceo_zeds_micro_13` | **Ediiiiiitz** | Vintage vocals sliced over 808 bass... 🤯 @zedsdead #shorts | [https://youtube.com/shorts/RIJP6OQbciM](https://youtube.com/shorts/RIJP6OQbciM) | 2026-10-21T00:40:31.689Z |
 
 
 ---
-*Last Sync:* 2026-10-20T15:02:02.055Z
+*Last Sync:* 2026-10-21T00:40:31.692Z

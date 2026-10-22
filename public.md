@@ -146,6 +146,7 @@
 | `zd_1300_03` | **Ediiiiiitz** | Peak festival energy right here @zedsdead #EDMFestival | [https://youtube.com/shorts/9naedw7IQoY](https://youtube.com/shorts/9naedw7IQoY) | 2026-10-22T12:25:48.549813Z |
 | `zd_1300_04` | **zeds archive** | Unreal energy at the finale @zedsdead #FestivalSeason | [https://youtube.com/shorts/0dPdFZiUKA4](https://youtube.com/shorts/0dPdFZiUKA4) | 2026-10-22T12:27:17.923896Z |
 | `zd_1900_01` | **Tech Prologue** | Wait for the synth switch @zedsdead #BassMusic | [https://youtube.com/shorts/U7LrEloPSzY](https://youtube.com/shorts/U7LrEloPSzY) | 2026-10-22T18:00:13.157797Z |
+| `zd_1900_02` | **Bass Wave** | The cleanest drop ever @zedsdead #Dubstep | [https://youtube.com/shorts/j2KtP1PCZH0](https://youtube.com/shorts/j2KtP1PCZH0) | 2026-10-22T18:02:42.032924Z |
 
 ---
-*Last Sync:* 2026-10-22T18:00:13.157797Z
+*Last Sync:* 2026-10-22T18:02:42.032924Z

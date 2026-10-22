@@ -139,6 +139,7 @@
 | `ceo_zeds_micro_31` | **viral clips (warmed)** | The stadium roar when this dropped 🔊 @zedsdead #shorts | [https://youtube.com/shorts/AmQv1nokU5c](https://youtube.com/shorts/AmQv1nokU5c) | 2026-10-21T22:13:51.936Z |
 | `zd_tour_01` | **Tech Prologue** | This drop was insane @zedsdead #ZedsDead | [https://youtube.com/shorts/WrjTpxhUpXs](https://youtube.com/shorts/WrjTpxhUpXs) | 2026-10-22T08:06:56.418969Z |
 | `zd_tour_02` | **Bass Wave** | Wait for the sub @zedsdead #BassMusic | [https://youtube.com/shorts/j4BVqPDOvSs](https://youtube.com/shorts/j4BVqPDOvSs) | 2026-10-22T08:08:48.071355Z |
+| `zd_tour_03` | **Ediiiiiitz** | No one does it better @zedsdead #Dubstep | [https://youtube.com/shorts/OWqAef40gjc](https://youtube.com/shorts/OWqAef40gjc) | 2026-10-22T08:10:46.266655Z |
 
 ---
-*Last Sync:* 2026-10-22T08:08:48.071355Z
+*Last Sync:* 2026-10-22T08:10:46.266655Z

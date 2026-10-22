@@ -152,6 +152,7 @@
 | `pool_deadrocks_01` | **Tech Prologue** | RL Grime x Zeds Dead at Red Rocks | [https://youtube.com/shorts/5msMHmpNi6Q](https://youtube.com/shorts/5msMHmpNi6Q) | 2026-10-22T21:00:13.113653Z |
 | `pool_famcam_01` | **Bass Wave** | Front row reaction to the heavy bass | [https://youtube.com/shorts/pTDA_LGvoEU](https://youtube.com/shorts/pTDA_LGvoEU) | 2026-10-22T21:03:03.352984Z |
 | `pool_fpv_01` | **Ediiiiiitz** | Acrobatic drone dive during the bass drop | [https://youtube.com/shorts/gsYspMUVKgM](https://youtube.com/shorts/gsYspMUVKgM) | 2026-10-22T21:05:24.353594Z |
+| `pool_deadrocks_02` | **zeds archive** | When the climax drop hits at Red Rocks | [https://youtube.com/shorts/wODo7olJ9_k](https://youtube.com/shorts/wODo7olJ9_k) | 2026-10-22T21:08:23.162005Z |
 
 ---
-*Last Sync:* 2026-10-22T21:05:24.353594Z
+*Last Sync:* 2026-10-22T21:08:23.162005Z

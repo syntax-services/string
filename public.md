@@ -148,6 +148,7 @@
 | `zd_1900_01` | **Tech Prologue** | Wait for the synth switch @zedsdead #BassMusic | [https://youtube.com/shorts/U7LrEloPSzY](https://youtube.com/shorts/U7LrEloPSzY) | 2026-10-22T18:00:13.157797Z |
 | `zd_1900_02` | **Bass Wave** | The cleanest drop ever @zedsdead #Dubstep | [https://youtube.com/shorts/j2KtP1PCZH0](https://youtube.com/shorts/j2KtP1PCZH0) | 2026-10-22T18:02:42.032924Z |
 | `zd_1900_03` | **Ediiiiiitz** | Old school bass hits hard @zedsdead #EDMFestival | [https://youtube.com/shorts/0hlZ5OwAeGw](https://youtube.com/shorts/0hlZ5OwAeGw) | 2026-10-22T18:05:51.523131Z |
+| `zd_1900_04` | **zeds archive** | When the melody switches @zedsdead #FestivalSeason | [https://youtube.com/shorts/l57A_4Vwdv4](https://youtube.com/shorts/l57A_4Vwdv4) | 2026-10-22T18:08:39.853753Z |
 
 ---
-*Last Sync:* 2026-10-22T18:05:51.523131Z
+*Last Sync:* 2026-10-22T18:08:39.853753Z

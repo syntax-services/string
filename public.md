@@ -137,7 +137,7 @@
 | `ceo_zeds_micro_29` | **Viral Clips** | Wait for the bassline at 0:05... 💀 @zedsdead #shorts | [https://youtube.com/shorts/dZm3icu-hwk](https://youtube.com/shorts/dZm3icu-hwk) | 2026-10-21T21:15:20.938Z |
 | `ceo_zeds_micro_30` | **Tech Prologue** | Timeless hip hop flip stomped live 🔥 @zedsdead #shorts | [https://youtube.com/shorts/bEk56rrf48w](https://youtube.com/shorts/bEk56rrf48w) | 2026-10-21T22:12:29.247Z |
 | `ceo_zeds_micro_31` | **viral clips (warmed)** | The stadium roar when this dropped 🔊 @zedsdead #shorts | [https://youtube.com/shorts/AmQv1nokU5c](https://youtube.com/shorts/AmQv1nokU5c) | 2026-10-21T22:13:51.936Z |
-
+| `zd_tour_01` | **Tech Prologue** | This drop was insane @zedsdead #ZedsDead | [https://youtube.com/shorts/WrjTpxhUpXs](https://youtube.com/shorts/WrjTpxhUpXs) | 2026-10-22T08:06:56.418969Z |
 
 ---
-*Last Sync:* 2026-10-21T22:13:51.938Z
+*Last Sync:* 2026-10-22T08:06:56.418969Z

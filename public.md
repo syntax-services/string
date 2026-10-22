@@ -143,6 +143,7 @@
 | `zd_tour_04` | **zeds archive** | Tour rehearsal energy hits different @zedsdead #EDMFestival | [https://youtube.com/shorts/OABH3IMvluo](https://youtube.com/shorts/OABH3IMvluo) | 2026-10-22T08:12:44.702016Z |
 | `zd_1300_01` | **Tech Prologue** | When this drop hits live @zedsdead #Dubstep | [https://youtube.com/shorts/BXn9wlgnPKU](https://youtube.com/shorts/BXn9wlgnPKU) | 2026-10-22T11:59:26.812985Z |
 | `zd_1300_02` | **Bass Wave** | Feel that heavy bassline @zedsdead #BassMusic | [https://youtube.com/shorts/0FkKQx8lOqM](https://youtube.com/shorts/0FkKQx8lOqM) | 2026-10-22T12:01:22.826704Z |
+| `zd_1300_03` | **Ediiiiiitz** | Peak festival energy right here @zedsdead #EDMFestival | [https://youtube.com/shorts/9naedw7IQoY](https://youtube.com/shorts/9naedw7IQoY) | 2026-10-22T12:25:48.549813Z |
 
 ---
-*Last Sync:* 2026-10-22T12:01:22.826704Z
+*Last Sync:* 2026-10-22T12:25:48.549813Z

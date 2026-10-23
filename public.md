@@ -175,6 +175,7 @@
 | `batch_DeadRocks_RudeBoysVIP_D1_02` | **Tech Prologue** | The sub bass on this VIP was absurd | [https://youtube.com/shorts/lVJQi-HTrkg](https://youtube.com/shorts/lVJQi-HTrkg) | 2026-10-23T19:01:01.923172Z |
 | `batch_Toronto_Encore_MC_01` | **Bass Wave** | Hometown encore finale drop in Toronto | [https://youtube.com/shorts/SzBhZ-TtGBw](https://youtube.com/shorts/SzBhZ-TtGBw) | 2026-10-23T19:03:57.088016Z |
 | `batch_DeadRocks_AdrenalineVIP_D1_01` | **Ediiiiiitz** | Adrenaline VIP at Red Rocks | [https://youtube.com/shorts/w16fwn0bpFg](https://youtube.com/shorts/w16fwn0bpFg) | 2026-10-23T19:07:05.324104Z |
+| `batch_FPV_RAW_1_02` | **zeds archive** | Stage dive view from a racing drone | [https://youtube.com/shorts/DEgXtgpwb8Y](https://youtube.com/shorts/DEgXtgpwb8Y) | 2026-10-23T19:09:58.782798Z |
 
 ---
-*Last Sync:* 2026-10-23T19:07:05.324104Z
+*Last Sync:* 2026-10-23T19:09:58.782798Z

@@ -156,6 +156,7 @@
 | `batch_Toronto_DistinctMotive_MC_02` | **Tech Prologue** | Deep 140 sub bass pressure in Toronto | [https://youtube.com/shorts/9x0RzCkXI4s](https://youtube.com/shorts/9x0RzCkXI4s) | 2026-10-23T00:30:14.828187Z |
 | `batch_FAMCAM_Brody_1_01` | **Bass Wave** | Crowd reaction when the drop hit | [https://youtube.com/shorts/km9od2olRvk](https://youtube.com/shorts/km9od2olRvk) | 2026-10-23T00:33:10.077789Z |
 | `batch_DeadRocks_Bongo_D1_03` | **zeds archive** | Red Rocks went crazy on this drop | [https://youtube.com/shorts/6iQqw2MjBnY](https://youtube.com/shorts/6iQqw2MjBnY) | 2026-10-23T00:38:28.323485Z |
+| `batch_DeadRocks_TheReturn_D2_02` | **Tech Prologue** | Heaviest sub bass frequency of the entire weekend | [https://youtube.com/shorts/LH0I3n6jUe4](https://youtube.com/shorts/LH0I3n6jUe4) | 2026-10-23T07:00:18.289701Z |
 
 ---
-*Last Sync:* 2026-10-23T00:38:28.323485Z
+*Last Sync:* 2026-10-23T07:00:18.289701Z

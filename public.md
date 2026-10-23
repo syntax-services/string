@@ -167,6 +167,7 @@
 | `batch_FAMCAM_Tessa_Clubs_03` | **viral clips** | Front rail view of the bass drop | [https://youtube.com/shorts/YK3F2jkj6Zk](https://youtube.com/shorts/YK3F2jkj6Zk) | 2026-10-23T12:34:36.293745Z |
 | `batch_FPV_RAW_3_01` | **Viral Clips** | Acrobatic drone dive over the festival crowd | [https://youtube.com/shorts/LQuUqmZQWBw](https://youtube.com/shorts/LQuUqmZQWBw) | 2026-10-23T12:37:20.277185Z |
 | `batch_DeadRocks_RudeBoysVIP_D1_01` | **Tech Prologue** | Rude Boys VIP live at Red Rocks | [https://youtube.com/shorts/ZUwiKtZJa7I](https://youtube.com/shorts/ZUwiKtZJa7I) | 2026-10-23T15:00:18.898379Z |
+| `batch_FPV_RAW_15_03` | **Bass Wave** | High speed laser beam proximity pass | [https://youtube.com/shorts/7qjLr8MpWVY](https://youtube.com/shorts/7qjLr8MpWVY) | 2026-10-23T15:03:22.001809Z |
 
 ---
-*Last Sync:* 2026-10-23T15:00:18.898379Z
+*Last Sync:* 2026-10-23T15:03:22.001809Z

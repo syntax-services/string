@@ -176,6 +176,7 @@
 | `batch_Toronto_Encore_MC_01` | **Bass Wave** | Hometown encore finale drop in Toronto | [https://youtube.com/shorts/SzBhZ-TtGBw](https://youtube.com/shorts/SzBhZ-TtGBw) | 2026-10-23T19:03:57.088016Z |
 | `batch_DeadRocks_AdrenalineVIP_D1_01` | **Ediiiiiitz** | Adrenaline VIP at Red Rocks | [https://youtube.com/shorts/w16fwn0bpFg](https://youtube.com/shorts/w16fwn0bpFg) | 2026-10-23T19:07:05.324104Z |
 | `batch_FPV_RAW_1_02` | **zeds archive** | Stage dive view from a racing drone | [https://youtube.com/shorts/DEgXtgpwb8Y](https://youtube.com/shorts/DEgXtgpwb8Y) | 2026-10-23T19:09:58.782798Z |
+| `batch_Toronto_OutOfTime_MC_01` | **Tech Prologue** | Out of Time live remix hits in Toronto | [https://youtube.com/shorts/gzewotFnWjw](https://youtube.com/shorts/gzewotFnWjw) | 2026-10-23T21:00:23.844340Z |
 
 ---
-*Last Sync:* 2026-10-23T19:09:58.782798Z
+*Last Sync:* 2026-10-23T21:00:23.844340Z

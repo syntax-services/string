@@ -154,6 +154,7 @@
 | `pool_fpv_01` | **Ediiiiiitz** | Acrobatic drone dive during the bass drop | [https://youtube.com/shorts/gsYspMUVKgM](https://youtube.com/shorts/gsYspMUVKgM) | 2026-10-22T21:05:24.353594Z |
 | `pool_deadrocks_02` | **zeds archive** | When the climax drop hits at Red Rocks | [https://youtube.com/shorts/wODo7olJ9_k](https://youtube.com/shorts/wODo7olJ9_k) | 2026-10-22T21:08:23.162005Z |
 | `batch_Toronto_DistinctMotive_MC_02` | **Tech Prologue** | Deep 140 sub bass pressure in Toronto | [https://youtube.com/shorts/9x0RzCkXI4s](https://youtube.com/shorts/9x0RzCkXI4s) | 2026-10-23T00:30:14.828187Z |
+| `batch_FAMCAM_Brody_1_01` | **Bass Wave** | Crowd reaction when the drop hit | [https://youtube.com/shorts/km9od2olRvk](https://youtube.com/shorts/km9od2olRvk) | 2026-10-23T00:33:10.077789Z |
 
 ---
-*Last Sync:* 2026-10-23T00:30:14.828187Z
+*Last Sync:* 2026-10-23T00:33:10.077789Z

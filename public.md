@@ -173,6 +173,7 @@
 | `batch_Toronto_OutOfTime_MC_02` | **viral clips** | When the 140 tempo switch catches everyone | [https://youtube.com/shorts/jRhb0QDsEeQ](https://youtube.com/shorts/jRhb0QDsEeQ) | 2026-10-23T15:11:36.183503Z |
 | `batch_FAMCAM_Tessa_Clubs_02` | **Viral Clips** | When the entire front row loses it at once | [https://youtube.com/shorts/tbYLk--1NFk](https://youtube.com/shorts/tbYLk--1NFk) | 2026-10-23T15:15:06.489598Z |
 | `batch_DeadRocks_RudeBoysVIP_D1_02` | **Tech Prologue** | The sub bass on this VIP was absurd | [https://youtube.com/shorts/lVJQi-HTrkg](https://youtube.com/shorts/lVJQi-HTrkg) | 2026-10-23T19:01:01.923172Z |
+| `batch_Toronto_Encore_MC_01` | **Bass Wave** | Hometown encore finale drop in Toronto | [https://youtube.com/shorts/SzBhZ-TtGBw](https://youtube.com/shorts/SzBhZ-TtGBw) | 2026-10-23T19:03:57.088016Z |
 
 ---
-*Last Sync:* 2026-10-23T19:01:01.923172Z
+*Last Sync:* 2026-10-23T19:03:57.088016Z

@@ -181,6 +181,7 @@
 | `batch_FPV_RAW_4_01` | **Ediiiiiitz** | FPV drone inverted roll on the bass drop | [https://youtube.com/shorts/XcElLJKqxpM](https://youtube.com/shorts/XcElLJKqxpM) | 2026-10-23T21:05:31.777010Z |
 | `batch_DeadRocks_Hendrix_D1_01` | **zeds archive** | Jimi Hendrix guitar flipped into dubstep | [https://youtube.com/shorts/q952ri5XVko](https://youtube.com/shorts/q952ri5XVko) | 2026-10-23T21:08:31.728961Z |
 | `batch_FPV_RAW_4_02` | **viral clips** | Flying inches above the stage decks | [https://youtube.com/shorts/P4KF0FBXsz0](https://youtube.com/shorts/P4KF0FBXsz0) | 2026-10-23T21:11:12.287666Z |
+| `batch_DeadRocks_Hendrix_D1_04` | **Viral Clips** | Jimi Hendrix guitar flipped into dubstep | [https://youtube.com/shorts/hT5Ro-fHPMU](https://youtube.com/shorts/hT5Ro-fHPMU) | 2026-10-23T21:14:01.798508Z |
 
 ---
-*Last Sync:* 2026-10-23T21:11:12.287666Z
+*Last Sync:* 2026-10-23T21:14:01.798508Z

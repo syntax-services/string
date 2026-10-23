@@ -177,6 +177,7 @@
 | `batch_DeadRocks_AdrenalineVIP_D1_01` | **Ediiiiiitz** | Adrenaline VIP at Red Rocks | [https://youtube.com/shorts/w16fwn0bpFg](https://youtube.com/shorts/w16fwn0bpFg) | 2026-10-23T19:07:05.324104Z |
 | `batch_FPV_RAW_1_02` | **zeds archive** | Stage dive view from a racing drone | [https://youtube.com/shorts/DEgXtgpwb8Y](https://youtube.com/shorts/DEgXtgpwb8Y) | 2026-10-23T19:09:58.782798Z |
 | `batch_Toronto_OutOfTime_MC_01` | **Tech Prologue** | Out of Time live remix hits in Toronto | [https://youtube.com/shorts/gzewotFnWjw](https://youtube.com/shorts/gzewotFnWjw) | 2026-10-23T21:00:23.844340Z |
+| `batch_Toronto_OutOfTime_MC_03` | **Bass Wave** | Heavy bass remix of Out of Time live | [https://youtube.com/shorts/SsNqZa4uLk8](https://youtube.com/shorts/SsNqZa4uLk8) | 2026-10-23T21:03:03.678603Z |
 
 ---
-*Last Sync:* 2026-10-23T21:00:23.844340Z
+*Last Sync:* 2026-10-23T21:03:03.678603Z

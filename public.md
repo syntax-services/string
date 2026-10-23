@@ -161,6 +161,7 @@
 | `batch_FPV_RAW_6_02` | **Ediiiiiitz** | Vertical drone descent right onto the drop | [https://youtube.com/shorts/g3gz8dCbDbM](https://youtube.com/shorts/g3gz8dCbDbM) | 2026-10-23T07:06:18.151298Z |
 | `batch_Toronto_Encore_MC_04` | **zeds archive** | Hometown encore finale drop in Toronto | [https://youtube.com/shorts/BxnzZHktT4c](https://youtube.com/shorts/BxnzZHktT4c) | 2026-10-23T07:08:38.392861Z |
 | `batch_Toronto_Encore_MC_02` | **Tech Prologue** | The final drop of the night went completely insane | [https://youtube.com/shorts/UFGRnyVhNRI](https://youtube.com/shorts/UFGRnyVhNRI) | 2026-10-23T12:00:20.333290Z |
+| `batch_FPV_RAW_1_01` | **Bass Wave** | FPV drone dive during the bass drop | [https://youtube.com/shorts/STt0bBwh4W4](https://youtube.com/shorts/STt0bBwh4W4) | 2026-10-23T12:03:06.156523Z |
 
 ---
-*Last Sync:* 2026-10-23T12:00:20.333290Z
+*Last Sync:* 2026-10-23T12:03:06.156523Z

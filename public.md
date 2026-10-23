@@ -160,6 +160,7 @@
 | `batch_DeadRocks_Colors_D1_01` | **Bass Wave** | Colors melodic drop under the lasers | [https://youtube.com/shorts/k2e1mPtjGNE](https://youtube.com/shorts/k2e1mPtjGNE) | 2026-10-23T07:03:18.150935Z |
 | `batch_FPV_RAW_6_02` | **Ediiiiiitz** | Vertical drone descent right onto the drop | [https://youtube.com/shorts/g3gz8dCbDbM](https://youtube.com/shorts/g3gz8dCbDbM) | 2026-10-23T07:06:18.151298Z |
 | `batch_Toronto_Encore_MC_04` | **zeds archive** | Hometown encore finale drop in Toronto | [https://youtube.com/shorts/BxnzZHktT4c](https://youtube.com/shorts/BxnzZHktT4c) | 2026-10-23T07:08:38.392861Z |
+| `batch_Toronto_Encore_MC_02` | **Tech Prologue** | The final drop of the night went completely insane | [https://youtube.com/shorts/UFGRnyVhNRI](https://youtube.com/shorts/UFGRnyVhNRI) | 2026-10-23T12:00:20.333290Z |
 
 ---
-*Last Sync:* 2026-10-23T07:08:38.392861Z
+*Last Sync:* 2026-10-23T12:00:20.333290Z

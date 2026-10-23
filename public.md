@@ -158,6 +158,7 @@
 | `batch_DeadRocks_Bongo_D1_03` | **zeds archive** | Red Rocks went crazy on this drop | [https://youtube.com/shorts/6iQqw2MjBnY](https://youtube.com/shorts/6iQqw2MjBnY) | 2026-10-23T00:38:28.323485Z |
 | `batch_DeadRocks_TheReturn_D2_02` | **Tech Prologue** | Heaviest sub bass frequency of the entire weekend | [https://youtube.com/shorts/LH0I3n6jUe4](https://youtube.com/shorts/LH0I3n6jUe4) | 2026-10-23T07:00:18.289701Z |
 | `batch_DeadRocks_Colors_D1_01` | **Bass Wave** | Colors melodic drop under the lasers | [https://youtube.com/shorts/k2e1mPtjGNE](https://youtube.com/shorts/k2e1mPtjGNE) | 2026-10-23T07:03:18.150935Z |
+| `batch_FPV_RAW_6_02` | **Ediiiiiitz** | Vertical drone descent right onto the drop | [https://youtube.com/shorts/g3gz8dCbDbM](https://youtube.com/shorts/g3gz8dCbDbM) | 2026-10-23T07:06:18.151298Z |
 
 ---
-*Last Sync:* 2026-10-23T07:03:18.150935Z
+*Last Sync:* 2026-10-23T07:06:18.151298Z

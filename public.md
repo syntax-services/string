@@ -194,6 +194,7 @@
 | `pool_deadrocks_04` | **Bass Wave** | Second drop tore the venue down | [https://youtube.com/shorts/n0PAEV-4Ebo](https://youtube.com/shorts/n0PAEV-4Ebo) | 2026-10-24T07:02:46.723186Z |
 | `batch_DeadRocks_AliveSayMyName_D2_02` | **veectorclips** | When the vocal switch drops into heavy bass | [https://youtube.com/shorts/k2_gZTgFfYc](https://youtube.com/shorts/k2_gZTgFfYc) | 2026-10-24T09:24:14.410770Z |
 | `batch_Toronto_DistinctMotive_MC_01` | **Tech Prologue** | Unreleased Distinct Motive collab drops live | [https://youtube.com/shorts/aM08K9TibYI](https://youtube.com/shorts/aM08K9TibYI) | 2026-10-24T18:57:02.929971Z |
+| `pool_deadrocks_03` | **Bass Wave** | The bass is about to drop live | [https://youtube.com/shorts/pzc4k9Omr3c](https://youtube.com/shorts/pzc4k9Omr3c) | 2026-10-24T19:07:41.202590Z |
 
 ---
-*Last Sync:* 2026-10-24T18:57:02.929971Z
+*Last Sync:* 2026-10-24T19:07:41.202590Z

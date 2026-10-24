@@ -191,6 +191,7 @@
 | `batch_Toronto_Encore_MC_03` | **Tech Prologue** | Toronto crowd reaction to the encore drop | [https://youtube.com/shorts/R-ajXwkaAuo](https://youtube.com/shorts/R-ajXwkaAuo) | 2026-10-24T04:00:18.557582Z |
 | `batch_DeadRocks_LostIntoSting_D2_04` | **Bass Wave** | Lost into Sting transition hits live | [https://youtube.com/shorts/-gI-NbNrRq8](https://youtube.com/shorts/-gI-NbNrRq8) | 2026-10-24T04:03:01.300855Z |
 | `batch_Toronto_GassedUp_MC_02` | **Tech Prologue** | The heaviest drop of the Toronto set | [https://youtube.com/shorts/EpNwM_VAeyE](https://youtube.com/shorts/EpNwM_VAeyE) | 2026-10-24T07:00:18.665580Z |
+| `pool_deadrocks_04` | **Bass Wave** | Second drop tore the venue down | [https://youtube.com/shorts/n0PAEV-4Ebo](https://youtube.com/shorts/n0PAEV-4Ebo) | 2026-10-24T07:02:46.723186Z |
 
 ---
-*Last Sync:* 2026-10-24T07:00:18.665580Z
+*Last Sync:* 2026-10-24T07:02:46.723186Z

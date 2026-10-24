@@ -187,6 +187,7 @@
 | `batch_FPV_RAW_6_01` | **Ediiiiiitz** | Night drone dive into a sea of green lasers | [https://youtube.com/shorts/QbWgnZhTunM](https://youtube.com/shorts/QbWgnZhTunM) | 2026-10-24T00:36:21.445567Z |
 | `batch_Toronto_DistinctMotive_MC_03` | **zeds archive** | The hometown crowd reaction to this unreleased VIP | [https://youtube.com/shorts/rSuHUHpe_is](https://youtube.com/shorts/rSuHUHpe_is) | 2026-10-24T00:38:55.708319Z |
 | `batch_FPV_RAW_3_02` | **viral clips** | 60ft vertical drone dive onto the stage | [https://youtube.com/shorts/FGDSv98ySAQ](https://youtube.com/shorts/FGDSv98ySAQ) | 2026-10-24T00:41:34.476099Z |
+| `batch_Toronto_GassedUp_MC_01` | **Viral Clips** | Gassed Up live drop in Toronto | [https://youtube.com/shorts/YS_vRJoMv5w](https://youtube.com/shorts/YS_vRJoMv5w) | 2026-10-24T00:44:10.341550Z |
 
 ---
-*Last Sync:* 2026-10-24T00:41:34.476099Z
+*Last Sync:* 2026-10-24T00:44:10.341550Z

@@ -189,6 +189,7 @@
 | `batch_FPV_RAW_3_02` | **viral clips** | 60ft vertical drone dive onto the stage | [https://youtube.com/shorts/FGDSv98ySAQ](https://youtube.com/shorts/FGDSv98ySAQ) | 2026-10-24T00:41:34.476099Z |
 | `batch_Toronto_GassedUp_MC_01` | **Viral Clips** | Gassed Up live drop in Toronto | [https://youtube.com/shorts/YS_vRJoMv5w](https://youtube.com/shorts/YS_vRJoMv5w) | 2026-10-24T00:44:10.341550Z |
 | `batch_Toronto_Encore_MC_03` | **Tech Prologue** | Toronto crowd reaction to the encore drop | [https://youtube.com/shorts/R-ajXwkaAuo](https://youtube.com/shorts/R-ajXwkaAuo) | 2026-10-24T04:00:18.557582Z |
+| `batch_DeadRocks_LostIntoSting_D2_04` | **Bass Wave** | Lost into Sting transition hits live | [https://youtube.com/shorts/-gI-NbNrRq8](https://youtube.com/shorts/-gI-NbNrRq8) | 2026-10-24T04:03:01.300855Z |
 
 ---
-*Last Sync:* 2026-10-24T04:00:18.557582Z
+*Last Sync:* 2026-10-24T04:03:01.300855Z

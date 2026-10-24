@@ -188,6 +188,7 @@
 | `batch_Toronto_DistinctMotive_MC_03` | **zeds archive** | The hometown crowd reaction to this unreleased VIP | [https://youtube.com/shorts/rSuHUHpe_is](https://youtube.com/shorts/rSuHUHpe_is) | 2026-10-24T00:38:55.708319Z |
 | `batch_FPV_RAW_3_02` | **viral clips** | 60ft vertical drone dive onto the stage | [https://youtube.com/shorts/FGDSv98ySAQ](https://youtube.com/shorts/FGDSv98ySAQ) | 2026-10-24T00:41:34.476099Z |
 | `batch_Toronto_GassedUp_MC_01` | **Viral Clips** | Gassed Up live drop in Toronto | [https://youtube.com/shorts/YS_vRJoMv5w](https://youtube.com/shorts/YS_vRJoMv5w) | 2026-10-24T00:44:10.341550Z |
+| `batch_Toronto_Encore_MC_03` | **Tech Prologue** | Toronto crowd reaction to the encore drop | [https://youtube.com/shorts/R-ajXwkaAuo](https://youtube.com/shorts/R-ajXwkaAuo) | 2026-10-24T04:00:18.557582Z |
 
 ---
-*Last Sync:* 2026-10-24T00:44:10.341550Z
+*Last Sync:* 2026-10-24T04:00:18.557582Z

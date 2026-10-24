@@ -184,6 +184,7 @@
 | `batch_DeadRocks_Hendrix_D1_04` | **Viral Clips** | Jimi Hendrix guitar flipped into dubstep | [https://youtube.com/shorts/hT5Ro-fHPMU](https://youtube.com/shorts/hT5Ro-fHPMU) | 2026-10-23T21:14:01.798508Z |
 | `batch_DeadRocks_AdrenalineVIP_D1_02` | **Tech Prologue** | When the VIP switch hits live | [https://youtube.com/shorts/-rZ_8ykno2k](https://youtube.com/shorts/-rZ_8ykno2k) | 2026-10-24T00:30:18.392775Z |
 | `batch_DeadRocks_FallingDown_D2_02` | **Bass Wave** | The whole amphitheatre singing every word | [https://youtube.com/shorts/0fLr-YshbDI](https://youtube.com/shorts/0fLr-YshbDI) | 2026-10-24T00:33:20.544523Z |
+| `batch_FPV_RAW_6_01` | **Ediiiiiitz** | Night drone dive into a sea of green lasers | [https://youtube.com/shorts/QbWgnZhTunM](https://youtube.com/shorts/QbWgnZhTunM) | 2026-10-24T00:36:21.445567Z |
 
 ---
-*Last Sync:* 2026-10-24T00:33:20.544523Z
+*Last Sync:* 2026-10-24T00:36:21.445567Z

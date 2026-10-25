@@ -198,3 +198,5 @@
 
 ---
 *Last Sync:* 2026-10-24T19:07:41.202590Z| `batch_DeadRocks_PhuketSunrise_D1_01` | **veectorclips** | Phuket Sunrise melodic drop at golden hour 🔥 @zedsdead #shorts | [https://youtube.com/shorts/-4r6x0PnAgY](https://youtube.com/shorts/-4r6x0PnAgY) | 2026-10-25T14:26:12.413671Z |
+| `batch_DeadRocks_PhuketSunrise_D1_02` | **Tech Prologue** | When the chords resolve over Red Rocks 🔥 @zedsdead #shorts | [https://youtube.com/shorts/cYVT8lb25VE](https://youtube.com/shorts/cYVT8lb25VE) | 2026-10-25T15:00:18.348840Z |
+| `batch_DeadRocks_PhuketSunrise_D1_03` | **Bass Wave** | Golden hour melodic bass moment live 🔥 @zedsdead #shorts | [https://youtube.com/shorts/WcsGxwHexMc](https://youtube.com/shorts/WcsGxwHexMc) | 2026-10-25T15:04:05.855190Z |

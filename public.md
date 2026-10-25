@@ -197,4 +197,4 @@
 | `pool_deadrocks_03` | **Bass Wave** | The bass is about to drop live | [https://youtube.com/shorts/pzc4k9Omr3c](https://youtube.com/shorts/pzc4k9Omr3c) | 2026-10-24T19:07:41.202590Z |
 
 ---
-*Last Sync:* 2026-10-24T19:07:41.202590Z
+*Last Sync:* 2026-10-24T19:07:41.202590Z| `batch_DeadRocks_PhuketSunrise_D1_01` | **veectorclips** | Phuket Sunrise melodic drop at golden hour 🔥 @zedsdead #shorts | [https://youtube.com/shorts/-4r6x0PnAgY](https://youtube.com/shorts/-4r6x0PnAgY) | 2026-10-25T14:26:12.413671Z |

@@ -204,3 +204,5 @@
 | `batch_DeadRocks_PourinRain_D1_03` | **Bass Wave** | Unreal crowd energy in the rain at Red Rocks 🔥 @zedsdead #shorts | [https://youtube.com/shorts/NY3vlvvU7io](https://youtube.com/shorts/NY3vlvvU7io) | 2026-10-25T20:13:11.850644Z |
 | `batch_DeadRocks_PourinRain_D1_01` | **Tech Prologue** | Pourin Rain live bass drop Red Rocks 🔥 @zedsdead #shorts | [https://youtube.com/shorts/ONGRpFaY0WQ](https://youtube.com/shorts/ONGRpFaY0WQ) | 2026-10-25T21:04:16.715772Z |
 | `batch_DeadRocks_PourinRain_D1_04` | **Bass Wave** | Relentless bassline closing the set live 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Yauts7Ew-A4](https://youtube.com/shorts/Yauts7Ew-A4) | 2026-10-25T21:15:16.196407Z |
+| `clip_oct27_02_phuketsunrise_7s` | **Tech Prologue** | Phuket Sunrise live over 10,000 fans @zedsdead #shorts | [https://youtube.com/shorts/DoDyAOiCO84](https://youtube.com/shorts/DoDyAOiCO84) | 2026-10-27T00:30:34.655361Z |
+| `clip_oct27_01_pourinrain_7s` | **Bass Wave** | Four laser canopy over Red Rocks @zedsdead #shorts | [https://youtube.com/shorts/V3cjel_JQxE](https://youtube.com/shorts/V3cjel_JQxE) | 2026-10-27T00:34:08.641306Z |

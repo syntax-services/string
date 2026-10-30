@@ -217,3 +217,5 @@
 | `zeds_75_p03` | **Viral Clips** | That pre-drop tension echoing off the rocks @zedsdead #shorts | [https://youtube.com/shorts/MyBWTV6_6JQ](https://youtube.com/shorts/MyBWTV6_6JQ) | 2026-10-30T17:13:45.843523Z |
 | `zeds_75_p08` | **viral clips** | Unreal synth lead echoing over the rock monoliths @zedsdead #shorts | [https://youtube.com/shorts/5BJ_r6gxmpk](https://youtube.com/shorts/5BJ_r6gxmpk) | 2026-10-30T17:17:09.771496Z |
 | `clip_deadrocks_01_phuketsunrise_chords_8s` | **Viral Clips** | Dead Rocks sunset melody echoes across Morrison @zedsdead #shorts | [https://youtube.com/shorts/YFzTqLu0xNY](https://youtube.com/shorts/YFzTqLu0xNY) | 2026-10-30T20:03:36.976631Z |
+| `zeds_75_p14` | **Tech Prologue** | Stage lasers cutting through the Morrison night @zedsdead #shorts | [https://youtube.com/shorts/9mwtfMjzhJo](https://youtube.com/shorts/9mwtfMjzhJo) | 2026-10-30T20:30:59.693671Z |
+| `zeds_75_r26` | **Bass Wave** | Strobes flashing in perfect sync with the bassline @zedsdead #shorts | [https://youtube.com/shorts/uuRWsHnimIE](https://youtube.com/shorts/uuRWsHnimIE) | 2026-10-30T20:35:08.090607Z |

@@ -208,3 +208,5 @@
 | `clip_oct27_01_pourinrain_7s` | **Bass Wave** | Four laser canopy over Red Rocks @zedsdead #shorts | [https://youtube.com/shorts/V3cjel_JQxE](https://youtube.com/shorts/V3cjel_JQxE) | 2026-10-27T00:34:08.641306Z |
 | `zeds_75_r04` | **Tech Prologue** | Heavy wobble bass vibrating raindrops mid-air (V4) @zedsdead #shorts | [https://youtube.com/shorts/Nbin3x6I320](https://youtube.com/shorts/Nbin3x6I320) | 2026-10-30T02:31:00.766768Z |
 | `zeds_75_r29` | **Bass Wave** | The heaviest drop of Dead Rocks in the rain (V29) @zedsdead #shorts | [https://youtube.com/shorts/HQoTazROJKI](https://youtube.com/shorts/HQoTazROJKI) | 2026-10-30T02:35:30.489913Z |
+| `zeds_75_r28` | **Tech Prologue** | Closing downpour bass sequence across Red Rocks @zedsdead #shorts | [https://youtube.com/shorts/beoqVQ_SRt8](https://youtube.com/shorts/beoqVQ_SRt8) | 2026-10-30T13:31:09.156104Z |
+| `zeds_75_p15` | **Bass Wave** | The crowd roar at the end of this track gave chills @zedsdead #shorts | [https://youtube.com/shorts/ZEDbTwDzXFs](https://youtube.com/shorts/ZEDbTwDzXFs) | 2026-10-30T13:34:43.487813Z |

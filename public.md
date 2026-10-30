@@ -210,3 +210,9 @@
 | `zeds_75_r29` | **Bass Wave** | The heaviest drop of Dead Rocks in the rain (V29) @zedsdead #shorts | [https://youtube.com/shorts/HQoTazROJKI](https://youtube.com/shorts/HQoTazROJKI) | 2026-10-30T02:35:30.489913Z |
 | `zeds_75_r28` | **Tech Prologue** | Closing downpour bass sequence across Red Rocks @zedsdead #shorts | [https://youtube.com/shorts/beoqVQ_SRt8](https://youtube.com/shorts/beoqVQ_SRt8) | 2026-10-30T13:31:09.156104Z |
 | `zeds_75_p15` | **Bass Wave** | The crowd roar at the end of this track gave chills @zedsdead #shorts | [https://youtube.com/shorts/ZEDbTwDzXFs](https://youtube.com/shorts/ZEDbTwDzXFs) | 2026-10-30T13:34:43.487813Z |
+| `zeds_75_p34` | **Tech Prologue** | Earthquake sub-bass shaking the natural amphitheatre @zedsdead #shorts | [https://youtube.com/shorts/TyWQtXvdqSg](https://youtube.com/shorts/TyWQtXvdqSg) | 2026-10-30T17:00:41.555555Z |
+| `zeds_75_r18` | **Bass Wave** | Unfiltered low-end pressure at 6,400 feet @zedsdead #shorts | [https://youtube.com/shorts/lHcvStfON04](https://youtube.com/shorts/lHcvStfON04) | 2026-10-30T17:03:51.272602Z |
+| `zeds_75_r27` | **Ediiiiiitz** | Earthquake low-end frequencies rocking Morrison @zedsdead #shorts | [https://youtube.com/shorts/_1K9vrBXPh0](https://youtube.com/shorts/_1K9vrBXPh0) | 2026-10-30T17:06:45.098404Z |
+| `zeds_75_p22` | **zeds archive** | When the chord progression resolves and lighting flashes @zedsdead #shorts | [https://youtube.com/shorts/dVSZQitjGpc](https://youtube.com/shorts/dVSZQitjGpc) | 2026-10-30T17:10:58.117236Z |
+| `zeds_75_p03` | **Viral Clips** | That pre-drop tension echoing off the rocks @zedsdead #shorts | [https://youtube.com/shorts/MyBWTV6_6JQ](https://youtube.com/shorts/MyBWTV6_6JQ) | 2026-10-30T17:13:45.843523Z |
+| `zeds_75_p08` | **viral clips** | Unreal synth lead echoing over the rock monoliths @zedsdead #shorts | [https://youtube.com/shorts/5BJ_r6gxmpk](https://youtube.com/shorts/5BJ_r6gxmpk) | 2026-10-30T17:17:09.771496Z |

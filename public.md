@@ -225,3 +225,5 @@
 | `zeds_75_p11` | **zeds archive** | Natural amphitheatre acoustics taking bass to another level @zedsdead #shorts | [https://youtube.com/shorts/eks-MUpd02g](https://youtube.com/shorts/eks-MUpd02g) | 2026-10-30T23:43:12.196047Z |
 | `zeds_75_r08` | **Viral Clips** | Bassline closing the set with unfiltered weight @zedsdead #shorts | [https://youtube.com/shorts/LtUFt16PDcI](https://youtube.com/shorts/LtUFt16PDcI) | 2026-10-30T23:46:31.846950Z |
 | `zeds_75_r03` | **viral clips (warmed)** | Four laser beams slicing through downpour at Red Rocks @zedsdead #shorts | [https://youtube.com/shorts/D8rpYy2rW7s](https://youtube.com/shorts/D8rpYy2rW7s) | 2026-10-30T23:49:22.038395Z |
+| `zeds_75_p45` | **Tech Prologue** | The final echo of an iconic Dead Rocks anthem @zedsdead #shorts | [https://youtube.com/shorts/FVciNVV3hNs](https://youtube.com/shorts/FVciNVV3hNs) | 2026-10-31T02:31:00.972235Z |
+| `zeds_75_r16` | **Bass Wave** | Strobe sequence peaking over soaked crowd @zedsdead #shorts | [https://youtube.com/shorts/lq5T63QObrI](https://youtube.com/shorts/lq5T63QObrI) | 2026-10-31T02:35:08.330295Z |

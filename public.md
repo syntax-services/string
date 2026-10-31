@@ -229,3 +229,9 @@
 | `zeds_75_r16` | **Bass Wave** | Strobe sequence peaking over soaked crowd @zedsdead #shorts | [https://youtube.com/shorts/lq5T63QObrI](https://youtube.com/shorts/lq5T63QObrI) | 2026-10-31T02:35:08.330295Z |
 | `zeds_75_p20` | **Tech Prologue** | When the main kick drum detonates over Morrison @zedsdead #shorts | [https://youtube.com/shorts/PvIM5zfebXo](https://youtube.com/shorts/PvIM5zfebXo) | 2026-10-31T13:30:48.668947Z |
 | `zeds_75_p26` | **Bass Wave** | Bass bouncing between Ship Rock and Creation Rock @zedsdead #shorts | [https://youtube.com/shorts/64oyNK2VyEQ](https://youtube.com/shorts/64oyNK2VyEQ) | 2026-10-31T13:34:07.846244Z |
+| `zeds_75_p10` | **Tech Prologue** | The boys delivering heavy low-end pressure live @zedsdead #shorts | [https://youtube.com/shorts/JUXSAVzqssY](https://youtube.com/shorts/JUXSAVzqssY) | 2026-10-31T17:00:51.218241Z |
+| `zeds_75_p44` | **Bass Wave** | Stage fog illuminated by blinding white lasers @zedsdead #shorts | [https://youtube.com/shorts/J4gldUsej-A](https://youtube.com/shorts/J4gldUsej-A) | 2026-10-31T17:03:42.422832Z |
+| `zeds_75_p42` | **Ediiiiiitz** | Rhythmic buildup accelerating into the drop release @zedsdead #shorts | [https://youtube.com/shorts/66PD4T34QLg](https://youtube.com/shorts/66PD4T34QLg) | 2026-10-31T17:08:06.029707Z |
+| `zeds_75_r30` | **zeds archive** | Closing moment of pure euphoria at Dead Rocks @zedsdead #shorts | [https://youtube.com/shorts/MevB_jH3_SU](https://youtube.com/shorts/MevB_jH3_SU) | 2026-10-31T17:11:05.495491Z |
+| `zeds_75_p01` | **Viral Clips** | Red Rocks golden hour melody echoes across Morrison @zedsdead #shorts | [https://youtube.com/shorts/utIPh25jzvQ](https://youtube.com/shorts/utIPh25jzvQ) | 2026-10-31T17:15:40.559611Z |
+| `zeds_75_r17` | **viral clips (warmed)** | Heavyweight sub impact shaking Morrison in the storm @zedsdead #shorts | [https://youtube.com/shorts/WQDeVUHbVhU](https://youtube.com/shorts/WQDeVUHbVhU) | 2026-10-31T17:19:17.938123Z |

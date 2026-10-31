@@ -235,3 +235,5 @@
 | `zeds_75_r30` | **zeds archive** | Closing moment of pure euphoria at Dead Rocks @zedsdead #shorts | [https://youtube.com/shorts/MevB_jH3_SU](https://youtube.com/shorts/MevB_jH3_SU) | 2026-10-31T17:11:05.495491Z |
 | `zeds_75_p01` | **Viral Clips** | Red Rocks golden hour melody echoes across Morrison @zedsdead #shorts | [https://youtube.com/shorts/utIPh25jzvQ](https://youtube.com/shorts/utIPh25jzvQ) | 2026-10-31T17:15:40.559611Z |
 | `zeds_75_r17` | **viral clips (warmed)** | Heavyweight sub impact shaking Morrison in the storm @zedsdead #shorts | [https://youtube.com/shorts/WQDeVUHbVhU](https://youtube.com/shorts/WQDeVUHbVhU) | 2026-10-31T17:19:17.938123Z |
+| `zeds_75_p06` | **Tech Prologue** | The way this melodic bassline rolled through row 70 @zedsdead #shorts | [https://youtube.com/shorts/K_8c6WMubE0](https://youtube.com/shorts/K_8c6WMubE0) | 2026-10-31T20:30:49.646726Z |
+| `zeds_75_r10` | **Bass Wave** | Closing drop leaving everyone in absolute awe @zedsdead #shorts | [https://youtube.com/shorts/W2Tn3gTmt-A](https://youtube.com/shorts/W2Tn3gTmt-A) | 2026-10-31T20:34:04.551372Z |

@@ -243,3 +243,5 @@
 | `zeds_75_r11` | **zeds archive** | When thunder and bass combine over Red Rocks @zedsdead #shorts | [https://youtube.com/shorts/vtLAOQFjiw4](https://youtube.com/shorts/vtLAOQFjiw4) | 2026-10-31T23:42:59.459947Z |
 | `zeds_75_r13` | **Viral Clips** | Piercing laser beams illuminating the rain sheets @zedsdead #shorts | [https://youtube.com/shorts/bBs7oQuy1K0](https://youtube.com/shorts/bBs7oQuy1K0) | 2026-10-31T23:46:29.419109Z |
 | `zeds_75_p36` | **viral clips (warmed)** | Synthetic harmonies meeting ancient sandstone rocks @zedsdead #shorts | [https://youtube.com/shorts/vb1y8oF6F8g](https://youtube.com/shorts/vb1y8oF6F8g) | 2026-10-31T23:49:32.758777Z |
+| `zeds_75_p40` | **Tech Prologue** | Live mixing mastery on display at Red Rocks Night 1 @zedsdead #shorts | [https://youtube.com/shorts/FcYaxO8M8T4](https://youtube.com/shorts/FcYaxO8M8T4) | 2026-11-01T02:30:51.487022Z |
+| `zeds_75_p43` | **Bass Wave** | Monumental drop shaking the Colorado foothills @zedsdead #shorts | [https://youtube.com/shorts/Otv0IliOqrI](https://youtube.com/shorts/Otv0IliOqrI) | 2026-11-01T02:34:27.473858Z |

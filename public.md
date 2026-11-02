@@ -245,3 +245,5 @@
 | `zeds_75_p36` | **viral clips (warmed)** | Synthetic harmonies meeting ancient sandstone rocks @zedsdead #shorts | [https://youtube.com/shorts/vb1y8oF6F8g](https://youtube.com/shorts/vb1y8oF6F8g) | 2026-10-31T23:49:32.758777Z |
 | `zeds_75_p40` | **Tech Prologue** | Live mixing mastery on display at Red Rocks Night 1 @zedsdead #shorts | [https://youtube.com/shorts/FcYaxO8M8T4](https://youtube.com/shorts/FcYaxO8M8T4) | 2026-11-01T02:30:51.487022Z |
 | `zeds_75_p43` | **Bass Wave** | Monumental drop shaking the Colorado foothills @zedsdead #shorts | [https://youtube.com/shorts/Otv0IliOqrI](https://youtube.com/shorts/Otv0IliOqrI) | 2026-11-01T02:34:27.473858Z |
+| `zeds_75_p05` | **Tech Prologue** | When the first drop detonates across Morrison canyon @zedsdead #shorts | [https://youtube.com/shorts/Ovc6dTd1Cuc](https://youtube.com/shorts/Ovc6dTd1Cuc) | 2026-11-02T14:12:35.499154Z |
+| `zeds_75_r12` | **Bass Wave** | Chilling vocal cut cutting through the downpour @zedsdead #shorts | [https://youtube.com/shorts/7td18gcUYZc](https://youtube.com/shorts/7td18gcUYZc) | 2026-11-02T14:17:05.068382Z |

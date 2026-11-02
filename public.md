@@ -256,3 +256,5 @@
 | `zeds_75_r22` | **Pulsewave** | Pre-drop anticipation building in the cold rain @zedsdead #shorts | [https://youtube.com/shorts/tNfiUbZiMfU](https://youtube.com/shorts/tNfiUbZiMfU) | 2026-11-02T17:22:48.086848Z |
 | `zeds_75_p30` | **Money Sense** | The chill-inducing outro of an unforgettable set @zedsdead #shorts | [https://youtube.com/shorts/-HU-WD3OcMk](https://youtube.com/shorts/-HU-WD3OcMk) | 2026-11-02T17:26:52.132390Z |
 | `clip_deadrocks_04_pourinrain_mist_7_5s` | **Raw Takes** | Rain mist rising before the bassline detonates @zedsdead #shorts | [https://youtube.com/shorts/ddd8V1pv90g](https://youtube.com/shorts/ddd8V1pv90g) | 2026-11-02T17:29:50.559468Z |
+| `zeds_75_p31` | **Tech Prologue** | Sunset synth progression echoing through Morrison canyon @zedsdead #shorts | [https://youtube.com/shorts/knex5FdqAMc](https://youtube.com/shorts/knex5FdqAMc) | 2026-11-02T20:31:05.868828Z |
+| `zeds_75_r20` | **Bass Wave** | Final sustained drop echoing off the wet sandstone @zedsdead #shorts | [https://youtube.com/shorts/N8sZHSIE4ho](https://youtube.com/shorts/N8sZHSIE4ho) | 2026-11-02T20:34:11.921395Z |

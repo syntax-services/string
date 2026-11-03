@@ -268,3 +268,7 @@
 | `zeds_75_p17` | **Bass Wave** | Entire amphitheatre locked in unison on the melody @zedsdead #shorts | [https://youtube.com/shorts/TPWC0igT2wc](https://youtube.com/shorts/TPWC0igT2wc) | 2026-11-03T02:33:07.601574Z |
 | `yt_banger_01` | **Tech Prologue** | Heavy sub frequencies shaking the amphitheatre @zedsdead #shorts | [https://youtube.com/shorts/grQgBPZxH2o](https://youtube.com/shorts/grQgBPZxH2o) | 2026-11-03T13:30:28.168447Z |
 | `yt_banger_02` | **Bass Wave** | When 10,000 hands go up simultaneously at Red Rocks @zedsdead #shorts | [https://youtube.com/shorts/zDY29-lFvY4](https://youtube.com/shorts/zDY29-lFvY4) | 2026-11-03T13:33:51.959430Z |
+| `yt_banger_03` | **Tech Prologue** | Subwoofer frequencies vibrating the entire amphitheatre @zedsdead #shorts | [https://youtube.com/shorts/kJL2y19yFlk](https://youtube.com/shorts/kJL2y19yFlk) | 2026-11-03T17:00:36.920808Z |
+| `fpv_banger_07` | **Bass Wave** | Drone flyby directly over the decks during the climax @zedsdead #shorts | [https://youtube.com/shorts/r_HQ4nC213Q](https://youtube.com/shorts/r_HQ4nC213Q) | 2026-11-03T17:05:10.655457Z |
+| `yt_banger_18` | **Ediiiiiitz** | Mountain mist cutting through the laser arrays @zedsdead #shorts | [https://youtube.com/shorts/PVNSYY-JCY0](https://youtube.com/shorts/PVNSYY-JCY0) | 2026-11-03T17:07:53.788087Z |
+| `yt_banger_07` | **Viral Clips** | Sandstone monoliths vibrating with heavy sub bass @zedsdead #shorts | [https://youtube.com/shorts/trKpdNSoWvk](https://youtube.com/shorts/trKpdNSoWvk) | 2026-11-03T17:10:16.558232Z |

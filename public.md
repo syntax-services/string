@@ -264,3 +264,5 @@
 | `zeds_75_p07` | **Viral Clips** | Dead Rocks sunset harmony lifting the crowd @zedsdead #shorts | [https://youtube.com/shorts/DPE8McwjYO0](https://youtube.com/shorts/DPE8McwjYO0) | 2026-11-02T23:58:23.043010Z |
 | `zeds_75_p37` | **viral clips (warmed)** | Golden hour peaking over 10,000 people in Morrison @zedsdead #shorts | [https://youtube.com/shorts/aVUSNNZLwoA](https://youtube.com/shorts/aVUSNNZLwoA) | 2026-11-03T00:02:38.124289Z |
 | `zeds_75_r02` | **veectorclips** | Mountain mist cutting through the laser arrays @zedsdead #shorts | [https://youtube.com/shorts/GjmI2bcw9mM](https://youtube.com/shorts/GjmI2bcw9mM) | 2026-11-03T00:05:16.756490Z |
+| `zeds_75_p27` | **Tech Prologue** | Fast snare roll acceleration before the switch @zedsdead #shorts | [https://youtube.com/shorts/1RvwlUIKpWI](https://youtube.com/shorts/1RvwlUIKpWI) | 2026-11-03T02:30:30.968412Z |
+| `zeds_75_p17` | **Bass Wave** | Entire amphitheatre locked in unison on the melody @zedsdead #shorts | [https://youtube.com/shorts/TPWC0igT2wc](https://youtube.com/shorts/TPWC0igT2wc) | 2026-11-03T02:33:07.601574Z |

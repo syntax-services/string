@@ -266,3 +266,5 @@
 | `zeds_75_r02` | **veectorclips** | Mountain mist cutting through the laser arrays @zedsdead #shorts | [https://youtube.com/shorts/GjmI2bcw9mM](https://youtube.com/shorts/GjmI2bcw9mM) | 2026-11-03T00:05:16.756490Z |
 | `zeds_75_p27` | **Tech Prologue** | Fast snare roll acceleration before the switch @zedsdead #shorts | [https://youtube.com/shorts/1RvwlUIKpWI](https://youtube.com/shorts/1RvwlUIKpWI) | 2026-11-03T02:30:30.968412Z |
 | `zeds_75_p17` | **Bass Wave** | Entire amphitheatre locked in unison on the melody @zedsdead #shorts | [https://youtube.com/shorts/TPWC0igT2wc](https://youtube.com/shorts/TPWC0igT2wc) | 2026-11-03T02:33:07.601574Z |
+| `yt_banger_01` | **Tech Prologue** | Heavy sub frequencies shaking the amphitheatre @zedsdead #shorts | [https://youtube.com/shorts/grQgBPZxH2o](https://youtube.com/shorts/grQgBPZxH2o) | 2026-11-03T13:30:28.168447Z |
+| `yt_banger_02` | **Bass Wave** | When 10,000 hands go up simultaneously at Red Rocks @zedsdead #shorts | [https://youtube.com/shorts/zDY29-lFvY4](https://youtube.com/shorts/zDY29-lFvY4) | 2026-11-03T13:33:51.959430Z |

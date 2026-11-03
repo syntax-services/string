@@ -274,3 +274,5 @@
 | `yt_banger_07` | **Viral Clips** | Sandstone monoliths vibrating with heavy sub bass @zedsdead #shorts | [https://youtube.com/shorts/trKpdNSoWvk](https://youtube.com/shorts/trKpdNSoWvk) | 2026-11-03T17:10:16.558232Z |
 | `yt_banger_14` | **Tech Prologue** | Golden hour peaking over 10,000 people in Morrison @zedsdead #shorts | [https://youtube.com/shorts/5jKVawbNsQE](https://youtube.com/shorts/5jKVawbNsQE) | 2026-11-03T20:30:34.781295Z |
 | `yt_banger_16` | **Bass Wave** | Stage rigging visibly shaking from subwoofer pressure @zedsdead #shorts | [https://youtube.com/shorts/M_g950mXozk](https://youtube.com/shorts/M_g950mXozk) | 2026-11-03T20:33:01.751412Z |
+| `yt_banger_04` | **Ediiiiiitz** | Dead Rocks sunset harmony lifting the crowd @zedsdead #shorts | [https://youtube.com/shorts/g7z_AVyFfMY](https://youtube.com/shorts/g7z_AVyFfMY) | 2026-11-03T23:30:35.621492Z |
+| `yt_banger_24` | **Viral Clips** | Peak bass pressure detonating over the rain @zedsdead #shorts | [https://youtube.com/shorts/T6gsIV_EsxY](https://youtube.com/shorts/T6gsIV_EsxY) | 2026-11-03T23:34:53.476129Z |

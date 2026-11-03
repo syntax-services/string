@@ -272,3 +272,5 @@
 | `fpv_banger_07` | **Bass Wave** | Drone flyby directly over the decks during the climax @zedsdead #shorts | [https://youtube.com/shorts/r_HQ4nC213Q](https://youtube.com/shorts/r_HQ4nC213Q) | 2026-11-03T17:05:10.655457Z |
 | `yt_banger_18` | **Ediiiiiitz** | Mountain mist cutting through the laser arrays @zedsdead #shorts | [https://youtube.com/shorts/PVNSYY-JCY0](https://youtube.com/shorts/PVNSYY-JCY0) | 2026-11-03T17:07:53.788087Z |
 | `yt_banger_07` | **Viral Clips** | Sandstone monoliths vibrating with heavy sub bass @zedsdead #shorts | [https://youtube.com/shorts/trKpdNSoWvk](https://youtube.com/shorts/trKpdNSoWvk) | 2026-11-03T17:10:16.558232Z |
+| `yt_banger_14` | **Tech Prologue** | Golden hour peaking over 10,000 people in Morrison @zedsdead #shorts | [https://youtube.com/shorts/5jKVawbNsQE](https://youtube.com/shorts/5jKVawbNsQE) | 2026-11-03T20:30:34.781295Z |
+| `yt_banger_16` | **Bass Wave** | Stage rigging visibly shaking from subwoofer pressure @zedsdead #shorts | [https://youtube.com/shorts/M_g950mXozk](https://youtube.com/shorts/M_g950mXozk) | 2026-11-03T20:33:01.751412Z |

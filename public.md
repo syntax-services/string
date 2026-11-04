@@ -284,3 +284,7 @@
 | `elite_fpv_11` | **Tech Prologue** | What The H*ll Am I Watching? 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/bTOqsruxtb0](https://youtube.com/shorts/bTOqsruxtb0) | 2026-11-04T15:34:54.158232Z |
 | `elite_fpv_16` | **Viral Clips** | Most Insane Production Ever Seen ⚡ @zedsdead #shorts | [https://youtube.com/shorts/m6Yj-9pcynA](https://youtube.com/shorts/m6Yj-9pcynA) | 2026-11-04T15:39:11.791219Z |
 | `elite_fpv_08` | **Ediiiiiitz** | Most Insane Production Ever Seen ⚡ @zedsdead #shorts | [https://youtube.com/shorts/otMC_KEED2Q](https://youtube.com/shorts/otMC_KEED2Q) | 2026-11-04T15:43:19.322262Z |
+| `elite_multicam_08` | **Bass Wave** | What The H*ll Am I Watching? 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Wf42rXCqc0k](https://youtube.com/shorts/Wf42rXCqc0k) | 2026-11-04T19:00:48.037443Z |
+| `elite_fpv_06` | **Tech Prologue** | How It Feels In The Front Row 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IxoqzBePQdg](https://youtube.com/shorts/IxoqzBePQdg) | 2026-11-04T19:04:30.564997Z |
+| `elite_multicam_10` | **Viral Clips** | This Moment Deserved A Million Views 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/rpunAxbr5yc](https://youtube.com/shorts/rpunAxbr5yc) | 2026-11-04T19:07:22.329335Z |
+| `elite_multicam_01` | **Ediiiiiitz** | This Drop Was Absolutely Unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Tnr3vdByPXQ](https://youtube.com/shorts/Tnr3vdByPXQ) | 2026-11-04T19:11:54.176458Z |

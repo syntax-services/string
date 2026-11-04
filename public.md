@@ -288,3 +288,7 @@
 | `elite_fpv_06` | **Tech Prologue** | How It Feels In The Front Row 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IxoqzBePQdg](https://youtube.com/shorts/IxoqzBePQdg) | 2026-11-04T19:04:30.564997Z |
 | `elite_multicam_10` | **Viral Clips** | This Moment Deserved A Million Views 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/rpunAxbr5yc](https://youtube.com/shorts/rpunAxbr5yc) | 2026-11-04T19:07:22.329335Z |
 | `elite_multicam_01` | **Ediiiiiitz** | This Drop Was Absolutely Unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Tnr3vdByPXQ](https://youtube.com/shorts/Tnr3vdByPXQ) | 2026-11-04T19:11:54.176458Z |
+| `elite_multicam_07` | **Bass Wave** | Wait For The Drop... ⏳ 🔥 @zedsdead #shorts | [https://youtube.com/shorts/uvSYCwr3LBk](https://youtube.com/shorts/uvSYCwr3LBk) | 2026-11-04T23:30:58.626541Z |
+| `elite_fpv_07` | **Tech Prologue** | This Drop Was Absolutely Unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/DU-qZNz3Fzc](https://youtube.com/shorts/DU-qZNz3Fzc) | 2026-11-04T23:34:39.940162Z |
+| `elite_multicam_09` | **Viral Clips** | Most Insane Production Ever Seen ⚡ @zedsdead #shorts | [https://youtube.com/shorts/lHbSI5drb_4](https://youtube.com/shorts/lHbSI5drb_4) | 2026-11-04T23:38:52.758634Z |
+| `elite_fpv_14` | **Ediiiiiitz** | POV: You Chose The Right Festival ✨ @zedsdead #shorts | [https://youtube.com/shorts/wcMi90F6148](https://youtube.com/shorts/wcMi90F6148) | 2026-11-04T23:41:56.232235Z |

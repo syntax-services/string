@@ -276,3 +276,7 @@
 | `yt_banger_16` | **Bass Wave** | Stage rigging visibly shaking from subwoofer pressure @zedsdead #shorts | [https://youtube.com/shorts/M_g950mXozk](https://youtube.com/shorts/M_g950mXozk) | 2026-11-03T20:33:01.751412Z |
 | `yt_banger_04` | **Ediiiiiitz** | Dead Rocks sunset harmony lifting the crowd @zedsdead #shorts | [https://youtube.com/shorts/g7z_AVyFfMY](https://youtube.com/shorts/g7z_AVyFfMY) | 2026-11-03T23:30:35.621492Z |
 | `yt_banger_24` | **Viral Clips** | Peak bass pressure detonating over the rain @zedsdead #shorts | [https://youtube.com/shorts/T6gsIV_EsxY](https://youtube.com/shorts/T6gsIV_EsxY) | 2026-11-03T23:34:53.476129Z |
+| `elite_multicam_04` | **Bass Wave** | Feel The Energy Through The Screen 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/6N-BUIN-CTI](https://youtube.com/shorts/6N-BUIN-CTI) | 2026-11-04T12:01:06.307660Z |
+| `elite_fpv_03` | **Tech Prologue** | This Moment Deserved A Million Views 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/VomNUGs3otE](https://youtube.com/shorts/VomNUGs3otE) | 2026-11-04T12:04:00.185600Z |
+| `elite_fpv_02` | **Viral Clips** | POV: You Chose The Right Festival ✨ @zedsdead #shorts | [https://youtube.com/shorts/mkAPVhT8jTc](https://youtube.com/shorts/mkAPVhT8jTc) | 2026-11-04T12:07:34.751021Z |
+| `elite_fpv_05` | **Ediiiiiitz** | You Can Feel The Energy Through The Screen 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/fA6c3cJnPXs](https://youtube.com/shorts/fA6c3cJnPXs) | 2026-11-04T12:10:52.923607Z |

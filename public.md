@@ -302,3 +302,7 @@
 | `elite_fpv_13` | **Ediiiiiitz** | The Crowd Lost Their Minds 🔊 @zedsdead #shorts | [https://youtube.com/shorts/uoUIuatsn2k](https://youtube.com/shorts/uoUIuatsn2k) | 2026-11-05T15:42:20.691156Z |
 | `elite_multicam_05` | **Bass Wave** | POV: You Chose The Right Festival ✨ @zedsdead #shorts | [https://youtube.com/shorts/buDrcZ1jvDU](https://youtube.com/shorts/buDrcZ1jvDU) | 2026-11-05T19:01:02.346325Z |
 | `elite_multicam_03` | **Tech Prologue** | The Crowd Lost Their Minds 🔊 @zedsdead #shorts | [https://youtube.com/shorts/8TOFKEIYZfc](https://youtube.com/shorts/8TOFKEIYZfc) | 2026-11-05T19:05:39.476079Z |
+| `color_banger_10` | **Bass Wave** | This Drop Was Absolutely Unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/bNl5gJ3EOpo](https://youtube.com/shorts/bNl5gJ3EOpo) | 2026-11-05T23:30:58.386149Z |
+| `color_banger_14` | **Tech Prologue** | Wait For The Drop... ⏳ 🔥 @zedsdead #shorts | [https://youtube.com/shorts/KamBWFPmhvM](https://youtube.com/shorts/KamBWFPmhvM) | 2026-11-05T23:33:32.174531Z |
+| `color_banger_03` | **Viral Clips** | Wait For The Drop... ⏳ 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Sz8tMm74j64](https://youtube.com/shorts/Sz8tMm74j64) | 2026-11-05T23:37:30.865421Z |
+| `color_banger_18` | **Ediiiiiitz** | How It Feels In The Front Row 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/7BYIuBulUkQ](https://youtube.com/shorts/7BYIuBulUkQ) | 2026-11-05T23:40:48.535439Z |

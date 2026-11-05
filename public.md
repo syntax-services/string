@@ -292,3 +292,7 @@
 | `elite_fpv_07` | **Tech Prologue** | This Drop Was Absolutely Unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/DU-qZNz3Fzc](https://youtube.com/shorts/DU-qZNz3Fzc) | 2026-11-04T23:34:39.940162Z |
 | `elite_multicam_09` | **Viral Clips** | Most Insane Production Ever Seen ⚡ @zedsdead #shorts | [https://youtube.com/shorts/lHbSI5drb_4](https://youtube.com/shorts/lHbSI5drb_4) | 2026-11-04T23:38:52.758634Z |
 | `elite_fpv_14` | **Ediiiiiitz** | POV: You Chose The Right Festival ✨ @zedsdead #shorts | [https://youtube.com/shorts/wcMi90F6148](https://youtube.com/shorts/wcMi90F6148) | 2026-11-04T23:41:56.232235Z |
+| `elite_fpv_04` | **Bass Wave** | The Drone Pilot Risks It All 🚁 @zedsdead #shorts | [https://youtube.com/shorts/bmiqdVIo6i4](https://youtube.com/shorts/bmiqdVIo6i4) | 2026-11-05T12:00:59.506316Z |
+| `elite_fpv_10` | **Tech Prologue** | Bass So Heavy It Should Be Illegal 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/VnA66xKEjJ8](https://youtube.com/shorts/VnA66xKEjJ8) | 2026-11-05T12:04:30.051504Z |
+| `elite_multicam_02` | **Viral Clips** | Bass So Heavy It Should Be Illegal 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/OP5JVs5XgOY](https://youtube.com/shorts/OP5JVs5XgOY) | 2026-11-05T12:08:49.169425Z |
+| `elite_fpv_09` | **Ediiiiiitz** | Wait For The Drop... ⏳ 🔥 @zedsdead #shorts | [https://youtube.com/shorts/uRcKnNASRvE](https://youtube.com/shorts/uRcKnNASRvE) | 2026-11-05T12:12:54.521470Z |

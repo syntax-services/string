@@ -300,3 +300,5 @@
 | `elite_fpv_12` | **Tech Prologue** | This Drop Was Absolutely Unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/GVvIQVXiyE0](https://youtube.com/shorts/GVvIQVXiyE0) | 2026-11-05T15:35:01.896128Z |
 | `elite_multicam_06` | **Viral Clips** | How It Feels In The Front Row 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/SQzHO7uKK3A](https://youtube.com/shorts/SQzHO7uKK3A) | 2026-11-05T15:37:54.158757Z |
 | `elite_fpv_13` | **Ediiiiiitz** | The Crowd Lost Their Minds 🔊 @zedsdead #shorts | [https://youtube.com/shorts/uoUIuatsn2k](https://youtube.com/shorts/uoUIuatsn2k) | 2026-11-05T15:42:20.691156Z |
+| `elite_multicam_05` | **Bass Wave** | POV: You Chose The Right Festival ✨ @zedsdead #shorts | [https://youtube.com/shorts/buDrcZ1jvDU](https://youtube.com/shorts/buDrcZ1jvDU) | 2026-11-05T19:01:02.346325Z |
+| `elite_multicam_03` | **Tech Prologue** | The Crowd Lost Their Minds 🔊 @zedsdead #shorts | [https://youtube.com/shorts/8TOFKEIYZfc](https://youtube.com/shorts/8TOFKEIYZfc) | 2026-11-05T19:05:39.476079Z |

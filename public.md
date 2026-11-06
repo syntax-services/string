@@ -318,3 +318,7 @@
 | `toronto_dual_08` | **Tech Prologue** | This Moment Deserved A Million Views 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/SF5BkPK0ZFA](https://youtube.com/shorts/SF5BkPK0ZFA) | 2026-11-06T19:04:52.354525Z |
 | `toronto_dual_18` | **Viral Clips** | How It Feels In The Front Row 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/p61jFY3O8do](https://youtube.com/shorts/p61jFY3O8do) | 2026-11-06T19:07:53.432056Z |
 | `toronto_dual_20` | **Ediiiiiitz** | What The H*ll Am I Watching? 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/FejDHGL1Mos](https://youtube.com/shorts/FejDHGL1Mos) | 2026-11-06T19:10:33.280164Z |
+| `toronto_dual_05` | **Bass Wave** | This Drop Was Absolutely Unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IShS4d9yCFs](https://youtube.com/shorts/IShS4d9yCFs) | 2026-11-06T21:00:47.624022Z |
+| `toronto_dual_15` | **Tech Prologue** | Most Insane Production Ever Seen ⚡ @zedsdead #shorts | [https://youtube.com/shorts/YcJZbA3LoK8](https://youtube.com/shorts/YcJZbA3LoK8) | 2026-11-06T21:03:37.337094Z |
+| `toronto_dual_16` | **Viral Clips** | Bass So Heavy It Should Be Illegal 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/lRI7Afayloo](https://youtube.com/shorts/lRI7Afayloo) | 2026-11-06T21:06:36.981978Z |
+| `toronto_dual_14` | **Ediiiiiitz** | This Drop Was Absolutely Unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/JGzi6P-v1Qk](https://youtube.com/shorts/JGzi6P-v1Qk) | 2026-11-06T21:10:35.458263Z |

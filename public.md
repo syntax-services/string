@@ -322,3 +322,7 @@
 | `toronto_dual_15` | **Tech Prologue** | Most Insane Production Ever Seen ⚡ @zedsdead #shorts | [https://youtube.com/shorts/YcJZbA3LoK8](https://youtube.com/shorts/YcJZbA3LoK8) | 2026-11-06T21:03:37.337094Z |
 | `toronto_dual_16` | **Viral Clips** | Bass So Heavy It Should Be Illegal 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/lRI7Afayloo](https://youtube.com/shorts/lRI7Afayloo) | 2026-11-06T21:06:36.981978Z |
 | `toronto_dual_14` | **Ediiiiiitz** | This Drop Was Absolutely Unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/JGzi6P-v1Qk](https://youtube.com/shorts/JGzi6P-v1Qk) | 2026-11-06T21:10:35.458263Z |
+| `toronto_dual_13` | **Bass Wave** | The Drone Pilot Risks It All 🚁 @zedsdead #shorts | [https://youtube.com/shorts/z4hQbLmgPOU](https://youtube.com/shorts/z4hQbLmgPOU) | 2026-11-06T23:30:59.461808Z |
+| `toronto_dual_01` | **Tech Prologue** | The Crowd Lost Their Minds 🔊 @zedsdead #shorts | [https://youtube.com/shorts/p1pOsrQkdqI](https://youtube.com/shorts/p1pOsrQkdqI) | 2026-11-06T23:34:26.181392Z |
+| `toronto_dual_21` | **Viral Clips** | Feel The Energy Through The Screen 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/E2irNRw86uM](https://youtube.com/shorts/E2irNRw86uM) | 2026-11-06T23:37:04.940825Z |
+| `toronto_dual_12` | **Ediiiiiitz** | POV: You Chose The Right Festival ✨ @zedsdead #shorts | [https://youtube.com/shorts/7NiietP-GdU](https://youtube.com/shorts/7NiietP-GdU) | 2026-11-06T23:40:03.482624Z |

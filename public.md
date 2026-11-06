@@ -306,3 +306,7 @@
 | `color_banger_14` | **Tech Prologue** | Wait For The Drop... ⏳ 🔥 @zedsdead #shorts | [https://youtube.com/shorts/KamBWFPmhvM](https://youtube.com/shorts/KamBWFPmhvM) | 2026-11-05T23:33:32.174531Z |
 | `color_banger_03` | **Viral Clips** | Wait For The Drop... ⏳ 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Sz8tMm74j64](https://youtube.com/shorts/Sz8tMm74j64) | 2026-11-05T23:37:30.865421Z |
 | `color_banger_18` | **Ediiiiiitz** | How It Feels In The Front Row 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/7BYIuBulUkQ](https://youtube.com/shorts/7BYIuBulUkQ) | 2026-11-05T23:40:48.535439Z |
+| `toronto_dual_02` | **Bass Wave** | Most Insane Production Ever Seen ⚡ @zedsdead #shorts | [https://youtube.com/shorts/GbXBPRS-Agw](https://youtube.com/shorts/GbXBPRS-Agw) | 2026-11-06T12:01:00.894094Z |
+| `toronto_dual_19` | **Tech Prologue** | This Moment Deserved A Million Views 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/i25r65GEYbI](https://youtube.com/shorts/i25r65GEYbI) | 2026-11-06T12:04:50.573037Z |
+| `toronto_dual_07` | **Viral Clips** | POV: You Chose The Right Festival ✨ @zedsdead #shorts | [https://youtube.com/shorts/LuD0KjoEDo0](https://youtube.com/shorts/LuD0KjoEDo0) | 2026-11-06T12:08:09.621435Z |
+| `toronto_dual_17` | **Ediiiiiitz** | Wait For The Drop... ⏳ 🔥 @zedsdead #shorts | [https://youtube.com/shorts/FUhcWJQpHZM](https://youtube.com/shorts/FUhcWJQpHZM) | 2026-11-06T12:11:22.415062Z |

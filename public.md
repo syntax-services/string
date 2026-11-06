@@ -310,3 +310,7 @@
 | `toronto_dual_19` | **Tech Prologue** | This Moment Deserved A Million Views 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/i25r65GEYbI](https://youtube.com/shorts/i25r65GEYbI) | 2026-11-06T12:04:50.573037Z |
 | `toronto_dual_07` | **Viral Clips** | POV: You Chose The Right Festival ✨ @zedsdead #shorts | [https://youtube.com/shorts/LuD0KjoEDo0](https://youtube.com/shorts/LuD0KjoEDo0) | 2026-11-06T12:08:09.621435Z |
 | `toronto_dual_17` | **Ediiiiiitz** | Wait For The Drop... ⏳ 🔥 @zedsdead #shorts | [https://youtube.com/shorts/FUhcWJQpHZM](https://youtube.com/shorts/FUhcWJQpHZM) | 2026-11-06T12:11:22.415062Z |
+| `toronto_dual_23` | **Bass Wave** | The Crowd Lost Their Minds 🔊 @zedsdead #shorts | [https://youtube.com/shorts/374FvfayxHw](https://youtube.com/shorts/374FvfayxHw) | 2026-11-06T15:30:52.702693Z |
+| `toronto_dual_09` | **Tech Prologue** | Feel The Energy Through The Screen 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/TGi4K3VRvQc](https://youtube.com/shorts/TGi4K3VRvQc) | 2026-11-06T15:36:15.969990Z |
+| `toronto_dual_04` | **Viral Clips** | How It Feels In The Front Row 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/nJ3oAxPw5n4](https://youtube.com/shorts/nJ3oAxPw5n4) | 2026-11-06T15:40:18.264875Z |
+| `toronto_dual_22` | **Ediiiiiitz** | The Drone Pilot Risks It All 🚁 @zedsdead #shorts | [https://youtube.com/shorts/DBn-T40_n0s](https://youtube.com/shorts/DBn-T40_n0s) | 2026-11-06T15:44:09.591479Z |

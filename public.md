@@ -326,3 +326,6 @@
 | `toronto_dual_01` | **Tech Prologue** | The Crowd Lost Their Minds 🔊 @zedsdead #shorts | [https://youtube.com/shorts/p1pOsrQkdqI](https://youtube.com/shorts/p1pOsrQkdqI) | 2026-11-06T23:34:26.181392Z |
 | `toronto_dual_21` | **Viral Clips** | Feel The Energy Through The Screen 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/E2irNRw86uM](https://youtube.com/shorts/E2irNRw86uM) | 2026-11-06T23:37:04.940825Z |
 | `toronto_dual_12` | **Ediiiiiitz** | POV: You Chose The Right Festival ✨ @zedsdead #shorts | [https://youtube.com/shorts/7NiietP-GdU](https://youtube.com/shorts/7NiietP-GdU) | 2026-11-06T23:40:03.482624Z |
+| `toronto_context_17` | **Viral Clips** | Aerial View Of 20,000 Headbangers 🔊 @zedsdead #shorts | [https://youtube.com/shorts/SXmho0iSM9Y](https://youtube.com/shorts/SXmho0iSM9Y) | 2026-11-07T12:00:52.552116Z |
+| `toronto_context_26` | **Ediiiiiitz** | Amphitheatre Seats Shaking From Bass 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/WFO6xhH72Bw](https://youtube.com/shorts/WFO6xhH72Bw) | 2026-11-07T12:04:34.433043Z |
+| `toronto_context_02` | **Bass Wave** | Toronto Amphitheatre Homecoming Drop ⚡ @zedsdead #shorts | [https://youtube.com/shorts/7GuIovx3NJQ](https://youtube.com/shorts/7GuIovx3NJQ) | 2026-11-07T12:08:41.208652Z |

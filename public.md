@@ -329,3 +329,7 @@
 | `toronto_context_17` | **Viral Clips** | Aerial View Of 20,000 Headbangers 🔊 @zedsdead #shorts | [https://youtube.com/shorts/SXmho0iSM9Y](https://youtube.com/shorts/SXmho0iSM9Y) | 2026-11-07T12:00:52.552116Z |
 | `toronto_context_26` | **Ediiiiiitz** | Amphitheatre Seats Shaking From Bass 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/WFO6xhH72Bw](https://youtube.com/shorts/WFO6xhH72Bw) | 2026-11-07T12:04:34.433043Z |
 | `toronto_context_02` | **Bass Wave** | Toronto Amphitheatre Homecoming Drop ⚡ @zedsdead #shorts | [https://youtube.com/shorts/7GuIovx3NJQ](https://youtube.com/shorts/7GuIovx3NJQ) | 2026-11-07T12:08:41.208652Z |
+| `toronto_context_01` | **Viral Clips** | When The CN Tower Lights Up In Toronto 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/RBtdzkvvpYQ](https://youtube.com/shorts/RBtdzkvvpYQ) | 2026-11-07T15:30:57.115471Z |
+| `toronto_dual_11` | **Ediiiiiitz** | The Crowd Lost Their Minds 🔊 @zedsdead #shorts | [https://youtube.com/shorts/Q8vOYovcXOM](https://youtube.com/shorts/Q8vOYovcXOM) | 2026-11-07T15:34:28.422510Z |
+| `toronto_context_15` | **Bass Wave** | Flying Through The Main Stage Smoke 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/1xwrb3S3neg](https://youtube.com/shorts/1xwrb3S3neg) | 2026-11-07T15:38:39.697143Z |
+| `toronto_context_13` | **Tech Prologue** | FPV Drone Diving Inches Above The Booth 🚁 @zedsdead #shorts | [https://youtube.com/shorts/yV6dZWbNNFk](https://youtube.com/shorts/yV6dZWbNNFk) | 2026-11-07T15:42:51.705973Z |

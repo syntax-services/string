@@ -8,3 +8,4 @@ Campaign: make.fun | Platform: YouTube Shorts (20s)
 | `mf_01_one_big_win` | **Bass Wave** | Skip the AI Demo — Watch Real AI Agent Bounties 🤖 #Shorts | [https://youtube.com/shorts/OovntNVGR6Y](https://youtube.com/shorts/OovntNVGR6Y) | 2026-11-09T14:40:55.244244Z |
 | `mf_02_ghostwriter` | **Ediiiiiitz** | Every Great Software Repo Has a Ghostwriter 🤖 #Shorts | [https://youtube.com/shorts/8jsOVTwMQsA](https://youtube.com/shorts/8jsOVTwMQsA) | 2026-11-09T14:41:49.288118Z |
 | `mf_03_two_checks` | **zeds archive** | Check These 2 Things Before Entering an AI Bounty 🤖 #Shorts | [https://youtube.com/shorts/_LNHpizVEdY](https://youtube.com/shorts/_LNHpizVEdY) | 2026-11-09T14:42:35.881118Z |
+| `mf_04_what_to_build_a` | **viral clips** | The Hardest Part of Vibe Coding Solved 🤖 #Shorts | [https://youtube.com/shorts/_cCexf-SrJk](https://youtube.com/shorts/_cCexf-SrJk) | 2026-11-09T16:30:39.628763Z |

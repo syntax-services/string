@@ -350,3 +350,4 @@
 | `yt_banger_26` | **zeds archive** | Laser matrix cutting through the wet Colorado sky ⚡ @zedsdead #shorts | [https://youtube.com/shorts/2owsBkX2RhM](https://youtube.com/shorts/2owsBkX2RhM) | 2026-11-10T19:21:46.115173Z |
 | `yt_banger_25` | **viral clips (warmed)** | Every single raindrop frozen in strobe light beams 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/VnO-DkW-e18](https://youtube.com/shorts/VnO-DkW-e18) | 2026-11-10T19:24:18.007055Z |
 | `yt_banger_19` | **Tech Prologue** | Nothing stops a Red Rocks crowd from raging in the rain 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/IoUeo7l7KSE](https://youtube.com/shorts/IoUeo7l7KSE) | 2026-11-10T23:30:44.719742Z |
+| `yt_banger_09` | **Bass Wave** | The physical chest impact of this bassline in Morrison 🔥 @zedsdead #shorts | [https://youtube.com/shorts/lOjDnlS_JTw](https://youtube.com/shorts/lOjDnlS_JTw) | 2026-11-10T23:34:03.484862Z |

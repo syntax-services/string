@@ -338,3 +338,4 @@
 | `fpv_banger_04` | **Viral Clips** | Full speed drone dive into the loudest drop of Dead Rocks 🚁 @zedsdead #shorts | [https://youtube.com/shorts/_sqXeSDll7E](https://youtube.com/shorts/_sqXeSDll7E) | 2026-11-10T15:36:25.401423Z |
 | `fpv_banger_05` | **Ediiiiiitz** | Laser matrix cutting through the drone shot at peak volume 🚁 @zedsdead #shorts | [https://youtube.com/shorts/9MCgTsJhbyw](https://youtube.com/shorts/9MCgTsJhbyw) | 2026-11-10T15:41:03.021802Z |
 | `fpv_banger_02` | **veectorclips** | Drone dive suspended right before the bass detonates 🚁 @zedsdead #shorts | [https://youtube.com/shorts/khj--U8BD6o](https://youtube.com/shorts/khj--U8BD6o) | 2026-11-10T15:44:57.924021Z |
+| `fpv_banger_06` | **Pulsewave** | Is Red Rocks the #1 bass venue on earth? 🚁 @zedsdead #shorts | [https://youtube.com/shorts/9Z-gOVeN7H4](https://youtube.com/shorts/9Z-gOVeN7H4) | 2026-11-10T15:47:42.065352Z |

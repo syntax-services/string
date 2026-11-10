@@ -348,3 +348,4 @@
 | `yt_banger_20` | **veectorclips** | When the strobes illuminate every single raindrop 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/El8VBhVO5_w](https://youtube.com/shorts/El8VBhVO5_w) | 2026-11-10T19:16:10.911974Z |
 | `yt_banger_23` | **Pulsewave** | Colorado bassheads built different in the downpour 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/51tfqP1s8cE](https://youtube.com/shorts/51tfqP1s8cE) | 2026-11-10T19:18:57.789780Z |
 | `yt_banger_26` | **zeds archive** | Laser matrix cutting through the wet Colorado sky ⚡ @zedsdead #shorts | [https://youtube.com/shorts/2owsBkX2RhM](https://youtube.com/shorts/2owsBkX2RhM) | 2026-11-10T19:21:46.115173Z |
+| `yt_banger_25` | **viral clips (warmed)** | Every single raindrop frozen in strobe light beams 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/VnO-DkW-e18](https://youtube.com/shorts/VnO-DkW-e18) | 2026-11-10T19:24:18.007055Z |

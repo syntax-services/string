@@ -10,7 +10,7 @@ This log tracks all live YouTube Shorts published for the Empire of the Sun camp
 - **Submitter**: wetball44 (Submit is enabled)
 - **Rate**: $3.00 / 1,000 views on YouTube Shorts (Min $4.50 / 1,500 views; Max $400/clip)
 - **Rules**: Official Aaron Hibell live remix footage, min 10s length, drop/reaction inside first 2s, on-screen text hook, #empireofthesun + track credit in caption.
-- **Last Synced**: 2026-11-10 11:25:44 UTC
+- **Last Synced**: 2026-11-10 11:26:15 UTC
 
 ---
 
@@ -22,6 +22,7 @@ This log tracks all live YouTube Shorts published for the Empire of the Sun camp
 | 2 | **Bass Wave** (`@basswaive`) | [https://youtube.com/shorts/HMYixj0Orx4](https://youtube.com/shorts/HMYixj0Orx4) | 11.2s | `1.20s` | *"he knew exactly what that drop was going to do"* | `2026-11-10T11:24:18.021104Z` | **Ready for Muse CR Submission** |
 | 3 | **Viral Clips** (`@viralclips-w5n`) | [https://youtube.com/shorts/NM4WwhFmhsc](https://youtube.com/shorts/NM4WwhFmhsc) | 11.5s | `0.50s` | *"no notes, just the whole floor going up"* | `2026-11-10T11:24:46.992559Z` | **Ready for Muse CR Submission** |
 | 4 | **Ediiiiiitz** (`@ediiiiiitz`) | [https://youtube.com/shorts/Ve78YuqserY](https://youtube.com/shorts/Ve78YuqserY) | 11.2s | `0.80s` | *"ten years later and it is tearing up dancefloors"* | `2026-11-10T11:25:44.088663Z` | **Ready for Muse CR Submission** |
+| 5 | **veectorclips** (`@veectorclips`) | [https://youtube.com/shorts/mzAYA_sK0iY](https://youtube.com/shorts/mzAYA_sK0iY) | 11.5s | `1.80s` | *"you have heard this. you could not find it."* | `2026-11-10T11:26:15.547160Z` | **Ready for Muse CR Submission** |
 
 ---
 
@@ -49,4 +50,10 @@ This log tracks all live YouTube Shorts published for the Empire of the Sun camp
 - **Live URL**: [https://youtube.com/shorts/Ve78YuqserY](https://youtube.com/shorts/Ve78YuqserY)
 - **Title**: `Empire of the Sun – Way to Go (Aaron Hibell Remix) 🎶 #Shorts`
 - **Hook**: *"ten years later and it is tearing up dancefloors"*
+- **Views (>2k Approval Flag)**: Monitoring via YouTube API
+
+#### `eots_05_crossvenue_drop_cut` (veectorclips):
+- **Live URL**: [https://youtube.com/shorts/mzAYA_sK0iY](https://youtube.com/shorts/mzAYA_sK0iY)
+- **Title**: `Finally found this unreleased remix 🔥 #Shorts`
+- **Hook**: *"you have heard this. you could not find it."*
 - **Views (>2k Approval Flag)**: Monitoring via YouTube API

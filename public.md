@@ -349,3 +349,4 @@
 | `yt_banger_23` | **Pulsewave** | Colorado bassheads built different in the downpour 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/51tfqP1s8cE](https://youtube.com/shorts/51tfqP1s8cE) | 2026-11-10T19:18:57.789780Z |
 | `yt_banger_26` | **zeds archive** | Laser matrix cutting through the wet Colorado sky ⚡ @zedsdead #shorts | [https://youtube.com/shorts/2owsBkX2RhM](https://youtube.com/shorts/2owsBkX2RhM) | 2026-11-10T19:21:46.115173Z |
 | `yt_banger_25` | **viral clips (warmed)** | Every single raindrop frozen in strobe light beams 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/VnO-DkW-e18](https://youtube.com/shorts/VnO-DkW-e18) | 2026-11-10T19:24:18.007055Z |
+| `yt_banger_19` | **Tech Prologue** | Nothing stops a Red Rocks crowd from raging in the rain 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/IoUeo7l7KSE](https://youtube.com/shorts/IoUeo7l7KSE) | 2026-11-10T23:30:44.719742Z |

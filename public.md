@@ -344,3 +344,4 @@
 | `yt_banger_17` | **Tech Prologue** | When the heavy bass detonates in pouring rain 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/lnqPzfNDbiA](https://youtube.com/shorts/lnqPzfNDbiA) | 2026-11-10T19:00:42.892681Z |
 | `yt_banger_21` | **Bass Wave** | The second drop hit with even more violence in rain 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/pXyK-JOLOww](https://youtube.com/shorts/pXyK-JOLOww) | 2026-11-10T19:04:39.006420Z |
 | `yt_banger_27` | **Viral Clips** | Unstoppable crowd energy under torrential downpour 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/MHD2n_Q1pi8](https://youtube.com/shorts/MHD2n_Q1pi8) | 2026-11-10T19:08:09.474777Z |
+| `yt_banger_11` | **Ediiiiiitz** | Second drop explosion tearing across the canyon ⚡ @zedsdead #shorts | [https://youtube.com/shorts/uDnrdg9ckes](https://youtube.com/shorts/uDnrdg9ckes) | 2026-11-10T19:12:07.232660Z |

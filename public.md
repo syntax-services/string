@@ -340,3 +340,4 @@
 | `fpv_banger_02` | **veectorclips** | Drone dive suspended right before the bass detonates 🚁 @zedsdead #shorts | [https://youtube.com/shorts/khj--U8BD6o](https://youtube.com/shorts/khj--U8BD6o) | 2026-11-10T15:44:57.924021Z |
 | `fpv_banger_06` | **Pulsewave** | Is Red Rocks the #1 bass venue on earth? 🚁 @zedsdead #shorts | [https://youtube.com/shorts/9Z-gOVeN7H4](https://youtube.com/shorts/9Z-gOVeN7H4) | 2026-11-10T15:47:42.065352Z |
 | `fpv_banger_08` | **zeds archive** | When the drone catches the hardest drop of the night 🚁 @zedsdead #shorts | [https://youtube.com/shorts/OiGolhpn4cQ](https://youtube.com/shorts/OiGolhpn4cQ) | 2026-11-10T15:50:27.595500Z |
+| `yt_banger_22` | **viral clips (warmed)** | The heaviest drop of Dead Rocks in the downpour 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/_iWbMJeT6Ug](https://youtube.com/shorts/_iWbMJeT6Ug) | 2026-11-10T15:54:20.424149Z |

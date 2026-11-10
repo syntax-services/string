@@ -346,3 +346,4 @@
 | `yt_banger_27` | **Viral Clips** | Unstoppable crowd energy under torrential downpour 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/MHD2n_Q1pi8](https://youtube.com/shorts/MHD2n_Q1pi8) | 2026-11-10T19:08:09.474777Z |
 | `yt_banger_11` | **Ediiiiiitz** | Second drop explosion tearing across the canyon ⚡ @zedsdead #shorts | [https://youtube.com/shorts/uDnrdg9ckes](https://youtube.com/shorts/uDnrdg9ckes) | 2026-11-10T19:12:07.232660Z |
 | `yt_banger_20` | **veectorclips** | When the strobes illuminate every single raindrop 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/El8VBhVO5_w](https://youtube.com/shorts/El8VBhVO5_w) | 2026-11-10T19:16:10.911974Z |
+| `yt_banger_23` | **Pulsewave** | Colorado bassheads built different in the downpour 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/51tfqP1s8cE](https://youtube.com/shorts/51tfqP1s8cE) | 2026-11-10T19:18:57.789780Z |

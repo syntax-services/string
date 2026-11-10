@@ -356,3 +356,4 @@
 | `yt_banger_06` | **veectorclips** | Entire amphitheatre locked in unison on the melody 🔥 @zedsdead #shorts | [https://youtube.com/shorts/OtuChPCmfDk](https://youtube.com/shorts/OtuChPCmfDk) | 2026-11-10T23:44:43.711711Z |
 | `yt_banger_10` | **Pulsewave** | Fast snare roll acceleration before the switch 🔥 @zedsdead #shorts | [https://youtube.com/shorts/blbGKDnCg0s](https://youtube.com/shorts/blbGKDnCg0s) | 2026-11-10T23:49:07.400672Z |
 | `yt_banger_12` | **zeds archive** | Row upon row of fans nodding in unison to the groove 🔥 @zedsdead #shorts | [https://youtube.com/shorts/RVUbehlPFsM](https://youtube.com/shorts/RVUbehlPFsM) | 2026-11-10T23:52:29.119096Z |
+| `yt_banger_05` | **viral clips (warmed)** | Twilight synth harmony spreading across the canyon 🔥 @zedsdead #shorts | [https://youtube.com/shorts/W7RRx03QzdY](https://youtube.com/shorts/W7RRx03QzdY) | 2026-11-10T23:55:32.676055Z |

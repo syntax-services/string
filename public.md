@@ -352,3 +352,4 @@
 | `yt_banger_19` | **Tech Prologue** | Nothing stops a Red Rocks crowd from raging in the rain 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/IoUeo7l7KSE](https://youtube.com/shorts/IoUeo7l7KSE) | 2026-11-10T23:30:44.719742Z |
 | `yt_banger_09` | **Bass Wave** | The physical chest impact of this bassline in Morrison 🔥 @zedsdead #shorts | [https://youtube.com/shorts/lOjDnlS_JTw](https://youtube.com/shorts/lOjDnlS_JTw) | 2026-11-10T23:34:03.484862Z |
 | `yt_banger_13` | **Viral Clips** | Immediate energy surge as the drop engages live 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Hnv2rmDgBFI](https://youtube.com/shorts/Hnv2rmDgBFI) | 2026-11-10T23:38:13.157195Z |
+| `yt_banger_15` | **Ediiiiiitz** | High definition basslines cutting through crisp air 🔥 @zedsdead #shorts | [https://youtube.com/shorts/L4GGEVDTzPw](https://youtube.com/shorts/L4GGEVDTzPw) | 2026-11-10T23:41:15.330412Z |

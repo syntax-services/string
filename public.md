@@ -354,3 +354,4 @@
 | `yt_banger_13` | **Viral Clips** | Immediate energy surge as the drop engages live 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Hnv2rmDgBFI](https://youtube.com/shorts/Hnv2rmDgBFI) | 2026-11-10T23:38:13.157195Z |
 | `yt_banger_15` | **Ediiiiiitz** | High definition basslines cutting through crisp air 🔥 @zedsdead #shorts | [https://youtube.com/shorts/L4GGEVDTzPw](https://youtube.com/shorts/L4GGEVDTzPw) | 2026-11-10T23:41:15.330412Z |
 | `yt_banger_06` | **veectorclips** | Entire amphitheatre locked in unison on the melody 🔥 @zedsdead #shorts | [https://youtube.com/shorts/OtuChPCmfDk](https://youtube.com/shorts/OtuChPCmfDk) | 2026-11-10T23:44:43.711711Z |
+| `yt_banger_10` | **Pulsewave** | Fast snare roll acceleration before the switch 🔥 @zedsdead #shorts | [https://youtube.com/shorts/blbGKDnCg0s](https://youtube.com/shorts/blbGKDnCg0s) | 2026-11-10T23:49:07.400672Z |

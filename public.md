@@ -333,3 +333,4 @@
 | `toronto_dual_11` | **Ediiiiiitz** | The Crowd Lost Their Minds 🔊 @zedsdead #shorts | [https://youtube.com/shorts/Q8vOYovcXOM](https://youtube.com/shorts/Q8vOYovcXOM) | 2026-11-07T15:34:28.422510Z |
 | `toronto_context_15` | **Bass Wave** | Flying Through The Main Stage Smoke 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/1xwrb3S3neg](https://youtube.com/shorts/1xwrb3S3neg) | 2026-11-07T15:38:39.697143Z |
 | `toronto_context_13` | **Tech Prologue** | FPV Drone Diving Inches Above The Booth 🚁 @zedsdead #shorts | [https://youtube.com/shorts/yV6dZWbNNFk](https://youtube.com/shorts/yV6dZWbNNFk) | 2026-11-07T15:42:51.705973Z |
+| `fpv_banger_01` | **Tech Prologue** | FPV drone diving through 10,000 people on the drop 🚁 @zedsdead #shorts | [https://youtube.com/shorts/nRsF0gI8tWY](https://youtube.com/shorts/nRsF0gI8tWY) | 2026-11-10T15:30:43.989235Z |

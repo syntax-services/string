@@ -335,3 +335,4 @@
 | `toronto_context_13` | **Tech Prologue** | FPV Drone Diving Inches Above The Booth 🚁 @zedsdead #shorts | [https://youtube.com/shorts/yV6dZWbNNFk](https://youtube.com/shorts/yV6dZWbNNFk) | 2026-11-07T15:42:51.705973Z |
 | `fpv_banger_01` | **Tech Prologue** | FPV drone diving through 10,000 people on the drop 🚁 @zedsdead #shorts | [https://youtube.com/shorts/nRsF0gI8tWY](https://youtube.com/shorts/nRsF0gI8tWY) | 2026-11-10T15:30:43.989235Z |
 | `fpv_banger_03` | **Bass Wave** | POV: You're an FPV drone diving into Red Rocks 🚁 @zedsdead #shorts | [https://youtube.com/shorts/FdTRPgcj9j0](https://youtube.com/shorts/FdTRPgcj9j0) | 2026-11-10T15:33:27.249964Z |
+| `fpv_banger_04` | **Viral Clips** | Full speed drone dive into the loudest drop of Dead Rocks 🚁 @zedsdead #shorts | [https://youtube.com/shorts/_sqXeSDll7E](https://youtube.com/shorts/_sqXeSDll7E) | 2026-11-10T15:36:25.401423Z |

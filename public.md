@@ -342,3 +342,4 @@
 | `fpv_banger_08` | **zeds archive** | When the drone catches the hardest drop of the night 🚁 @zedsdead #shorts | [https://youtube.com/shorts/OiGolhpn4cQ](https://youtube.com/shorts/OiGolhpn4cQ) | 2026-11-10T15:50:27.595500Z |
 | `yt_banger_22` | **viral clips (warmed)** | The heaviest drop of Dead Rocks in the downpour 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/_iWbMJeT6Ug](https://youtube.com/shorts/_iWbMJeT6Ug) | 2026-11-10T15:54:20.424149Z |
 | `yt_banger_17` | **Tech Prologue** | When the heavy bass detonates in pouring rain 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/lnqPzfNDbiA](https://youtube.com/shorts/lnqPzfNDbiA) | 2026-11-10T19:00:42.892681Z |
+| `yt_banger_21` | **Bass Wave** | The second drop hit with even more violence in rain 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/pXyK-JOLOww](https://youtube.com/shorts/pXyK-JOLOww) | 2026-11-10T19:04:39.006420Z |

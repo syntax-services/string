@@ -358,3 +358,4 @@
 | `yt_banger_12` | **zeds archive** | Row upon row of fans nodding in unison to the groove 🔥 @zedsdead #shorts | [https://youtube.com/shorts/RVUbehlPFsM](https://youtube.com/shorts/RVUbehlPFsM) | 2026-11-10T23:52:29.119096Z |
 | `yt_banger_05` | **viral clips (warmed)** | Twilight synth harmony spreading across the canyon 🔥 @zedsdead #shorts | [https://youtube.com/shorts/W7RRx03QzdY](https://youtube.com/shorts/W7RRx03QzdY) | 2026-11-10T23:55:32.676055Z |
 | `yt_banger_08` | **Tech Prologue** | Crystal clear synth leads echoing across the rocks 🔥 @zedsdead #shorts | [https://youtube.com/shorts/hfXpyQo2f0k](https://youtube.com/shorts/hfXpyQo2f0k) | 2026-11-11T12:00:41.533835Z |
+| `yt_banger_27_remake` | **Tech Prologue** | Raging In Torrential Downpour At Red Rocks 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/6mASg90qDQs](https://youtube.com/shorts/6mASg90qDQs) | 2026-11-11T23:00:25.439165Z |

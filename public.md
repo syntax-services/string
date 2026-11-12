@@ -363,3 +363,4 @@
 | `toronto_context_09` | **Tech Prologue** | Subtronics x Zeds Dead Gassed Up VIP 🔥 @zedsdead #shorts | [https://youtube.com/shorts/f3QPibBfDZ8](https://youtube.com/shorts/f3QPibBfDZ8) | 2026-11-12T15:30:58.696719Z |
 | `toronto_context_16` | **Viral Clips** | 50 MPH Drone Slalom Over The Truss ⚡ @zedsdead #shorts | [https://youtube.com/shorts/RdpksnPn8Sg](https://youtube.com/shorts/RdpksnPn8Sg) | 2026-11-12T15:35:52.889860Z |
 | `toronto_context_07` | **Tech Prologue** | Lana Del Rey Vocals Into Massive Bass ✨ @zedsdead #shorts | [https://youtube.com/shorts/Q9-be7eMKu0](https://youtube.com/shorts/Q9-be7eMKu0) | 2026-11-12T19:01:07.502706Z |
+| `toronto_context_18` | **Viral Clips** | FPV Drone Banking Through Neon Lasers 🚨 🚁 @zedsdead #shorts | [https://youtube.com/shorts/0cnREPWlQko](https://youtube.com/shorts/0cnREPWlQko) | 2026-11-12T19:05:00.492335Z |

@@ -375,3 +375,4 @@
 | `toronto_dual_7s_04` | **Ediiiiiitz** | How It Feels In The Front Row 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/wUKQArnWnx4](https://youtube.com/shorts/wUKQArnWnx4) | 2026-11-13T15:34:34.294596Z |
 | `toronto_dual_7s_05` | **Bass Wave** | This Drop Was Absolutely Unreal 🔥 @zedsdead #shorts | [https://youtube.com/shorts/bIAod-9zwAg](https://youtube.com/shorts/bIAod-9zwAg) | 2026-11-13T15:38:19.800513Z |
 | `toronto_dual_7s_08` | **Viral Clips** | This Moment Deserved A Million Views 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/It2QrtIqpRs](https://youtube.com/shorts/It2QrtIqpRs) | 2026-11-13T19:01:18.637655Z |
+| `toronto_dual_7s_08` | **Viral Clips** | This Moment Deserved A Million Views 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/SHSGj7fBFz4](https://youtube.com/shorts/SHSGj7fBFz4) | 2026-11-13T19:01:28.208708Z |

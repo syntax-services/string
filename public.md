@@ -372,3 +372,4 @@
 | `toronto_dual_7s_03` | **Viral Clips** | Wait For The Drop... ⏳ 🔥 @zedsdead #shorts | [https://youtube.com/shorts/UGt611vfzAM](https://youtube.com/shorts/UGt611vfzAM) | 2026-11-13T15:31:09.295567Z |
 | `toronto_dual_7s_07` | **Ediiiiiitz** | POV: You Chose The Right Festival ✨ @zedsdead #shorts | [https://youtube.com/shorts/ecWuLXBgSqI](https://youtube.com/shorts/ecWuLXBgSqI) | 2026-11-13T15:32:27.532594Z |
 | `toronto_dual_7s_11` | **Bass Wave** | The Most Aggressive Drop Of 2026 🔥 @zedsdead #shorts | [https://youtube.com/shorts/6DI5gpZ6wu4](https://youtube.com/shorts/6DI5gpZ6wu4) | 2026-11-13T15:33:23.870600Z |
+| `toronto_dual_7s_04` | **Ediiiiiitz** | How It Feels In The Front Row 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/wUKQArnWnx4](https://youtube.com/shorts/wUKQArnWnx4) | 2026-11-13T15:34:34.294596Z |

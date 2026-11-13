@@ -366,3 +366,4 @@
 | `toronto_context_18` | **Viral Clips** | FPV Drone Banking Through Neon Lasers 🚨 🚁 @zedsdead #shorts | [https://youtube.com/shorts/0cnREPWlQko](https://youtube.com/shorts/0cnREPWlQko) | 2026-11-12T19:05:00.492335Z |
 | `toronto_context_12` | **Tech Prologue** | Lasers Cutting Through The Pouring Rain ✨ @zedsdead #shorts | [https://youtube.com/shorts/hA69LdODGMU](https://youtube.com/shorts/hA69LdODGMU) | 2026-11-12T23:31:12.617623Z |
 | `toronto_context_20` | **Viral Clips** | Night 2 Sky Dive Into Blue Pyro 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/KorTaK0yjjE](https://youtube.com/shorts/KorTaK0yjjE) | 2026-11-12T23:35:34.495559Z |
+| `toronto_dual_7s_01` | **Tech Prologue** | The Crowd Lost Their Minds 🔊 @zedsdead #shorts | [https://youtube.com/shorts/EfZpNTStDjk](https://youtube.com/shorts/EfZpNTStDjk) | 2026-11-13T06:58:40.776398Z |

@@ -377,3 +377,4 @@
 | `toronto_dual_7s_08` | **Viral Clips** | This Moment Deserved A Million Views 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/It2QrtIqpRs](https://youtube.com/shorts/It2QrtIqpRs) | 2026-11-13T19:01:18.637655Z |
 | `toronto_dual_7s_08` | **Viral Clips** | This Moment Deserved A Million Views 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/SHSGj7fBFz4](https://youtube.com/shorts/SHSGj7fBFz4) | 2026-11-13T19:01:28.208708Z |
 | `toronto_dual_7s_09` | **Ediiiiiitz** | Feel The Energy Through The Screen 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/mPcU0kQkGUw](https://youtube.com/shorts/mPcU0kQkGUw) | 2026-11-13T19:02:29.383989Z |
+| `toronto_dual_7s_12` | **Bass Wave** | Nobody Expected This VIP Switch 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/jZ6jLf6Px4E](https://youtube.com/shorts/jZ6jLf6Px4E) | 2026-11-13T19:03:57.252390Z |

@@ -379,3 +379,4 @@
 | `toronto_dual_7s_09` | **Ediiiiiitz** | Feel The Energy Through The Screen 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/mPcU0kQkGUw](https://youtube.com/shorts/mPcU0kQkGUw) | 2026-11-13T19:02:29.383989Z |
 | `toronto_dual_7s_12` | **Bass Wave** | Nobody Expected This VIP Switch 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/jZ6jLf6Px4E](https://youtube.com/shorts/jZ6jLf6Px4E) | 2026-11-13T19:03:57.252390Z |
 | `toronto_dual_7s_09` | **Ediiiiiitz** | Feel The Energy Through The Screen 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/_MgPb2Y_52Y](https://youtube.com/shorts/_MgPb2Y_52Y) | 2026-11-13T19:06:14.260085Z |
+| `toronto_dual_7s_10` | **Bass Wave** | What The H*ll Am I Watching? 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/-NqHjPA5odU](https://youtube.com/shorts/-NqHjPA5odU) | 2026-11-13T19:09:39.183928Z |

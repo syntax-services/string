@@ -368,3 +368,4 @@
 | `toronto_context_20` | **Viral Clips** | Night 2 Sky Dive Into Blue Pyro 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/KorTaK0yjjE](https://youtube.com/shorts/KorTaK0yjjE) | 2026-11-12T23:35:34.495559Z |
 | `toronto_dual_7s_01` | **Tech Prologue** | The Crowd Lost Their Minds 🔊 @zedsdead #shorts | [https://youtube.com/shorts/EfZpNTStDjk](https://youtube.com/shorts/EfZpNTStDjk) | 2026-11-13T06:58:40.776398Z |
 | `toronto_dual_7s_02` | **Tech Prologue** | Most Insane Production Ever Seen ⚡ @zedsdead #shorts | [https://youtube.com/shorts/AnGAIkqT9O0](https://youtube.com/shorts/AnGAIkqT9O0) | 2026-11-13T11:13:09.557087Z |
+| `toronto_dual_7s_06` | **Viral Clips** | Bass So Heavy It Should Be Illegal 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/S18QXsXHHbU](https://youtube.com/shorts/S18QXsXHHbU) | 2026-11-13T15:31:04.826980Z |

@@ -415,3 +415,4 @@
 | `toronto_dual_7s_33` | **Viral Clips** | Toronto Hometown Energy Is Unmatched 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Yskjr9m4OAA](https://youtube.com/shorts/Yskjr9m4OAA) | 2026-11-15T22:47:56.109674Z |
 | `toronto_dual_7s_43` | **Ediiiiiitz** | Drone Slalom Through Laser Grid ⚡ @zedsdead #shorts | [https://youtube.com/shorts/AKQB0kK3wto](https://youtube.com/shorts/AKQB0kK3wto) | 2026-11-15T22:49:26.549604Z |
 | `toronto_dual_7s_53` | **Bass Wave** | Blasting Through Pyro Smoke At 50MPH 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/AU4rQC0qCyE](https://youtube.com/shorts/AU4rQC0qCyE) | 2026-11-15T23:00:37.463468Z |
+| `toronto_dual_7s_62` | **Pulsewave** | Flying Low Over Screaming Fans 🔊 @zedsdead #shorts | [https://youtube.com/shorts/6ZtowICYh2w](https://youtube.com/shorts/6ZtowICYh2w) | 2026-11-15T23:01:44.347775Z |

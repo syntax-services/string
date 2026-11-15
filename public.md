@@ -400,3 +400,4 @@
 | `toronto_dual_7s_21` | **Tech Prologue** | Drone Dive Into The Pyro Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/h9rqlD7k9WA](https://youtube.com/shorts/h9rqlD7k9WA) | 2026-11-15T21:50:48.877531Z |
 | `toronto_dual_7s_31` | **Viral Clips** | Cyan Lasers Ripping Through The Night 🌌 ⚡ @zedsdead #shorts | [https://youtube.com/shorts/rxBpp9s1H58](https://youtube.com/shorts/rxBpp9s1H58) | 2026-11-15T22:01:30.713616Z |
 | `toronto_dual_7s_41` | **Ediiiiiitz** | Night Stage Canopy From The Heavens 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/PDVjGEGhtyM](https://youtube.com/shorts/PDVjGEGhtyM) | 2026-11-15T22:03:51.148527Z |
+| `toronto_dual_7s_51` | **Bass Wave** | Steep Dive Into Green Laser Fog ✨ @zedsdead #shorts | [https://youtube.com/shorts/qG128BkAR5g](https://youtube.com/shorts/qG128BkAR5g) | 2026-11-15T22:05:07.666251Z |

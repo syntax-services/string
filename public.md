@@ -395,3 +395,4 @@
 | `toronto_dual_7s_40` | **Ediiiiiitz** | High Speed Crowd Flyover Climax 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/_TWGFpp47HI](https://youtube.com/shorts/_TWGFpp47HI) | 2026-11-15T21:34:30.102688Z |
 | `toronto_dual_7s_50` | **Bass Wave** | Swooping Through The Speaker Stacks 🚁 @zedsdead #shorts | [https://youtube.com/shorts/sL5kgKpZiyw](https://youtube.com/shorts/sL5kgKpZiyw) | 2026-11-15T21:35:05.980328Z |
 | `toronto_dual_7s_59` | **Pulsewave** | Skimming Over The Toronto Stage Rig 🚁 @zedsdead #shorts | [https://youtube.com/shorts/dailR_tQs2A](https://youtube.com/shorts/dailR_tQs2A) | 2026-11-15T21:46:05.324646Z |
+| `toronto_dual_7s_69` | **zeds archive** | Aerial Backflip Over Headbanger Crowd 🚁 @zedsdead #shorts | [https://youtube.com/shorts/JPdRvdVOpCI](https://youtube.com/shorts/JPdRvdVOpCI) | 2026-11-15T21:47:27.885271Z |

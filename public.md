@@ -394,3 +394,4 @@
 | `toronto_dual_7s_30` | **Viral Clips** | Wait Till The Drop Smacks ⚡ @zedsdead #shorts | [https://youtube.com/shorts/2Acd0V2L1ww](https://youtube.com/shorts/2Acd0V2L1ww) | 2026-11-15T21:33:29.928167Z |
 | `toronto_dual_7s_40` | **Ediiiiiitz** | High Speed Crowd Flyover Climax 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/_TWGFpp47HI](https://youtube.com/shorts/_TWGFpp47HI) | 2026-11-15T21:34:30.102688Z |
 | `toronto_dual_7s_50` | **Bass Wave** | Swooping Through The Speaker Stacks 🚁 @zedsdead #shorts | [https://youtube.com/shorts/sL5kgKpZiyw](https://youtube.com/shorts/sL5kgKpZiyw) | 2026-11-15T21:35:05.980328Z |
+| `toronto_dual_7s_59` | **Pulsewave** | Skimming Over The Toronto Stage Rig 🚁 @zedsdead #shorts | [https://youtube.com/shorts/dailR_tQs2A](https://youtube.com/shorts/dailR_tQs2A) | 2026-11-15T21:46:05.324646Z |

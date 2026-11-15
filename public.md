@@ -387,3 +387,4 @@
 | `toronto_dual_7s_17` | **zeds archive** | This Buildup Was Pure Adrenaline ⚡ @zedsdead #shorts | [https://youtube.com/shorts/gjCQuQ35j8U](https://youtube.com/shorts/gjCQuQ35j8U) | 2026-11-15T00:46:06.014952Z |
 | `toronto_dual_7s_18` | **viral clips (warmed)** | The Whole Amphitheatre Shaking 🔊 @zedsdead #shorts | [https://youtube.com/shorts/DR14F6UrUfk](https://youtube.com/shorts/DR14F6UrUfk) | 2026-11-15T01:41:22.353390Z |
 | `toronto_dual_7s_19` | **Tech Prologue** | When The 140 Dubstep Hits 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/iq7zQaw695w](https://youtube.com/shorts/iq7zQaw695w) | 2026-11-15T15:30:45.491603Z |
+| `toronto_dual_7s_29` | **Viral Clips** | When Lana Vocals Echo Across 20k Fans ✨ @zedsdead #shorts | [https://youtube.com/shorts/9pLpKKVZFqg](https://youtube.com/shorts/9pLpKKVZFqg) | 2026-11-15T15:32:02.348573Z |

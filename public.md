@@ -402,3 +402,4 @@
 | `toronto_dual_7s_41` | **Ediiiiiitz** | Night Stage Canopy From The Heavens 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/PDVjGEGhtyM](https://youtube.com/shorts/PDVjGEGhtyM) | 2026-11-15T22:03:51.148527Z |
 | `toronto_dual_7s_51` | **Bass Wave** | Steep Dive Into Green Laser Fog ✨ @zedsdead #shorts | [https://youtube.com/shorts/qG128BkAR5g](https://youtube.com/shorts/qG128BkAR5g) | 2026-11-15T22:05:07.666251Z |
 | `toronto_dual_7s_60` | **Pulsewave** | Stage Lights Blinding The Drone Cam ⚡ @zedsdead #shorts | [https://youtube.com/shorts/GECQsiYxpiw](https://youtube.com/shorts/GECQsiYxpiw) | 2026-11-15T22:06:27.909450Z |
+| `toronto_dual_7s_70` | **zeds archive** | Diving Straight Into 20,000 Voices 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/dFsK927luWk](https://youtube.com/shorts/dFsK927luWk) | 2026-11-15T22:15:56.061918Z |

@@ -385,3 +385,4 @@
 | `toronto_dual_7s_15` | **Ediiiiiitz** | Slicing Through The Laser Canopy ✨ @zedsdead #shorts | [https://youtube.com/shorts/JWyEwATXbGg](https://youtube.com/shorts/JWyEwATXbGg) | 2026-11-14T22:45:39.692335Z |
 | `toronto_dual_7s_16` | **Bass Wave** | Bass So Heavy It Should Be Illegal 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/SP2Gz0gzaXk](https://youtube.com/shorts/SP2Gz0gzaXk) | 2026-11-14T23:56:42.561581Z |
 | `toronto_dual_7s_17` | **zeds archive** | This Buildup Was Pure Adrenaline ⚡ @zedsdead #shorts | [https://youtube.com/shorts/gjCQuQ35j8U](https://youtube.com/shorts/gjCQuQ35j8U) | 2026-11-15T00:46:06.014952Z |
+| `toronto_dual_7s_18` | **viral clips (warmed)** | The Whole Amphitheatre Shaking 🔊 @zedsdead #shorts | [https://youtube.com/shorts/DR14F6UrUfk](https://youtube.com/shorts/DR14F6UrUfk) | 2026-11-15T01:41:22.353390Z |

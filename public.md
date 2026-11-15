@@ -424,3 +424,4 @@
 | `toronto_dual_7s_54` | **Bass Wave** | Surfing Right Above The Front Barrier ⚡ @zedsdead #shorts | [https://youtube.com/shorts/hsDEqvxosf0](https://youtube.com/shorts/hsDEqvxosf0) | 2026-11-15T23:19:18.999524Z |
 | `toronto_dual_7s_63` | **Pulsewave** | Acrobatic Flip Over Festival Bowl 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Ozs7mpT6qrU](https://youtube.com/shorts/Ozs7mpT6qrU) | 2026-11-15T23:31:09.772018Z |
 | `toronto_dual_7s_73` | **zeds archive** | Laser Arrays Cutting The Night Sky ✨ @zedsdead #shorts | [https://youtube.com/shorts/Spf4oA0dK3c](https://youtube.com/shorts/Spf4oA0dK3c) | 2026-11-15T23:32:19.599790Z |
+| `toronto_dual_7s_83` | **viral clips warmed** | Bass So Heavy The Drone Shook 🚨 🚁 @zedsdead #shorts | [https://youtube.com/shorts/u2kYXS165ck](https://youtube.com/shorts/u2kYXS165ck) | 2026-11-15T23:32:55.004397Z |

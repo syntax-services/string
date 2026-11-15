@@ -426,3 +426,4 @@
 | `toronto_dual_7s_73` | **zeds archive** | Laser Arrays Cutting The Night Sky ✨ @zedsdead #shorts | [https://youtube.com/shorts/Spf4oA0dK3c](https://youtube.com/shorts/Spf4oA0dK3c) | 2026-11-15T23:32:19.599790Z |
 | `toronto_dual_7s_83` | **viral clips warmed** | Bass So Heavy The Drone Shook 🚨 🚁 @zedsdead #shorts | [https://youtube.com/shorts/u2kYXS165ck](https://youtube.com/shorts/u2kYXS165ck) | 2026-11-15T23:32:55.004397Z |
 | `toronto_dual_7s_25` | **Tech Prologue** | The Opening Drop Shocked Everyone 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/yBsJufhNQDc](https://youtube.com/shorts/yBsJufhNQDc) | 2026-11-15T23:34:05.311705Z |
+| `toronto_dual_7s_35` | **Viral Clips** | Drone Diving Right Into The Bassline 🚁 @zedsdead #shorts | [https://youtube.com/shorts/zyZnOy9jvQ4](https://youtube.com/shorts/zyZnOy9jvQ4) | 2026-11-15T23:45:53.734411Z |

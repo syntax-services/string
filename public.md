@@ -420,3 +420,4 @@
 | `toronto_dual_7s_82` | **viral clips warmed** | Stadium Lights Beaming To The Clouds 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/5aji4Qy9aDg](https://youtube.com/shorts/5aji4Qy9aDg) | 2026-11-15T23:04:18.401359Z |
 | `toronto_dual_7s_24` | **Tech Prologue** | The Hardest Drop Of The Weekend 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/5Y089FN9Ogw](https://youtube.com/shorts/5Y089FN9Ogw) | 2026-11-15T23:15:55.020805Z |
 | `toronto_dual_7s_34` | **Viral Clips** | This Double Drop Had Zero Mercy 🔥 @zedsdead #shorts | [https://youtube.com/shorts/xPWU2x3XwRE](https://youtube.com/shorts/xPWU2x3XwRE) | 2026-11-15T23:17:03.775988Z |
+| `toronto_dual_7s_44` | **Ediiiiiitz** | The Definition Of Peak Festival Energy 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/_kZB734Du5s](https://youtube.com/shorts/_kZB734Du5s) | 2026-11-15T23:18:13.067681Z |

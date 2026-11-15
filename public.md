@@ -423,3 +423,4 @@
 | `toronto_dual_7s_44` | **Ediiiiiitz** | The Definition Of Peak Festival Energy 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/_kZB734Du5s](https://youtube.com/shorts/_kZB734Du5s) | 2026-11-15T23:18:13.067681Z |
 | `toronto_dual_7s_54` | **Bass Wave** | Surfing Right Above The Front Barrier ⚡ @zedsdead #shorts | [https://youtube.com/shorts/hsDEqvxosf0](https://youtube.com/shorts/hsDEqvxosf0) | 2026-11-15T23:19:18.999524Z |
 | `toronto_dual_7s_63` | **Pulsewave** | Acrobatic Flip Over Festival Bowl 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Ozs7mpT6qrU](https://youtube.com/shorts/Ozs7mpT6qrU) | 2026-11-15T23:31:09.772018Z |
+| `toronto_dual_7s_73` | **zeds archive** | Laser Arrays Cutting The Night Sky ✨ @zedsdead #shorts | [https://youtube.com/shorts/Spf4oA0dK3c](https://youtube.com/shorts/Spf4oA0dK3c) | 2026-11-15T23:32:19.599790Z |

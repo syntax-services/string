@@ -421,3 +421,4 @@
 | `toronto_dual_7s_24` | **Tech Prologue** | The Hardest Drop Of The Weekend 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/5Y089FN9Ogw](https://youtube.com/shorts/5Y089FN9Ogw) | 2026-11-15T23:15:55.020805Z |
 | `toronto_dual_7s_34` | **Viral Clips** | This Double Drop Had Zero Mercy 🔥 @zedsdead #shorts | [https://youtube.com/shorts/xPWU2x3XwRE](https://youtube.com/shorts/xPWU2x3XwRE) | 2026-11-15T23:17:03.775988Z |
 | `toronto_dual_7s_44` | **Ediiiiiitz** | The Definition Of Peak Festival Energy 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/_kZB734Du5s](https://youtube.com/shorts/_kZB734Du5s) | 2026-11-15T23:18:13.067681Z |
+| `toronto_dual_7s_54` | **Bass Wave** | Surfing Right Above The Front Barrier ⚡ @zedsdead #shorts | [https://youtube.com/shorts/hsDEqvxosf0](https://youtube.com/shorts/hsDEqvxosf0) | 2026-11-15T23:19:18.999524Z |

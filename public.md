@@ -417,3 +417,4 @@
 | `toronto_dual_7s_53` | **Bass Wave** | Blasting Through Pyro Smoke At 50MPH 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/AU4rQC0qCyE](https://youtube.com/shorts/AU4rQC0qCyE) | 2026-11-15T23:00:37.463468Z |
 | `toronto_dual_7s_62` | **Pulsewave** | Flying Low Over Screaming Fans 🔊 @zedsdead #shorts | [https://youtube.com/shorts/6ZtowICYh2w](https://youtube.com/shorts/6ZtowICYh2w) | 2026-11-15T23:01:44.347775Z |
 | `toronto_dual_7s_72` | **zeds archive** | Massive Sub Drop Detonating Below 🔊 @zedsdead #shorts | [https://youtube.com/shorts/Zu-Wx94ecuw](https://youtube.com/shorts/Zu-Wx94ecuw) | 2026-11-15T23:03:14.321103Z |
+| `toronto_dual_7s_82` | **viral clips warmed** | Stadium Lights Beaming To The Clouds 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/5aji4Qy9aDg](https://youtube.com/shorts/5aji4Qy9aDg) | 2026-11-15T23:04:18.401359Z |

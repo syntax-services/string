@@ -408,3 +408,4 @@
 | `toronto_dual_7s_32` | **Viral Clips** | Opening Bass Shockwave Detonated 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/hV54uCTxyp0](https://youtube.com/shorts/hV54uCTxyp0) | 2026-11-15T22:19:09.423908Z |
 | `toronto_dual_7s_42` | **Ediiiiiitz** | Heart Pounding Drop From Above 🔥 @zedsdead #shorts | [https://youtube.com/shorts/H7sxLxsp7_A](https://youtube.com/shorts/H7sxLxsp7_A) | 2026-11-15T22:31:05.244999Z |
 | `toronto_dual_7s_52` | **Bass Wave** | Inverted Barrel Roll Over The Decks 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/jYZncccFWPM](https://youtube.com/shorts/jYZncccFWPM) | 2026-11-15T22:32:29.772843Z |
+| `toronto_dual_7s_61` | **Pulsewave** | High Speed Dive Through Red Strobes 🚨 ⚡ @zedsdead #shorts | [https://youtube.com/shorts/6ZKQou0k9JQ](https://youtube.com/shorts/6ZKQou0k9JQ) | 2026-11-15T22:33:22.255129Z |

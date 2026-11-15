@@ -404,3 +404,4 @@
 | `toronto_dual_7s_60` | **Pulsewave** | Stage Lights Blinding The Drone Cam ⚡ @zedsdead #shorts | [https://youtube.com/shorts/GECQsiYxpiw](https://youtube.com/shorts/GECQsiYxpiw) | 2026-11-15T22:06:27.909450Z |
 | `toronto_dual_7s_70` | **zeds archive** | Diving Straight Into 20,000 Voices 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/dFsK927luWk](https://youtube.com/shorts/dFsK927luWk) | 2026-11-15T22:15:56.061918Z |
 | `toronto_dual_7s_80` | **viral clips warmed** | Swooping Through The Night 1 Bassline 🔊 @zedsdead #shorts | [https://youtube.com/shorts/KxwqHrJwwjk](https://youtube.com/shorts/KxwqHrJwwjk) | 2026-11-15T22:16:41.196878Z |
+| `toronto_dual_7s_22` | **Tech Prologue** | Inverted Barrel Roll Over Stage 🚁 @zedsdead #shorts | [https://youtube.com/shorts/QIyrBQMwbw4](https://youtube.com/shorts/QIyrBQMwbw4) | 2026-11-15T22:17:37.422057Z |

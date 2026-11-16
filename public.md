@@ -438,3 +438,4 @@
 | `toronto_dual_7s_56` | **Bass Wave** | Vertical Dive Right As Drop Detonates 🔥 @zedsdead #shorts | [https://youtube.com/shorts/uGtqDqzBeUY](https://youtube.com/shorts/uGtqDqzBeUY) | 2026-11-16T00:17:11.388883Z |
 | `toronto_dual_7s_65` | **Pulsewave** | Flame Cannons Erupting On Beat 🔥 @zedsdead #shorts | [https://youtube.com/shorts/BAl5Xnbs-uM](https://youtube.com/shorts/BAl5Xnbs-uM) | 2026-11-16T00:18:32.160575Z |
 | `toronto_dual_7s_75` | **zeds archive** | Smooth Flyby Over Zeds Dead Decks ⚡ @zedsdead #shorts | [https://youtube.com/shorts/tJNXrZGucCk](https://youtube.com/shorts/tJNXrZGucCk) | 2026-11-16T00:20:04.110571Z |
+| `toronto_dual_7s_85` | **viral clips warmed** | Pyro Cannons Lighting Up Toronto Sky 🔥 @zedsdead #shorts | [https://youtube.com/shorts/YgS3hdnaipo](https://youtube.com/shorts/YgS3hdnaipo) | 2026-11-16T00:31:11.880358Z |

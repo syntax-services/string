@@ -466,3 +466,4 @@
 | `toronto_dual_7s_96` | **Viral Clips** | Live Bass Drop Moment 🔥 @zedsdead #shorts | [https://youtube.com/shorts/lxPSrs6TlcA](https://youtube.com/shorts/lxPSrs6TlcA) | 2026-11-16T23:38:26.012036Z |
 | `toronto_dual_7s_97` | **Ediiiiiitz** | Live Bass Drop Moment 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Tm1axY09LPQ](https://youtube.com/shorts/Tm1axY09LPQ) | 2026-11-16T23:41:27.753692Z |
 | `toronto_dual_7s_98` | **Bass Wave** | The Most Majestic Venue In Music 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/T1oDojcrLEg](https://youtube.com/shorts/T1oDojcrLEg) | 2026-11-16T23:44:20.699998Z |
+| `toronto_dual_7s_99` | **Pulsewave** | Stone Acoustics Amplifying The Bass 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/-VztumUwYHw](https://youtube.com/shorts/-VztumUwYHw) | 2026-11-16T23:47:10.606807Z |

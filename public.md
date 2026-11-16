@@ -470,3 +470,4 @@
 | `toronto_dual_7s_100` | **zeds archive** | Thousands Headbanging On The Rocks 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/qoQlMfKkcrA](https://youtube.com/shorts/qoQlMfKkcrA) | 2026-11-16T23:50:08.725700Z |
 | `toronto_dual_7s_101` | **viral clips (warmed)** | Red Strobes Illuminating Monoliths ✨ @zedsdead #shorts | [https://youtube.com/shorts/mn9ycAs2Cv4](https://youtube.com/shorts/mn9ycAs2Cv4) | 2026-11-16T23:52:59.542402Z |
 | `toronto_dual_7s_102` | **Tech Prologue** | Iconic Colorado Dubstep Tradition 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/dxhk5iLSgB4](https://youtube.com/shorts/dxhk5iLSgB4) | 2026-11-16T23:55:56.099972Z |
+| `toronto_dual_7s_103` | **Viral Clips** | Climactic Red Rocks Bass Shockwave 🔥 @zedsdead #shorts | [https://youtube.com/shorts/guJuB13bVy4](https://youtube.com/shorts/guJuB13bVy4) | 2026-11-16T23:58:54.451688Z |

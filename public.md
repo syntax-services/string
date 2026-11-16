@@ -448,3 +448,4 @@
 | `toronto_dual_7s_86` | **viral clips warmed** | Full Speed Drop Over Amphitheatre 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/LRgji9kCMtU](https://youtube.com/shorts/LRgji9kCMtU) | 2026-11-16T00:49:39.959502Z |
 | `toronto_dual_7s_28` | **Tech Prologue** | The Moment Before The 140 Dropped ⏳ 🔥 @zedsdead #shorts | [https://youtube.com/shorts/dpdKUgEAGDk](https://youtube.com/shorts/dpdKUgEAGDk) | 2026-11-16T01:00:49.922740Z |
 | `toronto_dual_7s_38` | **Viral Clips** | Skimming Inches Over The CDJs 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/2s0_Pno_BDs](https://youtube.com/shorts/2s0_Pno_BDs) | 2026-11-16T01:01:32.923922Z |
+| `toronto_dual_7s_48` | **Ediiiiiitz** | When The Beat Finally Dropped 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IrpfEDZe4Qk](https://youtube.com/shorts/IrpfEDZe4Qk) | 2026-11-16T01:03:28.365085Z |

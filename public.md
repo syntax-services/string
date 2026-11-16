@@ -449,3 +449,4 @@
 | `toronto_dual_7s_28` | **Tech Prologue** | The Moment Before The 140 Dropped ⏳ 🔥 @zedsdead #shorts | [https://youtube.com/shorts/dpdKUgEAGDk](https://youtube.com/shorts/dpdKUgEAGDk) | 2026-11-16T01:00:49.922740Z |
 | `toronto_dual_7s_38` | **Viral Clips** | Skimming Inches Over The CDJs 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/2s0_Pno_BDs](https://youtube.com/shorts/2s0_Pno_BDs) | 2026-11-16T01:01:32.923922Z |
 | `toronto_dual_7s_48` | **Ediiiiiitz** | When The Beat Finally Dropped 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IrpfEDZe4Qk](https://youtube.com/shorts/IrpfEDZe4Qk) | 2026-11-16T01:03:28.365085Z |
+| `toronto_dual_7s_58` | **Bass Wave** | Aerial Plunge Towards 20,000 Fans 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/en-5c4sLE8k](https://youtube.com/shorts/en-5c4sLE8k) | 2026-11-16T01:04:11.275586Z |

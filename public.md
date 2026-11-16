@@ -441,3 +441,4 @@
 | `toronto_dual_7s_85` | **viral clips warmed** | Pyro Cannons Lighting Up Toronto Sky 🔥 @zedsdead #shorts | [https://youtube.com/shorts/YgS3hdnaipo](https://youtube.com/shorts/YgS3hdnaipo) | 2026-11-16T00:31:11.880358Z |
 | `toronto_dual_7s_27` | **Tech Prologue** | Bassheads Assemble In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/46nOELJY5C0](https://youtube.com/shorts/46nOELJY5C0) | 2026-11-16T00:32:00.489230Z |
 | `toronto_dual_7s_37` | **Viral Clips** | The Coolest Drone Shot In Dubstep ✨ @zedsdead #shorts | [https://youtube.com/shorts/9faSAOKBIz8](https://youtube.com/shorts/9faSAOKBIz8) | 2026-11-16T00:32:46.782338Z |
+| `toronto_dual_7s_47` | **Ediiiiiitz** | Relentless Low End Pressure 🔊 @zedsdead #shorts | [https://youtube.com/shorts/nZPX0yEiq_Y](https://youtube.com/shorts/nZPX0yEiq_Y) | 2026-11-16T00:33:52.838811Z |

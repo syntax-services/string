@@ -462,3 +462,4 @@
 | `toronto_dual_7s_93` | **Pulsewave** | Climactic Night 2 Aerial Descent 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/tEzQH5AfPrM](https://youtube.com/shorts/tEzQH5AfPrM) | 2026-11-16T23:25:13.519106Z |
 | `toronto_dual_7s_94` | **zeds archive** | Toronto Crowd Going Wild Under Lasers 🔥 @zedsdead #shorts | [https://youtube.com/shorts/HBPFoJjhcdg](https://youtube.com/shorts/HBPFoJjhcdg) | 2026-11-16T23:28:40.417784Z |
 | `toronto_dual_7s_88` | **viral clips (warmed)** | Barrel Roll As 140 Dubstep Hits ⚡ @zedsdead #shorts | [https://youtube.com/shorts/r8j1zIFTMQg](https://youtube.com/shorts/r8j1zIFTMQg) | 2026-11-16T23:32:14.216612Z |
+| `toronto_dual_7s_95` | **Tech Prologue** | Live Bass Drop Moment 🔥 @zedsdead #shorts | [https://youtube.com/shorts/ykISNKE_dds](https://youtube.com/shorts/ykISNKE_dds) | 2026-11-16T23:35:21.661738Z |

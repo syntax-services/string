@@ -444,3 +444,4 @@
 | `toronto_dual_7s_47` | **Ediiiiiitz** | Relentless Low End Pressure 🔊 @zedsdead #shorts | [https://youtube.com/shorts/nZPX0yEiq_Y](https://youtube.com/shorts/nZPX0yEiq_Y) | 2026-11-16T00:33:52.838811Z |
 | `toronto_dual_7s_57` | **Bass Wave** | Slaloming Through Cyan Stage Lasers ✨ @zedsdead #shorts | [https://youtube.com/shorts/OM3j33eC23A](https://youtube.com/shorts/OM3j33eC23A) | 2026-11-16T00:46:03.106323Z |
 | `toronto_dual_7s_66` | **Pulsewave** | Banking Over Amphitheatre Roof Lasers ✨ @zedsdead #shorts | [https://youtube.com/shorts/hGy0yJCGXXU](https://youtube.com/shorts/hGy0yJCGXXU) | 2026-11-16T00:47:12.349398Z |
+| `toronto_dual_7s_76` | **zeds archive** | Stadium Laser Show At Peak Energy 🔥 @zedsdead #shorts | [https://youtube.com/shorts/gl_0XhO_ESk](https://youtube.com/shorts/gl_0XhO_ESk) | 2026-11-16T00:48:32.050243Z |

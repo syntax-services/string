@@ -454,3 +454,4 @@
 | `toronto_dual_7s_77` | **zeds archive** | Pilot Threading Truss Beams At 45MPH 🚁 @zedsdead #shorts | [https://youtube.com/shorts/B0qBJ_ZoQ10](https://youtube.com/shorts/B0qBJ_ZoQ10) | 2026-11-16T01:17:16.889553Z |
 | `toronto_dual_7s_87` | **viral clips warmed** | Diving Inches Above The Stage Rig 🚁 @zedsdead #shorts | [https://youtube.com/shorts/QgEUEvCCdQ8](https://youtube.com/shorts/QgEUEvCCdQ8) | 2026-11-16T01:18:13.240756Z |
 | `toronto_dual_7s_68` | **Pulsewave** | Full Throttle Sprint Towards Stage ⚡ @zedsdead #shorts | [https://youtube.com/shorts/D7sbHnZiicw](https://youtube.com/shorts/D7sbHnZiicw) | 2026-11-16T01:19:16.478886Z |
+| `toronto_dual_7s_78` | **zeds archive** | Crowd Wave Seen From The Rafters 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/LnkYVL9UDUw](https://youtube.com/shorts/LnkYVL9UDUw) | 2026-11-16T01:31:07.508484Z |

@@ -437,3 +437,4 @@
 | `toronto_dual_7s_46` | **Ediiiiiitz** | Final Homecoming Crowd Roar 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/1hcSLSCQ7_s](https://youtube.com/shorts/1hcSLSCQ7_s) | 2026-11-16T00:16:12.939004Z |
 | `toronto_dual_7s_56` | **Bass Wave** | Vertical Dive Right As Drop Detonates 🔥 @zedsdead #shorts | [https://youtube.com/shorts/uGtqDqzBeUY](https://youtube.com/shorts/uGtqDqzBeUY) | 2026-11-16T00:17:11.388883Z |
 | `toronto_dual_7s_65` | **Pulsewave** | Flame Cannons Erupting On Beat 🔥 @zedsdead #shorts | [https://youtube.com/shorts/BAl5Xnbs-uM](https://youtube.com/shorts/BAl5Xnbs-uM) | 2026-11-16T00:18:32.160575Z |
+| `toronto_dual_7s_75` | **zeds archive** | Smooth Flyby Over Zeds Dead Decks ⚡ @zedsdead #shorts | [https://youtube.com/shorts/tJNXrZGucCk](https://youtube.com/shorts/tJNXrZGucCk) | 2026-11-16T00:20:04.110571Z |

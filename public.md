@@ -436,3 +436,4 @@
 | `toronto_dual_7s_36` | **Viral Clips** | POV: Racing Above 20,000 Headbangers ⚡ @zedsdead #shorts | [https://youtube.com/shorts/dB3F60kDE_U](https://youtube.com/shorts/dB3F60kDE_U) | 2026-11-16T00:04:59.328679Z |
 | `toronto_dual_7s_46` | **Ediiiiiitz** | Final Homecoming Crowd Roar 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/1hcSLSCQ7_s](https://youtube.com/shorts/1hcSLSCQ7_s) | 2026-11-16T00:16:12.939004Z |
 | `toronto_dual_7s_56` | **Bass Wave** | Vertical Dive Right As Drop Detonates 🔥 @zedsdead #shorts | [https://youtube.com/shorts/uGtqDqzBeUY](https://youtube.com/shorts/uGtqDqzBeUY) | 2026-11-16T00:17:11.388883Z |
+| `toronto_dual_7s_65` | **Pulsewave** | Flame Cannons Erupting On Beat 🔥 @zedsdead #shorts | [https://youtube.com/shorts/BAl5Xnbs-uM](https://youtube.com/shorts/BAl5Xnbs-uM) | 2026-11-16T00:18:32.160575Z |

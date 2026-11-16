@@ -468,3 +468,4 @@
 | `toronto_dual_7s_98` | **Bass Wave** | The Most Majestic Venue In Music 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/T1oDojcrLEg](https://youtube.com/shorts/T1oDojcrLEg) | 2026-11-16T23:44:20.699998Z |
 | `toronto_dual_7s_99` | **Pulsewave** | Stone Acoustics Amplifying The Bass 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/-VztumUwYHw](https://youtube.com/shorts/-VztumUwYHw) | 2026-11-16T23:47:10.606807Z |
 | `toronto_dual_7s_100` | **zeds archive** | Thousands Headbanging On The Rocks 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/qoQlMfKkcrA](https://youtube.com/shorts/qoQlMfKkcrA) | 2026-11-16T23:50:08.725700Z |
+| `toronto_dual_7s_101` | **viral clips (warmed)** | Red Strobes Illuminating Monoliths ✨ @zedsdead #shorts | [https://youtube.com/shorts/mn9ycAs2Cv4](https://youtube.com/shorts/mn9ycAs2Cv4) | 2026-11-16T23:52:59.542402Z |

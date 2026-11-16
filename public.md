@@ -451,3 +451,4 @@
 | `toronto_dual_7s_48` | **Ediiiiiitz** | When The Beat Finally Dropped 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IrpfEDZe4Qk](https://youtube.com/shorts/IrpfEDZe4Qk) | 2026-11-16T01:03:28.365085Z |
 | `toronto_dual_7s_58` | **Bass Wave** | Aerial Plunge Towards 20,000 Fans 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/en-5c4sLE8k](https://youtube.com/shorts/en-5c4sLE8k) | 2026-11-16T01:04:11.275586Z |
 | `toronto_dual_7s_67` | **Pulsewave** | Descent Into Neon Laser Labyrinth 🤯 ⚡ @zedsdead #shorts | [https://youtube.com/shorts/BLtjMEW22Dg](https://youtube.com/shorts/BLtjMEW22Dg) | 2026-11-16T01:16:05.175044Z |
+| `toronto_dual_7s_77` | **zeds archive** | Pilot Threading Truss Beams At 45MPH 🚁 @zedsdead #shorts | [https://youtube.com/shorts/B0qBJ_ZoQ10](https://youtube.com/shorts/B0qBJ_ZoQ10) | 2026-11-16T01:17:16.889553Z |

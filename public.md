@@ -430,3 +430,4 @@
 | `toronto_dual_7s_45` | **Ediiiiiitz** | The Bassline Shift Was Unreal ⚡ @zedsdead #shorts | [https://youtube.com/shorts/gNod68XFwwQ](https://youtube.com/shorts/gNod68XFwwQ) | 2026-11-15T23:47:05.270699Z |
 | `toronto_dual_7s_55` | **Bass Wave** | Cinematic Orbit As Bass Echoes 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/6BokiF-R0Vs](https://youtube.com/shorts/6BokiF-R0Vs) | 2026-11-15T23:48:10.350011Z |
 | `toronto_dual_7s_64` | **Pulsewave** | Pilot Caught The Heaviest Toronto Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/_2Adu9-Z2ZQ](https://youtube.com/shorts/_2Adu9-Z2ZQ) | 2026-11-15T23:49:37.302247Z |
+| `toronto_dual_7s_74` | **zeds archive** | Drone Diving As Bass Shakes The Bowl 🚨 🚁 @zedsdead #shorts | [https://youtube.com/shorts/Wq6XK4PPwj8](https://youtube.com/shorts/Wq6XK4PPwj8) | 2026-11-16T00:01:09.857276Z |

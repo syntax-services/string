@@ -524,3 +524,4 @@
 | `toronto_dual_7s_154` | **Bass Wave** | DC And Hooks Destroying The Stage ⚡ @zedsdead #shorts | [https://youtube.com/shorts/p6invfZUUdc](https://youtube.com/shorts/p6invfZUUdc) | 2026-11-17T02:31:10.896225Z |
 | `toronto_dual_7s_155` | **Pulsewave** | Magical Light Show In Full Flight ✨ @zedsdead #shorts | [https://youtube.com/shorts/UHbHdZSsGEw](https://youtube.com/shorts/UHbHdZSsGEw) | 2026-11-17T02:34:19.390925Z |
 | `toronto_dual_7s_156` | **zeds archive** | Unstoppable Festival Roar On The Drop 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/17Vw7VB1LSQ](https://youtube.com/shorts/17Vw7VB1LSQ) | 2026-11-17T02:37:19.726210Z |
+| `toronto_dual_7s_157` | **viral clips (warmed)** | Final Massive Drop To Close The Set 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/KJhRJypPZdI](https://youtube.com/shorts/KJhRJypPZdI) | 2026-11-17T02:40:31.368057Z |

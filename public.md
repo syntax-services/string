@@ -485,3 +485,4 @@
 | `toronto_dual_7s_115` | **viral clips (warmed)** | Legendary Red Rocks Deluge Anthem 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/oHvl4oxltlE](https://youtube.com/shorts/oHvl4oxltlE) | 2026-11-17T00:35:03.847365Z |
 | `toronto_dual_7s_116` | **Tech Prologue** | FPV Drone Swooping Low Over Stage 🚁 @zedsdead #shorts | [https://youtube.com/shorts/8YwXENYiOHA](https://youtube.com/shorts/8YwXENYiOHA) | 2026-11-17T00:38:04.443827Z |
 | `toronto_dual_7s_117` | **Viral Clips** | High Speed Dive Into The Front Row ⚡ @zedsdead #shorts | [https://youtube.com/shorts/y3So76HTWZQ](https://youtube.com/shorts/y3So76HTWZQ) | 2026-11-17T00:41:04.814982Z |
+| `toronto_dual_7s_118` | **Ediiiiiitz** | Laser Arrays Blinding The Drone Sensor 🚨 🚁 @zedsdead #shorts | [https://youtube.com/shorts/Njpu4-yYxvA](https://youtube.com/shorts/Njpu4-yYxvA) | 2026-11-17T00:43:49.894589Z |

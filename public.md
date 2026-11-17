@@ -482,3 +482,4 @@
 | `toronto_dual_7s_112` | **Bass Wave** | Unstoppable Crowd In Red Rocks Rain 🔊 @zedsdead #shorts | [https://youtube.com/shorts/Nus08CYcux8](https://youtube.com/shorts/Nus08CYcux8) | 2026-11-17T00:25:37.452838Z |
 | `toronto_dual_7s_113` | **Pulsewave** | Bass Shockwave Splashing Through Water ✨ @zedsdead #shorts | [https://youtube.com/shorts/VqeCiX-joQE](https://youtube.com/shorts/VqeCiX-joQE) | 2026-11-17T00:28:39.768930Z |
 | `toronto_dual_7s_114` | **zeds archive** | This Will Go Down In EDM History 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IxIyXOcTopg](https://youtube.com/shorts/IxIyXOcTopg) | 2026-11-17T00:31:49.291582Z |
+| `toronto_dual_7s_115` | **viral clips (warmed)** | Legendary Red Rocks Deluge Anthem 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/oHvl4oxltlE](https://youtube.com/shorts/oHvl4oxltlE) | 2026-11-17T00:35:03.847365Z |

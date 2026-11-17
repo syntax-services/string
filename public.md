@@ -494,3 +494,4 @@
 | `toronto_dual_7s_124` | **Viral Clips** | Night 2 Festival Shutdown In Toronto 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/cxok3XXe-AQ](https://youtube.com/shorts/cxok3XXe-AQ) | 2026-11-17T01:01:48.240528Z |
 | `toronto_dual_7s_125` | **Ediiiiiitz** | FPV Drone Ascending To The Stars 🚁 @zedsdead #shorts | [https://youtube.com/shorts/0icC02u05Ak](https://youtube.com/shorts/0icC02u05Ak) | 2026-11-17T01:04:35.811174Z |
 | `toronto_dual_7s_126` | **Bass Wave** | Toronto Homecoming Energy Unleashed 🔊 @zedsdead #shorts | [https://youtube.com/shorts/rKjCmOgc4g0](https://youtube.com/shorts/rKjCmOgc4g0) | 2026-11-17T01:07:31.911875Z |
+| `toronto_dual_7s_127` | **Pulsewave** | Bass Shockwave From The Crowd View ⚡ @zedsdead #shorts | [https://youtube.com/shorts/aeJwCVUGc_Q](https://youtube.com/shorts/aeJwCVUGc_Q) | 2026-11-17T01:10:35.759012Z |

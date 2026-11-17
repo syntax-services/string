@@ -473,3 +473,4 @@
 | `toronto_dual_7s_103` | **Viral Clips** | Climactic Red Rocks Bass Shockwave 🔥 @zedsdead #shorts | [https://youtube.com/shorts/guJuB13bVy4](https://youtube.com/shorts/guJuB13bVy4) | 2026-11-16T23:58:54.451688Z |
 | `toronto_dual_7s_104` | **Ediiiiiitz** | Massive Dubstep Heavyweight Session 🔊 @zedsdead #shorts | [https://youtube.com/shorts/igl7giNRwyA](https://youtube.com/shorts/igl7giNRwyA) | 2026-11-17T00:01:49.024366Z |
 | `toronto_dual_7s_105` | **Bass Wave** | Electric Energy Across Morrison Rocks ⚡ @zedsdead #shorts | [https://youtube.com/shorts/JK1fZ6E-a8U](https://youtube.com/shorts/JK1fZ6E-a8U) | 2026-11-17T00:04:40.565947Z |
+| `toronto_dual_7s_106` | **Pulsewave** | Unmatched Dubstep Atmosphere Here 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/bs9mZZnShLY](https://youtube.com/shorts/bs9mZZnShLY) | 2026-11-17T00:07:44.258762Z |

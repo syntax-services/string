@@ -487,3 +487,4 @@
 | `toronto_dual_7s_117` | **Viral Clips** | High Speed Dive Into The Front Row ⚡ @zedsdead #shorts | [https://youtube.com/shorts/y3So76HTWZQ](https://youtube.com/shorts/y3So76HTWZQ) | 2026-11-17T00:41:04.814982Z |
 | `toronto_dual_7s_118` | **Ediiiiiitz** | Laser Arrays Blinding The Drone Sensor 🚨 🚁 @zedsdead #shorts | [https://youtube.com/shorts/Njpu4-yYxvA](https://youtube.com/shorts/Njpu4-yYxvA) | 2026-11-17T00:43:49.894589Z |
 | `toronto_dual_7s_119` | **Bass Wave** | Flame Cannons Blasting Above CDJs 🔥 @zedsdead #shorts | [https://youtube.com/shorts/yaBOwPh9YoE](https://youtube.com/shorts/yaBOwPh9YoE) | 2026-11-17T00:46:44.168140Z |
+| `toronto_dual_7s_120` | **Pulsewave** | Drone Shot Caught The Bass Drop Perfect 🔊 @zedsdead #shorts | [https://youtube.com/shorts/sXaVrNv7qEs](https://youtube.com/shorts/sXaVrNv7qEs) | 2026-11-17T00:49:40.456907Z |

@@ -528,3 +528,4 @@
 | `toronto_dual_7s_158` | **Tech Prologue** | Unreal Bass Drop In Toronto 🔥 @zedsdead #shorts | [https://youtube.com/shorts/JPqUzFXL5qc](https://youtube.com/shorts/JPqUzFXL5qc) | 2026-11-17T11:01:02.456342Z |
 | `toronto_dual_7s_161` | **Bass Wave** | Heaviest Drop Of The Tour In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/xwajiJ_m9U8](https://youtube.com/shorts/xwajiJ_m9U8) | 2026-11-17T12:13:38.663354Z |
 | `toronto_dual_7s_163` | **zeds archive** | 20,000 Fans Screaming In Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/7EkQe7VOzWo](https://youtube.com/shorts/7EkQe7VOzWo) | 2026-11-17T12:16:56.573937Z |
+| `toronto_dual_7s_165` | **Tech Prologue** | Massive Bass Shockwave In Toronto 🌌 @zedsdead #shorts | [https://youtube.com/shorts/0mmhrGEIPpM](https://youtube.com/shorts/0mmhrGEIPpM) | 2026-11-17T13:02:13.290107Z |

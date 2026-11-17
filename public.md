@@ -490,3 +490,4 @@
 | `toronto_dual_7s_120` | **Pulsewave** | Drone Shot Caught The Bass Drop Perfect 🔊 @zedsdead #shorts | [https://youtube.com/shorts/sXaVrNv7qEs](https://youtube.com/shorts/sXaVrNv7qEs) | 2026-11-17T00:49:40.456907Z |
 | `toronto_dual_7s_121` | **zeds archive** | Flying Inches Over 20,000 Heads 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/1Rp9XQrku38](https://youtube.com/shorts/1Rp9XQrku38) | 2026-11-17T00:52:41.751169Z |
 | `toronto_dual_7s_122` | **viral clips (warmed)** | Inverted Barrel Roll Towards The Stage 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/IminI93SM9U](https://youtube.com/shorts/IminI93SM9U) | 2026-11-17T00:55:48.795889Z |
+| `toronto_dual_7s_123` | **Tech Prologue** | Smoke And Strobes Covering Amphitheatre ✨ @zedsdead #shorts | [https://youtube.com/shorts/Yww-ptVn7Ic](https://youtube.com/shorts/Yww-ptVn7Ic) | 2026-11-17T00:58:52.632097Z |

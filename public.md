@@ -523,3 +523,4 @@
 | `toronto_dual_7s_153` | **Ediiiiiitz** | Inverted Synth Runs Driving Us Crazy 🔊 @zedsdead #shorts | [https://youtube.com/shorts/w7yk6zVP7U8](https://youtube.com/shorts/w7yk6zVP7U8) | 2026-11-17T02:28:10.388236Z |
 | `toronto_dual_7s_154` | **Bass Wave** | DC And Hooks Destroying The Stage ⚡ @zedsdead #shorts | [https://youtube.com/shorts/p6invfZUUdc](https://youtube.com/shorts/p6invfZUUdc) | 2026-11-17T02:31:10.896225Z |
 | `toronto_dual_7s_155` | **Pulsewave** | Magical Light Show In Full Flight ✨ @zedsdead #shorts | [https://youtube.com/shorts/UHbHdZSsGEw](https://youtube.com/shorts/UHbHdZSsGEw) | 2026-11-17T02:34:19.390925Z |
+| `toronto_dual_7s_156` | **zeds archive** | Unstoppable Festival Roar On The Drop 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/17Vw7VB1LSQ](https://youtube.com/shorts/17Vw7VB1LSQ) | 2026-11-17T02:37:19.726210Z |

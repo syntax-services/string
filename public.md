@@ -527,3 +527,4 @@
 | `toronto_dual_7s_157` | **viral clips (warmed)** | Final Massive Drop To Close The Set 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/KJhRJypPZdI](https://youtube.com/shorts/KJhRJypPZdI) | 2026-11-17T02:40:31.368057Z |
 | `toronto_dual_7s_158` | **Tech Prologue** | Unreal Bass Drop In Toronto 🔥 @zedsdead #shorts | [https://youtube.com/shorts/JPqUzFXL5qc](https://youtube.com/shorts/JPqUzFXL5qc) | 2026-11-17T11:01:02.456342Z |
 | `toronto_dual_7s_161` | **Bass Wave** | Heaviest Drop Of The Tour In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/xwajiJ_m9U8](https://youtube.com/shorts/xwajiJ_m9U8) | 2026-11-17T12:13:38.663354Z |
+| `toronto_dual_7s_163` | **zeds archive** | 20,000 Fans Screaming In Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/7EkQe7VOzWo](https://youtube.com/shorts/7EkQe7VOzWo) | 2026-11-17T12:16:56.573937Z |

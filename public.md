@@ -493,3 +493,4 @@
 | `toronto_dual_7s_123` | **Tech Prologue** | Smoke And Strobes Covering Amphitheatre ✨ @zedsdead #shorts | [https://youtube.com/shorts/Yww-ptVn7Ic](https://youtube.com/shorts/Yww-ptVn7Ic) | 2026-11-17T00:58:52.632097Z |
 | `toronto_dual_7s_124` | **Viral Clips** | Night 2 Festival Shutdown In Toronto 🌌 🔥 @zedsdead #shorts | [https://youtube.com/shorts/cxok3XXe-AQ](https://youtube.com/shorts/cxok3XXe-AQ) | 2026-11-17T01:01:48.240528Z |
 | `toronto_dual_7s_125` | **Ediiiiiitz** | FPV Drone Ascending To The Stars 🚁 @zedsdead #shorts | [https://youtube.com/shorts/0icC02u05Ak](https://youtube.com/shorts/0icC02u05Ak) | 2026-11-17T01:04:35.811174Z |
+| `toronto_dual_7s_126` | **Bass Wave** | Toronto Homecoming Energy Unleashed 🔊 @zedsdead #shorts | [https://youtube.com/shorts/rKjCmOgc4g0](https://youtube.com/shorts/rKjCmOgc4g0) | 2026-11-17T01:07:31.911875Z |

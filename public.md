@@ -499,3 +499,4 @@
 | `toronto_dual_7s_129` | **viral clips (warmed)** | 360 Orbit Around Zeds Dead Stage 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/1wuofTAm9ao](https://youtube.com/shorts/1wuofTAm9ao) | 2026-11-17T01:16:57.855707Z |
 | `toronto_dual_7s_130` | **Tech Prologue** | Front Row Bassheads Unreal Vibe 🔥 @zedsdead #shorts | [https://youtube.com/shorts/gf4xS6LprJc](https://youtube.com/shorts/gf4xS6LprJc) | 2026-11-17T01:19:48.247048Z |
 | `toronto_dual_7s_131` | **Viral Clips** | Loud Bass Drop In The Mosh Pit 🔊 @zedsdead #shorts | [https://youtube.com/shorts/Ce4b8RK7vw8](https://youtube.com/shorts/Ce4b8RK7vw8) | 2026-11-17T01:22:37.705880Z |
+| `toronto_dual_7s_132` | **Ediiiiiitz** | Energy Level Off The Charts Tonight ⚡ @zedsdead #shorts | [https://youtube.com/shorts/mhNwwTj53Gw](https://youtube.com/shorts/mhNwwTj53Gw) | 2026-11-17T01:25:29.501765Z |

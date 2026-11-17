@@ -511,3 +511,4 @@
 | `toronto_dual_7s_141` | **Pulsewave** | Zeds Dead Delivered The Anthem 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Ot-SwWDG5O4](https://youtube.com/shorts/Ot-SwWDG5O4) | 2026-11-17T01:52:01.784792Z |
 | `toronto_dual_7s_142` | **zeds archive** | Heaviest Subwoofers On The Planet 🤯 ⚡ @zedsdead #shorts | [https://youtube.com/shorts/9SQcTwdGNwc](https://youtube.com/shorts/9SQcTwdGNwc) | 2026-11-17T01:55:02.065300Z |
 | `toronto_dual_7s_143` | **viral clips (warmed)** | The Whole Venue Went Absolutely Crazy 🚨 🔥 @zedsdead #shorts | [https://youtube.com/shorts/sqTW8Z2Uln0](https://youtube.com/shorts/sqTW8Z2Uln0) | 2026-11-17T01:58:04.428283Z |
+| `toronto_dual_7s_144` | **Tech Prologue** | Summer Night Festival Atmosphere ✨ @zedsdead #shorts | [https://youtube.com/shorts/cX-4albBuDU](https://youtube.com/shorts/cX-4albBuDU) | 2026-11-17T02:00:57.997980Z |

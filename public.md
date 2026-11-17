@@ -475,3 +475,4 @@
 | `toronto_dual_7s_105` | **Bass Wave** | Electric Energy Across Morrison Rocks ⚡ @zedsdead #shorts | [https://youtube.com/shorts/JK1fZ6E-a8U](https://youtube.com/shorts/JK1fZ6E-a8U) | 2026-11-17T00:04:40.565947Z |
 | `toronto_dual_7s_106` | **Pulsewave** | Unmatched Dubstep Atmosphere Here 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/bs9mZZnShLY](https://youtube.com/shorts/bs9mZZnShLY) | 2026-11-17T00:07:44.258762Z |
 | `toronto_dual_7s_107` | **zeds archive** | Dead Rocks Crowd Roaring In Harmony 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/80L-HsNXzHU](https://youtube.com/shorts/80L-HsNXzHU) | 2026-11-17T00:10:48.345811Z |
+| `toronto_dual_7s_108` | **viral clips (warmed)** | Pouring Rain Drop At Dead Rocks ⚡ @zedsdead #shorts | [https://youtube.com/shorts/XHjpyLiEURo](https://youtube.com/shorts/XHjpyLiEURo) | 2026-11-17T00:13:44.149196Z |

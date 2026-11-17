@@ -480,3 +480,4 @@
 | `toronto_dual_7s_110` | **Viral Clips** | Rain Cannot Stop The Bassheads 🤯 🌧️ @zedsdead #shorts | [https://youtube.com/shorts/WmcpijdW7yI](https://youtube.com/shorts/WmcpijdW7yI) | 2026-11-17T00:19:36.722681Z |
 | `toronto_dual_7s_111` | **Ediiiiiitz** | Heaviest Atmosphere Ever Captured 👑 ⚡ @zedsdead #shorts | [https://youtube.com/shorts/-3n3CIdrp7s](https://youtube.com/shorts/-3n3CIdrp7s) | 2026-11-17T00:22:36.684736Z |
 | `toronto_dual_7s_112` | **Bass Wave** | Unstoppable Crowd In Red Rocks Rain 🔊 @zedsdead #shorts | [https://youtube.com/shorts/Nus08CYcux8](https://youtube.com/shorts/Nus08CYcux8) | 2026-11-17T00:25:37.452838Z |
+| `toronto_dual_7s_113` | **Pulsewave** | Bass Shockwave Splashing Through Water ✨ @zedsdead #shorts | [https://youtube.com/shorts/VqeCiX-joQE](https://youtube.com/shorts/VqeCiX-joQE) | 2026-11-17T00:28:39.768930Z |

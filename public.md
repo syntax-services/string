@@ -501,3 +501,4 @@
 | `toronto_dual_7s_131` | **Viral Clips** | Loud Bass Drop In The Mosh Pit 🔊 @zedsdead #shorts | [https://youtube.com/shorts/Ce4b8RK7vw8](https://youtube.com/shorts/Ce4b8RK7vw8) | 2026-11-17T01:22:37.705880Z |
 | `toronto_dual_7s_132` | **Ediiiiiitz** | Energy Level Off The Charts Tonight ⚡ @zedsdead #shorts | [https://youtube.com/shorts/mhNwwTj53Gw](https://youtube.com/shorts/mhNwwTj53Gw) | 2026-11-17T01:25:29.501765Z |
 | `toronto_dual_7s_133` | **Bass Wave** | Unstoppable Dubstep Horns Blasting 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/ecC8ypllSgk](https://youtube.com/shorts/ecC8ypllSgk) | 2026-11-17T01:28:22.571926Z |
+| `toronto_dual_7s_134` | **Pulsewave** | The Ground Was Literally Shaking 🤯 🔥 @zedsdead #shorts | [https://youtube.com/shorts/tGUs_C-fArU](https://youtube.com/shorts/tGUs_C-fArU) | 2026-11-17T01:31:14.674704Z |

@@ -508,3 +508,4 @@
 | `toronto_dual_7s_138` | **Viral Clips** | Explosive Bass Drop No One Expected 🔥 @zedsdead #shorts | [https://youtube.com/shorts/0HGLLjXu6Hs](https://youtube.com/shorts/0HGLLjXu6Hs) | 2026-11-17T01:43:08.870906Z |
 | `toronto_dual_7s_139` | **Ediiiiiitz** | 20,000 Voices Singing Every Word 🔊 @zedsdead #shorts | [https://youtube.com/shorts/-pHdZB-a8ag](https://youtube.com/shorts/-pHdZB-a8ag) | 2026-11-17T01:46:05.603919Z |
 | `toronto_dual_7s_140` | **Bass Wave** | Electric Pulse Rolling Across Stage ⚡ @zedsdead #shorts | [https://youtube.com/shorts/FAi-4oAmKXE](https://youtube.com/shorts/FAi-4oAmKXE) | 2026-11-17T01:49:03.324982Z |
+| `toronto_dual_7s_141` | **Pulsewave** | Zeds Dead Delivered The Anthem 👑 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Ot-SwWDG5O4](https://youtube.com/shorts/Ot-SwWDG5O4) | 2026-11-17T01:52:01.784792Z |

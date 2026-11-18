@@ -538,3 +538,4 @@
 | `toronto_dual_7s_186` | **Tech Prologue** | Canadian Dubstep Kings In Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/O0knHnWOpAY](https://youtube.com/shorts/O0knHnWOpAY) | 2026-11-18T10:32:35.598Z |
 | `toronto_dual_7s_182` | **Bass Wave** | The Hardest Drop In Toronto History 🤯 @zedsdead #shorts | [https://youtube.com/shorts/uarG1YCvrG0](https://youtube.com/shorts/uarG1YCvrG0) | 2026-11-18T10:49:26.349Z |
 | `toronto_dual_7s_173` | **Viral Clips** | Toronto Amphitheatre Under Strobes ✨ @zedsdead #shorts | [https://youtube.com/shorts/_zaMpPBpDas](https://youtube.com/shorts/_zaMpPBpDas) | 2026-11-18T11:06:27.201Z |
+| `toronto_dual_7s_193` | **Tech Prologue** | Toronto Summer Vibes Unmatched 🌌 @zedsdead #shorts | [https://youtube.com/shorts/M3VoBHva03Y](https://youtube.com/shorts/M3VoBHva03Y) | 2026-11-18T11:49:04.924Z |

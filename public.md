@@ -554,3 +554,4 @@
 | `toronto_dual_7s_208` | **Viral Clips** | Toronto Electric Atmosphere ✨ @zedsdead #shorts | [https://youtube.com/shorts/WMheYs82NiI](https://youtube.com/shorts/WMheYs82NiI) | 2026-11-18T17:09:59.317Z |
 | `toronto_dual_7s_217` | **Bass Wave** | Shimmering Laser Grid In Toronto ✨ @zedsdead #shorts | [https://youtube.com/shorts/NXfAz__8fo4](https://youtube.com/shorts/NXfAz__8fo4) | 2026-11-18T17:26:46.648Z |
 | `toronto_dual_7s_228` | **Tech Prologue** | FPV Drone Chase In Toronto 🚁 @zedsdead #shorts | [https://youtube.com/shorts/_5hQg7IXnv8](https://youtube.com/shorts/_5hQg7IXnv8) | 2026-11-18T18:08:23.594Z |
+| `toronto_dual_7s_215` | **Viral Clips** | Zeds Dead Crowned In Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/rEZv2EiBzZg](https://youtube.com/shorts/rEZv2EiBzZg) | 2026-11-18T18:25:29.198Z |

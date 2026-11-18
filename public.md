@@ -558,3 +558,4 @@
 | `toronto_dual_7s_224` | **Bass Wave** | The Definitive Toronto Moment 👑 @zedsdead #shorts | [https://youtube.com/shorts/EpbcbZLHjIQ](https://youtube.com/shorts/EpbcbZLHjIQ) | 2026-11-18T18:43:07.162Z |
 | `toronto_dual_7s_235` | **Tech Prologue** | Toronto Glow Stick Waves ✨ @zedsdead #shorts | [https://youtube.com/shorts/9lHNUr4Dsnw](https://youtube.com/shorts/9lHNUr4Dsnw) | 2026-11-18T19:23:13.175Z |
 | `toronto_dual_7s_222` | **Viral Clips** | Toronto Soundsystem At Maximum Power 🔊 @zedsdead #shorts | [https://youtube.com/shorts/s7t0Ad3eGXc](https://youtube.com/shorts/s7t0Ad3eGXc) | 2026-11-18T19:40:32.834Z |
+| `toronto_dual_7s_231` | **Bass Wave** | Pure Auditory Bliss In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/DJ6o7fNxj7w](https://youtube.com/shorts/DJ6o7fNxj7w) | 2026-11-18T19:57:08.339Z |

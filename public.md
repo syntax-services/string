@@ -533,3 +533,4 @@
 | `toronto_dual_7s_168` | **Bass Wave** | The Bassline That Shook Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/lUmCCMeTfXo](https://youtube.com/shorts/lUmCCMeTfXo) | 2026-11-18T08:16:46.031Z |
 | `toronto_dual_7s_159` | **Viral Clips** | Toronto Crowd Losing Their Minds 🤯 @zedsdead #shorts | [https://youtube.com/shorts/IE6IvkGIza4](https://youtube.com/shorts/IE6IvkGIza4) | 2026-11-18T08:31:57.924Z |
 | `toronto_dual_7s_179` | **Tech Prologue** | Canopy Of Lasers Across Toronto ✨ @zedsdead #shorts | [https://youtube.com/shorts/VhDgImpa_xA](https://youtube.com/shorts/VhDgImpa_xA) | 2026-11-18T09:15:55.419Z |
+| `toronto_dual_7s_175` | **Bass Wave** | Toronto Crowd Singing On Cue 🌌 @zedsdead #shorts | [https://youtube.com/shorts/PTIGYFCPb7M](https://youtube.com/shorts/PTIGYFCPb7M) | 2026-11-18T09:33:41.352Z |

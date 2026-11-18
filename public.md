@@ -553,3 +553,4 @@
 | `toronto_dual_7s_221` | **Tech Prologue** | The Deepest Sub Bass In Toronto 🔥 @zedsdead #shorts | [https://youtube.com/shorts/UNglHkBEIIY](https://youtube.com/shorts/UNglHkBEIIY) | 2026-11-18T16:53:06.557Z |
 | `toronto_dual_7s_208` | **Viral Clips** | Toronto Electric Atmosphere ✨ @zedsdead #shorts | [https://youtube.com/shorts/WMheYs82NiI](https://youtube.com/shorts/WMheYs82NiI) | 2026-11-18T17:09:59.317Z |
 | `toronto_dual_7s_217` | **Bass Wave** | Shimmering Laser Grid In Toronto ✨ @zedsdead #shorts | [https://youtube.com/shorts/NXfAz__8fo4](https://youtube.com/shorts/NXfAz__8fo4) | 2026-11-18T17:26:46.648Z |
+| `toronto_dual_7s_228` | **Tech Prologue** | FPV Drone Chase In Toronto 🚁 @zedsdead #shorts | [https://youtube.com/shorts/_5hQg7IXnv8](https://youtube.com/shorts/_5hQg7IXnv8) | 2026-11-18T18:08:23.594Z |

@@ -545,3 +545,4 @@
 | `toronto_dual_7s_196` | **Bass Wave** | Unreal Bass Resonance In Toronto ⚡ @zedsdead #shorts | [https://youtube.com/shorts/QDH8yi_xTP4](https://youtube.com/shorts/QDH8yi_xTP4) | 2026-11-18T13:21:51.429Z |
 | `toronto_dual_7s_187` | **Viral Clips** | Every Hand Raised In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/zpBQ3DdbEnU](https://youtube.com/shorts/zpBQ3DdbEnU) | 2026-11-18T13:37:53.622Z |
 | `toronto_dual_7s_207` | **Tech Prologue** | Front Row Pressure In Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/iGLpCov3l8s](https://youtube.com/shorts/iGLpCov3l8s) | 2026-11-18T14:21:28.633Z |
+| `toronto_dual_7s_194` | **Viral Clips** | DC Throwing Down Heat In Toronto 🔥 @zedsdead #shorts | [https://youtube.com/shorts/qzoNm2CFKgI](https://youtube.com/shorts/qzoNm2CFKgI) | 2026-11-18T14:42:34.916Z |

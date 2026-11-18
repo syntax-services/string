@@ -540,3 +540,4 @@
 | `toronto_dual_7s_173` | **Viral Clips** | Toronto Amphitheatre Under Strobes ✨ @zedsdead #shorts | [https://youtube.com/shorts/_zaMpPBpDas](https://youtube.com/shorts/_zaMpPBpDas) | 2026-11-18T11:06:27.201Z |
 | `toronto_dual_7s_193` | **Tech Prologue** | Toronto Summer Vibes Unmatched 🌌 @zedsdead #shorts | [https://youtube.com/shorts/M3VoBHva03Y](https://youtube.com/shorts/M3VoBHva03Y) | 2026-11-18T11:49:04.924Z |
 | `toronto_dual_7s_189` | **Bass Wave** | The Cleanest Transition In Toronto ✨ @zedsdead #shorts | [https://youtube.com/shorts/X4Sw0znaRVM](https://youtube.com/shorts/X4Sw0znaRVM) | 2026-11-18T12:06:33.337Z |
+| `toronto_dual_7s_180` | **Viral Clips** | Iconic Homecoming Set In Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/pJ-NPTjQ7s8](https://youtube.com/shorts/pJ-NPTjQ7s8) | 2026-11-18T12:23:32.222Z |

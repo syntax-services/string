@@ -543,3 +543,4 @@
 | `toronto_dual_7s_180` | **Viral Clips** | Iconic Homecoming Set In Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/pJ-NPTjQ7s8](https://youtube.com/shorts/pJ-NPTjQ7s8) | 2026-11-18T12:23:32.222Z |
 | `toronto_dual_7s_200` | **Tech Prologue** | Toronto Night 1 Closing Banger 🤯 @zedsdead #shorts | [https://youtube.com/shorts/5XGtmGfm_CU](https://youtube.com/shorts/5XGtmGfm_CU) | 2026-11-18T13:05:17.406Z |
 | `toronto_dual_7s_196` | **Bass Wave** | Unreal Bass Resonance In Toronto ⚡ @zedsdead #shorts | [https://youtube.com/shorts/QDH8yi_xTP4](https://youtube.com/shorts/QDH8yi_xTP4) | 2026-11-18T13:21:51.429Z |
+| `toronto_dual_7s_187` | **Viral Clips** | Every Hand Raised In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/zpBQ3DdbEnU](https://youtube.com/shorts/zpBQ3DdbEnU) | 2026-11-18T13:37:53.622Z |

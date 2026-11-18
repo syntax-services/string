@@ -556,3 +556,4 @@
 | `toronto_dual_7s_228` | **Tech Prologue** | FPV Drone Chase In Toronto 🚁 @zedsdead #shorts | [https://youtube.com/shorts/_5hQg7IXnv8](https://youtube.com/shorts/_5hQg7IXnv8) | 2026-11-18T18:08:23.594Z |
 | `toronto_dual_7s_215` | **Viral Clips** | Zeds Dead Crowned In Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/rEZv2EiBzZg](https://youtube.com/shorts/rEZv2EiBzZg) | 2026-11-18T18:25:29.198Z |
 | `toronto_dual_7s_224` | **Bass Wave** | The Definitive Toronto Moment 👑 @zedsdead #shorts | [https://youtube.com/shorts/EpbcbZLHjIQ](https://youtube.com/shorts/EpbcbZLHjIQ) | 2026-11-18T18:43:07.162Z |
+| `toronto_dual_7s_235` | **Tech Prologue** | Toronto Glow Stick Waves ✨ @zedsdead #shorts | [https://youtube.com/shorts/9lHNUr4Dsnw](https://youtube.com/shorts/9lHNUr4Dsnw) | 2026-11-18T19:23:13.175Z |

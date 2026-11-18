@@ -530,3 +530,4 @@
 | `toronto_dual_7s_163` | **zeds archive** | 20,000 Fans Screaming In Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/7EkQe7VOzWo](https://youtube.com/shorts/7EkQe7VOzWo) | 2026-11-17T12:16:56.573937Z |
 | `toronto_dual_7s_165` | **Tech Prologue** | Massive Bass Shockwave In Toronto 🌌 @zedsdead #shorts | [https://youtube.com/shorts/0mmhrGEIPpM](https://youtube.com/shorts/0mmhrGEIPpM) | 2026-11-17T13:02:13.290107Z |
 | `toronto_dual_7s_172` | **Tech Prologue** | The Moment Toronto Erupted 🚨 @zedsdead #shorts | [https://youtube.com/shorts/E5GsOhrusIA](https://youtube.com/shorts/E5GsOhrusIA) | 2026-11-18T08:00:09.199Z |
+| `toronto_dual_7s_168` | **Bass Wave** | The Bassline That Shook Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/lUmCCMeTfXo](https://youtube.com/shorts/lUmCCMeTfXo) | 2026-11-18T08:16:46.031Z |

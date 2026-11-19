@@ -566,3 +566,4 @@
 | `toronto_dual_7s_268` | **Tech Prologue** | Sirens Ringing Out Over Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/NY7phN7hLIY](https://youtube.com/shorts/NY7phN7hLIY) | 2026-11-19T01:04:59.382Z |
 | `toronto_dual_7s_271` | **Tech Prologue** | FPV Drone Soaring Over Toronto Stage 🚁 @zedsdead #shorts | [https://youtube.com/shorts/rHCEommSJ68](https://youtube.com/shorts/rHCEommSJ68) | 2026-11-19T02:06:51.843Z |
 | `toronto_dual_7s_274` | **Tech Prologue** | Pure Electrical Rush In Toronto ⚡ @zedsdead #shorts | [https://youtube.com/shorts/TWpCQ1MD4Pk](https://youtube.com/shorts/TWpCQ1MD4Pk) | 2026-11-19T03:09:02.489Z |
+| `toronto_dual_7s_277` | **Tech Prologue** | Warning Lights Flashing In Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/eZItZOhTN1Y](https://youtube.com/shorts/eZItZOhTN1Y) | 2026-11-19T04:10:58.955Z |

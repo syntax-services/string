@@ -574,3 +574,4 @@
 | `toronto_dual_7s_263` | **Viral Clips** | Toronto Unleashed At Maximum Bass 🔥 @zedsdead #shorts | [https://youtube.com/shorts/nil18eZlmig](https://youtube.com/shorts/nil18eZlmig) | 2026-11-19T08:36:53.436Z |
 | `toronto_dual_7s_289` | **Tech Prologue** | Barrel Roll Over The Toronto Crowd 🚁 @zedsdead #shorts | [https://youtube.com/shorts/fUcCGUmC-Cs](https://youtube.com/shorts/fUcCGUmC-Cs) | 2026-11-19T09:02:46.759Z |
 | `toronto_dual_7s_267` | **Bass Wave** | The Canadian Homecoming Anthem 👑 @zedsdead #shorts | [https://youtube.com/shorts/lcHT7eH_6jg](https://youtube.com/shorts/lcHT7eH_6jg) | 2026-11-19T09:23:01.385Z |
+| `toronto_dual_7s_266` | **Viral Clips** | Toronto Festival In Absolute Awe 🤯 @zedsdead #shorts | [https://youtube.com/shorts/OH9B3D1cS1E](https://youtube.com/shorts/OH9B3D1cS1E) | 2026-11-19T09:42:59.769Z |

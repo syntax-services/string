@@ -581,3 +581,4 @@
 | `toronto_dual_7s_295` | **Tech Prologue** | Red Strobes Tearing Through Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/WBBobto9VLM](https://youtube.com/shorts/WBBobto9VLM) | 2026-11-19T11:06:52.893Z |
 | `toronto_dual_7s_273` | **Bass Wave** | Sub Frequencies Crushing Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/GJmGgKQawTU](https://youtube.com/shorts/GJmGgKQawTU) | 2026-11-19T11:27:14.265Z |
 | `toronto_dual_7s_272` | **Viral Clips** | When The Beat Hammers In Toronto 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Q3En9_Vk9es](https://youtube.com/shorts/Q3En9_Vk9es) | 2026-11-19T11:47:37.837Z |
+| `toronto_dual_7s_298` | **Tech Prologue** | FPV Power Loop Over Toronto Stage 🚁 @zedsdead #shorts | [https://youtube.com/shorts/CVeG26rAjeM](https://youtube.com/shorts/CVeG26rAjeM) | 2026-11-19T12:08:42.364Z |

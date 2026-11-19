@@ -590,3 +590,4 @@
 | `toronto_dual_7s_304` | **Tech Prologue** | Critical Drop Alert In Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/IXhZkj8oEiw](https://youtube.com/shorts/IXhZkj8oEiw) | 2026-11-19T14:12:48.596Z |
 | `toronto_dual_7s_282` | **Bass Wave** | Heavyweight Sub Pressure In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/FxDHqZ_Vrok](https://youtube.com/shorts/FxDHqZ_Vrok) | 2026-11-19T14:33:03.371Z |
 | `toronto_dual_7s_281` | **Viral Clips** | Toronto Pit Exploding On The Drop 🔥 @zedsdead #shorts | [https://youtube.com/shorts/LWXbr1e7FhI](https://youtube.com/shorts/LWXbr1e7FhI) | 2026-11-19T14:52:47.651Z |
+| `toronto_dual_7s_307` | **Tech Prologue** | Drone Drifting Through Toronto Smoke 🚁 @zedsdead #shorts | [https://youtube.com/shorts/cSMd_e6Kg6I](https://youtube.com/shorts/cSMd_e6Kg6I) | 2026-11-19T15:14:20.571Z |

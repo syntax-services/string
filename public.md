@@ -593,3 +593,4 @@
 | `toronto_dual_7s_307` | **Tech Prologue** | Drone Drifting Through Toronto Smoke 🚁 @zedsdead #shorts | [https://youtube.com/shorts/cSMd_e6Kg6I](https://youtube.com/shorts/cSMd_e6Kg6I) | 2026-11-19T15:14:20.571Z |
 | `toronto_dual_7s_285` | **Bass Wave** | The Kings Returning To Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/DbqH4Ot9hi4](https://youtube.com/shorts/DbqH4Ot9hi4) | 2026-11-19T15:34:34.379Z |
 | `toronto_dual_7s_284` | **Viral Clips** | Toronto Fans Unable To Cope 🤯 @zedsdead #shorts | [https://youtube.com/shorts/sN-mLyiSsK8](https://youtube.com/shorts/sN-mLyiSsK8) | 2026-11-19T15:54:28.892Z |
+| `toronto_dual_7s_288` | **Bass Wave** | Toronto Bassline Cutting Deep 🌌 @zedsdead #shorts | [https://youtube.com/shorts/69tn_Pqe34w](https://youtube.com/shorts/69tn_Pqe34w) | 2026-11-19T16:35:38.462Z |

@@ -610,3 +610,4 @@
 | `toronto_dual_7s_308` | **Tech Prologue** | Toronto Stadium Roaring At Maximum Sub 🔥 @zedsdead #shorts | [https://youtube.com/shorts/FAf8k585iHI](https://youtube.com/shorts/FAf8k585iHI) | 2026-11-20T17:05:00.935Z |
 | `toronto_dual_7s_309` | **Bass Wave** | The Bassline That Leveled Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/YeSNWAIIs7s](https://youtube.com/shorts/YeSNWAIIs7s) | 2026-11-20T17:14:12.143Z |
 | `toronto_dual_7s_310` | **Viral Clips** | Toronto Night Glowing Electric ⚡ @zedsdead #shorts | [https://youtube.com/shorts/ii0Dcx9cg1o](https://youtube.com/shorts/ii0Dcx9cg1o) | 2026-11-20T17:23:24.017Z |
+| `toronto_dual_7s_311` | **Tech Prologue** | Unreal Canadian Festival Madness 🤯 @zedsdead #shorts | [https://youtube.com/shorts/KLs4lL2YtKA](https://youtube.com/shorts/KLs4lL2YtKA) | 2026-11-20T17:33:44.895Z |

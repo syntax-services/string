@@ -618,3 +618,4 @@
 | `toronto_dual_7s_317` | **Tech Prologue** | Pure Energy From Toronto Headbangers 🔥 @zedsdead #shorts | [https://youtube.com/shorts/wqoEgqV4b8U](https://youtube.com/shorts/wqoEgqV4b8U) | 2026-11-20T18:31:19.349Z |
 | `toronto_dual_7s_316` | **Viral Clips** | FPV Drone Gliding Through Toronto 🚁 @zedsdead #shorts | [https://youtube.com/shorts/c9w-ELn4uZM](https://youtube.com/shorts/c9w-ELn4uZM) | 2026-11-20T18:40:30.703Z |
 | `toronto_dual_7s_318` | **Bass Wave** | Subwoofer Pressure Exploding In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/xLk6YmxApaE](https://youtube.com/shorts/xLk6YmxApaE) | 2026-11-20T18:51:09.285Z |
+| `toronto_dual_7s_320` | **Tech Prologue** | Every Jaw Dropping In Toronto 🤯 @zedsdead #shorts | [https://youtube.com/shorts/bsy5XSR_FeU](https://youtube.com/shorts/bsy5XSR_FeU) | 2026-11-20T19:01:09.894Z |

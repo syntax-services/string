@@ -626,3 +626,4 @@
 | `toronto_dual_7s_326` | **Tech Prologue** | Toronto Rails Rattling To The Beat 🔥 @zedsdead #shorts | [https://youtube.com/shorts/N8Bt7bU3qh8](https://youtube.com/shorts/N8Bt7bU3qh8) | 2026-11-20T19:57:37.570Z |
 | `toronto_dual_7s_329` | **Tech Prologue** | Toronto In Complete Dubstep Hysteria 🤯 @zedsdead #shorts | [https://youtube.com/shorts/gC6DKNWD-m8](https://youtube.com/shorts/gC6DKNWD-m8) | 2026-11-20T20:19:26.126Z |
 | `toronto_dual_7s_332` | **Tech Prologue** | Magical Memories In Toronto ✨ @zedsdead #shorts | [https://youtube.com/shorts/xNIC6u8xX70](https://youtube.com/shorts/xNIC6u8xX70) | 2026-11-20T20:41:22.775Z |
+| `toronto_dual_7s_335` | **Tech Prologue** | Toronto Amphitheatre At Full Heat 🔥 @zedsdead #shorts | [https://youtube.com/shorts/RHaomx4BuZo](https://youtube.com/shorts/RHaomx4BuZo) | 2026-11-20T21:04:06.528Z |

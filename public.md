@@ -605,3 +605,4 @@
 | `toronto_dual_7s_299` | **Viral Clips** | Unfiltered Passion In Toronto 🔥 @zedsdead #shorts | [https://youtube.com/shorts/MID6lfHuVks](https://youtube.com/shorts/MID6lfHuVks) | 2026-11-20T10:53:27.149Z |
 | `toronto_dual_7s_303` | **Bass Wave** | Toronto Legends At Peak Momentum 👑 @zedsdead #shorts | [https://youtube.com/shorts/qvBoo3Q_K8U](https://youtube.com/shorts/qvBoo3Q_K8U) | 2026-11-20T11:35:16.436Z |
 | `toronto_dual_7s_302` | **Viral Clips** | Toronto In Complete Dubstep Delirium 🤯 @zedsdead #shorts | [https://youtube.com/shorts/L-Z75EXkjFY](https://youtube.com/shorts/L-Z75EXkjFY) | 2026-11-20T11:55:30.438Z |
+| `toronto_dual_7s_306` | **Bass Wave** | Deep Cosmic Low End In Toronto 🌌 @zedsdead #shorts | [https://youtube.com/shorts/NGAutZ0H4HU](https://youtube.com/shorts/NGAutZ0H4HU) | 2026-11-20T12:36:36.964Z |

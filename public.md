@@ -599,3 +599,4 @@
 | `toronto_dual_7s_290` | **Viral Clips** | The Raw Essence Of Toronto Dubstep 🔥 @zedsdead #shorts | [https://youtube.com/shorts/nq5YhkzoaIM](https://youtube.com/shorts/nq5YhkzoaIM) | 2026-11-19T17:57:30.137Z |
 | `toronto_dual_7s_294` | **Bass Wave** | DC And Hooks Ruling Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/tBOwRXAFFtw](https://youtube.com/shorts/tBOwRXAFFtw) | 2026-11-20T08:30:19.081Z |
 | `toronto_dual_7s_293` | **Viral Clips** | Toronto Audience Screaming For More 🤯 @zedsdead #shorts | [https://youtube.com/shorts/oZq4M3WGXQM](https://youtube.com/shorts/oZq4M3WGXQM) | 2026-11-20T08:48:32.505Z |
+| `toronto_dual_7s_297` | **Bass Wave** | Celestial Bass Reigning Over Toronto 🌌 @zedsdead #shorts | [https://youtube.com/shorts/-DRxugYii7M](https://youtube.com/shorts/-DRxugYii7M) | 2026-11-20T09:32:32.130Z |

@@ -601,3 +601,4 @@
 | `toronto_dual_7s_293` | **Viral Clips** | Toronto Audience Screaming For More 🤯 @zedsdead #shorts | [https://youtube.com/shorts/oZq4M3WGXQM](https://youtube.com/shorts/oZq4M3WGXQM) | 2026-11-20T08:48:32.505Z |
 | `toronto_dual_7s_297` | **Bass Wave** | Celestial Bass Reigning Over Toronto 🌌 @zedsdead #shorts | [https://youtube.com/shorts/-DRxugYii7M](https://youtube.com/shorts/-DRxugYii7M) | 2026-11-20T09:32:32.130Z |
 | `toronto_dual_7s_296` | **Viral Clips** | Magic Under The Toronto Stars ✨ @zedsdead #shorts | [https://youtube.com/shorts/zNZQH5GjKmg](https://youtube.com/shorts/zNZQH5GjKmg) | 2026-11-20T09:52:11.419Z |
+| `toronto_dual_7s_300` | **Bass Wave** | Sonic Mass Crushing Toronto Bowl 🔊 @zedsdead #shorts | [https://youtube.com/shorts/kL5S4kkmokk](https://youtube.com/shorts/kL5S4kkmokk) | 2026-11-20T10:33:39.102Z |

@@ -675,3 +675,4 @@
 | `toronto_dual_7s_379` | **Tech Prologue** | Toronto Audience At Peak Intensity 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Cmcb-SVk7mk](https://youtube.com/shorts/Cmcb-SVk7mk) | 2026-11-21T20:43:40.131Z |
 | `toronto_dual_7s_381` | **Ediiiiiitz** | Voltage Shockwave Rolling In Toronto ⚡ @zedsdead #shorts | [https://youtube.com/shorts/jU9bYUBZBCo](https://youtube.com/shorts/jU9bYUBZBCo) | 2026-11-21T21:11:37.970Z |
 | `toronto_dual_7s_383` | **Tech Prologue** | Legendary Homecoming Crown In Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/HX5pDvpVXtw](https://youtube.com/shorts/HX5pDvpVXtw) | 2026-11-21T21:25:50.551Z |
+| `toronto_dual_7s_387` | **Tech Prologue** | Speed Run Over Toronto Front Row 🚁 @zedsdead #shorts | [https://youtube.com/shorts/5JqgKmwHC5I](https://youtube.com/shorts/5JqgKmwHC5I) | 2026-11-21T21:58:27.442Z |

@@ -649,3 +649,4 @@
 | `toronto_dual_7s_346` | **Viral Clips** | Insane Festival Moment In Toronto 🤯 @zedsdead #shorts | [https://youtube.com/shorts/O53V6gatBrY](https://youtube.com/shorts/O53V6gatBrY) | 2026-11-21T13:59:13.310Z |
 | `toronto_dual_7s_348` | **Bass Wave** | Red Alert Bass Horn Over Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/TlsjOzxELE0](https://youtube.com/shorts/TlsjOzxELE0) | 2026-11-21T14:11:54.668Z |
 | `toronto_dual_7s_351` | **Tech Prologue** | FPV Dive Right Through Toronto Smoke 🚁 @zedsdead #shorts | [https://youtube.com/shorts/m58bD2HPsH8](https://youtube.com/shorts/m58bD2HPsH8) | 2026-11-21T14:24:56.050Z |
+| `toronto_dual_7s_349` | **Ediiiiiitz** | Toronto Crowd Lit By Golden Sparks ✨ @zedsdead #shorts | [https://youtube.com/shorts/Yc-sr9kXXdM](https://youtube.com/shorts/Yc-sr9kXXdM) | 2026-11-21T14:38:16.752Z |

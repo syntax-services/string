@@ -652,3 +652,4 @@
 | `toronto_dual_7s_349` | **Ediiiiiitz** | Toronto Crowd Lit By Golden Sparks ✨ @zedsdead #shorts | [https://youtube.com/shorts/Yc-sr9kXXdM](https://youtube.com/shorts/Yc-sr9kXXdM) | 2026-11-21T14:38:16.752Z |
 | `toronto_dual_7s_352` | **Tech Prologue** | Toronto Amphitheatre At Full Power 🔥 @zedsdead #shorts | [https://youtube.com/shorts/__7dbTi36Cc](https://youtube.com/shorts/__7dbTi36Cc) | 2026-11-21T14:56:59.113Z |
 | `toronto_dual_7s_350` | **Viral Clips** | Cosmic Resonance Shaking Toronto 🌌 @zedsdead #shorts | [https://youtube.com/shorts/qpOiJucq67k](https://youtube.com/shorts/qpOiJucq67k) | 2026-11-21T15:08:41.022Z |
+| `toronto_dual_7s_353` | **Bass Wave** | Unstoppable Low End Vibes In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/cufrW5f14ZE](https://youtube.com/shorts/cufrW5f14ZE) | 2026-11-21T15:21:17.974Z |

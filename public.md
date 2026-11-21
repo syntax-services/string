@@ -661,3 +661,4 @@
 | `toronto_dual_7s_358` | **Ediiiiiitz** | Glowing Canopy Lights Over Toronto ✨ @zedsdead #shorts | [https://youtube.com/shorts/rKJNpxD29ng](https://youtube.com/shorts/rKJNpxD29ng) | 2026-11-21T16:43:04.054Z |
 | `toronto_dual_7s_361` | **Tech Prologue** | Toronto Mosh Pit Surging With Heat 🔥 @zedsdead #shorts | [https://youtube.com/shorts/2VInnk_VZVM](https://youtube.com/shorts/2VInnk_VZVM) | 2026-11-21T17:01:56.078Z |
 | `toronto_dual_7s_359` | **Viral Clips** | Toronto Night Sky Vibrating From Bass 🌌 @zedsdead #shorts | [https://youtube.com/shorts/E7He8sM0ApA](https://youtube.com/shorts/E7He8sM0ApA) | 2026-11-21T17:13:37.381Z |
+| `toronto_dual_7s_362` | **Bass Wave** | Wall Shaking Bass Drop In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/nrcB92rfAQo](https://youtube.com/shorts/nrcB92rfAQo) | 2026-11-21T17:27:11.490Z |

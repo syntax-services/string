@@ -674,3 +674,4 @@
 | `toronto_dual_7s_376` | **Ediiiiiitz** | Toronto Stars Shining Through Lasers ✨ @zedsdead #shorts | [https://youtube.com/shorts/CF56KRZl6OM](https://youtube.com/shorts/CF56KRZl6OM) | 2026-11-21T20:25:00.592Z |
 | `toronto_dual_7s_379` | **Tech Prologue** | Toronto Audience At Peak Intensity 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Cmcb-SVk7mk](https://youtube.com/shorts/Cmcb-SVk7mk) | 2026-11-21T20:43:40.131Z |
 | `toronto_dual_7s_381` | **Ediiiiiitz** | Voltage Shockwave Rolling In Toronto ⚡ @zedsdead #shorts | [https://youtube.com/shorts/jU9bYUBZBCo](https://youtube.com/shorts/jU9bYUBZBCo) | 2026-11-21T21:11:37.970Z |
+| `toronto_dual_7s_383` | **Tech Prologue** | Legendary Homecoming Crown In Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/HX5pDvpVXtw](https://youtube.com/shorts/HX5pDvpVXtw) | 2026-11-21T21:25:50.551Z |

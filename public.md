@@ -646,3 +646,4 @@
 | `toronto_dual_7s_344` | **Bass Wave** | The Heaviest Sub Impact In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/GpI01fcRmZ8](https://youtube.com/shorts/GpI01fcRmZ8) | 2026-11-21T13:22:37.599Z |
 | `toronto_dual_7s_345` | **Ediiiiiitz** | Toronto Night Erupting Under Strobes ⚡ @zedsdead #shorts | [https://youtube.com/shorts/snhpLh0G_xs](https://youtube.com/shorts/snhpLh0G_xs) | 2026-11-21T13:34:18.798Z |
 | `toronto_dual_7s_347` | **Tech Prologue** | Toronto Reign Of Canadian Dubstep 👑 @zedsdead #shorts | [https://youtube.com/shorts/CIPr49y0NTM](https://youtube.com/shorts/CIPr49y0NTM) | 2026-11-21T13:47:32.015Z |
+| `toronto_dual_7s_346` | **Viral Clips** | Insane Festival Moment In Toronto 🤯 @zedsdead #shorts | [https://youtube.com/shorts/O53V6gatBrY](https://youtube.com/shorts/O53V6gatBrY) | 2026-11-21T13:59:13.310Z |

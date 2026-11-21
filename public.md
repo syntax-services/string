@@ -639,3 +639,4 @@
 | `toronto_dual_7s_330` | **Bass Wave** | The Kings Returning Home To Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/bYSnFE-eXBQ](https://youtube.com/shorts/bYSnFE-eXBQ) | 2026-11-21T09:35:07.796Z |
 | `toronto_dual_7s_331` | **Viral Clips** | Critical Bass Impact In Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/20QlLavkjt8](https://youtube.com/shorts/20QlLavkjt8) | 2026-11-21T09:46:33.129Z |
 | `toronto_dual_7s_333` | **Bass Wave** | Toronto Skyline Trembling From Sub 🌌 @zedsdead #shorts | [https://youtube.com/shorts/OnheuTQQe2o](https://youtube.com/shorts/OnheuTQQe2o) | 2026-11-21T10:06:47.680Z |
+| `toronto_dual_7s_334` | **Viral Clips** | Drone Drifting Over Toronto Fans 🚁 @zedsdead #shorts | [https://youtube.com/shorts/UpC-SdmxWxM](https://youtube.com/shorts/UpC-SdmxWxM) | 2026-11-21T10:18:29.300Z |

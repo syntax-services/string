@@ -665,3 +665,4 @@
 | `toronto_dual_7s_363` | **Ediiiiiitz** | High Voltage Drop Over Toronto Stage ⚡ @zedsdead #shorts | [https://youtube.com/shorts/YSqF-iZDa1E](https://youtube.com/shorts/YSqF-iZDa1E) | 2026-11-21T17:41:12.224Z |
 | `toronto_dual_7s_365` | **Tech Prologue** | DC And Hooks Conquering Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/T2NFFsLMEo0](https://youtube.com/shorts/T2NFFsLMEo0) | 2026-11-21T17:54:12.514Z |
 | `toronto_dual_7s_364` | **Viral Clips** | Toronto Festival In Complete Chaos 🤯 @zedsdead #shorts | [https://youtube.com/shorts/XuobJxz2YVc](https://youtube.com/shorts/XuobJxz2YVc) | 2026-11-21T18:07:32.555Z |
+| `toronto_dual_7s_369` | **Tech Prologue** | Swooping Past The Rails In Toronto 🚁 @zedsdead #shorts | [https://youtube.com/shorts/nwmiMRcFPfA](https://youtube.com/shorts/nwmiMRcFPfA) | 2026-11-21T18:26:05.985Z |

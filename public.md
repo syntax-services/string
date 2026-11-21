@@ -643,3 +643,4 @@
 | `toronto_dual_7s_336` | **Bass Wave** | Wall Shaking Bassline In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/80Iu8_TAYs8](https://youtube.com/shorts/80Iu8_TAYs8) | 2026-11-21T10:38:41.693Z |
 | `toronto_dual_7s_337` | **Viral Clips** | Voltage Overload In Toronto ⚡ @zedsdead #shorts | [https://youtube.com/shorts/1c-oS4C2cp4](https://youtube.com/shorts/1c-oS4C2cp4) | 2026-11-21T10:50:26.149Z |
 | `toronto_dual_7s_343` | **Tech Prologue** | Toronto Bowl In Absolute High Gear 🔥 @zedsdead #shorts | [https://youtube.com/shorts/fS3YfIN_ojc](https://youtube.com/shorts/fS3YfIN_ojc) | 2026-11-21T13:10:55.890Z |
+| `toronto_dual_7s_344` | **Bass Wave** | The Heaviest Sub Impact In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/GpI01fcRmZ8](https://youtube.com/shorts/GpI01fcRmZ8) | 2026-11-21T13:22:37.599Z |

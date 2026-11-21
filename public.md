@@ -658,3 +658,4 @@
 | `toronto_dual_7s_355` | **Viral Clips** | Toronto Cannot Believe This Bass Drop 🤯 @zedsdead #shorts | [https://youtube.com/shorts/MNn0IiaqJgQ](https://youtube.com/shorts/MNn0IiaqJgQ) | 2026-11-21T16:02:35.003Z |
 | `toronto_dual_7s_357` | **Bass Wave** | Emergency Sub Impact Across Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/nAenRecBfc0](https://youtube.com/shorts/nAenRecBfc0) | 2026-11-21T16:16:59.662Z |
 | `toronto_dual_7s_360` | **Tech Prologue** | Aerial Drift Over Toronto Headbangers 🚁 @zedsdead #shorts | [https://youtube.com/shorts/4LVfIdOl8X8](https://youtube.com/shorts/4LVfIdOl8X8) | 2026-11-21T16:29:42.964Z |
+| `toronto_dual_7s_358` | **Ediiiiiitz** | Glowing Canopy Lights Over Toronto ✨ @zedsdead #shorts | [https://youtube.com/shorts/rKJNpxD29ng](https://youtube.com/shorts/rKJNpxD29ng) | 2026-11-21T16:43:04.054Z |

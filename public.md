@@ -634,3 +634,4 @@
 | `toronto_dual_7s_342` | **Tech Prologue** | Celestial Harmonies Over Toronto 🌌 @zedsdead #shorts | [https://youtube.com/shorts/aKl-gYxRy4w](https://youtube.com/shorts/aKl-gYxRy4w) | 2026-11-20T22:56:19.390Z |
 | `toronto_dual_7s_324` | **Bass Wave** | Ontario Night Vibes With Zeds Dead 🌌 @zedsdead #shorts | [https://youtube.com/shorts/kUSRkAaCSPc](https://youtube.com/shorts/kUSRkAaCSPc) | 2026-11-21T08:30:18.935Z |
 | `toronto_dual_7s_325` | **Viral Clips** | Swooping Over The Toronto Main Stage 🚁 @zedsdead #shorts | [https://youtube.com/shorts/QGAyaoa6Wls](https://youtube.com/shorts/QGAyaoa6Wls) | 2026-11-21T08:39:29.787Z |
+| `toronto_dual_7s_327` | **Bass Wave** | Deepest Bass Resonance In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/OjC1Otajb5M](https://youtube.com/shorts/OjC1Otajb5M) | 2026-11-21T09:03:27.309Z |

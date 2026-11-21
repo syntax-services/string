@@ -672,3 +672,4 @@
 | `toronto_dual_7s_374` | **Tech Prologue** | Canadian Kings Returning To Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/pBNzY3nHkGU](https://youtube.com/shorts/pBNzY3nHkGU) | 2026-11-21T19:39:35.670Z |
 | `toronto_dual_7s_378` | **Tech Prologue** | Drone Flyby Over Toronto Thousands 🚁 @zedsdead #shorts | [https://youtube.com/shorts/k7mNZ_7AsuM](https://youtube.com/shorts/k7mNZ_7AsuM) | 2026-11-21T20:11:12.789Z |
 | `toronto_dual_7s_376` | **Ediiiiiitz** | Toronto Stars Shining Through Lasers ✨ @zedsdead #shorts | [https://youtube.com/shorts/CF56KRZl6OM](https://youtube.com/shorts/CF56KRZl6OM) | 2026-11-21T20:25:00.592Z |
+| `toronto_dual_7s_379` | **Tech Prologue** | Toronto Audience At Peak Intensity 🔥 @zedsdead #shorts | [https://youtube.com/shorts/Cmcb-SVk7mk](https://youtube.com/shorts/Cmcb-SVk7mk) | 2026-11-21T20:43:40.131Z |

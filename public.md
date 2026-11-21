@@ -638,3 +638,4 @@
 | `toronto_dual_7s_328` | **Viral Clips** | Lightning Running Down Toronto Stage ⚡ @zedsdead #shorts | [https://youtube.com/shorts/Ab9MKiUtK9E](https://youtube.com/shorts/Ab9MKiUtK9E) | 2026-11-21T09:14:11.670Z |
 | `toronto_dual_7s_330` | **Bass Wave** | The Kings Returning Home To Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/bYSnFE-eXBQ](https://youtube.com/shorts/bYSnFE-eXBQ) | 2026-11-21T09:35:07.796Z |
 | `toronto_dual_7s_331` | **Viral Clips** | Critical Bass Impact In Toronto 🚨 @zedsdead #shorts | [https://youtube.com/shorts/20QlLavkjt8](https://youtube.com/shorts/20QlLavkjt8) | 2026-11-21T09:46:33.129Z |
+| `toronto_dual_7s_333` | **Bass Wave** | Toronto Skyline Trembling From Sub 🌌 @zedsdead #shorts | [https://youtube.com/shorts/OnheuTQQe2o](https://youtube.com/shorts/OnheuTQQe2o) | 2026-11-21T10:06:47.680Z |

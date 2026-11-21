@@ -668,3 +668,4 @@
 | `toronto_dual_7s_369` | **Tech Prologue** | Swooping Past The Rails In Toronto 🚁 @zedsdead #shorts | [https://youtube.com/shorts/nwmiMRcFPfA](https://youtube.com/shorts/nwmiMRcFPfA) | 2026-11-21T18:26:05.985Z |
 | `toronto_dual_7s_367` | **Ediiiiiitz** | Magical Laser Show Across Toronto ✨ @zedsdead #shorts | [https://youtube.com/shorts/LjX0DgUX2yk](https://youtube.com/shorts/LjX0DgUX2yk) | 2026-11-21T18:39:23.958Z |
 | `toronto_dual_7s_370` | **Tech Prologue** | Toronto Main Stage Burning Bright 🔥 @zedsdead #shorts | [https://youtube.com/shorts/_U9Q2mnSuRI](https://youtube.com/shorts/_U9Q2mnSuRI) | 2026-11-21T19:04:22.553Z |
+| `toronto_dual_7s_372` | **Ediiiiiitz** | Toronto Bassheads Electric On Cue ⚡ @zedsdead #shorts | [https://youtube.com/shorts/lhjKb2Se4zQ](https://youtube.com/shorts/lhjKb2Se4zQ) | 2026-11-21T19:26:16.005Z |

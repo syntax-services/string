@@ -641,3 +641,4 @@
 | `toronto_dual_7s_333` | **Bass Wave** | Toronto Skyline Trembling From Sub 🌌 @zedsdead #shorts | [https://youtube.com/shorts/OnheuTQQe2o](https://youtube.com/shorts/OnheuTQQe2o) | 2026-11-21T10:06:47.680Z |
 | `toronto_dual_7s_334` | **Viral Clips** | Drone Drifting Over Toronto Fans 🚁 @zedsdead #shorts | [https://youtube.com/shorts/UpC-SdmxWxM](https://youtube.com/shorts/UpC-SdmxWxM) | 2026-11-21T10:18:29.300Z |
 | `toronto_dual_7s_336` | **Bass Wave** | Wall Shaking Bassline In Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/80Iu8_TAYs8](https://youtube.com/shorts/80Iu8_TAYs8) | 2026-11-21T10:38:41.693Z |
+| `toronto_dual_7s_337` | **Viral Clips** | Voltage Overload In Toronto ⚡ @zedsdead #shorts | [https://youtube.com/shorts/1c-oS4C2cp4](https://youtube.com/shorts/1c-oS4C2cp4) | 2026-11-21T10:50:26.149Z |

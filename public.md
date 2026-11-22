@@ -677,3 +677,4 @@
 | `toronto_dual_7s_383` | **Tech Prologue** | Legendary Homecoming Crown In Toronto 👑 @zedsdead #shorts | [https://youtube.com/shorts/HX5pDvpVXtw](https://youtube.com/shorts/HX5pDvpVXtw) | 2026-11-21T21:25:50.551Z |
 | `toronto_dual_7s_387` | **Tech Prologue** | Speed Run Over Toronto Front Row 🚁 @zedsdead #shorts | [https://youtube.com/shorts/5JqgKmwHC5I](https://youtube.com/shorts/5JqgKmwHC5I) | 2026-11-21T21:58:27.442Z |
 | `toronto_dual_7s_385` | **Ediiiiiitz** | Crystal Lasers Over Toronto Bowl ✨ @zedsdead #shorts | [https://youtube.com/shorts/3_x4CFURrjY](https://youtube.com/shorts/3_x4CFURrjY) | 2026-11-21T22:12:47.464Z |
+| `toronto_dual_7s_366` | **Bass Wave** | Sirens Blaring Across Toronto Skies 🚨 @zedsdead #shorts | [https://youtube.com/shorts/9g8qa3ORPSs](https://youtube.com/shorts/9g8qa3ORPSs) | 2026-11-22T08:30:19.150Z |

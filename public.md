@@ -679,3 +679,4 @@
 | `toronto_dual_7s_385` | **Ediiiiiitz** | Crystal Lasers Over Toronto Bowl ✨ @zedsdead #shorts | [https://youtube.com/shorts/3_x4CFURrjY](https://youtube.com/shorts/3_x4CFURrjY) | 2026-11-21T22:12:47.464Z |
 | `toronto_dual_7s_366` | **Bass Wave** | Sirens Blaring Across Toronto Skies 🚨 @zedsdead #shorts | [https://youtube.com/shorts/9g8qa3ORPSs](https://youtube.com/shorts/9g8qa3ORPSs) | 2026-11-22T08:30:19.150Z |
 | `toronto_dual_7s_368` | **Viral Clips** | Toronto Horizon Lit By Pure Bass 🌌 @zedsdead #shorts | [https://youtube.com/shorts/zjc0nT_uL9E](https://youtube.com/shorts/zjc0nT_uL9E) | 2026-11-22T08:42:00.257Z |
+| `toronto_dual_7s_371` | **Bass Wave** | Deep Frequency Drop Hits Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/K8Cx559YOvU](https://youtube.com/shorts/K8Cx559YOvU) | 2026-11-22T09:18:14.982Z |

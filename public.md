@@ -680,3 +680,4 @@
 | `toronto_dual_7s_366` | **Bass Wave** | Sirens Blaring Across Toronto Skies 🚨 @zedsdead #shorts | [https://youtube.com/shorts/9g8qa3ORPSs](https://youtube.com/shorts/9g8qa3ORPSs) | 2026-11-22T08:30:19.150Z |
 | `toronto_dual_7s_368` | **Viral Clips** | Toronto Horizon Lit By Pure Bass 🌌 @zedsdead #shorts | [https://youtube.com/shorts/zjc0nT_uL9E](https://youtube.com/shorts/zjc0nT_uL9E) | 2026-11-22T08:42:00.257Z |
 | `toronto_dual_7s_371` | **Bass Wave** | Deep Frequency Drop Hits Toronto 🔊 @zedsdead #shorts | [https://youtube.com/shorts/K8Cx559YOvU](https://youtube.com/shorts/K8Cx559YOvU) | 2026-11-22T09:18:14.982Z |
+| `toronto_dual_7s_373` | **Viral Clips** | Toronto Jaw Dropping Double Drop 🤯 @zedsdead #shorts | [https://youtube.com/shorts/uhjIfE1utM4](https://youtube.com/shorts/uhjIfE1utM4) | 2026-11-22T09:31:10.482Z |

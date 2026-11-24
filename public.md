@@ -697,3 +697,4 @@
 | `jamieson_nt_09` | **Tech Prologue** | Late night thoughts with this playing in the background 🌙 Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/vC8qCejVG0A](https://youtube.com/shorts/vC8qCejVG0A) | 2026-11-24T19:29:09.997Z |
 | `jamieson_nt_08` | **Viral Clips** | Late night drive with the best track on repeat 🚗 Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/0vS_TfwplNw](https://youtube.com/shorts/0vS_TfwplNw) | 2026-11-24T19:54:57.238Z |
 | `jamieson_nt_10` | **Bass Wave** | R&B hits different when it's 2am 💫 Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/6DGYyRqHxOs](https://youtube.com/shorts/6DGYyRqHxOs) | 2026-11-24T20:21:46.041Z |
+| `jamieson_nt_11` | **Ediiiiiitz** | The late night anthem of the year 🔥 Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/Lp4npdB4peY](https://youtube.com/shorts/Lp4npdB4peY) | 2026-11-24T21:13:00.865Z |

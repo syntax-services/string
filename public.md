@@ -704,3 +704,4 @@
 | `jamieson_nt_15` | **Ediiiiiitz** | When this melody drops in the car... 🔥 Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/KvXc46huILk](https://youtube.com/shorts/KvXc46huILk) | 2026-11-25T14:09:26.190Z |
 | `jamieson_nt_16` | **Viral Clips** | That 2am drive feeling you can't describe ✨ Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/eBDFnCsAZ90](https://youtube.com/shorts/eBDFnCsAZ90) | 2026-11-25T14:34:40.655Z |
 | `jamieson_nt_17` | **Tech Prologue** | POV: Midnight highway run listening to Nasty Time ⚡ Jamieson #shorts | [https://youtube.com/shorts/PJUs4-91EW0](https://youtube.com/shorts/PJUs4-91EW0) | 2026-11-25T17:36:57.707Z |
+| `jamieson_nt_18` | **Bass Wave** | That late night R&B sound you've been craving 🌌 Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/HmVunf8Ue-o](https://youtube.com/shorts/HmVunf8Ue-o) | 2026-11-25T18:02:32.411Z |

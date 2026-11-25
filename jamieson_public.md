@@ -24,3 +24,4 @@
 | `jamieson_nt_20` | **Viral Clips** | Late night city cruise with the volume all the way up 🚗 Jamieson #shorts | [https://youtube.com/shorts/44xFBvkaNxE](https://youtube.com/shorts/44xFBvkaNxE) | 2026-11-25T18:53:03.099Z |
 | `jamieson_nt_21` | **Tech Prologue** | Late night thoughts with this playing 💫 Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/2TqUN-waC3E](https://youtube.com/shorts/2TqUN-waC3E) | 2026-11-25T21:55:19.959Z |
 | `jamieson_nt_22` | **Bass Wave** | R&B hits different when the city lights reflect 🎶 Jamieson #shorts | [https://youtube.com/shorts/MZPiMY7a9_Y](https://youtube.com/shorts/MZPiMY7a9_Y) | 2026-11-25T22:20:54.651Z |
+| `jamieson_nt_23` | **Ediiiiiitz** | The late night anthem everyone is listening to 🔥 Jamieson #shorts | [https://youtube.com/shorts/6nQT9tYej9w](https://youtube.com/shorts/6nQT9tYej9w) | 2026-11-25T22:46:08.752Z |

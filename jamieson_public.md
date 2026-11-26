@@ -30,3 +30,4 @@
 | `jamieson_nt_26` | **Bass Wave** | That 808 roll in Nasty Time is pure perfection 🔥 Jamieson #shorts | [https://youtube.com/shorts/3brMhLEZb1Y](https://youtube.com/shorts/3brMhLEZb1Y) | 2026-11-26T02:39:24.483Z |
 | `jamieson_nt_27` | **Ediiiiiitz** | Midnight drive with the ultimate soundtrack ⚡ Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/aYiVWBVJznA](https://youtube.com/shorts/aYiVWBVJznA) | 2026-11-26T03:04:37.138Z |
 | `jamieson_nt_28` | **Viral Clips** | Can't get enough of this groove 🤯 Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/SEk5LtL5aMQ](https://youtube.com/shorts/SEk5LtL5aMQ) | 2026-11-26T03:29:49.735Z |
+| `jamieson_nt_29` | **Tech Prologue** | The definitive 2am soundtrack you need right now ✨ Jamieson #shorts | [https://youtube.com/shorts/pTgZupBgtEo](https://youtube.com/shorts/pTgZupBgtEo) | 2026-11-26T06:32:10.555Z |

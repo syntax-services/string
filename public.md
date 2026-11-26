@@ -717,3 +717,4 @@
 | `jamieson_nt_28` | **Viral Clips** | Can't get enough of this groove 🤯 Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/SEk5LtL5aMQ](https://youtube.com/shorts/SEk5LtL5aMQ) | 2026-11-26T03:29:49.735Z |
 | `jamieson_nt_29` | **Tech Prologue** | The definitive 2am soundtrack you need right now ✨ Jamieson #shorts | [https://youtube.com/shorts/pTgZupBgtEo](https://youtube.com/shorts/pTgZupBgtEo) | 2026-11-26T06:32:10.555Z |
 | `jamieson_nt_30` | **Bass Wave** | Deep late night vibrations with Nasty Time 🌌 Jamieson #shorts | [https://youtube.com/shorts/efPTlhxgXag](https://youtube.com/shorts/efPTlhxgXag) | 2026-11-26T06:57:44.390Z |
+| `jamieson_nt_31` | **Ediiiiiitz** | When you hear that chorus drop... 🎶 Jamieson - Nasty Time #shorts | [https://youtube.com/shorts/5AMRc9UXn0A](https://youtube.com/shorts/5AMRc9UXn0A) | 2026-11-26T07:22:58.584Z |

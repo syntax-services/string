@@ -27,3 +27,4 @@
 | `jamieson_nt_23` | **Ediiiiiitz** | The late night anthem everyone is listening to 🔥 Jamieson #shorts | [https://youtube.com/shorts/6nQT9tYej9w](https://youtube.com/shorts/6nQT9tYej9w) | 2026-11-25T22:46:08.752Z |
 | `jamieson_nt_24` | **Viral Clips** | When you find that one song you put on repeat 🌙 Jamieson #shorts | [https://youtube.com/shorts/yaCgzsTA6PQ](https://youtube.com/shorts/yaCgzsTA6PQ) | 2026-11-25T23:11:23.527Z |
 | `jamieson_nt_25` | **Tech Prologue** | When Jamieson hits the late night frequencies 🔊 Nasty Time #shorts | [https://youtube.com/shorts/8kuRr6yhsxw](https://youtube.com/shorts/8kuRr6yhsxw) | 2026-11-26T02:13:51.083Z |
+| `jamieson_nt_26` | **Bass Wave** | That 808 roll in Nasty Time is pure perfection 🔥 Jamieson #shorts | [https://youtube.com/shorts/3brMhLEZb1Y](https://youtube.com/shorts/3brMhLEZb1Y) | 2026-11-26T02:39:24.483Z |
